@@ -1,19 +1,13 @@
+"""
+By: Jinyuan Zhao
+
+This is a model of our chip. For size d = 4 and INT4.
+
+Future changes VERY likely, as we are looking to expand the capabilities.
+"""
+
 import numpy as np
 
-"""
-IMPORTANT INFORMATION:
-
-For Q, K, V:
-- Size d = 4
-- We are using **INT4**
-
-4 * 4 = 16 bits -> 2 bytes
-
-byte 1: [Q1 | Q0]
-byte 0: [Q3 | Q2]
-
-
-"""
 
 # Build EXP table once
 EXP_TABLE = [round(255 * 2 ** (-r / 16)) for r in range(16)]
