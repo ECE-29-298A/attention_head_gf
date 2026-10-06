@@ -1,0 +1,137 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+clk period_min = 13.29 fmax = 75.25
+PERIOD_NS 100
+worst slack 86.71
+worst slack 0.04
+tns 0.00
+PERIOD_NS 33.333333
+worst slack 20.04
+worst slack 0.04
+tns 0.00
+PERIOD_NS 25
+worst slack 11.71
+worst slack 0.04
+tns 0.00
+PERIOD_NS 23
+worst slack 9.71
+worst slack 0.04
+tns 0.00
+PERIOD_NS 22.5
+worst slack 9.21
+worst slack 0.04
+tns 0.00
+PERIOD_NS 22.2
+worst slack 8.91
+worst slack 0.04
+tns 0.00
+PERIOD_NS 22.19
+worst slack 8.90
+worst slack 0.04
+tns 0.00
+PERIOD_NS 22.18
+worst slack 8.89
+worst slack 0.04
+tns 0.00
+PERIOD_NS 22
+worst slack 8.71
+worst slack 0.04
+tns 0.00
+PERIOD_NS 20
+worst slack 6.71
+worst slack 0.04
+tns 0.00
+PERIOD_NS 16.666667
+worst slack 3.38
+worst slack 0.04
+tns 0.00
+PERIOD_NS 14.1
+worst slack 0.81
+worst slack 0.04
+tns 0.00
+PERIOD_NS 14.07
+worst slack 0.78
+worst slack 0.04
+tns 0.00
+PERIOD_NS 14.06
+worst slack 0.77
+worst slack 0.04
+tns 0.00
+PERIOD_NS 13.34
+worst slack 0.05
+worst slack 0.04
+tns 0.00
+PERIOD_NS 13.3
+worst slack 0.01
+worst slack 0.04
+tns 0.00
+PERIOD_NS 13.29
+worst slack 0.00
+worst slack 0.04
+tns 0.00
+PERIOD_NS 13.28
+worst slack -0.01
+worst slack 0.04
+tns -0.02
+PERIOD_NS 12.5
+worst slack -0.79
+worst slack 0.04
+tns -33.42
+POWER_ACTIVITY 0.0 AT_10MHZ CORNER ff_n40C_1v95
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           6.796279e-05 0.000000e+00 2.412761e-09 6.796521e-05  53.3%
+Combinational        0.000000e+00 0.000000e+00 1.251112e-08 1.251112e-08   0.0%
+Clock                2.627608e-05 3.319465e-05 1.232872e-09 5.947196e-05  46.7%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                9.423887e-05 3.319465e-05 1.615673e-08 1.274497e-04 100.0%
+                            73.9%        26.0%         0.0%
+POWER_ACTIVITY 0.05 AT_10MHZ CORNER ff_n40C_1v95
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           7.006253e-05 4.099066e-06 2.412761e-09 7.416401e-05  47.5%
+Combinational        9.461366e-06 1.309656e-05 1.251112e-08 2.257044e-05  14.4%
+Clock                2.627606e-05 3.319465e-05 1.232872e-09 5.947194e-05  38.1%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                1.058000e-04 5.039024e-05 1.615673e-08 1.562064e-04 100.0%
+                            67.7%        32.3%         0.0%
+POWER_ACTIVITY 0.1 AT_10MHZ CORNER ff_n40C_1v95
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           7.216224e-05 8.198132e-06 2.412761e-09 8.036279e-05  43.4%
+Combinational        1.892273e-05 2.619313e-05 1.251112e-08 4.512837e-05  24.4%
+Clock                2.627605e-05 3.319465e-05 1.232872e-09 5.947193e-05  32.2%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                1.173610e-04 6.758583e-05 1.615673e-08 1.849630e-04 100.0%
+                            63.5%        36.5%         0.0%
+POWER_ACTIVITY 0.2 AT_10MHZ CORNER ff_n40C_1v95
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           7.636171e-05 1.639626e-05 2.412761e-09 9.276038e-05  38.3%
+Combinational        3.784546e-05 5.238626e-05 1.251112e-08 9.024424e-05  37.2%
+Clock                2.627601e-05 3.319465e-05 1.232872e-09 5.947189e-05  24.5%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                1.404831e-04 1.019772e-04 1.615673e-08 2.424765e-04 100.0%
+                            57.9%        42.1%         0.0%

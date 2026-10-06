@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "kind": "dot",
+      "width": 2,
+      "value": -2
+    },
+    {
+      "kind": "dot",
+      "width": 64,
+      "value": -4
+    },
+    {
+      "kind": "dot",
+      "width": 576,
+      "value": 25
+    },
+    {
+      "kind": "dot",
+      "width": 1536,
+      "value": -41
+    },
+    {
+      "kind": "RMS",
+      "width": 576
+    },
+    {
+      "kind": "real_attention",
+      "width": 64
+    },
+    {
+      "kind": "SiLU",
+      "values": 7
+    }
+  ],
+  "icarus": {
+    "outputs": 670,
+    "cycles": 63302
+  },
+  "verilator": {
+    "rtl": true,
+    "checked": 651,
+    "weights_checked": 5,
+    "calls": {
+      "linear": 4,
+      "rms": 1,
+      "attention": 1,
+      "silu": 7
+    },
+    "max_abs_dot": 83689,
+    "max_sumsq": 1608298,
+    "clips": 0,
+    "cycles": 63302,
+    "macs": 4908
+  }
+}

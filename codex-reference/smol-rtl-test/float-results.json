@@ -1,0 +1,73 @@
+{
+  "mode": "float",
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "rtl_sha256": "f3b00c90734ffc413ae35499773604e2392ffba8bb40ef1dc9698f3ddc9f3548",
+  "parameters": {
+    "NB": 7,
+    "DB": 6,
+    "SERIAL": 1
+  },
+  "records": [
+    {
+      "prompt": "Hello",
+      "input_tokens": 1,
+      "generated_ids": [
+        28,
+        198,
+        198,
+        57,
+        5248,
+        18948,
+        346,
+        2316
+      ],
+      "text": ",\n\nI'm glad you're",
+      "seconds": 0.31450390815734863
+    },
+    {
+      "prompt": "The capital of France is",
+      "input_tokens": 5,
+      "generated_ids": [
+        7042,
+        30,
+        7042,
+        314,
+        260,
+        3995,
+        2240,
+        281
+      ],
+      "text": " Paris. Paris is the largest city in",
+      "seconds": 0.3729360103607178
+    },
+    {
+      "prompt": "Water freezes at",
+      "input_tokens": 3,
+      "generated_ids": [
+        3163,
+        28,
+        284,
+        260,
+        3908,
+        314,
+        588,
+        4943
+      ],
+      "text": " night, and the ice is so thick",
+      "seconds": 0.34388017654418945
+    }
+  ],
+  "stats": {
+    "rtl": false,
+    "checked": 0,
+    "weights_checked": 0,
+    "calls": {},
+    "max_abs_dot": 0,
+    "max_sumsq": 0,
+    "clips": 0,
+    "cycles": 0,
+    "macs": 0
+  },
+  "seconds": 1.2936160564422607,
+  "linear_calibration": {}
+}

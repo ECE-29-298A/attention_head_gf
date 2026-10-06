@@ -1,0 +1,16 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           5.132458e-05 1.085636e-05 2.229902e-06 6.441084e-05  37.7%
+Combinational        2.664149e-05 3.486698e-05 4.759526e-06 6.626800e-05  38.8%
+Clock                1.837219e-05 2.141250e-05 3.199407e-07 4.010463e-05  23.5%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                9.633827e-05 6.713587e-05 7.309412e-06 1.707836e-04 100.0%
+                            56.4%        39.3%         4.3%

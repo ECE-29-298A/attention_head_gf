@@ -1,0 +1,18 @@
+[
+  {
+    "test": "1536 full-range products",
+    "unbounded_sum": 24774144,
+    "accumulator_bits": 23,
+    "wrapped_sum": -391680,
+    "rtl_output": -3,
+    "desired_output": 127,
+    "status": "EXPECTED RANGE FAILURE"
+  },
+  {
+    "test": "576 full-range RMS inputs",
+    "sum_squares": 9290304,
+    "rtl_output": 51,
+    "desired_output": 16,
+    "status": "EXPECTED RANGE FAILURE"
+  }
+]

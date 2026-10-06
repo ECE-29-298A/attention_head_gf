@@ -1,0 +1,64 @@
+{
+  "rtl_attn": [
+    {
+      "prompt": "Hello",
+      "generated_tokens": 8,
+      "logit_values": 393216,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": true,
+      "first_step_logit_rmse": 0.06279463320970535
+    },
+    {
+      "prompt": "The capital of France is",
+      "generated_tokens": 8,
+      "logit_values": 393216,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": true,
+      "first_step_logit_rmse": 0.2852960228919983
+    },
+    {
+      "prompt": "Water freezes at",
+      "generated_tokens": 8,
+      "logit_values": 393216,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": true,
+      "first_step_logit_rmse": 0.27350038290023804
+    }
+  ],
+  "rtl_block": [
+    {
+      "prompt": "Hello",
+      "generated_tokens": 8,
+      "logit_values": 393216,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": false,
+      "first_step_logit_rmse": 0.35257044434547424
+    },
+    {
+      "prompt": "The capital of France is",
+      "generated_tokens": 8,
+      "logit_values": 393216,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": false,
+      "first_step_logit_rmse": 1.4132851362228394
+    },
+    {
+      "prompt": "Water freezes at",
+      "generated_tokens": 8,
+      "logit_values": 393216,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": true,
+      "first_step_logit_rmse": 0.9349063038825989
+    }
+  ],
+  "rtl_full": [
+    {
+      "prompt": "Hello",
+      "generated_tokens": 4,
+      "logit_values": 196608,
+      "all_logits_bit_exact": true,
+      "first_token_matches_float": false,
+      "first_step_logit_rmse": 12.459309577941895
+    }
+  ]
+}

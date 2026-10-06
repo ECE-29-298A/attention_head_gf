@@ -1,0 +1,75 @@
+{
+  "mode": "rtl_attn",
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "rtl_sha256": "f3b00c90734ffc413ae35499773604e2392ffba8bb40ef1dc9698f3ddc9f3548",
+  "parameters": {
+    "NB": 7,
+    "DB": 6,
+    "SERIAL": 1
+  },
+  "records": [
+    {
+      "prompt": "Hello",
+      "input_tokens": 1,
+      "generated_ids": [
+        28,
+        284,
+        339,
+        5248,
+        8916,
+        288,
+        963,
+        732
+      ],
+      "text": ", and I'm excited to see what",
+      "seconds": 3.1317949295043945
+    },
+    {
+      "prompt": "The capital of France is",
+      "input_tokens": 5,
+      "generated_ids": [
+        7042,
+        30,
+        7042,
+        314,
+        260,
+        2356,
+        28,
+        2642
+      ],
+      "text": " Paris. Paris is the political, cultural",
+      "seconds": 5.602207660675049
+    },
+    {
+      "prompt": "Water freezes at",
+      "input_tokens": 3,
+      "generated_ids": [
+        3163,
+        28,
+        284,
+        260,
+        3908,
+        314,
+        588,
+        4943
+      ],
+      "text": " night, and the ice is so thick",
+      "seconds": 4.261424779891968
+    }
+  ],
+  "stats": {
+    "rtl": true,
+    "checked": 518400,
+    "weights_checked": 45630,
+    "calls": {
+      "attention": 8100
+    },
+    "max_abs_dot": 0,
+    "max_sumsq": 0,
+    "clips": 0,
+    "cycles": 103235324,
+    "macs": 8760960
+  },
+  "seconds": 13.254380702972412,
+  "linear_calibration": {}
+}

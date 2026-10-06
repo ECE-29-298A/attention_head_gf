@@ -1,0 +1,137 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+clk period_min = 14.82 fmax = 67.49
+PERIOD_NS 100
+worst slack 85.18
+worst slack 0.33
+tns 0.00
+PERIOD_NS 33.333333
+worst slack 18.52
+worst slack 0.33
+tns 0.00
+PERIOD_NS 25
+worst slack 10.18
+worst slack 0.33
+tns 0.00
+PERIOD_NS 23
+worst slack 8.18
+worst slack 0.33
+tns 0.00
+PERIOD_NS 22.5
+worst slack 7.68
+worst slack 0.33
+tns 0.00
+PERIOD_NS 22.2
+worst slack 7.38
+worst slack 0.33
+tns 0.00
+PERIOD_NS 22.19
+worst slack 7.37
+worst slack 0.33
+tns 0.00
+PERIOD_NS 22.18
+worst slack 7.36
+worst slack 0.33
+tns 0.00
+PERIOD_NS 22
+worst slack 7.18
+worst slack 0.33
+tns 0.00
+PERIOD_NS 20
+worst slack 5.18
+worst slack 0.33
+tns 0.00
+PERIOD_NS 16.666667
+worst slack 1.85
+worst slack 0.33
+tns 0.00
+PERIOD_NS 14.1
+worst slack -0.72
+worst slack 0.33
+tns -11.15
+PERIOD_NS 14.07
+worst slack -0.75
+worst slack 0.33
+tns -12.25
+PERIOD_NS 14.06
+worst slack -0.76
+worst slack 0.33
+tns -12.62
+PERIOD_NS 13.34
+worst slack -1.48
+worst slack 0.33
+tns -72.18
+PERIOD_NS 13.3
+worst slack -1.52
+worst slack 0.33
+tns -76.24
+PERIOD_NS 13.29
+worst slack -1.53
+worst slack 0.33
+tns -77.26
+PERIOD_NS 13.28
+worst slack -1.54
+worst slack 0.33
+tns -78.29
+PERIOD_NS 12.5
+worst slack -2.32
+worst slack 0.33
+tns -166.93
+POWER_ACTIVITY 0.0 AT_10MHZ CORNER tt_025C_1v80
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           5.850542e-05 0.000000e+00 1.253667e-09 5.850667e-05  53.6%
+Combinational        0.000000e+00 0.000000e+00 3.852282e-09 3.852282e-09   0.0%
+Clock                2.268134e-05 2.791059e-05 4.589752e-10 5.059239e-05  46.4%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                8.118676e-05 2.791059e-05 5.564925e-09 1.091029e-04 100.0%
+                            74.4%        25.6%         0.0%
+POWER_ACTIVITY 0.05 AT_10MHZ CORNER tt_025C_1v80
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           6.036644e-05 3.462399e-06 1.253667e-09 6.383009e-05  47.7%
+Combinational        8.361862e-06 1.109268e-05 3.852282e-09 1.945839e-05  14.5%
+Clock                2.268134e-05 2.791059e-05 4.589752e-10 5.059238e-05  37.8%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                9.140963e-05 4.246567e-05 5.564925e-09 1.338809e-04 100.0%
+                            68.3%        31.7%         0.0%
+POWER_ACTIVITY 0.1 AT_10MHZ CORNER tt_025C_1v80
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           6.222745e-05 6.924797e-06 1.253667e-09 6.915350e-05  43.6%
+Combinational        1.672372e-05 2.218536e-05 3.852282e-09 3.891293e-05  24.5%
+Clock                2.268133e-05 2.791059e-05 4.589752e-10 5.059237e-05  31.9%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                1.016325e-04 5.702076e-05 5.564925e-09 1.586588e-04 100.0%
+                            64.1%        35.9%         0.0%
+POWER_ACTIVITY 0.2 AT_10MHZ CORNER tt_025C_1v80
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           6.594947e-05 1.384959e-05 1.253667e-09 7.980032e-05  38.3%
+Combinational        3.344745e-05 4.437071e-05 3.852282e-09 7.782201e-05  37.4%
+Clock                2.268132e-05 2.791059e-05 4.589752e-10 5.059236e-05  24.3%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                1.220782e-04 8.613092e-05 5.564925e-09 2.082147e-04 100.0%
+                            58.6%        41.4%         0.0%

@@ -1,0 +1,92 @@
+{
+  "run": "run6",
+  "die_um": [
+    161,
+    111.52
+  ],
+  "tile_area_um2": 17954.72,
+  "core_area_um2": 16493.3184,
+  "cell_categories": [
+    {
+      "category": "Combinational logic and signal repair",
+      "count": 1046,
+      "area_um2": 6763.9872,
+      "percent_tile": 37.67247386759565
+    },
+    {
+      "category": "Registers",
+      "count": 148,
+      "area_um2": 3069.1936,
+      "percent_tile": 17.094076655052277
+    },
+    {
+      "category": "Endcaps",
+      "count": 78,
+      "area_um2": 292.7808,
+      "percent_tile": 1.630662020905925
+    },
+    {
+      "category": "Well taps",
+      "count": 225,
+      "area_um2": 281.52,
+      "percent_tile": 1.5679442508710835
+    },
+    {
+      "category": "Clock tree and loads",
+      "count": 32,
+      "area_um2": 407.8912,
+      "percent_tile": 2.271777003484321
+    },
+    {
+      "category": "Hold repair",
+      "count": 301,
+      "area_um2": 3012.8896,
+      "percent_tile": 16.780487804878017
+    },
+    {
+      "category": "Antenna diodes",
+      "count": 15,
+      "area_um2": 37.536,
+      "percent_tile": 0.20905923344947738
+    },
+    {
+      "category": "Filler cells",
+      "count": 752,
+      "area_um2": 2627.52,
+      "percent_tile": 14.634146341463419
+    }
+  ],
+  "instances": 2597,
+  "nonfiller_area_um2": 13865.798399999967,
+  "all_cell_area_um2": 16493.318399999967,
+  "nonfiller_sites": 11082,
+  "core_sites": 13182,
+  "route_drc.rpt_bytes": 0,
+  "antenna.rpt_bytes": 0,
+  "tt_setup_hold_slack_ns": [
+    85.93,
+    0.09
+  ],
+  "ss_setup_hold_slack_ns": [
+    77.81,
+    1.06
+  ],
+  "ff_setup_hold_slack_ns": [
+    86.71,
+    0.04
+  ],
+  "klayout_full_flat.lyrdb": {
+    "count": 0,
+    "categories": {}
+  },
+  "detailed_router_violations": 0,
+  "flow_completed": true,
+  "lvs_match": true,
+  "final_gate_block_test": {
+    "stages": 16,
+    "outputs": 2580,
+    "cycles": 240087,
+    "result": "PASS"
+  },
+  "gds_sha256": "181551ec5180c995d46c885ce3d93c9c008721edfabeb5666af352b9bc349310"
+}

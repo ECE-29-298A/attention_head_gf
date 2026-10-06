@@ -1,0 +1,126 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+clk period_min = 22.19 fmax = 45.06
+PERIOD_NS 100
+worst slack 77.81
+worst slack 1.06
+tns 0.00
+PERIOD_NS 33.333333
+worst slack 11.14
+worst slack 1.06
+tns 0.00
+PERIOD_NS 25
+worst slack 2.81
+worst slack 1.06
+tns 0.00
+PERIOD_NS 23
+worst slack 0.81
+worst slack 1.06
+tns 0.00
+PERIOD_NS 22.5
+worst slack 0.31
+worst slack 1.06
+tns 0.00
+PERIOD_NS 22.2
+worst slack 0.01
+worst slack 1.06
+tns 0.00
+PERIOD_NS 22.19
+worst slack -0.00
+worst slack 1.06
+tns -0.00
+PERIOD_NS 22.18
+worst slack -0.01
+worst slack 1.06
+tns -0.01
+PERIOD_NS 22
+worst slack -0.19
+worst slack 1.06
+tns -0.44
+PERIOD_NS 20
+worst slack -2.19
+worst slack 1.06
+tns -51.52
+PERIOD_NS 16.666667
+worst slack -5.52
+worst slack 1.06
+tns -305.13
+PERIOD_NS 14.1
+worst slack -8.09
+worst slack 1.06
+tns -603.43
+PERIOD_NS 14.07
+worst slack -8.12
+worst slack 1.06
+tns -607.56
+PERIOD_NS 14.06
+worst slack -8.13
+worst slack 1.06
+tns -608.94
+PERIOD_NS 13.34
+worst slack -8.85
+worst slack 1.06
+tns -712.30
+PERIOD_NS 13.3
+worst slack -8.89
+worst slack 1.06
+tns -718.26
+PERIOD_NS 13.29
+worst slack -8.90
+worst slack 1.06
+tns -719.75
+PERIOD_NS 13.28
+worst slack -8.91
+worst slack 1.06
+tns -721.24
+PERIOD_NS 12.5
+worst slack -9.69
+worst slack 1.06
+tns -842.14
+POWER_ACTIVITY 0.0 AT_10MHZ CORNER ss_100C_1v60
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           4.520142e-05 0.000000e+00 2.229902e-06 4.743132e-05  51.4%
+Combinational        0.000000e+00 0.000000e+00 4.759526e-06 4.759526e-06   5.2%
+Clock                1.837221e-05 2.141250e-05 3.199407e-07 4.010466e-05  43.5%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                6.357364e-05 2.141250e-05 7.309412e-06 9.229556e-05 100.0%
+                            68.9%        23.2%         7.9%
+POWER_ACTIVITY 0.05 AT_10MHZ CORNER ss_100C_1v60
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           4.673222e-05 2.714090e-06 2.229902e-06 5.167621e-05  46.2%
+Combinational        6.660373e-06 8.716745e-06 4.759526e-06 2.013664e-05  18.0%
+Clock                1.837221e-05 2.141250e-05 3.199407e-07 4.010466e-05  35.8%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                7.176489e-05 3.284333e-05 7.309412e-06 1.119176e-04 100.0%
+                            64.1%        29.3%         6.5%
+POWER_ACTIVITY 0.1 AT_10MHZ CORNER ss_100C_1v60
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           4.826299e-05 5.428180e-06 2.229902e-06 5.592107e-05  42.5%
+Combinational        1.332075e-05 1.743349e-05 4.759526e-06 3.551376e-05  27.0%
+Clock                1.837220e-05 2.141250e-05 3.199407e-07 4.010465e-05  30.5%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                7.995594e-05 4.427419e-05 7.309412e-06 1.315395e-04 100.0%
+                            60.8%        33.7%         5.6%
+POWER_ACTIVITY 0.2 AT_10MHZ CORNER ss_100C_1v60
