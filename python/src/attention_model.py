@@ -215,7 +215,7 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]]) -> list
         # Add W x V to running sums O
         for i in range(4):
             # Make sure it's still within INT4 range
-            assert -8 >= v[i] <= 7, f"value out of INT4 range: {v}"
+            assert -8 <= v[i] <= 7, f"value out of INT4 range: {v}"
             O[i] = check_width(O[i] + W * v[i], 16, signed=True, name=f"O{i}")
 
     # --- Divide ---
