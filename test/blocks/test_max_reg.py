@@ -1,6 +1,4 @@
 import random
-import sys
-from pathlib import Path
 
 import cocotb
 from cocotb.clock import Clock
