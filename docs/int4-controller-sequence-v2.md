@@ -139,10 +139,9 @@ Do not add weights to L in `EXP_WAIT`; the existing accumulator does that in
 tokens. The operand buffer can be overwritten with V because the score has
 already been captured and its exponent calculated.
 
-The external exponent engine must match Python `exp_weight`: D=M−S,
-A=23D, n=A>>5, r=(A>>1)&15. Use the existing table scaled to 255; for n=0
-return table[r], for 1≤n≤8 return (table[r]+2^(n−1))>>n, otherwise return 0.
-Widen the rounding addition. At least one valid token has W=255, so L>0.
+The external exponent engine (`src/exp_lut.v`) must match Python
+`exp_weight`: D=M−S, W=round(255·e^(−D/2)) from a 13-entry table, and W=0
+for D>=13. At least one valid token has W=255, so L>0.
 
 ### Normalization and output
 

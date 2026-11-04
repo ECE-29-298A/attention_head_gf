@@ -57,15 +57,13 @@ module tb_controller;
     end
 
     // Behavioral exponent/divider stand-ins, NOT synthesizable implementations.
+    // Weight = round(255 * e^(-D/2)), D = m - s; 0 once D >= 13 (matches Python EXP_TABLE).
     function automatic int exponent(input int m, s);
-        int lut [0:15] = '{255,244,234,224,214,205,197,188,180,173,165,158,152,145,139,133};
-        int a, shift, value;
-        a = 23 * (m-s);
-        shift = a >> 5;
-        value = lut[(a >> 1) & 15];
-        if (shift == 0) return value;
-        if (shift > 8) return 0;
-        return (value + (1 << (shift-1))) >> shift;
+        int lut [0:12] = '{255,155,94,57,35,21,13,8,5,3,2,1,1};
+        int d;
+        d = m - s;
+        if (d >= 13) return 0;
+        return lut[d];
     endfunction
     function automatic int divide(input int s, d);
         int magnitude, quotient, remainder_value;

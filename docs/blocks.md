@@ -57,6 +57,31 @@ most 4080 and `Oi` stays within -32640..28560, so neither width overflows.
 The divider then computes `Oi / L`. Uses four multipliers in parallel; sharing
 the `score_mac` multiplier would need extra control logic.
 
+## `exp_lut` (`src/exp_lut.v`)
+
+Softmax weight for one token: W = round(255 · e^(−(M−S)/2)).
+
+| Port | Width | Meaning |
+|---|---:|---|
+| `start` | 1 | One-cycle pulse; `M` and `S` sampled on this edge |
+| `M` | signed 10 | Final maximum score |
+| `S` | signed 10 | This token's score |
+| `done` | 1 | High for one cycle, the cycle after `start` |
+| `W` | unsigned 8 | Weight; valid with `done`, held until the next `start` |
+
+Scores are integers, so D = M − S is too, and W rounds to 0 once D >= 13.
+So the whole exponent is a 13-entry table indexed by D:
+
+| D | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13+ |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| W | 255 | 155 | 94 | 57 | 35 | 21 | 13 | 8 | 5 | 3 | 2 | 1 | 1 | 0 |
+
+This replaced the proposal's 23/32 trick (W = 255 · 2^(−23D/32), table plus
+shifter). That method also only produces 13 values, but is slightly off at
+D = 1, 3, 5 and takes about 2.5x the gates. If `M < S` (should never
+happen), D is treated as 0, so W = 255. Matches Python `exp_weight` /
+`EXP_TABLE`.
+
 ## Verification
 
 Cocotb + Icarus, one module per run, from `test/blocks`:
@@ -65,4 +90,7 @@ Cocotb + Icarus, one module per run, from `test/blocks`:
 make score_mac
 make max_reg
 make accum
+make exp_lut   # every valid (M, S) pair, 115,921 cases
 ```
+
+CI runs all four, plus `test/controller/run.py`.

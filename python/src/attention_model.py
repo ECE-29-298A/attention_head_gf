@@ -6,12 +6,16 @@ This is a model of our chip. For size d = 4 and INT4.
 Future changes VERY likely, as we are looking to expand the capabilities.
 """
 
+import math
+
 import numpy as np
 
 
-# Build EXP table once
-EXP_TABLE = [round(255 * 2 ** (-r / 16)) for r in range(16)]
-# = [255, 244, 234, 224, 214, 205, 197, 188, 180, 173, 165, 158, 152, 145, 139, 133]
+# Build EXP table once: EXP_TABLE[D] = round(255 · e^(-D/2))
+# Scores are whole numbers, so D = M - S is too, and from D = 13 on the
+# weight rounds to 0. So 13 entries cover everything.
+EXP_TABLE = [round(255 * math.exp(-D / 2)) for D in range(13)]
+# = [255, 155, 94, 57, 35, 21, 13, 8, 5, 3, 2, 1, 1]
 
 # === BIT HELPERS ===
 
@@ -108,40 +112,26 @@ def exp_weight(M: int, S: int) -> int:
     """Softmax step
 
     We want to calculate W ≈ 255 · e^((S - M) / 2)
-    However, there aint no way we're calculating e^x in this
-    So, rewriting e as a power of 2:
-        e^(-D/2) = 2^(-D / (2 ln 2)) = 2^(-0.7213 · D)
-    We can rewrite the original equation as
-    W = 255 · 2^(-23D/32)
+    There aint no way we're calculating e^x in hardware, BUT:
+    S and M are whole numbers, so D = M - S is a whole number too,
+    and once D >= 13 the weight rounds to 0 anyway.
+    So we just precompute the 13 answers and look D up.
+
+    (Old version used the 23/32 trick: W = 255 · 2^(-23D/32), table + shifter.
+    Only 13 answers either way, and this table is the exact e^x, so it's
+    both smaller in hardware and more accurate.)
 
     Args:
-        M (int): _description_
-        S (int): _description_
+        M (int): maximum score
+        S (int): this token's score
 
     Returns:
-        int: _description_
+        int: weight, 0 to 255
     """
 
     D = check_width(M - S, 9, signed=False, name="D")
 
-    # e^(−D/2) = 2^(−0.721·D) ---> 2^(−23D/32)
-    # So we need to compute the 23/32 trick
-
-    A = check_width(23 * D, 14, signed=False, name="A")
-
-    # Split A into a whole part and a fraction part
-    n = A >> 5 # n = A * 32
-    r = (A >> 1) & 0xF # r = lower 4 bits of A * 64
-
-    T = EXP_TABLE[r] # Look up the fractional part
-
-    # Apply the whole part as a right shift, with rounding
-    if n == 0:
-        W = T
-    elif n <= 8:
-        W = (T + (1 << (n - 1))) >> n
-    else:
-        W = 0
+    W = EXP_TABLE[D] if D < len(EXP_TABLE) else 0
 
     return check_width(W, 8, signed=False, name="W")
 

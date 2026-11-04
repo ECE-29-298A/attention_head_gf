@@ -3,7 +3,7 @@ Accuracy report: how far is the chip's answer from real attention?
 
 Compares, against float_attention() (exact softmax, same /2 scaling):
   1. The chip as built (INT4, two-pass, chip_attention()).
-  2. Same chip with an exact-exp table instead of the 23/32 trick.
+  2. The proposal's original 23/32-trick table, for comparison.
   3. The chip if we went INT8 (widths left unconstrained, we report what they'd need).
   4. Online softmax (single pass, rescale on new max), INT4.
 
@@ -28,8 +28,16 @@ OUT_FRAC = 16  # output code = value · 16
 
 # Weight tables indexed by D = max - score. Scores are integers, so D is too,
 # and both tables are 0 from D = 13 on.
-TABLE_CHIP = [exp_weight(D, 0) for D in range(13)]                  # what exp_lut.v stores
-TABLE_EXACT = [round(255 * math.exp(-D / 2)) for D in range(13)]    # true e^(-D/2)
+TABLE_CHIP = [exp_weight(D, 0) for D in range(13)]                  # what exp_lut.v stores (exact e^(-D/2))
+def _old_23_32(D):
+    """The proposal's original 23/32 trick, kept here only for comparison."""
+    A = 23 * D
+    n, r = A >> 5, (A >> 1) & 0xF
+    T = round(255 * 2 ** (-r / 16))
+    return T if n == 0 else ((T + (1 << (n - 1))) >> n if n <= 8 else 0)
+
+
+TABLE_OLD = [_old_23_32(D) for D in range(13)]                       # proposal's 23/32 trick
 
 
 def weight(D, table):
@@ -141,34 +149,34 @@ def main():
 
     # ---- 1 and 2: INT4 random ----
     lines += ["## INT4, random inputs", "",
-              "| Tokens | Trials | Chip mean | Chip p99 | Chip max | Exact-table max | Online max |",
+              "| Tokens | Trials | Chip mean | Chip p99 | Chip max | Old 23/32 max | Online max |",
               "|---|---|---|---|---|---|---|"]
     widths = {}
     for n in (1, 2, 4, 8, 16):
-        chip_err, exact_err, online_err = [], [], []
+        chip_err, old_err, online_err = [], [], []
         for q, K, V in random_cases(rng, n, 3000):
             ref = float_attention(q, K, V)
             chip = [c / OUT_FRAC for c in chip_attention(q, K, V)]
             # Sanity: the generic model must agree with the official one
             assert chip == two_pass(q, K, V, TABLE_CHIP, widths), "generic model drifted"
             chip_err += list(np.array(chip) - ref)
-            exact_err += list(np.array(two_pass(q, K, V, TABLE_EXACT, {})) - ref)
+            old_err += list(np.array(two_pass(q, K, V, TABLE_OLD, {})) - ref)
             online_err += list(np.array(online(q, K, V, TABLE_CHIP)) - ref)
         m, p, x = stats(chip_err)
-        lines.append(f"| {n} | 3000 | {m} | {p} | {x} | {stats(exact_err)[2]} | {stats(online_err)[2]} |")
+        lines.append(f"| {n} | 3000 | {m} | {p} | {x} | {stats(old_err)[2]} | {stats(online_err)[2]} |")
     lines.append("")
 
     # ---- nasty cases ----
     lines += ["## INT4, nasty cases (16 tokens)", "",
-              "| Case | Chip max | Exact-table max | Online max |", "|---|---|---|---|"]
+              "| Case | Chip max | Old 23/32 max | Online max |", "|---|---|---|---|"]
     for name, cases in nasty_cases(rng).items():
-        chip_err, exact_err, online_err = [], [], []
+        chip_err, old_err, online_err = [], [], []
         for q, K, V in cases:
             ref = float_attention(q, K, V)
             chip_err += list(np.array([c / OUT_FRAC for c in chip_attention(q, K, V)]) - ref)
-            exact_err += list(np.array(two_pass(q, K, V, TABLE_EXACT, {})) - ref)
+            old_err += list(np.array(two_pass(q, K, V, TABLE_OLD, {})) - ref)
             online_err += list(np.array(online(q, K, V, TABLE_CHIP)) - ref)
-        lines.append(f"| {name} | {stats(chip_err)[2]} | {stats(exact_err)[2]} | {stats(online_err)[2]} |")
+        lines.append(f"| {name} | {stats(chip_err)[2]} | {stats(old_err)[2]} | {stats(online_err)[2]} |")
     lines.append("")
 
     # ---- 3: INT8 ----
@@ -250,11 +258,11 @@ def main():
               f"(10-bit: {len(table(10))} entries, 12-bit: {len(table(12))}, 16-bit: {len(table(16))}).", ""]
 
     # ---- weight table comparison ----
-    lines += ["## Weight table: 23/32 trick vs exact e^(−D/2)", "",
+    lines += ["## Weight table: chip now (exact) vs old 23/32 trick", "",
               "| D | " + " | ".join(str(d) for d in range(13)) + " |",
               "|---" * 14 + "|",
-              "| 23/32 (chip now) | " + " | ".join(str(w) for w in TABLE_CHIP) + " |",
-              "| exact | " + " | ".join(str(w) for w in TABLE_EXACT) + " |",
+              "| chip now (exact) | " + " | ".join(str(w) for w in TABLE_CHIP) + " |",
+              "| old 23/32 trick | " + " | ".join(str(w) for w in TABLE_OLD) + " |",
               "| 255·e^(−D/2) | " + " | ".join(f"{255 * math.exp(-d / 2):.1f}" for d in range(13)) + " |", ""]
 
     report = "\n".join(lines)

@@ -53,7 +53,8 @@ K must remain identical across the two passes. The core keeps Q internally.
   constant compatibility outputs for the existing adapter interface.
 - Exponent: pulse `exp_start`; use stable signed `exp_max`/`exp_score`; return
   `exp_done` and unsigned 8-bit weight in a later cycle. Match Python
-  `exp_weight`, including its n<=8 rounding branch.
+  `exp_weight`: a 13-entry table of round(255·e^(−D/2)) indexed by D=M−S,
+  0 for D>=13. Implemented in `src/exp_lut.v` (see `docs/blocks.md`).
 - Divider: pulse `div_start`; use signed 16-bit `div_sum` and unsigned 12-bit
   `div_denominator`; return `div_done` with signed 8-bit result in a later cycle.
   Match Python `divide_round`: round(16*sum/denominator), ties away from zero.

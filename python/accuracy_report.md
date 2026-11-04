@@ -4,23 +4,23 @@ Error = |chip output − float attention output|, in real output units (INT4 val
 
 ## INT4, random inputs
 
-| Tokens | Trials | Chip mean | Chip p99 | Chip max | Exact-table max | Online max |
+| Tokens | Trials | Chip mean | Chip p99 | Chip max | Old 23/32 max | Online max |
 |---|---|---|---|---|---|---|
 | 1 | 3000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| 2 | 3000 | 0.0035 | 0.0447 | 0.0920 | 0.0427 | 0.0920 |
-| 4 | 3000 | 0.0061 | 0.0507 | 0.1104 | 0.0512 | 0.1104 |
-| 8 | 3000 | 0.0078 | 0.0539 | 0.1044 | 0.0635 | 0.1044 |
-| 16 | 3000 | 0.0104 | 0.0601 | 0.1193 | 0.0590 | 0.1193 |
+| 2 | 3000 | 0.0029 | 0.0326 | 0.0427 | 0.0920 | 0.0427 |
+| 4 | 3000 | 0.0051 | 0.0351 | 0.0512 | 0.1104 | 0.0512 |
+| 8 | 3000 | 0.0067 | 0.0378 | 0.0635 | 0.1044 | 0.0581 |
+| 16 | 3000 | 0.0087 | 0.0396 | 0.0590 | 0.1193 | 0.0557 |
 
 ## INT4, nasty cases (16 tokens)
 
-| Case | Chip max | Exact-table max | Online max |
+| Case | Chip max | Old 23/32 max | Online max |
 |---|---|---|---|
 | all scores negative | 0.0000 | 0.0000 | 0.0000 |
 | all scores equal | 0.0000 | 0.0000 | 0.0000 |
 | one dominant token | 0.3308 | 0.3308 | 0.3308 |
-| close scores (D <= 3) | 0.0681 | 0.0335 | 0.0759 |
-| rising scores | 0.1308 | 0.0664 | 0.1491 |
+| close scores (D <= 3) | 0.0335 | 0.0681 | 0.0357 |
+| rising scores | 0.0664 | 0.1308 | 0.0438 |
 
 ## INT8 (same design, wider registers), random inputs
 
@@ -36,7 +36,7 @@ Values span −128 to 127 here, so errors are also shown as a % of that range.
 | Register | INT4 now (max seen, bits) | INT8 at 128 tokens (max seen, bits) |
 |---|---|---|
 | score S (signed) | 184, 9 | 46200, 17 |
-| weight sum L | 885, 10 | 349, 9 |
+| weight sum L | 877, 10 | 349, 9 |
 | weighted sum O (signed) | 4185, 14 | 32640, 16 |
 
 Max seen on random data, not the worst case. Worst case below.
@@ -66,10 +66,10 @@ Token 0 has the top score and value −8. All other tokens sit D below it with v
 
 Wider columns use an exact e^(−D/2) table at that width (10-bit: 16 entries, 12-bit: 19, 16-bit: 24).
 
-## Weight table: 23/32 trick vs exact e^(−D/2)
+## Weight table: chip now (exact) vs old 23/32 trick
 
 | D | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 23/32 (chip now) | 255 | 158 | 94 | 59 | 35 | 22 | 13 | 8 | 5 | 3 | 2 | 1 | 1 |
-| exact | 255 | 155 | 94 | 57 | 35 | 21 | 13 | 8 | 5 | 3 | 2 | 1 | 1 |
+| chip now (exact) | 255 | 155 | 94 | 57 | 35 | 21 | 13 | 8 | 5 | 3 | 2 | 1 | 1 |
+| old 23/32 trick | 255 | 158 | 94 | 59 | 35 | 22 | 13 | 8 | 5 | 3 | 2 | 1 | 1 |
 | 255·e^(−D/2) | 255.0 | 154.7 | 93.8 | 56.9 | 34.5 | 20.9 | 12.7 | 7.7 | 4.7 | 2.8 | 1.7 | 1.0 | 0.6 |

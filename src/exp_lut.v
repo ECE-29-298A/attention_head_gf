@@ -8,24 +8,23 @@ Turns a score into a weight:
 
     W ≈ 255 · e^((S - M) / 2),   D = M - S >= 0
 
-The proposal gets there with the 23/32 trick (see exp_weight() in
-python/src/attention_model.py): A = 23·D, n = A >> 5, r = (A >> 1) & 0xF,
-W = round(T[r] >> n), with T[r] = round(255 · 2^(-r/16)).
-
-BUT scores are whole numbers, so D is a whole number, and once D >= 13
-that formula always gives 0. It only ever produces 13 different answers.
-So we skip the ×23, the split and the shifter and just store the 13
-answers, indexed by D. Same output, about 60% fewer gates.
+Scores are whole numbers, so D is a whole number, and once D >= 13 the
+weight rounds to 0. That means there are only 13 possible answers, so we
+just store them: W = round(255 · e^(-D/2)), indexed by D.
 
     D :  0   1   2   3   4   5   6  7  8  9 10 11 12 | 13+
-    W : 255 158 94  59  35  22  13  8  5  3  2  1  1 |  0
+    W : 255 155 94  57  35  21  13  8  5  3  2  1  1 |  0
 
-Checked against exp_weight() on every valid (M, S) pair:
-test/blocks/test_exp_lut.py (115,921 cases).
+(The proposal used the 23/32 trick, W = 255 · 2^(-23D/32) with a 16-entry
+table and a shifter. That also only produces 13 answers, but slightly off
+at D = 1, 3, 5, and it takes ~2.5x the gates. This table is exact.)
+
+Must match exp_weight() / EXP_TABLE in python/src/attention_model.py.
+Checked on every valid (M, S) pair: test/blocks/test_exp_lut.py (115,921 cases).
 
 NOTE: this holds for any integer scores, INT4 or INT8. Only the width
 of M and S changes. If someone ever changes the /2 scaling, regenerate
-the table from exp_weight().
+the table from EXP_TABLE.
 
 Handshake (matches attention_controller):
     start: one-cycle pulse, M and S valid on that edge
@@ -58,11 +57,11 @@ always @(*) begin
     end else begin
         case (diff[3:0])
             4'd0:  weight = 8'd255;
-            4'd1:  weight = 8'd158;
+            4'd1:  weight = 8'd155;
             4'd2:  weight = 8'd94;
-            4'd3:  weight = 8'd59;
+            4'd3:  weight = 8'd57;
             4'd4:  weight = 8'd35;
-            4'd5:  weight = 8'd22;
+            4'd5:  weight = 8'd21;
             4'd6:  weight = 8'd13;
             4'd7:  weight = 8'd8;
             4'd8:  weight = 8'd5;
