@@ -1,12 +1,12 @@
 `default_nettype none
 
-// INT4 sequencing core. Memory, exponent and divider are external engines.
+// Two-pass INT4 core: first find the maximum, then recompute scores and accumulate.
+// K is read twice and V once; no scores or weights are written to external memory.
+// Memory, exponent and divider are external engines.
 // All resets are synchronous. Reset the attached engines at the same time.
 module attention_controller #(
     parameter logic [15:0] K_BASE = 16'h0000, // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
-    parameter logic [15:0] V_BASE = 16'h0020, // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
-    parameter logic [15:0] SCORE_BASE = 16'h0040, // S = q * k_j, 2 bytes per token (10 bit max), max 16 tokens -> 32 bytes
-    parameter logic [15:0] WEIGHT_BASE = 16'h0060 // 1 byte per token (8 bit max), max 16 tokens -> 16 bytes
+    parameter logic [15:0] V_BASE = 16'h0020 // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
 ) (
     // Clock and reset
     input wire clk,
@@ -24,10 +24,10 @@ module attention_controller #(
     // A request is accepted on a rising edge when mem_req_valid && mem_req_ready.
     output wire mem_req_valid,       // Controller is requesting memory.
     input wire mem_req_ready,        // Memory adapter can accept the request.
-    output logic mem_write,          // Request type: 1 = write, 0 = read.
+    output wire mem_write,           // Always 0: this core only reads memory. Kept for adapter compatibility.
     output logic [15:0] mem_addr,     // Byte address; held stable until request acceptance.
-    output logic [7:0] mem_wdata,     // Byte to write; held stable until acceptance.
-    input wire mem_rsp_valid,        // Completion of the accepted read OR write, in a later cycle.
+    output wire [7:0] mem_wdata,      // Always 0: no write data is used by this core.
+    input wire mem_rsp_valid,        // Completion of the accepted read, in a later cycle.
     input wire [7:0] mem_rdata,       // Returned read byte; valid with mem_rsp_valid.
 
     // Exponent LUT: approximate weight = 255 * exp((score - maximum) / 2).
@@ -52,32 +52,32 @@ module attention_controller #(
 );
     typedef enum logic [4:0] {
         IDLE, INIT, KEY0, KEY1, KEY_READY, SCORE_CLEAR, SCORE_MAC,
-        SCORE_CAPTURE, SCORE_WRITE0, SCORE_WRITE1, KEY_NEXT,
-        SCORE_READ0, SCORE_READ1, SCORE_READY, EXP_START, EXP_WAIT,
-        WEIGHT_WRITE, WEIGHT_NEXT, ACCUM_CLEAR, WEIGHT_READ,
+        SCORE_CAPTURE, KEY_NEXT, ACCUM_CLEAR, EXP_START, EXP_WAIT,
         VALUE0, VALUE1, VALUE_READY, ACCUM_STEP, VALUE_NEXT,
         DIV_START, DIV_WAIT, OUTPUT_WAIT, COMPLETE, MEM_REQUEST, MEM_WAIT
     } state_t;
     state_t state, return_state;
     logic [4:0] n;
     logic [3:0] token;
+    logic second_pass; // 0: find maximum. 1: use the frozen maximum and accumulate.
     logic [1:0] component, output_index;
     logic [15:0] query, operands;
-    logic [7:0] read_byte, score_low, weight;
-    logic signed [9:0] saved_score;
+    logic [7:0] read_byte, weight;
+    logic signed [9:0] current_score; // Only the current token, held for the exponent engine.
     wire signed [9:0] score, maximum;
     wire signed [15:0] o0, o1, o2, o3;
     wire [15:0] row_offset = {11'b0, token, 1'b0};
-    wire [15:0] weight_offset = {12'b0, token};
     wire signed [3:0] qi = $signed(query[4*component +: 4]);
     wire signed [3:0] ki = $signed(operands[4*component +: 4]);
 
     assign start_ready = rst_n && state == IDLE && token_count >= 1 && token_count <= 16;
     assign busy = state != IDLE;
     assign mem_req_valid = rst_n && state == MEM_REQUEST;
+    assign mem_write = 1'b0;
+    assign mem_wdata = 8'd0;
     assign exp_start = rst_n && state == EXP_START;
     assign exp_max = maximum;
-    assign exp_score = saved_score;
+    assign exp_score = current_score;
     assign div_start = rst_n && state == DIV_START;
     assign out_valid = rst_n && state == OUTPUT_WAIT;
 
@@ -87,7 +87,7 @@ module attention_controller #(
     );
     max_reg max_unit (
         .clk(clk), .rst_n(rst_n), .clear(state == INIT),
-        .en(state == SCORE_CAPTURE), .S_in(score), .M(maximum)
+        .en(state == SCORE_CAPTURE && !second_pass), .S_in(score), .M(maximum)
     );
     accum accum_unit (
         .clk(clk), .rst_n(rst_n), .clear(state == INIT || state == ACCUM_CLEAR),
@@ -105,12 +105,9 @@ module attention_controller #(
         endcase
     end
 
-    // Launch one byte operation; fields remain registered until the next request.
-    task automatic request_byte(input logic wr, input logic [15:0] addr,
-                                input logic [7:0] data, input state_t next_state);
-        mem_write <= wr;
+    // Launch one byte read; address remains registered until the next request.
+    task automatic read_byte_request(input logic [15:0] addr, input state_t next_state);
         mem_addr <= addr;
-        mem_wdata <= data;
         return_state <= next_state;
         state <= MEM_REQUEST;
     endtask
@@ -121,70 +118,64 @@ module attention_controller #(
             return_state <= IDLE;
             n <= 0;
             token <= 0;
+            second_pass <= 0;
             component <= 0;
             output_index <= 0;
             query <= 0;
             operands <= 0;
             read_byte <= 0;
-            score_low <= 0;
-            saved_score <= 0;
+            current_score <= 0;
             weight <= 0;
             done <= 0;
             out_data <= 0;
-            mem_write <= 0;
             mem_addr <= 0;
-            mem_wdata <= 0;
         end else begin
             case (state)
                 IDLE: if (start && start_ready) begin
                     query <= query_packed;
                     n <= token_count;
                     token <= 0;
+                    second_pass <= 0;
                     done <= 0;
                     state <= INIT;
                 end
                 INIT: state <= KEY0;
-                KEY0: request_byte(0, K_BASE + row_offset, 0, KEY1);
+                KEY0: read_byte_request(K_BASE + row_offset, KEY1);
                 KEY1: begin
                     operands[7:0] <= read_byte;
-                    request_byte(0, K_BASE + row_offset + 16'd1, 0, KEY_READY);
+                    read_byte_request(K_BASE + row_offset + 16'd1, KEY_READY);
                 end
                 KEY_READY: begin operands[15:8] <= read_byte; state <= SCORE_CLEAR; end
                 SCORE_CLEAR: begin component <= 0; state <= SCORE_MAC; end
                 SCORE_MAC: if (component == 3) state <= SCORE_CAPTURE;
                            else component <= component + 1'b1;
                 // Capture on the edge AFTER the final MAC updates S.
-                SCORE_CAPTURE: begin saved_score <= score; state <= SCORE_WRITE0; end
-                SCORE_WRITE0: request_byte(1, SCORE_BASE + row_offset, saved_score[7:0], SCORE_WRITE1);
-                SCORE_WRITE1: request_byte(1, SCORE_BASE + row_offset + 16'd1,
-                                          {{6{saved_score[9]}}, saved_score[9:8]}, KEY_NEXT);
-                KEY_NEXT: if ({1'b0, token} == n - 5'd1) begin
-                    token <= 0; state <= SCORE_READ0;
-                end else begin token <= token + 1'b1; state <= KEY0; end
-                SCORE_READ0: request_byte(0, SCORE_BASE + row_offset, 0, SCORE_READ1);
-                SCORE_READ1: begin
-                    score_low <= read_byte;
-                    request_byte(0, SCORE_BASE + row_offset + 16'd1, 0, SCORE_READY);
+                SCORE_CAPTURE: begin
+                    if (second_pass) begin
+                        current_score <= score;
+                        state <= EXP_START;
+                    end else state <= KEY_NEXT;
                 end
-                SCORE_READY: begin saved_score <= $signed({read_byte[1:0], score_low}); state <= EXP_START; end
+                KEY_NEXT: if ({1'b0, token} == n - 5'd1) begin
+                    token <= 0;
+                    second_pass <= 1;
+                    state <= ACCUM_CLEAR;
+                end else begin token <= token + 1'b1; state <= KEY0; end
+                // Clear once at the pass boundary, never between pass-2 tokens.
+                ACCUM_CLEAR: state <= KEY0;
                 EXP_START: state <= EXP_WAIT;
-                EXP_WAIT: if (exp_done) begin weight <= exp_weight; state <= WEIGHT_WRITE; end
-                WEIGHT_WRITE: request_byte(1, WEIGHT_BASE + weight_offset, weight, WEIGHT_NEXT);
-                WEIGHT_NEXT: if ({1'b0, token} == n - 5'd1) begin
-                    token <= 0; state <= ACCUM_CLEAR;
-                end else begin token <= token + 1'b1; state <= SCORE_READ0; end
-                ACCUM_CLEAR: state <= WEIGHT_READ;
-                WEIGHT_READ: request_byte(0, WEIGHT_BASE + weight_offset, 0, VALUE0);
-                VALUE0: begin weight <= read_byte; request_byte(0, V_BASE + row_offset, 0, VALUE1); end
+                EXP_WAIT: if (exp_done) begin weight <= exp_weight; state <= VALUE0; end
+                // Hold W locally while the shared operand buffer is refilled with V.
+                VALUE0: read_byte_request(V_BASE + row_offset, VALUE1);
                 VALUE1: begin
                     operands[7:0] <= read_byte;
-                    request_byte(0, V_BASE + row_offset + 16'd1, 0, VALUE_READY);
+                    read_byte_request(V_BASE + row_offset + 16'd1, VALUE_READY);
                 end
                 VALUE_READY: begin operands[15:8] <= read_byte; state <= ACCUM_STEP; end
                 ACCUM_STEP: state <= VALUE_NEXT;
                 VALUE_NEXT: if ({1'b0, token} == n - 5'd1) begin
                     output_index <= 0; state <= DIV_START;
-                end else begin token <= token + 1'b1; state <= WEIGHT_READ; end
+                end else begin token <= token + 1'b1; state <= KEY0; end
                 DIV_START: state <= DIV_WAIT;
                 DIV_WAIT: if (div_done) begin out_data <= div_result; state <= OUTPUT_WAIT; end
                 OUTPUT_WAIT: if (out_ready) begin

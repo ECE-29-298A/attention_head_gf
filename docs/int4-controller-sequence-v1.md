@@ -1,5 +1,10 @@
 # INT4 attention controller sequence — version 1
 
+> **Superseded:** this document preserves the former saved-score/weight design.
+> The current controller uses [version 2: two passes over K](int4-controller-sequence-v2.md).
+> External score/weight storage and the corresponding states below no longer
+> exist in the current RTL. Implementation references below describe version 1.
+
 This is the design-level sequence agreed for the first controller. It preserves
 the existing `score_mac`, `max_reg`, and `accum` blocks, uses one pass over K,
 saves scores, and generates 8-bit LUT weights.
