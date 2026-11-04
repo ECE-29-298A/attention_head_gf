@@ -13,5 +13,5 @@ SIM_BUILD = sim_build/$(MODULE_UNDER_TEST)
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
-score_mac max_reg accum:
+score_mac max_reg accum exp_lut:
 	$(MAKE) MODULE_UNDER_TEST=$@ sim

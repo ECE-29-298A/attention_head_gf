@@ -43,6 +43,19 @@ module tb_controller;
     logic [24:0] held_request;
     logic [7:0] held_output;
 
+    // Real exponent LUT rides along with the behavioral stand-in and must agree with it
+    // on every weight the controller asks for.
+    wire lut_done;
+    wire [7:0] lut_weight;
+    int lut_checks = 0;
+    exp_lut lut (.clk(clk), .rst_n(rst_n), .start(exp_start), .M(exp_max), .S(exp_score),
+                 .done(lut_done), .W(lut_weight));
+    always @(negedge clk) if (rst_n && lut_done) begin
+        assert (lut_weight == 8'(exp_answer))
+            else $fatal(1, "exp_lut gave %0d, model %0d (M=%0d S=%0d)", lut_weight, exp_answer, held_max, held_score);
+        lut_checks++;
+    end
+
     // Behavioral exponent/divider stand-ins, NOT synthesizable implementations.
     function automatic int exponent(input int m, s);
         int lut [0:15] = '{255,244,234,224,214,205,197,188,180,173,165,158,152,145,139,133};
@@ -318,6 +331,8 @@ module tb_controller;
             if (count == 16) begin n16_cycles += transaction_cycles; n16_cases++; end
             cases++;
         end
+        assert (lut_checks > 0) else $fatal(1, "exp_lut was never exercised");
+        $display("exp_lut matched the model on %0d controller requests", lut_checks);
         $display("PASS: %0d Python-reference cases; legacy=%0d, memory_cycles=%0d; intermediate arithmetic, memory counts, stalls, invalid N, reset and back-to-back checks", cases, legacy, memory_cycles);
         $display("METRICS total_cycles=%0d n16_cycles=%0d n16_cases=%0d", total_cycles, n16_cycles, n16_cases);
         $finish;

@@ -11,7 +11,7 @@ jobs:
 
       - name: Install iverilog
         shell: bash
-        run: sudo apt-get update && sudo apt-get install -y iverilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog verilator
 
       # Set Python up and install cocotb
       - name: Setup python
@@ -30,6 +30,19 @@ jobs:
           make
           # make will return success even if the tests fail, so check results.xml for failed tests
           python -m cocotb_tools.check_results results.xml
+
+      - name: Run block tests
+        run: |
+          cd test/blocks
+          for block in score_mac max_reg accum exp_lut; do
+            rm -rf sim_build/$block results.xml
+            make $block
+            # results.xml is overwritten per block, so check each one
+            python -m cocotb_tools.check_results results.xml
+          done
+
+      - name: Run controller test
+        run: python test/controller/run.py
 
       - name: Test Summary
         uses: test-summary/action@v2.4

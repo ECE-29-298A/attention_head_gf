@@ -11,5 +11,8 @@ test/sim_build
 test/__pycache__/
 test/results.xml
 test/gate_level_netlist.v
+test/blocks/sim_build
+test/blocks/results.xml
+__pycache__/
 .venv/
 .docs/

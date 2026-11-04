@@ -51,7 +51,7 @@ def build(verilator, work, controller, label):
     command = [verilator, "--binary", "--timing", "--assert", "-Wno-fatal",
                "--top-module", "tb_controller", "--Mdir", str(work / label),
                str(ROOT / "test/controller/tb_controller.sv"), str(controller)]
-    command += [str(ROOT / "src" / name) for name in ("score_mac.v", "max_reg.v", "accum.v")]
+    command += [str(ROOT / "src" / name) for name in ("score_mac.v", "max_reg.v", "accum.v", "exp_lut.v")]
     result = subprocess.run(command, cwd=work, text=True, capture_output=True, timeout=120)
     if result.returncode:
         print(result.stdout + result.stderr)
