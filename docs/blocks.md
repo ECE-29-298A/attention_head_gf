@@ -54,7 +54,7 @@ Sums for the weighted average, one token per enable.
 
 `W` is zero-extended before the signed multiply. For N <= 16 tokens, `L` is at
 most 4080 and `Oi` stays within -32640..28560, so neither width overflows.
-The divider then computes `Oi / L`. Uses four multipliers in parallel; sharing
+The divider then encodes `Oi / L` as `round(16 * Oi / L)`. Uses four multipliers in parallel; sharing
 the `score_mac` multiplier would need extra control logic.
 
 ## `exp_lut` (`src/exp_lut.v`)
@@ -82,6 +82,17 @@ D = 1, 3, 5 and takes about 2.5x the gates. If `M < S` (should never
 happen), D is treated as 0, so W = 255. Matches Python `exp_weight` /
 `EXP_TABLE`.
 
+## `divider` (`src/divider.v`)
+
+Iterative signed normalization: `result = round(16 * sum_in / denominator)`,
+nearest with ties away from zero. Uses a 19-bit shift/subtract division datapath
+and one rounding/sign cycle. See [divider.md](divider.md) for register widths,
+invalid-input behavior, port descriptions, and exact start/done timing.
+
+The [attention controller](controller.md) instantiates all five arithmetic blocks
+directly. The exponent and divider remain separate modules, connected by internal
+wires; no additional core wrapper is required.
+
 ## Verification
 
 Cocotb + Icarus, one module per run, from `test/blocks`:
@@ -93,4 +104,17 @@ make accum
 make exp_lut   # every valid (M, S) pair, 115,921 cases
 ```
 
-CI runs all four, plus `test/controller/run.py`.
+The divider and integrated controller use Python + NumPy/Verilator runners. From
+the repository root:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 test/divider/run.py
+PYTHONDONTWRITEBYTECODE=1 python3 test/controller/run.py
+```
+
+CI is configured to run all four existing block tests, the standalone divider
+test, one integrated controller regression, and the current Tiny Tapeout template
+test. Block tests retain exhaustive/boundary coverage beyond the integrated
+queries; the duplicate mock-arithmetic regression has been removed. The standalone
+Verilator runners use temporary build directories. Local verification results
+and limits are in the linked docs.

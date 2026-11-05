@@ -1,9 +1,23 @@
-# Two-pass INT4 controller prototype (version 2)
+# Integrated two-pass INT4 attention controller (version 2)
 
-`src/attention_controller.sv` connects the existing `score_mac`, `max_reg` and
-`accum` unchanged. It is an internal sequencing core, not a Tiny Tapeout pin
+`src/attention_controller.sv` instantiates `score_mac`, `max_reg`, `accum`,
+`exp_lut` and `divider`. These remain separate, reusable RTL modules; their
+arithmetic is unchanged. It is a complete arithmetic core, not a Tiny Tapeout pin
 wrapper. The existing `project.v`, `info.yaml`, default test and physical build
 still select the template project. This prototype is not tapeout-ready.
+
+Instantiate `attention_controller` directly for system integration. The former
+`attention_core` wiring-only wrapper has been removed. All `exp_*` and `div_*`
+handshakes are now internal wires, not controller ports. This hierarchy change
+does not change the state sequence, arithmetic results or cycle counts.
+
+| Instance inside the controller | Module | Role |
+|---|---|---|
+| `score_unit` | `score_mac` | Four-cycle Q.K dot product |
+| `max_unit` | `max_reg` | Retain the first-pass maximum |
+| `accum_unit` | `accum` | Sum weights and weighted V components |
+| `exponent_unit` | `exp_lut` | Generate the current token's weight |
+| `divider_unit` | `divider` | Normalize each output component |
 
 See [the version-2 sequence](int4-controller-sequence-v2.md) for the complete
 state table. [Version 1](int4-controller-sequence-v1.md) is historical: its
@@ -43,7 +57,16 @@ Alternate bases must remain non-overlapping for N=16 and fit the 16-bit address
 space. The host loads K/V before start and must not change them while busy.
 K must remain identical across the two passes. The core keeps Q internally.
 
-## External engine contracts
+## External interface
+
+| Group | Signals | Contract |
+|---|---|---|
+| Clock/reset | clk, rst_n | One shared clock, synchronous active-low reset |
+| Request | start, start_ready, token_count, query_packed | Capture N=1..16 and packed Q on acceptance |
+| Status | busy, done | Busy through output acceptance; done sticky until accepted start/reset |
+| Memory request | mem_req_valid, mem_req_ready, mem_addr, mem_write, mem_wdata | Byte reads only; write and write-data permanently zero |
+| Memory response | mem_rsp_valid, mem_rdata | Exactly one response per accepted read, in a later cycle |
+| Output | out_valid, out_ready, out_data | Four signed codes in component order; hold stable until accepted |
 
 - Memory: request accepted on `mem_req_valid && mem_req_ready`. Exactly one
   response per read; completion must arrive in a later
@@ -51,24 +74,39 @@ K must remain identical across the two passes. The core keeps Q internally.
   No response-ready signal is needed: only one request is outstanding. Hold
   request fields stable until accepted. `mem_write=0` and `mem_wdata=0` are
   constant compatibility outputs for the existing adapter interface.
-- Exponent: pulse `exp_start`; use stable signed `exp_max`/`exp_score`; return
-  `exp_done` and unsigned 8-bit weight in a later cycle. Match Python
-  `exp_weight`: a 13-entry table of round(255·e^(−D/2)) indexed by D=M−S,
-  0 for D>=13. Implemented in `src/exp_lut.v` (see `docs/blocks.md`).
-- Divider: pulse `div_start`; use signed 16-bit `div_sum` and unsigned 12-bit
-  `div_denominator`; return `div_done` with signed 8-bit result in a later cycle.
-  Match Python `divide_round`: round(16*sum/denominator), ties away from zero.
 - Output: transfers on `out_valid && out_ready`; byte is signed, value=code/16.
 - Start: `start_ready` is high only in idle with N in 1..16 and reset released.
   Invalid N is not accepted; starts while busy are ignored. A held start can
   launch another query when the controller returns idle, so deassert after
   acceptance. `done` clears on accepted start/reset and rises after readout.
-- Reset: synchronous active low. Reset all attached engines together and cancel
-  pending memory responses. Do not reconnect a stale completion to a new run.
+- Reset: synchronous active low, shared automatically by all internal arithmetic
+  blocks. The external memory adapter must cancel or drain pending responses.
+  Do not reconnect a stale completion to a new run.
+
+## Internal arithmetic handshakes
+
+- Exponent: pulse `exp_start` with stable signed `exp_max`/`exp_score`.
+  `exponent_unit` registers `exp_done` and the unsigned 8-bit `exp_weight` on
+  the accepted start edge; the controller consumes them on the following edge.
+  It matches Python `exp_weight`: a 13-entry table of round(255·e^(−D/2))
+  indexed by D=M−S, returning 0 for D>=13. See [blocks.md](blocks.md).
+- Divider: pulse `div_start` with signed 16-bit `div_sum` and unsigned 12-bit
+  `div_denominator`, stable until completion. `divider_unit` takes 19 division
+  steps and one rounding/sign step; the controller consumes `div_done` and
+  signed 8-bit `div_result` 21 clocks after accepted start. It matches Python
+  `divide_round`: round(16*sum/denominator), ties away from zero. See
+  [divider timing and contract](divider.md).
+
+These signals connect modules inside the controller; no host or testbench must
+provide arithmetic results or completions.
+
+## Remaining system work
 
 There is no SPI/xSPI implementation, general DMA, bus arbitration, timeout,
 memory-error recovery, clock-domain crossing or Tiny Tapeout `ena` handling in
-this prototype. The host-facing wrapper and actual engines remain to be built.
+this prototype. The host-facing wrapper and external-memory adapter remain to
+be built, including host-readable output buffering. All arithmetic engines are
+implemented and connected inside `attention_controller`.
 The two-pass arithmetic now follows the original proposal. Data delivery still
 differs: the controller rereads host-populated external memory instead of asking
 the host to resend streams. The existing one score multiplier plus four value
@@ -85,23 +123,59 @@ PYTHONDONTWRITEBYTECODE=1 python3 test/controller/run.py
 Use an absolute path to the script when outside the repository. The runner
 generates expected outputs, intermediate scores and weights using the existing
 Python model. It builds and simulates in a temporary directory, leaving the
-repository free of generated files. The testbench supplies a byte-memory model
-and delayed behavioral exponent/divider stand-ins; it does not verify a real
-exponent/divider circuit or physical xSPI timing.
+repository free of generated files. The testbench supplies only a byte-memory
+model and host signals. Every score, weight, weighted sum and normalized result
+comes from the real RTL. Physical xSPI timing is not modeled.
 
-Coverage: 135 directed/random queries across all token counts, including a
-maximum occurring at the last token and all-negative scores. Check both score
+Coverage: 138 directed/random queries across all token counts, including a
+maximum occurring at the last token, all-negative scores, positive/negative
+rounding ties, neighboring rounding boundaries, and zero numerators at the
+largest denominator. Check both score
 passes, exponent inputs/weights, every running sum, final numerators/denominator,
 and output codes. Require 8N score MAC enables, N maximum updates, N accumulator
 updates, N exponent starts and four divider starts. Each K byte is read twice,
 each V byte once, with zero writes or accesses outside active K/V rows.
 
-Run three randomized stall/latency schedules and three fixed-latency schedules.
+Run three randomized memory/output-stall schedules, three fixed memory latencies
+(2, 8 and 32 clocks from accepted read to sampled response), and one randomized
+run with relocated K/V bases (0x1200 and 0x3400): 966 query executions total.
 Also check stable stalled requests/outputs, stable arithmetic operands, invalid N,
-changed configuration/start while busy, reset during each K pass, exponent wait,
-V fetch, divider wait and output wait, sticky done, and consecutive queries
-without reset. All simulations have bounded timeouts. Reset tests cancel pending
-mock-engine activity; real bus cancellation/draining still needs implementation.
+changed configuration/start while busy, reset during each K pass, LUT start and
+result, V fetch, all 20 busy divider stages and output wait, sticky done, and
+consecutive queries without reset. Check the real divider's completion latency.
+All simulations have bounded timeouts. Reset tests cancel pending testbench
+memory responses; real bus cancellation/draining still needs implementation.
+
+The duplicate `test/core` suite has been merged into `test/controller`. The old
+mock-exponent/mock-divider testbench and legacy `--compare-ref` benchmark mode
+have been removed; their tracked versions remain in Git history. Standalone
+block tests remain because they cover exhaustive arithmetic pairs, rounding
+boundaries and invalid requests not all exercised by whole attention queries.
+See [blocks.md](blocks.md) and [divider.md](divider.md).
+
+Local verification on November 5, 2026 with Verilator 5.052 passed all seven
+controller configurations (966 query executions) and the 108,641-vector divider
+suite. All seven cycle totals match the pre-refactor real-core regression.
+Lint reports only the existing accumulator width-extension and missing-final-
+newline warnings. The unchanged Cocotb block/template tests were not rerun
+locally (Cocotb/Icarus unavailable); CI still includes them. The updated CI has
+not been run remotely as part of this task.
+
+## Build
+
+Compile the controller and its five arithmetic modules:
+
+```text
+src/attention_controller.sv
+src/score_mac.v
+src/max_reg.v
+src/accum.v
+src/exp_lut.v
+src/divider.v
+```
+
+No chip pins or Tiny Tapeout physical-build entry point are changed. Area/timing
+closure and physical checks remain; no synthesis or silicon claim is made.
 
 ## Comparison with version 1
 
@@ -110,22 +184,16 @@ token. Version 2 uses six read transfers and eight score MAC cycles per token.
 LUT calls, accumulator updates and divisions are unchanged. At N=16, traffic
 falls from 160 to 96 bytes, with 64 extra score MAC cycles.
 
-To reproduce a comparison against the saved-score controller at the pre-rewrite
-commit (no checkout or worktree changes):
+The following measurements are historical; the obsolete comparison runner is
+no longer part of the active tests. They compared both versions using the same
+135 vectors, always-ready outputs, fixed memory delays, and exponent/divider
+stand-ins completing 3/21 clocks after start. Counts include accepted start
+through transaction completion, excluding idle gaps and reset tests. They are
+not actual xSPI timing or silicon results.
 
-```sh
-PYTHONDONTWRITEBYTECODE=1 python3 test/controller/run.py --compare-ref 9607f0cc0065df7ab9bbfd96b8d348127edd6665
-```
-
-The runner extracts that controller into a temporary directory and tests both
-versions with the same current arithmetic blocks, vectors and testbench. Legacy
-mode checks the old storage/access schedule; new mode checks the two-pass one.
-For timing, ready is always asserted when eligible, output is always accepted,
-and memory responses are sampled exactly 2, 8 or 32 cycles after acceptance.
-Exponent/divider mock completions are sampled 3/21 cycles after their starts.
-Cycle counts include the accepted start edge through the edge completing the
-transaction; they exclude idle gaps and reset tests. These are controller-model
-measurements, not actual xSPI timing or silicon results.
+These historical timings use arithmetic stand-ins. They are not the latency of
+the now-connected real core, whose LUT completion is consumed one clock after
+start and whose divider completion is consumed 21 clocks after start.
 
 Measured on November 3, 2026 with Verilator 5.052 and all 135 vectors:
 
@@ -142,3 +210,4 @@ The benchmark tests the sequential byte-request architecture only.
 
 Arithmetic precision remains the existing 8-bit-weight model; exact integer
 agreement does not establish the proposal's floating-point error target.
+See `python/accuracy_report.md` for the known limitations.

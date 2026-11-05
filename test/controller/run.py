@@ -1,17 +1,30 @@
-"""Run isolated controller simulations; generated files stay in a temporary directory."""
-import argparse
+"""Verify the integrated RTL controller; only memory/host behavior is modeled."""
 from pathlib import Path
 import random
-import re
-import shutil
-import subprocess
 import sys
 import tempfile
 
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "test"))
+from rtl_sim import build, simulate
+
 sys.path.insert(0, str(ROOT / "python/src"))
 from attention_model import chip_attention, dot4, exp_weight, pack_byte
+
+
+def encode_case(q, k, v):
+    """Encode Python-model outputs and intermediate results for RTL assertions."""
+    scores = [dot4(q, row) for row in k]
+    weights = [exp_weight(max(scores), s) for s in scores]
+    fields = [len(k), sum((x & 15) << (4 * i) for i, x in enumerate(q))]
+    for rows in (k, v):
+        for row in rows:
+            fields.extend([pack_byte(*row[:2]), pack_byte(*row[2:])])
+    fields.extend(x & 255 for x in chip_attention(q, k, v))
+    fields.extend(s & 65535 for s in scores)
+    fields.extend(weights)
+    return " ".join(str(x) for x in fields)
 
 
 def vectors():
@@ -35,77 +48,36 @@ def vectors():
             vec = lambda: [rng.randint(-8, 7) for _ in range(4)]
             cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)]))
     for q, k, v in cases:
-        scores = [dot4(q, row) for row in k]
-        weights = [exp_weight(max(scores), s) for s in scores]
-        fields = [len(k), sum((x & 15) << (4 * i) for i, x in enumerate(q))]
-        for rows in (k, v):
-            for row in rows:
-                fields.extend([pack_byte(*row[:2]), pack_byte(*row[2:])])
-        fields.extend(x & 255 for x in chip_attention(q, k, v))
-        fields.extend(s & 65535 for s in scores)
-        fields.extend(weights)
-        yield " ".join(str(x) for x in fields)
+        yield encode_case(q, k, v)
 
-
-def build(verilator, work, controller, label):
-    command = [verilator, "--binary", "--timing", "--assert", "-Wno-fatal",
-               "--top-module", "tb_controller", "--Mdir", str(work / label),
-               str(ROOT / "test/controller/tb_controller.sv"), str(controller)]
-    command += [str(ROOT / "src" / name) for name in ("score_mac.v", "max_reg.v", "accum.v", "exp_lut.v")]
-    result = subprocess.run(command, cwd=work, text=True, capture_output=True, timeout=120)
-    if result.returncode:
-        print(result.stdout + result.stderr)
-        raise SystemExit(result.returncode)
-    for line in result.stderr.splitlines():
-        if line.startswith("%Warning"):
-            print(line, flush=True)
-    return work / label / "Vtb_controller"
-
-
-def simulate(binary, data, *args):
-    result = subprocess.run([str(binary), f"+VECTORS={data}", *args],
-                            cwd=binary.parent, text=True, capture_output=True, timeout=60)
-    print(result.stdout, end="", flush=True)
-    if result.returncode:
-        print(result.stderr)
-        raise SystemExit(result.returncode)
-    return result.stdout
+    # Weights [255, 1] give denominator 256. O=+/-248 rounds +/-15.5
+    # away from zero; neighboring sums test both sides of the tie.
+    q, k = [1, 0, 0, 0], [[7, 0, 0, 0], [-4, 0, 0, 0]]
+    yield encode_case(q, k, [[1, -1, 0, 0], [-7, 7, 0, 0]])
+    yield encode_case(q, k, [[1, -1, 1, -1], [-8, 6, -6, 7]])
+    yield encode_case([0]*4, [[0]*4]*16, [[0]*4]*16)
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--compare-ref", help="Git revision containing the version-1 saved-score controller")
-    args = parser.parse_args()
-    verilator = shutil.which("verilator")
-    if not verilator:
-        raise SystemExit("Install Verilator to run this test.")
+    sources = ["test/controller/tb_controller.sv", "src/attention_controller.sv",
+               "src/score_mac.v", "src/max_reg.v", "src/accum.v",
+               "src/exp_lut.v", "src/divider.v"]
     with tempfile.TemporaryDirectory(prefix="attention-controller-") as temporary:
         work = Path(temporary)
         data = work / "vectors.txt"
         data.write_text("\n".join(vectors()) + "\n")
-        current = build(verilator, work, ROOT / "src/attention_controller.sv", "current")
+        current = build(work, "tb_controller", sources)
         # Different schedules supplement the deterministic Python input seed.
         for seed in (298, 2026, 16):
-            simulate(current, data, f"+verilator+seed+{seed}")
-        baseline = None
-        if args.compare_ref:
-            revision = subprocess.check_output(
-                ["git", "rev-parse", "--verify", "--end-of-options", f"{args.compare_ref}^{{commit}}"],
-                cwd=ROOT, text=True).strip()
-            source = subprocess.check_output(["git", "show", f"{revision}:src/attention_controller.sv"], cwd=ROOT)
-            old_controller = work / "baseline.sv"
-            old_controller.write_bytes(source)
-            baseline = build(verilator, work, old_controller, "baseline")
-            print(f"Comparing version-1 controller at {revision}", flush=True)
+            simulate(current, f"+VECTORS={data}", f"+verilator+seed+{seed}")
         for latency in (2, 8, 32):
-            timing = f"+MEM_CYCLES={latency}"
-            current_log = simulate(current, data, timing)
-            if baseline:
-                old_log = simulate(baseline, data, timing, "+LEGACY")
-                new_total = int(re.search(r"total_cycles=(\d+)", current_log)[1])
-                old_total = int(re.search(r"total_cycles=(\d+)", old_log)[1])
-                print(f"COMPARE memory_response_cycles={latency}: old={old_total}, new={new_total}, "
-                      f"reduction={100*(old_total-new_total)/old_total:.2f}%", flush=True)
+            simulate(current, f"+VECTORS={data}", f"+MEM_CYCLES={latency}")
+        # Exercise the controller's memory-base parameters outside the default map.
+        relocated = work / "relocated"
+        relocated.mkdir()
+        current = build(relocated, "tb_controller", sources,
+                        "-GTEST_K_BASE=16'h1200", "-GTEST_V_BASE=16'h3400")
+        simulate(current, f"+VECTORS={data}", "+verilator+seed+298")
 
 
 if __name__ == "__main__":

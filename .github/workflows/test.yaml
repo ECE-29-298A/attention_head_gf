@@ -41,8 +41,11 @@ jobs:
             python -m cocotb_tools.check_results results.xml
           done
 
-      - name: Run controller test
+      - name: Run integrated RTL controller test
         run: python test/controller/run.py
+
+      - name: Run divider block test
+        run: python test/divider/run.py
 
       - name: Test Summary
         uses: test-summary/action@v2.4

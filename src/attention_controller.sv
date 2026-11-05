@@ -2,8 +2,8 @@
 
 // Two-pass INT4 core: first find the maximum, then recompute scores and accumulate.
 // K is read twice and V once; no scores or weights are written to external memory.
-// Memory, exponent and divider are external engines.
-// All resets are synchronous. Reset the attached engines at the same time.
+// All arithmetic blocks are instantiated below; only host and memory are external.
+// All resets are synchronous. Reset must also cancel/drain pending memory reads.
 module attention_controller #(
     parameter logic [15:0] K_BASE = 16'h0000, // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
     parameter logic [15:0] V_BASE = 16'h0020 // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
@@ -30,26 +30,27 @@ module attention_controller #(
     input wire mem_rsp_valid,        // Completion of the accepted read, in a later cycle.
     input wire [7:0] mem_rdata,       // Returned read byte; valid with mem_rsp_valid.
 
-    // Exponent LUT: approximate weight = 255 * exp((score - maximum) / 2).
-    output wire exp_start,           // One-cycle pulse to start calculating the current token's weight.
-    output wire signed [9:0] exp_max,   // Final maximum score across all tokens.
-    output wire signed [9:0] exp_score, // Current token's score; operands stay stable while waiting.
-    input wire exp_done,             // Calculation complete; exp_weight is valid in this cycle.
-    input wire [7:0] exp_weight,      // Unsigned LUT-generated attention weight: 0–255.
-
-    // Divider engine: result = round(16 * weighted_sum / weight_sum).
-    output wire div_start,           // One-cycle pulse to start normalizing one output component.
-    output logic signed [15:0] div_sum, // Weighted sum O_i = sum(W_j * V_j,i).
-    output wire [11:0] div_denominator, // Weight sum L = sum(W_j); positive for a valid transaction.
-    input wire div_done,             // Division complete; div_result is valid in this cycle.
-    input wire signed [7:0] div_result, // Rounded signed result code; actual value = code / 16.
-
     // Output interface: components are sent in order 0, 1, 2, 3.
     // A byte transfers on a rising edge when out_valid && out_ready.
     output wire out_valid,           // A completed output byte is available.
     input wire out_ready,            // Receiver can accept the current output byte.
     output logic signed [7:0] out_data // Signed result code; held stable while valid and not ready.
 );
+    // Internal LUT handshake: approximate weight = 255 * exp((score - maximum) / 2).
+    wire exp_start;                   // One-cycle request for the current token's weight.
+    wire signed [9:0] exp_max;        // Final maximum across all tokens.
+    wire signed [9:0] exp_score;      // Current score; stable until completion.
+    wire exp_done;                    // Completion pulse; exp_weight is valid.
+    wire [7:0] exp_weight;            // Unsigned, unnormalized attention weight: 0–255.
+
+    // Internal divider handshake: result = round(16 * weighted_sum / weight_sum).
+    wire div_start;                   // One-cycle request to normalize one output component.
+    logic signed [15:0] div_sum;      // Selected weighted sum O_i = sum(W_j * V_j,i).
+    wire [11:0] div_denominator;      // Weight sum L = sum(W_j); positive for valid input.
+    wire div_busy;                    // Divider is computing; sequencing waits for div_done.
+    wire div_done;                    // Completion pulse; div_result is valid.
+    wire signed [7:0] div_result;     // Rounded signed output code; real value = code / 16.
+
     typedef enum logic [4:0] {
         IDLE, INIT, KEY0, KEY1, KEY_READY, SCORE_CLEAR, SCORE_MAC,
         SCORE_CAPTURE, KEY_NEXT, ACCUM_CLEAR, EXP_START, EXP_WAIT,
@@ -96,6 +97,17 @@ module attention_controller #(
         .v2($signed(operands[11:8])), .v3($signed(operands[15:12])),
         .L(div_denominator), .O0(o0), .O1(o1), .O2(o2), .O3(o3)
     );
+    exp_lut exponent_unit (
+        .clk(clk), .rst_n(rst_n), .start(exp_start), .M(exp_max), .S(exp_score),
+        .done(exp_done), .W(exp_weight)
+    );
+    divider divider_unit (
+        .clk(clk), .rst_n(rst_n), .start(div_start), .sum_in(div_sum),
+        .denominator(div_denominator), .busy(div_busy), .done(div_done), .result(div_result)
+    );
+    // Waiting for div_done prevents another start while busy; no busy polling needed.
+    wire _unused = &{div_busy, 1'b0};
+
     always_comb begin
         case (output_index)
             0: div_sum = o0;

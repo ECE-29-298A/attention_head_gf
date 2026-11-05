@@ -2,7 +2,9 @@
 
 This is the current two-pass sequence in `src/attention_controller.sv`. It
 supersedes [version 1](int4-controller-sequence-v1.md). The existing `score_mac`,
-`max_reg`, and `accum` blocks are unchanged.
+`max_reg`, and `accum` blocks are unchanged. The controller now also instantiates
+the separate `exp_lut` and `divider` modules directly; their handshakes are
+internal, without an additional core wrapper.
 
 ## 1. Numeric contract and data flow
 
@@ -71,16 +73,17 @@ particularly, both K passes must see identical data.
   stable until accepted. `mem_rsp_valid` returns its byte in a later cycle.
   One request is outstanding at a time. Compatibility outputs `mem_write`
   and `mem_wdata` stay zero.
-- Exponent: one-cycle `exp_start`, then wait for `exp_done` with `exp_weight`.
+- Internal exponent: one-cycle `exp_start`, then wait for `exp_done` with `exp_weight`.
   Maximum and score stay stable until completion; no new start while waiting.
-- Divider: one-cycle `div_start`, then wait for `div_done` with `div_result`.
+- Internal divider: one-cycle `div_start`, then wait for `div_done` with `div_result`.
   Sum and denominator stay stable until completion; no new start while waiting.
 - Output: `out_valid && out_ready` transfers the result at a rising edge.
   Hold data and valid while stalled. Send components in order 0, 1, 2, 3.
 
-Exponent and divider completion must arrive in a later cycle than start, not
-on the same edge. Reset all engines together, or drain/discard outstanding
-responses before another transaction can start.
+The LUT registers its result/done at the accepted start edge; the sequencing
+logic consumes them at the next edge. Divider completion is consumed 21 clocks
+after accepted start. All internal blocks share reset. The external memory
+adapter must cancel or drain outstanding responses before another run starts.
 
 ## 4. State table (matches the RTL names)
 
@@ -139,7 +142,7 @@ Do not add weights to L in `EXP_WAIT`; the existing accumulator does that in
 tokens. The operand buffer can be overwritten with V because the score has
 already been captured and its exponent calculated.
 
-The external exponent engine (`src/exp_lut.v`) must match Python
+The internal exponent instance (`src/exp_lut.v`) matches Python
 `exp_weight`: D=M−S, W=round(255·e^(−D/2)) from a 13-entry table, and W=0
 for D>=13. At least one valid token has W=255, so L>0.
 
@@ -169,9 +172,9 @@ The initiating state sets address and return_state before entering
 
 ## 5. Reset, testing and remaining scope
 
-Synchronous active-low reset aborts the transaction. Cancel or discard pending
-memory/arithmetic responses and restart from idle with fresh Q/N. Real xSPI
-abort behavior is not implemented by this prototype.
+Synchronous active-low reset aborts the transaction and all internal arithmetic.
+Cancel or discard pending external memory responses and restart from idle with
+fresh Q/N. Real xSPI abort behavior is not implemented by this prototype.
 
 Verification must check both score passes against Python, final maximum before
 any exponent starts, weights, running sums, outputs, and all stalls/handshakes.
@@ -179,8 +182,11 @@ Require exactly two reads per active K byte, one per V byte, zero writes,
 8N MAC enables, N max updates, N accumulator updates and four divisions.
 Exercise N=1/N=16, negative scores, last-token maximum, memory and output
 stalls, reset in both passes, and back-to-back queries. See [controller.md](controller.md)
-for the runnable tests, measured comparison and limitations.
+for the runnable tests, historical comparison and limitations.
 
-The host SPI wrapper, real xSPI adapter/DMA, exponent RTL, divider RTL and
-Tiny Tapeout top-level integration remain separate work. The current exponent,
-divider and memory in the testbench are behavioral stand-ins.
+The host SPI wrapper, real xSPI adapter/DMA and Tiny Tapeout top-level integration
+remain separate work. All arithmetic is implemented inside
+[attention_controller](controller.md). One integrated controller regression
+models memory and host behavior only; all attention arithmetic comes from RTL.
+Standalone block tests cover additional arithmetic boundaries. See
+[divider.md](divider.md) for the real division latency.
