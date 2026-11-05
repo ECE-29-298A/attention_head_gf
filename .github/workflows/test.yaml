@@ -44,6 +44,9 @@ jobs:
       - name: Run integrated RTL controller test
         run: python test/controller/run.py
 
+      - name: Run controller Cocotb tests
+        run: python test/controller/cocotb/run.py
+
       - name: Run divider block test
         run: python test/divider/run.py
 
