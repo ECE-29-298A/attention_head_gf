@@ -3,6 +3,7 @@
 # Tiny Tapeout Verilog Project Template
 
 - [Read the documentation for project](docs/info.md)
+- [QSPI/OSPI byte engines](docs/spi-byte.md) (standalone RTL, not yet connected to the attention controller)
 
 ## What is Tiny Tapeout?
 

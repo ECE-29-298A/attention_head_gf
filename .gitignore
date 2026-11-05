@@ -16,3 +16,4 @@ test/blocks/results.xml
 __pycache__/
 .venv/
 .docs/
+/build/

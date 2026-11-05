@@ -43,10 +43,6 @@ class Bus:
         div_due = self.div_pending is not None and self.div_pending[0] <= self.cycle
         d.mem_rsp_valid.value = int(mem_due and reset)
         d.mem_rdata.value = self.mem_pending[1] if mem_due and reset else 0
-        d.exp_done.value = int(exp_due and reset)
-        d.exp_weight.value = self.exp_pending[1] if exp_due and reset else 0
-        d.div_done.value = int(div_due and reset)
-        d.div_result.value = self.div_pending[1] if div_due and reset else 0
         await Timer(1, unit="ns")
         req = reset and int(d.mem_req_valid.value)
         addr = int(d.mem_addr.value) if reset else 0
@@ -58,6 +54,13 @@ class Bus:
         ready = int(d.out_ready.value)
         exp_args = (int(d.exp_max.value.to_signed()), int(d.exp_score.value.to_signed())) if reset else (0, 0)
         div_args = (int(d.div_sum.value.to_signed()), int(d.div_denominator.value)) if reset else (0, 0)
+        if reset:
+            assert int(d.exp_done.value) == int(exp_due), "LUT completion timing"
+            assert int(d.div_done.value) == int(div_due), "divider completion timing"
+            if exp_due:
+                assert int(d.exp_weight.value) == self.exp_pending[1], "LUT result mismatch"
+            if div_due:
+                assert d.div_result.value.to_signed() == self.div_pending[1], "divider result mismatch"
         if self.mem_stall_addr is not None:
             assert req and addr == self.mem_stall_addr, "memory request changed while stalled"
         self.mem_stall_addr = addr if req and not req_ready else None
@@ -85,11 +88,11 @@ class Bus:
             if exp_start:
                 assert self.exp_pending is None
                 self.exps.append(exp_args)
-                self.exp_pending = (self.cycle + self.rng.randint(1, 4), exp_weight(*exp_args))
+                self.exp_pending = (self.cycle + 1, exp_weight(*exp_args))
             if div_start:
                 assert self.div_pending is None
                 self.divs.append(div_args)
-                self.div_pending = (self.cycle + self.rng.randint(1, 5), divide_round(*div_args))
+                self.div_pending = (self.cycle + 21, divide_round(*div_args))
             if out_valid and ready:
                 self.outputs.append(out_data)
         self.cycle += 1
@@ -186,7 +189,7 @@ async def invalid_count_and_reset_abort(dut):
     bus.load(keys, values)
     await bus.tick(start=1, count=2, query=packed(q))
     assert int(dut.busy.value)
-    # Reset with an outstanding read. Stale mock completions are discarded.
+    # Reset with an outstanding read. The testbench discards its pending response.
     for _ in range(100):
         await bus.tick(count=2, query=packed(q), delay=8)
         if bus.mem_pending:

@@ -50,6 +50,9 @@ jobs:
       - name: Run divider block test
         run: python test/divider/run.py
 
+      - name: Run QSPI and OSPI byte engine tests
+        run: make -C test/spi_byte test lint
+
       - name: Test Summary
         uses: test-summary/action@v2.4
         with:

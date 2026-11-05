@@ -49,7 +49,9 @@ To run the attention controller Cocotb suite from the repository root:
 python3 test/controller/cocotb/run.py
 ```
 
-This suite models memory and the divider, and checks directed and seeded-random transactions.
+This suite models external memory and host behavior, checks directed and
+seeded-random transactions, and verifies the controller's real exponent LUT
+and divider results and completion timing.
 
 To run gatelevel simulation, first harden your project and copy `../runs/wokwi/results/final/verilog/gl/{your_module_name}.v` to `gate_level_netlist.v`.
 
