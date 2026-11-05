@@ -1,114 +1,77 @@
+"""Exhaustive score-pair and handshake checks for the exponent LUT."""
+
+import math
 import random
-import sys
-from pathlib import Path
 
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import FallingEdge
-
-# Use the Python model as the answer key
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "python" / "src"))
-from attention_model import exp_weight  # noqa: E402
-
-# Every score q·k can reach with INT4: 4 · (-8 · 7) = -224 up to 4 · (-8 · -8) = 256
-S_MIN, S_MAX = -224, 256
+from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
 
-async def reset(dut):
+SCORE_MIN = -224
+SCORE_MAX = 256
+
+
+@cocotb.test()
+async def exp_lut_exhaustive_and_handshake(dut):
+    rng = random.Random(29804)
+    dut.rst_n.value = 0
     dut.start.value = 0
     dut.M.value = 0
     dut.S.value = 0
-    dut.rst_n.value = 0
-    await FallingEdge(dut.clk)
-    await FallingEdge(dut.clk)
-    dut.rst_n.value = 1
-    await FallingEdge(dut.clk)
-
-
-@cocotb.test()
-async def test_exp_lut_exhaustive(dut):
-    """Every valid (M, S) pair with M >= S, back to back, one start per cycle."""
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
-    await reset(dut)
+    expected_weight = 0
 
-    # Inputs go in before a rising edge; by the next falling edge the
-    # result for THIS pair is already registered.
+    async def cycle(*, rst_n=1, start=0, maximum=0, score=0):
+        nonlocal expected_weight
+        await FallingEdge(dut.clk)
+        dut.rst_n.value = rst_n
+        dut.start.value = start
+        dut.M.value = maximum
+        dut.S.value = score
+        if not rst_n:
+            expected_weight = 0
+            expected_done = 0
+        else:
+            expected_done = start
+            if start:
+                delta = max(0, maximum - score)
+                expected_weight = round(255 * math.exp(-delta / 2)) if delta < 16 else 0
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        assert int(dut.done.value) == expected_done, (
+            f"done={int(dut.done.value)}, expected={expected_done}; "
+            f"rst_n={rst_n}, start={start}, M={maximum}, S={score}"
+        )
+        assert int(dut.W.value) == expected_weight, (
+            f"W={int(dut.W.value)}, expected={expected_weight}; "
+            f"rst_n={rst_n}, start={start}, M={maximum}, S={score}"
+        )
+
+    await cycle(rst_n=0, start=1, maximum=256, score=-224)
+    await cycle()
+    for delta in range(0, 17):
+        await cycle(start=1, maximum=delta, score=0)
+    await cycle(start=1, maximum=-224, score=256)  # contract violation clamps
+    await cycle(start=0, maximum=256, score=-224)  # weight holds
+    await cycle(rst_n=0, start=1, maximum=0, score=0)
+
+    # Every reachable ordered pair, with consecutive starts on every cycle.
+    # This exercises both positive and negative signed input encodings.
     checked = 0
-    for M in range(S_MIN, S_MAX + 1):
-        for S in range(S_MIN, M + 1):
-            dut.M.value = M
-            dut.S.value = S
-            dut.start.value = 1
-            await FallingEdge(dut.clk)
-
-            assert dut.done.value == 1, f"done missing for M={M}, S={S}"
-            got = int(dut.W.value)
-            want = exp_weight(M, S)
-            assert got == want, f"M={M}, S={S}, D={M - S}: W={got}, expected {want}"
+    for maximum in range(SCORE_MIN, SCORE_MAX + 1):
+        for score in range(SCORE_MIN, maximum + 1):
+            await cycle(start=1, maximum=maximum, score=score)
             checked += 1
-
-    dut.start.value = 0
-    await FallingEdge(dut.clk)
-    assert dut.done.value == 0
-
-    assert checked == sum(range(1, S_MAX - S_MIN + 2)), "missed some pairs"
-    dut._log.info(f"checked {checked} (M, S) pairs")
-
-
-@cocotb.test()
-async def test_exp_lut_handshake(dut):
-    """done is a one-cycle pulse a cycle after start; W holds until the next start."""
-    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
-    await reset(dut)
-    random.seed(298)
-
-    assert dut.done.value == 0, "done high after reset"
-    assert int(dut.W.value) == 0, "W not cleared by reset"
+    assert checked == 115921
+    await cycle(start=0, maximum=0, score=0)
 
     for _ in range(500):
-        S = random.randint(S_MIN, S_MAX)
-        M = random.randint(S, S_MAX)
-
-        dut.M.value = M
-        dut.S.value = S
-        dut.start.value = 1
-        await FallingEdge(dut.clk)
-        dut.start.value = 0
-        # Junk on the inputs must not matter once start is gone
-        dut.M.value = random.randint(-512, 511)
-        dut.S.value = random.randint(-512, 511)
-
-        assert dut.done.value == 1, "done should pulse the cycle after start"
-        want = exp_weight(M, S)
-        assert int(dut.W.value) == want
-
-        # Idle for a few cycles: done drops, W stays
-        for _ in range(random.randint(1, 4)):
-            await FallingEdge(dut.clk)
-            assert dut.done.value == 0, "done stayed high"
-            assert int(dut.W.value) == want, "W changed without a start"
-
-    # Reset in the middle clears everything
-    dut.M.value = 0
-    dut.S.value = 0
-    dut.start.value = 1
-    await FallingEdge(dut.clk)
-    dut.start.value = 0
-    await reset(dut)
-    assert dut.done.value == 0 and int(dut.W.value) == 0, "reset did not clear"
-
-
-@cocotb.test()
-async def test_exp_lut_bad_order(dut):
-    """M < S breaks the contract. The LUT clamps D to 0, so W = 255 instead of garbage."""
-    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
-    await reset(dut)
-
-    for M, S in [(0, 1), (-224, 256), (100, 101), (-1, 0)]:
-        dut.M.value = M
-        dut.S.value = S
-        dut.start.value = 1
-        await FallingEdge(dut.clk)
-        assert dut.done.value == 1
-        assert int(dut.W.value) == 255, f"M={M}, S={S}: W={int(dut.W.value)}, expected clamp to 255"
-    dut.start.value = 0
+        score = rng.randint(SCORE_MIN, SCORE_MAX)
+        maximum = rng.randint(score, SCORE_MAX)
+        await cycle(start=1, maximum=maximum, score=score)
+        for _ in range(rng.randint(1, 4)):
+            await cycle(start=0, maximum=rng.randint(-512, 511),
+                        score=rng.randint(-512, 511))
+        if rng.randrange(20) == 0:
+            await cycle(rst_n=0, start=1, maximum=maximum, score=score)
