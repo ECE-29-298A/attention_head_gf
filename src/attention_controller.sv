@@ -25,7 +25,7 @@ module attention_controller #(
     output wire mem_req_valid,       // Controller is requesting memory.
     input wire mem_req_ready,        // Memory adapter can accept the request.
     output wire mem_write,           // Always 0: this core only reads memory. Kept for adapter compatibility.
-    output logic [15:0] mem_addr,     // Byte address; held stable until request acceptance.
+    output wire [15:0] mem_addr,      // Byte address; held stable until request acceptance.
     output wire [7:0] mem_wdata,      // Always 0: no write data is used by this core.
     input wire mem_rsp_valid,        // Completion of the accepted read, in a later cycle.
     input wire [7:0] mem_rdata,       // Returned read byte; valid with mem_rsp_valid.
@@ -34,7 +34,7 @@ module attention_controller #(
     // A byte transfers on a rising edge when out_valid && out_ready.
     output wire out_valid,           // A completed output byte is available.
     input wire out_ready,            // Receiver can accept the current output byte.
-    output logic signed [7:0] out_data // Signed result code; held stable while valid and not ready.
+    output wire signed [7:0] out_data // Signed result code; held stable while valid and not ready.
 );
     // Internal LUT handshake: approximate weight = 255 * exp((score - maximum) / 2).
     wire exp_start;                   // One-cycle request for the current token's weight.
@@ -58,13 +58,13 @@ module attention_controller #(
         DIV_START, DIV_WAIT, OUTPUT_WAIT, COMPLETE, MEM_REQUEST, MEM_WAIT
     } state_t;
     state_t state, return_state;
-    logic [4:0] n;
+    logic [3:0] last; // token_count - 1
     logic [3:0] token;
     logic second_pass; // 0: find maximum. 1: use the frozen maximum and accumulate.
     logic [1:0] component, output_index, bit_index; // bit_index: bit of the multiplier operand (shift-add)
     logic [15:0] query, operands;
-    logic [7:0] read_byte, weight;
-    logic signed [9:0] current_score; // Only the current token, held for the exponent engine.
+    // exp_lut holds W until its next start, so no local copy is needed.
+    wire [7:0] weight = exp_weight;
     wire signed [9:0] score, maximum;
     wire signed [15:0] o0, o1, o2, o3;
     wire [15:0] row_offset = {11'b0, token, 1'b0};
@@ -78,7 +78,13 @@ module attention_controller #(
     assign mem_wdata = 8'd0;
     assign exp_start = rst_n && state == EXP_START;
     assign exp_max = maximum;
-    assign exp_score = current_score;
+    // score_mac holds S until SCORE_CLEAR, which follows the exponent and accumulate steps.
+    assign exp_score = score;
+    // divider holds result until its next completion, after this byte is accepted.
+    assign out_data = div_result;
+    // Address is decoded from the pending return state; stable while MEM_REQUEST waits.
+    assign mem_addr = (return_state == VALUE1 || return_state == VALUE_READY ? V_BASE : K_BASE)
+        + row_offset + {15'b0, return_state == KEY_READY || return_state == VALUE_READY};
     assign div_start = rst_n && state == DIV_START;
     assign out_valid = rst_n && state == OUTPUT_WAIT;
 
@@ -115,9 +121,8 @@ module attention_controller #(
         endcase
     end
 
-    // Launch one byte read; address remains registered until the next request.
-    task automatic read_byte_request(input logic [15:0] addr, input state_t next_state);
-        mem_addr <= addr;
+    // Launch one byte read; return_state selects the address.
+    task automatic read_byte_request(input state_t next_state);
         return_state <= next_state;
         state <= MEM_REQUEST;
     endtask
@@ -126,7 +131,7 @@ module attention_controller #(
         if (!rst_n) begin
             state <= IDLE;
             return_state <= IDLE;
-            n <= 0;
+            last <= 0;
             token <= 0;
             second_pass <= 0;
             component <= 0;
@@ -134,30 +139,23 @@ module attention_controller #(
             output_index <= 0;
             query <= 0;
             operands <= 0;
-            read_byte <= 0;
-            current_score <= 0;
-            weight <= 0;
             done <= 0;
-            out_data <= 0;
-            mem_addr <= 0;
         end else begin
             case (state)
                 IDLE: if (start && start_ready) begin
                     query <= query_packed;
-                    n <= token_count;
+                    last <= 4'(token_count - 5'd1);
                     token <= 0;
                     second_pass <= 0;
                     done <= 0;
                     state <= INIT;
                 end
                 INIT: state <= KEY0;
-                KEY0: read_byte_request(K_BASE + row_offset, KEY1);
-                KEY1: begin
-                    operands[7:0] <= read_byte;
-                    read_byte_request(K_BASE + row_offset + 16'd1, KEY_READY);
-                end
-                KEY_READY: begin operands[15:8] <= read_byte; state <= SCORE_CLEAR; end
-                SCORE_CLEAR: begin component <= 0; bit_index <= 0; state <= SCORE_MAC; end
+                KEY0: read_byte_request(KEY1);
+                KEY1: read_byte_request(KEY_READY);
+                KEY_READY: state <= SCORE_CLEAR;
+                // component/bit_index are already 0: every 16-cycle loop wraps them back.
+                SCORE_CLEAR: state <= SCORE_MAC;
                 // 16 cycles: one bit of one component per cycle through the ripple adder.
                 SCORE_MAC: begin
                     bit_index <= bit_index + 1'b1;
@@ -168,12 +166,9 @@ module attention_controller #(
                 end
                 // Capture on the edge AFTER the final MAC updates S.
                 SCORE_CAPTURE: begin
-                    if (second_pass) begin
-                        current_score <= score;
-                        state <= EXP_START;
-                    end else state <= KEY_NEXT;
+                    state <= second_pass ? EXP_START : KEY_NEXT;
                 end
-                KEY_NEXT: if ({1'b0, token} == n - 5'd1) begin
+                KEY_NEXT: if (token == last) begin
                     token <= 0;
                     second_pass <= 1;
                     state <= ACCUM_CLEAR;
@@ -181,14 +176,11 @@ module attention_controller #(
                 // Clear once at the pass boundary, never between pass-2 tokens.
                 ACCUM_CLEAR: state <= KEY0;
                 EXP_START: state <= EXP_WAIT;
-                EXP_WAIT: if (exp_done) begin weight <= exp_weight; state <= VALUE0; end
-                // Hold W locally while the shared operand buffer is refilled with V.
-                VALUE0: read_byte_request(V_BASE + row_offset, VALUE1);
-                VALUE1: begin
-                    operands[7:0] <= read_byte;
-                    read_byte_request(V_BASE + row_offset + 16'd1, VALUE_READY);
-                end
-                VALUE_READY: begin operands[15:8] <= read_byte; component <= 0; bit_index <= 0; state <= ACCUM_STEP; end
+                EXP_WAIT: if (exp_done) state <= VALUE0;
+                // The shared operand buffer is refilled with V.
+                VALUE0: read_byte_request(VALUE1);
+                VALUE1: read_byte_request(VALUE_READY);
+                VALUE_READY: state <= ACCUM_STEP;
                 // 16 cycles: one bit of one component per cycle through the shared ripple adder.
                 ACCUM_STEP: begin
                     bit_index <= bit_index + 1'b1;
@@ -197,18 +189,19 @@ module attention_controller #(
                         if (component == 3) state <= VALUE_NEXT;
                     end
                 end
-                VALUE_NEXT: if ({1'b0, token} == n - 5'd1) begin
+                VALUE_NEXT: if (token == last) begin
                     output_index <= 0; state <= DIV_START;
                 end else begin token <= token + 1'b1; state <= KEY0; end
                 DIV_START: state <= DIV_WAIT;
-                DIV_WAIT: if (div_done) begin out_data <= div_result; state <= OUTPUT_WAIT; end
+                DIV_WAIT: if (div_done) state <= OUTPUT_WAIT;
                 OUTPUT_WAIT: if (out_ready) begin
                     if (output_index == 3) state <= COMPLETE;
                     else begin output_index <= output_index + 1'b1; state <= DIV_START; end
                 end
                 COMPLETE: begin done <= 1; state <= IDLE; end
                 MEM_REQUEST: if (mem_req_ready) state <= MEM_WAIT;
-                MEM_WAIT: if (mem_rsp_valid) begin read_byte <= mem_rdata; state <= return_state; end
+                // Low byte is read first, so shifting in from the top leaves {high, low}.
+                MEM_WAIT: if (mem_rsp_valid) begin operands <= {mem_rdata, operands[15:8]}; state <= return_state; end
                 default: state <= IDLE;
             endcase
         end
