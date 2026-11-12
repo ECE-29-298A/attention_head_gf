@@ -61,7 +61,7 @@ module attention_controller #(
     logic [4:0] n;
     logic [3:0] token;
     logic second_pass; // 0: find maximum. 1: use the frozen maximum and accumulate.
-    logic [1:0] component, output_index;
+    logic [1:0] component, output_index, bit_index; // bit_index: bit of the multiplier operand (shift-add)
     logic [15:0] query, operands;
     logic [7:0] read_byte, weight;
     logic signed [9:0] current_score; // Only the current token, held for the exponent engine.
@@ -84,7 +84,7 @@ module attention_controller #(
 
     score_mac score_unit (
         .clk(clk), .rst_n(rst_n), .clear(state == INIT || state == SCORE_CLEAR),
-        .en(state == SCORE_MAC), .qi(qi), .ki(ki), .S(score)
+        .en(state == SCORE_MAC), .qi(qi), .ki(ki), .bit_sel(bit_index), .S(score)
     );
     max_reg max_unit (
         .clk(clk), .rst_n(rst_n), .clear(state == INIT),
@@ -92,9 +92,7 @@ module attention_controller #(
     );
     accum accum_unit (
         .clk(clk), .rst_n(rst_n), .clear(state == INIT || state == ACCUM_CLEAR),
-        .en(state == ACCUM_STEP), .W(weight),
-        .v0($signed(operands[3:0])), .v1($signed(operands[7:4])),
-        .v2($signed(operands[11:8])), .v3($signed(operands[15:12])),
+        .en(state == ACCUM_STEP), .W(weight), .sel(component), .bit_sel(bit_index), .v(ki),
         .L(div_denominator), .O0(o0), .O1(o1), .O2(o2), .O3(o3)
     );
     exp_lut exponent_unit (
@@ -132,6 +130,7 @@ module attention_controller #(
             token <= 0;
             second_pass <= 0;
             component <= 0;
+            bit_index <= 0;
             output_index <= 0;
             query <= 0;
             operands <= 0;
@@ -158,9 +157,15 @@ module attention_controller #(
                     read_byte_request(K_BASE + row_offset + 16'd1, KEY_READY);
                 end
                 KEY_READY: begin operands[15:8] <= read_byte; state <= SCORE_CLEAR; end
-                SCORE_CLEAR: begin component <= 0; state <= SCORE_MAC; end
-                SCORE_MAC: if (component == 3) state <= SCORE_CAPTURE;
-                           else component <= component + 1'b1;
+                SCORE_CLEAR: begin component <= 0; bit_index <= 0; state <= SCORE_MAC; end
+                // 16 cycles: one bit of one component per cycle through the ripple adder.
+                SCORE_MAC: begin
+                    bit_index <= bit_index + 1'b1;
+                    if (bit_index == 3) begin
+                        component <= component + 1'b1;
+                        if (component == 3) state <= SCORE_CAPTURE;
+                    end
+                end
                 // Capture on the edge AFTER the final MAC updates S.
                 SCORE_CAPTURE: begin
                     if (second_pass) begin
@@ -183,8 +188,15 @@ module attention_controller #(
                     operands[7:0] <= read_byte;
                     read_byte_request(V_BASE + row_offset + 16'd1, VALUE_READY);
                 end
-                VALUE_READY: begin operands[15:8] <= read_byte; state <= ACCUM_STEP; end
-                ACCUM_STEP: state <= VALUE_NEXT;
+                VALUE_READY: begin operands[15:8] <= read_byte; component <= 0; bit_index <= 0; state <= ACCUM_STEP; end
+                // 16 cycles: one bit of one component per cycle through the shared ripple adder.
+                ACCUM_STEP: begin
+                    bit_index <= bit_index + 1'b1;
+                    if (bit_index == 3) begin
+                        component <= component + 1'b1;
+                        if (component == 3) state <= VALUE_NEXT;
+                    end
+                end
                 VALUE_NEXT: if ({1'b0, token} == n - 5'd1) begin
                     output_index <= 0; state <= DIV_START;
                 end else begin token <= token + 1'b1; state <= KEY0; end

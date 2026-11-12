@@ -105,7 +105,7 @@ module tb_controller #(
                         else $fatal(1, "Dot-product mismatch");
                     captures++;
                 end
-                score_ready = dut.score_unit.en && dut.component == 3;
+                score_ready = dut.score_unit.en && dut.component == 3 && dut.bit_index == 3;
                 if (dut.max_unit.en) begin
                     assert (max_updates < count) else $fatal(1, "Max updated in pass 2");
                     max_updates++;
@@ -130,13 +130,16 @@ module tb_controller #(
                             dut.o0 == 16'(running_o[0]) && dut.o1 == 16'(running_o[1]) &&
                             dut.o2 == 16'(running_o[2]) && dut.o3 == 16'(running_o[3]))
                         else $fatal(1, "Running sums mismatch");
+                // Accumulation is serial: one bit of one component per en cycle, L on the first.
                 if (dut.accum_unit.en) begin
                     assert (accum_updates < count && exp_results == accum_updates+1 &&
                             dut.weight == 8'(weights[accum_updates])) else $fatal(1, "Bad accumulate");
-                    running_l += weights[accum_updates];
-                    for (int c = 0; c < 4; c++)
-                        running_o[c] += weights[accum_updates] * value_component(accum_updates, c);
-                    accum_updates++; check_sums = 1;
+                    if (dut.component == 0 && dut.bit_index == 0) running_l += weights[accum_updates];
+                    if ((value_component(accum_updates, dut.component) >> dut.bit_index) & 1)
+                        running_o[dut.component] += weights[accum_updates] *
+                            (dut.bit_index == 3 ? -8 : (1 << dut.bit_index));
+                    if (dut.component == 3 && dut.bit_index == 3) accum_updates++;
+                    check_sums = 1;
                 end
                 if (div_pending)
                     assert (!dut.div_start && dut.div_sum == held_sum && dut.div_denominator == held_denominator)
@@ -258,7 +261,7 @@ module tb_controller #(
             repeat (2) @(negedge clk);
             start = 0; ticks = 0;
             while (!done && ticks < 20000) begin @(negedge clk); ticks++; end
-            assert (done && !busy && received == 4 && captures == 2*count && mac_cycles == 8*count &&
+            assert (done && !busy && received == 4 && captures == 2*count && mac_cycles == 32*count &&
                     max_updates == count && accum_updates == count && exp_calls == count &&
                     exp_results == count && div_calls == 4 && div_results == 4)
                 else $fatal(1, "Incomplete transaction %0d", checked);

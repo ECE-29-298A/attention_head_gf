@@ -168,6 +168,7 @@ Compile the controller and its five arithmetic modules:
 ```text
 src/attention_controller.sv
 src/score_mac.v
+src/ripple_add.v
 src/max_reg.v
 src/accum.v
 src/exp_lut.v
