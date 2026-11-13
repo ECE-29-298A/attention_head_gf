@@ -20,10 +20,9 @@ table and a shifter. That also only produces 13 answers, but slightly off
 at D = 1, 3, 5, and it takes ~2.5x the gates. This table is exact.)
 
 Must match exp_weight() / EXP_TABLE in python/src/attention_model.py.
-Checked on every valid (M, S) pair: test/blocks/test_exp_lut.py (115,921 cases).
+Checked exhaustively near D = 0..16 plus random INT8 pairs: test/blocks/test_exp_lut.py.
 
-NOTE: this holds for any integer scores, INT4 or INT8. Only the width
-of M and S changes. If someone ever changes the /2 scaling, regenerate
+NOTE: this holds for any integer scores. INT8 only widened M and S. If someone ever changes the /2 scaling, regenerate
 the table from EXP_TABLE.
 
 Handshake (matches attention_controller):
@@ -39,20 +38,20 @@ module exp_lut (
     input  wire              clk,
     input  wire              rst_n,
     input  wire              start,
-    input  wire signed [9:0] M,       // final maximum score
-    input  wire signed [9:0] S,       // this token's score
+    input  wire signed [17:0] M,      // final maximum score
+    input  wire signed [17:0] S,      // this token's score
     output reg               done,
     output reg         [7:0] W        // 0 to 255, UNSIGNED
 );
 
-// D = M - S, one extra bit so a negative result is visible in diff[10]
-wire signed [10:0] diff = {M[9], M} - {S[9], S};
+// D = M - S, one extra bit so a negative result is visible in diff[18]
+wire signed [18:0] diff = {M[17], M} - {S[17], S};
 
 reg [7:0] weight;
 always @(*) begin
-    if (diff[10]) begin
+    if (diff[18]) begin
         weight = 8'd255;              // M < S: clamp to D = 0
-    end else if (diff[9:4] != 6'd0) begin
+    end else if (diff[17:4] != 14'd0) begin
         weight = 8'd0;                // D >= 16: way too far behind
     end else begin
         case (diff[3:0])

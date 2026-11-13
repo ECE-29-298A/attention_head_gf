@@ -10,19 +10,19 @@ sys.path.insert(0, str(ROOT / "test"))
 from rtl_sim import build, simulate
 
 sys.path.insert(0, str(ROOT / "python/src"))
-from attention_model import chip_attention, dot4, exp_weight, pack_byte
+from attention_model import chip_attention, dot, exp_weight, pack_byte
 
 
 def encode_case(q, k, v):
     """Encode Python-model outputs and intermediate results for RTL assertions."""
-    scores = [dot4(q, row) for row in k]
+    scores = [dot(q, row) for row in k]
     weights = [exp_weight(max(scores), s) for s in scores]
-    fields = [len(k), sum((x & 15) << (4 * i) for i, x in enumerate(q))]
+    fields = [len(k), sum(pack_byte(x) << (8 * i) for i, x in enumerate(q))]
     for rows in (k, v):
         for row in rows:
-            fields.extend([pack_byte(*row[:2]), pack_byte(*row[2:])])
+            fields.extend(pack_byte(x) for x in row)
     fields.extend(x & 255 for x in chip_attention(q, k, v))
-    fields.extend(s & 65535 for s in scores)
+    fields.extend(scores)
     fields.extend(weights)
     return " ".join(str(x) for x in fields)
 
@@ -31,30 +31,33 @@ def vectors():
     rng = random.Random(298)
     # Single token, negative scores, all-equal scores, extrema, and lost tails.
     cases = [
-        ([1, 0, 0, 0], [[-8, 0, 0, 0]], [[-8, -1, 0, 7]]),
-        ([-8] * 4, [[-8] * 4] * 16, [[-8] * 4] * 16),
-        ([-8] * 4, [[7] * 4] * 16, [[7] * 4] * 16),
+        ([1, 0, 0, 0], [[-128, 0, 0, 0]], [[-128, -1, 0, 127]]),
+        ([-128] * 4, [[-128] * 4] * 16, [[-128] * 4] * 16),
+        ([-128] * 4, [[127] * 4] * 16, [[127] * 4] * 16),
         ([0] * 4, [[0] * 4] * 2, [[0] * 4, [1] * 4]),
         ([1, 0, 0, 0], [[7, 0, 0, 0]] + [[-6, 0, 0, 0]] * 15,
-         [[-8] * 4] + [[7] * 4] * 15),
+         [[-128] * 4] + [[127] * 4] * 15),
         # The final key changes the maximum: no exponent may run prematurely.
         ([1, 0, 0, 0], [[x, 0, 0, 0] for x in range(-8, 8)],
-         [[-8, 7, -1, 1] if x % 2 else [7, -8, 1, -1] for x in range(16)]),
+         [[-128, 127, -1, 1] if x % 2 else [127, -128, 1, -1] for x in range(16)]),
         ([1, 0, 0, 0], [[-7, 0, 0, 0], [-5, 0, 0, 0], [-1, 0, 0, 0]],
-         [[-8, 7, 0, 1], [7, -8, 1, 0], [-1, 1, -8, 7]]),
+         [[-128, 127, 0, 1], [127, -128, 1, 0], [-1, 1, -128, 127]]),
+        # Small Q x K spread so several weights are nonzero with full-range V.
+        ([1, 1, 0, 0], [[x, -x // 2, 0, 0] for x in range(16)],
+         [[(37 * x) % 256 - 128, 127 - 16 * x, -128 + 16 * x, x] for x in range(16)]),
     ]
     for n in range(1, 17):
         for _ in range(8):
-            vec = lambda: [rng.randint(-8, 7) for _ in range(4)]
+            vec = lambda: [rng.randint(-128, 127) for _ in range(4)]
             cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)]))
     for q, k, v in cases:
         yield encode_case(q, k, v)
 
-    # Weights [255, 1] give denominator 256. O=+/-248 rounds +/-15.5
+    # Weights [255, 1] give denominator 256. O=+/-128 rounds +/-0.5
     # away from zero; neighboring sums test both sides of the tie.
     q, k = [1, 0, 0, 0], [[7, 0, 0, 0], [-4, 0, 0, 0]]
-    yield encode_case(q, k, [[1, -1, 0, 0], [-7, 7, 0, 0]])
-    yield encode_case(q, k, [[1, -1, 1, -1], [-8, 6, -6, 7]])
+    yield encode_case(q, k, [[1, -1, 0, 0], [-127, 127, 0, 0]])
+    yield encode_case(q, k, [[1, -1, 1, -1], [-128, 126, -126, 128 - 1]])
     yield encode_case([0]*4, [[0]*4]*16, [[0]*4]*16)
 
 

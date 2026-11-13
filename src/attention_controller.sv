@@ -1,12 +1,12 @@
 `default_nettype none
 
-// Two-pass INT4 core: first find the maximum, then recompute scores and accumulate.
+// Two-pass INT8 core: first find the maximum, then recompute scores and accumulate.
 // K is read twice and V once; no scores or weights are written to external memory.
 // All arithmetic blocks are instantiated below; only host and memory are external.
 // All resets are synchronous. Reset must also cancel/drain pending memory reads.
 module attention_controller #(
-    parameter logic [15:0] K_BASE = 16'h0000, // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
-    parameter logic [15:0] V_BASE = 16'h0020 // 2 bytes per token (4 INT4 components), max 16 tokens -> 32 bytes
+    parameter logic [15:0] K_BASE = 16'h0000, // 4 bytes per token (4 INT8 components), max 16 tokens -> 64 bytes
+    parameter logic [15:0] V_BASE = 16'h0040 // 4 bytes per token (4 INT8 components), max 16 tokens -> 64 bytes
 ) (
     // Clock and reset
     input wire clk,
@@ -15,7 +15,7 @@ module attention_controller #(
     // Start and configuration
     input wire start,                 // Request a transaction; accepted when start && start_ready.
     input wire [4:0] token_count,     // Number of tokens (K/V rows): 1–16. Captured when start is accepted.
-    input wire [15:0] query_packed,   // Four signed INT4 Q components: Q0=[3:0], Q1=[7:4], Q2=[11:8], Q3=[15:12]. Captured when start is accepted.
+    input wire [31:0] query_packed,   // Four signed INT8 Q components: Q0=[7:0], Q1=[15:8], Q2=[23:16], Q3=[31:24]. Captured when start is accepted.
     output wire start_ready,         // High when idle, reset released, and token_count is valid.
     output wire busy,                // High when processing
     output logic done,               // Sticky flag: all four outputs accepted. Cleared on start/reset.
@@ -34,42 +34,45 @@ module attention_controller #(
     // A byte transfers on a rising edge when out_valid && out_ready.
     output wire out_valid,           // A completed output byte is available.
     input wire out_ready,            // Receiver can accept the current output byte.
-    output wire signed [7:0] out_data // Signed result code; held stable while valid and not ready.
+    output wire signed [7:0] out_data // INT8 result; held stable while valid and not ready.
 );
     // Internal LUT handshake: approximate weight = 255 * exp((score - maximum) / 2).
     wire exp_start;                   // One-cycle request for the current token's weight.
-    wire signed [9:0] exp_max;        // Final maximum across all tokens.
-    wire signed [9:0] exp_score;      // Current score; stable until completion.
+    wire signed [17:0] exp_max;       // Final maximum across all tokens.
+    wire signed [17:0] exp_score;      // Current score; stable until completion.
     wire exp_done;                    // Completion pulse; exp_weight is valid.
     wire [7:0] exp_weight;            // Unsigned, unnormalized attention weight: 0–255.
 
-    // Internal divider handshake: result = round(16 * weighted_sum / weight_sum).
+    // Internal divider handshake: result = round(weighted_sum / weight_sum).
     wire div_start;                   // One-cycle request to normalize one output component.
-    logic signed [15:0] div_sum;      // Selected weighted sum O_i = sum(W_j * V_j,i).
+    wire signed [19:0] div_sum;       // Weighted sum O_i = sum(W_j * V_j,i), read from the accum ring.
     wire [11:0] div_denominator;      // Weight sum L = sum(W_j); positive for valid input.
     wire div_busy;                    // Divider is computing; sequencing waits for div_done.
     wire div_done;                    // Completion pulse; div_result is valid.
-    wire signed [7:0] div_result;     // Rounded signed output code; real value = code / 16.
+    wire signed [7:0] div_result;     // Rounded signed INT8 output.
 
     typedef enum logic [4:0] {
-        IDLE, INIT, KEY0, KEY1, KEY_READY, SCORE_CLEAR, SCORE_MAC,
-        SCORE_CAPTURE, KEY_NEXT, ACCUM_CLEAR, EXP_START, EXP_WAIT,
-        VALUE0, VALUE1, VALUE_READY, ACCUM_STEP, VALUE_NEXT,
+        IDLE, INIT, KEY_READ, KEY_READY, SCORE_CLEAR, SCORE_MAC,
+        SCORE_CAPTURE, KEY_NEXT, EXP_START, EXP_WAIT,
+        VALUE_READ, VALUE_READY, ACCUM_STEP, VALUE_NEXT,
         DIV_START, DIV_WAIT, OUTPUT_WAIT, COMPLETE, MEM_REQUEST, MEM_WAIT
     } state_t;
     state_t state, return_state;
     logic [3:0] last; // token_count - 1
     logic [3:0] token;
     logic second_pass; // 0: find maximum. 1: use the frozen maximum and accumulate.
-    logic [1:0] component, output_index, bit_index; // bit_index: bit of the multiplier operand (shift-add)
-    logic [15:0] query, operands;
+    // component is a free-running phase (steps every clock). The accum ring rotates in step,
+    // so accum O0 always holds component `component`. MAC loops start at phase 0.
+    logic [1:0] component, output_index;
+    // bit of the multiplier operand (shift-add); bit_index[1:0] also counts the 4 bytes of a row read.
+    logic [2:0] bit_index;
+    logic [31:0] query, operands;
     // exp_lut holds W until its next start, so no local copy is needed.
     wire [7:0] weight = exp_weight;
-    wire signed [9:0] score, maximum;
-    wire signed [15:0] o0, o1, o2, o3;
-    wire [15:0] row_offset = {11'b0, token, 1'b0};
-    wire signed [3:0] qi = $signed(query[4*component +: 4]);
-    wire signed [3:0] ki = $signed(operands[4*component +: 4]);
+    wire signed [17:0] score, maximum;
+    wire signed [19:0] o0, o1, o2, o3;
+    wire signed [7:0] qi = $signed(query[8*component +: 8]);
+    wire signed [7:0] ki = $signed(operands[8*component +: 8]);
 
     assign start_ready = rst_n && state == IDLE && token_count >= 1 && token_count <= 16;
     assign busy = state != IDLE;
@@ -83,9 +86,11 @@ module attention_controller #(
     // divider holds result until its next completion, after this byte is accepted.
     assign out_data = div_result;
     // Address is decoded from the pending return state; stable while MEM_REQUEST waits.
-    assign mem_addr = (return_state == VALUE1 || return_state == VALUE_READY ? V_BASE : K_BASE)
-        + row_offset + {15'b0, return_state == KEY_READY || return_state == VALUE_READY};
-    assign div_start = rst_n && state == DIV_START;
+    assign mem_addr = (return_state == VALUE_READ || return_state == VALUE_READY ? V_BASE : K_BASE)
+        + {10'b0, token, bit_index[1:0]};
+    // Start when the ring brings component output_index into O0.
+    assign div_start = rst_n && state == DIV_START && component == output_index;
+    assign div_sum = o0;
     assign out_valid = rst_n && state == OUTPUT_WAIT;
 
     score_mac score_unit (
@@ -97,7 +102,7 @@ module attention_controller #(
         .en(state == SCORE_CAPTURE && !second_pass), .S_in(score), .M(maximum)
     );
     accum accum_unit (
-        .clk(clk), .rst_n(rst_n), .clear(state == INIT || state == ACCUM_CLEAR),
+        .clk(clk), .first(token == 4'd0),
         .en(state == ACCUM_STEP), .W(weight), .sel(component), .bit_sel(bit_index), .v(ki),
         .L(div_denominator), .O0(o0), .O1(o1), .O2(o2), .O3(o3)
     );
@@ -110,16 +115,7 @@ module attention_controller #(
         .denominator(div_denominator), .busy(div_busy), .done(div_done), .result(div_result)
     );
     // Waiting for div_done prevents another start while busy; no busy polling needed.
-    wire _unused = &{div_busy, 1'b0};
-
-    always_comb begin
-        case (output_index)
-            0: div_sum = o0;
-            1: div_sum = o1;
-            2: div_sum = o2;
-            default: div_sum = o3;
-        endcase
-    end
+    wire _unused = &{div_busy, o1, o2, o3, 1'b0};
 
     // Launch one byte read; return_state selects the address.
     task automatic read_byte_request(input state_t next_state);
@@ -141,6 +137,7 @@ module attention_controller #(
             operands <= 0;
             done <= 0;
         end else begin
+            component <= component + 1'b1;
             case (state)
                 IDLE: if (start && start_ready) begin
                     query <= query_packed;
@@ -150,49 +147,40 @@ module attention_controller #(
                     done <= 0;
                     state <= INIT;
                 end
-                INIT: state <= KEY0;
-                KEY0: read_byte_request(KEY1);
-                KEY1: read_byte_request(KEY_READY);
-                KEY_READY: state <= SCORE_CLEAR;
-                // component/bit_index are already 0: every 16-cycle loop wraps them back.
-                SCORE_CLEAR: state <= SCORE_MAC;
-                // 16 cycles: one bit of one component per cycle through the ripple adder.
-                SCORE_MAC: begin
+                INIT: state <= KEY_READ;
+                KEY_READ: read_byte_request(state_t'(bit_index[1:0] == 3 ? KEY_READY : KEY_READ));
+                KEY_READY: begin bit_index <= 0; state <= SCORE_CLEAR; end
+                // Wait so the MAC loop starts at phase 0.
+                SCORE_CLEAR: if (component == 3) state <= SCORE_MAC;
+                // 32 cycles: one bit of one component per cycle through the ripple adder.
+                // Component (the phase) is the inner loop; bit_index steps when it wraps.
+                SCORE_MAC: if (component == 3) begin
                     bit_index <= bit_index + 1'b1;
-                    if (bit_index == 3) begin
-                        component <= component + 1'b1;
-                        if (component == 3) state <= SCORE_CAPTURE;
-                    end
+                    if (bit_index == 7) state <= SCORE_CAPTURE;
                 end
                 // Capture on the edge AFTER the final MAC updates S.
                 SCORE_CAPTURE: begin
-                    state <= second_pass ? EXP_START : KEY_NEXT;
+                    state <= state_t'(second_pass ? EXP_START : KEY_NEXT);
                 end
                 KEY_NEXT: if (token == last) begin
                     token <= 0;
                     second_pass <= 1;
-                    state <= ACCUM_CLEAR;
-                end else begin token <= token + 1'b1; state <= KEY0; end
-                // Clear once at the pass boundary, never between pass-2 tokens.
-                ACCUM_CLEAR: state <= KEY0;
+                    state <= KEY_READ; // accum loads (not adds) on token 0: no clear needed
+                end else begin token <= token + 1'b1; state <= KEY_READ; end
                 EXP_START: state <= EXP_WAIT;
-                EXP_WAIT: if (exp_done) state <= VALUE0;
+                EXP_WAIT: if (exp_done) state <= VALUE_READ;
                 // The shared operand buffer is refilled with V.
-                VALUE0: read_byte_request(VALUE1);
-                VALUE1: read_byte_request(VALUE_READY);
-                VALUE_READY: state <= ACCUM_STEP;
-                // 16 cycles: one bit of one component per cycle through the shared ripple adder.
-                ACCUM_STEP: begin
+                VALUE_READ: read_byte_request(state_t'(bit_index[1:0] == 3 ? VALUE_READY : VALUE_READ));
+                VALUE_READY: begin bit_index <= 0; if (component == 3) state <= ACCUM_STEP; end
+                // 32 cycles, same order as SCORE_MAC, through the shared ripple adder.
+                ACCUM_STEP: if (component == 3) begin
                     bit_index <= bit_index + 1'b1;
-                    if (bit_index == 3) begin
-                        component <= component + 1'b1;
-                        if (component == 3) state <= VALUE_NEXT;
-                    end
+                    if (bit_index == 7) state <= VALUE_NEXT;
                 end
                 VALUE_NEXT: if (token == last) begin
                     output_index <= 0; state <= DIV_START;
-                end else begin token <= token + 1'b1; state <= KEY0; end
-                DIV_START: state <= DIV_WAIT;
+                end else begin token <= token + 1'b1; state <= KEY_READ; end
+                DIV_START: if (component == output_index) state <= DIV_WAIT;
                 DIV_WAIT: if (div_done) state <= OUTPUT_WAIT;
                 OUTPUT_WAIT: if (out_ready) begin
                     if (output_index == 3) state <= COMPLETE;
@@ -200,8 +188,12 @@ module attention_controller #(
                 end
                 COMPLETE: begin done <= 1; state <= IDLE; end
                 MEM_REQUEST: if (mem_req_ready) state <= MEM_WAIT;
-                // Low byte is read first, so shifting in from the top leaves {high, low}.
-                MEM_WAIT: if (mem_rsp_valid) begin operands <= {mem_rdata, operands[15:8]}; state <= return_state; end
+                // Byte 0 is read first, so shifting in from the top leaves {b3, b2, b1, b0}.
+                MEM_WAIT: if (mem_rsp_valid) begin
+                    operands <= {mem_rdata, operands[31:8]};
+                    bit_index <= bit_index + 1'b1;
+                    state <= return_state;
+                end
                 default: state <= IDLE;
             endcase
         end

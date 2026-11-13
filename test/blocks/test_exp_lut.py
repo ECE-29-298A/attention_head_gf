@@ -1,4 +1,4 @@
-"""Exhaustive score-pair and handshake checks for the exponent LUT."""
+"""Score-pair and handshake checks for the exponent LUT over the INT8 score range."""
 
 import math
 import random
@@ -8,8 +8,8 @@ from cocotb.clock import Clock
 from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
 
-SCORE_MIN = -224
-SCORE_MAX = 256
+SCORE_MIN = -65024
+SCORE_MAX = 65536
 
 
 @cocotb.test()
@@ -48,22 +48,24 @@ async def exp_lut_exhaustive_and_handshake(dut):
             f"rst_n={rst_n}, start={start}, M={maximum}, S={score}"
         )
 
-    await cycle(rst_n=0, start=1, maximum=256, score=-224)
+    await cycle(rst_n=0, start=1, maximum=SCORE_MAX, score=SCORE_MIN)
     await cycle()
     for delta in range(0, 17):
         await cycle(start=1, maximum=delta, score=0)
-    await cycle(start=1, maximum=-224, score=256)  # contract violation clamps
-    await cycle(start=0, maximum=256, score=-224)  # weight holds
+    await cycle(start=1, maximum=SCORE_MIN, score=SCORE_MAX)  # contract violation clamps
+    await cycle(start=0, maximum=SCORE_MAX, score=SCORE_MIN)  # weight holds
     await cycle(rst_n=0, start=1, maximum=0, score=0)
 
-    # Every reachable ordered pair, with consecutive starts on every cycle.
-    # This exercises both positive and negative signed input encodings.
-    checked = 0
-    for maximum in range(SCORE_MIN, SCORE_MAX + 1):
-        for score in range(SCORE_MIN, maximum + 1):
-            await cycle(start=1, maximum=maximum, score=score)
-            checked += 1
-    assert checked == 115921
+    # INT8 has ~8.5e9 ordered pairs, too many to sweep. Instead: every D in
+    # 0..20 at maxima spread over the range (including both extremes and
+    # sign/bit boundaries), with consecutive starts on every cycle.
+    maxima = [SCORE_MIN + 20, -32768, -257, -16, -1, 0, 1, 15, 16, 255, 256,
+              32767, 32768, SCORE_MAX] + [rng.randint(SCORE_MIN + 20, SCORE_MAX) for _ in range(200)]
+    for maximum in maxima:
+        for delta in range(21):
+            await cycle(start=1, maximum=maximum, score=maximum - delta)
+    for delta in (SCORE_MAX - SCORE_MIN, 2**17 - 1, 2**16, 4096, 32, 31):
+        await cycle(start=1, maximum=SCORE_MAX, score=SCORE_MAX - delta)
     await cycle(start=0, maximum=0, score=0)
 
     for _ in range(500):
@@ -71,7 +73,7 @@ async def exp_lut_exhaustive_and_handshake(dut):
         maximum = rng.randint(score, SCORE_MAX)
         await cycle(start=1, maximum=maximum, score=score)
         for _ in range(rng.randint(1, 4)):
-            await cycle(start=0, maximum=rng.randint(-512, 511),
-                        score=rng.randint(-512, 511))
+            await cycle(start=0, maximum=rng.randint(-2**17, 2**17 - 1),
+                        score=rng.randint(-2**17, 2**17 - 1))
         if rng.randrange(20) == 0:
             await cycle(rst_n=0, start=1, maximum=maximum, score=score)

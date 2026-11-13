@@ -1,4 +1,4 @@
-"""Clock-by-clock maximum register tests for the INT4 score range."""
+"""Clock-by-clock maximum register tests for the INT8 score range."""
 
 import random
 
@@ -7,8 +7,8 @@ from cocotb.clock import Clock
 from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
 
-SCORE_MIN = -224
-SCORE_MAX = 256
+SCORE_MIN = -65024
+SCORE_MAX = 65536
 
 
 @cocotb.test()
@@ -41,11 +41,11 @@ async def max_reg_directed_and_random(dut):
 
     await cycle(rst_n=0, clear=1, en=1, score=SCORE_MAX)
     await cycle(en=1, score=SCORE_MIN)
-    await cycle(en=1, score=-100)
+    await cycle(en=1, score=-30000)
     await cycle(en=0, score=SCORE_MAX)  # hold despite larger input
-    await cycle(en=1, score=-100)  # equality
+    await cycle(en=1, score=-30000)  # equality
     await cycle(en=1, score=SCORE_MAX)
-    await cycle(en=1, score=-200)  # cannot decrease
+    await cycle(en=1, score=-60000)  # cannot decrease
     await cycle(clear=1, en=1, score=SCORE_MAX)  # clear priority
     await cycle(en=1, score=0)
     await cycle(rst_n=0, en=1, score=SCORE_MAX)  # reset during transaction

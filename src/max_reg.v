@@ -8,8 +8,8 @@ module max_reg (
     input  wire              rst_n,
     input  wire              clear,   // new query starting, forget the old max
     input  wire              en,      // a finished score is on S_in this tick
-    input  wire signed [9:0] S_in,
-    output reg  signed [9:0] M
+    input  wire signed [17:0] S_in,
+    output reg  signed [17:0] M
 );
 
 /*
@@ -20,9 +20,9 @@ After the last key it will hold M (top score)
 always@(posedge clk) begin
 
     if (!rst_n) begin
-        M <= -224; // CHANGE THIS IF WE GO TO INT8 (Very likely!)
+        M <= -65024; // lowest INT8 score: 4 * (-128 * 127)
     end else if (clear) begin
-        M <= -224;
+        M <= -65024;
     end else if (en) begin
         if (S_in > M) begin
             M <= S_in;

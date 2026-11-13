@@ -13,15 +13,15 @@ from attention_model import divide_round
 
 
 def cases():
-    # Sweep every possible positive 12-bit denominator at INT4 ratio bounds,
+    # Sweep every possible positive 12-bit denominator at INT8 ratio bounds,
     # zero, near zero, and representative rounding thresholds.
     for denominator in range(1, 4096):
-        for value in sorted({-8*denominator, 7*denominator, 0, -1, 1,
-                             denominator//32, denominator//32+1,
-                             -(denominator//32), -(denominator//32+1)}):
+        for value in sorted({-128*denominator, 127*denominator, 0, -1, 1,
+                             denominator//2, denominator//2+1,
+                             -(denominator//2), -(denominator//2+1)}):
             yield value, denominator, divide_round(value, denominator)
-    # Every numerator in the INT4 worst-case accumulator interval at max L.
-    for value in range(-32640, 28561):
+    # Every numerator in the INT8 worst-case accumulator interval at max L.
+    for value in range(-128*4080, 127*4080 + 1):
         yield value, 4080, divide_round(value, 4080)
     # Every output rounding threshold, on both sides and exactly at the tie.
     for magnitude_code in range(128):
@@ -29,18 +29,18 @@ def cases():
             value = 2*magnitude_code + 1 + offset
             for sign in (-1, 1):
                 try:
-                    expected = divide_round(sign*value, 32)
+                    expected = divide_round(sign*value, 2)
                 except AssertionError:
                     continue
-                yield sign*value, 32, expected
+                yield sign*value, 2, expected
     rng = random.Random(298)
     for _ in range(10000):
         denominator = rng.randint(1, 4080)
-        value = rng.randint(-8*denominator, 7*denominator)
+        value = rng.randint(-128*denominator, 127*denominator)
         yield value, denominator, divide_round(value, denominator)
     # Invalid requests are outside the Python domain: RTL must complete with 0.
-    for value, denominator in [(0, 0), (123, 0), (-123, 0), (-32768, 4095),
-                               (32767, 1), (-32767, 1), (255, 32)]:
+    for value, denominator in [(0, 0), (123, 0), (-123, 0), (-524288, 4095),
+                               (524287, 1), (-524287, 1), (255, 2), (-259, 2)]:
         yield value, denominator, 0
 
 

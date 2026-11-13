@@ -1,31 +1,31 @@
 `default_nettype none
 
-// Signed attention normalization: round(16 * sum_in / denominator),
+// Signed attention normalization: round(sum_in / denominator), an INT8 code,
 // nearest with ties away from zero. Matches Python divide_round on its domain.
 // 19 restoring-division steps + 1 round/sign step after the accepted start.
 // Inputs are latched when start && !busy. Starts while busy are ignored.
 // done pulses for one cycle; result holds until completion of the next request.
-// Invalid requests (zero denominator, sum=-32768, or rounded result outside
-// signed 8-bit range) complete with result=0 at the normal latency. Valid INT4
+// Invalid requests (zero denominator, sum=-524288, or rounded result outside
+// signed 8-bit range) complete with result=0 at the normal latency. Valid INT8
 // attention cannot produce these requests. This is not saturating arithmetic.
 module divider (
     input  wire              clk,
     input  wire              rst_n,       // Synchronous active-low reset; aborts operation.
     input  wire              start,
-    input  wire signed [15:0] sum_in,      // Weighted sum O_i.
+    input  wire signed [19:0] sum_in,      // Weighted sum O_i.
     input  wire        [11:0] denominator, // Weight sum L; must be positive.
     output wire              busy,
     output reg               done,
-    output reg signed  [7:0] result       // Real value = signed code / 16.
+    output reg signed  [7:0] result       // INT8 weighted average of V.
 );
     localparam [1:0] IDLE = 2'd0, DIVIDE = 2'd1, ROUND = 2'd2;
     reg [1:0] state;
-    reg [18:0] quotient; // Starts as 16*abs(O); shifted into a quotient in place.
+    reg [18:0] quotient; // Starts as abs(O) (< 2^19 when valid); shifted into a quotient in place.
     reg [11:0] remainder_value, divisor;
     reg [4:0] step;
     reg negative, invalid;
 
-    wire [15:0] magnitude = sum_in[15] ? (~sum_in + 16'd1) : sum_in;
+    wire [19:0] magnitude = sum_in[19] ? (~sum_in + 20'd1) : sum_in;
     wire [12:0] trial = {remainder_value, quotient[18]};
     wire subtract = trial >= {1'b0, divisor};
     // The 13-bit comparison decides subtraction. For valid L, the new remainder
@@ -53,11 +53,11 @@ module divider (
             done <= 1'b0;
             case (state)
                 IDLE: if (start) begin
-                    quotient <= {magnitude[14:0], 4'b0000};
+                    quotient <= magnitude[18:0];
                     remainder_value <= 12'd0;
                     divisor <= denominator;
-                    negative <= sum_in[15];
-                    invalid <= denominator == 12'd0 || magnitude[15];
+                    negative <= sum_in[19];
+                    invalid <= denominator == 12'd0 || magnitude[19];
                     step <= 5'd0;
                     state <= DIVIDE;
                 end

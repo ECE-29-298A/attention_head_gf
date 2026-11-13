@@ -1,15 +1,15 @@
-"""Directed and seeded-random tests for the two-pass INT4 controller."""
+"""Directed and seeded-random tests for the two-pass INT8 controller."""
 import random
 
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
-from attention_model import chip_attention, divide_round, dot4, exp_weight, pack_byte
+from attention_model import chip_attention, divide_round, dot, exp_weight, pack_byte
 
 
 def packed(row):
-    return sum((v & 15) << (4 * i) for i, v in enumerate(row))
+    return sum(pack_byte(v) << (8 * i) for i, v in enumerate(row))
 
 
 class Bus:
@@ -53,7 +53,8 @@ class Bus:
         out_data = int(d.out_data.value.to_signed()) if reset else 0
         ready = int(d.out_ready.value)
         exp_args = (int(d.exp_max.value.to_signed()), int(d.exp_score.value.to_signed())) if reset else (0, 0)
-        div_args = (int(d.div_sum.value.to_signed()), int(d.div_denominator.value)) if reset else (0, 0)
+        # The accum ring has no reset (X until loaded), so only sample it on a start.
+        div_args = (int(d.div_sum.value.to_signed()), int(d.div_denominator.value)) if div_start else (0, 0)
         if reset:
             assert int(d.exp_done.value) == int(exp_due), "LUT completion timing"
             assert int(d.div_done.value) == int(div_due), "divider completion timing"
@@ -106,10 +107,10 @@ class Bus:
 
     def load(self, keys, values):
         self.memory = {}
-        for base, rows in ((0, keys), (32, values)):
+        for base, rows in ((0, keys), (64, values)):
             for i, row in enumerate(rows):
-                self.memory[base + 2*i] = pack_byte(row[0], row[1])
-                self.memory[base + 2*i + 1] = pack_byte(row[2], row[3])
+                for j, v in enumerate(row):
+                    self.memory[base + 4*i + j] = pack_byte(v)
 
     async def run_case(self, q, keys, values, *, delay=None, force_stalls=False):
         n = len(keys)
@@ -121,25 +122,25 @@ class Bus:
         await self.tick(start=1, count=n, query=packed(q))
         assert int(self.dut.busy.value) == 1
         forced_mem = forced_out = False
-        for _ in range(3000):
+        for _ in range(10000):
             # Inputs are deliberately corrupted after acceptance: Q and N must be latched.
             if force_stalls and not forced_mem and int(self.dut.mem_req_valid.value):
-                await self.tick(count=0, query=0xffff, mem_ready=0, delay=delay)
-                await self.tick(count=0, query=0xffff, mem_ready=0, delay=delay)
+                await self.tick(count=0, query=0xffffffff, mem_ready=0, delay=delay)
+                await self.tick(count=0, query=0xffffffff, mem_ready=0, delay=delay)
                 forced_mem = True
             elif force_stalls and not forced_out and int(self.dut.out_valid.value):
-                await self.tick(count=0, query=0xffff, out_ready=0, delay=delay)
-                await self.tick(count=0, query=0xffff, out_ready=0, delay=delay)
+                await self.tick(count=0, query=0xffffffff, out_ready=0, delay=delay)
+                await self.tick(count=0, query=0xffffffff, out_ready=0, delay=delay)
                 forced_out = True
             else:
-                await self.tick(count=0, query=0xffff, delay=delay)
+                await self.tick(count=0, query=0xffffffff, delay=delay)
             if int(self.dut.done.value):
                 break
         else:
             assert False, "controller timed out"
         if force_stalls:
             assert forced_mem and forced_out, "directed stall phases not reached"
-        scores = [dot4(q, k) for k in keys]
+        scores = [dot(q, k) for k in keys]
         maximum = max(scores)
         weights = [exp_weight(maximum, s) for s in scores]
         denominator = sum(weights)
@@ -147,8 +148,8 @@ class Bus:
         assert self.exps == list(zip([maximum]*n, scores))
         assert self.divs == list(zip(sums, [denominator]*4))
         assert self.outputs == chip_attention(q, keys, values)
-        assert self.reads == [addr for i in range(n) for addr in (2*i, 2*i+1)] + [
-            addr for i in range(n) for addr in (2*i, 2*i+1, 32+2*i, 33+2*i)]
+        assert self.reads == [4*i + j for i in range(n) for j in range(4)] + [
+            base + 4*i + j for i in range(n) for base in (0, 64) for j in range(4)]
         await self.tick(count=0, query=0, out_ready=0)
         assert int(self.dut.done.value) == 1 and int(self.dut.out_valid.value) == 0
 
@@ -159,17 +160,17 @@ async def directed_and_random_queries(dut):
     bus = Bus(dut)
     await bus.reset()
     cases = [
-        ([1, 0, 0, 0], [[-8, 0, 0, 0]], [[-8, -1, 0, 7]]),
-        ([-8]*4, [[-8]*4]*16, [[-8]*4]*16),
-        ([-8]*4, [[7]*4]*16, [[7]*4]*16),
+        ([1, 0, 0, 0], [[-128, 0, 0, 0]], [[-128, -1, 0, 127]]),
+        ([-128]*4, [[-128]*4]*16, [[-128]*4]*16),
+        ([-128]*4, [[127]*4]*16, [[127]*4]*16),
         ([0]*4, [[0]*4]*2, [[0]*4, [1]*4]),
         ([1, 0, 0, 0], [[x, 0, 0, 0] for x in range(-8, 8)],
-         [[-8, 7, -1, 1] if x & 1 else [7, -8, 1, -1] for x in range(16)]),
+         [[-128, 127, -1, 1] if x & 1 else [127, -128, 1, -1] for x in range(16)]),
     ]
     rng = random.Random(2026)
     for n in range(1, 17):
         for _ in range(3):
-            vec = lambda: [rng.randint(-8, 7) for _ in range(4)]
+            vec = lambda: [rng.randint(-128, 127) for _ in range(4)]
             cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)]))
     for index, (q, keys, values) in enumerate(cases):
         await bus.run_case(q, keys, values, force_stalls=index == 0)
