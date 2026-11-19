@@ -1,0 +1,4 @@
+[submodule "pdk/gf180mcu-pdk"]
+	path = pdk/gf180mcu-pdk
+	url = https://github.com/fossi-foundation/gf180mcu-pdk.git
+	branch = main

@@ -5,17 +5,18 @@ at the typical 25 °C, 5.00 V corner. The 7-track cells are 3.92 µm high; the
 official 9-track alternative is 5.04 µm high. This comparison is for the byte
 engines alone, without IO pads, caller logic, clock tree, or placement overhead.
 
-Source: [GF180MCU 7-track cell repository](https://github.com/google/globalfoundries-pdk-libs-gf180mcu_fd_sc_mcu7t5v0)
-at commit `43beb45e4d323a76239de436db2df6732e9a689b`. The repository ships a
+Source: the local [GF180MCU PDK submodule](../pdk/gf180mcu-pdk/README.rst),
+which pins the [7-track cell library](../pdk/gf180mcu-pdk/libraries/gf180mcu_fd_sc_mcu7t5v0/latest/)
+at commit `43beb45e4d323a76239de436db2df6732e9a689b`. The library ships a
 Liberty header and 229 individual cell Liberty fragments. The script merges
 these into a single library for Yosys.
 
 To reproduce the sequential-cell comparison with Yosys:
 
 ```sh
-git clone https://github.com/google/globalfoundries-pdk-libs-gf180mcu_fd_sc_mcu7t5v0.git /tmp/gf180mcu_7t
-git -C /tmp/gf180mcu_7t checkout 43beb45e4d323a76239de436db2df6732e9a689b
-python3 scripts/spi_byte_gf180_area.py --pdk-checkout /tmp/gf180mcu_7t --yosys yosys \
+git submodule update --init --depth 1 pdk/gf180mcu-pdk
+git -C pdk/gf180mcu-pdk submodule update --init --depth 1 libraries/gf180mcu_fd_sc_mcu7t5v0/latest
+python3 scripts/spi_byte_gf180_area.py --pdk-checkout pdk/gf180mcu-pdk/libraries/gf180mcu_fd_sc_mcu7t5v0/latest --yosys yosys \
     --baseline-core benchmarks/spi_byte_baseline.v
 ```
 
