@@ -10,7 +10,7 @@ module qspi_read_adapter #(
     output wire        req_ready,
     input  wire [15:0] req_addr,
     output reg         rsp_valid,
-    output reg  [7:0]  rsp_data,
+    output wire [7:0]  rsp_data,
     input  wire [3:0]  io_i,
     output wire [3:0]  io_o,
     output wire [3:0]  io_oe,
@@ -29,6 +29,11 @@ module qspi_read_adapter #(
                          byte_index == 3'd2 ? address[15:8] :
                          byte_index == 3'd3 ? address[7:0] : 8'd0;
 
+    // The byte engine holds the received byte after its done pulse.
+    assign rsp_data = byte_rx;
+    always @(posedge clk)
+        if (req_valid && req_ready) address <= FLASH_BASE + {8'd0, req_addr};
+
     assign req_ready = rst_n && state == IDLE && byte_ready;
     qspi_byte serial (
         .clk(clk), .rst_n(rst_n), .start(byte_start),
@@ -42,21 +47,17 @@ module qspi_read_adapter #(
         if (!rst_n) begin
             state <= IDLE;
             byte_index <= 0;
-            address <= 0;
             rsp_valid <= 0;
-            rsp_data <= 0;
         end else begin
             rsp_valid <= 0;
             case (state)
                 IDLE: if (req_valid && req_ready) begin
-                    address <= FLASH_BASE + {8'd0, req_addr};
                     byte_index <= 0;
                     state <= ISSUE;
                 end
                 ISSUE: if (byte_ready) state <= WAIT_BYTE;
                 WAIT_BYTE: if (byte_done) begin
                     if (byte_index == 3'd4) begin
-                        rsp_data <= byte_rx;
                         rsp_valid <= 1;
                         state <= IDLE;
                     end else begin

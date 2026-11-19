@@ -8,7 +8,7 @@
 // Invalid requests (zero denominator, sum=-524288, or rounded result outside
 // signed 8-bit range) complete with result=0 at the normal latency. Valid INT8
 // attention cannot produce these requests. This is not saturating arithmetic.
-module divider (
+module divider #(parameter LATCH_DENOMINATOR = 1) (
     input  wire              clk,
     input  wire              rst_n,       // Synchronous active-low reset; aborts operation.
     input  wire              start,
@@ -21,7 +21,17 @@ module divider (
     localparam [1:0] IDLE = 2'd0, DIVIDE = 2'd1, ROUND = 2'd2;
     reg [1:0] state;
     reg [18:0] quotient; // Starts as abs(O) (< 2^19 when valid); shifted into a quotient in place.
-    reg [11:0] remainder_value, divisor;
+    reg [11:0] remainder_value;
+    wire [11:0] divisor;
+    if (LATCH_DENOMINATOR) begin : g_divisor
+        reg [11:0] saved_divisor;
+        always @(posedge clk)
+            if (state == IDLE) saved_divisor <= denominator;
+        assign divisor = saved_divisor;
+    end else begin : g_direct_divisor
+        // Integration contract: denominator stays stable from start to done.
+        assign divisor = denominator;
+    end
     reg [4:0] step;
     reg negative, invalid;
 
@@ -36,18 +46,15 @@ module divider (
     wire overflow = |quotient[18:8] || (negative ? rounded > 9'd128 : rounded > 9'd127);
     assign busy = state != IDLE;
 
+    // Only the ROUND state consumes these registers. IDLE overwrites them
+    // on the same edge that accepts start, so idle and reset need no holds.
     always @(posedge clk) begin
-        if (state == IDLE && start) begin
-            quotient <= magnitude;
-            remainder_value <= 12'd0;
-            divisor <= denominator;
+        quotient <= state == IDLE ? magnitude : next_quotient;
+        remainder_value <= state == IDLE ? 12'd0 : next_remainder;
+        step <= state == IDLE ? 5'd0 : step + 5'd1;
+        if (state == IDLE) begin
             negative <= sum_in[19];
             invalid <= denominator == 12'd0 || sum_in == 20'sh80000;
-            step <= 5'd0;
-        end else if (state == DIVIDE) begin
-            quotient <= next_quotient;
-            remainder_value <= next_remainder;
-            step <= step + 5'd1;
         end
     end
 

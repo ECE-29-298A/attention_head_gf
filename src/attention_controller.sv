@@ -82,7 +82,7 @@ module attention_controller #(
     wire signed [17:0] score, maximum;
     wire signed [19:0] o0, o1, o2, o3;
     wire signed [7:0] qi = $signed(query[8*component +: 8]);
-    wire signed [7:0] ki = $signed(operands[8*component +: 8]);
+    wire signed [7:0] ki = $signed(operands[7:0]);
 
     assign start_ready = rst_n && state == IDLE && token_count >= 1 && token_count <= 16;
     assign busy = state != IDLE;
@@ -120,7 +120,7 @@ module attention_controller #(
         .clk(clk), .rst_n(rst_n), .start(exp_start), .M(exp_max), .S(exp_score),
         .done(exp_done), .W(exp_weight)
     );
-    divider divider_unit (
+    divider #(.LATCH_DENOMINATOR(0)) divider_unit (
         .clk(clk), .rst_n(rst_n), .start(div_start), .sum_in(div_sum),
         .denominator(div_denominator), .busy(div_busy), .done(div_done), .result(div_result)
     );
@@ -133,10 +133,13 @@ module attention_controller #(
         state <= MEM_REQUEST;
     endtask
 
-    // The full row is overwritten before the first arithmetic access.
+    // Byte 0 enters first. Rotate the loaded row during each arithmetic
+    // cycle so its current component is always in the low byte.
     always_ff @(posedge clk)
         if (state == MEM_WAIT && mem_rsp_valid)
             operands <= {mem_rdata, operands[31:8]};
+        else if (state == SCORE_MAC || state == ACCUM_STEP)
+            operands <= {operands[7:0], operands[31:8]};
 
     always_ff @(posedge clk) begin
         if (!rst_n) begin
