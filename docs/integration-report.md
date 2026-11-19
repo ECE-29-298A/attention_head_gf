@@ -37,7 +37,7 @@ INT8 components and 1–16 tokens.
 The controller's original handshake and arithmetic cycle sequence are unchanged.
 The QSPI adapter uses `FLASH_BASE=0` in the top, so K occupies flash bytes
 `0x00..0x3f` and V `0x40..0x7f`. The flash must be preloaded and K must remain
-stable across both passes. See [pin protocol](info.md) for host timing.
+stable across both passes. See [pin protocol](pin-protocol.md) for host timing.
 
 ## Changes
 
@@ -74,11 +74,9 @@ multiple driver. This reset distinction is exercised by the abort tests.
 
 ## Remaining defects and unverified assumptions
 
-- **One-tile fit and GF180 timing are unverified.** No Yosys/OpenROAD/LibreLane
-  executable is available in this local environment, so no mapped cell area,
-  placed density, routed timing, DRC, LVS, or power claim is made for this top.
-  The checked-in GF180 PDK submodule provides source libraries and rules, but
-  is not itself the processed `PDK_ROOT` used by the Tiny Tapeout flow.
+- Local GF180 synthesis and place and route are recorded in the
+  [integration log](../INTEGRATION_LOG.md). The shuttle LibreLane flow and the
+  GDS-level DRC/LVS checks remain open.
 - The read adapter deliberately uses the common `0x03` single-lane command on
   a QSPI memory. It does not yet use four data lanes, configure the flash, or
   implement vendor-specific dummy cycles. Confirm the selected flash's voltage,
@@ -91,8 +89,7 @@ multiple driver. This reset distinction is exercised by the abort tests.
   and INT4 sequence pages do not describe the current INT8 widths/latencies.
   This report and `src/` describe the selected integrated hierarchy; those
   pages need a numerical documentation refresh.
-- `info.yaml` deliberately retains a blank author at the user's request, and
-  `clock_hz` remains zero pending a measured GF180 timing target. These must
-  be completed before a Tiny Tapeout submission.
+- `info.yaml` retains a blank author as requested. Tiny Tapeout requires a
+  project author before submission.
 - The `codex-reference/` one-tile physical reports concern a separate SKY130
   `norm_odd` implementation; they cannot establish GF180 fit for this design.

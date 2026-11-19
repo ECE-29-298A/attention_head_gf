@@ -1,4 +1,5 @@
 """Run the QSPI Tiny Tapeout top integration test in a temporary directory."""
+import argparse
 import os
 from pathlib import Path
 import subprocess
@@ -19,10 +20,18 @@ SOURCES = [
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--netlist", type=Path, help="Mapped or routed top to simulate")
+    parser.add_argument("--cell-models", type=Path, help="Verilog models for netlist cells")
+    args = parser.parse_args()
+    if bool(args.netlist) != bool(args.cell_models):
+        parser.error("--netlist and --cell-models must be supplied together")
+    sources = ([args.cell_models.resolve(strict=True), args.netlist.resolve(strict=True)]
+               if args.netlist else [ROOT / name for name in SOURCES])
     with tempfile.TemporaryDirectory(prefix="attention-top-") as directory:
         build = Path(directory)
         runner = get_runner("icarus")
-        runner.build(sources=[ROOT / name for name in SOURCES],
+        runner.build(sources=sources,
                      hdl_toplevel="tt_um_attention_head_gf", build_dir=build,
                      always=True, timescale=("1ns", "1ps"),
                      build_args=["-g2012"])
