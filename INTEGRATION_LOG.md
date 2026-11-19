@@ -61,3 +61,11 @@ python3 test/top/run.py --netlist /path/to/routed.v --cell-models /path/to/cells
 ```
 
 The tile dimensions and library selection are defined in [Tiny Tapeout’s GF180D tile table](https://github.com/TinyTapeout/tt-support-tools/blob/main/tech/gf180mcuD/tile_sizes.yaml) and [technology configuration](https://github.com/TinyTapeout/tt-support-tools/blob/main/tech.py). The extracted reports use the [Open PDKs GF180D rules](https://github.com/fossi-foundation/open-pdks/tree/main/gf180mcu/librelane).
+
+Commit `fca4997` records the reproducible flow and selected local layout. Full regression checks also passed for all four arithmetic blocks, both SPI byte widths, both controller simulators, the standalone divider, and the Python model.
+
+## 5. Check a final electrical repair
+
+Upsizing the remaining overloaded XOR and rerouting kept the die, pins, router, antenna, connectivity, and gate simulation checks passing. Area rose to 49,528 µm². Extraction showed that the original driver recovered, but a downstream net then exceeded its capacitance and slew limits. Setup margin fell from +29.177 ns to +14.478 ns. The 49,515 µm² candidate remains the selected result. The trial logs are under `build/gf180_fit_evidence/last-trial/`.
+
+The one-tile area objective is met in the local GF180 checked route. Next physical work is electrical closure in the shuttle's processed PDK flow, followed by GDS checks.
