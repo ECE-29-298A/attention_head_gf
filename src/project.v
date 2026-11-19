@@ -1,27 +1,89 @@
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
-
+// Tiny Tapeout wrapper. The host sends N,Q0,Q1,Q2,Q3 on ui_in; the chip
+// reads K/V from external QSPI flash and streams four result bytes on uo_out.
 `default_nettype none
 
-module tt_um_example (
-    input  wire [7:0] ui_in,    // Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
+module tt_um_attention_head_gf (
+    input  wire [7:0] ui_in,
+    output wire [7:0] uo_out,
+    input  wire [7:0] uio_in,
+    output wire [7:0] uio_out,
+    output wire [7:0] uio_oe,
+    input  wire       ena,
+    input  wire       clk,
+    input  wire       rst_n
 );
+    localparam [2:0] COUNT = 3'd0, Q0 = 3'd1, Q1 = 3'd2,
+                     Q2 = 3'd3, Q3 = 3'd4, LAUNCH = 3'd5, RUN = 3'd6;
+    reg [2:0] stage;
+    reg [4:0] count;
+    reg [31:0] query;
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+    // uio[6] is host valid during configuration and host ready during output.
+    // uio[7] is chip ready during configuration and chip valid during output.
+    wire active = rst_n && ena;
+    wire count_valid = ui_in >= 8'd1 && ui_in <= 8'd16;
+    wire cfg_ready = active &&
+        ((stage == COUNT && count_valid) ||
+         stage == Q0 || stage == Q1 || stage == Q2 || stage == Q3);
+    wire cfg_accept = cfg_ready && uio_in[6];
 
-  // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+    wire core_start_ready, core_busy, core_done;
+    wire core_mem_req_valid, core_mem_req_ready, core_mem_write;
+    wire core_mem_rsp_valid, core_out_valid;
+    wire [15:0] core_mem_addr;
+    wire [7:0] core_mem_wdata, core_mem_rdata;
+    wire signed [7:0] core_out_data;
+    wire core_start = active && stage == LAUNCH && core_start_ready;
+    wire [3:0] spi_io_o, spi_io_oe;
+    wire spi_sck, spi_cs_n;
 
+    attention_controller core (
+        .clk(clk), .rst_n(active),
+        .start(core_start), .token_count(count), .query_packed(query),
+        .start_ready(core_start_ready), .busy(core_busy), .done(core_done),
+        .mem_req_valid(core_mem_req_valid), .mem_req_ready(core_mem_req_ready),
+        .mem_write(core_mem_write), .mem_addr(core_mem_addr),
+        .mem_wdata(core_mem_wdata),
+        .mem_rsp_valid(core_mem_rsp_valid), .mem_rdata(core_mem_rdata),
+        .out_valid(core_out_valid), .out_ready(uio_in[6]),
+        .out_data(core_out_data)
+    );
+    qspi_read_adapter memory (
+        .clk(clk), .rst_n(active),
+        .req_valid(core_mem_req_valid), .req_ready(core_mem_req_ready),
+        .req_addr(core_mem_addr), .rsp_valid(core_mem_rsp_valid),
+        .rsp_data(core_mem_rdata),
+        .io_i(uio_in[3:0]), .io_o(spi_io_o), .io_oe(spi_io_oe),
+        .sck(spi_sck), .cs_n(spi_cs_n)
+    );
+
+    // uio[3:0] QSPI IO0..3; [4] SCK; [5] CS_n; [6] host valid/ready;
+    // [7] chip ready/valid. The flash must support 0x03 single-lane reads.
+    assign uio_out = {cfg_ready || core_out_valid, 1'b0,
+                      spi_cs_n, spi_sck, spi_io_o};
+    assign uio_oe = {1'b1, 1'b0, 2'b11, spi_io_oe};
+    assign uo_out = core_out_valid ? core_out_data : 8'd0;
+    wire _unused = &{uio_in[7], uio_in[5:4], core_mem_write,
+                     core_mem_wdata, core_busy, core_done, 1'b0};
+
+    always @(posedge clk) begin
+        if (!active) begin
+            stage <= COUNT;
+            count <= 5'd0;
+            query <= 32'd0;
+        end else begin
+            case (stage)
+                COUNT: if (cfg_accept) begin count <= ui_in[4:0]; stage <= Q0; end
+                Q0: if (cfg_accept) begin query[7:0] <= ui_in; stage <= Q1; end
+                Q1: if (cfg_accept) begin query[15:8] <= ui_in; stage <= Q2; end
+                Q2: if (cfg_accept) begin query[23:16] <= ui_in; stage <= Q3; end
+                Q3: if (cfg_accept) begin query[31:24] <= ui_in; stage <= LAUNCH; end
+                LAUNCH: if (core_start_ready) stage <= RUN;
+                RUN: if (core_done) stage <= COUNT;
+                default: stage <= COUNT;
+            endcase
+        end
+    end
 endmodule
+
+`default_nettype wire

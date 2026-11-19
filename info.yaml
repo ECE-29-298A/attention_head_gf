@@ -1,9 +1,9 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
+  title:        "Single-tile INT8 attention"      # Project title
   author:       ""      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "Four-component INT8 attention with external QSPI key/value memory"
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -11,46 +11,56 @@ project:
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_attention_head_gf"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "project.v"
+    - "attention_controller.sv"
+    - "score_mac.v"
+    - "ripple_add.v"
+    - "max_reg.v"
+    - "accum.v"
+    - "exp_lut.v"
+    - "divider.v"
+    - "Memaccess/qspi_read_adapter.v"
+    - "Memaccess/qspi_byte.v"
+    - "Memaccess/spi_multi_io_byte.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "Host data 0"
+  ui[1]: "Host data 1"
+  ui[2]: "Host data 2"
+  ui[3]: "Host data 3"
+  ui[4]: "Host data 4"
+  ui[5]: "Host data 5"
+  ui[6]: "Host data 6"
+  ui[7]: "Host data 7"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "Result data 0"
+  uo[1]: "Result data 1"
+  uo[2]: "Result data 2"
+  uo[3]: "Result data 3"
+  uo[4]: "Result data 4"
+  uo[5]: "Result data 5"
+  uo[6]: "Result data 6"
+  uo[7]: "Result data 7"
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "QSPI IO0"
+  uio[1]: "QSPI IO1"
+  uio[2]: "QSPI IO2"
+  uio[3]: "QSPI IO3"
+  uio[4]: "QSPI clock"
+  uio[5]: "QSPI chip select n"
+  uio[6]: "Host valid or ready"
+  uio[7]: "Chip ready or valid"
 
 # Do not change!
 yaml_version: 6

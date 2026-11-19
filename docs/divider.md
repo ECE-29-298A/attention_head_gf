@@ -1,5 +1,9 @@
 # Signed attention divider
 
+> Historical INT4 numerical description. The current `divider.v` accepts a
+> signed 20-bit sum and returns an INT8 average without the old ×16 output
+> scaling. See [the integration report](integration-report.md).
+
 `src/divider.v` implements the existing Python `divide_round(O, L)` calculation:
 
 ```text

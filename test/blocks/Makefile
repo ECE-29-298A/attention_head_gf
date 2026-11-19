@@ -2,7 +2,7 @@
 # Usage:  make score_mac
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
-SRC_DIR = $(PWD)/../../src
+SRC_DIR = ../../src
 COCOTB_HDL_TIMEUNIT = 1ns
 COCOTB_HDL_TIMEPRECISION = 1ps
 

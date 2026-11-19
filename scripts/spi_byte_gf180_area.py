@@ -36,7 +36,7 @@ def merge_liberty(checkout: Path, destination: Path) -> Path:
 
 def measure(yosys: str, lib: Path, top: str, core: Path,
             full: bool, log_dir: Path, label: str) -> tuple[float, int]:
-    sources = [core, ROOT / "src/qspi_byte.v", ROOT / "src/ospi_byte.v"]
+    sources = [core, ROOT / "src/Memaccess/qspi_byte.v", ROOT / "src/Memaccess/ospi_byte.v"]
     commands = [
         "read_verilog " + " ".join('"' + str(p).replace('\\', '\\\\').replace('"', '\\"') + '"' for p in sources),
         f"synth -noabc -flatten -top {top}",
@@ -79,7 +79,7 @@ def main() -> None:
     log_dir = ROOT / "build/spi_byte_gf180_area"
     lib = (args.lib.resolve() if args.lib else
            merge_liberty(args.pdk_checkout.resolve(), log_dir / f"{LIB_NAME}__{CORNER}.lib"))
-    versions = [("optimized", ROOT / "src/spi_multi_io_byte.v")]
+    versions = [("optimized", ROOT / "src/Memaccess/spi_multi_io_byte.v")]
     if args.baseline_core:
         versions.insert(0, ("baseline", args.baseline_core.resolve()))
     print("variant,top,area_um2,generic_unmapped_cells,scope")

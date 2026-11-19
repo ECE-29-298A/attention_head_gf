@@ -1,5 +1,9 @@
 # Integrated two-pass INT4 attention controller (version 2)
 
+> Historical INT4 controller description. The current RTL and Tiny Tapeout
+> QSPI integration use INT8; see [the integration report](integration-report.md)
+> for the active hierarchy, pin protocol, and verification status.
+
 `src/attention_controller.sv` instantiates `score_mac`, `max_reg`, `accum`,
 `exp_lut` and `divider`. These remain separate, reusable RTL modules; their
 arithmetic is unchanged. It is a complete arithmetic core, not a Tiny Tapeout pin

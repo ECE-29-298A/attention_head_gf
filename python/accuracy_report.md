@@ -1,5 +1,8 @@
 # Accuracy report
 
+> Historical INT4 accuracy study. The current RTL is INT8, four components,
+> and at most 16 tokens; these figures do not measure the integrated QSPI top.
+
 Error = |chip output − float attention output|, in real output units (INT4 values span −8 to 7). The output is rounded to 1/16, so ~0.03 is the floor.
 
 ## INT4, random inputs

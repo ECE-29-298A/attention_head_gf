@@ -1,5 +1,9 @@
 # Arithmetic blocks
 
+> Historical INT4 documentation. The current RTL is INT8; see
+> [the integration report](integration-report.md) and module port declarations
+> before using the widths and cycle counts below.
+
 `score_mac`, `max_reg` and `accum` are the datapath blocks the controller
 (`docs/controller.md`) drives. All three share the same control pattern:
 

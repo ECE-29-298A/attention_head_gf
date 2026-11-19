@@ -1,6 +1,6 @@
 .PHONY: test test-cocotb test-verilog lint
 
-RTL = ../../src/spi_multi_io_byte.v ../../src/qspi_byte.v ../../src/ospi_byte.v
+RTL = ../../src/Memaccess/spi_multi_io_byte.v ../../src/Memaccess/qspi_byte.v ../../src/Memaccess/ospi_byte.v
 
 test: test-cocotb test-verilog
 

@@ -8,9 +8,9 @@ from tempfile import TemporaryDirectory
 ROOT = Path(__file__).resolve().parents[2]
 TEST = Path(__file__).resolve().parent / "tb_spi_byte.v"
 RTL = [
-    ROOT / "src/spi_multi_io_byte.v",
-    ROOT / "src/qspi_byte.v",
-    ROOT / "src/ospi_byte.v",
+    ROOT / "src/Memaccess/spi_multi_io_byte.v",
+    ROOT / "src/Memaccess/qspi_byte.v",
+    ROOT / "src/Memaccess/ospi_byte.v",
 ]
 
 

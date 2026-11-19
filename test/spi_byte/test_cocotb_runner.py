@@ -18,9 +18,9 @@ def test_spi_byte(top):
         runner = get_runner("icarus")
         runner.build(
             sources=[
-                ROOT / "src" / "spi_multi_io_byte.v",
-                ROOT / "src" / "qspi_byte.v",
-                ROOT / "src" / "ospi_byte.v",
+                ROOT / "src/Memaccess" / "spi_multi_io_byte.v",
+                ROOT / "src/Memaccess" / "qspi_byte.v",
+                ROOT / "src/Memaccess" / "ospi_byte.v",
             ],
             hdl_toplevel=top,
             build_dir=build_dir,
