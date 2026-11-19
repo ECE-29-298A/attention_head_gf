@@ -1,6 +1,7 @@
-// Tiny Tapeout wrapper. The host sends N,Q0,Q1,Q2,Q3 on ui_in; the chip
-// reads K/V from external QSPI flash and streams eight result bytes on uo_out:
-// four signed 12-bit results (1/16 V steps), each low byte first, sign-extended.
+// Tiny Tapeout wrapper. The host sends N, then {chunk[3:0], shift[3:0]} on ui_in;
+// the chip reads Q/K/V from external QSPI flash and streams eight result bytes on
+// uo_out: V components 4*chunk..4*chunk+3 of the attention output as four signed
+// 12-bit results (1/16 V steps), each low byte first, sign-extended.
 `default_nettype none
 
 module tt_um_attention_head_gf (
@@ -13,19 +14,16 @@ module tt_um_attention_head_gf (
     input  wire       clk,
     input  wire       rst_n
 );
-    localparam [2:0] COUNT = 3'd0, Q0 = 3'd1, Q1 = 3'd2,
-                     Q2 = 3'd3, Q3 = 3'd4, LAUNCH = 3'd5, RUN = 3'd6;
-    reg [2:0] stage;
+    localparam [1:0] COUNT = 2'd0, CONFIG = 2'd1, LAUNCH = 2'd2, RUN = 2'd3;
+    reg [1:0] stage;
     reg [4:0] count;
-    reg [31:0] query;
+    reg [7:0] config_byte; // {chunk, shift}
 
     // uio[6] is host valid during configuration and host ready during output.
     // uio[7] is chip ready during configuration and chip valid during output.
     wire active = rst_n && ena;
     wire count_valid = ui_in >= 8'd1 && ui_in <= 8'd16;
-    wire cfg_ready = active &&
-        ((stage == COUNT && count_valid) ||
-         stage == Q0 || stage == Q1 || stage == Q2 || stage == Q3);
+    wire cfg_ready = active && ((stage == COUNT && count_valid) || stage == CONFIG);
     wire cfg_accept = cfg_ready && uio_in[6];
 
     wire core_start_ready, core_busy, core_done;
@@ -38,9 +36,10 @@ module tt_um_attention_head_gf (
     wire [3:0] spi_io_o, spi_io_oe;
     wire spi_sck, spi_cs_n;
 
-    attention_controller #(.LATCH_QUERY(1'b0)) core (
+    attention_controller #(.LATCH_CONFIG(1'b0)) core (
         .clk(clk), .rst_n(active),
-        .start(core_start), .token_count(count), .query_packed(query),
+        .start(core_start), .token_count(count),
+        .score_shift(config_byte[3:0]), .chunk(config_byte[7:4]),
         .start_ready(core_start_ready), .busy(core_busy), .done(core_done),
         .mem_req_valid(core_mem_req_valid), .mem_req_ready(core_mem_req_ready),
         .mem_write(core_mem_write), .mem_addr(core_mem_addr),
@@ -67,12 +66,11 @@ module tt_um_attention_head_gf (
     wire _unused = &{uio_in[7], uio_in[5:4], core_mem_write,
                      core_mem_wdata, core_busy, core_done, 1'b0};
 
-    // All five bytes are replaced before launch. Keep the query stable
-    // throughout RUN so the controller can use this bank directly.
-    wire query_phase = stage == Q0 || stage == Q1 || stage == Q2 || stage == Q3;
+    // Both bytes are replaced before launch. Keep the config stable
+    // throughout RUN so the controller can use it directly.
     always @(posedge clk) begin
         if (cfg_accept && stage == COUNT) count <= ui_in[4:0];
-        if (cfg_accept && query_phase) query <= {ui_in, query[31:8]};
+        if (cfg_accept && stage == CONFIG) config_byte <= ui_in;
     end
 
     always @(posedge clk) begin
@@ -80,11 +78,8 @@ module tt_um_attention_head_gf (
             stage <= COUNT;
         end else begin
             case (stage)
-                COUNT: if (cfg_accept) stage <= Q0;
-                Q0: if (cfg_accept) stage <= Q1;
-                Q1: if (cfg_accept) stage <= Q2;
-                Q2: if (cfg_accept) stage <= Q3;
-                Q3: if (cfg_accept) stage <= LAUNCH;
+                COUNT: if (cfg_accept) stage <= CONFIG;
+                CONFIG: if (cfg_accept) stage <= LAUNCH;
                 LAUNCH: if (core_start_ready) stage <= RUN;
                 RUN: if (core_done) stage <= COUNT;
                 default: stage <= COUNT;

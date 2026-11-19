@@ -1,8 +1,12 @@
 # Integrated two-pass INT4 attention controller (version 2)
 
-> Historical INT4 controller description. The current RTL and Tiny Tapeout
-> QSPI integration use INT8; see [the integration report](integration-report.md)
-> for the active hierarchy, pin protocol, and verification status.
+> Historical INT4 controller description. The current controller: inputs
+> `token_count`, `score_shift` and `chunk` (latched on start unless
+> `LATCH_CONFIG=0`); memory map Q at `Q_BASE` (64 bytes), K at `K_BASE` and V
+> at `V_BASE` (64 bytes per token). Each score reads 16 groups of 4 Q bytes then
+> the 4 matching K bytes, with 32 bit-serial MAC cycles per group; pass 2 then
+> reads the token's 4-byte V chunk. Outputs are four 12-bit results, two bytes
+> each. See [the pin protocol](pin-protocol.md) and the module port comments.
 
 `src/attention_controller.sv` instantiates `score_mac`, `max_reg`, `accum`,
 `exp_lut` and `divider`. These remain separate, reusable RTL modules; their

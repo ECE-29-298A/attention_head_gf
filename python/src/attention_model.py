@@ -4,13 +4,15 @@ By: Jinyuan Zhao
 This is a model of our chip: INT8 in, two-pass softmax, 8-bit weights from a
 LUT, 12-bit outputs (INT8 plus 4 fractional bits).
 
-The chip is d = 4, up to 16 tokens. Everything here also takes other head
-sizes d and token limits n_max (e.g. d = 64 for SmolLM) so we can see what
-a bigger chip would do and how wide its registers must be: reg_widths().
+The chip: scores are d = 64 dot products (one SmolLM head), up to 16 tokens,
+and each run outputs 4 of V's components (the host picks which 4, so V passed
+here is N x 4). Everything here also takes other sizes d and token limits n_max,
+and V may be any width: reg_widths() gives the register widths.
 
-score_shift = 0 is the chip as built. score_shift = k looks up D >> k, i.e.
-k fewer score bits matter (needed when real scores are much bigger than the
-LUT's 1 unit = 0.5 nat). NOT IN RTL YET.
+score_shift = k (0..15, sent by the host) looks up round(D / 2^k): raw INT8
+scores are far bigger than the LUT's 1 unit = 0.25 nat. score_round = True
+(the chip) rounds to nearest by adding 2^(k-1) before the shift; False
+truncates, which measurably hurt SmolLM accuracy.
 
 Accuracy fixes, measured on SmolLM by python/smollm_compare.py:
 1. Per-channel V scales: host side only, see quantize(). No chip change.
@@ -55,10 +57,10 @@ def pack_byte(v: int) -> int:
     return v & 0xFF
 
 
-def reg_widths(d: int = 4, n_max: int = 16) -> dict[str, int]:
+def reg_widths(d: int = 64, n_max: int = 16) -> dict[str, int]:
     """Register widths (bits) the chip needs for head size d and up to n_max tokens.
 
-    d = 4, n_max = 16 gives the RTL: S 18, D 17, L 12, O 20, Z 19.
+    d = 64, n_max = 16 gives the RTL: S 22, D 21, L 12, O 20, Z 19.
     """
     s_max = d * 128 * 128               # largest score: (-128)·(-128)·d
     s_min = d * 128 * 127               # magnitude of the smallest: (-128)·127·d
@@ -115,7 +117,8 @@ def dot(q: list[int], k: list[int]) -> int:
     return S
 
 
-def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 4) -> int:
+def exp_weight(M: int, S: int, d: int = 64, score_shift: int = 0, lut_res: int = 4,
+               score_round: bool = True) -> int:
     """Softmax step
 
     We want to calculate W ≈ 255 · e^((S - M) / 4)
@@ -134,12 +137,14 @@ def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 
         d (int): head size, only for the width check
         score_shift (int): look up D >> score_shift (0 = the chip)
         lut_res (int): score units per nat (4 = the chip)
+        score_round (bool): round D >> score_shift to nearest (True = the chip)
 
     Returns:
         int: weight, 0 to 255
     """
 
-    D = check_width(M - S, reg_widths(d)["D"], signed=False, name="D") >> score_shift
+    D = check_width(M - S, reg_widths(d)["D"], signed=False, name="D")
+    D = (D + ((1 << score_shift) >> 1 if score_round else 0)) >> score_shift
 
     table = exp_table(lut_res)
     W = table[D] if D < len(table) else 0
@@ -179,22 +184,23 @@ def divide_round(O: int, L: int, n_max: int = 16, out_frac: int = 4) -> int:
 
 def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
                    n_max: int = 16, score_shift: int = 0, lut_res: int = 4,
-                   out_frac: int = 4) -> list[int]:
+                   out_frac: int = 4, score_round: bool = True) -> list[int]:
     """One attention pass
 
-    1 <= N <= n_max. Head size d = len(Q) (the chip: d = 4, n_max = 16).
+    1 <= N <= n_max. Head size d = len(Q) (the chip: d = 64, V width 4, n_max = 16).
 
     Args:
         Q (list[int]): d ints
         K (list[list[int]]): N vectors of d ints each
-        V (list[list[int]]): N vectors of d ints each
+        V (list[list[int]]): N vectors of the same width each (the chip: 4)
         n_max (int): token limit the registers are sized for
         score_shift (int): see exp_weight (0 = the chip)
         lut_res (int): see exp_weight (4 = the chip)
         out_frac (int): see divide_round (4 = the chip)
+        score_round (bool): see exp_weight (True = the chip)
 
     Returns:
-        list[int]: d INT(8 + out_frac) outputs
+        list[int]: one INT(8 + out_frac) output per V component
     """
     # N is the number of K we have.
     N = len(K)
@@ -213,43 +219,47 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
 
     # --- PASS 2 ---
 
-    L = 0; O = [0] * d
+    dv = len(V[0])
+    L = 0; O = [0] * dv
     for k, v in zip(K, V):
         S = dot(Q, k) # The chip is stupid we forgor about the value so we have to recalculate
-        W = exp_weight(M, S, d, score_shift, lut_res) # Turn the score into weight
+        W = exp_weight(M, S, d, score_shift, lut_res, score_round) # Turn the score into weight
         L = check_width(L + W, bits["L"], signed=False, name="L") # Add to running total
         # Add W x V to running sums O
-        assert len(v) == d and all(-128 <= x <= 127 for x in v), f"value out of INT8 range: {v}"
-        for i in range(d):
+        assert len(v) == dv and all(-128 <= x <= 127 for x in v), f"value out of INT8 range: {v}"
+        for i in range(dv):
             O[i] = check_width(O[i] + W * v[i], bits["O"], signed=True, name=f"O{i}")
 
     # --- Divide ---
 
     # We divide each sum by L (big L)
-    return [divide_round(O[i], L, n_max, out_frac) for i in range(d)]
+    return [divide_round(O[i], L, n_max, out_frac) for i in range(dv)]
 
 
 def chip_attention_np(Q: np.ndarray, K: np.ndarray, V: np.ndarray,
-                      score_shift=0, lut_res: int = 4, out_frac: int = 4) -> np.ndarray:
+                      score_shift=0, lut_res: int = 4, out_frac: int = 4,
+                      score_round: bool = True) -> np.ndarray:
     """chip_attention for many queries at once, bit-identical to it.
 
     Args:
         Q: int, shape (..., d)
         K: int, shape (..., N, d)
-        V: int, shape (..., N, d)
+        V: int, shape (..., N, dv), any width dv (the chip: 4)
         score_shift: see exp_weight (0 = the chip); an int or an array of
             shape (..., 1) for a per-query shift
         lut_res: see exp_weight (4 = the chip)
         out_frac: see divide_round (4 = the chip)
+        score_round: see exp_weight (True = the chip)
 
     Returns:
-        np.ndarray: int64, shape (..., d), INT(8 + out_frac) outputs
+        np.ndarray: int64, shape (..., dv), INT(8 + out_frac) outputs
     """
     Q, K, V = (np.asarray(x, dtype=np.int64) for x in (Q, K, V))
     for x in (Q, K, V):
         assert x.min() >= -128 and x.max() <= 127, "values out of INT8 range"
     S = np.einsum("...nd,...d->...n", K, Q)                       # all scores
-    D = (S.max(axis=-1, keepdims=True) - S) >> score_shift        # >= 0
+    half = (np.int64(1) << score_shift) >> 1 if score_round else 0
+    D = (S.max(axis=-1, keepdims=True) - S + half) >> score_shift # >= 0
     table = np.array(exp_table(lut_res) + [0], dtype=np.int64)   # last entry = "D past the table"
     W = table[np.minimum(D, len(table) - 1)]                      # (..., N)
     L = W.sum(axis=-1, keepdims=True)                             # >= 255: max token has W = 255

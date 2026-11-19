@@ -7,8 +7,8 @@ from cocotb.clock import Clock
 from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
 
-SCORE_MIN = -65024
-SCORE_MAX = 65536
+SCORE_MIN = -1040384  # 64 * (-128 * 127)
+SCORE_MAX = 1048576   # 64 * (-128 * -128)
 
 
 @cocotb.test()

@@ -3,7 +3,7 @@ project:
   title: "Single-tile INT8 attention" # Project title
   author: "Samuel Zhang, Eugene Zhao, Felix Deng" # Project author
   discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description: "Four-component INT8 attention with external QSPI key/value memory"
+  description: "64-dim INT8 attention head (4 outputs per run) with external QSPI Q/K/V memory"
   language: "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz: 10000000 # Target clock frequency in Hz
 

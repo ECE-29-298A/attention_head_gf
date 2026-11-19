@@ -13,6 +13,7 @@ so one 64-wide call computes all 16 at once.
 Each runs as the original chip, then with the accuracy fixes added one at a
 time; with all three it is the current chip and model defaults:
   1. per-channel V scales (host only)  2. 0.25-nat LUT  3. 4 fractional output bits
+Step 2 also tries rounding D >> score_shift to nearest (score_round, not in RTL).
 
 Run: .venv/bin/python python/smollm_compare.py
 """
@@ -31,8 +32,12 @@ FIXES = [("+ 1. per-channel V", dict(per_channel=True)),
          ("+ 3. 4 output frac bits", dict(out_frac=4))]
 
 
-def run(q, k, v, step2, per_channel, lut_res, out_frac):
-    """Chip estimate of every attention output. Returns (codes, scale): est = codes * scale."""
+def run(q, k, v, step2, per_channel, lut_res, out_frac, score_round=False):
+    """Chip estimate of every attention output. Returns (codes, scale): est = codes * scale.
+
+    q: (..., H, T, d), k and v: (..., KV, T, d) with exactly two leading dims
+    (e.g. prompts x layers); query head h uses KV head h // (H // KV).
+    """
     group = q.shape[2] // k.shape[2]
     T, d = q.shape[-2:]
     # shortcut: K/V scales see all 16 tokens, incl. future ones; a real decoder
@@ -60,15 +65,16 @@ def run(q, k, v, step2, per_channel, lut_res, out_frac):
             k_lane = np.zeros(units.shape + (4,), dtype=np.int64)
             k_lane[..., 0] = units
             args = (lane, k_lane, vi[..., :n, :], 0)
-        codes[..., p, :] = chip_attention_np(*args[:3], score_shift=args[3],
-                                             lut_res=lut_res, out_frac=out_frac)
+        codes[..., p, :] = chip_attention_np(*args[:3], score_shift=args[3], lut_res=lut_res,
+                                             out_frac=out_frac, score_round=score_round)
 
     # Spot check one real head, last position, against the scalar model and its
     # width checks: as 16 real 4-wide chip queries today, one 64-wide query in step 2.
-    i = (0, 14, 4)
+    i = tuple(n // 2 for n in codes.shape[:3])
     Q, K, V, shift = args
     Q, K, V = (Q[i] if step2 else Q), K[i], V[i]
-    opts = dict(score_shift=int(shift[i][0]) if step2 else 0, lut_res=lut_res, out_frac=out_frac)
+    opts = dict(score_shift=int(shift[i][0]) if step2 else 0, lut_res=lut_res,
+                out_frac=out_frac, score_round=score_round)
     if step2:
         got = chip_attention(Q.tolist(), K.tolist(), V.tolist(), **opts)
     else:
@@ -109,6 +115,8 @@ def main():
             opts.update(change)
             codes, scale = run(q, k, v, step2, **opts)
             print(f"| {title} {name} | {stats(codes * scale, ref, lsb)} |")
+    codes, scale = run(q, k, v, True, **opts, score_round=True)
+    print(f"| step 2 chip + rounded shift | {stats(codes * scale, ref, lsb)} |")
 
 
 if __name__ == "__main__":

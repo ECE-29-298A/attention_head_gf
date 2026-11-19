@@ -12,19 +12,20 @@ from attention_model import (chip_attention, chip_attention_np, exp_table,  # no
 
 def test_widths_match_rtl():
     # Must match src/: score_mac S, accum L and O, divider quotient.
-    # D is the value range of M - S; exp_lut computes it as an 18-bit S plus a sign bit.
-    assert reg_widths(4, 16) == {"S": 18, "D": 17, "L": 12, "O": 20, "Z": 19}
+    # D is the value range of M - S; exp_lut computes it as a 22-bit S plus a sign bit.
+    assert reg_widths(64, 16) == {"S": 22, "D": 21, "L": 12, "O": 20, "Z": 19}
 
 
 def test_numpy_matches_python():
     rng = random.Random(298)
     for d in (4, 64):
         for shift in (0, 3, 9):
-            for lut_res, out_frac in ((2, 0), (4, 4)):  # the chip, and fixes 2 + 3
+            for lut_res, out_frac, rnd in ((2, 0, False), (4, 4, False), (4, 4, True)):
                 for n in list(range(1, 17)) + [16] * 10:
                     vec = lambda: [rng.randint(-128, 127) for _ in range(d)]
                     q, K, V = vec(), [vec() for _ in range(n)], [vec() for _ in range(n)]
-                    opts = dict(score_shift=shift, lut_res=lut_res, out_frac=out_frac)
+                    opts = dict(score_shift=shift, lut_res=lut_res, out_frac=out_frac,
+                                score_round=rnd)
                     want = chip_attention(q, K, V, **opts)
                     got = chip_attention_np(np.array(q), np.array(K), np.array(V), **opts)
                     assert got.tolist() == want, (d, shift, lut_res, out_frac, n)
@@ -64,3 +65,22 @@ def test_per_channel_quantize():
     assert vi[:, 1].tolist() == [64, -32] and np.allclose(vi * 2.0**-e, v)
     shared, _ = quantize(v, axis=(-2, -1))
     assert shared[:, 1].tolist() == [2, -1]  # 32x coarser
+
+
+def test_score_round():
+    # D = 6 >> 2: down gives 1, nearest gives 2 (1.5 rounds up); D = 5 >> 2 = 1.25 -> 1.
+    from attention_model import exp_weight
+    assert exp_weight(6, 0, score_shift=2, score_round=False) == exp_weight(1, 0)
+    assert exp_weight(6, 0, score_shift=2, score_round=True) == exp_weight(2, 0)
+    assert exp_weight(5, 0, score_shift=2, score_round=True) == exp_weight(1, 0)
+    assert exp_weight(6, 0, score_round=True) == exp_weight(6, 0)  # no-op without a shift
+
+
+def test_narrow_v():
+    # The chip: 64-dim Q/K, one 4-wide V chunk; equals the same chunk of a 64-wide V.
+    rng = np.random.default_rng(64)
+    q, K, V = rng.integers(-128, 128, 64), rng.integers(-128, 128, (16, 64)), rng.integers(-128, 128, (16, 64))
+    full = chip_attention_np(q, K, V, score_shift=12)
+    for c in (0, 7, 15):
+        chunk = V[:, 4 * c:4 * c + 4]
+        assert chip_attention(q.tolist(), K.tolist(), chunk.tolist(), score_shift=12) == full[4 * c:4 * c + 4].tolist()

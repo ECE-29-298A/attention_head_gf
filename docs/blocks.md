@@ -1,8 +1,11 @@
 # Arithmetic blocks
 
-> Historical INT4 documentation. The current RTL is INT8; see
-> [the integration report](integration-report.md) and module port declarations
-> before using the widths and cycle counts below.
+> Historical INT4 documentation. The current RTL is INT8 with 64-dimension
+> scores: `score_mac` accumulates 64 components (8 bit-serial cycles each) into
+> a signed 22-bit `S`; `max_reg` holds a signed 22-bit `M` reset to -1040384;
+> `exp_lut` (below) also takes a 4-bit `shift`; `accum` and `divider` handle one
+> 4-component V chunk. See the module port declarations before using the widths
+> and cycle counts below.
 
 `score_mac`, `max_reg` and `accum` are the datapath blocks the controller
 (`docs/controller.md`) drives. All three share the same control pattern:
@@ -63,18 +66,20 @@ the `score_mac` multiplier would need extra control logic.
 
 ## `exp_lut` (`src/exp_lut.v`)
 
-Softmax weight for one token: W = round(255 · e^(−(M−S)/4)). One score unit is 0.25 nat.
+Softmax weight for one token: W = round(255 · e^(−D'/4)) with D' = round((M−S) / 2^shift),
+half up. The host picks `shift` so one unit of D' is 0.25 nat.
 
 | Port | Width | Meaning |
 |---|---:|---|
 | `start` | 1 | One-cycle pulse; `M` and `S` sampled on this edge |
-| `M` | signed 18 | Final maximum score |
-| `S` | signed 18 | This token's score |
+| `M` | signed 22 | Final maximum score |
+| `S` | signed 22 | This token's score |
+| `shift` | unsigned 4 | Round and shift M−S right by this before the lookup |
 | `done` | 1 | High for one cycle, the cycle after `start` |
 | `W` | unsigned 8 | Weight; valid with `done`, held until the next `start` |
 
-Scores are integers, so D = M − S is too, and W rounds to 0 once D >= 25.
-So the whole exponent is a 25-entry table indexed by D:
+D' is an integer, and W rounds to 0 once D' >= 25.
+So the whole exponent is a 25-entry table indexed by D':
 
 | D | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|

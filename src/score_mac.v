@@ -1,10 +1,11 @@
 /*
 Jinyuan Zhao
-dot4 function
+dot64 function
 
 NO MULTIPLIER: shift-add one bit of ki per cycle through a ripple adder.
 qi x ki = qi*k[0] + 2qi*k[1] + ... + 64qi*k[6] - 128qi*k[7]  (ki is two's complement).
-Caller holds en for 32 cycles per score: for each component, bit_sel = 0..7.
+Caller holds en for 8 cycles per component (bit_sel = 0..7), 64 components per
+score, clearing only before the first.
 */
 
 module score_mac (
@@ -16,13 +17,13 @@ module score_mac (
     input wire signed [7:0] qi,
     input wire signed [7:0] ki,
     input wire        [2:0] bit_sel, // which bit of ki this cycle adds
-    output reg signed [17:0] S       // |S| <= 4 * 128 * 128 = 65536
+    output reg signed [21:0] S       // |S| <= 64 * 128 * 128 = 1048576
 );
 
-wire [17:0] term = ki[bit_sel] ? ({{10{qi[7]}}, qi} << bit_sel) : 18'd0;
+wire [21:0] term = ki[bit_sel] ? ({{14{qi[7]}}, qi} << bit_sel) : 22'd0;
 wire        neg  = (bit_sel == 3'd7);  // sign bit of ki has weight -128: subtract via ~term + 1
-wire [17:0] S_next;
-ripple_add #(.N(18)) s_adder (.a(S), .b(neg ? ~term : term), .cin(neg), .s(S_next));
+wire [21:0] S_next;
+ripple_add #(.N(22)) s_adder (.a(S), .b(neg ? ~term : term), .cin(neg), .s(S_next));
 
 always@(posedge clk) begin
 
@@ -44,12 +45,12 @@ endmodule
 
 
 /*
-def dot4(q: list[int], k: list[int]) -> int:
+def dot(q: list[int], k: list[int]) -> int:
 
     # Initiate sum
     S = 0
     for x, y in zip(q, k): # Iterate through them
-        S = check_width(S + x * y, 18, signed=True, name="S")
+        S = check_width(S + x * y, 22, signed=True, name="S")
     return S
 
 */

@@ -13,15 +13,19 @@ sys.path.insert(0, str(ROOT / "python/src"))
 from attention_model import chip_attention, dot, exp_weight, pack_byte
 
 
-def encode_case(q, k, v):
-    """Encode Python-model outputs and intermediate results for RTL assertions."""
+def encode_case(q, k, v, shift=0, chunk=0):
+    """Encode Python-model outputs and intermediate results for RTL assertions.
+
+    q: 64 ints, k and v: N rows of 64 ints. The chip outputs V chunk `chunk`.
+    """
     scores = [dot(q, row) for row in k]
-    weights = [exp_weight(max(scores), s) for s in scores]
-    fields = [len(k), sum(pack_byte(x) << (8 * i) for i, x in enumerate(q))]
+    weights = [exp_weight(max(scores), s, score_shift=shift) for s in scores]
+    fields = [len(k), shift, chunk] + [pack_byte(x) for x in q]
     for rows in (k, v):
         for row in rows:
             fields.extend(pack_byte(x) for x in row)
-    fields.extend(chip_attention(q, k, v))  # signed 12-bit results
+    chunk_v = [row[4 * chunk:4 * chunk + 4] for row in v]
+    fields.extend(chip_attention(q, k, chunk_v, score_shift=shift))  # signed 12-bit results
     fields.extend(scores)
     fields.extend(weights)
     return " ".join(str(x) for x in fields)
@@ -29,36 +33,60 @@ def encode_case(q, k, v):
 
 def vectors():
     rng = random.Random(298)
-    # Single token, negative scores, all-equal scores, extrema, and lost tails.
+    vec = lambda lo=-128, hi=127: [rng.randint(lo, hi) for _ in range(64)]
+    pad = lambda row: row + [0] * (64 - len(row))
+
+    def at_chunk(rows, chunk):
+        """4-wide V rows placed at `chunk`, random bytes elsewhere (a wrong chunk shows up)."""
+        out = []
+        for row in rows:
+            full = vec()
+            full[4 * chunk:4 * chunk + 4] = row
+            out.append(full)
+        return out
+
+    e1 = [1] + [0] * 63
     cases = [
-        ([1, 0, 0, 0], [[-128, 0, 0, 0]], [[-128, -1, 0, 127]]),
-        ([-128] * 4, [[-128] * 4] * 16, [[-128] * 4] * 16),
-        ([-128] * 4, [[127] * 4] * 16, [[127] * 4] * 16),
-        ([0] * 4, [[0] * 4] * 2, [[0] * 4, [1] * 4]),
-        ([1, 0, 0, 0], [[7, 0, 0, 0]] + [[-18, 0, 0, 0]] * 15,  # D = 25: weight 0
-         [[-128] * 4] + [[127] * 4] * 15),
+        # Single token, signed extremes.
+        (e1, [pad([-128])], at_chunk([[-128, -1, 0, 127]], 0), 0, 0),
+        # Largest and smallest 64-dim scores (+/-2^20); all scores equal.
+        ([-128] * 64, [[-128] * 64] * 16, at_chunk([[-128] * 4] * 16, 15), 15, 15),
+        ([-128] * 64, [[127] * 64] * 16, at_chunk([[127] * 4] * 16, 7), 0, 7),
+        # Largest possible D (2088960) at every relevant shift: only shift 15 gets near the table.
+        *[([-128] * 64, [[-128] * 64, [127] * 64], at_chunk([[1, 2, 3, 4], [-128, 127, -1, 1]], 3), s, 3)
+          for s in (0, 14, 15)],
+        ([0] * 64, [[0] * 64] * 2, at_chunk([[0] * 4, [1] * 4], 1), 0, 1),
+        # D = 25 at shift 0: the tail tokens get weight 0.
+        (e1, [pad([7])] + [pad([-18])] * 15, at_chunk([[-128] * 4] + [[127] * 4] * 15, 2), 0, 2),
         # The final key changes the maximum: no exponent may run prematurely.
-        ([1, 0, 0, 0], [[x, 0, 0, 0] for x in range(-8, 8)],
-         [[-128, 127, -1, 1] if x % 2 else [127, -128, 1, -1] for x in range(16)]),
-        ([1, 0, 0, 0], [[-7, 0, 0, 0], [-5, 0, 0, 0], [-1, 0, 0, 0]],
-         [[-128, 127, 0, 1], [127, -128, 1, 0], [-1, 1, -128, 127]]),
-        # Small Q x K spread so several weights are nonzero with full-range V.
-        ([1, 1, 0, 0], [[x, -x // 2, 0, 0] for x in range(16)],
-         [[(37 * x) % 256 - 128, 127 - 16 * x, -128 + 16 * x, x] for x in range(16)]),
+        (e1, [pad([x]) for x in range(-8, 8)],
+         at_chunk([[-128, 127, -1, 1] if x % 2 else [127, -128, 1, -1] for x in range(16)], 9), 0, 9),
+        # Rounded shift at shift 3: D = 19, 20, 21 round to 2, 3 (tie, half up), 3;
+        # truncating would give 2, 2, 2.
+        (e1, [pad([0]), pad([-19]), pad([-20]), pad([-21])],
+         at_chunk([[1, 2, 3, 4], [-128, 127, 0, 0], [0, 0, -128, 127], [64, -64, 32, -32]], 4), 3, 4),
+        # Same ties spread over all 64 components with shift 5.
+        ([1] * 64, [[0] * 64, [-1] * 48 + [0] * 16, [-1] * 47 + [0] * 17, [-1] * 49 + [0] * 15],
+         at_chunk([[5, -5, 100, -100], [-128, 127, 0, 0], [0, 0, -128, 127], [64, -64, 32, -32]], 12), 5, 12),
     ]
     for n in range(1, 17):
-        for _ in range(8):
-            vec = lambda: [rng.randint(-128, 127) for _ in range(4)]
-            cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)]))
-    for q, k, v in cases:
-        yield encode_case(q, k, v)
+        for _ in range(2):
+            # Full-range INT8: score gaps up to ~10^5, so shifts 10..15 keep several weights alive.
+            cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
+                          rng.randint(10, 15), rng.randrange(16)))
+        for _ in range(2):
+            # SmolLM-like small activations with mid-range shifts.
+            cases.append((vec(-40, 40), [vec(-40, 40) for _ in range(n)], [vec() for _ in range(n)],
+                          rng.randint(4, 12), rng.randrange(16)))
+    for q, k, v, shift, chunk in cases:
+        yield encode_case(q, k, v, shift, chunk)
 
     # Weights [255, 1] (D = 22) give denominator 256, so outputs are O / 16.
     # O = +/-8 and +/-264 are ties that round away from zero; neighbors test both sides.
-    q, k = [1, 0, 0, 0], [[7, 0, 0, 0], [-15, 0, 0, 0]]
-    yield encode_case(q, k, [[0, 0, 0, 0], [8, -8, 7, -9]])
-    yield encode_case(q, k, [[1, -1, 1, -1], [9, -9, 10, -10]])
-    yield encode_case([0]*4, [[0]*4]*16, [[0]*4]*16)
+    q, k = e1, [pad([7]), pad([-15])]
+    yield encode_case(q, k, at_chunk([[0, 0, 0, 0], [8, -8, 7, -9]], 6), 0, 6)
+    yield encode_case(q, k, at_chunk([[1, -1, 1, -1], [9, -9, 10, -10]], 14), 0, 14)
+    yield encode_case([0] * 64, [[0] * 64] * 16, [[0] * 64] * 16, 0, 0)
 
 
 def main():
@@ -68,19 +96,21 @@ def main():
     with tempfile.TemporaryDirectory(prefix="attention-controller-") as temporary:
         work = Path(temporary)
         data = work / "vectors.txt"
-        data.write_text("\n".join(vectors()) + "\n")
+        lines = list(vectors())
+        data.write_text("\n".join(lines) + "\n")
+        args = (f"+VECTORS={data}", f"+CASES={len(lines)}")
         current = build(work, "tb_controller", sources)
         # Different schedules supplement the deterministic Python input seed.
         for seed in (298, 2026, 16):
-            simulate(current, f"+VECTORS={data}", f"+verilator+seed+{seed}")
+            simulate(current, *args, f"+verilator+seed+{seed}")
         for latency in (2, 8, 32):
-            simulate(current, f"+VECTORS={data}", f"+MEM_CYCLES={latency}")
+            simulate(current, *args, f"+MEM_CYCLES={latency}")
         # Exercise the controller's memory-base parameters outside the default map.
         relocated = work / "relocated"
         relocated.mkdir()
-        current = build(relocated, "tb_controller", sources,
+        current = build(relocated, "tb_controller", sources, "-GTEST_Q_BASE=16'h0800",
                         "-GTEST_K_BASE=16'h1200", "-GTEST_V_BASE=16'h3400")
-        simulate(current, f"+VECTORS={data}", "+verilator+seed+298")
+        simulate(current, *args, "+verilator+seed+298")
 
 
 if __name__ == "__main__":

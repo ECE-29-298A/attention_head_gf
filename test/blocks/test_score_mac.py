@@ -1,4 +1,4 @@
-"""Clock-by-clock checks for the bit-serial (32-cycle) signed INT8 score MAC."""
+"""Clock-by-clock checks for the bit-serial signed INT8 score MAC (64-dim, 22-bit)."""
 
 import random
 
@@ -33,7 +33,7 @@ async def score_mac_directed_and_random(dut):
         elif en:
             if (ki >> bit) & 1:  # two's complement bit; bit 7 weighs -128
                 expected += qi * (-128 if bit == 7 else 1 << bit)
-            expected = (expected + 2**17) % 2**18 - 2**17  # 18-bit wrap
+            expected = (expected + 2**21) % 2**22 - 2**21  # 22-bit wrap
         await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
         assert dut.S.value.to_signed() == expected, (
@@ -57,15 +57,15 @@ async def score_mac_directed_and_random(dut):
     # End-to-end dot products, including the signed extrema, with each
     # intermediate registered sum checked on every MAC edge.
     cases = [
-        ([-128] * 4, [-128] * 4),
-        ([-128] * 4, [127] * 4),
-        ([127] * 4, [127] * 4),
-        ([0] * 4, [-128, -1, 1, 127]),
+        ([-128] * 64, [-128] * 64),  # largest score, 1048576
+        ([-128] * 64, [127] * 64),   # smallest score, -1040384
+        ([127] * 64, [127] * 64),
+        ([0] * 64, [-128, -1, 1, 127] * 16),
     ]
     cases.extend(
-        ([rng.randint(-128, 127) for _ in range(4)],
-         [rng.randint(-128, 127) for _ in range(4)])
-        for _ in range(1000)
+        ([rng.randint(-128, 127) for _ in range(64)],
+         [rng.randint(-128, 127) for _ in range(64)])
+        for _ in range(200)
     )
     for q, k in cases:
         await cycle(clear=1, en=1, qi=q[0], ki=k[0])

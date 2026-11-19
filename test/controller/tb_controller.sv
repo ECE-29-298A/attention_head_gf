@@ -1,35 +1,39 @@
 `timescale 1ns/1ps
 module tb_controller #(
-    parameter logic [15:0] TEST_K_BASE = 16'h0000,
-    parameter logic [15:0] TEST_V_BASE = 16'h0040
+    parameter logic [15:0] TEST_Q_BASE = 16'h0000,
+    parameter logic [15:0] TEST_K_BASE = 16'h0040,
+    parameter logic [15:0] TEST_V_BASE = 16'h0440
 );
+    // Testbench memory slots: Q 0..63, K token t component c at K_SLOT+64t+c,
+    // V token t component c at V_SLOT+64t+c. The DUT's bases map onto these.
+    localparam int K_SLOT = 64, V_SLOT = 64 + 1024, SLOTS = V_SLOT + 1024;
     logic clk = 0;
     always #5 clk = ~clk;
     logic rst_n = 0, start = 0;
     logic [4:0] token_count = 0;
-    logic [31:0] query_packed = 0;
+    logic [3:0] score_shift = 0, chunk = 0;
     wire start_ready, busy, done, mem_req_valid, mem_write, out_valid;
     wire [15:0] mem_addr;
     wire [7:0] mem_wdata;
     wire signed [7:0] out_data;
     logic mem_req_ready = 0, mem_rsp_valid = 0, out_ready = 0;
     logic [7:0] mem_rdata = 0;
-    attention_controller #(.K_BASE(TEST_K_BASE), .V_BASE(TEST_V_BASE)) dut (.*);
+    attention_controller #(.Q_BASE(TEST_Q_BASE), .K_BASE(TEST_K_BASE), .V_BASE(TEST_V_BASE)) dut (.*);
 
     // The testbench supplies only a memory model and host signals. No arithmetic
     // result or completion signal is driven from the testbench into the controller.
-    logic [7:0] memory [0:127];
-    int reads [0:127];
+    logic [7:0] memory [0:SLOTS-1];
+    int reads [0:SLOTS-1];
     int mem_delay = -1, pending_slot = 0, memory_cycles = 0;
     bit force_output_stall = 0, active_case = 0;
     bit request_stalled = 0, output_stalled = 0, check_sums = 0;
     bit score_ready = 0;
     bit exp_pending = 0, div_pending = 0;
-    logic signed [17:0] held_max, held_score;
+    logic signed [21:0] held_max, held_score;
     logic [11:0] held_denominator;
     logic [15:0] held_address;
     logic [7:0] held_output;
-    int count, expected [0:3], scores [0:15], weights [0:15];
+    int count = 1, case_chunk = 0, expected [0:3], scores [0:15], weights [0:15];
     int expected_max, expected_l, expected_o [0:3];
     int running_l = 0, running_o [0:3];
     int captures = 0, mac_cycles = 0, max_updates = 0, accum_updates = 0;
@@ -37,20 +41,29 @@ module tb_controller #(
     int cycles = 0, total_cycles = 0, divide_start_cycle = 0;
 
     function automatic int memory_slot(input logic [15:0] address);
-        if (int'(address) >= int'(TEST_K_BASE) && int'(address) < int'(TEST_K_BASE)+64)
-            return int'(address)-int'(TEST_K_BASE);
-        if (int'(address) >= int'(TEST_V_BASE) && int'(address) < int'(TEST_V_BASE)+64)
-            return 64+int'(address)-int'(TEST_V_BASE);
+        if (int'(address) >= int'(TEST_Q_BASE) && int'(address) < int'(TEST_Q_BASE)+64)
+            return int'(address)-int'(TEST_Q_BASE);
+        if (int'(address) >= int'(TEST_K_BASE) && int'(address) < int'(TEST_K_BASE)+1024)
+            return K_SLOT+int'(address)-int'(TEST_K_BASE);
+        if (int'(address) >= int'(TEST_V_BASE) && int'(address) < int'(TEST_V_BASE)+1024)
+            return V_SLOT+int'(address)-int'(TEST_V_BASE);
         $fatal(1, "Out-of-map memory address %h", address);
         return 0;
+    endfunction
+    // Every Q byte is read once per token per pass, K bytes twice, and only
+    // the selected 4-byte chunk of each V row once.
+    function automatic int expected_reads(input int slot);
+        if (slot < K_SLOT) return 2*count;
+        if (slot < V_SLOT) return slot-K_SLOT < 64*count ? 2 : 0;
+        return (slot-V_SLOT)/64 < count && ((slot-V_SLOT)%64)/4 == case_chunk ? 1 : 0;
     endfunction
     // Output byte i: result i/2 as signed 16 bits, low byte first.
     function automatic logic [7:0] output_byte(input int index);
         logic [15:0] word = 16'(expected[index / 2]);
-        return index % 2 ? word[15:8] : word[7:0];
+        return index % 2 != 0 ? word[15:8] : word[7:0];
     endfunction
     function automatic int value_component(input int token, component);
-        return int'($signed(memory[64+4*token+component]));
+        return int'($signed(memory[V_SLOT+64*token+4*case_chunk+component]));
     endfunction
 
     always @(negedge clk) begin
@@ -83,17 +96,20 @@ module tb_controller #(
                 assert (mem_delay < 0) else $fatal(1, "Overlapping requests");
                 pending_slot = memory_slot(mem_addr);
                 if (active_case) begin
-                    if (pending_slot < 64) begin
-                        assert (pending_slot < 4*count && reads[pending_slot] < 2)
+                    if (pending_slot < K_SLOT) begin
+                        assert (reads[pending_slot] < 2*count) else $fatal(1, "Extra Q access");
+                    end else if (pending_slot < V_SLOT) begin
+                        assert (pending_slot-K_SLOT < 64*count && reads[pending_slot] < 2)
                             else $fatal(1, "Invalid K access");
                         if (reads[pending_slot] == 0)
-                            assert (max_updates == pending_slot/4 && exp_calls == 0 && accum_updates == 0)
+                            assert (max_updates == (pending_slot-K_SLOT)/64 && exp_calls == 0 && accum_updates == 0)
                                 else $fatal(1, "Pass 1 scheduled incorrectly");
-                        else assert (max_updates == count && accum_updates == pending_slot/4)
+                        else assert (max_updates == count && accum_updates == (pending_slot-K_SLOT)/64)
                             else $fatal(1, "Pass 2 scheduled incorrectly");
                     end else
-                        assert (pending_slot < 64+4*count && exp_results == (pending_slot-64)/4+1)
-                            else $fatal(1, "V read before real LUT completion");
+                        assert (expected_reads(pending_slot) == 1 && reads[pending_slot] == 0 &&
+                                exp_results == (pending_slot-V_SLOT)/64+1)
+                            else $fatal(1, "Wrong V chunk, repeated V read, or V read before LUT completion");
                 end
                 mem_delay = memory_cycles > 0 ? memory_cycles-2 : int'($urandom_range(0,7));
             end
@@ -101,15 +117,17 @@ module tb_controller #(
             if (active_case) begin
                 if (busy || (start && start_ready)) cycles++;
                 if (max_updates == count)
-                    assert (dut.exp_max == 18'(expected_max)) else $fatal(1, "Final max changed");
+                    assert (dut.exp_max == 22'(expected_max)) else $fatal(1, "Final max changed");
                 if (dut.score_unit.en) mac_cycles++;
                 // The completed score is consumed one edge after the final MAC.
                 if (score_ready) begin
-                    assert (captures < 2*count && dut.score == 18'(scores[captures % count]))
+                    assert (captures < 2*count && dut.score == 22'(scores[captures % count]))
                         else $fatal(1, "Dot-product mismatch");
                     captures++;
                 end
-                score_ready = dut.score_unit.en && dut.component == 3 && dut.bit_index == 7;
+                // A score is complete after the last bit of the last component of group 15.
+                score_ready = dut.score_unit.en && dut.component == 3 && dut.bit_index == 7 &&
+                              dut.group == 15;
                 if (dut.max_unit.en) begin
                     assert (max_updates < count) else $fatal(1, "Max updated in pass 2");
                     max_updates++;
@@ -119,7 +137,7 @@ module tb_controller #(
                         else $fatal(1, "Exponent operands changed or start repeated while waiting");
                 if (dut.exp_start) begin
                     assert (exp_calls < count && max_updates == count && exp_calls == exp_results &&
-                            dut.exp_score == 18'(scores[exp_calls])) else $fatal(1, "Bad exponent start");
+                            dut.exp_score == 22'(scores[exp_calls])) else $fatal(1, "Bad exponent start");
                     exp_calls++;
                     held_max = dut.exp_max; held_score = dut.exp_score; exp_pending = 1;
                 end
@@ -200,12 +218,13 @@ module tb_controller #(
     endtask
 
     string path;
-    int fd, qword, temp, checked = 0, ticks;
+    int fd, shift_in, temp, cases, checked = 0, ticks;
     bit reset_point;
     initial begin
         if ($value$plusargs("MEM_CYCLES=%d", memory_cycles))
             assert (memory_cycles >= 2 && memory_cycles <= 100) else $fatal(1, "Invalid memory latency");
         assert ($value$plusargs("VECTORS=%s", path)) else $fatal(1, "Missing vectors");
+        assert ($value$plusargs("CASES=%d", cases)) else $fatal(1, "Missing case count");
         fd = $fopen(path, "r");
         assert (fd != 0) else $fatal(1, "Cannot read vectors");
         reset_core();
@@ -216,7 +235,7 @@ module tb_controller #(
         repeat (3) @(negedge clk);
         assert (!busy && !start_ready) else $fatal(1, "Accepted N=17");
         start = 0;
-        token_count = 1; query_packed = 0;
+        token_count = 1; score_shift = 0; chunk = 0;
         foreach (memory[i]) memory[i] = 0;
         // Include reset with a real LUT result pending and every divider stage.
         for (int phase = 0; phase < 30; phase++) begin
@@ -224,14 +243,14 @@ module tb_controller #(
             force_output_stall = 1;
             launch();
             reset_point = 0; ticks = 0;
-            while (!reset_point && ticks < 10000) begin
+            while (!reset_point && ticks < 200000) begin
                 @(negedge clk); ticks++;
                 case (phase)
                     0: reset_point = mem_delay >= 0;
                     1: reset_point = mem_delay >= 0 && pending_slot == 0 && reads[0] == 1;
                     2: reset_point = dut.exp_start;
                     3: reset_point = dut.exp_done;
-                    4: reset_point = mem_delay >= 0 && pending_slot == 64;
+                    4: reset_point = mem_delay >= 0 && pending_slot == V_SLOT;
                     5: reset_point = out_valid;
                     default: reset_point = dut.div_busy &&
                         ((phase < 29 && int'(dut.divider_unit.step) == phase-6) ||
@@ -248,16 +267,17 @@ module tb_controller #(
         end
         force_output_stall = 0;
         while ($fscanf(fd, "%d", count) == 1) begin
-            scan(fd, qword);
+            scan(fd, shift_in); scan(fd, case_chunk);
             @(negedge clk);
-            token_count = 5'(count); query_packed = 32'(qword);
+            token_count = 5'(count); score_shift = 4'(shift_in); chunk = 4'(case_chunk);
             foreach (memory[i]) begin memory[i] = 8'ha5; reads[i] = 0; end
-            for (int i = 0; i < 4*count; i++) begin scan(fd, temp); memory[i] = 8'(temp); end
-            for (int i = 0; i < 4*count; i++) begin scan(fd, temp); memory[64+i] = 8'(temp); end
+            for (int i = 0; i < 64; i++) begin scan(fd, temp); memory[i] = 8'(temp); end
+            for (int i = 0; i < 64*count; i++) begin scan(fd, temp); memory[K_SLOT+i] = 8'(temp); end
+            for (int i = 0; i < 64*count; i++) begin scan(fd, temp); memory[V_SLOT+i] = 8'(temp); end
             for (int i = 0; i < 4; i++) scan(fd, expected[i]);
             for (int i = 0; i < count; i++) scan(fd, scores[i]);
             for (int i = 0; i < count; i++) scan(fd, weights[i]);
-            expected_l = 0; expected_max = -65024;
+            expected_l = 0; expected_max = -1040384;
             foreach (expected_o[i]) begin expected_o[i] = 0; running_o[i] = 0; end
             for (int i = 0; i < count; i++) begin
                 if (scores[i] > expected_max) expected_max = scores[i];
@@ -268,25 +288,24 @@ module tb_controller #(
             exp_calls = 0; exp_results = 0; div_calls = 0; div_results = 0; received = 0;
             running_l = 0; check_sums = 0; score_ready = 0; cycles = 0; active_case = 1;
             launch();
-            query_packed = ~query_packed; token_count = 0; start = 1;
+            score_shift = ~score_shift; chunk = ~chunk; token_count = 0; start = 1;
             repeat (2) @(negedge clk);
             start = 0; ticks = 0;
-            while (!done && ticks < 20000) begin @(negedge clk); ticks++; end
-            assert (done && !busy && received == 8 && captures == 2*count && mac_cycles == 64*count &&
+            while (!done && ticks < 1000000) begin @(negedge clk); ticks++; end
+            assert (done && !busy && received == 8 && captures == 2*count && mac_cycles == 1024*count &&
                     max_updates == count && accum_updates == count && exp_calls == count &&
                     exp_results == count && div_calls == 4 && div_results == 4)
                 else $fatal(1, "Incomplete transaction %0d", checked);
-            for (int i = 0; i < 128; i++)
-                assert (reads[i] == (i < 4*count ? 2 : ((i >= 64 && i < 64+4*count) ? 1 : 0)))
-                    else $fatal(1, "Wrong read count at slot %0d", i);
+            for (int i = 0; i < SLOTS; i++)
+                assert (reads[i] == expected_reads(i)) else $fatal(1, "Wrong read count at slot %0d", i);
             repeat (3) @(negedge clk);
             assert (done && !out_valid && !dut.div_done && !dut.exp_done) else $fatal(1, "Status did not settle");
             active_case = 0; total_cycles += cycles; checked++;
         end
-        assert (checked == 139) else $fatal(1, "Missing controller cases");
-        $display("PASS: integrated RTL controller, %0d Python cases; memory_cycles=%0d K=%h V=%h; reset, stalls, intermediate results and outputs", checked, memory_cycles, TEST_K_BASE, TEST_V_BASE);
+        assert (checked == cases) else $fatal(1, "Missing controller cases");
+        $display("PASS: integrated RTL controller, %0d Python cases; memory_cycles=%0d Q=%h K=%h V=%h; reset, stalls, intermediate results and outputs", checked, memory_cycles, TEST_Q_BASE, TEST_K_BASE, TEST_V_BASE);
         $display("METRICS total_cycles=%0d", total_cycles);
         $finish;
     end
-    initial begin #100000000; $fatal(1, "Core timeout"); end
+    initial begin #10000000000; $fatal(1, "Core timeout"); end
 endmodule
