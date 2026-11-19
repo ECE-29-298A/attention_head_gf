@@ -11,6 +11,14 @@ score_shift = 0 is the chip as built. score_shift = k looks up D >> k, i.e.
 k fewer score bits matter (needed when real scores are much bigger than the
 LUT's 1 unit = 0.5 nat). NOT IN RTL YET.
 
+Accuracy fixes, measured on SmolLM by python/smollm_compare.py:
+1. Per-channel V scales: host side only, see quantize(). No chip change.
+2. and 3. are these options, NOT IN RTL YET (defaults = the chip as built):
+- lut_res: score units per nat. The LUT holds 255 · e^(-D / lut_res);
+  2 = the chip (0.5-nat steps, 13 entries), 4 = 0.25-nat steps (25 entries).
+- out_frac: extra fractional output bits. Outputs are round(O · 2^out_frac / L),
+  i.e. INT(8 + out_frac) codes in units of 2^-out_frac V steps.
+
 Two versions, bit-identical:
 - chip_attention():    plain Python, one query, readable
 - chip_attention_np(): numpy, any batch shape, fast enough for a real model
@@ -21,10 +29,17 @@ import math
 import numpy as np
 
 
-# Build EXP table once: EXP_TABLE[D] = round(255 · e^(-D/2))
+def exp_table(lut_res: int = 2) -> list[int]:
+    """EXP_TABLE[D] = round(255 · e^(-D / lut_res)), up to the first D that rounds to 0."""
+    table = []
+    while (w := round(255 * math.exp(-len(table) / lut_res))) > 0:
+        table.append(w)
+    return table
+
+
 # Scores are whole numbers, so D = M - S is too, and from D = 13 on the
 # weight rounds to 0. So 13 entries cover everything.
-EXP_TABLE = [round(255 * math.exp(-D / 2)) for D in range(13)]
+EXP_TABLE = exp_table(2)
 # = [255, 155, 94, 57, 35, 21, 13, 8, 5, 3, 2, 1, 1]
 
 # === BIT HELPERS ===
@@ -100,7 +115,7 @@ def dot(q: list[int], k: list[int]) -> int:
     return S
 
 
-def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0) -> int:
+def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 2) -> int:
     """Softmax step
 
     We want to calculate W ≈ 255 · e^((S - M) / 2)
@@ -118,6 +133,7 @@ def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0) -> int:
         S (int): this token's score
         d (int): head size, only for the width check
         score_shift (int): look up D >> score_shift (0 = the chip)
+        lut_res (int): score units per nat (2 = the chip)
 
     Returns:
         int: weight, 0 to 255
@@ -125,26 +141,28 @@ def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0) -> int:
 
     D = check_width(M - S, reg_widths(d)["D"], signed=False, name="D") >> score_shift
 
-    W = EXP_TABLE[D] if D < len(EXP_TABLE) else 0
+    table = exp_table(lut_res)
+    W = table[D] if D < len(table) else 0
 
     return check_width(W, 8, signed=False, name="W")
 
-def divide_round(O: int, L: int, n_max: int = 16) -> int:
-    """Output = round(O / L), the chip's way: an INT8 weighted average of V.
+def divide_round(O: int, L: int, n_max: int = 16, out_frac: int = 0) -> int:
+    """Output = round(O · 2^out_frac / L), the chip's way: an INT8 weighted average of V.
 
     Args:
         O (int): sum of weight x value for all the tokens
         L (int): sum of all the weights
+        out_frac (int): extra fractional output bits (0 = the chip)
 
     Returns:
-        int: signed INT8 output
+        int: signed INT(8 + out_frac) output
     """
     # L must be positive 
     assert L > 0, "L must be positive"
 
     # Save the sign
     G = O < 0
-    Z = check_width(abs(O), reg_widths(n_max=n_max)["Z"], signed=False, name="Z")
+    Z = check_width(abs(O), reg_widths(n_max=n_max)["Z"], signed=False, name="Z") << out_frac
 
     # using divmod -> (quotient, remainder)
     q, R = divmod(Z, L)
@@ -155,12 +173,13 @@ def divide_round(O: int, L: int, n_max: int = 16) -> int:
 
     # Put signs back 
     code = -q if G else q
-    return check_width(code, 8, signed=True, name="output") # Test on return
+    return check_width(code, 8 + out_frac, signed=True, name="output") # Test on return
 
 # === THE CHIP ===
 
 def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
-                   n_max: int = 16, score_shift: int = 0) -> list[int]:
+                   n_max: int = 16, score_shift: int = 0, lut_res: int = 2,
+                   out_frac: int = 0) -> list[int]:
     """One attention pass
 
     1 <= N <= n_max. Head size d = len(Q) (the chip: d = 4, n_max = 16).
@@ -171,9 +190,11 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
         V (list[list[int]]): N vectors of d ints each
         n_max (int): token limit the registers are sized for
         score_shift (int): see exp_weight (0 = the chip)
+        lut_res (int): see exp_weight (2 = the chip)
+        out_frac (int): see divide_round (0 = the chip)
 
     Returns:
-        list[int]: d INT8 outputs
+        list[int]: d INT(8 + out_frac) outputs
     """
     # N is the number of K we have.
     N = len(K)
@@ -195,7 +216,7 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
     L = 0; O = [0] * d
     for k, v in zip(K, V):
         S = dot(Q, k) # The chip is stupid we forgor about the value so we have to recalculate
-        W = exp_weight(M, S, d, score_shift) # Turn the score into weight
+        W = exp_weight(M, S, d, score_shift, lut_res) # Turn the score into weight
         L = check_width(L + W, bits["L"], signed=False, name="L") # Add to running total
         # Add W x V to running sums O
         assert len(v) == d and all(-128 <= x <= 127 for x in v), f"value out of INT8 range: {v}"
@@ -205,36 +226,54 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
     # --- Divide ---
 
     # We divide each sum by L (big L)
-    return [divide_round(O[i], L, n_max) for i in range(d)]
-
-
-EXP_TABLE_NP = np.array(EXP_TABLE + [0], dtype=np.int64)  # index 13 = "D >= 13"
+    return [divide_round(O[i], L, n_max, out_frac) for i in range(d)]
 
 
 def chip_attention_np(Q: np.ndarray, K: np.ndarray, V: np.ndarray,
-                      score_shift: int = 0) -> np.ndarray:
+                      score_shift=0, lut_res: int = 2, out_frac: int = 0) -> np.ndarray:
     """chip_attention for many queries at once, bit-identical to it.
 
     Args:
         Q: int, shape (..., d)
         K: int, shape (..., N, d)
         V: int, shape (..., N, d)
-        score_shift: see exp_weight (0 = the chip)
+        score_shift: see exp_weight (0 = the chip); an int or an array of
+            shape (..., 1) for a per-query shift
+        lut_res: see exp_weight (2 = the chip)
+        out_frac: see divide_round (0 = the chip)
 
     Returns:
-        np.ndarray: int64, shape (..., d), INT8 outputs
+        np.ndarray: int64, shape (..., d), INT(8 + out_frac) outputs
     """
     Q, K, V = (np.asarray(x, dtype=np.int64) for x in (Q, K, V))
     for x in (Q, K, V):
         assert x.min() >= -128 and x.max() <= 127, "values out of INT8 range"
     S = np.einsum("...nd,...d->...n", K, Q)                       # all scores
     D = (S.max(axis=-1, keepdims=True) - S) >> score_shift        # >= 0
-    W = EXP_TABLE_NP[np.minimum(D, len(EXP_TABLE))]               # (..., N)
+    table = np.array(exp_table(lut_res) + [0], dtype=np.int64)   # last entry = "D past the table"
+    W = table[np.minimum(D, len(table) - 1)]                      # (..., N)
     L = W.sum(axis=-1, keepdims=True)                             # >= 255: max token has W = 255
-    O = np.einsum("...n,...nd->...d", W, V)
+    O = np.einsum("...n,...nd->...d", W, V) << out_frac
     q, R = np.divmod(np.abs(O), L)
     q = q + (2 * R >= L)                                          # nearest, ties away from zero
     return np.where(O < 0, -q, q)
+
+# === HOST SIDE: REAL NUMBERS TO INT8 ===
+
+def quantize(x: np.ndarray, axis) -> tuple[np.ndarray, np.ndarray]:
+    """Power-of-two INT8: x ≈ x_int · 2^-e, one exponent e per slice over axis.
+
+    For V (shape (..., N, d)), axis=-2 gives every column its own scale
+    (per-channel). That costs the chip nothing: output column i only ever uses
+    V column i, so the host just multiplies output i by 2^-e[i] afterwards.
+    Q and K can't do this, because q·k adds all columns together.
+
+    Returns:
+        (x_int, e): int64 INT8 values, and int64 exponents (keepdims shape)
+    """
+    peak = np.maximum(np.abs(x).max(axis=axis, keepdims=True), 1e-30)
+    e = np.floor(np.log2(127 / peak)).astype(np.int64)
+    return np.clip(np.round(x * 2.0**e), -128, 127).astype(np.int64), e
 
 # === TRUE NUMPY ATTENTION ===
 
