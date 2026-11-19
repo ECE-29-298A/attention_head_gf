@@ -1,31 +1,47 @@
-# Verification
+# Sample testbench for a Tiny Tapeout project
 
-The configured Tiny Tapeout top is `tt_um_attention_head_gf`. The default
-`make` in this directory tests full attention transactions through a pin-level
-QSPI flash model. It checks the host ready/valid protocol, flash command and
-address bits, K/K/V read order, output values and stalls, invalid token counts,
-reset, `ena` abort, and consecutive queries.
+This is a sample testbench for a Tiny Tapeout project. It uses [cocotb](https://docs.cocotb.org/en/stable/) to drive the DUT and check the outputs.
+See below to get started or for more information, check the [website](https://tinytapeout.com/hdl/testing/).
 
-From the repository root:
+## Setting up
 
-```sh
-make -C test
-python3 -m cocotb_tools.check_results test/results.xml
-python3 test/top/run.py
-```
+1. Edit [Makefile](Makefile) and modify `PROJECT_SOURCES` to point to your Verilog files.
+2. Edit [tb.v](tb.v) and replace `tt_um_example` with your module name.
 
-The standalone top runner builds in a temporary directory. The Makefile run
-also supports the `GATES=yes` gate-level flow once a netlist is produced.
+## How to run
 
-Other regressions:
+To run the RTL simulation:
 
 ```sh
-python3 test/controller/run.py
-python3 test/controller/cocotb/run.py
-python3 test/divider/run.py
-make -C test/spi_byte test lint
+make -B
 ```
 
-Block-level Cocotb tests are in `test/blocks`. See the
-[integration report](../docs/integration-report.md) for scope and remaining
-physical verification.
+To run gatelevel simulation, first harden your project and copy `../runs/wokwi/results/final/verilog/gl/{your_module_name}.v` to `gate_level_netlist.v`.
+
+Then run:
+
+```sh
+make -B GATES=yes
+```
+
+If you wish to save the waveform in VCD format instead of FST format, edit tb.v to use `$dumpfile("tb.vcd");` and then run:
+
+```sh
+make -B FST=
+```
+
+This will generate `tb.vcd` instead of `tb.fst`.
+
+## How to view the waveform file
+
+Using GTKWave
+
+```sh
+gtkwave tb.fst tb.gtkw
+```
+
+Using Surfer
+
+```sh
+surfer tb.fst
+```
