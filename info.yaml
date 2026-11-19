@@ -1,17 +1,17 @@
 # Tiny Tapeout project information
 project:
-  title:        "Single-tile INT8 attention"      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Four-component INT8 attention with external QSPI key/value memory"
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     10000000 # Target clock frequency in Hz
+  title: "Single-tile INT8 attention" # Project title
+  author: "Samuel Zhang, Eugene Zhao, Felix Deng" # Project author
+  discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "Four-component INT8 attention with external QSPI key/value memory"
+  language: "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz: 10000000 # Target clock frequency in Hz
 
   # How many tiles your design occupies? A single tile is about 340x160 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
+  tiles: "1x1" # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_attention_head_gf"
+  top_module: "tt_um_attention_head_gf"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
