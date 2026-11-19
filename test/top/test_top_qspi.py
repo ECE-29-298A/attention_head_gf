@@ -8,7 +8,7 @@ from cocotb.clock import Clock
 from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "python/src"))
-from attention_model import chip_attention, pack_byte
+from attention_model import chip_attention, pack_byte, signed8
 
 
 class Flash:
@@ -82,7 +82,7 @@ class Harness:
                 return
         assert False, "configuration input did not become ready"
 
-    async def query(self, q, k, v):
+    async def query(self, q, k, v, *, name="query"):
         n = len(k)
         self.flash.memory = [0] * 128
         for t in range(n):
@@ -94,20 +94,24 @@ class Harness:
         for value in q:
             await self.send(pack_byte(value))
 
-        expected = [pack_byte(x) for x in chip_attention(q, k, v)]
-        for index, wanted in enumerate(expected):
+        expected = chip_attention(q, k, v)
+        actual = []
+        for index in range(4):
             for _ in range(30000):
                 valid, data = await self.tick(host=0)
                 if valid:
                     break
             else:
-                assert False, f"deadlock before output {index}"
-            assert data == wanted, (index, data, wanted)
+                assert False, f"{name}: timeout before output {index}"
             for _ in range(3):
                 held_valid, held_data = await self.tick(host=0)
-                assert held_valid and held_data == wanted, "output changed under backpressure"
-            valid, data = await self.tick(host=1)
-            assert valid and data == wanted, "output transfer mismatch"
+                assert held_valid and held_data == data, "output changed under backpressure"
+            valid, transferred = await self.tick(host=1)
+            assert valid and transferred == data, "output transfer mismatch"
+            actual.append(signed8(transferred))
+
+        assert actual == expected, f"{name} (N={n}): hardware={actual}, Python={expected}"
+        self.dut._log.info("%s (N=%d): hardware=%s, Python=%s", name, n, actual, expected)
 
         expected_reads = [4*t+c for t in range(n) for c in range(4)]
         for t in range(n):
@@ -116,8 +120,7 @@ class Harness:
         assert self.flash.reads[first_read:] == expected_reads, "K/V read order or count"
 
 
-@cocotb.test()
-async def end_to_end_flash_and_host(dut):
+async def start_harness(dut):
     dut.rst_n.value = 0
     dut.ena.value = 1
     dut.ui_in.value = 0
@@ -126,6 +129,12 @@ async def end_to_end_flash_and_host(dut):
     h = Harness(dut)
     await h.tick(reset=0)
     await h.tick(reset=0)
+    return h
+
+
+@cocotb.test()
+async def end_to_end_flash_and_host(dut):
+    h = await start_harness(dut)
     for invalid in (0, 17, 255):
         ready, _ = await h.tick(data=invalid, host=1)
         assert not ready, "invalid token count accepted"
@@ -167,3 +176,47 @@ async def end_to_end_flash_and_host(dut):
     assert h.flash.prev_cs == 1, "ena low did not release flash CS"
     await h.query([0, 0, 0, 0], [[0, 0, 0, 0]], [[-1, 0, 1, 127]])
     dut._log.info("PASS top: flash reads, INT8 outputs, backpressure, boundaries, reset/ena abort; %d cycles", h.cycles)
+
+
+@cocotb.test()
+async def hardware_matches_python_model(dut):
+    h = await start_harness(dut)
+    await h.query(
+        [127, -128, 37, -9],
+        [[-128, 127, 11, 3]],
+        [[-128, 127, -1, 0]],
+        name="single token with signed extremes",
+    )
+    await h.query(
+        [0, 0, 0, 0],
+        [[1, -2, 3, -4], [-5, 6, -7, 8]],
+        [[0, 0, 127, -128], [1, -1, 126, -127]],
+        name="equal scores with positive and negative rounding ties",
+    )
+    # Score deltas are 12, 1, 13, 0. The first two outputs distinguish
+    # dropping the weight at delta 12 from retaining one at delta 13.
+    await h.query(
+        [1, 0, 0, 0],
+        [[-13, 0, 0, 0], [-2, 0, 0, 0], [-14, 0, 0, 0], [-1, 0, 0, 0]],
+        [[-128, 0, -128, 127], [0, 0, 127, -128], [0, -128, 127, -128], [1, 1, -128, 127]],
+        name="negative scores at the LUT cutoff",
+    )
+    await h.query(
+        [-128] * 4,
+        [[127] * 4, [-128] * 4],
+        [[127, -128, 7, -11], [-1, 3, -9, 42]],
+        name="largest representable INT8 dot product gap",
+    )
+    rng = random.Random(2026)
+    await h.query(
+        [1, -1, 1, -1],
+        [[rng.randint(-3, 3) for _ in range(4)] for _ in range(8)],
+        [[rng.randint(-128, 127) for _ in range(4)] for _ in range(8)],
+        name="seeded mixed weights",
+    )
+    await h.query(
+        [-128] * 4,
+        [[-128] * 4] * 16,
+        [[-128, 127, -1, 1]] * 16,
+        name="sixteen maximum weights with extreme values",
+    )
