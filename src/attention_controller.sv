@@ -6,7 +6,8 @@
 // All resets are synchronous. Reset must also cancel/drain pending memory reads.
 module attention_controller #(
     parameter logic [15:0] K_BASE = 16'h0000, // 4 bytes per token (4 INT8 components), max 16 tokens -> 64 bytes
-    parameter logic [15:0] V_BASE = 16'h0040 // 4 bytes per token (4 INT8 components), max 16 tokens -> 64 bytes
+    parameter logic [15:0] V_BASE = 16'h0040, // 4 bytes per token (4 INT8 components), max 16 tokens -> 64 bytes
+    parameter bit LATCH_QUERY = 1'b1 // latch Q unless the caller holds it through completion
 ) (
     // Clock and reset
     input wire clk,
@@ -66,7 +67,16 @@ module attention_controller #(
     logic [1:0] component, output_index;
     // bit of the multiplier operand (shift-add); bit_index[1:0] also counts the 4 bytes of a row read.
     logic [2:0] bit_index;
-    logic [31:0] query, operands;
+    wire [31:0] query;
+    logic [31:0] operands;
+    if (LATCH_QUERY) begin : g_query
+        logic [31:0] saved_query;
+        always_ff @(posedge clk)
+            if (start && start_ready) saved_query <= query_packed;
+        assign query = saved_query;
+    end else begin : g_direct_query
+        assign query = query_packed;
+    end
     // exp_lut holds W until its next start, so no local copy is needed.
     wire [7:0] weight = exp_weight;
     wire signed [17:0] score, maximum;
@@ -123,6 +133,11 @@ module attention_controller #(
         state <= MEM_REQUEST;
     endtask
 
+    // The full row is overwritten before the first arithmetic access.
+    always_ff @(posedge clk)
+        if (state == MEM_WAIT && mem_rsp_valid)
+            operands <= {mem_rdata, operands[31:8]};
+
     always_ff @(posedge clk) begin
         if (!rst_n) begin
             state <= IDLE;
@@ -133,14 +148,11 @@ module attention_controller #(
             component <= 0;
             bit_index <= 0;
             output_index <= 0;
-            query <= 0;
-            operands <= 0;
             done <= 0;
         end else begin
             component <= component + 1'b1;
             case (state)
                 IDLE: if (start && start_ready) begin
-                    query <= query_packed;
                     last <= 4'(token_count - 5'd1);
                     token <= 0;
                     second_pass <= 0;
@@ -190,7 +202,6 @@ module attention_controller #(
                 MEM_REQUEST: if (mem_req_ready) state <= MEM_WAIT;
                 // Byte 0 is read first, so shifting in from the top leaves {b3, b2, b1, b0}.
                 MEM_WAIT: if (mem_rsp_valid) begin
-                    operands <= {mem_rdata, operands[31:8]};
                     bit_index <= bit_index + 1'b1;
                     state <= return_state;
                 end

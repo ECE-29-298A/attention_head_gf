@@ -37,7 +37,7 @@ module tt_um_attention_head_gf (
     wire [3:0] spi_io_o, spi_io_oe;
     wire spi_sck, spi_cs_n;
 
-    attention_controller core (
+    attention_controller #(.LATCH_QUERY(1'b0)) core (
         .clk(clk), .rst_n(active),
         .start(core_start), .token_count(count), .query_packed(query),
         .start_ready(core_start_ready), .busy(core_busy), .done(core_done),
@@ -66,18 +66,24 @@ module tt_um_attention_head_gf (
     wire _unused = &{uio_in[7], uio_in[5:4], core_mem_write,
                      core_mem_wdata, core_busy, core_done, 1'b0};
 
+    // All five bytes are replaced before launch. Keep the query stable
+    // throughout RUN so the controller can use this bank directly.
+    wire query_phase = stage == Q0 || stage == Q1 || stage == Q2 || stage == Q3;
+    always @(posedge clk) begin
+        if (cfg_accept && stage == COUNT) count <= ui_in[4:0];
+        if (cfg_accept && query_phase) query <= {ui_in, query[31:8]};
+    end
+
     always @(posedge clk) begin
         if (!active) begin
             stage <= COUNT;
-            count <= 5'd0;
-            query <= 32'd0;
         end else begin
             case (stage)
-                COUNT: if (cfg_accept) begin count <= ui_in[4:0]; stage <= Q0; end
-                Q0: if (cfg_accept) begin query[7:0] <= ui_in; stage <= Q1; end
-                Q1: if (cfg_accept) begin query[15:8] <= ui_in; stage <= Q2; end
-                Q2: if (cfg_accept) begin query[23:16] <= ui_in; stage <= Q3; end
-                Q3: if (cfg_accept) begin query[31:24] <= ui_in; stage <= LAUNCH; end
+                COUNT: if (cfg_accept) stage <= Q0;
+                Q0: if (cfg_accept) stage <= Q1;
+                Q1: if (cfg_accept) stage <= Q2;
+                Q2: if (cfg_accept) stage <= Q3;
+                Q3: if (cfg_accept) stage <= LAUNCH;
                 LAUNCH: if (core_start_ready) stage <= RUN;
                 RUN: if (core_done) stage <= COUNT;
                 default: stage <= COUNT;

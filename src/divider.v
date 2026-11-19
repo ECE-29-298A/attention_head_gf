@@ -25,48 +25,42 @@ module divider (
     reg [4:0] step;
     reg negative, invalid;
 
-    wire [19:0] magnitude = sum_in[19] ? (~sum_in + 20'd1) : sum_in;
-    wire [12:0] trial = {remainder_value, quotient[18]};
-    wire subtract = trial >= {1'b0, divisor};
-    // The 13-bit comparison decides subtraction. For valid L, the new remainder
-    // is < L <= 4095, so its low 12-bit subtraction contains the complete result.
-    wire [11:0] next_remainder = trial[11:0] - (subtract ? divisor : 12'd0);
+    wire [18:0] magnitude = sum_in[19] ? (~sum_in[18:0] + 19'd1) : sum_in[18:0];
+    // The round step uses the same subtractor to compare 2*remainder with L.
+    wire [12:0] trial = {remainder_value, (state != ROUND) && quotient[18]};
+    wire [13:0] difference = {1'b0, trial} - {2'b0, divisor};
+    wire subtract = !difference[13];
+    wire [11:0] next_remainder = subtract ? difference[11:0] : trial[11:0];
     wire [18:0] next_quotient = {quotient[17:0], subtract};
-    wire round_up = {remainder_value, 1'b0} >= {1'b0, divisor};
-    // Extra bit prevents carry-out during rounding from silently wrapping.
-    wire [19:0] rounded = {1'b0, quotient} + (round_up ? 20'd1 : 20'd0);
-    wire overflow = negative ? rounded > 20'd128 : rounded > 20'd127;
+    wire [8:0] rounded = {1'b0, quotient[7:0]} + {8'b0, subtract};
+    wire overflow = |quotient[18:8] || (negative ? rounded > 9'd128 : rounded > 9'd127);
     assign busy = state != IDLE;
+
+    always @(posedge clk) begin
+        if (state == IDLE && start) begin
+            quotient <= magnitude;
+            remainder_value <= 12'd0;
+            divisor <= denominator;
+            negative <= sum_in[19];
+            invalid <= denominator == 12'd0 || sum_in == 20'sh80000;
+            step <= 5'd0;
+        end else if (state == DIVIDE) begin
+            quotient <= next_quotient;
+            remainder_value <= next_remainder;
+            step <= step + 5'd1;
+        end
+    end
 
     always @(posedge clk) begin
         if (!rst_n) begin
             state <= IDLE;
-            quotient <= 19'd0;
-            remainder_value <= 12'd0;
-            divisor <= 12'd0;
-            step <= 5'd0;
-            negative <= 1'b0;
-            invalid <= 1'b0;
             done <= 1'b0;
             result <= 8'sd0;
         end else begin
             done <= 1'b0;
             case (state)
-                IDLE: if (start) begin
-                    quotient <= magnitude[18:0];
-                    remainder_value <= 12'd0;
-                    divisor <= denominator;
-                    negative <= sum_in[19];
-                    invalid <= denominator == 12'd0 || magnitude[19];
-                    step <= 5'd0;
-                    state <= DIVIDE;
-                end
-                DIVIDE: begin
-                    quotient <= next_quotient;
-                    remainder_value <= next_remainder;
-                    if (step == 5'd18) state <= ROUND;
-                    else step <= step + 5'd1;
-                end
+                IDLE: if (start) state <= DIVIDE;
+                DIVIDE: if (step == 5'd18) state <= ROUND;
                 ROUND: begin
                     if (invalid || overflow) result <= 8'sd0;
                     else if (negative) result <= ~rounded[7:0] + 8'd1;
