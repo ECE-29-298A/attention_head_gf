@@ -36,7 +36,7 @@ async def exp_lut_exhaustive_and_handshake(dut):
             expected_done = start
             if start:
                 delta = max(0, maximum - score)
-                expected_weight = round(255 * math.exp(-delta / 2)) if delta < 16 else 0
+                expected_weight = round(255 * math.exp(-delta / 4)) if delta < 32 else 0
         await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
         assert int(dut.done.value) == expected_done, (
@@ -50,21 +50,21 @@ async def exp_lut_exhaustive_and_handshake(dut):
 
     await cycle(rst_n=0, start=1, maximum=SCORE_MAX, score=SCORE_MIN)
     await cycle()
-    for delta in range(0, 17):
+    for delta in range(0, 33):
         await cycle(start=1, maximum=delta, score=0)
     await cycle(start=1, maximum=SCORE_MIN, score=SCORE_MAX)  # contract violation clamps
     await cycle(start=0, maximum=SCORE_MAX, score=SCORE_MIN)  # weight holds
     await cycle(rst_n=0, start=1, maximum=0, score=0)
 
     # INT8 has ~8.5e9 ordered pairs, too many to sweep. Instead: every D in
-    # 0..20 at maxima spread over the range (including both extremes and
+    # 0..36 at maxima spread over the range (including both extremes and
     # sign/bit boundaries), with consecutive starts on every cycle.
-    maxima = [SCORE_MIN + 20, -32768, -257, -16, -1, 0, 1, 15, 16, 255, 256,
-              32767, 32768, SCORE_MAX] + [rng.randint(SCORE_MIN + 20, SCORE_MAX) for _ in range(200)]
+    maxima = [SCORE_MIN + 36, -32768, -257, -32, -1, 0, 1, 31, 32, 255, 256,
+              32767, 32768, SCORE_MAX] + [rng.randint(SCORE_MIN + 36, SCORE_MAX) for _ in range(200)]
     for maximum in maxima:
-        for delta in range(21):
+        for delta in range(37):
             await cycle(start=1, maximum=maximum, score=maximum - delta)
-    for delta in (SCORE_MAX - SCORE_MIN, 2**17 - 1, 2**16, 4096, 32, 31):
+    for delta in (SCORE_MAX - SCORE_MIN, 2**17 - 1, 2**16, 4096, 64, 33, 32, 31, 25, 24):
         await cycle(start=1, maximum=SCORE_MAX, score=SCORE_MAX - delta)
     await cycle(start=0, maximum=0, score=0)
 

@@ -10,7 +10,8 @@ Two ways to run a 64-dim SmolLM head:
 V's 64 dims are 16 independent 4-wide chip queries; per-dim math is identical,
 so one 64-wide call computes all 16 at once.
 
-Each runs as built, then with the accuracy fixes added one at a time:
+Each runs as the original chip, then with the accuracy fixes added one at a
+time; with all three it is the current chip and model defaults:
   1. per-channel V scales (host only)  2. 0.25-nat LUT  3. 4 fractional output bits
 
 Run: .venv/bin/python python/smollm_compare.py
@@ -24,7 +25,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 from attention_model import chip_attention, chip_attention_np, quantize  # noqa: E402
 
-AS_BUILT = dict(per_channel=False, lut_res=2, out_frac=0)
+ORIGINAL = dict(per_channel=False, lut_res=2, out_frac=0)
 FIXES = [("+ 1. per-channel V", dict(per_channel=True)),
          ("+ 2. 0.25-nat LUT", dict(lut_res=4)),
          ("+ 3. 4 output frac bits", dict(out_frac=4))]
@@ -103,8 +104,8 @@ def main():
     print("| Chip | rel err mean | median | p99 | cos mean | err LSB mean | p99 |")
     print("|---|---|---|---|---|---|---|")
     for step2, title in ((False, "chip today"), (True, "step 2 chip")):
-        opts = dict(AS_BUILT)
-        for name, change in [("as built", {})] + FIXES:
+        opts = dict(ORIGINAL)
+        for name, change in [("original", {})] + FIXES:
             opts.update(change)
             codes, scale = run(q, k, v, step2, **opts)
             print(f"| {title} {name} | {stats(codes * scale, ref, lsb)} |")

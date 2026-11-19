@@ -1,5 +1,6 @@
 // Tiny Tapeout wrapper. The host sends N,Q0,Q1,Q2,Q3 on ui_in; the chip
-// reads K/V from external QSPI flash and streams four result bytes on uo_out.
+// reads K/V from external QSPI flash and streams eight result bytes on uo_out:
+// four signed 12-bit results (1/16 V steps), each low byte first, sign-extended.
 `default_nettype none
 
 module tt_um_attention_head_gf (
@@ -32,7 +33,7 @@ module tt_um_attention_head_gf (
     wire core_mem_rsp_valid, core_out_valid;
     wire [15:0] core_mem_addr;
     wire [7:0] core_mem_wdata, core_mem_rdata;
-    wire signed [7:0] core_out_data;
+    wire [7:0] core_out_data;
     wire core_start = active && stage == LAUNCH && core_start_ready;
     wire [3:0] spi_io_o, spi_io_oe;
     wire spi_sck, spi_cs_n;

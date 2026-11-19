@@ -28,7 +28,7 @@ OUT_FRAC = 16  # output code = value · 16
 
 # Weight tables indexed by D = max - score. Scores are integers, so D is too,
 # and both tables are 0 from D = 13 on.
-TABLE_CHIP = [exp_weight(D, 0) for D in range(13)]                  # what exp_lut.v stores (exact e^(-D/2))
+TABLE_CHIP = [exp_weight(D, 0, lut_res=2) for D in range(13)]       # what the original exp_lut.v stored (e^(-D/2))
 def _old_23_32(D):
     """The proposal's original 23/32 trick, kept here only for comparison."""
     A = 23 * D
@@ -156,7 +156,7 @@ def main():
         chip_err, old_err, online_err = [], [], []
         for q, K, V in random_cases(rng, n, 3000):
             ref = float_attention(q, K, V)
-            chip = [c / OUT_FRAC for c in chip_attention(q, K, V)]
+            chip = [c / OUT_FRAC for c in chip_attention(q, K, V, lut_res=2, out_frac=0)]
             # Sanity: the generic model must agree with the official one
             assert chip == two_pass(q, K, V, TABLE_CHIP, widths), "generic model drifted"
             chip_err += list(np.array(chip) - ref)
@@ -173,7 +173,7 @@ def main():
         chip_err, old_err, online_err = [], [], []
         for q, K, V in cases:
             ref = float_attention(q, K, V)
-            chip_err += list(np.array([c / OUT_FRAC for c in chip_attention(q, K, V)]) - ref)
+            chip_err += list(np.array([c / OUT_FRAC for c in chip_attention(q, K, V, lut_res=2, out_frac=0)]) - ref)
             old_err += list(np.array(two_pass(q, K, V, TABLE_OLD, {})) - ref)
             online_err += list(np.array(online(q, K, V, TABLE_CHIP)) - ref)
         lines.append(f"| {name} | {stats(chip_err)[2]} | {stats(old_err)[2]} | {stats(online_err)[2]} |")

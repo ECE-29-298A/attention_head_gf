@@ -95,20 +95,21 @@ class Harness:
             await self.send(pack_byte(value))
 
         expected = chip_attention(q, k, v)
-        actual = []
-        for index in range(4):
+        received = []
+        for index in range(8):  # four 12-bit results, each low byte then sign-extended high byte
             for _ in range(30000):
                 valid, data = await self.tick(host=0)
                 if valid:
                     break
             else:
-                assert False, f"{name}: timeout before output {index}"
+                assert False, f"{name}: timeout before output byte {index}"
             for _ in range(3):
                 held_valid, held_data = await self.tick(host=0)
                 assert held_valid and held_data == data, "output changed under backpressure"
             valid, transferred = await self.tick(host=1)
             assert valid and transferred == data, "output transfer mismatch"
-            actual.append(signed8(transferred))
+            received.append(transferred)
+        actual = [(signed8(hi) << 8) | lo for lo, hi in zip(received[::2], received[1::2])]
 
         assert actual == expected, f"{name} (N={n}): hardware={actual}, Python={expected}"
         self.dut._log.info("%s (N=%d): hardware=%s, Python=%s", name, n, actual, expected)
@@ -175,7 +176,7 @@ async def end_to_end_flash_and_host(dut):
     await h.tick(ena=0)
     assert h.flash.prev_cs == 1, "ena low did not release flash CS"
     await h.query([0, 0, 0, 0], [[0, 0, 0, 0]], [[-1, 0, 1, 127]])
-    dut._log.info("PASS top: flash reads, INT8 outputs, backpressure, boundaries, reset/ena abort; %d cycles", h.cycles)
+    dut._log.info("PASS top: flash reads, 12-bit outputs, backpressure, boundaries, reset/ena abort; %d cycles", h.cycles)
 
 
 @cocotb.test()
@@ -193,11 +194,11 @@ async def hardware_matches_python_model(dut):
         [[0, 0, 127, -128], [1, -1, 126, -127]],
         name="equal scores with positive and negative rounding ties",
     )
-    # Score deltas are 12, 1, 13, 0. The first two outputs distinguish
-    # dropping the weight at delta 12 from retaining one at delta 13.
+    # Score deltas are 24, 1, 25, 0. The first two outputs distinguish
+    # dropping the weight at delta 24 from retaining one at delta 25.
     await h.query(
         [1, 0, 0, 0],
-        [[-13, 0, 0, 0], [-2, 0, 0, 0], [-14, 0, 0, 0], [-1, 0, 0, 0]],
+        [[-25, 0, 0, 0], [-2, 0, 0, 0], [-26, 0, 0, 0], [-1, 0, 0, 0]],
         [[-128, 0, -128, 127], [0, 0, 127, -128], [0, -128, 127, -128], [1, 1, -128, 127]],
         name="negative scores at the LUT cutoff",
     )

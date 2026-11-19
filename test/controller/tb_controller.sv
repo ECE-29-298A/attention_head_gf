@@ -44,6 +44,11 @@ module tb_controller #(
         $fatal(1, "Out-of-map memory address %h", address);
         return 0;
     endfunction
+    // Output byte i: result i/2 as signed 16 bits, low byte first.
+    function automatic logic [7:0] output_byte(input int index);
+        logic [15:0] word = 16'(expected[index / 2]);
+        return index % 2 ? word[15:8] : word[7:0];
+    endfunction
     function automatic int value_component(input int token, component);
         return int'($signed(memory[64+4*token+component]));
     endfunction
@@ -160,14 +165,14 @@ module tb_controller #(
                     held_denominator = dut.div_denominator; div_pending = 1;
                 end
                 if (dut.div_done) begin
-                    // Result registered 20 edges after start, sampled here on edge 21.
-                    assert (div_results < div_calls && cycles-divide_start_cycle == 21 &&
-                            dut.div_result == 8'(expected[div_results])) else $fatal(1, "Real divider mismatch");
+                    // Result registered 24 edges after start, sampled here on edge 25.
+                    assert (div_results < div_calls && cycles-divide_start_cycle == 25 &&
+                            dut.div_result == 12'(expected[div_results])) else $fatal(1, "Real divider mismatch");
                     div_results++;
                     div_pending = 0;
                 end
                 if (out_valid && out_ready) begin
-                    assert (received < 4 && div_results == received+1 && out_data == 8'(expected[received]))
+                    assert (received < 8 && div_results == received/2+1 && out_data == output_byte(received))
                         else $fatal(1, "Output %0d mismatch", received);
                     received++;
                 end
@@ -214,7 +219,7 @@ module tb_controller #(
         token_count = 1; query_packed = 0;
         foreach (memory[i]) memory[i] = 0;
         // Include reset with a real LUT result pending and every divider stage.
-        for (int phase = 0; phase < 26; phase++) begin
+        for (int phase = 0; phase < 30; phase++) begin
             foreach (reads[i]) reads[i] = 0;
             force_output_stall = 1;
             launch();
@@ -229,13 +234,13 @@ module tb_controller #(
                     4: reset_point = mem_delay >= 0 && pending_slot == 64;
                     5: reset_point = out_valid;
                     default: reset_point = dut.div_busy &&
-                        ((phase < 25 && int'(dut.divider_unit.step) == phase-6) ||
-                         (phase == 25 && dut.divider_unit.state == dut.divider_unit.ROUND));
+                        ((phase < 29 && int'(dut.divider_unit.step) == phase-6) ||
+                         (phase == 29 && dut.divider_unit.state == dut.divider_unit.ROUND));
                 endcase
             end
             assert (reset_point) else $fatal(1, "Missing reset point %0d", phase);
             reset_core();
-            repeat (25) begin
+            repeat (29) begin
                 @(negedge clk);
                 assert (!done && !out_valid && !dut.exp_done && !dut.div_done && !dut.div_busy)
                     else $fatal(1, "Stale result after reset");
@@ -267,7 +272,7 @@ module tb_controller #(
             repeat (2) @(negedge clk);
             start = 0; ticks = 0;
             while (!done && ticks < 20000) begin @(negedge clk); ticks++; end
-            assert (done && !busy && received == 4 && captures == 2*count && mac_cycles == 64*count &&
+            assert (done && !busy && received == 8 && captures == 2*count && mac_cycles == 64*count &&
                     max_updates == count && accum_updates == count && exp_calls == count &&
                     exp_results == count && div_calls == 4 && div_results == 4)
                 else $fatal(1, "Incomplete transaction %0d", checked);

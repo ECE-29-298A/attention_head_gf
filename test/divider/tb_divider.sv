@@ -6,7 +6,7 @@ module tb_divider;
     logic signed [19:0] sum_in = 0;
     logic [11:0] denominator = 1;
     wire busy, done;
-    wire signed [7:0] result;
+    wire signed [11:0] result;
     divider dut (.*);
 
     task automatic reset_block;
@@ -17,7 +17,7 @@ module tb_divider;
     endtask
 
     task automatic check(input int value, divisor, expected, input bit disturb);
-        logic signed [7:0] previous_result;
+        logic signed [11:0] previous_result;
         // Called at a falling edge; next rising edge accepts start.
         assert (!busy) else $fatal(1, "Previous division still busy");
         previous_result = result;
@@ -26,15 +26,15 @@ module tb_divider;
         assert (busy && !done) else $fatal(1, "Start was not accepted");
         start = 0;
         // Test input latching and ignore-start-while-busy without altering the answer.
-        for (int cycle = 1; cycle <= 20; cycle++) begin
+        for (int cycle = 1; cycle <= 24; cycle++) begin
             sum_in = 20'h01234; denominator = 12'd3;
-            start = disturb && (cycle == 3 || cycle == 19 || cycle == 20);
+            start = disturb && (cycle == 3 || cycle == 23 || cycle == 24);
             @(negedge clk);
-            if (cycle < 20) begin
+            if (cycle < 24) begin
                 assert (busy && !done && result == previous_result)
                     else $fatal(1, "Early completion/result change at cycle %0d", cycle);
             end else begin
-                assert (!busy && done && result == 8'(expected))
+                assert (!busy && done && result == 12'(expected))
                     else $fatal(1, "O=%0d L=%0d: got %0d expected %0d", value, divisor, result, expected);
             end
         end
@@ -46,16 +46,16 @@ module tb_divider;
     initial begin
         reset_block();
         // Abort at every divider stage, including the rounding state.
-        for (int delay_cycles = 0; delay_cycles < 20; delay_cycles++) begin
+        for (int delay_cycles = 0; delay_cycles < 24; delay_cycles++) begin
             start = 1; sum_in = -522240; denominator = 4080;
             @(negedge clk); start = 0;
             repeat (delay_cycles) @(negedge clk);
             reset_block();
-            repeat (22) begin
+            repeat (26) begin
                 @(negedge clk);
                 assert (!busy && !done && result == 0) else $fatal(1, "Stale completion after reset");
             end
-            check(-1, 2, -1, 0);
+            check(-1, 2, -8, 0);  // -1/2 = -0.5 = -8 sixteenths
         end
         assert ($value$plusargs("VECTORS=%s", path)) else $fatal(1, "Missing vectors");
         fd = $fopen(path, "r");
@@ -67,7 +67,7 @@ module tb_divider;
             if (checked % 101 == 0) begin
                 repeat (4) begin
                     @(negedge clk);
-                    assert (!busy && !done && result == 8'(expected))
+                    assert (!busy && !done && result == 12'(expected))
                         else $fatal(1, "Result not held or done not a pulse");
                 end
             end
@@ -75,7 +75,7 @@ module tb_divider;
             status = $fscanf(fd, "%d %d %d", value, divisor, expected);
         end
         assert (status == -1 && checked > 100000) else $fatal(1, "Incomplete vector file");
-        $display("PASS: divider %0d vectors; 20-cycle latency, signed rounding, invalid inputs, input latching, busy starts, resets and consecutive operations", checked);
+        $display("PASS: divider %0d vectors; 24-cycle latency, 12-bit signed rounding, invalid inputs, input latching, busy starts, resets and consecutive operations", checked);
         $finish;
     end
     initial begin #1000000000; $fatal(1, "Divider timeout"); end

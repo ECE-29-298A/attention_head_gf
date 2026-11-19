@@ -36,8 +36,9 @@ external score and weight storage has been removed.
 4. **Pass 2:** read K again and recompute its score; generate its 8-bit LUT weight,
    hold that weight locally while reading V, and pulse the accumulator once.
    Repeat for every token. This is the only phase that adds weights to L.
-5. Request division for each of four sums and hold each output until accepted.
-6. Assert sticky `done` and return idle after all four outputs are accepted.
+5. Request division for each of four sums and hold each 12-bit result until both
+   of its bytes (low, then sign-extended high) are accepted.
+6. Assert sticky `done` and return idle after all eight output bytes are accepted.
 
 The detailed state names are in the controller enum. `MEM_REQUEST` and
 `MEM_WAIT` are reused with a registered return state. Phase changes and counters
@@ -92,12 +93,12 @@ K must remain identical across the two passes. The core keeps Q internally.
 - Exponent: pulse `exp_start` with stable signed `exp_max`/`exp_score`.
   `exponent_unit` registers `exp_done` and the unsigned 8-bit `exp_weight` on
   the accepted start edge; the controller consumes them on the following edge.
-  It matches Python `exp_weight`: a 13-entry table of round(255·e^(−D/2))
-  indexed by D=M−S, returning 0 for D>=13. See [blocks.md](blocks.md).
+  It matches Python `exp_weight`: a 25-entry table of round(255·e^(−D/4))
+  indexed by D=M−S, returning 0 for D>=25. See [blocks.md](blocks.md).
 - Divider: pulse `div_start` with signed 16-bit `div_sum` and unsigned 12-bit
-  `div_denominator`, stable until completion. `divider_unit` takes 19 division
+  `div_denominator`, stable until completion. `divider_unit` takes 23 division
   steps and one rounding/sign step; the controller consumes `div_done` and
-  signed 8-bit `div_result` 21 clocks after accepted start. It matches Python
+  signed 12-bit `div_result` 25 clocks after accepted start. It matches Python
   `divide_round`: round(16*sum/denominator), ties away from zero. See
   [divider timing and contract](divider.md).
 
@@ -145,7 +146,7 @@ Run three randomized memory/output-stall schedules, three fixed memory latencies
 run with relocated K/V bases (0x1200 and 0x3400): 966 query executions total.
 Also check stable stalled requests/outputs, stable arithmetic operands, invalid N,
 changed configuration/start while busy, reset during each K pass, LUT start and
-result, V fetch, all 20 busy divider stages and output wait, sticky done, and
+result, V fetch, all 24 busy divider stages and output wait, sticky done, and
 consecutive queries without reset. Check the real divider's completion latency.
 All simulations have bounded timeouts. Reset tests cancel pending testbench
 memory responses; real bus cancellation/draining still needs implementation.

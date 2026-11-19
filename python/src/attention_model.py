@@ -1,7 +1,8 @@
 """
 By: Jinyuan Zhao
 
-This is a model of our chip: INT8, two-pass softmax, 8-bit weights from a LUT.
+This is a model of our chip: INT8 in, two-pass softmax, 8-bit weights from a
+LUT, 12-bit outputs (INT8 plus 4 fractional bits).
 
 The chip is d = 4, up to 16 tokens. Everything here also takes other head
 sizes d and token limits n_max (e.g. d = 64 for SmolLM) so we can see what
@@ -13,11 +14,10 @@ LUT's 1 unit = 0.5 nat). NOT IN RTL YET.
 
 Accuracy fixes, measured on SmolLM by python/smollm_compare.py:
 1. Per-channel V scales: host side only, see quantize(). No chip change.
-2. and 3. are these options, NOT IN RTL YET (defaults = the chip as built):
-- lut_res: score units per nat. The LUT holds 255 · e^(-D / lut_res);
-  2 = the chip (0.5-nat steps, 13 entries), 4 = 0.25-nat steps (25 entries).
-- out_frac: extra fractional output bits. Outputs are round(O · 2^out_frac / L),
-  i.e. INT(8 + out_frac) codes in units of 2^-out_frac V steps.
+2. lut_res: score units per nat. The LUT holds 255 · e^(-D / lut_res).
+   4 = the chip (0.25-nat steps, 25 entries); 2 = the original chip (0.5 nat, 13).
+3. out_frac: extra fractional output bits. Outputs are round(O · 2^out_frac / L),
+   INT(8 + out_frac) codes in units of 2^-out_frac V steps. 4 = the chip; 0 = original.
 
 Two versions, bit-identical:
 - chip_attention():    plain Python, one query, readable
@@ -29,7 +29,7 @@ import math
 import numpy as np
 
 
-def exp_table(lut_res: int = 2) -> list[int]:
+def exp_table(lut_res: int = 4) -> list[int]:
     """EXP_TABLE[D] = round(255 · e^(-D / lut_res)), up to the first D that rounds to 0."""
     table = []
     while (w := round(255 * math.exp(-len(table) / lut_res))) > 0:
@@ -37,10 +37,10 @@ def exp_table(lut_res: int = 2) -> list[int]:
     return table
 
 
-# Scores are whole numbers, so D = M - S is too, and from D = 13 on the
-# weight rounds to 0. So 13 entries cover everything.
-EXP_TABLE = exp_table(2)
-# = [255, 155, 94, 57, 35, 21, 13, 8, 5, 3, 2, 1, 1]
+# Scores are whole numbers, so D = M - S is too, and from D = 25 on the
+# weight rounds to 0. So 25 entries cover everything. Must match src/exp_lut.v.
+EXP_TABLE = exp_table(4)
+# = [255, 199, 155, 120, 94, 73, 57, 44, 35, 27, 21, 16, 13, 10, 8, 6, 5, 4, 3, 2, 2, 1, 1, 1, 1]
 
 # === BIT HELPERS ===
 
@@ -115,14 +115,14 @@ def dot(q: list[int], k: list[int]) -> int:
     return S
 
 
-def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 2) -> int:
+def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 4) -> int:
     """Softmax step
 
-    We want to calculate W ≈ 255 · e^((S - M) / 2)
+    We want to calculate W ≈ 255 · e^((S - M) / 4)
     There aint no way we're calculating e^x in hardware, BUT:
     S and M are whole numbers, so D = M - S is a whole number too,
-    and once D >= 13 the weight rounds to 0 anyway.
-    So we just precompute the 13 answers and look D up.
+    and once D >= 25 the weight rounds to 0 anyway.
+    So we just precompute the 25 answers and look D up.
 
     (Old version used the 23/32 trick: W = 255 · 2^(-23D/32), table + shifter.
     Only 13 answers either way, and this table is the exact e^x, so it's
@@ -133,7 +133,7 @@ def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 
         S (int): this token's score
         d (int): head size, only for the width check
         score_shift (int): look up D >> score_shift (0 = the chip)
-        lut_res (int): score units per nat (2 = the chip)
+        lut_res (int): score units per nat (4 = the chip)
 
     Returns:
         int: weight, 0 to 255
@@ -146,13 +146,13 @@ def exp_weight(M: int, S: int, d: int = 4, score_shift: int = 0, lut_res: int = 
 
     return check_width(W, 8, signed=False, name="W")
 
-def divide_round(O: int, L: int, n_max: int = 16, out_frac: int = 0) -> int:
-    """Output = round(O · 2^out_frac / L), the chip's way: an INT8 weighted average of V.
+def divide_round(O: int, L: int, n_max: int = 16, out_frac: int = 4) -> int:
+    """Output = round(O · 2^out_frac / L), the chip's way: a weighted average of V.
 
     Args:
         O (int): sum of weight x value for all the tokens
         L (int): sum of all the weights
-        out_frac (int): extra fractional output bits (0 = the chip)
+        out_frac (int): extra fractional output bits (4 = the chip)
 
     Returns:
         int: signed INT(8 + out_frac) output
@@ -178,8 +178,8 @@ def divide_round(O: int, L: int, n_max: int = 16, out_frac: int = 0) -> int:
 # === THE CHIP ===
 
 def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
-                   n_max: int = 16, score_shift: int = 0, lut_res: int = 2,
-                   out_frac: int = 0) -> list[int]:
+                   n_max: int = 16, score_shift: int = 0, lut_res: int = 4,
+                   out_frac: int = 4) -> list[int]:
     """One attention pass
 
     1 <= N <= n_max. Head size d = len(Q) (the chip: d = 4, n_max = 16).
@@ -190,8 +190,8 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
         V (list[list[int]]): N vectors of d ints each
         n_max (int): token limit the registers are sized for
         score_shift (int): see exp_weight (0 = the chip)
-        lut_res (int): see exp_weight (2 = the chip)
-        out_frac (int): see divide_round (0 = the chip)
+        lut_res (int): see exp_weight (4 = the chip)
+        out_frac (int): see divide_round (4 = the chip)
 
     Returns:
         list[int]: d INT(8 + out_frac) outputs
@@ -230,7 +230,7 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
 
 
 def chip_attention_np(Q: np.ndarray, K: np.ndarray, V: np.ndarray,
-                      score_shift=0, lut_res: int = 2, out_frac: int = 0) -> np.ndarray:
+                      score_shift=0, lut_res: int = 4, out_frac: int = 4) -> np.ndarray:
     """chip_attention for many queries at once, bit-identical to it.
 
     Args:
@@ -239,8 +239,8 @@ def chip_attention_np(Q: np.ndarray, K: np.ndarray, V: np.ndarray,
         V: int, shape (..., N, d)
         score_shift: see exp_weight (0 = the chip); an int or an array of
             shape (..., 1) for a per-query shift
-        lut_res: see exp_weight (2 = the chip)
-        out_frac: see divide_round (0 = the chip)
+        lut_res: see exp_weight (4 = the chip)
+        out_frac: see divide_round (4 = the chip)
 
     Returns:
         np.ndarray: int64, shape (..., d), INT(8 + out_frac) outputs

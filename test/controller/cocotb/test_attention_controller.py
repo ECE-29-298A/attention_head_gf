@@ -1,4 +1,4 @@
-"""Directed and seeded-random tests for the two-pass INT8 controller."""
+"""Directed and seeded-random tests for the two-pass INT8 controller (12-bit outputs)."""
 import random
 
 import cocotb
@@ -10,6 +10,11 @@ from attention_model import chip_attention, divide_round, dot, exp_weight, pack_
 
 def packed(row):
     return sum(pack_byte(v) << (8 * i) for i, v in enumerate(row))
+
+
+def words(output_bytes):
+    """Signed output bytes, low byte first, to the four signed 16-bit results."""
+    return [(hi << 8) | (lo & 255) for lo, hi in zip(output_bytes[::2], output_bytes[1::2])]
 
 
 class Bus:
@@ -93,7 +98,7 @@ class Bus:
             if div_start:
                 assert self.div_pending is None
                 self.divs.append(div_args)
-                self.div_pending = (self.cycle + 21, divide_round(*div_args))
+                self.div_pending = (self.cycle + 25, divide_round(*div_args))
             if out_valid and ready:
                 self.outputs.append(out_data)
         self.cycle += 1
@@ -147,7 +152,7 @@ class Bus:
         sums = [sum(w * v[i] for w, v in zip(weights, values)) for i in range(4)]
         assert self.exps == list(zip([maximum]*n, scores))
         assert self.divs == list(zip(sums, [denominator]*4))
-        assert self.outputs == chip_attention(q, keys, values)
+        assert len(self.outputs) == 8 and words(self.outputs) == chip_attention(q, keys, values)
         assert self.reads == [4*i + j for i in range(n) for j in range(4)] + [
             base + 4*i + j for i in range(n) for base in (0, 64) for j in range(4)]
         await self.tick(count=0, query=0, out_ready=0)

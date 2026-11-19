@@ -1,8 +1,11 @@
 # Signed attention divider
 
 > Historical INT4 numerical description. The current `divider.v` accepts a
-> signed 20-bit sum and returns an INT8 average without the old ×16 output
-> scaling. See [the integration report](integration-report.md).
+> signed 20-bit sum and returns a signed 12-bit `round(16 * O / L)` (INT8 plus 4
+> fractional bits). It runs 23 division steps from a 23-bit `abs(O) << 4`
+> register plus one round/sign step: done pulses 24 edges after the accepted
+> start and the controller consumes it on edge 25. Rounded results outside
+> [-2048, 2047] are invalid and return 0. See [the integration report](integration-report.md).
 
 `src/divider.v` implements the existing Python `divide_round(O, L)` calculation:
 

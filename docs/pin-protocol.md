@@ -4,7 +4,8 @@
 
 The host supplies a token count and a four-byte signed INT8 query. The chip
 reads K and V from an external QSPI flash, calculates a two-pass softmax-weighted
-average, and returns four signed INT8 bytes. The active top is
+average, and returns four signed 12-bit results (INT8 plus 4 fractional bits)
+as eight bytes. The active top is
 `tt_um_attention_head_gf`; no K/V array is stored on the tile.
 
 ### Pins
@@ -25,11 +26,14 @@ After reset, present five configuration bytes in order: `N` (1–16), then
 edge. An invalid N is not accepted (`uio[7]=0`). After Q3 is accepted, the chip
 starts without another command. Keep `uio[6]=0` until ready to receive output.
 
-The chip then presents four result bytes in component order. For each byte,
-`uio[7]=1` means `uo_out` is valid; keep `uio[6]=0` to stall or set it to 1 to
-accept. The byte remains stable while stalled. After the fourth transfer, the
-chip returns to configuration mode. There is no separate busy/done pin: the host
-tracks the five configuration and four result transfers.
+The chip then presents eight result bytes: two per component, in component
+order. Each pair is the low byte then the high byte of a signed 16-bit value
+(the 12-bit result, sign-extended); the output equals that value / 16 in V's
+units, so `-2048..2032` means `-128.0..127.0`. For each byte, `uio[7]=1` means
+`uo_out` is valid; keep `uio[6]=0` to stall or set it to 1 to accept. The byte
+remains stable while stalled. After the eighth transfer, the chip returns to
+configuration mode. There is no separate busy/done pin: the host tracks the five
+configuration and eight result transfers.
 
 ### External memory
 

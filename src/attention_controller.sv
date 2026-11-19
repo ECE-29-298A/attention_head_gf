@@ -19,7 +19,7 @@ module attention_controller #(
     input wire [31:0] query_packed,   // Four signed INT8 Q components: Q0=[7:0], Q1=[15:8], Q2=[23:16], Q3=[31:24]. Captured when start is accepted.
     output wire start_ready,         // High when idle, reset released, and token_count is valid.
     output wire busy,                // High when processing
-    output logic done,               // Sticky flag: all four outputs accepted. Cleared on start/reset.
+    output logic done,               // Sticky flag: all eight output bytes accepted. Cleared on start/reset.
 
     // Byte-memory interface: one outstanding request at a time.
     // A request is accepted on a rising edge when mem_req_valid && mem_req_ready.
@@ -31,26 +31,28 @@ module attention_controller #(
     input wire mem_rsp_valid,        // Completion of the accepted read, in a later cycle.
     input wire [7:0] mem_rdata,       // Returned read byte; valid with mem_rsp_valid.
 
-    // Output interface: components are sent in order 0, 1, 2, 3.
+    // Output interface: components are sent in order 0, 1, 2, 3. Each is a 12-bit
+    // signed result (INT8 plus 4 fractional bits) sent as two bytes, low byte first;
+    // the high byte is sign-extended, so each pair reads as a signed 16-bit value.
     // A byte transfers on a rising edge when out_valid && out_ready.
     output wire out_valid,           // A completed output byte is available.
     input wire out_ready,            // Receiver can accept the current output byte.
-    output wire signed [7:0] out_data // INT8 result; held stable while valid and not ready.
+    output wire [7:0] out_data       // Result byte; held stable while valid and not ready.
 );
-    // Internal LUT handshake: approximate weight = 255 * exp((score - maximum) / 2).
+    // Internal LUT handshake: approximate weight = 255 * exp((score - maximum) / 4).
     wire exp_start;                   // One-cycle request for the current token's weight.
     wire signed [17:0] exp_max;       // Final maximum across all tokens.
     wire signed [17:0] exp_score;      // Current score; stable until completion.
     wire exp_done;                    // Completion pulse; exp_weight is valid.
     wire [7:0] exp_weight;            // Unsigned, unnormalized attention weight: 0–255.
 
-    // Internal divider handshake: result = round(weighted_sum / weight_sum).
+    // Internal divider handshake: result = round(16 * weighted_sum / weight_sum).
     wire div_start;                   // One-cycle request to normalize one output component.
     wire signed [19:0] div_sum;       // Weighted sum O_i = sum(W_j * V_j,i), read from the accum ring.
     wire [11:0] div_denominator;      // Weight sum L = sum(W_j); positive for valid input.
     wire div_busy;                    // Divider is computing; sequencing waits for div_done.
     wire div_done;                    // Completion pulse; div_result is valid.
-    wire signed [7:0] div_result;     // Rounded signed INT8 output.
+    wire signed [11:0] div_result;    // Rounded signed output, 4 fractional bits.
 
     typedef enum logic [4:0] {
         IDLE, INIT, KEY_READ, KEY_READY, SCORE_CLEAR, SCORE_MAC,
@@ -65,6 +67,7 @@ module attention_controller #(
     // component is a free-running phase (steps every clock). The accum ring rotates in step,
     // so accum O0 always holds component `component`. MAC loops start at phase 0.
     logic [1:0] component, output_index;
+    logic high_byte; // 0: send div_result[7:0] next. 1: send its sign-extended top 4 bits.
     // bit of the multiplier operand (shift-add); bit_index[1:0] also counts the 4 bytes of a row read.
     logic [2:0] bit_index;
     wire [31:0] query;
@@ -93,8 +96,8 @@ module attention_controller #(
     assign exp_max = maximum;
     // score_mac holds S until SCORE_CLEAR, which follows the exponent and accumulate steps.
     assign exp_score = score;
-    // divider holds result until its next completion, after this byte is accepted.
-    assign out_data = div_result;
+    // divider holds result until its next completion, after both bytes are accepted.
+    assign out_data = high_byte ? {{4{div_result[11]}}, div_result[11:8]} : div_result[7:0];
     // Address is decoded from the pending return state; stable while MEM_REQUEST waits.
     assign mem_addr = (return_state == VALUE_READ || return_state == VALUE_READY ? V_BASE : K_BASE)
         + {10'b0, token, bit_index[1:0]};
@@ -151,6 +154,7 @@ module attention_controller #(
             component <= 0;
             bit_index <= 0;
             output_index <= 0;
+            high_byte <= 0;
             done <= 0;
         end else begin
             component <= component + 1'b1;
@@ -159,6 +163,7 @@ module attention_controller #(
                     last <= 4'(token_count - 5'd1);
                     token <= 0;
                     second_pass <= 0;
+                    high_byte <= 0;
                     done <= 0;
                     state <= INIT;
                 end
@@ -198,8 +203,11 @@ module attention_controller #(
                 DIV_START: if (component == output_index) state <= DIV_WAIT;
                 DIV_WAIT: if (div_done) state <= OUTPUT_WAIT;
                 OUTPUT_WAIT: if (out_ready) begin
-                    if (output_index == 3) state <= COMPLETE;
-                    else begin output_index <= output_index + 1'b1; state <= DIV_START; end
+                    high_byte <= !high_byte;
+                    if (high_byte) begin // second byte of this component accepted
+                        if (output_index == 3) state <= COMPLETE;
+                        else begin output_index <= output_index + 1'b1; state <= DIV_START; end
+                    end
                 end
                 COMPLETE: begin done <= 1; state <= IDLE; end
                 MEM_REQUEST: if (mem_req_ready) state <= MEM_WAIT;

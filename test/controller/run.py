@@ -21,7 +21,7 @@ def encode_case(q, k, v):
     for rows in (k, v):
         for row in rows:
             fields.extend(pack_byte(x) for x in row)
-    fields.extend(x & 255 for x in chip_attention(q, k, v))
+    fields.extend(chip_attention(q, k, v))  # signed 12-bit results
     fields.extend(scores)
     fields.extend(weights)
     return " ".join(str(x) for x in fields)
@@ -35,7 +35,7 @@ def vectors():
         ([-128] * 4, [[-128] * 4] * 16, [[-128] * 4] * 16),
         ([-128] * 4, [[127] * 4] * 16, [[127] * 4] * 16),
         ([0] * 4, [[0] * 4] * 2, [[0] * 4, [1] * 4]),
-        ([1, 0, 0, 0], [[7, 0, 0, 0]] + [[-6, 0, 0, 0]] * 15,
+        ([1, 0, 0, 0], [[7, 0, 0, 0]] + [[-18, 0, 0, 0]] * 15,  # D = 25: weight 0
          [[-128] * 4] + [[127] * 4] * 15),
         # The final key changes the maximum: no exponent may run prematurely.
         ([1, 0, 0, 0], [[x, 0, 0, 0] for x in range(-8, 8)],
@@ -53,11 +53,11 @@ def vectors():
     for q, k, v in cases:
         yield encode_case(q, k, v)
 
-    # Weights [255, 1] give denominator 256. O=+/-128 rounds +/-0.5
-    # away from zero; neighboring sums test both sides of the tie.
-    q, k = [1, 0, 0, 0], [[7, 0, 0, 0], [-4, 0, 0, 0]]
-    yield encode_case(q, k, [[1, -1, 0, 0], [-127, 127, 0, 0]])
-    yield encode_case(q, k, [[1, -1, 1, -1], [-128, 126, -126, 128 - 1]])
+    # Weights [255, 1] (D = 22) give denominator 256, so outputs are O / 16.
+    # O = +/-8 and +/-264 are ties that round away from zero; neighbors test both sides.
+    q, k = [1, 0, 0, 0], [[7, 0, 0, 0], [-15, 0, 0, 0]]
+    yield encode_case(q, k, [[0, 0, 0, 0], [8, -8, 7, -9]])
+    yield encode_case(q, k, [[1, -1, 1, -1], [9, -9, 10, -10]])
     yield encode_case([0]*4, [[0]*4]*16, [[0]*4]*16)
 
 

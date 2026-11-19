@@ -23,24 +23,27 @@ def cases():
     # Every numerator in the INT8 worst-case accumulator interval at max L.
     for value in range(-128*4080, 127*4080 + 1):
         yield value, 4080, divide_round(value, 4080)
-    # Every output rounding threshold, on both sides and exactly at the tie.
-    for magnitude_code in range(128):
+    # Every output rounding threshold, on both sides and exactly at the tie:
+    # with L = 32 the output is round(O / 2), so odd O are ties.
+    for magnitude_code in range(2049):
         for offset in (-1, 0, 1):
             value = 2*magnitude_code + 1 + offset
             for sign in (-1, 1):
                 try:
-                    expected = divide_round(sign*value, 2)
+                    expected = divide_round(sign*value, 32)
                 except AssertionError:
                     continue
-                yield sign*value, 2, expected
+                yield sign*value, 32, expected
     rng = random.Random(298)
     for _ in range(10000):
         denominator = rng.randint(1, 4080)
         value = rng.randint(-128*denominator, 127*denominator)
         yield value, denominator, divide_round(value, denominator)
     # Invalid requests are outside the Python domain: RTL must complete with 0.
+    # (4095, 32) and (-4097, 32) round to 2048 and -2049, just outside 12 bits.
     for value, denominator in [(0, 0), (123, 0), (-123, 0), (-524288, 4095),
-                               (524287, 1), (-524287, 1), (255, 2), (-259, 2)]:
+                               (524287, 1), (-524287, 1), (256, 2), (-259, 2),
+                               (4095, 32), (-4097, 32)]:
         yield value, denominator, 0
 
 

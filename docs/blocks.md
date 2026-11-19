@@ -63,34 +63,37 @@ the `score_mac` multiplier would need extra control logic.
 
 ## `exp_lut` (`src/exp_lut.v`)
 
-Softmax weight for one token: W = round(255 · e^(−(M−S)/2)).
+Softmax weight for one token: W = round(255 · e^(−(M−S)/4)). One score unit is 0.25 nat.
 
 | Port | Width | Meaning |
 |---|---:|---|
 | `start` | 1 | One-cycle pulse; `M` and `S` sampled on this edge |
-| `M` | signed 10 | Final maximum score |
-| `S` | signed 10 | This token's score |
+| `M` | signed 18 | Final maximum score |
+| `S` | signed 18 | This token's score |
 | `done` | 1 | High for one cycle, the cycle after `start` |
 | `W` | unsigned 8 | Weight; valid with `done`, held until the next `start` |
 
-Scores are integers, so D = M − S is too, and W rounds to 0 once D >= 13.
-So the whole exponent is a 13-entry table indexed by D:
+Scores are integers, so D = M − S is too, and W rounds to 0 once D >= 25.
+So the whole exponent is a 25-entry table indexed by D:
 
-| D | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13+ |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| W | 255 | 155 | 94 | 57 | 35 | 21 | 13 | 8 | 5 | 3 | 2 | 1 | 1 | 0 |
+| D | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| W | 255 | 199 | 155 | 120 | 94 | 73 | 57 | 44 | 35 | 27 | 21 | 16 | 13 |
 
-This replaced the proposal's 23/32 trick (W = 255 · 2^(−23D/32), table plus
-shifter). That method also only produces 13 values, but is slightly off at
-D = 1, 3, 5 and takes about 2.5x the gates. If `M < S` (should never
-happen), D is treated as 0, so W = 255. Matches Python `exp_weight` /
-`EXP_TABLE`.
+| D | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25+ |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| W | 10 | 8 | 6 | 5 | 4 | 3 | 2 | 2 | 1 | 1 | 1 | 1 | 0 |
+
+The original table used e^(−D/2) with 13 entries. Halving the score step was
+the largest accuracy gain on real SmolLM attention (`python/smollm_compare.py`).
+If `M < S` (should never happen), D is treated as 0, so W = 255. Matches Python
+`exp_weight` / `EXP_TABLE`.
 
 ## `divider` (`src/divider.v`)
 
 Iterative signed normalization: `result = round(16 * sum_in / denominator)`,
-nearest with ties away from zero. Uses a 19-bit shift/subtract division datapath
-and one rounding/sign cycle. See [divider.md](divider.md) for register widths,
+nearest with ties away from zero, as a signed 12-bit code. Uses a 23-bit
+shift/subtract division datapath and one rounding/sign cycle. See [divider.md](divider.md) for register widths,
 invalid-input behavior, port descriptions, and exact start/done timing.
 
 The [attention controller](controller.md) instantiates all five arithmetic blocks
@@ -105,7 +108,7 @@ Cocotb + Icarus, one module per run, from `test/blocks`:
 make score_mac
 make max_reg
 make accum
-make exp_lut   # every valid (M, S) pair, 115,921 cases
+make exp_lut   # every D in 0..36 across the score range, plus random pairs
 ```
 
 The divider and integrated controller use Python + NumPy/Verilator runners. From
