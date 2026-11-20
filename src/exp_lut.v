@@ -51,18 +51,33 @@ module exp_lut (
 
 // D = M - S, one extra bit so a negative result is visible in diff[22]
 wire signed [22:0] diff = {M[21], M} - {S[21], S};
-// D < 2^21 for valid scores, so D + 2^14 still fits 22 bits.
-wire [21:0] half = (22'd1 << shift) >> 1;
-wire [21:0] scaled = (diff[21:0] + half) >> shift;
+
+// D >= 2^20 gives a zero weight even at the largest shift (15).
+// Append a zero so bit 0 of the shifted window is the rounding bit, including
+// shift = 0, when there is no rounding. The other five bits index the table.
+wire [20:0] delta_guard = {diff[19:0], 1'b0};
+wire [12:0] stage8 = shift[3] ? delta_guard[20:8] : delta_guard[12:0];
+wire [8:0] stage4 = shift[2] ? stage8[12:4] : stage8[8:0];
+wire [6:0] stage2 = shift[1] ? stage4[8:2] : stage4[6:0];
+wire [5:0] aligned = shift[0] ? stage2[6:1] : stage2[5:0];
+wire [5:0] index = {1'b0, aligned[5:1]} + {5'b0, aligned[0]};
+
+// Each stage keeps only the bits that can still reach the six-bit window.
+// A discarded high bit or a carry from rounding means the index is >= 32.
+wire out_of_range = (|diff[21:20]) || index[5] ||
+    (!shift[3] && (|delta_guard[20:13])) ||
+    (!shift[2] && (|stage8[12:9])) ||
+    (!shift[1] && (|stage4[8:7])) ||
+    (!shift[0] && stage2[6]);
 
 reg [7:0] weight;
 always @(*) begin
     if (diff[22]) begin
         weight = 8'd255;              // M < S: clamp to D = 0
-    end else if (scaled[21:5] != 17'd0) begin
+    end else if (out_of_range) begin
         weight = 8'd0;                // D' >= 32: way too far behind
     end else begin
-        case (scaled[4:0])
+        case (index[4:0])
             5'd0:  weight = 8'd255;
             5'd1:  weight = 8'd199;
             5'd2:  weight = 8'd155;
