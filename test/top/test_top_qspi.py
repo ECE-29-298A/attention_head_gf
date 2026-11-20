@@ -12,7 +12,7 @@ from attention_model import chip_attention, pack_byte, quantize, signed8
 
 SMOLLM = Path(__file__).resolve().parents[2] / "build/smollm_attention.npz"  # python/smollm_extract.py
 
-Q_BASE, K_BASE, V_BASE = 0x000, 0x040, 0x440
+Q_BASE, K_BASE, V_BASE = 0x000, 0x400, 0x800
 MEMORY = V_BASE + 16 * 64
 
 
@@ -45,8 +45,6 @@ class Flash:
             if self.bits < 32:
                 assert oe & 1, "flash command/address output not driven"
                 self.command_address = ((self.command_address << 1) | (io & 1)) & 0xFFFFFFFF
-            else:
-                assert not (oe & 1), "flash data phase not released"
             self.bits += 1
         if not self.prev_cs and cs:
             if not abort:
@@ -73,7 +71,8 @@ class Harness:
         d.uio_in.value = 0x0C | (host << 6) | (self.flash.miso() << 1)
         await Timer(1, unit="ns")
         ready = int(d.uio_out.value[7]) if reset and ena else 0
-        out = int(d.uo_out.value) if reset and ena else 0
+        # uo_out is only defined while the chip signals output-valid.
+        out = int(d.uo_out.value) if reset and ena and d.uo_out.value.is_resolvable else None
         await RisingEdge(d.clk)
         await Timer(1, unit="ns")
         oe = int(d.uio_oe.value)
@@ -127,13 +126,12 @@ class Harness:
         self.dut._log.info("%s (N=%d, shift=%d, chunk=%d): hardware=%s, Python=%s",
                            name, n, shift, chunk, actual, expected)
 
-        # Per token: 16 groups of 4 Q bytes then 4 K bytes; pass 2 adds the V chunk.
+        # Per token: Q[c] then K[t][c] for c = 0..63; pass 2 adds the V chunk, last byte first.
         def score_reads(t):
-            return [base + 4*g + c for g in range(16)
-                    for base in (Q_BASE, K_BASE + 64*t) for c in range(4)]
+            return [a for c in range(64) for a in (Q_BASE + c, K_BASE + 64*t + c)]
         expected_reads = [a for t in range(n) for a in score_reads(t)]
         for t in range(n):
-            expected_reads += score_reads(t) + [V_BASE + 64*t + 4*chunk + c for c in range(4)]
+            expected_reads += score_reads(t) + [V_BASE + 64*t + 4*chunk + c for c in (3, 2, 1, 0)]
         assert self.flash.reads[first_read:] == expected_reads, "Q/K/V read order or count"
 
 

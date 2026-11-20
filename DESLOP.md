@@ -12,6 +12,8 @@ Nothing here was synthesized. "Saves" figures are flop/gate counts read off the 
 
 ## A — most important
 
+> **Status: A1–A6 are done.** Mapped area went from 54,607.80 to 51,890.14 µm² (Yosys 0.69, GF180 7-track TT). The links below point at code that no longer exists.
+
 ### A1. The SPI stack is built for quad/octal, but the chip only does 1-bit SPI
 [qspi_read_adapter.v:40](src/Memaccess/qspi_read_adapter.v#L40) ties `wide` to `1'b0`. Only the `0x03` 1-1-1 read is ever issued. Everything below exists for a mode that is never used:
 
@@ -68,6 +70,8 @@ Zero gates, but four ports, six wires and two `_unused` lines of noise.
 ---
 
 ## B — worth doing
+
+> **Status: B1–B7 and B9 are done** (B8 no longer applies: `spi_read` has no async reset). Beyond the list: scores now run one component at a time, so the 32-bit Q register is gone; flash bits shift straight into the operand register, so the SPI byte register is gone; the divider keeps its result in the quotient register; `max_reg` and `score_mac` load on their first input instead of clearing (C7). Mapped area 51,890 → 45,221 µm², 329 → 260 flops. The flash map is now Q 0x000, K 0x400, V 0x800 (B7), and `uo_out` is undefined outside output-valid (B9).
 
 ### B1. Reset is ANDed into combinational outputs at three levels
 - `project.v`: `active &&` on `cfg_ready` and `core_start` ([project.v:26](src/project.v#L26), [:35](src/project.v#L35)).

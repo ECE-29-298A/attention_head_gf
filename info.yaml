@@ -25,9 +25,7 @@ project:
     - "accum.v"
     - "exp_lut.v"
     - "divider.v"
-    - "Memaccess/qspi_read_adapter.v"
-    - "Memaccess/qspi_byte.v"
-    - "Memaccess/spi_multi_io_byte.v"
+    - "spi_read.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -53,12 +51,12 @@ pinout:
   uo[7]: "Result data 7"
 
   # Bidirectional pins
-  uio[0]: "QSPI IO0"
-  uio[1]: "QSPI IO1"
-  uio[2]: "QSPI IO2"
-  uio[3]: "QSPI IO3"
-  uio[4]: "QSPI clock"
-  uio[5]: "QSPI chip select n"
+  uio[0]: "Flash MOSI"
+  uio[1]: "Flash MISO"
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: "Flash SCK"
+  uio[5]: "Flash chip select n"
   uio[6]: "Host valid or ready"
   uio[7]: "Chip ready or valid"
 

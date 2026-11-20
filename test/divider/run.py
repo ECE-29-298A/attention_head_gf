@@ -39,12 +39,6 @@ def cases():
         denominator = rng.randint(1, 4080)
         value = rng.randint(-128*denominator, 127*denominator)
         yield value, denominator, divide_round(value, denominator)
-    # Invalid requests are outside the Python domain: RTL must complete with 0.
-    # (4095, 32) and (-4097, 32) round to 2048 and -2049, just outside 12 bits.
-    for value, denominator in [(0, 0), (123, 0), (-123, 0), (-524288, 4095),
-                               (524287, 1), (-524287, 1), (256, 2), (-259, 2),
-                               (4095, 32), (-4097, 32)]:
-        yield value, denominator, 0
 
 
 def main():
@@ -52,8 +46,10 @@ def main():
         work = Path(directory)
         vectors = work / "vectors.txt"
         vectors.write_text("\n".join(f"{o} {l} {y}" for o, l, y in cases()) + "\n")
-        binary = build(work, "tb_divider", ["test/divider/tb_divider.sv", "src/divider.v"])
-        simulate(binary, f"+VECTORS={vectors}")
+        binary = build(work, "tb_divider", ["test/divider/tb_divider.sv", "src/divider.v"],
+                       "--x-initial", "unique")
+        for seed in (298, 2026):
+            simulate(binary, f"+VECTORS={vectors}", "+verilator+rand+reset+2", f"+verilator+seed+{seed}")
 
 
 if __name__ == "__main__":

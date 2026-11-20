@@ -90,27 +90,19 @@ def vectors():
 
 
 def main():
-    sources = ["test/controller/tb_controller.sv", "src/attention_controller.sv",
-               "src/score_mac.v", "src/ripple_add.v", "src/max_reg.v", "src/accum.v",
-               "src/exp_lut.v", "src/divider.v"]
+    sources = ["test/controller/tb_controller.sv", "test/spi_flash_model.sv", "src/spi_read.v",
+               "src/attention_controller.sv", "src/score_mac.v", "src/ripple_add.v",
+               "src/max_reg.v", "src/accum.v", "src/exp_lut.v", "src/divider.v"]
     with tempfile.TemporaryDirectory(prefix="attention-controller-") as temporary:
         work = Path(temporary)
         data = work / "vectors.txt"
         lines = list(vectors())
         data.write_text("\n".join(lines) + "\n")
-        args = (f"+VECTORS={data}", f"+CASES={len(lines)}")
-        current = build(work, "tb_controller", sources)
-        # Different schedules supplement the deterministic Python input seed.
+        binary = build(work, "tb_controller", sources, "--x-initial", "unique")
+        # Random power-up state and host timing; the Python input seed is fixed.
         for seed in (298, 2026, 16):
-            simulate(current, *args, f"+verilator+seed+{seed}")
-        for latency in (2, 8, 32):
-            simulate(current, *args, f"+MEM_CYCLES={latency}")
-        # Exercise the controller's memory-base parameters outside the default map.
-        relocated = work / "relocated"
-        relocated.mkdir()
-        current = build(relocated, "tb_controller", sources, "-GTEST_Q_BASE=16'h0800",
-                        "-GTEST_K_BASE=16'h1200", "-GTEST_V_BASE=16'h3400")
-        simulate(current, *args, "+verilator+seed+298")
+            simulate(binary, f"+VECTORS={data}", f"+CASES={len(lines)}",
+                     "+verilator+rand+reset+2", f"+verilator+seed+{seed}")
 
 
 if __name__ == "__main__":

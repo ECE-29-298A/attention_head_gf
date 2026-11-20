@@ -5,7 +5,7 @@
 One run computes one attention query of a 64-dimension head (SmolLM-135M
 size) over up to 16 tokens. The host sends a token count and a config byte.
 The chip reads the 64-component INT8 query, keys and values from an external
-QSPI flash, computes full 64-dimension Q·K scores, a two-pass softmax and the
+SPI flash, computes full 64-dimension Q·K scores, a two-pass softmax and the
 weighted average, and returns 4 of the 64 output components as four signed
 12-bit results (INT8 plus 4 fractional bits) in eight bytes. Run it with
 `chunk = 0..15` for all 64 components. The active top is
@@ -16,10 +16,12 @@ weighted average, and returns 4 of the 64 output components as four signed
 | Pins | Direction | Meaning |
 |---|---|---|
 | `ui_in[7:0]` | input | Host configuration byte |
-| `uo_out[7:0]` | output | Result byte while output-valid; zero otherwise |
-| `uio[3:0]` | bidirectional | QSPI flash IO0–IO3; current `0x03` reads use IO0/IO1 only |
-| `uio[4]` | output | QSPI SCK, mode 0 |
-| `uio[5]` | output | QSPI active-low chip select |
+| `uo_out[7:0]` | output | Result byte while output-valid; undefined otherwise |
+| `uio[0]` | output | Flash MOSI (IO0), always driven |
+| `uio[1]` | input | Flash MISO (IO1) |
+| `uio[3:2]` | input | Unused |
+| `uio[4]` | output | Flash SCK, mode 0 |
+| `uio[5]` | output | Flash active-low chip select |
 | `uio[6]` | input | Host valid during configuration; host ready during output |
 | `uio[7]` | output | Chip ready during configuration; chip valid during output |
 
@@ -53,20 +55,22 @@ Preload signed INT8 bytes, component 0 first:
 | Flash byte address | Contents |
 |---|---|
 | `0x000000 + c` | Q component `c` |
-| `0x000040 + 64*t + c` | K token `t`, component `c` |
-| `0x000440 + 64*t + c` | V token `t`, component `c` |
+| `0x000400 + 64*t + c` | K token `t`, component `c` |
+| `0x000800 + 64*t + c` | V token `t`, component `c` |
 
 Here `0 <= t < N <= 16` and `0 <= c < 64`. Q and K must stay unchanged across
 both score passes. Each run reads every Q and K byte twice per token and only
-the selected 4-byte chunk of each V row. For full accuracy give each V column
+the selected 4-byte chunk of each V row. Bytes between the regions are never read. For full accuracy give each V column
 its own power-of-two scale (the chip never mixes columns). The flash must support the standard `0x03` read: one command byte,
 three address bytes, then one data byte, all in single-lane SPI mode 0 with no
-dummy cycles. The current adapter does not issue flash writes, quad-read
+dummy cycles. MOSI stays driven during the data phase, which a standard
+SPI flash ignores. The chip does not issue flash writes, quad-read
 commands, or device-specific setup. IO2/IO3 must be held inactive by the board
 when not driven (typically WP#/HOLD# pulled high).
 
 `rst_n=0` or `ena=0` aborts the operation and releases chip select. Hold the
-condition through a clock edge; restart with N and the config byte afterward. The host must
+condition through a clock edge; restart with N and the config byte afterward. `uio[7]` and
+`uo_out` carry no meaning while `rst_n=0`. The host must
 be synchronous to `clk` and must not treat an aborted transfer as a result.
 
 ## How to test
@@ -79,5 +83,6 @@ remaining checks.
 
 ## External hardware
 
-An external QSPI flash preprogrammed with the K/V layout above, with compatible
-I/O voltage and pull-ups on the flash's inactive IO2/IO3 controls.
+An external SPI NOR flash supporting the `0x03` read, preprogrammed with the
+Q/K/V layout above, with compatible I/O voltage. A QSPI part also works if its
+WP#/HOLD# (IO2/IO3) pins are pulled high.

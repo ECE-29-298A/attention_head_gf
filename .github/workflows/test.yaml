@@ -44,14 +44,14 @@ jobs:
       - name: Run integrated RTL controller test
         run: python test/controller/run.py
 
-      - name: Run controller Cocotb tests
-        run: python test/controller/cocotb/run.py
-
       - name: Run divider block test
         run: python test/divider/run.py
 
-      - name: Run QSPI and OSPI byte engine tests
-        run: make -C test/spi_byte test lint
+      - name: Run SPI read block test
+        run: python test/spi_read/run.py
+
+      - name: Run pin-level top test (Verilator)
+        run: python test/top/run_pins.py
 
       - name: Test Summary
         uses: test-summary/action@v2.4

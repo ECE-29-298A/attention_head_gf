@@ -4,82 +4,54 @@
 // code (INT8 plus 4 fractional bits), nearest with ties away from zero.
 // Matches Python divide_round (out_frac = 4) on its domain.
 // 23 restoring-division steps + 1 round/sign step after the accepted start.
-// Inputs are latched when start && !busy. Starts while busy are ignored.
-// done pulses for one cycle; result holds until completion of the next request.
-// Invalid requests (zero denominator, sum=-524288, or rounded result outside
-// signed 12-bit range) complete with result=0 at the normal latency. Valid INT8
-// attention cannot produce these requests. This is not saturating arithmetic.
-module divider #(parameter LATCH_DENOMINATOR = 1) (
-    input  wire              clk,
-    input  wire              rst_n,       // Synchronous active-low reset; aborts operation.
-    input  wire              start,
+// sum_in is latched when start is accepted in idle; starts while dividing are
+// ignored. denominator must stay stable from start to done. done pulses for one
+// cycle; result is valid from done until the next start (the quotient register
+// holds it). Requires denominator > 0 and a result that fits 12 bits (always
+// true for INT8 attention: L >= 255 and |O / L| <= 128). No checking is done.
+module divider (
+    input  wire               clk,
+    input  wire               rst_n,       // Synchronous active-low reset; aborts operation.
+    input  wire               start,
     input  wire signed [19:0] sum_in,      // Weighted sum O_i.
     input  wire        [11:0] denominator, // Weight sum L; must be positive.
-    output wire              busy,
-    output reg               done,
-    output reg signed [11:0] result       // Weighted average of V, in 1/16 V steps.
+    output reg                done,
+    output wire signed [11:0] result       // Weighted average of V, in 1/16 V steps.
 );
     localparam [1:0] IDLE = 2'd0, DIVIDE = 2'd1, ROUND = 2'd2;
     reg [1:0] state;
-    reg [22:0] quotient; // Starts as abs(O) * 16 (< 2^23 when valid); shifted into a quotient in place.
+    reg [22:0] quotient; // abs(O) * 16 (< 2^23), shifted into the quotient in place
     reg [11:0] remainder_value;
-    wire [11:0] divisor;
-    if (LATCH_DENOMINATOR) begin : g_divisor
-        reg [11:0] saved_divisor;
-        always @(posedge clk)
-            if (state == IDLE) saved_divisor <= denominator;
-        assign divisor = saved_divisor;
-    end else begin : g_direct_divisor
-        // Integration contract: denominator stays stable from start to done.
-        assign divisor = denominator;
-    end
     reg [4:0] step;
-    reg negative, invalid;
+    reg negative;
 
     wire [18:0] magnitude = sum_in[19] ? (~sum_in[18:0] + 19'd1) : sum_in[18:0];
-    // The round step uses the same subtractor to compare 2*remainder with L.
-    wire [12:0] trial = {remainder_value, (state != ROUND) && quotient[22]};
-    wire [13:0] difference = {1'b0, trial} - {2'b0, divisor};
+    // In ROUND the same subtractor compares 2*remainder with L (quotient[22] is 0 there).
+    wire [12:0] trial = {remainder_value, quotient[22]};
+    wire [13:0] difference = {1'b0, trial} - {2'b0, denominator};
     wire subtract = !difference[13];
     wire [11:0] next_remainder = subtract ? difference[11:0] : trial[11:0];
-    wire [22:0] next_quotient = {quotient[21:0], subtract};
-    wire [12:0] rounded = {1'b0, quotient[11:0]} + {12'b0, subtract};
-    wire overflow = |quotient[22:12] || (negative ? rounded > 13'd2048 : rounded > 13'd2047);
-    assign busy = state != IDLE;
+    wire [11:0] rounded = quotient[11:0] + {11'b0, subtract};
+    assign result = quotient[11:0];
 
-    // Only the ROUND state consumes these registers. IDLE overwrites them
-    // on the same edge that accepts start, so idle and reset need no holds.
     always @(posedge clk) begin
-        quotient <= state == IDLE ? {magnitude, 4'b0} : next_quotient;
+        if (state == IDLE) begin
+            if (start) quotient <= {magnitude, 4'b0};
+            negative <= sum_in[19];
+        end else if (state == ROUND) quotient[11:0] <= negative ? -rounded : rounded;
+        else quotient <= {quotient[21:0], subtract};
         remainder_value <= state == IDLE ? 12'd0 : next_remainder;
         step <= state == IDLE ? 5'd0 : step + 5'd1;
-        if (state == IDLE) begin
-            negative <= sum_in[19];
-            invalid <= denominator == 12'd0 || sum_in == 20'sh80000;
-        end
+        done <= state == ROUND;
     end
 
-    always @(posedge clk) begin
-        if (!rst_n) begin
-            state <= IDLE;
-            done <= 1'b0;
-            result <= 12'sd0;
-        end else begin
-            done <= 1'b0;
-            case (state)
-                IDLE: if (start) state <= DIVIDE;
-                DIVIDE: if (step == 5'd22) state <= ROUND;
-                ROUND: begin
-                    if (invalid || overflow) result <= 12'sd0;
-                    else if (negative) result <= ~rounded[11:0] + 12'd1;
-                    else result <= rounded[11:0];
-                    done <= 1'b1;
-                    state <= IDLE;
-                end
-                default: state <= IDLE;
-            endcase
-        end
-    end
+    always @(posedge clk)
+        if (!rst_n) state <= IDLE;
+        else case (state)
+            IDLE: if (start) state <= DIVIDE;
+            DIVIDE: if (step == 5'd22) state <= ROUND;
+            default: state <= IDLE;
+        endcase
 endmodule
 
 `default_nettype wire

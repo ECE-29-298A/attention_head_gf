@@ -1,35 +1,20 @@
 /*
 Jinyuan Zhao
 Max comparator
+
+Every time a score finishes, keep the larger of it and the maximum so far.
+No reset or clear: `first` takes the query's first score unconditionally.
 */
 
 module max_reg (
     input  wire              clk,
-    input  wire              rst_n,
-    input  wire              clear,   // new query starting, forget the old max
+    input  wire              first,   // first score of this query
     input  wire              en,      // a finished score is on S_in this tick
     input  wire signed [21:0] S_in,
     output reg  signed [21:0] M
 );
 
-/*
-Every time we finished a score (from score_mac), max_reg compares to the biggest one it's seen so far and keep whichever one is larger.
-After the last key it will hold M (top score)
-*/
-
-always@(posedge clk) begin
-
-    if (!rst_n) begin
-        M <= -1040384; // lowest INT8 score: 64 * (-128 * 127)
-    end else if (clear) begin
-        M <= -1040384;
-    end else if (en) begin
-        if (S_in > M) begin
-            M <= S_in;
-        end
-    end
-
-end
-
+always @(posedge clk)
+    if (en && (first || S_in > M)) M <= S_in;
 
 endmodule

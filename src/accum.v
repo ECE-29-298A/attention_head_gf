@@ -42,7 +42,7 @@ module accum (
 );
 
 wire [19:0] term = en && v[bit_sel] ? ({12'b0, W} << bit_sel) : 20'd0;
-wire        neg  = en && bit_sel == 3'd7;  // sign bit of v has weight -128: subtract via ~term + 1
+wire        neg  = bit_sel == 3'd7;  // sign bit of v weighs -128: ~term + 1 (adds 0 when term is 0)
 wire        load = en && first && bit_sel == 3'd0;
 wire [19:0] O_next;
 wire [11:0] L_next;

@@ -14,8 +14,7 @@ SOURCES = [
     "src/project.v", "src/attention_controller.sv", "src/score_mac.v",
     "src/ripple_add.v", "src/max_reg.v", "src/accum.v",
     "src/exp_lut.v", "src/divider.v",
-    "src/Memaccess/qspi_read_adapter.v", "src/Memaccess/qspi_byte.v",
-    "src/Memaccess/spi_multi_io_byte.v",
+    "src/spi_read.v",
 ]
 
 
