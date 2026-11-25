@@ -81,3 +81,18 @@ Commits `d10a2ed` and `70bfb3f` widened the score datapath and added the rounded
 - `max_reg` loads the first score directly, with no reset or sentinel. `last` is derived from the held token count. The integrated divider omits the invalid and overflow checks, which cannot trigger in this design (`CHECK_INVALID=0`), and rounds and negates with a single incrementer.
 
 The mapped area is 43,548.3776 µm² with 299 flip-flops: 15.95% below HEAD and 2.64% below the design that routed in one tile. The top, controller (seven configurations and the cocotb tests), block, divider, SPI and Python regressions pass. A Yosys gate netlist passes the top test. The shuttle LibreLane run is still to be confirmed in CI.
+
+## 7. Select an area synthesis strategy for the shuttle flow
+
+The first shuttle LibreLane run of section 6 failed in `OpenROAD.RepairDesignPostGPL`. Global placement warned that the 92% target density was below the design's utilization (GPL-0302). Design repair then added 12.8% area (168 buffers and 77 resized cells for 103 slew and 33 fanout violations), and detailed placement failed (DPL-0036).
+
+LibreLane defaults `SYNTH_STRATEGY` to `DELAY 4`, and the Tiny Tapeout configuration does not override it. With LibreLane's ABC command sequences reproduced in Yosys on the pinned TT Liberty, the section 6 RTL maps to:
+
+| Strategy | Mapped area | Nets with fanout > 10 |
+| --- | ---: | ---: |
+| `DELAY 4` (default) | 53,780 µm² | 28 |
+| `AREA 3` | 47,557 µm² | 9 |
+| `AREA 0` | 42,422 µm² | 29 |
+| `AREA 2` | 42,280 µm² | 29 |
+
+These reproductions omit LibreLane's SDC-driven ABC constraints, so they are estimates. `DELAY 4` exceeds the roughly 52,000 µm² placement core before repair. `src/config.json` now selects `AREA 2` and raises `MAX_FANOUT_CONSTRAINT` from 10 to 20. The 100 ns clock leaves ample setup margin, and repair still enforces the Liberty slew and capacitance limits.
