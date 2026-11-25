@@ -3,10 +3,14 @@
 > Historical INT4 controller description. The current controller: inputs
 > `token_count`, `score_shift` and `chunk` (latched on start unless
 > `LATCH_CONFIG=0`); memory map Q at `Q_BASE` (64 bytes), K at `K_BASE` and V
-> at `V_BASE` (64 bytes per token). Each score reads 16 groups of 4 Q bytes then
-> the 4 matching K bytes, with 32 bit-serial MAC cycles per group; pass 2 then
-> reads the token's 4-byte V chunk. Outputs are four 12-bit results, two bytes
-> each. See [the pin protocol](pin-protocol.md) and the module port comments.
+> at `V_BASE` (64 bytes per token). Each score reads one Q byte then the matching
+> K byte per dimension, with 8 bit-serial MAC cycles per dimension; pass 2 starts
+> the score at the maximum and subtracts, so the LUT receives D = M - S directly,
+> then reads the token's 4-byte V chunk. Outputs are four 12-bit results, two
+> bytes each. The current instances are `mac` (`mac_unit`: score MAC and V
+> accumulator sharing one adder), `max_unit` (`max_reg`), `exponent_unit`
+> (`exp_lut`, combinational) and `divider_unit` (`divider`). See
+> [the pin protocol](pin-protocol.md) and the module port comments.
 
 `src/attention_controller.sv` instantiates `score_mac`, `max_reg`, `accum`,
 `exp_lut` and `divider`. These remain separate, reusable RTL modules; their
@@ -176,10 +180,9 @@ Compile the controller and its five arithmetic modules:
 
 ```text
 src/attention_controller.sv
-src/score_mac.v
+src/mac_unit.v
 src/ripple_add.v
 src/max_reg.v
-src/accum.v
 src/exp_lut.v
 src/divider.v
 ```

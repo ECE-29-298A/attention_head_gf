@@ -1,4 +1,7 @@
-"""Score-pair, rounded-shift and handshake checks for the exponent LUT over the 64-dim INT8 score range."""
+"""Score-pair, rounded-shift and handshake checks for the exponent LUT over the 64-dim INT8 score range.
+
+The LUT takes D = M - S (the controller computes it); cases are still written as (M, S) pairs.
+"""
 
 import math
 import random
@@ -23,8 +26,7 @@ async def exp_lut_exhaustive_and_handshake(dut):
     rng = random.Random(29804)
     dut.rst_n.value = 0
     dut.start.value = 0
-    dut.M.value = 0
-    dut.S.value = 0
+    dut.D.value = 0
     dut.shift.value = 0
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
     expected_weight = 0
@@ -34,8 +36,9 @@ async def exp_lut_exhaustive_and_handshake(dut):
         await FallingEdge(dut.clk)
         dut.rst_n.value = rst_n
         dut.start.value = start
-        dut.M.value = maximum
-        dut.S.value = score
+        if start:
+            assert maximum >= score, "D = M - S is never negative"
+        dut.D.value = (maximum - score) % 2**22
         dut.shift.value = shift
         if not rst_n:
             expected_weight = 0
@@ -43,7 +46,7 @@ async def exp_lut_exhaustive_and_handshake(dut):
         else:
             expected_done = start
             if start:
-                expected_weight = weight(max(0, maximum - score), shift)
+                expected_weight = weight(maximum - score, shift)
         await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
         assert int(dut.done.value) == expected_done, (
@@ -59,7 +62,6 @@ async def exp_lut_exhaustive_and_handshake(dut):
     await cycle()
     for delta in range(0, 33):
         await cycle(start=1, maximum=delta, score=0)
-    await cycle(start=1, maximum=SCORE_MIN, score=SCORE_MAX)  # contract violation clamps
     await cycle(start=0, maximum=SCORE_MAX, score=SCORE_MIN)  # weight holds
     await cycle(rst_n=0, start=1, maximum=0, score=0)
 

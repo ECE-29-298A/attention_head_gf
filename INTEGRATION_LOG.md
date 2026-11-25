@@ -69,3 +69,15 @@ Commit `fca4997` records the reproducible flow and selected local layout. Full r
 Upsizing the remaining overloaded XOR and rerouting kept the die, pins, router, antenna, connectivity, and gate simulation checks passing. Area rose to 49,528 µm². Extraction showed that the original driver recovered, but a downstream net then exceeded its capacitance and slew limits. Setup margin fell from +29.177 ns to +14.478 ns. The 49,515 µm² candidate remains the selected result. The trial logs are under `build/gf180_fit_evidence/last-trial/`.
 
 The one-tile area objective is met in the local GF180 checked route. Next physical work is electrical closure in the shuttle's processed PDK flow, followed by GDS checks.
+
+## 6. Recover the one-tile area after the 64-dim score change
+
+Commits `d10a2ed` and `70bfb3f` widened the score datapath and added the rounded LUT shift. The mapped area rose to 51,813.3056 µm² with 355 flip-flops, 16% above the 44,729 µm² design that routed in one tile. Measurements use the same Yosys/ABC flow and pinned 7-track TT/3.30 V Liberty as section 2.
+
+- Scores read one Q byte and one K byte per dimension into the existing operand register, so the 32-bit query register and its 4:1 mux are removed. Flash traffic is unchanged at 128 single-byte reads per score.
+- Pass 2 preloads the score with M and subtracts, so `exp_lut` receives D = M − S and its 23-bit subtractor is removed. `exp_lut` is combinational in the core (`REGISTERED=0`), because D and shift stay stable through accumulation.
+- `mac_unit` replaces `score_mac` and `accum`. The two never run in the same cycle, so they share one 22-bit adder and shifter, and the O ring bypasses the adder while scoring.
+- The read adapter uses the controller's stable address (`LATCH_ADDR=0`). The SPI engine is single-lane only (`X1_ONLY=1`).
+- `max_reg` loads the first score directly, with no reset or sentinel. `last` is derived from the held token count. The integrated divider omits the invalid and overflow checks, which cannot trigger in this design (`CHECK_INVALID=0`), and rounds and negates with a single incrementer.
+
+The mapped area is 43,548.3776 µm² with 299 flip-flops: 15.95% below HEAD and 2.64% below the design that routed in one tile. The top, controller (seven configurations and the cocotb tests), block, divider, SPI and Python regressions pass. A Yosys gate netlist passes the top test. The shuttle LibreLane run is still to be confirmed in CI.

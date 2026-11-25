@@ -1,5 +1,5 @@
 # Block-level tests: one Verilog module at a time, no tb.v wrapper.
-# Usage:  make score_mac
+# Usage:  make mac_unit
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = ../../src
@@ -13,5 +13,5 @@ SIM_BUILD = sim_build/$(MODULE_UNDER_TEST)
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
-score_mac max_reg accum exp_lut:
+mac_unit max_reg exp_lut:
 	$(MAKE) MODULE_UNDER_TEST=$@ sim

@@ -9,7 +9,10 @@
 // Invalid requests (zero denominator, sum=-524288, or rounded result outside
 // signed 12-bit range) complete with result=0 at the normal latency. Valid INT8
 // attention cannot produce these requests. This is not saturating arithmetic.
-module divider #(parameter LATCH_DENOMINATOR = 1) (
+// CHECK_INVALID = 0 drops the invalid/overflow detection. Use it only when the
+// caller guarantees denominator > 0, sum_in != -524288 and an in-range result
+// (true for the attention controller: L >= 255 and the result is an average of INT8).
+module divider #(parameter LATCH_DENOMINATOR = 1, parameter CHECK_INVALID = 1) (
     input  wire              clk,
     input  wire              rst_n,       // Synchronous active-low reset; aborts operation.
     input  wire              start,
@@ -34,7 +37,8 @@ module divider #(parameter LATCH_DENOMINATOR = 1) (
         assign divisor = denominator;
     end
     reg [4:0] step;
-    reg negative, invalid;
+    reg negative, invalid_r;
+    wire invalid = CHECK_INVALID ? invalid_r : 1'b0;
 
     wire [18:0] magnitude = sum_in[19] ? (~sum_in[18:0] + 19'd1) : sum_in[18:0];
     // The round step uses the same subtractor to compare 2*remainder with L.
@@ -44,7 +48,9 @@ module divider #(parameter LATCH_DENOMINATOR = 1) (
     wire [11:0] next_remainder = subtract ? difference[11:0] : trial[11:0];
     wire [22:0] next_quotient = {quotient[21:0], subtract};
     wire [12:0] rounded = {1'b0, quotient[11:0]} + {12'b0, subtract};
-    wire overflow = |quotient[22:12] || (negative ? rounded > 13'd2048 : rounded > 13'd2047);
+    // -(q + s) = ~q + !s, so one incrementer rounds and applies the sign.
+    wire [11:0] signed_result = (quotient[11:0] ^ {12{negative}}) + {11'b0, subtract ^ negative};
+    wire overflow = CHECK_INVALID ? (|quotient[22:12] || (negative ? rounded > 13'd2048 : rounded > 13'd2047)) : 1'b0;
     assign busy = state != IDLE;
 
     // Only the ROUND state consumes these registers. IDLE overwrites them
@@ -55,7 +61,7 @@ module divider #(parameter LATCH_DENOMINATOR = 1) (
         step <= state == IDLE ? 5'd0 : step + 5'd1;
         if (state == IDLE) begin
             negative <= sum_in[19];
-            invalid <= denominator == 12'd0 || sum_in == 20'sh80000;
+            invalid_r <= denominator == 12'd0 || sum_in == 20'sh80000;
         end
     end
 
@@ -71,8 +77,7 @@ module divider #(parameter LATCH_DENOMINATOR = 1) (
                 DIVIDE: if (step == 5'd22) state <= ROUND;
                 ROUND: begin
                     if (invalid || overflow) result <= 12'sd0;
-                    else if (negative) result <= ~rounded[11:0] + 12'd1;
-                    else result <= rounded[11:0];
+                    else result <= signed_result;
                     done <= 1'b1;
                     state <= IDLE;
                 end

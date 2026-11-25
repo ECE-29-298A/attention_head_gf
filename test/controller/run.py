@@ -91,7 +91,7 @@ def vectors():
 
 def main():
     sources = ["test/controller/tb_controller.sv", "src/attention_controller.sv",
-               "src/score_mac.v", "src/ripple_add.v", "src/max_reg.v", "src/accum.v",
+               "src/mac_unit.v", "src/ripple_add.v", "src/max_reg.v",
                "src/exp_lut.v", "src/divider.v"]
     with tempfile.TemporaryDirectory(prefix="attention-controller-") as temporary:
         work = Path(temporary)

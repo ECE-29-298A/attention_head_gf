@@ -11,8 +11,8 @@ from attention_model import (chip_attention, chip_attention_np, exp_table,  # no
 
 
 def test_widths_match_rtl():
-    # Must match src/: score_mac S, accum L and O, divider quotient.
-    # D is the value range of M - S; exp_lut computes it as a 22-bit S plus a sign bit.
+    # Must match src/: mac_unit S, L and O, divider quotient.
+    # D is the value range of M - S; mac_unit's pass-2 S register holds it.
     assert reg_widths(64, 16) == {"S": 22, "D": 21, "L": 12, "O": 20, "Z": 19}
 
 

@@ -127,10 +127,9 @@ class Harness:
         self.dut._log.info("%s (N=%d, shift=%d, chunk=%d): hardware=%s, Python=%s",
                            name, n, shift, chunk, actual, expected)
 
-        # Per token: 16 groups of 4 Q bytes then 4 K bytes; pass 2 adds the V chunk.
+        # Per token: 64 dimensions of one Q byte then one K byte; pass 2 adds the V chunk.
         def score_reads(t):
-            return [base + 4*g + c for g in range(16)
-                    for base in (Q_BASE, K_BASE + 64*t) for c in range(4)]
+            return [base + d for d in range(64) for base in (Q_BASE, K_BASE + 64*t)]
         expected_reads = [a for t in range(n) for a in score_reads(t)]
         for t in range(n):
             expected_reads += score_reads(t) + [V_BASE + 64*t + 4*chunk + c for c in range(4)]

@@ -8,13 +8,12 @@ Target: Tiny Tapeout `gf180mcuD`, one tile (`info.yaml`). The active top is
 ```text
 tt_um_attention_head_gf
 ├── attention_controller
-│   ├── score_mac ── ripple_add
+│   ├── mac_unit ── ripple_add (shared score/accumulate adder, plus L adder)
 │   ├── max_reg
-│   ├── accum ── ripple_add (two instances)
-│   ├── exp_lut
-│   └── divider
-└── qspi_read_adapter
-    └── qspi_byte
+│   ├── exp_lut (combinational)
+│   └── divider (CHECK_INVALID=0)
+└── qspi_read_adapter (LATCH_ADDR=0)
+    └── qspi_byte (X1_ONLY=1)
         └── spi_multi_io_byte (LANES=4)
 ```
 

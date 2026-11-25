@@ -11,8 +11,8 @@ from cocotb_tools.runner import get_runner
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 SOURCES = [
-    "src/project.v", "src/attention_controller.sv", "src/score_mac.v",
-    "src/ripple_add.v", "src/max_reg.v", "src/accum.v",
+    "src/project.v", "src/attention_controller.sv", "src/mac_unit.v",
+    "src/ripple_add.v", "src/max_reg.v",
     "src/exp_lut.v", "src/divider.v",
     "src/Memaccess/qspi_read_adapter.v", "src/Memaccess/qspi_byte.v",
     "src/Memaccess/spi_multi_io_byte.v",

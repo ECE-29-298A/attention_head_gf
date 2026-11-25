@@ -34,7 +34,7 @@ jobs:
       - name: Run block tests
         run: |
           cd test/blocks
-          for block in score_mac max_reg accum exp_lut; do
+          for block in mac_unit max_reg exp_lut; do
             rm -rf sim_build/$block results.xml
             make $block
             # results.xml is overwritten per block, so check each one

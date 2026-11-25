@@ -1,7 +1,9 @@
 // Minimal mode-0 SDR SPI byte engine. One instance is either x1/x4 or x1/x8.
 // No FIFO, divider, memory map, opcode decoder, or device-specific sequencing.
 module spi_multi_io_byte #(
-    parameter integer LANES = 4
+    parameter integer LANES = 4,
+    // 1: wide is ignored and the engine is single-lane only (fewer flops/muxes).
+    parameter X1_ONLY = 0
 ) (
     input  wire                 clk,
     input  wire                 rst_n,
@@ -27,7 +29,9 @@ module spi_multi_io_byte #(
     reg [2:0] beats_left;
     reg [7:0] shift;
     reg [LANES-1:0] sampled;
-    reg wide_r, tx_en_r, last_r;
+    reg wide_q, tx_en_r, last_r;
+    wire wide_r = X1_ONLY ? 1'b0 : wide_q;
+    wire wide_in = X1_ONLY ? 1'b0 : wide;
 
     assign ready   = (state == IDLE);
     assign rx_data = shift;
@@ -41,8 +45,8 @@ module spi_multi_io_byte #(
     always @(posedge clk) begin
         if (state == IDLE && start) begin
             shift      <= tx_data;
-            beats_left <= wide ? WIDE_LAST : 3'd7;
-            wide_r     <= wide;
+            beats_left <= wide_in ? WIDE_LAST : 3'd7;
+            wide_q     <= wide_in;
             tx_en_r    <= tx_en;
             last_r     <= last;
         end else if (state == RISE) begin

@@ -48,7 +48,8 @@ module tt_um_attention_head_gf (
         .out_valid(core_out_valid), .out_ready(uio_in[6]),
         .out_data(core_out_data)
     );
-    qspi_read_adapter memory (
+    // The controller holds mem_addr stable from request until response.
+    qspi_read_adapter #(.LATCH_ADDR(0)) memory (
         .clk(clk), .rst_n(active),
         .req_valid(core_mem_req_valid), .req_ready(core_mem_req_ready),
         .req_addr(core_mem_addr), .rsp_valid(core_mem_rsp_valid),

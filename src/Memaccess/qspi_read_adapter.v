@@ -2,7 +2,9 @@
 // A request is accepted only in IDLE; response-valid pulses after CS releases.
 `default_nettype none
 module qspi_read_adapter #(
-    parameter [23:0] FLASH_BASE = 24'h000000
+    parameter [23:0] FLASH_BASE = 24'h000000,
+    // 0: the requester holds req_addr stable until rsp_valid (saves 16 flops).
+    parameter LATCH_ADDR = 1
 ) (
     input  wire        clk,
     input  wire        rst_n,
@@ -20,7 +22,7 @@ module qspi_read_adapter #(
     localparam [1:0] IDLE = 2'd0, ISSUE = 2'd1, WAIT_BYTE = 2'd2;
     reg [1:0] state;
     reg [2:0] byte_index;
-    reg [23:0] address;
+    wire [23:0] address;
     wire byte_ready, byte_done;
     wire [7:0] byte_rx;
     wire byte_start = rst_n && state == ISSUE && byte_ready;
@@ -31,11 +33,17 @@ module qspi_read_adapter #(
 
     // The byte engine holds the received byte after its done pulse.
     assign rsp_data = byte_rx;
-    always @(posedge clk)
-        if (req_valid && req_ready) address <= FLASH_BASE + {8'd0, req_addr};
+    if (LATCH_ADDR) begin : g_latch_addr
+        reg [23:0] saved_address;
+        always @(posedge clk)
+            if (req_valid && req_ready) saved_address <= FLASH_BASE + {8'd0, req_addr};
+        assign address = saved_address;
+    end else begin : g_direct_addr
+        assign address = FLASH_BASE + {8'd0, req_addr};
+    end
 
     assign req_ready = rst_n && state == IDLE && byte_ready;
-    qspi_byte serial (
+    qspi_byte #(.X1_ONLY(1)) serial (
         .clk(clk), .rst_n(rst_n), .start(byte_start),
         .wide(1'b0), .tx_en(byte_index != 3'd4), .last(byte_index == 3'd4),
         .tx_data(byte_tx), .ready(byte_ready), .done(byte_done),

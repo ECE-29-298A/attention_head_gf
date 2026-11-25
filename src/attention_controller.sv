@@ -3,8 +3,10 @@
 // Two-pass INT8 core: first find the maximum, then recompute scores and accumulate.
 // Scores are 64-dim dot products (one SmolLM head); outputs are one 4-dim chunk
 // of V per run, so a full 64-dim head output takes 16 runs (chunk = 0..15).
-// Q and K are read in 16 groups of 4 bytes per score: Q twice per token (once per
+// Q and K are read one byte pair per dimension: Q twice per token (once per
 // pass), K twice, V once; no scores or weights are written to external memory.
+// Pass 2 preloads the score with the maximum and subtracts, so the score unit
+// produces D = M - S directly for the exponent table.
 // All arithmetic blocks are instantiated below; only host and memory are external.
 // All resets are synchronous. Reset must also cancel/drain pending memory reads.
 module attention_controller #(
@@ -44,11 +46,9 @@ module attention_controller #(
     input wire out_ready,            // Receiver can accept the current output byte.
     output wire [7:0] out_data       // Result byte; held stable while valid and not ready.
 );
-    // Internal LUT handshake: weight = 255 * exp(-round((maximum - score) / 2^shift) / 4).
-    wire exp_start;                   // One-cycle request for the current token's weight.
-    wire signed [21:0] exp_max;       // Final maximum across all tokens.
-    wire signed [21:0] exp_score;      // Current score; stable until completion.
-    wire exp_done;                    // Completion pulse; exp_weight is valid.
+    // Combinational LUT: weight = 255 * exp(-round((maximum - score) / 2^shift) / 4).
+    wire [21:0] exp_delta;            // D = M - S >= 0 from the pass-2 score unit; stable through accumulation.
+    wire exp_done;                    // Unused: the combinational LUT has no latency.
     wire [7:0] exp_weight;            // Unsigned, unnormalized attention weight: 0–255.
 
     // Internal divider handshake: result = round(16 * weighted_sum / weight_sum).
@@ -60,85 +60,91 @@ module attention_controller #(
     wire signed [11:0] div_result;    // Rounded signed output, 4 fractional bits.
 
     typedef enum logic [4:0] {
-        IDLE, INIT, QUERY_READ, QUERY_READY, KEY_READ, KEY_READY, SCORE_CLEAR, SCORE_MAC,
-        SCORE_CAPTURE, KEY_NEXT, EXP_START, EXP_WAIT,
+        IDLE, INIT, QUERY_READ, KEY_READ, KEY_READY, SCORE_MAC,
+        SCORE_CAPTURE, KEY_NEXT,
         VALUE_READ, VALUE_READY, ACCUM_STEP, VALUE_NEXT,
         DIV_START, DIV_WAIT, OUTPUT_WAIT, COMPLETE, MEM_REQUEST, MEM_WAIT
     } state_t;
     state_t state, return_state;
-    logic [3:0] last; // token_count - 1
+    wire [3:0] last; // token_count - 1
     logic [3:0] token;
-    logic [3:0] group; // which 4 of the 64 Q/K components the MAC is on
+    logic [5:0] dim; // which of the 64 Q/K components the MAC is on
     logic second_pass; // 0: find maximum. 1: use the frozen maximum and accumulate.
     // component is a free-running phase (steps every clock). The accum ring rotates in step,
     // so accum O0 always holds component `component`. MAC loops start at phase 0.
     logic [1:0] component, output_index;
     logic high_byte; // 0: send div_result[7:0] next. 1: send its sign-extended top 4 bits.
-    // bit of the multiplier operand (shift-add); bit_index[1:0] also counts the 4 bytes of a row read.
+    // bit of the multiplier operand (shift-add); bit_index[1:0] also counts the 4 bytes of a V row read.
     logic [2:0] bit_index;
-    logic [31:0] query;    // current group of 4 Q components, read from memory
-    logic [31:0] operands; // current group of 4 K components, or this token's 4 V components
+    // Score: {k, q, -, -} for the current dimension. Accumulate: this token's 4 V components.
+    logic [31:0] operands;
     wire [3:0] shift, chunk_sel;
     if (LATCH_CONFIG) begin : g_config
         logic [7:0] saved_config;
+        logic [3:0] saved_last;
         always_ff @(posedge clk)
-            if (start && start_ready) saved_config <= {chunk, score_shift};
+            if (start && start_ready) begin
+                saved_config <= {chunk, score_shift};
+                saved_last <= 4'(token_count - 5'd1);
+            end
         assign {chunk_sel, shift} = saved_config;
+        assign last = saved_last;
     end else begin : g_direct_config
+        // Caller holds token_count, chunk and score_shift until done.
         assign {chunk_sel, shift} = {chunk, score_shift};
+        assign last = 4'(token_count - 5'd1);
     end
-    // exp_lut holds W until its next start, so no local copy is needed.
+    // score_mac holds D, so W is stable from SCORE_CAPTURE through VALUE_NEXT.
     wire [7:0] weight = exp_weight;
     wire signed [21:0] score, maximum;
     wire signed [19:0] o0, o1, o2, o3;
-    wire signed [7:0] qi = $signed(query[8*component +: 8]);
-    wire signed [7:0] ki = $signed(operands[7:0]);
+    wire signed [7:0] qi = $signed(operands[23:16]);
+    wire signed [7:0] ki = $signed(operands[31:24]);
+    wire signed [7:0] vi = $signed(operands[7:0]);
 
     assign start_ready = rst_n && state == IDLE && token_count >= 1 && token_count <= 16;
     assign busy = state != IDLE;
     assign mem_req_valid = rst_n && state == MEM_REQUEST;
     assign mem_write = 1'b0;
     assign mem_wdata = 8'd0;
-    assign exp_start = rst_n && state == EXP_START;
-    assign exp_max = maximum;
-    // score_mac holds S until the next token's first SCORE_CLEAR, after the exponent and accumulate steps.
-    assign exp_score = score;
+    // score_mac holds D until the next token's first query read, after the exponent and accumulate steps.
+    assign exp_delta = score;
     // divider holds result until its next completion, after both bytes are accepted.
     assign out_data = high_byte ? {{4{div_result[11]}}, div_result[11:8]} : div_result[7:0];
     // Address is decoded from the pending return state; stable while MEM_REQUEST waits.
-    wire query_read = return_state == QUERY_READ || return_state == QUERY_READY;
+    // The query read returns to KEY_READ and the key read to KEY_READY.
+    wire query_read = return_state == KEY_READ;
     wire value_read = return_state == VALUE_READ || return_state == VALUE_READY;
-    assign mem_addr = query_read ? Q_BASE + {10'b0, group, bit_index[1:0]}
+    assign mem_addr = query_read ? Q_BASE + {10'b0, dim}
                     : value_read ? V_BASE + {6'b0, token, chunk_sel, bit_index[1:0]}
-                    : K_BASE + {6'b0, token, group, bit_index[1:0]};
+                    : K_BASE + {6'b0, token, dim};
     // Start when the ring brings component output_index into O0.
     assign div_start = rst_n && state == DIV_START && component == output_index;
     assign div_sum = o0;
     assign out_valid = rst_n && state == OUTPUT_WAIT;
 
-    score_mac score_unit (
-        .clk(clk), .rst_n(rst_n), .clear(state == INIT || (state == SCORE_CLEAR && group == 0)),
-        .en(state == SCORE_MAC), .qi(qi), .ki(ki), .bit_sel(bit_index), .S(score)
+    mac_unit mac (
+        .clk(clk), .accum_mode(state != SCORE_MAC),
+        .load(state == QUERY_READ && dim == 0), .subtract(second_pass), .M(maximum),
+        .score_en(state == SCORE_MAC), .qi(qi), .ki(ki),
+        .first(token == 4'd0), .accum_en(state == ACCUM_STEP), .W(weight), .sel(component),
+        .v(vi), .bit_sel(bit_index),
+        .S(score), .L(div_denominator), .O0(o0), .O1(o1), .O2(o2), .O3(o3)
     );
     max_reg max_unit (
-        .clk(clk), .rst_n(rst_n), .clear(state == INIT),
+        .clk(clk), .first(token == 4'd0),
         .en(state == SCORE_CAPTURE && !second_pass), .S_in(score), .M(maximum)
     );
-    accum accum_unit (
-        .clk(clk), .first(token == 4'd0),
-        .en(state == ACCUM_STEP), .W(weight), .sel(component), .bit_sel(bit_index), .v(ki),
-        .L(div_denominator), .O0(o0), .O1(o1), .O2(o2), .O3(o3)
-    );
-    exp_lut exponent_unit (
-        .clk(clk), .rst_n(rst_n), .start(exp_start), .M(exp_max), .S(exp_score),
+    exp_lut #(.REGISTERED(0)) exponent_unit (
+        .clk(clk), .rst_n(rst_n), .start(1'b0), .D(exp_delta),
         .shift(shift), .done(exp_done), .W(exp_weight)
     );
-    divider #(.LATCH_DENOMINATOR(0)) divider_unit (
+    divider #(.LATCH_DENOMINATOR(0), .CHECK_INVALID(0)) divider_unit (
         .clk(clk), .rst_n(rst_n), .start(div_start), .sum_in(div_sum),
         .denominator(div_denominator), .busy(div_busy), .done(div_done), .result(div_result)
     );
     // Waiting for div_done prevents another start while busy; no busy polling needed.
-    wire _unused = &{div_busy, o1, o2, o3, 1'b0};
+    wire _unused = &{div_busy, exp_done, o1, o2, o3, operands[15:8], 1'b0};
 
     // Launch one byte read; return_state selects the address.
     task automatic read_byte_request(input state_t next_state);
@@ -146,24 +152,21 @@ module attention_controller #(
         state <= MEM_REQUEST;
     endtask
 
-    // Byte 0 enters first. Rotate the loaded K/V group during each arithmetic
-    // cycle so its current component is always in the low byte. Q is indexed
-    // by the phase instead, so it does not rotate.
+    // Bytes shift in from the top. A score pair leaves q in [23:16] and k in
+    // [31:24]. A V row leaves byte 0 low; it rotates during each accumulate
+    // cycle so its current component is always in the low byte.
     always_ff @(posedge clk)
-        if (state == MEM_WAIT && mem_rsp_valid && query_read)
-            query <= {mem_rdata, query[31:8]};
-        else if (state == MEM_WAIT && mem_rsp_valid)
+        if (state == MEM_WAIT && mem_rsp_valid)
             operands <= {mem_rdata, operands[31:8]};
-        else if (state == SCORE_MAC || state == ACCUM_STEP)
+        else if (state == ACCUM_STEP)
             operands <= {operands[7:0], operands[31:8]};
 
     always_ff @(posedge clk) begin
         if (!rst_n) begin
             state <= IDLE;
             return_state <= IDLE;
-            last <= 0;
             token <= 0;
-            group <= 0;
+            dim <= 0;
             second_pass <= 0;
             component <= 0;
             bit_index <= 0;
@@ -174,43 +177,37 @@ module attention_controller #(
             component <= component + 1'b1;
             case (state)
                 IDLE: if (start && start_ready) begin
-                    last <= 4'(token_count - 5'd1);
                     token <= 0;
-                    group <= 0;
+                    dim <= 0;
                     second_pass <= 0;
                     high_byte <= 0;
                     done <= 0;
                     state <= INIT;
                 end
                 INIT: state <= QUERY_READ;
-                // Each group: 4 Q bytes, then the token's matching 4 K bytes.
-                QUERY_READ: read_byte_request(state_t'(bit_index[1:0] == 3 ? QUERY_READY : QUERY_READ));
-                QUERY_READY: state <= KEY_READ;
-                KEY_READ: read_byte_request(state_t'(bit_index[1:0] == 3 ? KEY_READY : KEY_READ));
-                KEY_READY: begin bit_index <= 0; state <= SCORE_CLEAR; end
-                // Wait so the MAC loop starts at phase 0. S is cleared here only for group 0.
-                SCORE_CLEAR: if (component == 3) state <= SCORE_MAC;
-                // 32 cycles per group: one bit of one component per cycle through the ripple adder.
-                // Component (the phase) is the inner loop; bit_index steps when it wraps.
-                // After 16 groups (group wraps back to 0) the 64-dim score is complete.
-                SCORE_MAC: if (component == 3) begin
+                // Each dimension: one Q byte, then the token's matching K byte.
+                // S is (pre)loaded during the dimension-0 query read.
+                QUERY_READ: read_byte_request(KEY_READ);
+                KEY_READ: read_byte_request(KEY_READY);
+                KEY_READY: begin bit_index <= 0; state <= SCORE_MAC; end
+                // 8 cycles per dimension: one bit of k per cycle through the ripple adder.
+                // After 64 dimensions (dim wraps back to 0) the score is complete.
+                SCORE_MAC: begin
                     bit_index <= bit_index + 1'b1;
                     if (bit_index == 7) begin
-                        group <= group + 1'b1;
-                        state <= state_t'(group == 15 ? SCORE_CAPTURE : QUERY_READ);
+                        dim <= dim + 1'b1;
+                        state <= state_t'(dim == 63 ? SCORE_CAPTURE : QUERY_READ);
                     end
                 end
                 // Capture on the edge AFTER the final MAC updates S.
                 SCORE_CAPTURE: begin
-                    state <= state_t'(second_pass ? EXP_START : KEY_NEXT);
+                    state <= state_t'(second_pass ? VALUE_READ : KEY_NEXT);
                 end
                 KEY_NEXT: if (token == last) begin
                     token <= 0;
                     second_pass <= 1;
                     state <= QUERY_READ; // accum loads (not adds) on token 0: no clear needed
                 end else begin token <= token + 1'b1; state <= QUERY_READ; end
-                EXP_START: state <= EXP_WAIT;
-                EXP_WAIT: if (exp_done) state <= VALUE_READ;
                 // The shared operand buffer is refilled with V.
                 VALUE_READ: read_byte_request(state_t'(bit_index[1:0] == 3 ? VALUE_READY : VALUE_READ));
                 VALUE_READY: begin bit_index <= 0; if (component == 3) state <= ACCUM_STEP; end

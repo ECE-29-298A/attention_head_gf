@@ -34,23 +34,25 @@ Handshake (matches attention_controller):
     done:  high for exactly one cycle, the cycle AFTER start
     W:     valid when done is high, held until the next start
 
-If M < S (contract violation, the controller always passes the real
-max), D is treated as 0, so W = 255.
+With REGISTERED = 0 the block is combinational: W follows D and shift, and
+done = start. The controller uses this because it already holds D and shift
+stable for the whole accumulate step.
+
+The controller computes D = M - S itself (its pass-2 score starts at M and
+subtracts), so this block has no subtractor. D is never negative.
 */
 
-module exp_lut (
+module exp_lut #(parameter REGISTERED = 1) (
     input  wire              clk,
     input  wire              rst_n,
     input  wire              start,
-    input  wire signed [21:0] M,      // final maximum score
-    input  wire signed [21:0] S,      // this token's score
+    input  wire        [21:0] D,      // M - S >= 0 (< 2^21 for INT8 scores)
     input  wire        [3:0] shift,   // D is rounded and shifted right by this; sampled on start
-    output reg               done,
-    output reg         [7:0] W        // 0 to 255, UNSIGNED
+    output wire              done,
+    output wire        [7:0] W        // 0 to 255, UNSIGNED
 );
 
-// D = M - S, one extra bit so a negative result is visible in diff[22]
-wire signed [22:0] diff = {M[21], M} - {S[21], S};
+wire [21:0] diff = D;
 
 // D >= 2^20 gives a zero weight even at the largest shift (15).
 // Append a zero so bit 0 of the shifted window is the rounding bit, including
@@ -72,9 +74,7 @@ wire out_of_range = (|diff[21:20]) || index[5] ||
 
 reg [7:0] weight;
 always @(*) begin
-    if (diff[22]) begin
-        weight = 8'd255;              // M < S: clamp to D = 0
-    end else if (out_of_range) begin
+    if (out_of_range) begin
         weight = 8'd0;                // D' >= 32: way too far behind
     end else begin
         case (index[4:0])
@@ -108,16 +108,26 @@ always @(*) begin
     end
 end
 
-always @(posedge clk) begin
-    if (!rst_n) begin
-        done <= 1'b0;
-        W    <= 8'd0;
-    end else begin
-        done <= start;
-        if (start) begin
-            W <= weight;
+if (REGISTERED) begin : g_registered
+    reg done_r;
+    reg [7:0] W_r;
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            done_r <= 1'b0;
+            W_r    <= 8'd0;
+        end else begin
+            done_r <= start;
+            if (start) begin
+                W_r <= weight;
+            end
         end
     end
+    assign done = done_r;
+    assign W = W_r;
+end else begin : g_combinational
+    assign done = start;
+    assign W = weight;
+    wire _unused = &{clk, rst_n, 1'b0};
 end
 
 endmodule

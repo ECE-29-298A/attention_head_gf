@@ -1,6 +1,6 @@
 """Directed and seeded-random tests for the two-pass INT8 controller.
 
-64-dim scores (Q and K read from memory in groups of 4), one 4-wide V chunk per
+64-dim scores (one Q byte then one K byte per dimension), one 4-wide V chunk per
 run, rounded score shift, 12-bit outputs sent as two bytes each.
 """
 import random
@@ -26,7 +26,6 @@ class Bus:
         self.cycle = 0
         self.memory = {}
         self.mem_pending = None
-        self.exp_pending = None
         self.div_pending = None
         self.reads = []
         self.exps = []
@@ -48,7 +47,6 @@ class Bus:
         d.mem_req_ready.value = self.rng.randrange(4) != 0 if mem_ready is None else mem_ready
         d.out_ready.value = self.rng.randrange(3) != 0 if out_ready is None else out_ready
         mem_due = self.mem_pending is not None and self.mem_pending[0] <= self.cycle
-        exp_due = self.exp_pending is not None and self.exp_pending[0] <= self.cycle
         div_due = self.div_pending is not None and self.div_pending[0] <= self.cycle
         d.mem_rsp_valid.value = int(mem_due and reset)
         d.mem_rdata.value = self.mem_pending[1] if mem_due and reset else 0
@@ -56,19 +54,18 @@ class Bus:
         req = reset and int(d.mem_req_valid.value)
         addr = int(d.mem_addr.value) if reset else 0
         req_ready = int(d.mem_req_ready.value)
-        exp_start = reset and int(d.exp_start.value)
+        # Pass 2 starts each score at M and subtracts. The edge after its final
+        # MAC leaves D = M - S, and the combinational LUT weight must match it.
+        exp_ready = reset and int(d.mac.score_en.value) and int(d.second_pass.value) and \
+            int(d.bit_index.value) == 7 and int(d.dim.value) == 63
         div_start = reset and int(d.div_start.value)
         out_valid = reset and int(d.out_valid.value)
         out_data = int(d.out_data.value.to_signed()) if reset else 0
         ready = int(d.out_ready.value)
-        exp_args = (int(d.exp_max.value.to_signed()), int(d.exp_score.value.to_signed())) if reset else (0, 0)
         # The accum ring has no reset (X until loaded), so only sample it on a start.
         div_args = (int(d.div_sum.value.to_signed()), int(d.div_denominator.value)) if div_start else (0, 0)
         if reset:
-            assert int(d.exp_done.value) == int(exp_due), "LUT completion timing"
             assert int(d.div_done.value) == int(div_due), "divider completion timing"
-            if exp_due:
-                assert int(d.exp_weight.value) == self.exp_pending[1], "LUT result mismatch"
             if div_due:
                 assert d.div_result.value.to_signed() == self.div_pending[1], "divider result mismatch"
         if self.mem_stall_addr is not None:
@@ -81,13 +78,11 @@ class Bus:
         await RisingEdge(d.clk)
         await Timer(1, unit="ns")
         if not reset:
-            self.mem_pending = self.exp_pending = self.div_pending = None
+            self.mem_pending = self.div_pending = None
             self.mem_stall_addr = self.out_stall_data = None
         else:
             if mem_due:
                 self.mem_pending = None
-            if exp_due:
-                self.exp_pending = None
             if div_due:
                 self.div_pending = None
             if req and req_ready:
@@ -95,10 +90,12 @@ class Bus:
                 assert addr in self.memory, f"read outside K/V memory: 0x{addr:x}"
                 self.reads.append(addr)
                 self.mem_pending = (self.cycle + (delay or self.rng.randint(1, 5)), self.memory[addr])
-            if exp_start:
-                assert self.exp_pending is None
-                self.exps.append(exp_args)
-                self.exp_pending = (self.cycle + 1, exp_weight(*exp_args, score_shift=self.shift))
+            if exp_ready:
+                maximum = d.maximum.value.to_signed()
+                score = maximum - int(d.exp_delta.value)
+                self.exps.append((maximum, score))
+                assert int(d.exp_weight.value) == exp_weight(maximum, score, score_shift=self.shift), \
+                    "LUT result mismatch"
             if div_start:
                 assert self.div_pending is None
                 self.divs.append(div_args)
@@ -162,9 +159,9 @@ class Bus:
         assert self.divs == list(zip(sums, [denominator]*4))
         assert len(self.outputs) == 8 and words(self.outputs) == chip_attention(
             q, keys, chunk_v, score_shift=shift)
-        # Per token: 16 groups of 4 Q bytes then 4 K bytes; pass 2 adds the V chunk.
-        score_reads = lambda i: [base + off + 4*g + j for g in range(16)
-                                 for base, off in ((Q_BASE, 0), (K_BASE, 64*i)) for j in range(4)]
+        # Per token: 64 dimensions of one Q byte then one K byte; pass 2 adds the V chunk.
+        score_reads = lambda i: [base + off + j for j in range(64)
+                                 for base, off in ((Q_BASE, 0), (K_BASE, 64*i))]
         assert self.reads == [a for i in range(n) for a in score_reads(i)] + [
             a for i in range(n)
             for a in score_reads(i) + [V_BASE + 64*i + 4*chunk + j for j in range(4)]]
@@ -221,15 +218,15 @@ async def invalid_count_and_reset_abort(dut):
     await bus.reset()
     await bus.run_case(q, keys, values, delay=2)
 
-    # Abort independently while the exponent or divider is pending, and while
-    # the final output is stalled. Each fresh query must be unaffected.
+    # Abort independently while a pass-2 weight is live, while the divider is
+    # pending, and while the final output is stalled. Each fresh query must be unaffected.
     for phase in ("exp", "div", "out"):
         bus.load(q, keys, values)
         await bus.tick(start=1, count=2)
         assert int(dut.busy.value)
         for _ in range(100000):
             await bus.tick(count=2, out_ready=0, delay=2)
-            if ((phase == "exp" and bus.exp_pending) or
+            if ((phase == "exp" and bus.exps) or
                 (phase == "div" and bus.div_pending) or
                 (phase == "out" and int(dut.out_valid.value))):
                 break

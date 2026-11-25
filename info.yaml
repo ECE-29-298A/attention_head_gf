@@ -19,10 +19,9 @@ project:
   source_files:
     - "project.v"
     - "attention_controller.sv"
-    - "score_mac.v"
+    - "mac_unit.v"
     - "ripple_add.v"
     - "max_reg.v"
-    - "accum.v"
     - "exp_lut.v"
     - "divider.v"
     - "Memaccess/qspi_read_adapter.v"

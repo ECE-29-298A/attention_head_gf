@@ -1,4 +1,4 @@
-module qspi_byte (
+module qspi_byte #(parameter X1_ONLY = 0) (
     input  wire       clk,
     input  wire       rst_n,
     input  wire       start,
@@ -15,7 +15,7 @@ module qspi_byte (
     output wire [3:0] io_o,
     output wire [3:0] io_oe
 );
-    spi_multi_io_byte #(.LANES(4)) engine (
+    spi_multi_io_byte #(.LANES(4), .X1_ONLY(X1_ONLY)) engine (
         .clk(clk), .rst_n(rst_n), .start(start), .wide(wide),
         .tx_en(tx_en), .last(last), .tx_data(tx_data),
         .ready(ready), .done(done), .rx_data(rx_data),
