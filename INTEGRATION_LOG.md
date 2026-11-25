@@ -96,3 +96,20 @@ LibreLane defaults `SYNTH_STRATEGY` to `DELAY 4`, and the Tiny Tapeout configura
 | `AREA 2` | 42,280 µm² | 29 |
 
 These reproductions omit LibreLane's SDC-driven ABC constraints, so they are estimates. `DELAY 4` exceeds the roughly 52,000 µm² placement core before repair. `src/config.json` now selects `AREA 2` and raises `MAX_FANOUT_CONSTRAINT` from 10 to 20. The 100 ns clock leaves ample setup margin, and repair still enforces the Liberty slew and capacitance limits.
+
+## 8. Two outputs per run and lighter design repair
+
+With `AREA 2` the shuttle run passed design repair but failed detailed placement during clock tree synthesis (DPL-0036). The placement core is 39 rows × 339.92 µm (51,967 µm²). OpenROAD reported these cell areas:
+
+| After | Area | Core used |
+| --- | ---: | ---: |
+| Design repair (112 buffers, 105 resized, 12 input buffers) | 49,837.63 µm² | 95.9% |
+| Clock tree synthesis (24 clock buffers, 6 clock inverters) | 51,321.58 µm² | 98.8% |
+
+The 299 flip-flops occupied 19,190.44 µm² of that area.
+
+Each run now returns two V components instead of four. The accumulator ring keeps two 20-bit sums, the V operand buffer holds two bytes, and the phase and output index are one bit each. `chunk` widens to 0–31 and selects components `2*chunk` and `2*chunk+1`. Its top bit is bit 5 of the count byte, `{2'b00, chunk[4], N}`, and a count byte with bit 7 or 6 set is refused. A run sends four result bytes and reads two V bytes per token. A full 64-component head takes 32 runs. Each output value is computed exactly as before.
+
+`src/config.json` also sets `DESIGN_REPAIR_MAX_SLEW_PCT` and `DESIGN_REPAIR_MAX_CAP_PCT` to 10 (default 20) and disables input port buffering, which removes 12 `dlyb_1` cells (421.48 µm²). Signoff still fails on any remaining slew or capacitance violation.
+
+The design has 242 flip-flops (−57). The `AREA 2` reproduction of section 7 maps it to 37,926.47 µm², down from 42,279.55 µm² (−10.3%). Yosys default ABC maps it to 39,252.37 µm². The top, controller (seven configurations, 91 cases, and the cocotb tests), block, divider, SPI and Python regressions pass, as does the Yosys gate netlist. The shuttle run is still to be confirmed in CI.

@@ -77,10 +77,10 @@ def test_score_round():
 
 
 def test_narrow_v():
-    # The chip: 64-dim Q/K, one 4-wide V chunk; equals the same chunk of a 64-wide V.
+    # The chip: 64-dim Q/K, one 2-wide V chunk; equals the same chunk of a 64-wide V.
     rng = np.random.default_rng(64)
     q, K, V = rng.integers(-128, 128, 64), rng.integers(-128, 128, (16, 64)), rng.integers(-128, 128, (16, 64))
     full = chip_attention_np(q, K, V, score_shift=12)
-    for c in (0, 7, 15):
-        chunk = V[:, 4 * c:4 * c + 4]
-        assert chip_attention(q.tolist(), K.tolist(), chunk.tolist(), score_shift=12) == full[4 * c:4 * c + 4].tolist()
+    for c in (0, 7, 16, 31):
+        chunk = V[:, 2 * c:2 * c + 2]
+        assert chip_attention(q.tolist(), K.tolist(), chunk.tolist(), score_shift=12) == full[2 * c:2 * c + 2].tolist()

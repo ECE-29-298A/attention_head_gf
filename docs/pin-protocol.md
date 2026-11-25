@@ -6,9 +6,9 @@ One run computes one attention query of a 64-dimension head (SmolLM-135M
 size) over up to 16 tokens. The host sends a token count and a config byte.
 The chip reads the 64-component INT8 query, keys and values from an external
 QSPI flash, computes full 64-dimension Q·K scores, a two-pass softmax and the
-weighted average, and returns 4 of the 64 output components as four signed
-12-bit results (INT8 plus 4 fractional bits) in eight bytes. Run it with
-`chunk = 0..15` for all 64 components. The active top is
+weighted average, and returns 2 of the 64 output components as two signed
+12-bit results (INT8 plus 4 fractional bits) in four bytes. Run it with
+`chunk = 0..31` for all 64 components. The active top is
 `tt_um_attention_head_gf`; no Q/K/V array is stored on the tile.
 
 ### Pins
@@ -24,27 +24,32 @@ weighted average, and returns 4 of the 64 output components as four signed
 | `uio[7]` | output | Chip ready during configuration; chip valid during output |
 
 Transfers occur on rising `clk` edges when both `uio[6]` and `uio[7]` are high.
-After reset, present two configuration bytes in order: `N` (1–16), then
-`{chunk[3:0], shift[3:0]}` (chunk in bits 7:4, shift in bits 3:0). Hold each
-byte and `uio[6]=1` until `uio[7]=1` on a rising edge. An invalid N is not
-accepted (`uio[7]=0`). After the config byte is accepted, the chip starts
+After reset, present two configuration bytes in order:
+
+1. Count byte `{2'b00, chunk[4], N[4:0]}`: `N` (1–16) in bits 4:0, the top
+   chunk bit in bit 5, and bits 7:6 zero.
+2. Config byte `{chunk[3:0], shift[3:0]}`: the low chunk bits in bits 7:4,
+   shift in bits 3:0.
+
+Hold each byte and `uio[6]=1` until `uio[7]=1` on a rising edge. A count byte
+with N outside 1–16 or bit 7 or 6 set is not accepted (`uio[7]=0`). After the config byte is accepted, the chip starts
 without another command. Keep `uio[6]=0` until ready to receive output.
 
-- `chunk` selects output components `4*chunk .. 4*chunk+3` of the 64.
+- `chunk` (0–31) selects output components `2*chunk` and `2*chunk+1` of the 64.
 - `shift` scales the raw integer scores to the exponent table: the chip uses
   `D' = round((max_score - score) / 2^shift)` (half up) and weight
   `round(255 * e^(-D'/4))`, so one unit of `D'` should be 0.25 nat. With Q and
   K stored as `q * 2^eq` and `k * 2^ek` (power-of-two INT8 scales) and the
   model's softmax scale `1/sqrt(64) = 1/8`, use `shift = eq + ek + 1`.
 
-The chip then presents eight result bytes: two per component, in component
+The chip then presents four result bytes: two per component, in component
 order. Each pair is the low byte then the high byte of a signed 16-bit value
 (the 12-bit result, sign-extended); the output equals that value / 16 in V's
 units, so `-2048..2032` means `-128.0..127.0`. For each byte, `uio[7]=1` means
 `uo_out` is valid; keep `uio[6]=0` to stall or set it to 1 to accept. The byte
-remains stable while stalled. After the eighth transfer, the chip returns to
+remains stable while stalled. After the fourth transfer, the chip returns to
 configuration mode. There is no separate busy/done pin: the host tracks the two
-configuration and eight result transfers.
+configuration and four result transfers.
 
 ### External memory
 
@@ -58,7 +63,7 @@ Preload signed INT8 bytes, component 0 first:
 
 Here `0 <= t < N <= 16` and `0 <= c < 64`. Q and K must stay unchanged across
 both score passes. Each run reads every Q and K byte twice per token and only
-the selected 4-byte chunk of each V row. For full accuracy give each V column
+the selected 2-byte chunk of each V row. For full accuracy give each V column
 its own power-of-two scale (the chip never mixes columns). The flash must support the standard `0x03` read: one command byte,
 three address bytes, then one data byte, all in single-lane SPI mode 0 with no
 dummy cycles. The current adapter does not issue flash writes, quad-read

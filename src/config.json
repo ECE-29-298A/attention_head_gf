@@ -28,6 +28,14 @@
   "//": "buffer trees on every wide mux select. Slew and capacitance limits are still enforced.",
   "MAX_FANOUT_CONSTRAINT": 20,
 
+  "//": "Design repair margins - repair_design aims 20% below the Liberty slew/cap limits by default.",
+  "//": "10% halves the over-repair. Signoff still fails on any real slew/cap violation.",
+  "DESIGN_REPAIR_MAX_SLEW_PCT": 10,
+  "DESIGN_REPAIR_MAX_CAP_PCT": 10,
+
+  "//": "Input port buffers - 12 dlyb_1 cells (420 um^2); repair still buffers a pin that needs it.",
+  "DESIGN_REPAIR_BUFFER_INPUT_PORTS": 0,
+
   "//": "Hold slack margin - Increase them in case you are getting hold violations.",
   "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
   "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.05,

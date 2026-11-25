@@ -3,7 +3,7 @@
 Score mode (accum_mode = 0): S starts at 0 (subtract = 0) or M (subtract = 1)
 and adds or subtracts qi * ki one bit of ki per cycle. The O ring keeps
 rotating, bypassing the shared adder. Accumulate mode (accum_mode = 1): the
-O ring adds W * v one bit of v per cycle, and L sums the weights.
+two-entry O ring adds W * v one bit of v per cycle, and L sums the weights.
 """
 
 import random
@@ -29,7 +29,7 @@ async def mac_unit_directed_and_random(dut):
         getattr(dut, name).value = 0
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
     # No register has a reset; None marks a value not yet loaded (X).
-    state = {"S": None, "L": None, "ring": [None] * 4, "phase": 0}
+    state = {"S": None, "L": None, "ring": [None] * 2, "phase": 0}
 
     async def cycle(*, accum_mode=1, load=0, subtract=0, maximum=0, score_en=0, qi=0, ki=0,
                     first=0, accum_en=0, weight=0, value=0, bit=0):
@@ -64,7 +64,7 @@ async def mac_unit_directed_and_random(dut):
         state["ring"] = ring[1:] + [head]
         if accum_en and state["phase"] == 0 and bit == 0:
             state["L"] = weight if first else (None if state["L"] is None else state["L"] + weight)
-        state["phase"] = (state["phase"] + 1) % 4
+        state["phase"] ^= 1
 
         await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
@@ -93,7 +93,7 @@ async def mac_unit_directed_and_random(dut):
         while state["phase"] != 0:
             await idle(1)
         for bit in range(8):
-            for c in range(4):
+            for c in range(2):
                 await cycle(accum_en=1, first=first, weight=weight, bit=bit, value=values[c])
 
     # Directed score cases: load wins over en, hold while disabled.
@@ -125,14 +125,15 @@ async def mac_unit_directed_and_random(dut):
     # Weighted sums, with score traffic between tokens as in the controller:
     # the ring must keep its sums while the shared adder serves the score.
     acc_cases = [
-        [(255, (-128,) * 4)] * 16,  # minimum signed O
-        [(255, (127,) * 4)] * 16,   # maximum positive O
-        [(0, (127, -128, 0, 1))] * 16,
-        [(255, (-128, 127, -1, 1)), (255, (127, -128, 1, -1))],
+        [(255, (-128,) * 2)] * 16,  # minimum signed O
+        [(255, (127,) * 2)] * 16,   # maximum positive O
+        [(0, (127, -128))] * 16,
+        [(255, (-128, 127)), (255, (127, -128))],
+        [(255, (-1, 1)), (255, (1, -1))],
     ]
     for _ in range(150):
         acc_cases.append([
-            (rng.randint(0, 255), tuple(rng.randint(-128, 127) for _ in range(4)))
+            (rng.randint(0, 255), tuple(rng.randint(-128, 127) for _ in range(2)))
             for _ in range(rng.randint(1, 16))
         ])
     for case in acc_cases:
@@ -146,5 +147,5 @@ async def mac_unit_directed_and_random(dut):
             await idle(rng.randrange(3))
         await idle(rng.randrange(9))
         assert state["L"] == sum(weight for weight, _ in case)
-        sums = [state["ring"][(c - state["phase"]) % 4] for c in range(4)]
-        assert sums == [sum(weight * values[c] for weight, values in case) for c in range(4)]
+        sums = [state["ring"][(c - state["phase"]) % 2] for c in range(2)]
+        assert sums == [sum(weight * values[c] for weight, values in case) for c in range(2)]

@@ -1,7 +1,8 @@
-// Tiny Tapeout wrapper. The host sends N, then {chunk[3:0], shift[3:0]} on ui_in;
-// the chip reads Q/K/V from external QSPI flash and streams eight result bytes on
-// uo_out: V components 4*chunk..4*chunk+3 of the attention output as four signed
-// 12-bit results (1/16 V steps), each low byte first, sign-extended.
+// Tiny Tapeout wrapper. The host sends {2'b00, chunk[4], N[4:0]}, then
+// {chunk[3:0], shift[3:0]} on ui_in; the chip reads Q/K/V from external QSPI
+// flash and streams four result bytes on uo_out: V components 2*chunk and
+// 2*chunk+1 of the attention output as two signed 12-bit results (1/16 V steps),
+// each low byte first, sign-extended.
 `default_nettype none
 
 module tt_um_attention_head_gf (
@@ -17,12 +18,14 @@ module tt_um_attention_head_gf (
     localparam [1:0] COUNT = 2'd0, CONFIG = 2'd1, LAUNCH = 2'd2, RUN = 2'd3;
     reg [1:0] stage;
     reg [4:0] count;
-    reg [7:0] config_byte; // {chunk, shift}
+    reg chunk_hi;          // chunk[4], sent in bit 5 of the count byte
+    reg [7:0] config_byte; // {chunk[3:0], shift}
 
     // uio[6] is host valid during configuration and host ready during output.
     // uio[7] is chip ready during configuration and chip valid during output.
     wire active = rst_n && ena;
-    wire count_valid = ui_in >= 8'd1 && ui_in <= 8'd16;
+    // Count byte: {2'b00, chunk[4], N}. Bits 7:6 are reserved and must be zero.
+    wire count_valid = ui_in[7:6] == 2'b00 && ui_in[4:0] >= 5'd1 && ui_in[4:0] <= 5'd16;
     wire cfg_ready = active && ((stage == COUNT && count_valid) || stage == CONFIG);
     wire cfg_accept = cfg_ready && uio_in[6];
 
@@ -39,7 +42,7 @@ module tt_um_attention_head_gf (
     attention_controller #(.LATCH_CONFIG(1'b0)) core (
         .clk(clk), .rst_n(active),
         .start(core_start), .token_count(count),
-        .score_shift(config_byte[3:0]), .chunk(config_byte[7:4]),
+        .score_shift(config_byte[3:0]), .chunk({chunk_hi, config_byte[7:4]}),
         .start_ready(core_start_ready), .busy(core_busy), .done(core_done),
         .mem_req_valid(core_mem_req_valid), .mem_req_ready(core_mem_req_ready),
         .mem_write(core_mem_write), .mem_addr(core_mem_addr),
@@ -70,7 +73,7 @@ module tt_um_attention_head_gf (
     // Both bytes are replaced before launch. Keep the config stable
     // throughout RUN so the controller can use it directly.
     always @(posedge clk) begin
-        if (cfg_accept && stage == COUNT) count <= ui_in[4:0];
+        if (cfg_accept && stage == COUNT) {chunk_hi, count} <= ui_in[5:0];
         if (cfg_accept && stage == CONFIG) config_byte <= ui_in;
     end
 

@@ -1,8 +1,8 @@
 `default_nettype none
 
 // Two-pass INT8 core: first find the maximum, then recompute scores and accumulate.
-// Scores are 64-dim dot products (one SmolLM head); outputs are one 4-dim chunk
-// of V per run, so a full 64-dim head output takes 16 runs (chunk = 0..15).
+// Scores are 64-dim dot products (one SmolLM head); outputs are one 2-dim chunk
+// of V per run, so a full 64-dim head output takes 32 runs (chunk = 0..31).
 // Q and K are read one byte pair per dimension: Q twice per token (once per
 // pass), K twice, V once; no scores or weights are written to external memory.
 // Pass 2 preloads the score with the maximum and subtracts, so the score unit
@@ -23,10 +23,10 @@ module attention_controller #(
     input wire start,                 // Request a transaction; accepted when start && start_ready.
     input wire [4:0] token_count,     // Number of tokens (K/V rows): 1–16. Captured when start is accepted.
     input wire [3:0] score_shift,     // exp_lut rounds M - S and shifts it right by this (0..15). Captured when start is accepted.
-    input wire [3:0] chunk,           // Which 4 of V's 64 components to output: 4*chunk .. 4*chunk+3. Captured when start is accepted.
+    input wire [4:0] chunk,           // Which 2 of V's 64 components to output: 2*chunk, 2*chunk+1. Captured when start is accepted.
     output wire start_ready,         // High when idle, reset released, and token_count is valid.
     output wire busy,                // High when processing
-    output logic done,               // Sticky flag: all eight output bytes accepted. Cleared on start/reset.
+    output logic done,               // Sticky flag: all four output bytes accepted. Cleared on start/reset.
 
     // Byte-memory interface: one outstanding request at a time.
     // A request is accepted on a rising edge when mem_req_valid && mem_req_ready.
@@ -38,7 +38,7 @@ module attention_controller #(
     input wire mem_rsp_valid,        // Completion of the accepted read, in a later cycle.
     input wire [7:0] mem_rdata,       // Returned read byte; valid with mem_rsp_valid.
 
-    // Output interface: components are sent in order 0, 1, 2, 3. Each is a 12-bit
+    // Output interface: components are sent in order 0, 1. Each is a 12-bit
     // signed result (INT8 plus 4 fractional bits) sent as two bytes, low byte first;
     // the high byte is sign-extended, so each pair reads as a signed 16-bit value.
     // A byte transfers on a rising edge when out_valid && out_ready.
@@ -70,17 +70,18 @@ module attention_controller #(
     logic [3:0] token;
     logic [5:0] dim; // which of the 64 Q/K components the MAC is on
     logic second_pass; // 0: find maximum. 1: use the frozen maximum and accumulate.
-    // component is a free-running phase (steps every clock). The accum ring rotates in step,
-    // so accum O0 always holds component `component`. MAC loops start at phase 0.
-    logic [1:0] component, output_index;
+    // component is a free-running phase (toggles every clock). The accum ring rotates in step,
+    // so accum O0 always holds component `component`. Accumulate loops start at phase 0.
+    logic component, output_index;
     logic high_byte; // 0: send div_result[7:0] next. 1: send its sign-extended top 4 bits.
-    // bit of the multiplier operand (shift-add); bit_index[1:0] also counts the 4 bytes of a V row read.
+    // bit of the multiplier operand (shift-add); bit_index[0] also counts the 2 bytes of a V row read.
     logic [2:0] bit_index;
-    // Score: {k, q, -, -} for the current dimension. Accumulate: this token's 4 V components.
-    logic [31:0] operands;
-    wire [3:0] shift, chunk_sel;
+    // Score: {k, q} for the current dimension. Accumulate: this token's 2 V components.
+    logic [15:0] operands;
+    wire [3:0] shift;
+    wire [4:0] chunk_sel;
     if (LATCH_CONFIG) begin : g_config
-        logic [7:0] saved_config;
+        logic [8:0] saved_config;
         logic [3:0] saved_last;
         always_ff @(posedge clk)
             if (start && start_ready) begin
@@ -97,9 +98,9 @@ module attention_controller #(
     // score_mac holds D, so W is stable from SCORE_CAPTURE through VALUE_NEXT.
     wire [7:0] weight = exp_weight;
     wire signed [21:0] score, maximum;
-    wire signed [19:0] o0, o1, o2, o3;
-    wire signed [7:0] qi = $signed(operands[23:16]);
-    wire signed [7:0] ki = $signed(operands[31:24]);
+    wire signed [19:0] o0, o1;
+    wire signed [7:0] qi = $signed(operands[7:0]);
+    wire signed [7:0] ki = $signed(operands[15:8]);
     wire signed [7:0] vi = $signed(operands[7:0]);
 
     assign start_ready = rst_n && state == IDLE && token_count >= 1 && token_count <= 16;
@@ -116,7 +117,7 @@ module attention_controller #(
     wire query_read = return_state == KEY_READ;
     wire value_read = return_state == VALUE_READ || return_state == VALUE_READY;
     assign mem_addr = query_read ? Q_BASE + {10'b0, dim}
-                    : value_read ? V_BASE + {6'b0, token, chunk_sel, bit_index[1:0]}
+                    : value_read ? V_BASE + {6'b0, token, chunk_sel, bit_index[0]}
                     : K_BASE + {6'b0, token, dim};
     // Start when the ring brings component output_index into O0.
     assign div_start = rst_n && state == DIV_START && component == output_index;
@@ -129,7 +130,7 @@ module attention_controller #(
         .score_en(state == SCORE_MAC), .qi(qi), .ki(ki),
         .first(token == 4'd0), .accum_en(state == ACCUM_STEP), .W(weight), .sel(component),
         .v(vi), .bit_sel(bit_index),
-        .S(score), .L(div_denominator), .O0(o0), .O1(o1), .O2(o2), .O3(o3)
+        .S(score), .L(div_denominator), .O0(o0), .O1(o1)
     );
     max_reg max_unit (
         .clk(clk), .first(token == 4'd0),
@@ -144,7 +145,7 @@ module attention_controller #(
         .denominator(div_denominator), .busy(div_busy), .done(div_done), .result(div_result)
     );
     // Waiting for div_done prevents another start while busy; no busy polling needed.
-    wire _unused = &{div_busy, exp_done, o1, o2, o3, operands[15:8], 1'b0};
+    wire _unused = &{div_busy, exp_done, o1, 1'b0};
 
     // Launch one byte read; return_state selects the address.
     task automatic read_byte_request(input state_t next_state);
@@ -152,14 +153,14 @@ module attention_controller #(
         state <= MEM_REQUEST;
     endtask
 
-    // Bytes shift in from the top. A score pair leaves q in [23:16] and k in
-    // [31:24]. A V row leaves byte 0 low; it rotates during each accumulate
-    // cycle so its current component is always in the low byte.
+    // Bytes shift in from the top. A score pair leaves q in [7:0] and k in
+    // [15:8]. A V row leaves byte 0 low; the two bytes swap during each
+    // accumulate cycle so the current component is always in the low byte.
     always_ff @(posedge clk)
         if (state == MEM_WAIT && mem_rsp_valid)
-            operands <= {mem_rdata, operands[31:8]};
+            operands <= {mem_rdata, operands[15:8]};
         else if (state == ACCUM_STEP)
-            operands <= {operands[7:0], operands[31:8]};
+            operands <= {operands[7:0], operands[15:8]};
 
     always_ff @(posedge clk) begin
         if (!rst_n) begin
@@ -174,7 +175,7 @@ module attention_controller #(
             high_byte <= 0;
             done <= 0;
         end else begin
-            component <= component + 1'b1;
+            component <= !component;
             case (state)
                 IDLE: if (start && start_ready) begin
                     token <= 0;
@@ -209,10 +210,10 @@ module attention_controller #(
                     state <= QUERY_READ; // accum loads (not adds) on token 0: no clear needed
                 end else begin token <= token + 1'b1; state <= QUERY_READ; end
                 // The shared operand buffer is refilled with V.
-                VALUE_READ: read_byte_request(state_t'(bit_index[1:0] == 3 ? VALUE_READY : VALUE_READ));
-                VALUE_READY: begin bit_index <= 0; if (component == 3) state <= ACCUM_STEP; end
-                // 32 cycles, same order as SCORE_MAC, through the shared ripple adder.
-                ACCUM_STEP: if (component == 3) begin
+                VALUE_READ: read_byte_request(state_t'(bit_index[0] ? VALUE_READY : VALUE_READ));
+                VALUE_READY: begin bit_index <= 0; if (component) state <= ACCUM_STEP; end
+                // 16 cycles: component (the phase) inner, bit_index outer, through the shared adder.
+                ACCUM_STEP: if (component) begin
                     bit_index <= bit_index + 1'b1;
                     if (bit_index == 7) state <= VALUE_NEXT;
                 end
@@ -224,13 +225,13 @@ module attention_controller #(
                 OUTPUT_WAIT: if (out_ready) begin
                     high_byte <= !high_byte;
                     if (high_byte) begin // second byte of this component accepted
-                        if (output_index == 3) state <= COMPLETE;
-                        else begin output_index <= output_index + 1'b1; state <= DIV_START; end
+                        if (output_index) state <= COMPLETE;
+                        else begin output_index <= 1'b1; state <= DIV_START; end
                     end
                 end
                 COMPLETE: begin done <= 1; state <= IDLE; end
                 MEM_REQUEST: if (mem_req_ready) state <= MEM_WAIT;
-                // Byte 0 is read first, so shifting in from the top leaves {b3, b2, b1, b0}.
+                // Byte 0 is read first, so shifting in from the top leaves {b1, b0}.
                 MEM_WAIT: if (mem_rsp_valid) begin
                     bit_index <= bit_index + 1'b1;
                     state <= return_state;

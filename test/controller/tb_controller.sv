@@ -11,7 +11,8 @@ module tb_controller #(
     always #5 clk = ~clk;
     logic rst_n = 0, start = 0;
     logic [4:0] token_count = 0;
-    logic [3:0] score_shift = 0, chunk = 0;
+    logic [3:0] score_shift = 0;
+    logic [4:0] chunk = 0;
     wire start_ready, busy, done, mem_req_valid, mem_write, out_valid;
     wire [15:0] mem_addr;
     wire [7:0] mem_wdata;
@@ -32,9 +33,9 @@ module tb_controller #(
     logic [11:0] held_denominator;
     logic [15:0] held_address;
     logic [7:0] held_output;
-    int count = 1, case_chunk = 0, expected [0:3], scores [0:15], weights [0:15];
-    int expected_max, expected_l, expected_o [0:3];
-    int running_l = 0, running_o [0:3];
+    int count = 1, case_chunk = 0, expected [0:1], scores [0:15], weights [0:15];
+    int expected_max, expected_l, expected_o [0:1];
+    int running_l = 0, running_o [0:1];
     int captures = 0, mac_cycles = 0, max_updates = 0, accum_updates = 0;
     int exp_results = 0, div_calls = 0, div_results = 0, received = 0;
     int cycles = 0, total_cycles = 0, divide_start_cycle = 0;
@@ -50,11 +51,11 @@ module tb_controller #(
         return 0;
     endfunction
     // Every Q byte is read once per token per pass, K bytes twice, and only
-    // the selected 4-byte chunk of each V row once.
+    // the selected 2-byte chunk of each V row once.
     function automatic int expected_reads(input int slot);
         if (slot < K_SLOT) return 2*count;
         if (slot < V_SLOT) return slot-K_SLOT < 64*count ? 2 : 0;
-        return (slot-V_SLOT)/64 < count && ((slot-V_SLOT)%64)/4 == case_chunk ? 1 : 0;
+        return (slot-V_SLOT)/64 < count && ((slot-V_SLOT)%64)/2 == case_chunk ? 1 : 0;
     endfunction
     // Output byte i: result i/2 as signed 16 bits, low byte first.
     function automatic logic [7:0] output_byte(input int index);
@@ -62,7 +63,7 @@ module tb_controller #(
         return index % 2 != 0 ? word[15:8] : word[7:0];
     endfunction
     function automatic int value_component(input int token, component);
-        return int'($signed(memory[V_SLOT+64*token+4*case_chunk+component]));
+        return int'($signed(memory[V_SLOT+64*token+2*case_chunk+component]));
     endfunction
 
     always @(negedge clk) begin
@@ -140,13 +141,11 @@ module tb_controller #(
                     assert (max_updates < count) else $fatal(1, "Max updated in pass 2");
                     max_updates++;
                 end
-                // The accum ring rotates every clock: register k holds component (phase + k) % 4.
+                // The accum ring rotates every clock: register k holds component (phase + k) % 2.
                 if (check_sums)
                     assert (dut.div_denominator == 12'(running_l) &&
-                            dut.o0 == 20'(running_o[(dut.component + 0) % 4]) &&
-                            dut.o1 == 20'(running_o[(dut.component + 1) % 4]) &&
-                            dut.o2 == 20'(running_o[(dut.component + 2) % 4]) &&
-                            dut.o3 == 20'(running_o[(dut.component + 3) % 4]))
+                            dut.o0 == 20'(running_o[(int'(dut.component) + 0) % 2]) &&
+                            dut.o1 == 20'(running_o[(int'(dut.component) + 1) % 2]))
                         else $fatal(1, "Running sums mismatch");
                 // Accumulation is serial: one bit of one component per en cycle, L on the first.
                 // No clear: sums are only defined once token 0 has loaded every component.
@@ -157,7 +156,7 @@ module tb_controller #(
                     if ((value_component(accum_updates, dut.component) >> dut.bit_index) & 1)
                         running_o[dut.component] += weights[accum_updates] *
                             (dut.bit_index == 7 ? -128 : (1 << dut.bit_index));
-                    if (dut.component == 3 && dut.bit_index == 7) begin
+                    if (dut.component == 1 && dut.bit_index == 7) begin
                         accum_updates++;
                         check_sums = 1;
                     end
@@ -167,7 +166,7 @@ module tb_controller #(
                     assert (!dut.div_start && dut.div_denominator == held_denominator)
                         else $fatal(1, "Divider denominator changed or start repeated while waiting");
                 if (dut.div_start) begin
-                    assert (!dut.div_busy && div_calls < 4 && accum_updates == count &&
+                    assert (!dut.div_busy && div_calls < 2 && accum_updates == count &&
                             dut.div_sum == 20'(expected_o[div_calls]) &&
                             dut.div_denominator == 12'(expected_l) && expected_l > 0)
                         else $fatal(1, "Bad divider request");
@@ -183,7 +182,7 @@ module tb_controller #(
                     div_pending = 0;
                 end
                 if (out_valid && out_ready) begin
-                    assert (received < 8 && div_results == received/2+1 && out_data == output_byte(received))
+                    assert (received < 4 && div_results == received/2+1 && out_data == output_byte(received))
                         else $fatal(1, "Output %0d mismatch", received);
                     received++;
                 end
@@ -263,12 +262,12 @@ module tb_controller #(
         while ($fscanf(fd, "%d", count) == 1) begin
             scan(fd, shift_in); scan(fd, case_chunk);
             @(negedge clk);
-            token_count = 5'(count); score_shift = 4'(shift_in); chunk = 4'(case_chunk);
+            token_count = 5'(count); score_shift = 4'(shift_in); chunk = 5'(case_chunk);
             foreach (memory[i]) begin memory[i] = 8'ha5; reads[i] = 0; end
             for (int i = 0; i < 64; i++) begin scan(fd, temp); memory[i] = 8'(temp); end
             for (int i = 0; i < 64*count; i++) begin scan(fd, temp); memory[K_SLOT+i] = 8'(temp); end
             for (int i = 0; i < 64*count; i++) begin scan(fd, temp); memory[V_SLOT+i] = 8'(temp); end
-            for (int i = 0; i < 4; i++) scan(fd, expected[i]);
+            for (int i = 0; i < 2; i++) scan(fd, expected[i]);
             for (int i = 0; i < count; i++) scan(fd, scores[i]);
             for (int i = 0; i < count; i++) scan(fd, weights[i]);
             expected_l = 0; expected_max = -1040384;
@@ -276,7 +275,7 @@ module tb_controller #(
             for (int i = 0; i < count; i++) begin
                 if (scores[i] > expected_max) expected_max = scores[i];
                 expected_l += weights[i];
-                for (int c = 0; c < 4; c++) expected_o[c] += weights[i]*value_component(i,c);
+                for (int c = 0; c < 2; c++) expected_o[c] += weights[i]*value_component(i,c);
             end
             captures = 0; mac_cycles = 0; max_updates = 0; accum_updates = 0;
             exp_results = 0; div_calls = 0; div_results = 0; received = 0;
@@ -286,8 +285,8 @@ module tb_controller #(
             repeat (2) @(negedge clk);
             start = 0; ticks = 0;
             while (!done && ticks < 1000000) begin @(negedge clk); ticks++; end
-            assert (done && !busy && received == 8 && captures == 2*count && mac_cycles == 1024*count &&
-                    max_updates == count && accum_updates == count && exp_results == count && div_calls == 4 && div_results == 4)
+            assert (done && !busy && received == 4 && captures == 2*count && mac_cycles == 1024*count &&
+                    max_updates == count && accum_updates == count && exp_results == count && div_calls == 2 && div_results == 2)
                 else $fatal(1, "Incomplete transaction %0d", checked);
             for (int i = 0; i < SLOTS; i++)
                 assert (reads[i] == expected_reads(i)) else $fatal(1, "Wrong read count at slot %0d", i);

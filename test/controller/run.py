@@ -24,7 +24,7 @@ def encode_case(q, k, v, shift=0, chunk=0):
     for rows in (k, v):
         for row in rows:
             fields.extend(pack_byte(x) for x in row)
-    chunk_v = [row[4 * chunk:4 * chunk + 4] for row in v]
+    chunk_v = [row[2 * chunk:2 * chunk + 2] for row in v]
     fields.extend(chip_attention(q, k, chunk_v, score_shift=shift))  # signed 12-bit results
     fields.extend(scores)
     fields.extend(weights)
@@ -36,12 +36,15 @@ def vectors():
     vec = lambda lo=-128, hi=127: [rng.randint(lo, hi) for _ in range(64)]
     pad = lambda row: row + [0] * (64 - len(row))
 
-    def at_chunk(rows, chunk):
-        """4-wide V rows placed at `chunk`, random bytes elsewhere (a wrong chunk shows up)."""
+    def at_chunk(rows, group):
+        """4-wide V rows at components 4*group.., random bytes elsewhere (a wrong chunk shows up).
+
+        Each directed case runs as chunk 2*group and 2*group+1, covering all four values.
+        """
         out = []
         for row in rows:
             full = vec()
-            full[4 * chunk:4 * chunk + 4] = row
+            full[4 * group:4 * group + 4] = row
             out.append(full)
         return out
 
@@ -69,23 +72,24 @@ def vectors():
         ([1] * 64, [[0] * 64, [-1] * 48 + [0] * 16, [-1] * 47 + [0] * 17, [-1] * 49 + [0] * 15],
          at_chunk([[5, -5, 100, -100], [-128, 127, 0, 0], [0, 0, -128, 127], [64, -64, 32, -32]], 12), 5, 12),
     ]
-    for n in range(1, 17):
-        for _ in range(2):
-            # Full-range INT8: score gaps up to ~10^5, so shifts 10..15 keep several weights alive.
-            cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
-                          rng.randint(10, 15), rng.randrange(16)))
-        for _ in range(2):
-            # SmolLM-like small activations with mid-range shifts.
-            cases.append((vec(-40, 40), [vec(-40, 40) for _ in range(n)], [vec() for _ in range(n)],
-                          rng.randint(4, 12), rng.randrange(16)))
-    for q, k, v, shift, chunk in cases:
-        yield encode_case(q, k, v, shift, chunk)
-
     # Weights [255, 1] (D = 22) give denominator 256, so outputs are O / 16.
     # O = +/-8 and +/-264 are ties that round away from zero; neighbors test both sides.
     q, k = e1, [pad([7]), pad([-15])]
-    yield encode_case(q, k, at_chunk([[0, 0, 0, 0], [8, -8, 7, -9]], 6), 0, 6)
-    yield encode_case(q, k, at_chunk([[1, -1, 1, -1], [9, -9, 10, -10]], 14), 0, 14)
+    cases += [(q, k, at_chunk([[0, 0, 0, 0], [8, -8, 7, -9]], 6), 0, 6),
+              (q, k, at_chunk([[1, -1, 1, -1], [9, -9, 10, -10]], 14), 0, 14)]
+    for q, k, v, shift, group in cases:
+        yield encode_case(q, k, v, shift, 2 * group)
+        yield encode_case(q, k, v, shift, 2 * group + 1)
+
+    for n in range(1, 17):
+        for _ in range(2):
+            # Full-range INT8: score gaps up to ~10^5, so shifts 10..15 keep several weights alive.
+            yield encode_case(vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
+                              rng.randint(10, 15), rng.randrange(32))
+        for _ in range(2):
+            # SmolLM-like small activations with mid-range shifts.
+            yield encode_case(vec(-40, 40), [vec(-40, 40) for _ in range(n)], [vec() for _ in range(n)],
+                              rng.randint(4, 12), rng.randrange(32))
     yield encode_case([0] * 64, [[0] * 64] * 16, [[0] * 64] * 16, 0, 0)
 
 

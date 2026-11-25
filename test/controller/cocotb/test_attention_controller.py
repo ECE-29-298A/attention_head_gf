@@ -1,6 +1,6 @@
 """Directed and seeded-random tests for the two-pass INT8 controller.
 
-64-dim scores (one Q byte then one K byte per dimension), one 4-wide V chunk per
+64-dim scores (one Q byte then one K byte per dimension), one 2-wide V chunk per
 run, rounded score shift, 12-bit outputs sent as two bytes each.
 """
 import random
@@ -130,7 +130,7 @@ class Bus:
         await self.tick(start=1, count=n, shift=shift, chunk=chunk)
         assert int(self.dut.busy.value) == 1
         forced_mem = forced_out = False
-        bad = dict(count=0, shift=~shift & 15, chunk=~chunk & 15)
+        bad = dict(count=0, shift=~shift & 15, chunk=~chunk & 31)
         for _ in range(400000):
             # Inputs are deliberately corrupted after acceptance: N, shift and chunk must be latched.
             if force_stalls and not forced_mem and int(self.dut.mem_req_valid.value):
@@ -153,18 +153,18 @@ class Bus:
         maximum = max(scores)
         weights = [exp_weight(maximum, s, score_shift=shift) for s in scores]
         denominator = sum(weights)
-        chunk_v = [row[4*chunk:4*chunk + 4] for row in values]
-        sums = [sum(w * v[i] for w, v in zip(weights, chunk_v)) for i in range(4)]
+        chunk_v = [row[2*chunk:2*chunk + 2] for row in values]
+        sums = [sum(w * v[i] for w, v in zip(weights, chunk_v)) for i in range(2)]
         assert self.exps == list(zip([maximum]*n, scores))
-        assert self.divs == list(zip(sums, [denominator]*4))
-        assert len(self.outputs) == 8 and words(self.outputs) == chip_attention(
+        assert self.divs == list(zip(sums, [denominator]*2))
+        assert len(self.outputs) == 4 and words(self.outputs) == chip_attention(
             q, keys, chunk_v, score_shift=shift)
         # Per token: 64 dimensions of one Q byte then one K byte; pass 2 adds the V chunk.
         score_reads = lambda i: [base + off + j for j in range(64)
                                  for base, off in ((Q_BASE, 0), (K_BASE, 64*i))]
         assert self.reads == [a for i in range(n) for a in score_reads(i)] + [
             a for i in range(n)
-            for a in score_reads(i) + [V_BASE + 64*i + 4*chunk + j for j in range(4)]]
+            for a in score_reads(i) + [V_BASE + 64*i + 2*chunk + j for j in range(2)]]
         await self.tick(count=0, out_ready=0)
         assert int(self.dut.done.value) == 1 and int(self.dut.out_valid.value) == 0
 
@@ -180,17 +180,17 @@ async def directed_and_random_queries(dut):
     e1 = pad([1])
     cases = [
         (e1, [pad([-128])], [vec()], 0, 0),
-        ([-128]*64, [[-128]*64]*16, [[-128]*64]*16, 15, 15),
+        ([-128]*64, [[-128]*64]*16, [[-128]*64]*16, 15, 31),
         ([-128]*64, [[127]*64]*16, [[127]*64]*16, 0, 3),
-        ([0]*64, [[0]*64]*2, [[0]*64, [1]*64], 0, 9),
+        ([0]*64, [[0]*64]*2, [[0]*64, [1]*64], 0, 18),
         # Max changes at the last key; rounding ties at shift 2 (D = 2, 6, 10 -> 1, 2, 3).
         (e1, [pad([x]) for x in range(-8, 8)], [vec() for _ in range(16)], 2, 5),
     ]
     for n in (1, 2, 5, 9, 16):
         cases.append((vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
-                      rng.randint(10, 15), rng.randrange(16)))
+                      rng.randint(10, 15), rng.randrange(32)))
         cases.append((vec(-40, 40), [vec(-40, 40) for _ in range(n)], [vec() for _ in range(n)],
-                      rng.randint(4, 12), rng.randrange(16)))
+                      rng.randint(4, 12), rng.randrange(32)))
     for index, (q, keys, values, shift, chunk) in enumerate(cases):
         await bus.run_case(q, keys, values, shift, chunk, force_stalls=index == 0)
 

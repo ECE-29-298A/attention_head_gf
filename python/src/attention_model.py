@@ -187,12 +187,12 @@ def chip_attention(Q: list[int], K: list[list[int]], V: list[list[int]],
                    out_frac: int = 4, score_round: bool = True) -> list[int]:
     """One attention pass
 
-    1 <= N <= n_max. Head size d = len(Q) (the chip: d = 64, V width 4, n_max = 16).
+    1 <= N <= n_max. Head size d = len(Q) (the chip: d = 64, V width 2, n_max = 16).
 
     Args:
         Q (list[int]): d ints
         K (list[list[int]]): N vectors of d ints each
-        V (list[list[int]]): N vectors of the same width each (the chip: 4)
+        V (list[list[int]]): N vectors of the same width each (the chip: 2)
         n_max (int): token limit the registers are sized for
         score_shift (int): see exp_weight (0 = the chip)
         lut_res (int): see exp_weight (4 = the chip)
@@ -244,7 +244,7 @@ def chip_attention_np(Q: np.ndarray, K: np.ndarray, V: np.ndarray,
     Args:
         Q: int, shape (..., d)
         K: int, shape (..., N, d)
-        V: int, shape (..., N, dv), any width dv (the chip: 4)
+        V: int, shape (..., N, dv), any width dv (the chip: 2)
         score_shift: see exp_weight (0 = the chip); an int or an array of
             shape (..., 1) for a per-query shift
         lut_res: see exp_weight (4 = the chip)

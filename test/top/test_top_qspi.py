@@ -93,7 +93,7 @@ class Harness:
         assert False, "configuration input did not become ready"
 
     async def query(self, q, k, v, shift=0, chunk=0, *, name="query"):
-        """q: 64 ints; k, v: N rows of 64. Returns V components 4*chunk..4*chunk+3."""
+        """q: 64 ints; k, v: N rows of 64. Checks V components 2*chunk and 2*chunk+1."""
         q, k, v = pad(q), [pad(r) for r in k], [pad(r) for r in v]
         n = len(k)
         self.flash.memory = [0] * MEMORY
@@ -103,12 +103,12 @@ class Harness:
                 self.flash.memory[K_BASE + 64*t + c] = pack_byte(k[t][c])
                 self.flash.memory[V_BASE + 64*t + c] = pack_byte(v[t][c])
         first_read = len(self.flash.reads)
-        await self.send(n)
-        await self.send(chunk << 4 | shift)
+        await self.send((chunk >> 4) << 5 | n)    # {2'b00, chunk[4], N}
+        await self.send((chunk & 15) << 4 | shift)  # {chunk[3:0], shift}
 
-        expected = chip_attention(q, k, [row[4*chunk:4*chunk + 4] for row in v], score_shift=shift)
+        expected = chip_attention(q, k, [row[2*chunk:2*chunk + 2] for row in v], score_shift=shift)
         received = []
-        for index in range(8):  # four 12-bit results, each low byte then sign-extended high byte
+        for index in range(4):  # two 12-bit results, each low byte then sign-extended high byte
             for _ in range(2000000):
                 valid, data = await self.tick(host=0)
                 if valid:
@@ -132,7 +132,7 @@ class Harness:
             return [base + d for d in range(64) for base in (Q_BASE, K_BASE + 64*t)]
         expected_reads = [a for t in range(n) for a in score_reads(t)]
         for t in range(n):
-            expected_reads += score_reads(t) + [V_BASE + 64*t + 4*chunk + c for c in range(4)]
+            expected_reads += score_reads(t) + [V_BASE + 64*t + 2*chunk + c for c in range(2)]
         assert self.flash.reads[first_read:] == expected_reads, "Q/K/V read order or count"
 
 
@@ -151,18 +151,20 @@ async def start_harness(dut):
 @cocotb.test()
 async def end_to_end_flash_and_host(dut):
     h = await start_harness(dut)
-    for invalid in (0, 17, 255):
+    # Count byte {2'b00, chunk[4], N}: N outside 1..16 or a reserved bit set is refused.
+    for invalid in (0, 17, 255, 0x20, 0x31, 0x41, 0x81):
         ready, _ = await h.tick(data=invalid, host=1)
         assert not ready, "invalid token count accepted"
 
     await h.query([1, 0, 0, 0], [[-128, 0, 0, 0]], [[-128, -1, 0, 127]])
+    await h.query([1, 0, 0, 0], [[-128, 0, 0, 0]], [[-128, -1, 0, 127]], chunk=1)
     await h.query([1, 0, 0, 0], [[0, 0, 0, 0], [1, 0, 0, 0]],
                   [[-128, 0, 127, 1], [127, 1, -128, -1]])
     rng = random.Random(298)
     q = [1, 0, 0, 0]
     k = [[t-8, 0, 0, 0] for t in range(16)]  # maximum at last token
     v = [[rng.randint(-128, 127) for _ in range(64)] for _ in range(16)]
-    await h.query(q, k, v, shift=1, chunk=15)
+    await h.query(q, k, v, shift=1, chunk=31)
 
     # Abort after a flash transaction begins, then start a fresh query.
     await h.send(1)
@@ -236,14 +238,14 @@ async def hardware_matches_python_model(dut):
         [rng.randint(-40, 40) for _ in range(64)],
         [[rng.randint(-40, 40) for _ in range(64)] for _ in range(8)],
         [[rng.randint(-128, 127) for _ in range(64)] for _ in range(8)],
-        shift=8, chunk=11,
+        shift=8, chunk=27,
         name="seeded 64-dim mixed weights",
     )
     await h.query(
         [-128] * 64,
         [[-128] * 64] * 16,
         [[-128, 127, -1, 1] * 16] * 16,
-        shift=15, chunk=15,
+        shift=15, chunk=30,
         name="sixteen maximum weights with extreme values",
     )
 
@@ -264,7 +266,7 @@ async def real_smollm_head(dut):
     shift = int(eq[0] + ek[0, 0] + 1)  # q·k · 2^-(eq+ek) / 8 nats, 4 units per nat
     h = await start_harness(dut)
     await h.query(qi.tolist(), ki.tolist(), vi.tolist(), shift, chunk, name="real SmolLM head")
-    got = chip_attention(qi.tolist(), ki.tolist(), [r[4*chunk:4*chunk + 4] for r in vi.tolist()],
+    got = chip_attention(qi.tolist(), ki.tolist(), [r[2*chunk:2*chunk + 2] for r in vi.tolist()],
                          score_shift=shift)  # = the RTL, asserted inside query()
-    est = np.array(got) / 16 * 2.0 ** -ev[0, 4*chunk:4*chunk + 4]
-    dut._log.info("SmolLM float output %s, chip %s", np.round(ref[4*chunk:4*chunk + 4], 4), np.round(est, 4))
+    est = np.array(got) / 16 * 2.0 ** -ev[0, 2*chunk:2*chunk + 2]
+    dut._log.info("SmolLM float output %s, chip %s", np.round(ref[2*chunk:2*chunk + 2], 4), np.round(est, 4))
