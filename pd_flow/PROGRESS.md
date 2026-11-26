@@ -117,6 +117,12 @@
   dry-run area keeps improving, and stop once packing density converges (successive tighter trials give no
   further area gain, or stop compacting). The earlier "below 85% needs a measured reason" rule is withdrawn.
 
+- D11 (user, 2026-11-26): "lets try to place the whole chip at once since individual module optimizaiton doesnt seem
+  to be buying much in area, given our chip already has very high density as is". Per-region placement (divider,
+  ctrl, SPI) is dropped. One whole-chip tetris runs on the netlist with c06 (`pd_flow/chip_tetris/`, reference
+  `~/ttharden/wc_ref`). mac_unit Phase 1+2 keeps running, because its result changes the netlist the placement
+  must be redone on.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
