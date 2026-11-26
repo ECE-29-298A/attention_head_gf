@@ -145,6 +145,15 @@
   - wc_ref3 = + g2: 44,446.2 (+1,016.4; CTS +1,660 from 4 clock trees and dummy loads). **g2 REJECTED.** g1 is being
     measured. The whole-chip tetris reference is wc_ref2. Fixing placement after step 32 (r32) has zero FIRM penalty.
 
+- g1 signoff (wc_ref3g1, 2026-11-26, orchestrator-checked): 44,327.7 um2 (+897.9 vs wc_ref2). Clock buffers and
+  inverters +610, ICGs +123. **g1 REJECTED.** Clock gating loses at signoff for both proposals, consistent with D12.
+  The netlist for placement is final: wc_ref2 (c06 + c09).
+- Note for the final full-chip equivalence: a whole-top miter from independent free power-up states fails even
+  golden against golden. Unreset registers include top `sck_sync`/`cs_sync`/`config_chain`; controller `pos`, `token`,
+  `q`, `second_pass`, `output_index`, `nibble`; the divider datapath; max_reg `M`. Use per-module proofs plus
+  transitivity (each changed module equivalent under its frozen contract, all else byte-identical), or a reviewed
+  equal-start-state antecedent. Decide at assembly.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
