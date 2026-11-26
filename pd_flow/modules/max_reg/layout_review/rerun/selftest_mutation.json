@@ -1,0 +1,74 @@
+{
+ "overlap": {
+  "target_now": "still ok (self-test does NOT depend on this check)",
+  "fired": [
+   "[geometry]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "off-grid": {
+  "target_now": "BAD",
+  "fired": [],
+  "others_changed": []
+ },
+ "orientation vs row parity": {
+  "target_now": "BAD",
+  "fired": [],
+  "others_changed": []
+ },
+ "tap overlap (b_m shifted -4 sites)": {
+  "target_now": "BAD",
+  "fired": [],
+  "others_changed": []
+ },
+ "outside rows 1..37 (b_m shifted +16 rows)": {
+  "target_now": "BAD",
+  "fired": [
+   "[geometry]"
+  ],
+  "others_changed": []
+ },
+ "compare chain broken": {
+  "target_now": "still ok (self-test does NOT depend on this check)",
+  "fired": [
+   "[intent]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "chain input moved off A1": {
+  "target_now": "still ok (self-test does NOT depend on this check)",
+  "fired": [
+   "[intent]"
+  ],
+  "others_changed": []
+ },
+ "oai21 gt moved off A1": {
+  "target_now": "BAD",
+  "fired": [],
+  "others_changed": []
+ },
+ "slow chain cell (aoi222_1) substituted": {
+  "target_now": "BAD",
+  "fired": [
+   "[intent]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "b_m instance names swapped": {
+  "target_now": "BAD",
+  "fired": [
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "swap A1/A2 on aoi21 (equivalent)": [
+  "a_sdff: function 16448 vectors, 0 mismatches (golden next state, signed; ties may load)"
+ ],
+ "swap first/en on u_ld (functional bug)": [
+  "[function] vector s=1e612a m=3e612a en=1 first=0: got 3e612a want 1e612a",
+  "[function] vector s=1682b2 m=3e1b19 en=1 first=0: got 3e1b19 want 1682b2"
+ ]
+}

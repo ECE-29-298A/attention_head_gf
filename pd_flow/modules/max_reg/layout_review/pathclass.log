@@ -1,0 +1,36 @@
+== base paths in report: 335
+   core.divider_unit.result           41.794  from core.divider_unit.state[0] to core.divider_unit.result[11]
+   core.exponent_unit.D               41.954  from config_chain[7] to core.exponent_unit.D[21]
+   core.mac.ring                      45.924  from config_chain[7] to core.mac.ring[159]
+   core.divider_unit.remainder_value   56.769  from core.divider_unit.state[0] to core.divider_unit.remainder_value[0]
+   core.divider_unit.next_quotient    59.168  from core.divider_unit.state[0] to core.divider_unit.next_quotient[1]
+== n03 paths in report: 335
+   core.divider_unit.result           38.215  from core.divider_unit.state[0] to core.divider_unit.result[11]
+   core.exponent_unit.D               39.687  from config_chain[7] to core.exponent_unit.D[21]
+   core.mac.ring                      41.091  from config_chain[7] to core.mac.ring[159]
+   core.divider_unit.remainder_value   56.233  from core.divider_unit.state[0] to core.divider_unit.remainder_value[0]
+   core.divider_unit.denominator      57.206  from config_chain[7] to core.divider_unit.denominator[11]
+== n04 paths in report: 335
+   core.exponent_unit.D               42.895  from config_chain[5] to core.exponent_unit.D[21]
+   core.divider_unit.result           43.847  from core.divider_unit.state[0] to core.divider_unit.result[10]
+   core.mac.ring                      47.758  from config_chain[5] to core.mac.ring[159]
+   core.divider_unit.remainder_value   57.056  from core.divider_unit.state[0] to core.divider_unit.remainder_value[0]
+   core.divider_unit.next_quotient    59.319  from core.divider_unit.state[0] to core.divider_unit.next_quotient[1]
+== b_m paths in report: 335
+   core.exponent_unit.D               39.141  from config_chain[7] to core.exponent_unit.D[21]
+   core.divider_unit.result           41.207  from core.divider_unit.state[0] to core.divider_unit.result[10]
+   core.mac.ring                      43.353  from config_chain[7] to core.mac.ring[159]
+   core.divider_unit.remainder_value   57.266  from core.divider_unit.state[0] to core.divider_unit.remainder_value[0]
+   core.divider_unit.next_quotient    60.904  from core.divider_unit.state[0] to core.divider_unit.next_quotient[1]
+== b_ms paths in report: 335
+   core.exponent_unit.D               36.138  from config_chain[7] to core.exponent_unit.D[21]
+   core.mac.ring                      40.264  from config_chain[7] to core.mac.ring[159]
+   core.divider_unit.result           42.310  from core.divider_unit.state[0] to core.divider_unit.result[11]
+   core.divider_unit.remainder_value   58.208  from core.divider_unit.state[0] to core.divider_unit.remainder_value[0]
+   core.divider_unit.next_quotient    60.530  from core.divider_unit.state[0] to core.divider_unit.next_quotient[1]
+== a_sdff paths in report: 379
+   core.exponent_unit.D               34.439  from config_chain[7] to core.exponent_unit.D[21]
+   core.mac.ring                      36.401  from config_chain[7] to core.mac.ring[159]
+   core.divider_unit.result           42.640  from core.divider_unit.state[0] to core.divider_unit.result[11]
+   core.divider_unit.remainder_value   57.377  from core.divider_unit.state[0] to core.divider_unit.remainder_value[0]
+   core.divider_unit.next_quotient    60.250  from core.divider_unit.state[0] to core.divider_unit.next_quotient[1]

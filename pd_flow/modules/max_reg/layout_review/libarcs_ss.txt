@@ -1,0 +1,98 @@
+# point: input transition 1.000 ns, load 0.0100 pF (delay); constraint: data slew 1.000, clk slew 0.75
+== sdffq_1 area 83.417600
+  pin CLK  input  cap 0.003451
+    CLK ->CLK  min_pulse_width !D&!SE&!SI             rise_constraint 0.893  fall_constraint 2.081
+    CLK ->CLK  min_pulse_width !D&!SE&SI              rise_constraint 0.893  fall_constraint 2.081
+    CLK ->CLK  min_pulse_width !D&SE&!SI              rise_constraint 0.893  fall_constraint 2.081
+    CLK ->CLK  min_pulse_width !D&SE&SI               rise_constraint 1.008  fall_constraint 1.730
+    CLK ->CLK  min_pulse_width D&!SE&!SI              rise_constraint 1.008  fall_constraint 1.742
+    CLK ->CLK  min_pulse_width D&!SE&SI               rise_constraint 1.008  fall_constraint 1.742
+    CLK ->CLK  min_pulse_width D&SE&!SI               rise_constraint 0.893  fall_constraint 2.081
+    CLK ->CLK  min_pulse_width D&SE&SI                rise_constraint 1.008  fall_constraint 1.724
+    CLK ->CLK  minimum_period !D&!SE&!SI             rise_constraint 4.161
+    CLK ->CLK  minimum_period !D&!SE&SI              rise_constraint 4.161
+    CLK ->CLK  minimum_period !D&SE&!SI              rise_constraint 4.161
+    CLK ->CLK  minimum_period !D&SE&SI               rise_constraint 3.465
+    CLK ->CLK  minimum_period D&!SE&!SI              rise_constraint 3.481
+    CLK ->CLK  minimum_period D&!SE&SI               rise_constraint 3.481
+    CLK ->CLK  minimum_period D&SE&!SI               rise_constraint 4.161
+    CLK ->CLK  minimum_period D&SE&SI                rise_constraint 3.449
+  pin D    input  cap 0.002685
+    CLK ->D    hold_rising    !SE&!SI                rise_constraint -0.765  fall_constraint -0.437
+    CLK ->D    hold_rising    !SE&SI                 rise_constraint -0.765  fall_constraint -0.441
+    CLK ->D    setup_rising   !SE&!SI                rise_constraint 1.441  fall_constraint 1.864
+    CLK ->D    setup_rising   !SE&SI                 rise_constraint 1.441  fall_constraint 1.864
+  pin Q    output cap None
+    CLK ->Q    rising_edge    !D&SI                  cell_rise 2.043  cell_fall 2.190
+    CLK ->Q    rising_edge    !SE&!SI                cell_rise 2.043  cell_fall 2.190
+    CLK ->Q    rising_edge    D&!SE&SI | !D&SE&!SI   cell_rise 2.043  cell_fall 2.190
+    CLK ->Q    rising_edge    D&SE                   cell_rise 2.043  cell_fall 2.190
+    CLK ->Q    rising_edge                           cell_rise 2.043  cell_fall 2.190
+  pin SE   input  cap 0.005822
+    CLK ->SE   hold_rising    !D&SI                  rise_constraint -0.707  fall_constraint -0.296
+    CLK ->SE   hold_rising    D&!SI                  rise_constraint -0.472  fall_constraint -1.263
+    CLK ->SE   setup_rising   !D&SI                  rise_constraint 1.379  fall_constraint 1.677
+    CLK ->SE   setup_rising   D&!SI                  rise_constraint 1.885  fall_constraint 1.941
+  pin SI   input  cap 0.002613
+    CLK ->SI   hold_rising    !D&SE                  rise_constraint -0.754  fall_constraint -0.426
+    CLK ->SI   hold_rising    D&SE                   rise_constraint -0.754  fall_constraint -0.426
+    CLK ->SI   setup_rising   !D&SE                  rise_constraint 1.429  fall_constraint 1.851
+    CLK ->SI   setup_rising   D&SE                   rise_constraint 1.426  fall_constraint 1.851
+  pin SI   input  cap None
+  pin SE   input  cap None
+  pin CLK  input  cap None
+  pin D    input  cap None
+  pin Q    output cap None
+== dffq_1 area 63.660800
+  pin CLK  input  cap 0.003181
+    CLK ->CLK  min_pulse_width !D                     rise_constraint 0.855  fall_constraint 1.784
+    CLK ->CLK  min_pulse_width D                      rise_constraint 1.474  fall_constraint 1.254
+    CLK ->CLK  minimum_period !D                     rise_constraint 3.562
+    CLK ->CLK  minimum_period D                      rise_constraint 3.101
+  pin D    input  cap 0.002342
+    CLK ->D    hold_rising                           rise_constraint 0.110  fall_constraint 0.010
+    CLK ->D    setup_rising                          rise_constraint 0.778  fall_constraint 0.945
+  pin Q    output cap None
+    CLK ->Q    rising_edge                           cell_rise 2.492  cell_fall 2.146
+== aoi21_1 area 17.561600
+  pin A1   input  cap 0.004828
+  pin A2   input  cap 0.004707
+  pin B    input  cap 0.00394
+  pin ZN   output cap None
+    A1  ->ZN   combinational                         cell_rise 1.042  cell_fall 0.562
+    A2  ->ZN   combinational                         cell_rise 1.149  cell_fall 0.524
+    B   ->ZN   combinational  !A1&!A2                cell_rise 0.975  cell_fall 0.714
+    B   ->ZN   combinational  !A1&A2                 cell_rise 1.128  cell_fall 0.664
+    B   ->ZN   combinational  A1&!A2                 cell_rise 1.248  cell_fall 0.672
+    B   ->ZN   combinational                         cell_rise 1.248  cell_fall 0.714
+== oai21_1 area 17.561600
+  pin A1   input  cap 0.004938
+  pin A2   input  cap 0.004835
+  pin B    input  cap 0.004742
+  pin ZN   output cap None
+    A1  ->ZN   combinational                         cell_rise 1.080  cell_fall 0.568
+    A2  ->ZN   combinational                         cell_rise 1.080  cell_fall 0.633
+    B   ->ZN   combinational  !A1&A2                 cell_rise 0.909  cell_fall 0.675
+    B   ->ZN   combinational  A1&!A2                 cell_rise 0.905  cell_fall 0.603
+    B   ->ZN   combinational  A1&A2                  cell_rise 0.947  cell_fall 0.549
+    B   ->ZN   combinational                         cell_rise 0.947  cell_fall 0.675
+== inv_1 area 8.780800
+  pin I    input  cap 0.004683
+  pin ZN   output cap None
+    I   ->ZN   combinational                         cell_rise 0.683  cell_fall 0.388
+== buf_4 area 30.732800
+  pin I    input  cap 0.009175
+  pin Z    output cap None
+    I   ->Z    combinational                         cell_rise 0.553  cell_fall 0.747
+== nand2_1 area 10.976000
+  pin A1   input  cap 0.004782
+  pin A2   input  cap 0.004454
+  pin ZN   output cap None
+    A1  ->ZN   combinational                         cell_rise 0.737  cell_fall 0.545
+    A2  ->ZN   combinational                         cell_rise 0.799  cell_fall 0.508
+== nor2_1 area 13.171200
+  pin A1   input  cap 0.004447
+  pin A2   input  cap 0.004195
+  pin ZN   output cap None
+    A1  ->ZN   combinational                         cell_rise 1.011  cell_fall 0.517
+    A2  ->ZN   combinational                         cell_rise 1.020  cell_fall 0.579

@@ -1,0 +1,356 @@
+{
+ "b_m": {
+  "cfg_lines": 22,
+  "defs": {
+   "17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": null,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "18-openroad-cutrows/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": null,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "19-openroad-tapendcapinsertion/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "21-openroad-generatepdn/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "27-odb-applydeftemplate/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "28-openroad-globalplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "32-openroad-repairdesignpostgpl/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "35-openroad-cts/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "37-openroad-resizertimingpostcts/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "39-openroad-globalrouting/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "44-openroad-detailedrouting/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "48-odb-reportdisconnectedpins/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "52-openroad-fillinsertion/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "53-odb-cellfrequencytables/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "final/def/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   }
+  },
+  "q_net_ok": 22
+ },
+ "b_ms": {
+  "cfg_lines": 44,
+  "defs": {
+   "17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": null,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "18-openroad-cutrows/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": null,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "19-openroad-tapendcapinsertion/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "21-openroad-generatepdn/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "27-odb-applydeftemplate/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "28-openroad-globalplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "32-openroad-repairdesignpostgpl/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "35-openroad-cts/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "37-openroad-resizertimingpostcts/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "39-openroad-globalrouting/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "44-openroad-detailedrouting/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "48-odb-reportdisconnectedpins/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "52-openroad-fillinsertion/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "53-odb-cellfrequencytables/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "final/def/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   }
+  },
+  "q_net_ok": 44
+ },
+ "a_sdff": {
+  "cfg_lines": 109,
+  "defs": {
+   "17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": null,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "18-openroad-cutrows/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": null,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "19-openroad-tapendcapinsertion/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "21-openroad-generatepdn/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "27-odb-applydeftemplate/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "28-openroad-globalplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "32-openroad-repairdesignpostgpl/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "35-openroad-cts/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "37-openroad-resizertimingpostcts/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "39-openroad-globalrouting/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "44-openroad-detailedrouting/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "48-odb-reportdisconnectedpins/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "52-openroad-fillinsertion/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "53-odb-cellfrequencytables/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   },
+   "final/def/tt_um_attention_head_gf.def": {
+    "bad": [],
+    "n_bad": 0,
+    "taps_differ_from_baseline": false,
+    "overlaps": [],
+    "orient_bad": []
+   }
+  },
+  "q_net_ok": 109
+ }
+}

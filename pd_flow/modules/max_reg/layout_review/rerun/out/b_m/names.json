@@ -1,0 +1,30 @@
+{
+ "netlist": "../../../baseline/harden/nl/tt_um_attention_head_gf.nl.v",
+ "netlist_sha256": "a8286e1b9a4d73f2780bcf78951b7fdd4c67bb2715fccdfea777cf6a2d83e293",
+ "M": {
+  "core.mac.M[0]": "_2277_",
+  "core.mac.M[1]": "_2278_",
+  "core.mac.M[2]": "_2279_",
+  "core.mac.M[3]": "_2280_",
+  "core.mac.M[4]": "_2281_",
+  "core.mac.M[5]": "_2282_",
+  "core.mac.M[6]": "_2283_",
+  "core.mac.M[7]": "_2284_",
+  "core.mac.M[8]": "_2285_",
+  "core.mac.M[9]": "_2286_",
+  "core.mac.M[10]": "_2287_",
+  "core.mac.M[11]": "_2288_",
+  "core.mac.M[12]": "_2289_",
+  "core.mac.M[13]": "_2290_",
+  "core.mac.M[14]": "_2291_",
+  "core.mac.M[15]": "_2292_",
+  "core.mac.M[16]": "_2293_",
+  "core.mac.M[17]": "_2294_",
+  "core.mac.M[18]": "_2295_",
+  "core.mac.M[19]": "_2296_",
+  "core.mac.M[20]": "_2297_",
+  "core.mac.M[21]": "_2298_"
+ },
+ "S": null,
+ "rule": "instance names are the shipped-flow synthesis names of exactly this RTL+config (deterministic flow); regenerate from the run's own synthesized netlist after any change, and post-check by Q net (tools/check_placed.py)"
+}

@@ -1,0 +1,20 @@
+metric                                          base           n03           n04    ra_n03_raw    ra_n04_raw           b_m       b_m_raw          b_ms      b_ms_raw        a_sdff    a_sdff_raw
+design__instance__area__stdcell              46819.2       46990.5       47220.9       46990.5       47220.9       46784.1       46784.1       46909.2       46909.2       48151.7       48151.7
+timing__setup__ws                            41.7942       38.2149       42.8953       38.2149       42.8953       39.1411       39.1411       36.1382       36.1382       34.4387       34.4387
+timing__setup_vio__count                           0             0             0             0             0             0             0             0             0             0             0
+timing__hold__ws                            0.108576      0.119058      0.141944      0.119058      0.141944      0.134106      0.134106      0.121174      0.121174      0.136795      0.136795
+timing__hold_vio__count                            0             0             0             0             0             0             0             0             0             0             0
+design__max_slew_violation__count                381           316           260           316           260           365           365           388           388           418           418
+design__max_cap_violation__count                   1             2             1             2             1             4             4             3             3             2             2
+design__max_fanout_violation__count               11            13            11            13            11            12            12            11            11            11            11
+power__total                              0.00304964    0.00297114    0.00321978    0.00297114    0.00321978    0.00306367    0.00306367    0.00312892    0.00312892     0.0035451     0.0035451
+route__wirelength                              53890         53676         51958         53676         51958         56605         56605         62682         62682         66123         66123
+route__drc_errors                                  0             0             0             0             0             0             0             0             0             0             0
+magic__drc_error__count                            0             0             0             0             0             0             0             0             0             0             0
+design__lvs_error__count                           0             0             0             0             0             0             0             0             0             0             0
+route__antenna_violation__count                    0             0             0             0             0             0             0             0             0             0             0
+ance__area__class:timing_repair_buffer       1154.68       1431.27       1396.15       1431.27       1396.15       1106.38       1106.38       1172.24       1172.24       1593.72       1593.72
+ng__setup__ws__corner:max_ss_125C_3v00       41.7942       38.2149       42.8953       38.2149       42.8953       39.1411       39.1411       36.1382       36.1382       34.4387       34.4387
+b_m copy==raw: True
+b_ms copy==raw: True
+a_sdff copy==raw: True

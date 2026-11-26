@@ -1,0 +1,7 @@
+baseline (c) free      OK (12 fields)
+noise n03              OK (12 fields)
+noise n04              OK (12 fields)
+(b) b_m:               OK (12 fields)
+(b) b_ms:              OK (12 fields)
+(a) a_sdff             OK (12 fields)
+rows checked 6 rows with mismatches: 0

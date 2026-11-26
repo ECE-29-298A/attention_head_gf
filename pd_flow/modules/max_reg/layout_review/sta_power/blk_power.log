@@ -1,0 +1,74 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+block cells: 109
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             9.84e-04   1.88e-04   6.11e-08   1.17e-03  40.0%
+Combinational          6.19e-04   7.35e-04   6.53e-08   1.35e-03  46.2%
+Clock                  1.64e-04   2.40e-04   3.02e-08   4.04e-04  13.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.77e-03   1.16e-03   1.57e-07   2.93e-03 100.0%
+                          60.3%      39.7%       0.0%
+   Internal  Switching    Leakage      Total
+      Power      Power      Power      Power (Watts)
+--------------------------------------------
+   5.95e-06   2.67e-06   6.76e-11   8.62e-06 max_cap5
+   0.00e+00   0.00e+00   6.67e-11   6.67e-11 fanout1
+Warning: blk_power.tcl line 1, report_net -connections is deprecated.
+Net core.max_unit.nld_b
+ Pin capacitance: 0.01
+ Wire capacitance: 0.01
+ Total capacitance: 0.02
+ Number of drivers: 1
+ Number of loads: 3
+ Number of pins: 4
+
+Driver pins
+ core.max_unit.u_ld_buf/Z output (gf180mcu_fd_sc_mcu7t5v0__buf_4)
+
+Load pins
+ core.max_unit.b20_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b21_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ fanout1/I input (gf180mcu_fd_sc_mcu7t5v0__dlyb_1) 0.00
+
+Warning: blk_power.tcl line 1, report_net -connections is deprecated.
+Net net1
+ Pin capacitance: 0.12
+ Wire capacitance: 0.03
+ Total capacitance: 0.15
+ Number of drivers: 1
+ Number of loads: 20
+ Number of pins: 21
+
+Driver pins
+ fanout1/Z output (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+
+Load pins
+ core.max_unit.b00_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b01_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b02_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b03_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b04_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b05_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b06_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b07_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b08_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b09_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b10_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b11_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b12_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b13_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b14_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b15_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b16_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b17_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b18_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+ core.max_unit.b19_ff/SE input (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) 0.01
+
