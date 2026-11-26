@@ -81,3 +81,11 @@ module with stated activity.
 ## Result labels (orchestrator ruling)
 `pass-static` is accepted for static checks: lint, structure, interface, build, cell extraction.
 It is evidence, not a proof. Simulation uses `pass-exhaustive` / `pass-sampled`.
+
+## Area measurement (orchestrator ruling after ripple_add Phase 2)
+`synth_area.py` (default ABC) does not predict the shipped area at top level. For one
+candidate it reported −1,008 µm² where the shipped flow gave +1,192 µm². Top-level
+acceptance uses the **shipped flow**: `pd_flow/scripts/ll_synth.sh <rtl_dir> <tag>`
+(LibreLane 3.0.14 in Docker, project config, stops after Yosys.Synthesis, about 30 s; prints
+`tag area cells`; baseline 41,116.096 µm², 1,434 cells). `<rtl_dir>` must hold all 7 shipped
+files. Run at most 2 at once (Docker memory). Use `synth_area.py` for module-level exploration only.

@@ -1,0 +1,1530 @@
+{
+ "module": "ripple_add",
+ "phase": 2,
+ "agent": 3,
+ "recipe": {
+  "area": "pd_flow/scripts/synth_area.py (Yosys 0.71, synth -flatten, dfflibmap, default abc -liberty, GF180 7t TT 025C 3V30), unchanged; full copy of original_rtl with only ripple_add.v replaced",
+  "netlists_for_sta": "verif/gate/synth_gf180.sh (same recipe, write_verilog -noattr); netlist areas checked equal to synth_area module areas",
+  "sta": "OpenSTA 2.7.0 in librelane:3.0.14; opt/sta.tcl; input transition 0.30 ns on all inputs, 0.02 pF load on all outputs, virtual 100 ns clock, zero I/O delay, no wire load; Liberty tt_025C_3v30 and ss_125C_3v00",
+  "eqy": "EQY SAT strategy depth 1 (complete for combinational logic), golden original vs candidate, N=12 and N=22, no assumptions/cutpoints/blackboxes (opt/eqy_template.eqy)",
+  "contract": "verif/run_all.sh --rtl <cand> --out runs/<cand>/contract (frozen, hash b879560878477abf)"
+ },
+ "acceptance": "all contract items ok; EQY PASS at N=12 and N=22; module area lower at N=22 and N=12; mac_unit and top area lower than the original; worst N=22 path not more than 5% longer at TT and SS",
+ "golden": {
+  "a22": 2146.9056,
+  "a12": 1148.0896,
+  "mac": 20573.4144,
+  "top": 42145.6448,
+  "t22_tt": 10.594,
+  "t22_ss": 21.319,
+  "t12_tt": 6.1,
+  "t12_ss": 12.231
+ },
+ "attempts": [
+  {
+   "name": "c01_behavioural",
+   "a22": 2107.392,
+   "a22_cells": 97,
+   "a12": 1132.7232,
+   "a12_cells": 46,
+   "mac": 20472.4352,
+   "mac_cells": 612,
+   "top": 41138.048,
+   "top_cells": 1390,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 1,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 1,
+   "t12_tt": 6.563,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 13.31,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 11.857,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 24.161,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "behavioural a + b + cin (cin zero-extended by generate); alumacc -> $alu",
+   "rtl": "opt/candidates/c01_behavioural.v",
+   "rtl_sha256": "be2c94b149c70be65da095ed0dd933a6135979a87e99b8bbad4f60fb6a6fe507",
+   "netlist_area_n22": 2107.392,
+   "netlist_area_n12": 1132.7232,
+   "delta_vs_golden": {
+    "a22": -39.5136,
+    "a12": -15.3664,
+    "mac": -100.9792,
+    "top": -1007.5968
+   },
+   "timing_delta_pct": {
+    "t22_tt": 11.92,
+    "t22_ss": 13.33,
+    "t12_tt": 7.59,
+    "t12_ss": 8.82
+   },
+   "decision": "rejected",
+   "reasons": [
+    "timing materially worse: t22_tt 11.857 ns vs 10.594 ns (+11.9%)",
+    "timing materially worse: t22_ss 24.161 ns vs 21.319 ns (+13.3%)"
+   ]
+  },
+  {
+   "name": "c02_behav_cinfold",
+   "a22": 2105.1968,
+   "a22_cells": 99,
+   "a12": 1148.0896,
+   "a12_cells": 50,
+   "mac": 20351.6992,
+   "mac_cells": 610,
+   "top": 41094.144,
+   "top_cells": 1387,
+   "contract": "60/68",
+   "contract_all_ok": false,
+   "contract_failed_items": [
+    "lint_n1",
+    "lint_n12",
+    "lint_n16",
+    "lint_n22",
+    "lint_n32",
+    "lint_n64",
+    "lint_n8",
+    "lint_ndefault"
+   ],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 12,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 22,
+   "t12_tt": 5.941,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.005,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 11.201,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 22.699,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "behavioural {a,1}+{b,cin}, drop bit 0 (one (N+1)-bit add)",
+   "rtl": "opt/candidates/c02_behav_cinfold.v",
+   "rtl_sha256": "72fc0f61e69bc98549a6b1438155d7e8d16244a81832997bdd071d9c2e229dd7",
+   "netlist_area_n22": 2105.1968,
+   "netlist_area_n12": 1148.0896,
+   "delta_vs_golden": {
+    "a22": -41.7088,
+    "a12": 0.0,
+    "mac": -221.7152,
+    "top": -1051.5008
+   },
+   "timing_delta_pct": {
+    "t22_tt": 5.73,
+    "t22_ss": 6.47,
+    "t12_tt": -2.61,
+    "t12_ss": -1.85
+   },
+   "decision": "rejected",
+   "reasons": [
+    "contract not all ok: lint_n1,lint_n12,lint_n16,lint_n22,lint_n32,lint_n64,lint_n8,lint_ndefault",
+    "module area N=12 not lower (1148.09 vs 1148.09)",
+    "timing materially worse: t22_tt 11.201 ns vs 10.594 ns (+5.7%)",
+    "timing materially worse: t22_ss 22.699 ns vs 21.319 ns (+6.5%)"
+   ]
+  },
+  {
+   "name": "c03_majority",
+   "a22": 2230.3232,
+   "a22_cells": 99,
+   "a12": 1172.2368,
+   "a12_cells": 50,
+   "mac": 20294.624,
+   "mac_cells": 604,
+   "top": 41662.7008,
+   "top_cells": 1427,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 24,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 44,
+   "t12_tt": 6.271,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.78,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 11.083,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 22.924,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "ripple, majority carry ab|ac|bc",
+   "rtl": "opt/candidates/c03_majority.v",
+   "rtl_sha256": "875defddcf17963a942efa4e52fb475400b9b6741e01d95a0c8c93ac9cdc390c",
+   "netlist_area_n22": 2230.3232,
+   "netlist_area_n12": 1172.2368,
+   "delta_vs_golden": {
+    "a22": 83.4176,
+    "a12": 24.1472,
+    "mac": -278.7904,
+    "top": -482.944
+   },
+   "timing_delta_pct": {
+    "t22_tt": 4.62,
+    "t22_ss": 7.53,
+    "t12_tt": 2.8,
+    "t12_ss": 4.49
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2230.32 vs 2146.91)",
+    "module area N=12 not lower (1172.24 vs 1148.09)",
+    "timing materially worse: t22_ss 22.924 ns vs 21.319 ns (+7.5%)"
+   ]
+  },
+  {
+   "name": "c04_mux_carry",
+   "a22": 2212.7616,
+   "a22_cells": 102,
+   "a12": 1123.9424,
+   "a12_cells": 53,
+   "mac": 20362.6752,
+   "mac_cells": 605,
+   "top": 41653.92,
+   "top_cells": 1400,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 6.172,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.448,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 11.592,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 23.75,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "XOR-shared p=a^b, s=p^c, carry mux c'=p?c:a",
+   "rtl": "opt/candidates/c04_mux_carry.v",
+   "rtl_sha256": "16105660e99a0e198282073e4cd20937d1075a90ccb13cbdbdfc6de6a523151e",
+   "netlist_area_n22": 2212.7616,
+   "netlist_area_n12": 1123.9424,
+   "delta_vs_golden": {
+    "a22": 65.856,
+    "a12": -24.1472,
+    "mac": -210.7392,
+    "top": -491.7248
+   },
+   "timing_delta_pct": {
+    "t22_tt": 9.42,
+    "t22_ss": 11.4,
+    "t12_tt": 1.18,
+    "t12_ss": 1.77
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2212.76 vs 2146.91)",
+    "timing materially worse: t22_tt 11.592 ns vs 10.594 ns (+9.4%)",
+    "timing materially worse: t22_ss 23.750 ns vs 21.319 ns (+11.4%)"
+   ]
+  },
+  {
+   "name": "c05_inv_carry",
+   "a22": 2122.7584,
+   "a22_cells": 98,
+   "a12": 1108.576,
+   "a12_cells": 56,
+   "mac": 20336.3328,
+   "mac_cells": 623,
+   "top": 41282.9312,
+   "top_cells": 1398,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 12,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 22,
+   "t12_tt": 9.021,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 18.41,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 15.376,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 31.458,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "alternating-polarity ripple, inverting majority per stage",
+   "rtl": "opt/candidates/c05_inv_carry.v",
+   "rtl_sha256": "054198a6448220b754f913733473f623b39ee3c13bbeeb0332eaed084b007a49",
+   "netlist_area_n22": 2122.7584,
+   "netlist_area_n12": 1108.576,
+   "delta_vs_golden": {
+    "a22": -24.1472,
+    "a12": -39.5136,
+    "mac": -237.0816,
+    "top": -862.7136
+   },
+   "timing_delta_pct": {
+    "t22_tt": 45.14,
+    "t22_ss": 47.56,
+    "t12_tt": 47.89,
+    "t12_ss": 50.52
+   },
+   "decision": "rejected",
+   "reasons": [
+    "timing materially worse: t22_tt 15.376 ns vs 10.594 ns (+45.1%)",
+    "timing materially worse: t22_ss 31.458 ns vs 21.319 ns (+47.6%)"
+   ]
+  },
+  {
+   "name": "c06_xnor_gp",
+   "a22": 2146.9056,
+   "a22_cells": 95,
+   "a12": 1148.0896,
+   "a12_cells": 50,
+   "mac": 20446.0928,
+   "mac_cells": 599,
+   "top": 41293.9072,
+   "top_cells": 1381,
+   "contract": "60/68",
+   "contract_all_ok": false,
+   "contract_failed_items": [
+    "lint_n1",
+    "lint_n12",
+    "lint_n16",
+    "lint_n22",
+    "lint_n32",
+    "lint_n64",
+    "lint_n8",
+    "lint_ndefault"
+   ],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 6.1,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.231,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 10.594,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 21.319,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "explicit g/p vectors, c'=g|p&c, s=p^c",
+   "rtl": "opt/candidates/c06_xnor_gp.v",
+   "rtl_sha256": "b0c49d86e2bb5a116e9b934813e432f7338e0d27364be6cbf125416f830524a5",
+   "netlist_area_n22": 2146.9056,
+   "netlist_area_n12": 1148.0896,
+   "delta_vs_golden": {
+    "a22": 0.0,
+    "a12": 0.0,
+    "mac": -127.3216,
+    "top": -851.7376
+   },
+   "timing_delta_pct": {
+    "t22_tt": 0.0,
+    "t22_ss": 0.0,
+    "t12_tt": 0.0,
+    "t12_ss": 0.0
+   },
+   "decision": "rejected",
+   "reasons": [
+    "contract not all ok: lint_n1,lint_n12,lint_n16,lint_n22,lint_n32,lint_n64,lint_n8,lint_ndefault",
+    "module area N=22 not lower (2146.91 vs 2146.91)",
+    "module area N=12 not lower (1148.09 vs 1148.09)"
+   ]
+  },
+  {
+   "name": "c06b_gp_fixed",
+   "a22": 2146.9056,
+   "a22_cells": 95,
+   "a12": 1148.0896,
+   "a12_cells": 50,
+   "mac": 20428.5312,
+   "mac_cells": 598,
+   "top": 42488.096,
+   "top_cells": 1467,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 6.1,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.231,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 10.594,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 21.319,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "c06 with g only for carry-producing stages (lint-clean)",
+   "rtl": "opt/candidates/c06b_gp_fixed.v",
+   "rtl_sha256": "0943369968d1585c0b041ca5a07467f169132bce2d2a49b0ba37f1696f608a22",
+   "netlist_area_n22": 2146.9056,
+   "netlist_area_n12": 1148.0896,
+   "delta_vs_golden": {
+    "a22": 0.0,
+    "a12": 0.0,
+    "mac": -144.8832,
+    "top": 342.4512
+   },
+   "timing_delta_pct": {
+    "t22_tt": 0.0,
+    "t22_ss": 0.0,
+    "t12_tt": 0.0,
+    "t12_ss": 0.0
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2146.91 vs 2146.91)",
+    "module area N=12 not lower (1148.09 vs 1148.09)",
+    "top area not lower"
+   ]
+  },
+  {
+   "name": "c07_or_carry",
+   "a22": 2171.0528,
+   "a22_cells": 101,
+   "a12": 1174.432,
+   "a12_cells": 52,
+   "mac": 20382.432,
+   "mac_cells": 618,
+   "top": 41454.1568,
+   "top_cells": 1406,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 6.103,
+   "t12_tt_path": "b[1]->s[11]",
+   "t12_ss": 12.476,
+   "t12_ss_path": "b[1]->s[11]",
+   "t22_tt": 11.179,
+   "t22_tt_path": "b[1]->s[21]",
+   "t22_ss": 23.113,
+   "t22_ss_path": "b[1]->s[21]",
+   "description": "carry with OR propagate ab|(a|b)c",
+   "rtl": "opt/candidates/c07_or_carry.v",
+   "rtl_sha256": "2ae36334d7e6659475a3226f0889c1cb1aaf8939f99bab8b99e8a29ee07ce167",
+   "netlist_area_n22": 2171.0528,
+   "netlist_area_n12": 1174.432,
+   "delta_vs_golden": {
+    "a22": 24.1472,
+    "a12": 26.3424,
+    "mac": -190.9824,
+    "top": -691.488
+   },
+   "timing_delta_pct": {
+    "t22_tt": 5.52,
+    "t22_ss": 8.42,
+    "t12_tt": 0.05,
+    "t12_ss": 2.0
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2171.05 vs 2146.91)",
+    "module area N=12 not lower (1174.43 vs 1148.09)",
+    "timing materially worse: t22_tt 11.179 ns vs 10.594 ns (+5.5%)",
+    "timing materially worse: t22_ss 23.113 ns vs 21.319 ns (+8.4%)"
+   ]
+  },
+  {
+   "name": "c08_uniform_inv",
+   "a22": 2210.5664,
+   "a22_cells": 96,
+   "a12": 1185.408,
+   "a12_cells": 49,
+   "mac": 20336.3328,
+   "mac_cells": 612,
+   "top": 41623.1872,
+   "top_cells": 1424,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 12,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 22,
+   "t12_tt": 6.057,
+   "t12_tt_path": "cin->s[11]",
+   "t12_ss": 12.243,
+   "t12_ss_path": "cin->s[11]",
+   "t22_tt": 10.876,
+   "t22_tt_path": "cin->s[21]",
+   "t22_ss": 22.11,
+   "t22_ss_path": "cin->s[21]",
+   "description": "uniform inverted carry kn'=~((a|b)&~(~(ab)&kn)), s=~(a^b^kn)",
+   "rtl": "opt/candidates/c08_uniform_inv.v",
+   "rtl_sha256": "a1c8c3ae09b5066b77393f68008ca25f3c7d8a7f2fcb5db86c3c418cb555be78",
+   "netlist_area_n22": 2210.5664,
+   "netlist_area_n12": 1185.408,
+   "delta_vs_golden": {
+    "a22": 63.6608,
+    "a12": 37.3184,
+    "mac": -237.0816,
+    "top": -522.4576
+   },
+   "timing_delta_pct": {
+    "t22_tt": 2.66,
+    "t22_ss": 3.71,
+    "t12_tt": -0.7,
+    "t12_ss": 0.1
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2210.57 vs 2146.91)",
+    "module area N=12 not lower (1185.41 vs 1148.09)"
+   ]
+  },
+  {
+   "name": "c09_alt_aoi22",
+   "a22": 2140.32,
+   "a22_cells": 98,
+   "a12": 1156.8704,
+   "a12_cells": 46,
+   "mac": 20529.5104,
+   "mac_cells": 616,
+   "top": 41517.8176,
+   "top_cells": 1409,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 12,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 22,
+   "t12_tt": 6.829,
+   "t12_tt_path": "cin->s[11]",
+   "t12_ss": 13.95,
+   "t12_ss_path": "cin->s[11]",
+   "t22_tt": 13.023,
+   "t22_tt_path": "cin->s[21]",
+   "t22_ss": 26.769,
+   "t22_ss_path": "cin->s[21]",
+   "description": "alternating polarity, aoi22/oai21-shaped carry",
+   "rtl": "opt/candidates/c09_alt_aoi22.v",
+   "rtl_sha256": "b46899bc42bbf7ec8748191b102e23d77c61d78a3fbefb861d0af978b1875b64",
+   "netlist_area_n22": 2140.32,
+   "netlist_area_n12": 1156.8704,
+   "delta_vs_golden": {
+    "a22": -6.5856,
+    "a12": 8.7808,
+    "mac": -43.904,
+    "top": -627.8272
+   },
+   "timing_delta_pct": {
+    "t22_tt": 22.93,
+    "t22_ss": 25.56,
+    "t12_tt": 11.95,
+    "t12_ss": 14.05
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=12 not lower (1156.87 vs 1148.09)",
+    "timing materially worse: t22_tt 13.023 ns vs 10.594 ns (+22.9%)",
+    "timing materially worse: t22_ss 26.769 ns vs 21.319 ns (+25.6%)"
+   ]
+  },
+  {
+   "name": "c10_ab_or_c",
+   "a22": 2116.1728,
+   "a22_cells": 94,
+   "a12": 1152.48,
+   "a12_cells": 47,
+   "mac": 20468.0448,
+   "mac_cells": 620,
+   "top": 41476.1088,
+   "top_cells": 1399,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 7.217,
+   "t12_tt_path": "cin->s[11]",
+   "t12_ss": 14.811,
+   "t12_ss_path": "cin->s[11]",
+   "t22_tt": 13.412,
+   "t22_tt_path": "cin->s[21]",
+   "t22_ss": 27.569,
+   "t22_ss_path": "cin->s[21]",
+   "description": "product-of-sums carry (a|b)&(ab|c)",
+   "rtl": "opt/candidates/c10_ab_or_c.v",
+   "rtl_sha256": "dd71c0caa0d47ac9b8261051089a9c31bb3d368b58b74caea49163f863b16b29",
+   "netlist_area_n22": 2116.1728,
+   "netlist_area_n12": 1152.48,
+   "delta_vs_golden": {
+    "a22": -30.7328,
+    "a12": 4.3904,
+    "mac": -105.3696,
+    "top": -669.536
+   },
+   "timing_delta_pct": {
+    "t22_tt": 26.6,
+    "t22_ss": 29.32,
+    "t12_tt": 18.31,
+    "t12_ss": 21.09
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=12 not lower (1152.48 vs 1148.09)",
+    "timing materially worse: t22_tt 13.412 ns vs 10.594 ns (+26.6%)",
+    "timing materially worse: t22_ss 27.569 ns vs 21.319 ns (+29.3%)"
+   ]
+  },
+  {
+   "name": "c11_mux_b",
+   "a22": 2212.7616,
+   "a22_cells": 102,
+   "a12": 1167.8464,
+   "a12_cells": 50,
+   "mac": 20560.2432,
+   "mac_cells": 621,
+   "top": 41274.1504,
+   "top_cells": 1390,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 6.451,
+   "t12_tt_path": "a[1]->s[11]",
+   "t12_ss": 13.123,
+   "t12_ss_path": "a[1]->s[11]",
+   "t22_tt": 11.592,
+   "t22_tt_path": "a[0]->s[21]",
+   "t22_ss": 23.75,
+   "t22_ss_path": "a[0]->s[21]",
+   "description": "carry mux c'=(a^b)?c:b",
+   "rtl": "opt/candidates/c11_mux_b.v",
+   "rtl_sha256": "cb97b049a8f372bea82e7676912cd1b221d3f48ad5df92804edcf42b89d315c6",
+   "netlist_area_n22": 2212.7616,
+   "netlist_area_n12": 1167.8464,
+   "delta_vs_golden": {
+    "a22": 65.856,
+    "a12": 19.7568,
+    "mac": -13.1712,
+    "top": -871.4944
+   },
+   "timing_delta_pct": {
+    "t22_tt": 9.42,
+    "t22_ss": 11.4,
+    "t12_tt": 5.75,
+    "t12_ss": 7.29
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2212.76 vs 2146.91)",
+    "module area N=12 not lower (1167.85 vs 1148.09)",
+    "timing materially worse: t22_tt 11.592 ns vs 10.594 ns (+9.4%)",
+    "timing materially worse: t22_ss 23.750 ns vs 21.319 ns (+11.4%)"
+   ]
+  },
+  {
+   "name": "c12_behav_assoc",
+   "a22": 2107.392,
+   "a22_cells": 97,
+   "a12": 1132.7232,
+   "a12_cells": 46,
+   "mac": 20408.7744,
+   "mac_cells": 608,
+   "top": 41111.7056,
+   "top_cells": 1394,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 1,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 1,
+   "t12_tt": 6.563,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 13.31,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 11.857,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 24.161,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "behavioural a + (b + cin)",
+   "rtl": "opt/candidates/c12_behav_assoc.v",
+   "rtl_sha256": "74dcc4295fa1b9e943ffaeb71f37dc7dfb7d6be0186c5cbf0ab2a774f9184d42",
+   "netlist_area_n22": 2107.392,
+   "netlist_area_n12": 1132.7232,
+   "delta_vs_golden": {
+    "a22": -39.5136,
+    "a12": -15.3664,
+    "mac": -164.64,
+    "top": -1033.9392
+   },
+   "timing_delta_pct": {
+    "t22_tt": 11.92,
+    "t22_ss": 13.33,
+    "t12_tt": 7.59,
+    "t12_ss": 8.82
+   },
+   "decision": "rejected",
+   "reasons": [
+    "timing materially worse: t22_tt 11.857 ns vs 10.594 ns (+11.9%)",
+    "timing materially worse: t22_ss 24.161 ns vs 21.319 ns (+13.3%)"
+   ]
+  },
+  {
+   "name": "c14_sub_form",
+   "a22": 3009.6192,
+   "a22_cells": 152,
+   "a12": 1499.3216,
+   "a12_cells": 75,
+   "mac": 21220.9984,
+   "mac_cells": 661,
+   "top": 41945.8816,
+   "top_cells": 1420,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 1,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 1,
+   "t12_tt": 6.392,
+   "t12_tt_path": "a[2]->s[11]",
+   "t12_ss": 13.011,
+   "t12_ss_path": "a[2]->s[11]",
+   "t22_tt": 10.552,
+   "t22_tt_path": "a[2]->s[21]",
+   "t22_ss": 21.364,
+   "t22_ss_path": "a[2]->s[21]",
+   "description": "behavioural a - ~b - (1-cin)",
+   "rtl": "opt/candidates/c14_sub_form.v",
+   "rtl_sha256": "624ca0750c276dc99ada9bf39360413fe1fb0c7a2d57b61bc13faf031fa5b6dd",
+   "netlist_area_n22": 3009.6192,
+   "netlist_area_n12": 1499.3216,
+   "delta_vs_golden": {
+    "a22": 862.7136,
+    "a12": 351.232,
+    "mac": 647.584,
+    "top": -199.7632
+   },
+   "timing_delta_pct": {
+    "t22_tt": -0.4,
+    "t22_ss": 0.21,
+    "t12_tt": 4.79,
+    "t12_ss": 6.38
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (3009.62 vs 2146.91)",
+    "module area N=12 not lower (1499.32 vs 1148.09)",
+    "mac_unit area not lower"
+   ]
+  },
+  {
+   "name": "c15_xor_prop_or",
+   "a22": 2146.9056,
+   "a22_cells": 95,
+   "a12": 1148.0896,
+   "a12_cells": 50,
+   "mac": 20428.5312,
+   "mac_cells": 598,
+   "top": 42488.096,
+   "top_cells": 1467,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 13,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 23,
+   "t12_tt": 6.1,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.231,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 10.594,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 21.319,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "golden form with shared p wire",
+   "rtl": "opt/candidates/c15_xor_prop_or.v",
+   "rtl_sha256": "1e88eb77b7573478dbfd15bc568811f6bde165f27eea45117e0bfadb5bee7123",
+   "netlist_area_n22": 2146.9056,
+   "netlist_area_n12": 1148.0896,
+   "delta_vs_golden": {
+    "a22": 0.0,
+    "a12": 0.0,
+    "mac": -144.8832,
+    "top": 342.4512
+   },
+   "timing_delta_pct": {
+    "t22_tt": 0.0,
+    "t22_ss": 0.0,
+    "t12_tt": 0.0,
+    "t12_ss": 0.0
+   },
+   "decision": "rejected",
+   "reasons": [
+    "module area N=22 not lower (2146.91 vs 2146.91)",
+    "module area N=12 not lower (1148.09 vs 1148.09)",
+    "top area not lower"
+   ]
+  },
+  {
+   "name": "c16_maj_tuned",
+   "a22": 2096.416,
+   "a22_cells": 91,
+   "a12": 1099.7952,
+   "a12_cells": 48,
+   "mac": 20476.8256,
+   "mac_cells": 614,
+   "top": 41414.6432,
+   "top_cells": 1400,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 12,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 22,
+   "t12_tt": 9.464,
+   "t12_tt_path": "cin->s[11]",
+   "t12_ss": 19.344,
+   "t12_ss_path": "cin->s[11]",
+   "t22_tt": 16.103,
+   "t22_tt_path": "cin->s[21]",
+   "t22_ss": 33.006,
+   "t22_ss_path": "cin->s[21]",
+   "description": "majority carry, operand order = best of operand-order search (maj_4)",
+   "rtl": "opt/candidates/c16_maj_tuned.v",
+   "rtl_sha256": "4b47efbe1fd187ac34216862fb2150760c3b8cb70c730d15e530326d64d214a0",
+   "netlist_area_n22": 2096.416,
+   "netlist_area_n12": 1099.7952,
+   "delta_vs_golden": {
+    "a22": -50.4896,
+    "a12": -48.2944,
+    "mac": -96.5888,
+    "top": -731.0016
+   },
+   "timing_delta_pct": {
+    "t22_tt": 52.0,
+    "t22_ss": 54.82,
+    "t12_tt": 55.15,
+    "t12_ss": 58.16
+   },
+   "decision": "rejected",
+   "reasons": [
+    "timing materially worse: t22_tt 16.103 ns vs 10.594 ns (+52.0%)",
+    "timing materially worse: t22_ss 33.006 ns vs 21.319 ns (+54.8%)"
+   ]
+  },
+  {
+   "name": "c17_altmaj_tuned",
+   "a22": 2083.2448,
+   "a22_cells": 97,
+   "a12": 1115.1616,
+   "a12_cells": 55,
+   "mac": 20127.7888,
+   "mac_cells": 610,
+   "top": 41491.4752,
+   "top_cells": 1404,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 12,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 22,
+   "t12_tt": 9.325,
+   "t12_tt_path": "cin->s[10]",
+   "t12_ss": 19.086,
+   "t12_ss_path": "cin->s[10]",
+   "t22_tt": 15.458,
+   "t22_tt_path": "cin->s[21]",
+   "t22_ss": 31.649,
+   "t22_ss_path": "cin->s[21]",
+   "description": "alternating-polarity majority, operand order = best of search (alt_maj_5)",
+   "rtl": "opt/candidates/c17_altmaj_tuned.v",
+   "rtl_sha256": "0ac6c632c149c52d60a2ca0732f632efa295c3912b024fe11c62a247d0e4f9f2",
+   "netlist_area_n22": 2083.2448,
+   "netlist_area_n12": 1115.1616,
+   "delta_vs_golden": {
+    "a22": -63.6608,
+    "a12": -32.928,
+    "mac": -445.6256,
+    "top": -654.1696
+   },
+   "timing_delta_pct": {
+    "t22_tt": 45.91,
+    "t22_ss": 48.45,
+    "t12_tt": 52.87,
+    "t12_ss": 56.05
+   },
+   "decision": "rejected",
+   "reasons": [
+    "timing materially worse: t22_tt 15.458 ns vs 10.594 ns (+45.9%)",
+    "timing materially worse: t22_ss 31.649 ns vs 21.319 ns (+48.5%)"
+   ]
+  },
+  {
+   "name": "golden",
+   "a22": 2146.9056,
+   "a22_cells": 95,
+   "a12": 1148.0896,
+   "a12_cells": 50,
+   "mac": 20573.4144,
+   "mac_cells": 610,
+   "top": 42145.6448,
+   "top_cells": 1454,
+   "contract": "68/68",
+   "contract_all_ok": true,
+   "contract_failed_items": [],
+   "eqy_n12": "PASS",
+   "eqy_n12_partitions_proved": 24,
+   "eqy_n22": "PASS",
+   "eqy_n22_partitions_proved": 44,
+   "t12_tt": 6.1,
+   "t12_tt_path": "b[0]->s[11]",
+   "t12_ss": 12.231,
+   "t12_ss_path": "b[0]->s[11]",
+   "t22_tt": 10.594,
+   "t22_tt_path": "b[0]->s[21]",
+   "t22_ss": 21.319,
+   "t22_ss_path": "b[0]->s[21]",
+   "description": "original hand-written ripple: s=a^b^c, c'=ab|c(a^b)",
+   "rtl": "baseline/original_rtl/ripple_add.v",
+   "rtl_sha256": "5977cad965966530d8ef79ad2ace0b1a5558f53e2da17dddcfddfdbe9a90cf7a",
+   "netlist_area_n22": 2146.9056,
+   "netlist_area_n12": 1148.0896,
+   "delta_vs_golden": {
+    "a22": 0.0,
+    "a12": 0.0,
+    "mac": 0.0,
+    "top": 0.0
+   },
+   "timing_delta_pct": {
+    "t22_tt": 0.0,
+    "t22_ss": 0.0,
+    "t12_tt": 0.0,
+    "t12_ss": 0.0
+   },
+   "decision": "reference (retained)"
+  }
+ ],
+ "accepted": [],
+ "result": "original retained",
+ "noise_study": {
+  "purpose": "Functionally and structurally identical rewrites (renames, comment, operand order) of one formulation; measures ABC tie-break noise under the unchanged recipe.",
+  "golden_family": {
+   "variants": 44,
+   "summary": {
+    "a22": {
+     "min": 2146.9056,
+     "median": 2146.9056,
+     "max": 2146.9056,
+     "distinct": 1
+    },
+    "a12": {
+     "min": 1148.0896,
+     "median": 1148.0896,
+     "max": 1148.0896,
+     "distinct": 1
+    },
+    "mac": {
+     "min": 20349.504,
+     "median": 20540.4864,
+     "max": 21043.1872,
+     "distinct": 18
+    },
+    "top": {
+     "min": 40995.36,
+     "median": 41584.7712,
+     "max": 42145.6448,
+     "distinct": 14
+    }
+   },
+   "rows": [
+    {
+     "name": "original",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n01_rename_c",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n02_rename_label",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n03_swap_sum",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n04_swap_or",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 40995.36
+    },
+    {
+     "name": "n05_rename_zz",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n06_rename_label2",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n07_rename_carry",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "n08_comment_only",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "p01",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 40995.36
+    },
+    {
+     "name": "p02",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20382.432,
+     "top": 42066.6176
+    },
+    {
+     "name": "p03",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20555.8528,
+     "top": 41188.5376
+    },
+    {
+     "name": "p04",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "p05",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 40995.36
+    },
+    {
+     "name": "p06",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "p07",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 40995.36
+    },
+    {
+     "name": "p08",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20382.432,
+     "top": 42066.6176
+    },
+    {
+     "name": "p09",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20555.8528,
+     "top": 41188.5376
+    },
+    {
+     "name": "p10",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 42145.6448
+    },
+    {
+     "name": "p11",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20573.4144,
+     "top": 40995.36
+    },
+    {
+     "name": "p12",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20459.264,
+     "top": 41640.7488
+    },
+    {
+     "name": "p13",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20389.0176,
+     "top": 41726.3616
+    },
+    {
+     "name": "p14",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20448.288,
+     "top": 41577.088
+    },
+    {
+     "name": "p15",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20417.5552,
+     "top": 41577.088
+    },
+    {
+     "name": "p16",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20459.264,
+     "top": 41640.7488
+    },
+    {
+     "name": "p17",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20389.0176,
+     "top": 41614.4064
+    },
+    {
+     "name": "p18",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20358.2848,
+     "top": 41724.1664
+    },
+    {
+     "name": "p19",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20367.0656,
+     "top": 41726.3616
+    },
+    {
+     "name": "p20",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20349.504,
+     "top": 41592.4544
+    },
+    {
+     "name": "p21",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20419.7504,
+     "top": 41577.088
+    },
+    {
+     "name": "p22",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20358.2848,
+     "top": 41724.1664
+    },
+    {
+     "name": "p23",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20367.0656,
+     "top": 41614.4064
+    },
+    {
+     "name": "p24",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20503.168,
+     "top": 41465.1328
+    },
+    {
+     "name": "p25",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20461.4592,
+     "top": 41388.3008
+    },
+    {
+     "name": "p26",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20465.8496,
+     "top": 41348.7872
+    },
+    {
+     "name": "p27",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20520.7296,
+     "top": 41254.3936
+    },
+    {
+     "name": "p28",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20503.168,
+     "top": 41465.1328
+    },
+    {
+     "name": "p29",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20461.4592,
+     "top": 41388.3008
+    },
+    {
+     "name": "p30",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20540.4864,
+     "top": 41465.1328
+    },
+    {
+     "name": "p31",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 21014.6496,
+     "top": 41388.3008
+    },
+    {
+     "name": "p32",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20540.4864,
+     "top": 41348.7872
+    },
+    {
+     "name": "p33",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 21043.1872,
+     "top": 41254.3936
+    },
+    {
+     "name": "p34",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 20540.4864,
+     "top": 41465.1328
+    },
+    {
+     "name": "p35",
+     "a22": 2146.9056,
+     "a12": 1148.0896,
+     "mac": 21014.6496,
+     "top": 41388.3008
+    }
+   ]
+  },
+  "behavioural_family": {
+   "variants": 6,
+   "summary": {
+    "a22": {
+     "min": 2107.392,
+     "median": 2107.392,
+     "max": 2107.392,
+     "distinct": 1
+    },
+    "a12": {
+     "min": 1132.7232,
+     "median": 1132.7232,
+     "max": 1132.7232,
+     "distinct": 1
+    },
+    "mac": {
+     "min": 20408.7744,
+     "median": 20408.7744,
+     "max": 20472.4352,
+     "distinct": 2
+    },
+    "top": {
+     "min": 41111.7056,
+     "median": 41111.7056,
+     "max": 41138.048,
+     "distinct": 2
+    }
+   },
+   "rows": [
+    {
+     "name": "v01_abc",
+     "a22": 2107.392,
+     "a12": 1132.7232,
+     "mac": 20472.4352,
+     "top": 41138.048
+    },
+    {
+     "name": "v02_bac",
+     "a22": 2107.392,
+     "a12": 1132.7232,
+     "mac": 20472.4352,
+     "top": 41138.048
+    },
+    {
+     "name": "v03_cab",
+     "a22": 2107.392,
+     "a12": 1132.7232,
+     "mac": 20408.7744,
+     "top": 41111.7056
+    },
+    {
+     "name": "v04_acb",
+     "a22": 2107.392,
+     "a12": 1132.7232,
+     "mac": 20408.7744,
+     "top": 41111.7056
+    },
+    {
+     "name": "v05_a_bc",
+     "a22": 2107.392,
+     "a12": 1132.7232,
+     "mac": 20408.7744,
+     "top": 41111.7056
+    },
+    {
+     "name": "v06_b_ac",
+     "a22": 2107.392,
+     "a12": 1132.7232,
+     "mac": 20408.7744,
+     "top": 41111.7056
+    }
+   ]
+  },
+  "finding": "Module-level area is invariant within each family (deterministic). mac_unit and top-level area vary by up to ~700 and ~1150 um2 with operand order alone; the original's top area 42,145.64 is the maximum of its own family. Top-level deltas smaller than this band are not attributable to the adder."
+ },
+ "operand_order_search": {
+  "families": {
+   "alt_aoi": {
+    "variants": 20,
+    "a22_min": 2140.32,
+    "a22_median": 2177.6384,
+    "a12_min": 1152.48,
+    "a12_median": 1154.6752
+   },
+   "alt_maj": {
+    "variants": 60,
+    "a22_min": 2083.2448,
+    "a22_median": 2236.9088,
+    "a12_min": 1108.576,
+    "a12_median": 1191.9936
+   },
+   "gold": {
+    "variants": 20,
+    "a22_min": 2146.9056,
+    "a22_median": 2146.9056,
+    "a12_min": 1148.0896,
+    "a12_median": 1148.0896
+   },
+   "maj": {
+    "variants": 60,
+    "a22_min": 2096.416,
+    "a22_median": 2225.9328,
+    "a12_min": 1099.7952,
+    "a12_median": 1187.6032
+   },
+   "mux": {
+    "variants": 20,
+    "a22_min": 2105.1968,
+    "a22_median": 2146.9056,
+    "a12_min": 1141.504,
+    "a12_median": 1161.2608
+   },
+   "orp": {
+    "variants": 20,
+    "a22_min": 2138.1248,
+    "a22_median": 2171.0528,
+    "a12_min": 1152.48,
+    "a12_median": 1154.6752
+   },
+   "pos": {
+    "variants": 20,
+    "a22_min": 2155.6864,
+    "a22_median": 2193.0048,
+    "a12_min": 1150.2848,
+    "a12_median": 1150.2848
+   },
+   "pos3": {
+    "variants": 20,
+    "a22_min": 2313.7408,
+    "a22_median": 2364.2304,
+    "a12_min": 1099.7952,
+    "a12_median": 1187.6032
+   }
+  },
+  "variants_smaller_than_golden_at_both_N": 24,
+  "sta_screen_n22": [
+   {
+    "variant": "r3_v_alt_maj_12",
+    "t22_tt": 17.405,
+    "t22_ss": 35.513
+   },
+   {
+    "variant": "r3_v_alt_maj_29",
+    "t22_tt": 15.376,
+    "t22_ss": 31.458
+   },
+   {
+    "variant": "r3_v_alt_maj_3",
+    "t22_tt": 17.355,
+    "t22_ss": 35.421
+   },
+   {
+    "variant": "r3_v_maj_0",
+    "t22_tt": 13.396,
+    "t22_ss": 27.573
+   },
+   {
+    "variant": "r3_v_maj_15",
+    "t22_tt": 13.202,
+    "t22_ss": 27.113
+   },
+   {
+    "variant": "r3_v_maj_18",
+    "t22_tt": 16.103,
+    "t22_ss": 33.006
+   },
+   {
+    "variant": "r3_v_maj_27",
+    "t22_tt": 13.396,
+    "t22_ss": 27.573
+   },
+   {
+    "variant": "r3_v_maj_39",
+    "t22_tt": 13.509,
+    "t22_ss": 27.911
+   },
+   {
+    "variant": "r3_v_maj_4",
+    "t22_tt": 13.396,
+    "t22_ss": 27.573
+   },
+   {
+    "variant": "r3_v_maj_9",
+    "t22_tt": 13.47,
+    "t22_ss": 27.761
+   },
+   {
+    "variant": "v_alt_maj_15",
+    "t22_tt": 17.405,
+    "t22_ss": 35.513
+   },
+   {
+    "variant": "v_alt_maj_18",
+    "t22_tt": 15.376,
+    "t22_ss": 31.458
+   },
+   {
+    "variant": "v_alt_maj_5",
+    "t22_tt": 15.458,
+    "t22_ss": 31.649
+   },
+   {
+    "variant": "v_alt_maj_8",
+    "t22_tt": 17.405,
+    "t22_ss": 35.513
+   },
+   {
+    "variant": "v_maj_0",
+    "t22_tt": 13.396,
+    "t22_ss": 27.573
+   },
+   {
+    "variant": "v_maj_2",
+    "t22_tt": 13.202,
+    "t22_ss": 27.113
+   },
+   {
+    "variant": "v_maj_4",
+    "t22_tt": 16.103,
+    "t22_ss": 33.006
+   },
+   {
+    "variant": "v_mux_10",
+    "t22_tt": 13.02,
+    "t22_ss": 26.778
+   },
+   {
+    "variant": "v_mux_13",
+    "t22_tt": 12.899,
+    "t22_ss": 26.521
+   },
+   {
+    "variant": "v_mux_15",
+    "t22_tt": 12.899,
+    "t22_ss": 26.521
+   },
+   {
+    "variant": "v_mux_2",
+    "t22_tt": 12.899,
+    "t22_ss": 26.521
+   },
+   {
+    "variant": "v_mux_3",
+    "t22_tt": 13.02,
+    "t22_ss": 26.778
+   },
+   {
+    "variant": "v_mux_8",
+    "t22_tt": 12.899,
+    "t22_ss": 26.521
+   },
+   {
+    "variant": "v_mux_9",
+    "t22_tt": 13.02,
+    "t22_ss": 26.778
+   }
+  ],
+  "finding": "Every search variant smaller than the original at both widths is at least 21.8% slower (TT, N=22)."
+ },
+ "phase3_probe_addf_chain": {
+  "t22_tt": 19.908,
+  "t22_ss": 41.429,
+  "t12_tt": 11.172,
+  "t12_ss": 23.195,
+  "area_n22": 1593.7151999999999,
+  "area_n12": 869.2991999999999,
+  "gate_contract_n22": true,
+  "gate_contract_n12": true,
+  "note": "Hand-instantiated addf_1 chain, NOT a Phase 2 candidate (cell instantiation is Phase 3). Reference only."
+ }
+}

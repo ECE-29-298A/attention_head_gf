@@ -1,0 +1,4 @@
+RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=0 checksum=0x05a0bf138bee72d4
+sim_rc=0
+CHECKSUM N=12 vectors=33554432 checksum=0x05a0bf138bee72d4
+model_rc=0

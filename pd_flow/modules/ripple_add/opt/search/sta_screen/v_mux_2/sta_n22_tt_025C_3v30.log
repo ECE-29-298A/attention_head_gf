@@ -1,0 +1,53 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: a[0] (input port clocked by vclk)
+Endpoint: s[21] (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.000    0.000 ^ input external delay
+   0.016    0.300    0.000    0.000 ^ a[0] (in)
+   0.005    0.202    0.197    0.197 v _099_/ZN (gf180mcu_fd_sc_mcu7t5v0__nor2_1)
+   0.016    0.946    0.646    0.842 ^ _100_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.009    0.622    0.511    1.353 v _103_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi221_1)
+   0.016    1.685    1.194    2.547 ^ _106_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+   0.007    0.688    0.471    3.018 v _108_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi221_1)
+   0.016    1.684    1.200    4.218 ^ _110_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+   0.009    0.716    0.498    4.716 v _112_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi221_1)
+   0.016    1.685    1.204    5.920 ^ _114_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+   0.009    0.716    0.498    6.418 v _117_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi221_1)
+   0.016    1.706    1.217    7.635 ^ _119_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+   0.009    0.810    0.599    8.234 v _122_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi221_1)
+   0.009    0.652    0.563    8.797 ^ _124_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.009    0.434    0.350    9.147 v _127_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi22_1)
+   0.016    1.684    1.172   10.319 ^ _129_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+   0.010    0.741    0.522   10.842 v _131_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi221_1)
+   0.012    1.372    1.028   11.869 ^ _133_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+   0.020    1.198    1.029   12.899 ^ _134_/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+            1.198    0.000   12.899 ^ s[21] (out)
+                             12.899   data arrival time
+
+            0.000  100.000  100.000   clock vclk (rise edge)
+                     0.000  100.000   clock network delay (ideal)
+                     0.000  100.000   clock reconvergence pessimism
+                     0.000  100.000   output external delay
+                            100.000   data required time
+---------------------------------------------------------------------------
+                            100.000   data required time
+                            -12.899   data arrival time
+---------------------------------------------------------------------------
+                             87.101   slack (MET)
+
+
+RESULT v_mux_2 n22 tt_025C_3v30 worst_arrival_ns=12.899 startpoint=a[0] endpoint=s[21]
+RESULT_FROM v_mux_2 n22 tt_025C_3v30 from=cin arrival_ns=12.841 endpoint=s[21]
+RESULT_FROM v_mux_2 n22 tt_025C_3v30 from=a[0] arrival_ns=12.899 endpoint=s[21]
+RESULT_FROM v_mux_2 n22 tt_025C_3v30 from=b[0] arrival_ns=12.869 endpoint=s[21]

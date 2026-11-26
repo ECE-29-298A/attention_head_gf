@@ -2,7 +2,7 @@
 
 - Current module: 1 ripple_add (order: ripple_add → max_reg → exp_lut → divider → mac_unit →
   attention_controller → tt_um_attention_head_gf)
-- Phase: module 1 ripple_add: Phase 1 gate PASSED (contract hash b879560878477abf, `modules/ripple_add/PHASE1_GATE.md`); Phase 2 (Agent 3, area optimization) in progress
+- Phase: module 1 ripple_add: Phase 1 PASSED (contract b879560878477abf), Phase 2 PASSED with the original retained (`modules/ripple_add/PHASE2_GATE.md`); Phase 3 (Agents 4+5, placement planning) next
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -37,7 +37,7 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-Wait for Agent 3 (`modules/ripple_add/opt/`). At the gate, check the frozen contract on the candidate (RTL and gate level), the EQY proof against `baseline/original_rtl/ripple_add.v`, the area under the identical recipe, and the top-level area. Then Phase 3.
+Launch Agent 4 (placement architect) and Agent 5 (independent placement verifier) for ripple_add: a tetris std-cell placement of the N=22 and N=12 adders (addf-chain options against the mapped netlist), composable into mac_unit, with automatic routing (D4/D5). Then the planning gate.
 
 ## Environment workarounds in place
 - sby/eqy: run with `/usr/local/bin/python3 ~/.local/bin/{sby,eqy}`

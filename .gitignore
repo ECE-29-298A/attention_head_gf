@@ -35,3 +35,7 @@ pd_flow/**/mutation_runs/*/logs/
 pd_flow/**/mutation_runs/*/formal/
 pd_flow/**/rerun_golden/logs/
 pd_flow/**/rerun_golden/formal/runs/
+pd_flow/**/contract/logs/
+pd_flow/**/contract/formal/
+pd_flow/**/runs/*/rtl/
+pd_flow/**/runs/_noise/*/rtl/

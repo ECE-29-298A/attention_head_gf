@@ -1,0 +1,48 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: b[0] (input port clocked by vclk)
+Endpoint: s[11] (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.000    0.000 v input external delay
+   0.011    0.300    0.000    0.000 v b[0] (in)
+   0.009    0.364    0.981    0.981 v fa0/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    1.855 v fa1/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    2.728 v fa2/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    3.602 v fa3/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    4.475 v fa4/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    5.349 v fa5/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    6.223 v fa6/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    7.096 v fa7/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    7.970 v fa8/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    8.843 v fa9/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    9.717 v fa10/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.020    0.602    1.456   11.172 ^ fa11/S (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+            0.602    0.000   11.172 ^ s[11] (out)
+                             11.172   data arrival time
+
+            0.000  100.000  100.000   clock vclk (rise edge)
+                     0.000  100.000   clock network delay (ideal)
+                     0.000  100.000   clock reconvergence pessimism
+                     0.000  100.000   output external delay
+                            100.000   data required time
+---------------------------------------------------------------------------
+                            100.000   data required time
+                            -11.172   data arrival time
+---------------------------------------------------------------------------
+                             88.828   slack (MET)
+
+
+RESULT addf_chain n12 tt_025C_3v30 worst_arrival_ns=11.172 startpoint=b[0] endpoint=s[11]
+RESULT_FROM addf_chain n12 tt_025C_3v30 from=cin arrival_ns=11.045 endpoint=s[11]
+RESULT_FROM addf_chain n12 tt_025C_3v30 from=a[0] arrival_ns=11.163 endpoint=s[11]
+RESULT_FROM addf_chain n12 tt_025C_3v30 from=b[0] arrival_ns=11.172 endpoint=s[11]

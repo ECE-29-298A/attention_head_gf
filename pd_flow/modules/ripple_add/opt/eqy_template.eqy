@@ -1,0 +1,13 @@
+[gold]
+read_verilog golden.v
+chparam -set N @N@ ripple_add
+prep -top ripple_add
+
+[gate]
+read_verilog dut.v
+chparam -set N @N@ ripple_add
+prep -top ripple_add
+
+[strategy sat]
+use sat
+depth 1
