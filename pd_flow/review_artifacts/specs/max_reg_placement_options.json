@@ -1,0 +1,28 @@
+{
+ "title": "max_reg Placement Options",
+ "module": "max_reg",
+ "date": "2026-11-26",
+ "commit": "3caf7b6",
+ "summary": "Three ways to place max_reg (22 flops, a signed 22-bit compare and the load mux) were tried in the chip against free placement: (b) only the 22 M flops fixed in a column; (b) the M flops and mac_unit's S flops fixed and bit-aligned; (a) a whole bit-sliced block fixed (sdffq_1 per bit with a compare slice). Every other cell was placed by the tool.",
+ "decision": {"label": "Not adopted; superseded by cluster design (D7)", "kind": "rejected",
+   "text": "No constrained option reduced chip area legally. b_m came in 35 µm² under the baseline, inside run-to-run noise, with an identical netlist and 4 cap violations. b_ms and the fixed block were larger and added wire (+8.8 mm and +12.2 mm). The block's own cells (2,952.5 µm²) only match the cells synthesis already gives max_reg inside the chip (2,954.7 µm²), so the loss comes from the rest of the chip being mapped and placed around it. max_reg will be placed together with mac_unit's S register and adder slice. The v2 block (63 × 22 sites, 96.6% packing, 2 split SE drivers) is kept as a building block."},
+ "baseline": {"label": "Baseline (free placement)", "run": "/Users/samuelzhang/ttharden/attention_head_gf"},
+ "runs": [
+   {"label": "b_m: 22 M flops fixed in a column", "run": "/Users/samuelzhang/ttharden/mr3_b_m",
+    "note": "Synthesized netlist byte-identical to the baseline; the flops are mapped by Q net and all 22 held FIXED."},
+   {"label": "b_ms: M and S flops fixed, bit-aligned", "run": "/Users/samuelzhang/ttharden/mr3_b_ms",
+    "note": "44 flops fixed; the netlist is byte-identical to the baseline."},
+   {"label": "a_sdff v1: whole bit-sliced block fixed", "run": "/Users/samuelzhang/ttharden/mr3_a_sdff",
+    "note": "109 cells fixed, 70 × 23 sites. Review B1: one buf_4 drove 22 SE pins, and repair added a dlyb_1 inside the block. v2 fixes this; v2 was not hardened."}],
+ "verification": [
+   "Frozen max_reg contract (hash 6d7f5b5ff9a94fc9): 17/17 RTL; 35/35 must-kill mutants killed; 3 survivors proven equivalent.",
+   "a_sdff v1 and v2 netlists: frozen contract in gate mode 19/19 (eqy_rtl proven). The orchestrator reran v2 itself.",
+   "Placement validator ALL_OK (v2): 12/12 self-tests fire only on their own check; 262,208 functional vectors with 0 mismatches.",
+   "All runs: setup and hold met at every corner; DRC, LVS and antenna 0. The independent review (round 1) confirmed every table number against the raw metrics."],
+ "evidence": [
+   "pd_flow/modules/max_reg/layout_plan/PLAN.md",
+   "pd_flow/modules/max_reg/layout_plan/tables.md",
+   "pd_flow/modules/max_reg/layout_review/REVIEW.md",
+   "pd_flow/modules/max_reg/layout_plan/out/max_reg_a_sdff.v",
+   "pd_flow/modules/max_reg/layout_plan/chip_runs/"]
+}

@@ -1,0 +1,22 @@
+{
+ "title": "ripple_add Carry Column",
+ "module": "ripple_add",
+ "date": "2026-11-26",
+ "commit": "b8558ce",
+ "summary": "The 22-bit and 12-bit adders inside mac_unit were built as fixed one-bit-per-row columns: addf_1 cells with an xor3_1 MSB whose carry is on the fast pin A3. They were integrated into the chip through MACRO_PLACEMENT_CFG, and the rest of the chip was placed by the tool.",
+ "decision": {"label": "Not adopted in the chip; kept as a building block", "kind": "block",
+   "text": "The columns signed off as standalone blocks (98.6% and 97.5% packing; DRC, LVS and SPICE clean). In the chip they added 221.7 µm² of std-cell area, lost 16.5 ns of slow-corner setup slack and raised power by 0.55 mW. Freezing the columns stops synthesis from merging the adders with the operand muxes around them, and the rest of the chip is placed around a rigid obstacle. Under D7 the columns are reused inside the mac_unit cluster, not as islands."},
+ "baseline": {"label": "Baseline (free placement)", "run": "/Users/samuelzhang/ttharden/attention_head_gf"},
+ "runs": [{"label": "fixed_a3: both adder columns fixed", "run": "/Users/samuelzhang/ttharden/ra_fixed_a3",
+   "note": "22 + 12 frozen cells placed FIXED at the configured coordinates. The final netlist check (impl/integration/chip_netlist_check.json) is ALL_PASS: a buffer-free carry chain and no resynthesis."}],
+ "verification": [
+   "Frozen ripple_add contract (hash b879560878477abf): 68/68 on the golden; formal proof for N = 1 to 64; 22/22 mutants killed.",
+   "Standalone blocks N=22 and N=12: Magic and KLayout DRC 0, antenna 0; Netgen and KLayout LVS match; post-layout SPICE 19/19 at tt, ss and ff.",
+   "Chip run: DRC (KLayout main) 0, antenna 0, LVS 0. The gate-level top test passes with initialized flop models (3 pass, 1 skip)."],
+ "evidence": [
+   "pd_flow/modules/ripple_add/REPORT.md",
+   "pd_flow/modules/ripple_add/PHASE3_GATE.md",
+   "pd_flow/modules/ripple_add/PHASE4_GATE.md",
+   "pd_flow/modules/ripple_add/layout_plan/chip_runs/fixed_a3",
+   "pd_flow/modules/ripple_add/impl/integration/chip_netlist_check.json"]
+}
