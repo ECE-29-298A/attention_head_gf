@@ -1,0 +1,1 @@
+vec	vec	pass-sampled	true	11.061	logs/vec.log	golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked); RESULT mode=vectors cycles=558544 expected=558544 seq_checked=558536 vec_checked=558536 mismatches=0

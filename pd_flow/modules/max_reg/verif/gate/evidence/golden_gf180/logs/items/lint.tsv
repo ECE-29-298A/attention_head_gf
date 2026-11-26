@@ -1,0 +1,1 @@
+lint	lint	pass-with-waiver	true	0.198	logs/lint.log	RESULT lint mode=gate warnings=9 netlist=0 library=9 errors=0; RESULT interface top=max_reg ports=['M', 'S_in', 'clk', 'en', 'first'] flop_bits=22 errors=0

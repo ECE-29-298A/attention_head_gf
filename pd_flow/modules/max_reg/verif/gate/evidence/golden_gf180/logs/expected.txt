@@ -1,0 +1,18 @@
+cells_prep prep
+selftest selftest
+lint lint
+build build
+vec vec 200000 1
+sim_ctrl sim ctrl 100000000 0xC0C0
+sim_free sim free 100000000 0xF00D
+sim_onestep sim onestep 6 6
+sim_powerup sim powerup 64
+fv_prove_step sby prove_step
+fv_pdr_step sby pdr_step
+fv_prove_seq sby prove_seq
+fv_pdr_seq sby pdr_seq
+fv_prove_pu sby prove_pu
+fv_pdr_pu sby pdr_pu
+fv_cover sby cover
+fv_sanity_unsigned sby sanity_unsigned
+fv_sanity_pu sby sanity_pu
