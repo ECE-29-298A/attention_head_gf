@@ -1,0 +1,12 @@
+# exp_lut Agent 1 smoke check (not the mutation campaign, which is Agent 2's): the frozen-candidate
+# contract run on 3 RTL mutants and 1 gate-level mutant; every one must have all_ok = false.
+# Sources: evidence/smoke_mutants/m_*.v (golden with one edit). Runs: scratchpad, --jobs 3.
+m_tab20: RTL: table entry D'=20 gives 1 instead of 2 (one wrong LUT value)
+  11/29 ok, all_ok=False; killed by: sim_exh_r0 sim_exh_r1 sim_powerup_r1 sim_seq_r1 vec_r1 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 ivl_exh_r1_s0_3 ivl_exh_r1_s12_15 ivl_exh_r1_s4_7 ivl_exh_r1_s8_11 fv_cover_r0 fv_equiv_r0 fv_pdr_equiv_r0 fv_pdr_r1 fv_prove_r1
+m_trunc: RTL: rounding bit dropped (D' truncated instead of rounded half up)
+  10/29 ok, all_ok=False; killed by: sim_exh_r0 sim_exh_r1 sim_powerup_r1 sim_seq_r1 vec_r1 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 ivl_exh_r1_s0_3 ivl_exh_r1_s12_15 ivl_exh_r1_s4_7 ivl_exh_r1_s8_11 fv_cover_r0 fv_equiv_r0 fv_pdr_equiv_r0 fv_pdr_r1 fv_prove_r1 fv_sanity_trunc_r0
+m_d21: RTL: D[21] ignored in the out-of-range term (D >= 2^21 no longer forced to 0)
+  11/29 ok, all_ok=False; killed by: sim_exh_r0 sim_exh_r1 sim_powerup_r1 sim_seq_r1 vec_r1 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 ivl_exh_r1_s0_3 ivl_exh_r1_s12_15 ivl_exh_r1_s4_7 ivl_exh_r1_s8_11 fv_equiv_r0 fv_pdr_equiv_r0 fv_pdr_r1 fv_prove_r1 fv_sanity_d21_r0
+g_tab20: gate r0: GF180 netlist of m_tab20 (gate/synth_gf180.sh <out> 0 m_tab20.v), --gate --registered 0
+  7/16 ok, all_ok=False; killed by: sim_exh_r0 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 fv_cover_r0 fv_equiv_r0 fv_pdr_equiv_r0 eqy_rtl
+Note: m_trunc and m_d21 also make fv_sanity_trunc_r0 / fv_sanity_d21_r0 'pass' (the DUT matches the wrong reference), which is reported as not ok, as intended.

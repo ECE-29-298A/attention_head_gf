@@ -1,0 +1,28 @@
+# Gate mode item eqy_rtl: the netlist (Yosys view exp_lut_fv.v: netlist + combinational PDK
+# models + liberty flop models) against the golden RTL (snapshot/exp_lut.v) at the same
+# REGISTERED value (@REG@ is replaced by run_all.sh). Strategy sat, depth 1.
+#   REGISTERED = 0: no state; each partition is a combinational function of the inputs, so
+#     PASS is a complete combinational equivalence.
+#   REGISTERED = 1: the 9 state bits are matched by name (they drive the outputs W and done
+#     directly in both designs); each partition's next-state and output functions are
+#     proven equal, an unbounded equivalence proof. A netlist that re-encodes the state so
+#     that no name match exists gives "equivalence unknown" (failed) and would need its own
+#     reviewed match.
+# proc -norom: case tables stay logic; EQY's sat strategy skips partitions that contain a
+# memory (the golden's weight table would otherwise become a ROM, "No configured strategy").
+[gold]
+read_verilog -sv gold.v
+chparam -set REGISTERED @REG@ exp_lut
+hierarchy -top exp_lut
+proc -norom
+prep -top exp_lut
+
+[gate]
+read_verilog gate.v
+hierarchy -top exp_lut
+proc -norom; flatten; opt_clean
+prep -top exp_lut
+
+[strategy sat]
+use sat
+depth 1

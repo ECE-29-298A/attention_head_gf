@@ -1,0 +1,231 @@
+{
+  "module": "exp_lut",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/verif/gate/netlists/exp_lut_r1_clkbuf_gf180.v",
+  "dut_sha256": "8e39192eefce9b1ec96533a08c85ad81ac052a04c8036a08ca30437ad14f639d",
+  "mode": "gate-level",
+  "registered": 1,
+  "cells": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog",
+  "flop_liberty": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib",
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 282.847,
+  "items_total": 19,
+  "items_ok": 19,
+  "all_ok": true,
+  "items": [
+    {
+      "id": "cells_prep",
+      "kind": "prep",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.237,
+      "log": "logs/cells_prep.log",
+      "detail": "RESULT cells netlist_modules=['exp_lut'] cell_types=25 models_copied=51 udps=1 liberty_flop_cells=1 netlist_lines=792; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "gen",
+      "kind": "gen",
+      "status": "pass",
+      "ok": true,
+      "seconds": 2.03,
+      "log": "logs/gen.log",
+      "detail": "RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206049",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 1.101,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "lint_r1",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.266,
+      "log": "logs/lint_r1.log",
+      "detail": "RESULT lint mode=gate warnings=9 netlist=0 library=9 port_waived=0 errors=0; RESULT interface top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "build_r1",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.212,
+      "log": "logs/build_r1.log",
+      "detail": "obj_r1/sim",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_exh_r1",
+      "kind": "sim",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 22.315,
+      "log": "logs/sim_exh_r1.log",
+      "detail": "RESULT_EXH1 loads=67108864 (expected 67108864) shadow_checked=134234113; RESULT mode=exh1 cycles=134234113 checked=134234113 mismatches=0",
+      "label": "pass-exhaustive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_powerup_r1",
+      "kind": "sim",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.43,
+      "log": "logs/sim_powerup_r1.log",
+      "detail": "RESULT_POWERUP seeds=64 distinct_initial_state=60; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_seq_r1",
+      "kind": "sim",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 19.572,
+      "log": "logs/sim_seq_r1.log",
+      "detail": "RESULT_SEQ regimes=98061 shadow_checked=99996179; RESULT mode=seq cycles=100000000 expected=100000000 checked=100000000 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "vec_r1",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 6.606,
+      "log": "logs/vec_r1.log",
+      "detail": "golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "ivl_exh_r1_s0_3",
+      "kind": "ivl",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 165.375,
+      "log": "logs/ivl_exh_r1_s0_3.log",
+      "detail": "RESULT sim=icarus reg=1 shifts=0..3 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 0..3 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))",
+      "label": "pass-exhaustive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "ivl_exh_r1_s12_15",
+      "kind": "ivl",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 125.177,
+      "log": "logs/ivl_exh_r1_s12_15.log",
+      "detail": "RESULT sim=icarus reg=1 shifts=12..15 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 12..15 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))",
+      "label": "pass-exhaustive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "ivl_exh_r1_s4_7",
+      "kind": "ivl",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 130.56,
+      "log": "logs/ivl_exh_r1_s4_7.log",
+      "detail": "RESULT sim=icarus reg=1 shifts=4..7 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 4..7 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))",
+      "label": "pass-exhaustive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "ivl_exh_r1_s8_11",
+      "kind": "ivl",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 126.952,
+      "log": "logs/ivl_exh_r1_s8_11.log",
+      "detail": "RESULT sim=icarus reg=1 shifts=8..11 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 8..11 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))",
+      "label": "pass-exhaustive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_cover_r1",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 2.346,
+      "log": "logs/fv_cover_r1.log",
+      "detail": "sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10",
+      "label": "bounded-pass",
+      "expected_outcome": "pass",
+      "depth": 10
+    },
+    {
+      "id": "fv_pdr_r1",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 2.148,
+      "log": "logs/fv_pdr_r1.log",
+      "detail": "sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_r1",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 3.433,
+      "log": "logs/fv_prove_r1.log",
+      "detail": "sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_sanity_lat0_r1",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.884,
+      "log": "logs/fv_sanity_lat0_r1.log",
+      "detail": "sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0",
+      "label": "failed",
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "fv_sanity_pu_r1",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.772,
+      "log": "logs/fv_sanity_pu_r1.log",
+      "detail": "sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu",
+      "label": "failed",
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "eqy_rtl",
+      "kind": "eqy",
+      "status": "proven",
+      "ok": true,
+      "seconds": 1.523,
+      "log": "logs/eqy_rtl.log",
+      "detail": "eqy_status=PASS partitions_proved=9 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=1)",
+      "label": "proven",
+      "expected_outcome": "pass"
+    }
+  ]
+}
