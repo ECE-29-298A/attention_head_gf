@@ -1,0 +1,4630 @@
+{
+ "../../baseline/harden/nl/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "../../baseline/harden/pnl/tt_um_attention_head_gf.pnl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "/Users/samuelzhang/ttharden/llsynth/base/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "/Users/samuelzhang/ttharden/mr3_b_m/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "/Users/samuelzhang/ttharden/mr3_b_ms/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "layout_plan/chip_runs/b_m/harden/pnl/tt_um_attention_head_gf.pnl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/c00_golden.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/n01_comment.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/n02_swap_or.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/n03_swap_and.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2241_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2242_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2243_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2244_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2245_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2246_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2247_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2248_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2249_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2250_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2251_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2252_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2253_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2254_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2284_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/n04_load_wire.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/n05_nested_if.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2298_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2299_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2300_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2301_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2302_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2303_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2304_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2305_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2306_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/n06_lt_swap.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2298_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2299_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2300_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2301_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2302_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v1.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v2.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2241_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2242_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2243_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2244_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2245_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2246_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2247_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2248_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2249_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2250_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2251_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2252_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2253_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2254_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2284_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v3.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v4.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2298_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2299_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2300_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2301_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2302_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2303_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2304_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2305_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2306_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v5.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2298_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2299_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2300_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2301_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2302_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2303_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2304_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2305_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2306_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2307_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2308_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2309_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2310_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2311_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2312_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2313_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2314_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2315_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2316_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2317_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2318_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2319_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2320_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2321_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2322_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2323_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2324_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2325_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2326_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2327_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2328_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v6.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v7.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/g_v8.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2298_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/c10_clean.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2176_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2177_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2178_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2179_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2180_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2181_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2182_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2183_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2184_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2185_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2186_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2187_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2188_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2189_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2190_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2191_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2192_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2193_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2194_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2195_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2196_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2197_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2198_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2199_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2200_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2201_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2202_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2203_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2204_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2205_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2206_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2207_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2208_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2209_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2210_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2211_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2212_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2213_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2214_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2215_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2216_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2217_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2218_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2219_",
+   "dffq_1"
+  ]
+ },
+ "opt/shipped_flow/c01_ge.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2292_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2293_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2294_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2295_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2296_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2297_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2298_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2299_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2300_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2301_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2302_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2303_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2304_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2305_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2306_",
+   "dffq_1"
+  ]
+ },
+ "../ripple_add/layout_plan/chip_runs/hyb/harden/nl/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_1788_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_1789_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_1790_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_1791_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_1792_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_1793_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_1794_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_1795_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_1796_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_1797_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_1798_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_1799_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_1800_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_1801_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_1802_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_1803_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_1804_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_1805_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_1806_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_1807_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_1808_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_1809_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_1810_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_1811_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_1812_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_1813_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_1814_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_1815_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_1816_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_1817_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_1818_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_1819_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_1820_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_1821_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_1822_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_1823_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_1824_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_1825_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_1826_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_1827_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_1828_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_1829_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_1830_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_1831_",
+   "dffq_1"
+  ]
+ },
+ "../ripple_add/layout_plan/chip_runs/n03/harden/nl/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2249_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2250_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2251_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2252_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2253_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2254_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2258_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2259_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2260_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2261_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2262_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2263_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2264_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2265_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2266_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2267_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2268_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2269_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2270_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2271_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2272_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2273_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2274_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2275_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2276_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2277_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2278_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2279_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2280_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2281_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2282_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2283_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2284_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2285_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2286_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2287_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2288_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2289_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2290_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2291_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2292_",
+   "dffq_1"
+  ]
+ },
+ "../ripple_add/layout_plan/chip_runs/n04/harden/nl/tt_um_attention_head_gf.nl.v": {
+  "core.exponent_unit.D[0]": [
+   "_2215_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[1]": [
+   "_2216_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[2]": [
+   "_2217_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[3]": [
+   "_2218_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[4]": [
+   "_2219_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[5]": [
+   "_2220_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[6]": [
+   "_2221_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[7]": [
+   "_2222_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[8]": [
+   "_2223_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[9]": [
+   "_2224_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[10]": [
+   "_2225_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[11]": [
+   "_2226_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[12]": [
+   "_2227_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[13]": [
+   "_2228_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[14]": [
+   "_2229_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[15]": [
+   "_2230_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[16]": [
+   "_2231_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[17]": [
+   "_2232_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[18]": [
+   "_2233_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[19]": [
+   "_2234_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[20]": [
+   "_2235_",
+   "dffq_1"
+  ],
+  "core.exponent_unit.D[21]": [
+   "_2236_",
+   "dffq_1"
+  ],
+  "core.mac.M[0]": [
+   "_2237_",
+   "dffq_1"
+  ],
+  "core.mac.M[1]": [
+   "_2238_",
+   "dffq_1"
+  ],
+  "core.mac.M[2]": [
+   "_2239_",
+   "dffq_1"
+  ],
+  "core.mac.M[3]": [
+   "_2240_",
+   "dffq_1"
+  ],
+  "core.mac.M[4]": [
+   "_2241_",
+   "dffq_1"
+  ],
+  "core.mac.M[5]": [
+   "_2242_",
+   "dffq_1"
+  ],
+  "core.mac.M[6]": [
+   "_2243_",
+   "dffq_1"
+  ],
+  "core.mac.M[7]": [
+   "_2244_",
+   "dffq_1"
+  ],
+  "core.mac.M[8]": [
+   "_2245_",
+   "dffq_1"
+  ],
+  "core.mac.M[9]": [
+   "_2246_",
+   "dffq_1"
+  ],
+  "core.mac.M[10]": [
+   "_2247_",
+   "dffq_1"
+  ],
+  "core.mac.M[11]": [
+   "_2248_",
+   "dffq_1"
+  ],
+  "core.mac.M[12]": [
+   "_2249_",
+   "dffq_1"
+  ],
+  "core.mac.M[13]": [
+   "_2250_",
+   "dffq_1"
+  ],
+  "core.mac.M[14]": [
+   "_2251_",
+   "dffq_1"
+  ],
+  "core.mac.M[15]": [
+   "_2252_",
+   "dffq_1"
+  ],
+  "core.mac.M[16]": [
+   "_2253_",
+   "dffq_1"
+  ],
+  "core.mac.M[17]": [
+   "_2254_",
+   "dffq_1"
+  ],
+  "core.mac.M[18]": [
+   "_2255_",
+   "dffq_1"
+  ],
+  "core.mac.M[19]": [
+   "_2256_",
+   "dffq_1"
+  ],
+  "core.mac.M[20]": [
+   "_2257_",
+   "dffq_1"
+  ],
+  "core.mac.M[21]": [
+   "_2258_",
+   "dffq_1"
+  ]
+ }
+}

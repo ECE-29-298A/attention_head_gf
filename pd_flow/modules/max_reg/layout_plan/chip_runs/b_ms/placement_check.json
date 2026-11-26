@@ -1,0 +1,232 @@
+{
+ "cfg": "out/b_ms/chip_anchor.cfg",
+ "netlist": "chip_runs/b_ms/harden/pnl/tt_um_attention_head_gf.pnl.v",
+ "defs": {
+  "chip_runs/b_ms/harden/steps/17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+   "instances": 44,
+   "found": 44,
+   "exact": 44,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/b_ms/harden/steps/34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+   "instances": 44,
+   "found": 44,
+   "exact": 44,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/b_ms/harden/steps/35-openroad-cts/tt_um_attention_head_gf.def": {
+   "instances": 44,
+   "found": 44,
+   "exact": 44,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/b_ms/harden/def/tt_um_attention_head_gf.def": {
+   "instances": 44,
+   "found": 44,
+   "exact": 44,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  }
+ },
+ "q_nets": {
+  "_2255_": [
+   "dffq_1",
+   "core.exponent_unit.D[0]"
+  ],
+  "_2277_": [
+   "dffq_1",
+   "core.mac.M[0]"
+  ],
+  "_2256_": [
+   "dffq_1",
+   "core.exponent_unit.D[1]"
+  ],
+  "_2278_": [
+   "dffq_1",
+   "core.mac.M[1]"
+  ],
+  "_2257_": [
+   "dffq_1",
+   "core.exponent_unit.D[2]"
+  ],
+  "_2279_": [
+   "dffq_1",
+   "core.mac.M[2]"
+  ],
+  "_2258_": [
+   "dffq_1",
+   "core.exponent_unit.D[3]"
+  ],
+  "_2280_": [
+   "dffq_1",
+   "core.mac.M[3]"
+  ],
+  "_2259_": [
+   "dffq_1",
+   "core.exponent_unit.D[4]"
+  ],
+  "_2281_": [
+   "dffq_1",
+   "core.mac.M[4]"
+  ],
+  "_2260_": [
+   "dffq_1",
+   "core.exponent_unit.D[5]"
+  ],
+  "_2282_": [
+   "dffq_1",
+   "core.mac.M[5]"
+  ],
+  "_2261_": [
+   "dffq_1",
+   "core.exponent_unit.D[6]"
+  ],
+  "_2283_": [
+   "dffq_1",
+   "core.mac.M[6]"
+  ],
+  "_2262_": [
+   "dffq_1",
+   "core.exponent_unit.D[7]"
+  ],
+  "_2284_": [
+   "dffq_1",
+   "core.mac.M[7]"
+  ],
+  "_2263_": [
+   "dffq_1",
+   "core.exponent_unit.D[8]"
+  ],
+  "_2285_": [
+   "dffq_1",
+   "core.mac.M[8]"
+  ],
+  "_2264_": [
+   "dffq_1",
+   "core.exponent_unit.D[9]"
+  ],
+  "_2286_": [
+   "dffq_1",
+   "core.mac.M[9]"
+  ],
+  "_2265_": [
+   "dffq_1",
+   "core.exponent_unit.D[10]"
+  ],
+  "_2287_": [
+   "dffq_1",
+   "core.mac.M[10]"
+  ],
+  "_2266_": [
+   "dffq_1",
+   "core.exponent_unit.D[11]"
+  ],
+  "_2288_": [
+   "dffq_1",
+   "core.mac.M[11]"
+  ],
+  "_2267_": [
+   "dffq_1",
+   "core.exponent_unit.D[12]"
+  ],
+  "_2289_": [
+   "dffq_1",
+   "core.mac.M[12]"
+  ],
+  "_2268_": [
+   "dffq_1",
+   "core.exponent_unit.D[13]"
+  ],
+  "_2290_": [
+   "dffq_1",
+   "core.mac.M[13]"
+  ],
+  "_2269_": [
+   "dffq_1",
+   "core.exponent_unit.D[14]"
+  ],
+  "_2291_": [
+   "dffq_1",
+   "core.mac.M[14]"
+  ],
+  "_2270_": [
+   "dffq_1",
+   "core.exponent_unit.D[15]"
+  ],
+  "_2292_": [
+   "dffq_1",
+   "core.mac.M[15]"
+  ],
+  "_2271_": [
+   "dffq_1",
+   "core.exponent_unit.D[16]"
+  ],
+  "_2293_": [
+   "dffq_1",
+   "core.mac.M[16]"
+  ],
+  "_2272_": [
+   "dffq_1",
+   "core.exponent_unit.D[17]"
+  ],
+  "_2294_": [
+   "dffq_1",
+   "core.mac.M[17]"
+  ],
+  "_2273_": [
+   "dffq_1",
+   "core.exponent_unit.D[18]"
+  ],
+  "_2295_": [
+   "dffq_1",
+   "core.mac.M[18]"
+  ],
+  "_2274_": [
+   "dffq_1",
+   "core.exponent_unit.D[19]"
+  ],
+  "_2296_": [
+   "dffq_1",
+   "core.mac.M[19]"
+  ],
+  "_2275_": [
+   "dffq_1",
+   "core.exponent_unit.D[20]"
+  ],
+  "_2297_": [
+   "dffq_1",
+   "core.mac.M[20]"
+  ],
+  "_2276_": [
+   "dffq_1",
+   "core.exponent_unit.D[21]"
+  ],
+  "_2298_": [
+   "dffq_1",
+   "core.mac.M[21]"
+  ]
+ }
+}

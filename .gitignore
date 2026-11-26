@@ -48,3 +48,6 @@ pd_flow/**/integration/cell_models_*.v
 pd_flow/**/opt/**/*.nl.v
 pd_flow/**/opt/**/*.il
 pd_flow/**/opt/**/model.json
+pd_flow/**/superseded/**/formal/runs/
+pd_flow/**/contract_*/formal/runs/
+pd_flow/**/chip_runs/**/def/

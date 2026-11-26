@@ -1,0 +1,3 @@
+overlay keys: ['MACRO_PLACEMENT_CFG', 'VERILOG_DEFINES']
+harden rc=0 seconds=77
+tools/harden.sh a_sdff chip_runs/a_sdff/rtl chip_runs/a_sdff/overlay.json   1.95s user 1.03s system 3% cpu 1:18.60 total

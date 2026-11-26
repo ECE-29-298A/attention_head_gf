@@ -1,0 +1,6 @@
+run                                       yosys_area liberty_area    delta cells
+base.stat.json                               41116.1      41116.1     +0.0 1434
+mr3s_a_sdff.stat.json                        39599.2      41434.4   +318.3 1396
+   by family (count, um2): dffq -22/-1401, oai21 -27/-474, nand2 -41/-450, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, aoi21 -1/-18, clkinv -2/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, nor2 +5/+66, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, mux2 +5/+165, inv +22/+193, aoi222 +19/+584, sdffq +22/+1835
+mr3s_a_dff.stat.json                         41724.2      41724.2   +608.1 1418
+   by family (count, um2): oai21 -27/-474, nand2 -41/-450, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, aoi21 -1/-18, clkinv -2/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, nor2 +5/+66, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, inv +22/+193, aoi222 +19/+584, mux2 +27/+889

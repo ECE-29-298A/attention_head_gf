@@ -1,0 +1,54 @@
+{
+ "base": {
+  "def": "../../../baseline/harden/def/tt_um_attention_head_gf.def",
+  "counts": {
+   "M": 22,
+   "S": 22,
+   "block": 0,
+   "excl_cone": 112
+  },
+  "rest": 43384.5,
+  "maxreg": 5928.2,
+  "clock": 4575.5,
+  "total": 53888.2
+ },
+ "b_m": {
+  "def": "chip_runs/b_m/harden/def/tt_um_attention_head_gf.def",
+  "counts": {
+   "M": 22,
+   "S": 22,
+   "block": 0,
+   "excl_cone": 111
+  },
+  "rest": 45279.0,
+  "maxreg": 6819.7,
+  "clock": 4500.6,
+  "total": 56599.3
+ },
+ "b_ms": {
+  "def": "chip_runs/b_ms/harden/def/tt_um_attention_head_gf.def",
+  "counts": {
+   "M": 22,
+   "S": 22,
+   "block": 0,
+   "excl_cone": 112
+  },
+  "rest": 48423.6,
+  "maxreg": 9718.5,
+  "clock": 4536.7,
+  "total": 62678.8
+ },
+ "a_sdff": {
+  "def": "chip_runs/a_sdff/harden/def/tt_um_attention_head_gf.def",
+  "counts": {
+   "M": 22,
+   "S": 22,
+   "block": 109,
+   "excl_cone": 89
+  },
+  "rest": 54442.9,
+  "maxreg": 6888.6,
+  "clock": 4788.5,
+  "total": 66120.0
+ }
+}

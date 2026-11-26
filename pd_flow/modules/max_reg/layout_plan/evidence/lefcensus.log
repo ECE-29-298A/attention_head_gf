@@ -1,0 +1,105 @@
+site {'name': 'GF018hv5v_mcu_sc7', 'class': 'core', 'w': 0.56, 'h': 3.92} grid 0.005
+layer   dir        pitch offset width space minarea shortest_wire
+Metal1  HORIZONTAL  0.56  0.00 0.230 0.230  0.1444  0.628
+Metal2  VERTICAL    0.56  0.00 0.280 0.280  0.1444  0.516
+Metal3  HORIZONTAL  0.56  0.00 0.280 0.280  0.1444  0.516
+Metal4  VERTICAL    0.56  0.00 0.280 0.280  0.1444  0.516
+Metal5  HORIZONTAL  0.90  0.00 0.440 0.460  0.5625  1.278
+tracks.info: [('Metal1', 'X', 0.28, 0.56), ('Metal1', 'Y', 0.28, 0.56), ('Metal2', 'X', 0.28, 0.56), ('Metal2', 'Y', 0.28, 0.56), ('Metal3', 'X', 0.28, 0.56), ('Metal3', 'Y', 0.28, 0.56), ('Metal4', 'X', 0.28, 0.56), ('Metal4', 'Y', 0.28, 0.56), ('Metal5', 'X', 0.45, 0.9), ('Metal5', 'Y', 0.45, 0.9)]
+
+gf180mcu_fd_sc_mcu7t5v0__dffq_1: 16.24 x 3.92 um = 29 sites, 63.6608 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   D    INPUT  access M2-track x (N): [4.76]  [1]
+   CLK  INPUT  access M2-track x (N): [0.84, 1.4]  [2]
+   Q    OUTPUT access M2-track x (N): [15.4]  [1]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__sdffq_1: 21.28 x 3.92 um = 38 sites, 83.4176 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   D    INPUT  access M2-track x (N): [3.64, 4.2, 4.76]  [3]
+   SE   INPUT  access M2-track x (N): [0.84]  [1]
+   SI   INPUT  access M2-track x (N): [1.96]  [1]
+   CLK  INPUT  access M2-track x (N): [5.88, 6.44]  [2]
+   Q    OUTPUT access M2-track x (N): [21.0]  [1]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__aoi21_1: 4.48 x 3.92 um = 8 sites, 17.5616 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   A1   INPUT  access M2-track x (N): [1.96, 2.52]  [2]
+   A2   INPUT  access M2-track x (N): [0.28, 0.84]  [2]
+   B    INPUT  access M2-track x (N): [3.08, 3.64]  [2]
+   ZN   OUTPUT access M2-track x (N): [1.4, 1.96]  [2]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__oai21_1: 4.48 x 3.92 um = 8 sites, 17.5616 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   A1   INPUT  access M2-track x (N): [1.96]  [1]
+   A2   INPUT  access M2-track x (N): [0.84]  [1]
+   B    INPUT  access M2-track x (N): [3.08, 3.64, 4.2]  [3]
+   ZN   OUTPUT access M2-track x (N): [1.4, 1.96]  [2]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__nand2_1: 2.8 x 3.92 um = 5 sites, 10.976 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   A1   INPUT  access M2-track x (N): [1.4]  [1]
+   A2   INPUT  access M2-track x (N): [0.84]  [1]
+   ZN   OUTPUT access M2-track x (N): [2.52]  [1]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__nor2_1: 3.36 x 3.92 um = 6 sites, 13.1712 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   A1   INPUT  access M2-track x (N): [1.96, 2.52]  [2]
+   A2   INPUT  access M2-track x (N): [0.84]  [1]
+   ZN   OUTPUT access M2-track x (N): [1.4, 1.96, 2.52]  [3]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__inv_1: 2.24 x 3.92 um = 4 sites, 8.7808 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   I    INPUT  access M2-track x (N): [0.84]  [1]
+   ZN   OUTPUT access M2-track x (N): [1.4]  [1]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__buf_4: 7.84 x 3.92 um = 14 sites, 30.7328 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   I    INPUT  access M2-track x (N): [0.84, 1.4, 1.96]  [3]
+   Z    OUTPUT access M2-track x (N): [4.2, 4.76, 5.32, 5.88]  [4]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__aoi222_1: 7.84 x 3.92 um = 14 sites, 30.7328 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   A1   INPUT  access M2-track x (N): [7.0, 7.56]  [2]
+   A2   INPUT  access M2-track x (N): [5.32, 5.88]  [2]
+   B1   INPUT  access M2-track x (N): [2.52, 3.08, 3.64]  [3]
+   B2   INPUT  access M2-track x (N): [4.2, 4.76]  [2]
+   C1   INPUT  access M2-track x (N): [1.96]  [1]
+   C2   INPUT  access M2-track x (N): [0.84, 1.4]  [2]
+   ZN   OUTPUT access M2-track x (N): [6.44, 7.0]  [2]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']
+
+gf180mcu_fd_sc_mcu7t5v0__mux2_2: 8.4 x 3.92 um = 15 sites, 32.928 um2, symmetry ['X', 'Y'], layers ['Metal1', 'Nwell', 'Pwell'], M2+ shapes: False
+   I0   INPUT  access M2-track x (N): [5.88, 6.44, 7.0]  [3]
+   I1   INPUT  access M2-track x (N): [3.08]  [1]
+   S    INPUT  access M2-track x (N): [4.2, 4.76, 5.32, 5.88, 6.44, 7.0]  [6]
+   Z    OUTPUT access M2-track x (N): [1.4]  [1]
+   VDD  POWER ABUTMENT ['Metal1']
+   VNW  POWER None ['Nwell']
+   VPW  GROUND None ['Pwell']
+   VSS  GROUND ABUTMENT ['Metal1']

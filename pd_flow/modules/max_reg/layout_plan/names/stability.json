@@ -1,0 +1,374 @@
+{
+ "rule": "Instance names of the M (Q = core.mac.M[k]) and S (Q = core.exponent_unit.D[k]) flops in shipped-flow netlists. Yosys numbers them _NNNN_ in netlist order; Q net names are public wire names and always present.",
+ "rows": [
+  {
+   "netlist": "../../baseline/harden/nl/tt_um_attention_head_gf.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a8286e1b9a4d73f2"
+  },
+  {
+   "netlist": "../../baseline/harden/pnl/tt_um_attention_head_gf.pnl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "18497563c6141a82"
+  },
+  {
+   "netlist": "/Users/samuelzhang/ttharden/llsynth/base/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "/Users/samuelzhang/ttharden/mr3_b_m/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "/Users/samuelzhang/ttharden/mr3_b_ms/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "layout_plan/chip_runs/b_m/harden/pnl/tt_um_attention_head_gf.pnl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "bf1ed0cef515220e"
+  },
+  {
+   "netlist": "opt/shipped_flow/c00_golden.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/n01_comment.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/n02_swap_or.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/n03_swap_and.nl.v",
+   "M_first": "_2263_",
+   "M_last": "_2284_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2241_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a2613e6bca047e43"
+  },
+  {
+   "netlist": "opt/shipped_flow/n04_load_wire.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/n05_nested_if.nl.v",
+   "M_first": "_2285_",
+   "M_last": "_2306_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2263_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "beb9a75f29767998"
+  },
+  {
+   "netlist": "opt/shipped_flow/n06_lt_swap.nl.v",
+   "M_first": "_2281_",
+   "M_last": "_2302_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2259_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "6b5fe51d71c5b6b5"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v1.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v2.nl.v",
+   "M_first": "_2263_",
+   "M_last": "_2284_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2241_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a2613e6bca047e43"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v3.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "3834566feda6fd00"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v4.nl.v",
+   "M_first": "_2285_",
+   "M_last": "_2306_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2263_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "beb9a75f29767998"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v5.nl.v",
+   "M_first": "_2307_",
+   "M_last": "_2328_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2285_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "165d46b281fd4511"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v6.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "3834566feda6fd00"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v7.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/g_v8.nl.v",
+   "M_first": "_2277_",
+   "M_last": "_2298_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": true,
+   "S_first": "_2255_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": true,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "a339bf991497fc19"
+  },
+  {
+   "netlist": "opt/shipped_flow/c10_clean.nl.v",
+   "M_first": "_2198_",
+   "M_last": "_2219_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2176_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "e8fa21a24a4946c6"
+  },
+  {
+   "netlist": "opt/shipped_flow/c01_ge.nl.v",
+   "M_first": "_2285_",
+   "M_last": "_2306_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2263_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "c3428c1599c952de"
+  },
+  {
+   "netlist": "../ripple_add/layout_plan/chip_runs/hyb/harden/nl/tt_um_attention_head_gf.nl.v",
+   "M_first": "_1810_",
+   "M_last": "_1831_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_1788_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "15e4e869f7e7a112"
+  },
+  {
+   "netlist": "../ripple_add/layout_plan/chip_runs/n03/harden/nl/tt_um_attention_head_gf.nl.v",
+   "M_first": "_2271_",
+   "M_last": "_2292_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2249_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "55117a325f4f7c30"
+  },
+  {
+   "netlist": "../ripple_add/layout_plan/chip_runs/n04/harden/nl/tt_um_attention_head_gf.nl.v",
+   "M_first": "_2237_",
+   "M_last": "_2258_",
+   "M_contiguous_bit_order": true,
+   "M_same_as_baseline": false,
+   "S_first": "_2215_",
+   "S_contiguous_bit_order": true,
+   "S_same_as_baseline": false,
+   "masters": [
+    "dffq_1"
+   ],
+   "netlist_sha256": "3232857092f81b76"
+  }
+ ],
+ "summary": {
+  "same_as_baseline": 15,
+  "total": 26,
+  "always_contiguous_bit_order": true
+ }
+}

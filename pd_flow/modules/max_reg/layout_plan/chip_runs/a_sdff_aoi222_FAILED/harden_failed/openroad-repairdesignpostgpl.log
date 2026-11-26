@@ -1,0 +1,268 @@
+Reading timing models for corner max_ss_125C_3v00…
+Reading timing library for the 'max_ss_125C_3v00' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00.lib'…
+Reading timing models for corner max_tt_025C_3v30…
+Reading timing library for the 'max_tt_025C_3v30' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib'…
+Reading timing models for corner min_ff_n40C_3v60…
+Reading timing library for the 'min_ff_n40C_3v60' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60.lib'…
+Reading timing models for corner nom_ss_125C_3v00…
+Reading timing library for the 'nom_ss_125C_3v00' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00.lib'…
+[WARNING STA-1140] /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00 already exists.
+Reading timing models for corner nom_tt_025C_3v30…
+Reading timing library for the 'nom_tt_025C_3v30' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib'…
+[WARNING STA-1140] /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30 already exists.
+Reading timing models for corner max_ff_n40C_3v60…
+Reading timing library for the 'max_ff_n40C_3v60' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60.lib'…
+[WARNING STA-1140] /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60 already exists.
+Reading timing models for corner min_ss_125C_3v00…
+Reading timing library for the 'min_ss_125C_3v00' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00.lib'…
+[WARNING STA-1140] /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ss_125C_3v00 already exists.
+Reading timing models for corner min_tt_025C_3v30…
+Reading timing library for the 'min_tt_025C_3v30' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib'…
+[WARNING STA-1140] /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30 already exists.
+Reading timing models for corner nom_ff_n40C_3v60…
+Reading timing library for the 'nom_ff_n40C_3v60' corner at '/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60.lib'…
+[WARNING STA-1140] /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60.lib line 17, library gf180mcu_fd_sc_mcu7t5v0__ff_n40C_3v60 already exists.
+Reading OpenROAD database at '/Users/samuelzhang/ttharden/mr3_a_sdff/runs/wokwi/28-openroad-globalplacement/tt_um_attention_head_gf.odb'…
+Reading design constraints file at '/nix/store/f8bhalkl3s4vjwd7g271xz92bra8yrm5-python3-3.13.9-env/lib/python3.13/site-packages/librelane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 20.0
+[INFO] Setting input delay to: 20.0
+[INFO] Setting load to: 0.07291
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5.0%
++ repair_design -verbose -max_wire_length 0.0 -slew_margin 10.0 -cap_margin 10.0
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      1415
+       10 |     +0.0% |       0 |       0 |             0 |      1405
+       20 |     +0.0% |       0 |       0 |             0 |      1395
+       30 |     +0.0% |       0 |       0 |             0 |      1385
+       40 |     +0.0% |       0 |       0 |             0 |      1375
+       50 |     +0.1% |       0 |       1 |             1 |      1365
+       60 |     +0.1% |       0 |       1 |             1 |      1355
+       70 |     +0.1% |       0 |       1 |             1 |      1345
+       80 |     +0.1% |       0 |       1 |             1 |      1335
+       90 |     +0.1% |       1 |       1 |             2 |      1325
+      100 |     +0.3% |       2 |       1 |             3 |      1315
+      110 |     +0.3% |       2 |       1 |             3 |      1305
+      120 |     +0.5% |       3 |       2 |             4 |      1295
+      130 |     +0.8% |       4 |       3 |             5 |      1285
+      140 |     +1.0% |       6 |       4 |             7 |      1275
+      150 |     +1.0% |       6 |       4 |             7 |      1265
+      160 |     +1.0% |       6 |       4 |             7 |      1255
+      170 |     +1.2% |       7 |       5 |             8 |      1245
+      180 |     +1.2% |       7 |       5 |             8 |      1235
+      190 |     +1.2% |       7 |       5 |             8 |      1225
+      200 |     +1.6% |      10 |       7 |            10 |      1215
+      210 |     +1.6% |      10 |       7 |            10 |      1205
+      220 |     +1.8% |      11 |       8 |            11 |      1195
+      230 |     +1.8% |      11 |       8 |            11 |      1185
+      240 |     +1.8% |      11 |       8 |            11 |      1175
+      250 |     +2.0% |      12 |       9 |            12 |      1165
+      260 |     +2.0% |      12 |       9 |            12 |      1155
+      270 |     +2.0% |      12 |       9 |            12 |      1145
+      280 |     +2.0% |      12 |       9 |            12 |      1135
+      290 |     +2.2% |      13 |      10 |            13 |      1125
+      300 |     +2.3% |      14 |      11 |            14 |      1115
+      310 |     +2.5% |      15 |      11 |            15 |      1105
+      320 |     +2.7% |      16 |      12 |            16 |      1095
+      330 |     +2.7% |      16 |      12 |            16 |      1085
+      340 |     +2.7% |      17 |      12 |            16 |      1075
+      350 |     +3.0% |      18 |      13 |            17 |      1065
+      360 |     +3.0% |      18 |      13 |            17 |      1055
+      370 |     +3.2% |      21 |      14 |            20 |      1045
+      380 |     +3.4% |      22 |      15 |            21 |      1035
+      390 |     +3.4% |      22 |      15 |            21 |      1025
+      400 |     +3.5% |      23 |      15 |            21 |      1015
+      410 |     +3.7% |      25 |      16 |            23 |      1005
+      420 |     +3.7% |      25 |      16 |            23 |       995
+      430 |     +3.9% |      28 |      16 |            23 |       985
+      440 |     +4.1% |      30 |      17 |            25 |       975
+      450 |     +4.1% |      30 |      17 |            25 |       965
+      460 |     +4.1% |      30 |      17 |            25 |       955
+      470 |     +4.4% |      32 |      18 |            26 |       945
+      480 |     +4.6% |      33 |      19 |            27 |       935
+      490 |     +4.6% |      33 |      19 |            27 |       925
+      500 |     +4.6% |      33 |      19 |            27 |       915
+      510 |     +4.6% |      33 |      19 |            27 |       905
+      520 |     +4.8% |      36 |      20 |            29 |       895
+      530 |     +4.8% |      37 |      20 |            29 |       885
+      540 |     +5.0% |      38 |      21 |            30 |       875
+      550 |     +5.0% |      38 |      21 |            30 |       865
+      560 |     +5.0% |      38 |      21 |            30 |       855
+      570 |     +5.1% |      39 |      21 |            30 |       845
+      580 |     +5.2% |      40 |      21 |            31 |       835
+      590 |     +5.7% |      44 |      22 |            34 |       825
+      600 |     +6.7% |      52 |      23 |            41 |       815
+      610 |     +7.0% |      59 |      23 |            44 |       805
+      620 |     +7.2% |      63 |      24 |            48 |       795
+      630 |     +7.2% |      63 |      24 |            48 |       785
+      640 |     +8.0% |      67 |      34 |            51 |       775
+      650 |     +8.1% |      68 |      35 |            52 |       765
+      660 |     +8.1% |      68 |      35 |            52 |       755
+      670 |     +8.1% |      68 |      35 |            52 |       745
+      680 |     +8.1% |      68 |      35 |            52 |       735
+      690 |     +8.5% |      71 |      41 |            54 |       725
+      700 |     +8.6% |      72 |      41 |            54 |       715
+      710 |     +8.6% |      72 |      41 |            54 |       705
+      720 |     +8.8% |      74 |      42 |            55 |       695
+      730 |     +9.0% |      74 |      46 |            56 |       685
+      740 |     +9.0% |      74 |      46 |            56 |       675
+      750 |     +9.1% |      75 |      47 |            57 |       665
+      760 |     +9.4% |      77 |      50 |            59 |       655
+      770 |     +9.4% |      77 |      50 |            59 |       645
+      780 |    +10.7% |      77 |      77 |            61 |       635
+      790 |    +10.7% |      77 |      77 |            61 |       625
+      800 |    +10.7% |      77 |      77 |            61 |       615
+      810 |    +11.4% |      80 |      85 |            64 |       605
+      820 |    +11.4% |      80 |      85 |            64 |       595
+      830 |    +11.4% |      80 |      85 |            64 |       585
+      840 |    +11.5% |      81 |      85 |            65 |       575
+      850 |    +11.6% |      82 |      85 |            66 |       565
+      860 |    +11.6% |      82 |      85 |            66 |       555
+      870 |    +11.6% |      82 |      85 |            66 |       545
+      880 |    +11.7% |      83 |      85 |            67 |       535
+      890 |    +11.8% |      85 |      86 |            68 |       525
+      900 |    +11.8% |      85 |      86 |            68 |       515
+      910 |    +11.9% |      88 |      86 |            68 |       505
+      920 |    +11.9% |      89 |      86 |            68 |       495
+      930 |    +12.0% |      90 |      87 |            69 |       485
+      940 |    +12.0% |      90 |      87 |            69 |       475
+      950 |    +12.0% |      90 |      87 |            69 |       465
+      960 |    +12.0% |      90 |      87 |            69 |       455
+      970 |    +12.0% |      90 |      87 |            69 |       445
+      980 |    +12.0% |      90 |      87 |            69 |       435
+      990 |    +12.0% |      90 |      87 |            69 |       425
+     1000 |    +12.0% |      90 |      87 |            69 |       415
+     1010 |    +12.0% |      90 |      87 |            69 |       405
+     1020 |    +12.0% |      90 |      87 |            69 |       395
+     1030 |    +12.1% |      90 |      89 |            70 |       385
+     1040 |    +12.1% |      90 |      89 |            70 |       375
+     1050 |    +12.1% |      90 |      89 |            70 |       365
+     1060 |    +12.1% |      90 |      89 |            70 |       355
+     1070 |    +12.1% |      90 |      89 |            70 |       345
+     1080 |    +12.1% |      90 |      89 |            70 |       335
+     1090 |    +12.1% |      90 |      89 |            70 |       325
+     1100 |    +12.1% |      90 |      89 |            70 |       315
+     1110 |    +12.1% |      90 |      89 |            70 |       305
+     1120 |    +12.1% |      90 |      89 |            70 |       295
+     1130 |    +12.1% |      90 |      89 |            70 |       285
+     1140 |    +12.1% |      90 |      89 |            70 |       275
+     1150 |    +12.1% |      90 |      89 |            70 |       265
+     1160 |    +12.1% |      90 |      89 |            70 |       255
+     1170 |    +12.1% |      90 |      89 |            70 |       245
+     1180 |    +12.1% |      90 |      89 |            70 |       235
+     1190 |    +12.1% |      90 |      89 |            70 |       225
+     1200 |    +12.1% |      90 |      89 |            70 |       215
+     1210 |    +12.1% |      90 |      89 |            70 |       205
+     1220 |    +12.2% |      90 |      90 |            71 |       195
+     1230 |    +12.2% |      90 |      90 |            71 |       185
+     1240 |    +12.4% |      92 |      93 |            73 |       175
+     1250 |    +12.8% |      95 |      96 |            76 |       165
+     1260 |    +12.9% |      98 |      98 |            78 |       155
+     1270 |    +12.9% |     103 |      98 |            78 |       145
+     1280 |    +13.0% |     107 |      98 |            78 |       135
+     1290 |    +13.0% |     107 |      98 |            78 |       125
+     1300 |    +13.0% |     108 |      99 |            79 |       115
+     1310 |    +13.0% |     108 |      99 |            79 |       105
+     1320 |    +13.0% |     108 |      99 |            79 |        95
+     1330 |    +13.0% |     108 |      99 |            79 |        85
+     1340 |    +13.0% |     108 |      99 |            79 |        75
+     1350 |    +13.0% |     108 |      99 |            79 |        65
+     1360 |    +13.0% |     108 |      99 |            79 |        55
+     1370 |    +13.1% |     109 |      99 |            79 |        45
+     1380 |    +13.2% |     109 |     101 |            81 |        35
+     1390 |    +13.2% |     109 |     101 |            81 |        25
+     1400 |    +13.2% |     109 |     101 |            81 |        15
+     1410 |    +13.2% |     109 |     101 |            81 |         5
+    final |    +13.2% |     109 |     101 |            81 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 118 slew violations.
+[INFO RSZ-0035] Found 11 fanout violations.
+[INFO RSZ-0036] Found 2 capacitance violations.
+[INFO RSZ-0039] Resized 109 instances.
+[INFO RSZ-0038] Inserted 101 buffers in 81 nets.
+[INFO RSZ-0042] Inserted 12 tie gf180mcu_fd_sc_mcu7t5v0__tiel instances.
+[INFO RSZ-0042] Inserted 6 tie gf180mcu_fd_sc_mcu7t5v0__tieh instances.
+[WARNING RSZ-0020] found 2 floating nets.
+ VGND
+ VPWR
++ detailed_placement -max_displacement  500 100 
+Placement Analysis
+---------------------------------
+total displacement      16928.1 u
+average displacement        8.8 u
+max displacement          130.0 u
+original HPWL           32422.8 u
+legalized HPWL          53803.5 u
+delta HPWL                   66 %
+
+[INFO DPL-0020] Mirrored 664 instances
+[INFO DPL-0021] HPWL before           53803.5 u
+[INFO DPL-0022] HPWL after            51795.2 u
+[INFO DPL-0023] HPWL delta               -3.7 %
+[WARNING DPL-0005] Overlap check failed (30).
+ core.max_unit.b01_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b01_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b02_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_8_156 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b02_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b02_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b03_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b03_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b04_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_10_173 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b04_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b04_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b05_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b05_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b06_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_12_190 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b06_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b06_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b07_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b07_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b08_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_14_207 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b08_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b08_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b09_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b09_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b10_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_16_224 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b10_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b10_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b11_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b11_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b12_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_18_241 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b12_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b12_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b13_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b13_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b14_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_20_258 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b14_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b14_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b15_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b15_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b16_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_22_275 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b16_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b16_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b17_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b17_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b18_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4) overlaps TAP_TAPCELL_ROW_24_292 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b18_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b18_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b19_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b19_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_4)
+ core.max_unit.b20_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_2) overlaps TAP_TAPCELL_ROW_26_309 (gf180mcu_fd_sc_mcu7t5v0__filltie)
+ core.max_unit.b20_ff (gf180mcu_fd_sc_mcu7t5v0__sdffq_1) overlaps core.max_unit.b20_cmp (gf180mcu_fd_sc_mcu7t5v0__aoi222_2)
+[WARNING DPL-0011] Padding check failed (30).
+ core.max_unit.b01_ff
+ core.max_unit.b02_cmp
+ core.max_unit.b02_ff
+ core.max_unit.b03_ff
+ core.max_unit.b04_cmp
+ core.max_unit.b04_ff
+ core.max_unit.b05_ff
+ core.max_unit.b06_cmp
+ core.max_unit.b06_ff
+ core.max_unit.b07_ff
+ core.max_unit.b08_cmp
+ core.max_unit.b08_ff
+ core.max_unit.b09_ff
+ core.max_unit.b10_cmp
+ core.max_unit.b10_ff
+ core.max_unit.b11_ff
+ core.max_unit.b12_cmp
+ core.max_unit.b12_ff
+ core.max_unit.b13_ff
+ core.max_unit.b14_cmp
+ core.max_unit.b14_ff
+ core.max_unit.b15_ff
+ core.max_unit.b16_cmp
+ core.max_unit.b16_ff
+ core.max_unit.b17_ff
+ core.max_unit.b18_cmp
+ core.max_unit.b18_ff
+ core.max_unit.b19_ff
+ core.max_unit.b20_cmp
+ core.max_unit.b20_ff
+[ERROR DPL-0033] detailed placement checks failed.
+Error: repair_design.tcl, 68 DPL-0033

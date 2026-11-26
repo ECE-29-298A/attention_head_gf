@@ -1,0 +1,3 @@
+overlay keys: ['MACRO_PLACEMENT_CFG']
+harden rc=0 seconds=69
+tools/harden.sh b_m ../../../baseline/original_rtl chip_runs/b_m/overlay.json  1.87s user 0.81s system 3% cpu 1:11.59 total

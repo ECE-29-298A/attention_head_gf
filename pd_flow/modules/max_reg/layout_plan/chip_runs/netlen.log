@@ -1,0 +1,4 @@
+base       total   53888.2  maxreg   5928.2  clock  4575.5  rest   43384.5  {'M': 22, 'S': 22, 'block': 0, 'excl_cone': 112}
+b_m        total   56599.3  maxreg   6819.7  clock  4500.6  rest   45279.0  {'M': 22, 'S': 22, 'block': 0, 'excl_cone': 111}
+b_ms       total   62678.8  maxreg   9718.5  clock  4536.7  rest   48423.6  {'M': 22, 'S': 22, 'block': 0, 'excl_cone': 112}
+a_sdff     total   66120.0  maxreg   6888.6  clock  4788.5  rest   54442.9  {'M': 22, 'S': 22, 'block': 109, 'excl_cone': 89}

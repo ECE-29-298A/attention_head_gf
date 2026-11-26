@@ -1,0 +1,25 @@
+# ss_125C_3v00 Liberty (tools/arcs.py), mean over when-conditions of cell_rise / cell_fall at table entries [2][2] and [3][3]
+# Only the ranking between pins of one cell is used (pin assignment rule, review finding B1).
+aoi222_1   A1  ->ZN  combinational  n=10 cell_rise [2][2] 1.128 [3][3] 1.867  cell_fall [2][2] 0.436 [3][3] 0.761
+aoi222_1   A2  ->ZN  combinational  n=10 cell_rise [2][2] 1.283 [3][3] 2.026  cell_fall [2][2] 0.433 [3][3] 0.698
+aoi222_1   B1  ->ZN  combinational  n=10 cell_rise [2][2] 1.501 [3][3] 2.184  cell_fall [2][2] 0.551 [3][3] 0.899
+aoi222_1   B2  ->ZN  combinational  n=10 cell_rise [2][2] 1.683 [3][3] 2.371  cell_fall [2][2] 0.556 [3][3] 0.839
+aoi222_1   C1  ->ZN  combinational  n=10 cell_rise [2][2] 1.689 [3][3] 2.366  cell_fall [2][2] 0.594 [3][3] 0.961
+aoi222_1   C2  ->ZN  combinational  n=10 cell_rise [2][2] 1.837 [3][3] 2.519  cell_fall [2][2] 0.588 [3][3] 0.888
+oai21_1    A1  ->ZN  combinational  n= 1 cell_rise [2][2] 0.740 [3][3] 1.354  cell_fall [2][2] 0.397 [3][3] 0.728
+oai21_1    A2  ->ZN  combinational  n= 1 cell_rise [2][2] 0.792 [3][3] 1.334  cell_fall [2][2] 0.448 [3][3] 0.792
+oai21_1    B   ->ZN  combinational  n= 4 cell_rise [2][2] 0.648 [3][3] 1.122  cell_fall [2][2] 0.479 [3][3] 0.758
+aoi21_1    A1  ->ZN  combinational  n= 1 cell_rise [2][2] 0.698 [3][3] 1.314  cell_fall [2][2] 0.393 [3][3] 0.721
+aoi21_1    A2  ->ZN  combinational  n= 1 cell_rise [2][2] 0.803 [3][3] 1.423  cell_fall [2][2] 0.388 [3][3] 0.657
+aoi21_1    B   ->ZN  combinational  n= 4 cell_rise [2][2] 0.861 [3][3] 1.396  cell_fall [2][2] 0.485 [3][3] 0.852
+nand2_1    A1  ->ZN  combinational  n= 1 cell_rise [2][2] 0.597 [3][3] 1.247  cell_fall [2][2] 0.480 [3][3] 0.981
+nand2_1    A2  ->ZN  combinational  n= 1 cell_rise [2][2] 0.651 [3][3] 1.301  cell_fall [2][2] 0.476 [3][3] 0.913
+nor2_1     A1  ->ZN  combinational  n= 1 cell_rise [2][2] 0.671 [3][3] 1.289  cell_fall [2][2] 0.355 [3][3] 0.673
+nor2_1     A2  ->ZN  combinational  n= 1 cell_rise [2][2] 0.734 [3][3] 1.278  cell_fall [2][2] 0.402 [3][3] 0.735
+mux2_2     I0  ->Z   combinational  n= 3 cell_rise [2][2] 1.030 [3][3] 1.542  cell_fall [2][2] 1.381 [3][3] 1.834
+mux2_2     I1  ->Z   combinational  n= 3 cell_rise [2][2] 1.030 [3][3] 1.547  cell_fall [2][2] 1.396 [3][3] 1.848
+mux2_2     S   ->Z   combinational  n= 2 cell_rise [2][2] 1.165 [3][3] 1.760  cell_fall [2][2] 1.325 [3][3] 1.772
+sdffq_1    CLK ->Q   rising_edge    n= 5 cell_rise [2][2] 1.987 [3][3] 2.552  cell_fall [2][2] 2.119 [3][3] 2.529
+dffq_1     CLK ->Q   rising_edge    n= 1 cell_rise [2][2] 2.433 [3][3] 3.005  cell_fall [2][2] 2.069 [3][3] 2.477
+inv_1      I   ->ZN  combinational  n= 1 cell_rise [2][2] 0.567 [3][3] 1.220  cell_fall [2][2] 0.355 [3][3] 0.752
+buf_4      I   ->Z   combinational  n= 1 cell_rise [2][2] 0.711 [3][3] 1.219  cell_fall [2][2] 0.754 [3][3] 1.220

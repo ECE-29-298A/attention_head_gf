@@ -1,0 +1,516 @@
+{
+ "cfg": "out/a_sdff/chip_anchor.cfg",
+ "netlist": "chip_runs/a_sdff/harden/pnl/tt_um_attention_head_gf.pnl.v",
+ "defs": {
+  "chip_runs/a_sdff/harden/steps/17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+   "instances": 109,
+   "found": 109,
+   "exact": 109,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "aoi21_1",
+    "buf_4",
+    "inv_1",
+    "nand2_1",
+    "nor2_1",
+    "oai21_1",
+    "sdffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/a_sdff/harden/steps/34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+   "instances": 109,
+   "found": 109,
+   "exact": 109,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "aoi21_1",
+    "buf_4",
+    "inv_1",
+    "nand2_1",
+    "nor2_1",
+    "oai21_1",
+    "sdffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/a_sdff/harden/steps/35-openroad-cts/tt_um_attention_head_gf.def": {
+   "instances": 109,
+   "found": 109,
+   "exact": 109,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "aoi21_1",
+    "buf_4",
+    "inv_1",
+    "nand2_1",
+    "nor2_1",
+    "oai21_1",
+    "sdffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/a_sdff/harden/def/tt_um_attention_head_gf.def": {
+   "instances": 109,
+   "found": 109,
+   "exact": 109,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "aoi21_1",
+    "buf_4",
+    "inv_1",
+    "nand2_1",
+    "nor2_1",
+    "oai21_1",
+    "sdffq_1"
+   ],
+   "moved": []
+  }
+ },
+ "q_nets": {
+  "core.max_unit.b00_ff": [
+   "sdffq_1",
+   "core.mac.M[0]"
+  ],
+  "core.max_unit.b01_ff": [
+   "sdffq_1",
+   "core.mac.M[1]"
+  ],
+  "core.max_unit.b01_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b01_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b01_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b01_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b02_ff": [
+   "sdffq_1",
+   "core.mac.M[2]"
+  ],
+  "core.max_unit.b02_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b02_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b02_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b02_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b03_ff": [
+   "sdffq_1",
+   "core.mac.M[3]"
+  ],
+  "core.max_unit.b03_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b03_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b03_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b03_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b04_ff": [
+   "sdffq_1",
+   "core.mac.M[4]"
+  ],
+  "core.max_unit.b04_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b04_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b04_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b04_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b05_ff": [
+   "sdffq_1",
+   "core.mac.M[5]"
+  ],
+  "core.max_unit.b05_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b05_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b05_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b05_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b06_ff": [
+   "sdffq_1",
+   "core.mac.M[6]"
+  ],
+  "core.max_unit.b06_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b06_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b06_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b06_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b07_ff": [
+   "sdffq_1",
+   "core.mac.M[7]"
+  ],
+  "core.max_unit.b07_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b07_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b07_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b07_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b08_ff": [
+   "sdffq_1",
+   "core.mac.M[8]"
+  ],
+  "core.max_unit.b08_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b08_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b08_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b08_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b09_ff": [
+   "sdffq_1",
+   "core.mac.M[9]"
+  ],
+  "core.max_unit.b09_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b09_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b09_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b09_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b10_ff": [
+   "sdffq_1",
+   "core.mac.M[10]"
+  ],
+  "core.max_unit.b10_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b10_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b10_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b10_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b11_ff": [
+   "sdffq_1",
+   "core.mac.M[11]"
+  ],
+  "core.max_unit.b11_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b11_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b11_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b11_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b12_ff": [
+   "sdffq_1",
+   "core.mac.M[12]"
+  ],
+  "core.max_unit.b12_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b12_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b12_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b12_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b13_ff": [
+   "sdffq_1",
+   "core.mac.M[13]"
+  ],
+  "core.max_unit.b13_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b13_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b13_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b13_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b14_ff": [
+   "sdffq_1",
+   "core.mac.M[14]"
+  ],
+  "core.max_unit.b14_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b14_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b14_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b14_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b15_ff": [
+   "sdffq_1",
+   "core.mac.M[15]"
+  ],
+  "core.max_unit.b15_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b15_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b15_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b15_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b16_ff": [
+   "sdffq_1",
+   "core.mac.M[16]"
+  ],
+  "core.max_unit.b16_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b16_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b16_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b16_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b17_ff": [
+   "sdffq_1",
+   "core.mac.M[17]"
+  ],
+  "core.max_unit.b17_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b17_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b17_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b17_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b18_ff": [
+   "sdffq_1",
+   "core.mac.M[18]"
+  ],
+  "core.max_unit.b18_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b18_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b18_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b18_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b19_ff": [
+   "sdffq_1",
+   "core.mac.M[19]"
+  ],
+  "core.max_unit.b19_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b19_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b19_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b19_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.b20_ff": [
+   "sdffq_1",
+   "core.mac.M[20]"
+  ],
+  "core.max_unit.b20_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b20_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b20_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b20_cmp": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.b21_ff": [
+   "sdffq_1",
+   "core.mac.M[21]"
+  ],
+  "core.max_unit.b21_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.b21_nand": [
+   "nand2_1",
+   null
+  ],
+  "core.max_unit.b21_nor": [
+   "nor2_1",
+   null
+  ],
+  "core.max_unit.b21_cmp": [
+   "aoi21_1",
+   null
+  ],
+  "core.max_unit.u_gt_inv": [
+   "inv_1",
+   null
+  ],
+  "core.max_unit.u_ld": [
+   "oai21_1",
+   null
+  ],
+  "core.max_unit.u_ld_buf": [
+   "buf_4",
+   null
+  ]
+ }
+}

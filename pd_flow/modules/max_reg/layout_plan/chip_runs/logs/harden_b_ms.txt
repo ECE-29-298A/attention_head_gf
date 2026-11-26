@@ -1,0 +1,3 @@
+overlay keys: ['MACRO_PLACEMENT_CFG']
+harden rc=0 seconds=74
+tools/harden.sh b_ms ../../../baseline/original_rtl  chip_runs/b_ms/mr_bms.cf  1.87s user 0.78s system 3% cpu 1:15.30 total

@@ -1,0 +1,132 @@
+{
+ "cfg": "out/b_m/chip_anchor.cfg",
+ "netlist": "chip_runs/b_m/harden/pnl/tt_um_attention_head_gf.pnl.v",
+ "defs": {
+  "chip_runs/b_m/harden/steps/17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+   "instances": 22,
+   "found": 22,
+   "exact": 22,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/b_m/harden/steps/34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+   "instances": 22,
+   "found": 22,
+   "exact": 22,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  },
+  "chip_runs/b_m/harden/def/tt_um_attention_head_gf.def": {
+   "instances": 22,
+   "found": 22,
+   "exact": 22,
+   "statuses": [
+    "FIXED"
+   ],
+   "masters": [
+    "dffq_1"
+   ],
+   "moved": []
+  }
+ },
+ "q_nets": {
+  "_2277_": [
+   "dffq_1",
+   "core.mac.M[0]"
+  ],
+  "_2278_": [
+   "dffq_1",
+   "core.mac.M[1]"
+  ],
+  "_2279_": [
+   "dffq_1",
+   "core.mac.M[2]"
+  ],
+  "_2280_": [
+   "dffq_1",
+   "core.mac.M[3]"
+  ],
+  "_2281_": [
+   "dffq_1",
+   "core.mac.M[4]"
+  ],
+  "_2282_": [
+   "dffq_1",
+   "core.mac.M[5]"
+  ],
+  "_2283_": [
+   "dffq_1",
+   "core.mac.M[6]"
+  ],
+  "_2284_": [
+   "dffq_1",
+   "core.mac.M[7]"
+  ],
+  "_2285_": [
+   "dffq_1",
+   "core.mac.M[8]"
+  ],
+  "_2286_": [
+   "dffq_1",
+   "core.mac.M[9]"
+  ],
+  "_2287_": [
+   "dffq_1",
+   "core.mac.M[10]"
+  ],
+  "_2288_": [
+   "dffq_1",
+   "core.mac.M[11]"
+  ],
+  "_2289_": [
+   "dffq_1",
+   "core.mac.M[12]"
+  ],
+  "_2290_": [
+   "dffq_1",
+   "core.mac.M[13]"
+  ],
+  "_2291_": [
+   "dffq_1",
+   "core.mac.M[14]"
+  ],
+  "_2292_": [
+   "dffq_1",
+   "core.mac.M[15]"
+  ],
+  "_2293_": [
+   "dffq_1",
+   "core.mac.M[16]"
+  ],
+  "_2294_": [
+   "dffq_1",
+   "core.mac.M[17]"
+  ],
+  "_2295_": [
+   "dffq_1",
+   "core.mac.M[18]"
+  ],
+  "_2296_": [
+   "dffq_1",
+   "core.mac.M[19]"
+  ],
+  "_2297_": [
+   "dffq_1",
+   "core.mac.M[20]"
+  ],
+  "_2298_": [
+   "dffq_1",
+   "core.mac.M[21]"
+  ]
+ }
+}
