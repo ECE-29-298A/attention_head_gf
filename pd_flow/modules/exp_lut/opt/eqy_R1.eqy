@@ -1,0 +1,20 @@
+# Agent 3: combinational equivalence, golden exp_lut vs candidate, REGISTERED=1 (block-test default); W_r and done_r flops matched by name, same encoding both sides, so depth 1 is an unbounded induction step.
+# No assumptions, cutpoints or black boxes. Outputs W and done matched by name. memory_map lowers the
+# ROM that proc infers from the constant case table to logic (exact lowering, needed by the SAT strategy).
+[gold]
+read_verilog -sv gold.v
+chparam -set REGISTERED 1 exp_lut
+prep -top exp_lut
+memory_map
+opt_clean
+
+[gate]
+read_verilog -sv gate.v
+chparam -set REGISTERED 1 exp_lut
+prep -top exp_lut
+memory_map
+opt_clean
+
+[strategy sat]
+use sat
+depth 1
