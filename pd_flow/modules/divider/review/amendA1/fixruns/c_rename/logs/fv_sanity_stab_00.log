@@ -1,0 +1,84 @@
+SBY 17:43:15 [divider_sanity_stab_00] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_sanity_stab_00'.
+SBY 17:43:15 [divider_sanity_stab_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_sanity_stab_00/src/divider_fv.v'.
+SBY 17:43:15 [divider_sanity_stab_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_sanity_stab_00/src/divider_props.sv'.
+SBY 17:43:15 [divider_sanity_stab_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/ref_divider_seq.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_sanity_stab_00/src/ref_divider_seq.v'.
+SBY 17:43:15 [divider_sanity_stab_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_sanity_stab_00/divider_sanity_stab_00/src/fv_mode.vh'.
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: smtbmc z3
+SBY 17:43:15 [divider_sanity_stab_00] base: starting process "cd divider_sanity_stab_00/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:43:15 [divider_sanity_stab_00] base: finished (returncode=0)
+SBY 17:43:15 [divider_sanity_stab_00] prep: starting process "cd divider_sanity_stab_00/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:43:15 [divider_sanity_stab_00] prep: finished (returncode=0)
+SBY 17:43:15 [divider_sanity_stab_00] smt2: starting process "cd divider_sanity_stab_00/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:43:15 [divider_sanity_stab_00] smt2: finished (returncode=0)
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: starting process "cd divider_sanity_stab_00; yosys-smtbmc -s z3 --presat --noprogress -t 28  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Solver: z3
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 17:43:15 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY 17:43:16 [divider_sanity_stab_00] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assertions in step 18..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assumptions in step 19..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assertions in step 19..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assumptions in step 20..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assertions in step 20..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assumptions in step 21..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assertions in step 21..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assumptions in step 22..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assertions in step 22..
+SBY 17:43:17 [divider_sanity_stab_00] engine_0: ##   0:00:01  Checking assumptions in step 23..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assertions in step 23..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assumptions in step 24..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assertions in step 24..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assumptions in step 25..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assertions in step 25..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assumptions in step 26..
+SBY 17:43:18 [divider_sanity_stab_00] engine_0: ##   0:00:02  Checking assertions in step 26..
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  BMC failed!
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  Assert failed in divider_props: a_wrong_stab
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace.vcd
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace.smtc
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: ##   0:00:03  Status: failed
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: finished (returncode=1)
+SBY 17:43:19 [divider_sanity_stab_00] engine_0: Status returned by engine: FAIL
+SBY 17:43:19 [divider_sanity_stab_00] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 17:43:19 [divider_sanity_stab_00] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 17:43:19 [divider_sanity_stab_00] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 17:43:19 [divider_sanity_stab_00] summary: counterexample trace: divider_sanity_stab_00/engine_0/trace.vcd
+SBY 17:43:19 [divider_sanity_stab_00] summary:   failed assertion divider_props.a_wrong_stab at divider_props.sv:117.47-117.85 step 26
+SBY 17:43:19 [divider_sanity_stab_00] DONE (FAIL, rc=2)
+SBY 17:43:19 The following tasks failed: ['sanity_stab_00']

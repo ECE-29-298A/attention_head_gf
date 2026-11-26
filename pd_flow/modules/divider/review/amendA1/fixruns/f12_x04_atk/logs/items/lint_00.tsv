@@ -1,0 +1,1 @@
+lint_00	lint	pass-with-waiver	true	0.156	logs/lint_00.log	RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 0, 'LATCH_DENOMINATOR': 0} flop_bits=57 errors=0

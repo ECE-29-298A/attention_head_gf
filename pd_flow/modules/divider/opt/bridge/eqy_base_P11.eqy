@@ -1,0 +1,57 @@
+# Agent 3 (divider): bridge B (golden + observers) vs C' (candidate + observers) at LATCH_DENOMINATOR=1,
+# CHECK_INVALID=1, both in the identical harness eqtop_obs.v (power-on reset in cycle 0). Only harness
+# ports matched, all in one partition. BASE-CASE part: SBY prove mode, smtbmc z3, xprop on (EQY default),
+# BMC from the real initial state (boot = 1, other flops free); only its basecase verdict is used.
+[gold]
+read_verilog -sv gold.v
+read_verilog -sv eqtop_obs.v
+chparam -set LD 1 -set CI 1 eqtop
+prep -top eqtop
+flatten
+opt_clean
+
+[gate]
+read_verilog -sv gate.v
+read_verilog -sv eqtop_obs.v
+chparam -set LD 1 -set CI 1 eqtop
+prep -top eqtop
+flatten
+opt_clean
+
+[match *]
+gold-nomatch u.*
+gate-nomatch u.*
+gold-nomatch boot
+gate-nomatch boot
+gold-nomatch busy
+gate-nomatch busy
+gold-nomatch done
+gate-nomatch done
+gold-nomatch result
+gate-nomatch result
+gold-nomatch lg
+gate-nomatch lg
+gold-nomatch lc
+gate-nomatch lc
+gold-nomatch ph
+gate-nomatch ph
+gold-nomatch dq
+gate-nomatch dq
+gold-nomatch rm
+gate-nomatch rm
+gold-nomatch dv
+gate-nomatch dv
+gold-nomatch ng
+gate-nomatch ng
+gold-nomatch iv
+gate-nomatch iv
+gold-nomatch sn
+gate-nomatch sn
+
+[collect *]
+group *_o
+
+[strategy sby]
+use sby
+engine smtbmc z3
+depth 3

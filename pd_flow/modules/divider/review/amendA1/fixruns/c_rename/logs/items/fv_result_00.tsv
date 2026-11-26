@@ -1,0 +1,1 @@
+fv_result_00	sby	unsupported	false	0.040	logs/fv_result_00.log	white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative) not in the DUT: golden characterization only; candidate result correctness rests on eqy_rtl (SPEC 4)

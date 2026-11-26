@@ -5,9 +5,11 @@ Scope: `pd_flow/modules/divider/verif/` at commit **`be7df42`**, unmodified (fil
 `verif/` file was read: [`EXPECTED.md`](EXPECTED.md). Golden: `snapshot/divider.v` (SHA-256 `a4943458…`).
 Agent 2 used at most 2 jobs and never read `opt/`. Rules applied: D9/D9b.
 
-## Verdict: **APPROVE**
+## Verdict: **APPROVE** (contract `be7df42`)
 
-There are no blocking findings.
+> **Amendment A-1 (`seq_eq`, commit `b2623b1`): CHANGES REQUIRED.** There are two soundness holes, and each lets a buggy, renamed candidate reach `all_ok = True`. Both have exact fixes, tested here: F1 and F2 in §8. Until those land, `equiv_*` passing through `seq_eq` (with `eqy_rtl` failing) must not be trusted.
+
+There are no blocking findings on `be7df42`.
 - All **33 must-kill mutants** are killed by gating items: 23 RTL and 10 GF180 gate-level.
   - 31 are killed by a formal item (SBY or EQY), and 29 also by the edge/spot items.
   - The other 2 (default-parameter changes) are killed by the static `lint_11` default check. That is the correct mechanism.
@@ -227,3 +229,115 @@ None are required. The only blocking defect found (the gate-11 EQY name match) w
 - [`formal_checks/fix_B1/`](formal_checks/fix_B1/): validation of the gate-11 EQY match fix.
 - Hashes: [`contract_hash_be7df42.txt`](contract_hash_be7df42.txt) and `contract_hash_at_audit.txt`.
 - Superseded: `mutation_results_partial_pre_freeze.json` and `mutant_runs_rtl_partial_pre_freeze.console.txt`. These are 3 runs made while the contract was still changing. They are not evidence.
+
+## 8. Amendment A-1 review (`seq_eq`, `lemma_prep.py`, `equiv_*`, HEAD `b2623b1`)
+
+Everything was run from `git archive b2623b1` in the scratchpad, unmodified, with at most 2 jobs. `opt/` was not read. Evidence is in [`amendA1/`](amendA1/).
+
+### Verdict: **CHANGES REQUIRED** (F1 and F2 below; both tested)
+
+The design itself is sound: the miter, the cycle-0 reset anchoring, the "lemmas are assertions" approach, the k-induction setup and the OR gating. There are two holes in the enforcement of "no assumptions anywhere".
+
+**H1. An assumption inside the candidate constrains the miter.**
+- The `.sby` guards check the harness, but not the formal cells that the *candidate* brings with it. `count_props.py` counts only assert and cover cells.
+- Lint, EQY and simulation all ignore `` `ifdef FORMAL ``. So a candidate can add
+  `` `ifdef FORMAL always @* assume (!(sum_in == 20'sd12345 && denominator == 12'd678)); `endif ``
+  and so remove its own bug from the shared input space.
+- Demonstration: [`amendA1/mutants/x03_rename_rare_formal_assume.v`](amendA1/mutants/x03_rename_rare_formal_assume.v) is `c_rename.v` with the m16 rare-point bug plus that assume, run with lemmas [`x03_lemmas.sv`](amendA1/x03_lemmas.sv).
+  - Result: **`all_ok = True`, 23/23** ([`runs_x03.txt`](amendA1/runs_x03.txt)).
+  - `seq_eq_00/11` are proven, `eqy_rtl` fails, `fv_result` is `unsupported`, and edge does not sample the point.
+- Before A-1 the same candidate failed, because strict `eqy_rtl` was the only route to `equiv`.
+
+**H2. A lemma can have a side effect on the miter, making `a_eq` vacuous.**
+- `lemma_lint` is a keyword blacklist. It accepts compound and increment operators (`<<=`, `>>=`, `++`) and bare miter identifiers.
+- The lemma `l_atk: assert property ((seen >>= 1) == 1'b0 || cand.fsm_q == cand.fsm_q);` therefore lints clean. Yosys then elaborates a second driver for `seen`, which guards `a_eq`.
+- Demonstrations:
+  - [`amendA1/mutants/x04_rename_rare.v`](amendA1/mutants/x04_rename_rare.v) is a renamed candidate with the rare-point bug and no assume. With only [`atk_seen_only.sv`](amendA1/atk_seen_only.sv), `seq_eq_00/11` are **proven** with asserts = 2 as expected, and the result is **`all_ok = True`, 23/23** ([`runs_x04_atk.txt`](amendA1/runs_x04_atk.txt)).
+  - With [`atk_seen_shift.sv`](amendA1/atk_seen_shift.sv), must-kill m01 (latency +1) gets `seq_eq_11` **proven** ([`runs_atk_seen_shift.txt`](amendA1/runs_atk_seen_shift.txt)).
+- The `$dlatch` cell guard did not catch this. `check -assert` after `prep` does not catch it either: I tested it as a candidate fix F3 ([`fixruns/f3only_x04_atk.console.txt`](amendA1/fixruns/f3only_x04_atk.console.txt)) and it still proves, so it is not proposed.
+
+### Exact fixes (patch [`amendA1/fix/A1_fixes.patch`](amendA1/fix/A1_fixes.patch), applies cleanly to HEAD: `git apply --directory=pd_flow/modules/divider pd_flow/modules/divider/review/amendA1/fix/A1_fixes.patch`)
+
+- **F1 (`formal/seq_eq.sby`, after `proc`).** Add
+  `select -assert-none t:$assume t:$live t:$fair t:$cover t:$allconst t:$allseq t:$check r:FLAVOR=assert %d`.
+  This rejects any formal cell other than an assertion anywhere in the design. The result is an SBY ERROR, which is labelled `inconclusive` and fails closed.
+- **F2 (`formal/lemma_prep.py`).** `expr_whitelist()` tokenises each lemma expression against a whitelist:
+  - allowed: `gold.*`/`cand.*` names, numeric literals, `$signed`/`$unsigned`, pure operators, `()[]{}`, `,`, `?:`;
+  - rejected: `++` and `--`, and also any other identifier or token. That covers a lone `=` (so every assignment form), `first`, `seen`, `rst_n_in`, `clk`, `s_eventually`, `disable iff`, `inside`, `always_comb`, `$past`, `$initstate`, `\escaped` names, and so on.
+
+The fixed versions are [`amendA1/fix/lemma_prep.py`](amendA1/fix/lemma_prep.py) and [`amendA1/fix/seq_eq.sby`](amendA1/fix/seq_eq.sby). Tested with F1+F2 installed in a copy of HEAD ([`amendA1/fixruns/`](amendA1/fixruns/)):
+
+| run | result with F1+F2 |
+|---|---|
+| golden RTL (default self-lemmas) | 25/25, `all_ok = True`, `seq_eq_00/11` proven |
+| `c_rename` + its lemmas | 23/23, `all_ok = True`, `seq_eq` proven (`eqy_rtl` fails) |
+| `c_rename` without lemmas | `all_ok = False`, `seq_eq` not-proven |
+| golden gate netlists 00, 11, clkbuf 00 (`golden_gate_lemmas.sv`) | 14/14, 13/13, 14/14, `all_ok = True` (run with F1+F2 plus F3; F3 only adds a check) |
+| x03 (formal-only assume) | `seq_eq` inconclusive (F1 guard), `equiv` failed, `all_ok = False` |
+| x04 + `atk_seen_only.sv` | `lemma_lint` failed and `seq_eq` failed, `all_ok = False` |
+| every committed lemma file (`golden_self`, `golden_gate`, `c_rename`, `false_lemma`) | lints clean; `bad_assume` is still rejected |
+| 23 lint attack files (`atk_*.sv`, [`amendA1/lint_attacks/`](amendA1/lint_attacks/) `v1..v18`, see `RESULTS.txt`) | all rejected, except a harmless comment-only variant |
+
+Recommended but non-blocking:
+- Add the F1 guard to `formal/divider.sby` too, so that `fv_proto`, `fv_result` and `fv_cover` cannot be weakened by a candidate's own assume. Port behaviour is already pinned by `equiv_*` once F1 is in place, so this is defence in depth.
+- In SPEC section 4, state that the "no assume" rule covers the candidate's sources and is enforced by F1.
+
+### Audit answers
+
+- **Miter and vacuity.**
+  - `rst_n = rst_n_in && !first`, where `first` is the only initialised register besides `seen`. Both instances have a free power-up state, enforced by the `a:init` guard.
+  - `a_eq` compares all 3 outputs (`busy`, `done`, `result`) whenever `seen`, which means from cycle 1.
+  - Not vacuous: `fv_sanity_seq_*` is refuted, and 81 of 81 in-scope must-kill runs give a base-case counterexample.
+  - The cycle-0 forcing is structural, not an assumption. It does not over-constrain, because it is exactly R13 (behaviour is defined only after the first reset).
+  - The only path to vacuity found was H2.
+- **Lemma linter.** H2 above. After F2:
+  - `$past` and `s_eventually` are rejected (before F2, Yosys errored on `$past` and `s_eventually` failed the assert count, so both already failed closed);
+  - `disable iff` (previously a Yosys syntax error) is rejected;
+  - hierarchical writes are impossible (names are replaced by harness wires, and every assignment token is rejected);
+  - a comment containing `; assume` is stripped and harmless;
+  - a multi-line split of `gold.` and the name is rejected, and a missing `;` (two statements merged) is rejected;
+  - escaping the generated `always` block is impossible: every `;`-chunk must be an `assert property (...)`, and Yosys requires `;` immediately after the immediate assert;
+  - `first`, `seen` and the reset are rejected.
+- **Base case and induction.**
+  - With lemmas asserted, not assumed, smtbmc prove mode proves `a_eq` and every lemma in the base case (depth 30 from cycle 0) and the induction step (depth 30). Induction uses the asserted properties of the previous steps as hypotheses only after the base case has proven them. This is standard and sound.
+  - A false lemma gives FAIL (`false_lemma` self-check; for example m13/11 with `l_div`, m18/11 with `l_inv`).
+  - UNKNOWN maps to `not-proven`, which gives `ok = false`.
+- **OR gating with a false lemma.** Acceptable.
+  - `eqy_rtl` PASS is on its own a sound proof of equivalence, so a refuted lemma does not make the result unsafe.
+  - A rejected lemma file still fails the gating `lemma_lint` item, which is conservative.
+- **Fail-closed paths.**
+  - The `seq` case maps `rc = 3` (gen or lint error) to `failed`, `rc = 124` to `timed-out`, and PASS with the wrong assert count to `inconclusive`. Any other status maps to `inconclusive`.
+  - A crashed job is added as `inconclusive`, and a missing item gives `ok = False` in `equiv`.
+  - There is no path where `seq_eq` errors or times out and `equiv` passes, unless `eqy_rtl` is proven.
+  - Verified paths: ERROR on x03 with F1, timeouts in the mutant runner, and lemma-gen failure.
+
+### Mutants through `seq_eq` (HEAD, unmodified; [`amendA1/seq_eq_mutants.json`](amendA1/seq_eq_mutants.json))
+
+Method: 30 RTL mutants × {00, 11} × {no lemmas, `golden_self_lemmas.sv`}, giving 120 runs, through [`amendA1/run_seq_mutants.sh`](amendA1/run_seq_mutants.sh). That script replicates the `seq` case of `run_all.sh`. The cap is 120 s per run with lemmas and 45 s without; a timeout is never `proven`.
+
+Results:
+- **No must-kill mutant is proven in a configuration within its scope.** All 81 in-scope must-kill runs fail with a base-case counterexample, on `a_eq` or on a lemma.
+- The 7 proven non-equivalent runs are all out of scope, where the mutant's text is identical to, or neutralised against, the golden:
+  - m13 at 00 (it edits only the `LATCH_DENOMINATOR = 1` branch);
+  - m15 and m18 at 00 (they edit only `CHECK_INVALID = 1` logic);
+  - m21 and m22 at 00 and 11 (only the default parameters change; the miter passes explicit parameters, and `lint_11` kills them).
+- Equivalents: all 6 (e01–e06) are proven with the golden self-lemmas at 00 and 11. Without lemmas they are not proven (induction FAIL) or time out, as expected.
+
+The 3 strict-EQY false kills:
+- **e01, e05:** with `--lemmas formal/golden_self_lemmas.sv` the full contract gives **`all_ok = True`, 25/25** ([`runs_e01_lem.txt`](amendA1/runs_e01_lem.txt), [`runs_e05_lem.txt`](amendA1/runs_e05_lem.txt)).
+- **m18:** with [`amendA1/m18_lemmas.sv`](amendA1/m18_lemmas.sv), which relaxes `l_inv` when `saved_divisor == 0` and adds the "L = 0 means all quotient bits are 1" lemmas, `seq_eq_11` is proven (10 asserts) and `equiv_11` is proven ([`runs_m18_lem.txt`](amendA1/runs_m18_lem.txt)).
+  - `all_ok` stays False only because of the white-box `fv_result_11`, whose `invalid_r` lemma is strict about the golden's register meaning. That is conservative, not a gap.
+
+### Constraints for Agent 3 (additions)
+
+8. **Re-encoded state** can pass `equiv_*` through `seq_eq` with a lemma file of `assert property (<pure expression over gold.*/cand.*>);` lines. Once F2 lands, only names, literals, `$signed`/`$unsigned` and pure operators are allowed. Submit the lemma file with the candidate; its SHA-256 is recorded.
+9. **No formal constructs in the candidate:** no `assume`, `assert`, `cover` or `` `ifdef FORMAL `` blocks. After F1, any of them makes `seq_eq` inconclusive.
+10. If the white-box names are present but their meaning differs from the golden's (as in m18), `fv_result_*` still fails. Either rename the registers, so that `fv_result` is `unsupported` and result correctness transfers from `equiv`, or keep the golden's meaning.
+
+### Files (amendment)
+
+- `amendA1/mutants/x03_rename_rare_formal_assume.v`, `x04_rename_rare.v`: attack candidates.
+- `amendA1/x03_lemmas.sv`, `atk_seen_only.sv`, `atk_seen_shift.sv`, `atk_first_inc.sv`, `atk_eventually.sv`, `m18_lemmas.sv`, `golden_self_lemmas.sv` (a copy).
+- Logs: `amendA1/runs_*.txt` and `amendA1/runs/` (at HEAD); `amendA1/fixruns/` (with fixes).
+- `amendA1/fix/`: `A1_fixes.patch`, `lemma_prep.py`, `seq_eq.sby`.
+- `amendA1/run_seq_mutants.sh`, `seq_mutants_{a,b}.txt`, `seq_eq_mutants.json`. The `mutation_results.json` key is `amendment_A1_seq_eq`.

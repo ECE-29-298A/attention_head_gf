@@ -1,0 +1,135 @@
+== net widths (flattened miter, no lemmas)
+== lemmas: none
+RESULT lemma_gen lemmas=0 nets=0 errors=0
+// no lemma file
+# no lemma file
+== sby seq_00
+SBY 17:43:44 [seq_eq_seq_00] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00'.
+SBY 17:43:44 [seq_eq_seq_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/divider_miter.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00/src/divider_miter.sv'.
+SBY 17:43:44 [seq_eq_seq_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/gold.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00/src/gold.v'.
+SBY 17:43:44 [seq_eq_seq_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/divider_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00/src/divider_fv.v'.
+SBY 17:43:44 [seq_eq_seq_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00/src/fv_mode.vh'.
+SBY 17:43:44 [seq_eq_seq_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_lemmas.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00/src/seq_lemmas.vh'.
+SBY 17:43:44 [seq_eq_seq_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_lemmas.ys' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.TeuB2O/seq_eq_00/seq_eq_seq_00/src/seq_lemmas.ys'.
+SBY 17:43:44 [seq_eq_seq_00] engine_0: smtbmc z3
+SBY 17:43:44 [seq_eq_seq_00] base: starting process "cd seq_eq_seq_00/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:43:44 [seq_eq_seq_00] base: finished (returncode=0)
+SBY 17:43:44 [seq_eq_seq_00] prep: starting process "cd seq_eq_seq_00/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:43:44 [seq_eq_seq_00] prep: finished (returncode=0)
+SBY 17:43:44 [seq_eq_seq_00] smt2: starting process "cd seq_eq_seq_00/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:43:44 [seq_eq_seq_00] smt2: finished (returncode=0)
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: starting process "cd seq_eq_seq_00; yosys-smtbmc -s z3 --presat --noprogress -t 30  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: starting process "cd seq_eq_seq_00; yosys-smtbmc -s z3 --presat -i --noprogress -t 30  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Solver: z3
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 30..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 29..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 28..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 27..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 26..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 25..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 24..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 23..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 22..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 21..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY 17:43:44 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 17..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 12..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 16..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 12..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 13..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 15..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 13..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 14..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 14..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 14..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 15..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 15..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 16..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 16..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 17..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 17..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 18..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 18..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 19..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 19..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 20..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 20..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 21..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 21..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 22..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 13..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 22..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 23..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 23..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 24..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 24..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 25..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 25..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 26..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 26..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 27..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 27..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 28..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 28..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 2..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Trying induction in step 0..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assumptions in step 29..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Checking assertions in step 29..
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Temporal induction failed!
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Assert failed in divider_miter: a_eq
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Writing trace to VCD file: engine_0/trace_induct.vcd
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: finished (returncode=0)
+SBY 17:43:45 [seq_eq_seq_00] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_induct_tb.v
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Writing trace to constraints file: engine_0/trace_induct.smtc
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace_induct.yw
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: ##   0:00:00  Status: failed
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: finished (returncode=1)
+SBY 17:43:45 [seq_eq_seq_00] engine_0.induction: Status returned by engine for induction: FAIL
+SBY 17:43:45 [seq_eq_seq_00] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:43:45 [seq_eq_seq_00] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 17:43:45 [seq_eq_seq_00] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY 17:43:45 [seq_eq_seq_00] summary: engine_0 (smtbmc z3) returned FAIL for induction
+SBY 17:43:45 [seq_eq_seq_00] summary: counterexample trace [induction]: seq_eq_seq_00/engine_0/trace_induct.vcd
+SBY 17:43:45 [seq_eq_seq_00] summary:   failed assertion divider_miter.a_eq at divider_miter.sv:55.9-55.84
+SBY 17:43:45 [seq_eq_seq_00] DONE (UNKNOWN, rc=4)
+SBY 17:43:45 The following tasks failed: ['seq_00']

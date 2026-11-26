@@ -63,3 +63,4 @@ pd_flow/clusters/**/__pycache__/
 # divider review: bulky mutation run dirs (summaries are in mutation_results.json)
 pd_flow/modules/divider/review/mutation_runs/
 pd_flow/modules/divider/review/**/runs/
+pd_flow/modules/divider/opt/runs/

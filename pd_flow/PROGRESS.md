@@ -1,7 +1,7 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
 - Current module: 2 max_reg (module 1 ripple_add COMPLETE, `modules/ripple_add/REPORT.md`)
-- Phase: exp_lut Phases 1-2 PASSED (contract d01fc4b8eb4f0492, original retained). Next module: divider (Phases 1+2, S1 parallel). Datapath-cluster tetris running.
+- Phase: divider Phases 1-2 PASSED (contract 549f089fd92465c1; c06 ACCEPTED, chip -367 um2, cone -676). Next: mac_unit Phases 1+2. Datapath tetris done (xpk20_s1, -4.4, hold +0.034); needs re-map after c06.
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 

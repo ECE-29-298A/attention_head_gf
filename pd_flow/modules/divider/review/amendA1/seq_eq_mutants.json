@@ -1,0 +1,338 @@
+{
+ "contract": "HEAD b2623b1 (git archive, unmodified)",
+ "runner": "amendA1/run_seq_mutants.sh (replicates run_all.sh seq case; per-run timeout 120 s with lemmas, 45 s without; a timeout is never proven)",
+ "rule": "a must-kill mutant must never be proven in a configuration inside its scope (L1/C1 = config 11 only; default = parameter defaults, neutralised by the miter, killed by lint_11)",
+ "in_scope_proven_violations": [],
+ "mutants": {
+  "e01_latch_on_start": {
+   "mutant": "e01_latch_on_start",
+   "class": "equivalent",
+   "scope": "all",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "timed-out(45s; induction: FAIL)",
+    "11_golden_self": "proven"
+   }
+  },
+  "e02_negate_form": {
+   "mutant": "e02_negate_form",
+   "class": "equivalent",
+   "scope": "all",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "not-proven",
+    "11_golden_self": "proven"
+   }
+  },
+  "e03_compare_form": {
+   "mutant": "e03_compare_form",
+   "class": "equivalent",
+   "scope": "all",
+   "runs": {
+    "00_none": "timed-out(45s; induction: FAIL)",
+    "00_golden_self": "proven",
+    "11_none": "timed-out(45s; induction: FAIL)",
+    "11_golden_self": "proven"
+   }
+  },
+  "e04_magnitude_neg": {
+   "mutant": "e04_magnitude_neg",
+   "class": "equivalent",
+   "scope": "all",
+   "runs": {
+    "00_none": "timed-out(45s; induction: FAIL)",
+    "00_golden_self": "proven",
+    "11_none": "timed-out(45s; induction: FAIL)",
+    "11_golden_self": "proven"
+   }
+  },
+  "e05_step_hold_in_idle": {
+   "mutant": "e05_step_hold_in_idle",
+   "class": "equivalent",
+   "scope": "all",
+   "runs": {
+    "00_none": "timed-out(45s; induction: FAIL)",
+    "00_golden_self": "proven",
+    "11_none": "timed-out(45s; induction: FAIL)",
+    "11_golden_self": "proven"
+   }
+  },
+  "e06_done_explicit": {
+   "mutant": "e06_done_explicit",
+   "class": "equivalent",
+   "scope": "all",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "not-proven",
+    "11_golden_self": "proven"
+   }
+  },
+  "m01_latency_plus1": {
+   "mutant": "m01_latency_plus1",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(l_state returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(l_state returned FAIL for basecase)"
+   }
+  },
+  "m02_latency_minus1": {
+   "mutant": "m02_latency_minus1",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(l_state returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(l_state returned FAIL for basecase)"
+   }
+  },
+  "m03_ties_toward_zero": {
+   "mutant": "m03_ties_toward_zero",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m04_neg_ties_up": {
+   "mutant": "m04_neg_ties_up",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m05_neg_off_by_one": {
+   "mutant": "m05_neg_off_by_one",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m06_sign_from_bit18": {
+   "mutant": "m06_sign_from_bit18",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(l_neg returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(l_neg returned FAIL for basecase)"
+   }
+  },
+  "m07_start_restarts": {
+   "mutant": "m07_start_restarts",
+   "class": "out-of-context-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(l_quot l_rem l_step returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(l_quot l_rem l_step returned FAIL for basecase)"
+   }
+  },
+  "m08_shift_beats_done": {
+   "mutant": "m08_shift_beats_done",
+   "class": "out-of-context-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m09_shift_rotates": {
+   "mutant": "m09_shift_rotates",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m10_reset_keeps_result": {
+   "mutant": "m10_reset_keeps_result",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m11_reset_keeps_done": {
+   "mutant": "m11_reset_keeps_done",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m12_reset_no_abort": {
+   "mutant": "m12_reset_no_abort",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq l_state returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq l_state returned FAIL for basecase)"
+   }
+  },
+  "m13_latch_always": {
+   "mutant": "m13_latch_always",
+   "class": "out-of-context-bug",
+   "scope": "L1",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(l_div returned FAIL for basecase)"
+   }
+  },
+  "m14_remainder_not_cleared": {
+   "mutant": "m14_remainder_not_cleared",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(l_rem returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(l_rem returned FAIL for basecase)"
+   }
+  },
+  "m15_ovf_neg_2048": {
+   "mutant": "m15_ovf_neg_2048",
+   "class": "out-of-context-bug",
+   "scope": "C1",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m16_rare_point": {
+   "mutant": "m16_rare_point",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m17_rare_maxL": {
+   "mutant": "m17_rare_maxL",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m18_invalid_den0_dropped": {
+   "mutant": "m18_invalid_den0_dropped",
+   "class": "out-of-context-bug",
+   "scope": "C1",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "not-proven",
+    "11_golden_self": "failed(l_inv returned FAIL for basecase)"
+   }
+  },
+  "m19_busy_low_in_round": {
+   "mutant": "m19_busy_low_in_round",
+   "class": "out-of-context-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m20_done_sticky": {
+   "mutant": "m20_done_sticky",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m21_default_check0": {
+   "mutant": "m21_default_check0",
+   "class": "out-of-context-bug",
+   "scope": "default",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "not-proven",
+    "11_golden_self": "proven"
+   }
+  },
+  "m22_default_latch0": {
+   "mutant": "m22_default_latch0",
+   "class": "out-of-context-bug",
+   "scope": "default",
+   "runs": {
+    "00_none": "not-proven",
+    "00_golden_self": "proven",
+    "11_none": "not-proven",
+    "11_golden_self": "proven"
+   }
+  },
+  "m23_carry_bit8_lost": {
+   "mutant": "m23_carry_bit8_lost",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq returned FAIL for basecase)"
+   }
+  },
+  "m24_start_during_reset": {
+   "mutant": "m24_start_during_reset",
+   "class": "functional-bug",
+   "scope": "all",
+   "runs": {
+    "00_none": "failed(a_eq returned FAIL for basecase)",
+    "00_golden_self": "failed(a_eq l_state returned FAIL for basecase)",
+    "11_none": "failed(a_eq returned FAIL for basecase)",
+    "11_golden_self": "failed(a_eq l_state returned FAIL for basecase)"
+   }
+  }
+ }
+}

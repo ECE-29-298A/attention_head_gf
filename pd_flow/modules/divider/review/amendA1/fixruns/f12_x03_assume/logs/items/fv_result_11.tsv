@@ -1,0 +1,1 @@
+fv_result_11	sby	unsupported	false	0.033	logs/fv_result_11.log	white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative w:g_divisor.saved_divisor w:invalid_r) not in the DUT: golden characterization only; candidate result correctness rests on eqy_rtl (SPEC 4)

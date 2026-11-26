@@ -1,0 +1,1 @@
+lemma_lint	lemlint	pass	true	0.044	logs/lemma_lint.log	RESULT lemma_lint statements=7 errors=0; file=/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/gaA1fix/pd_flow/modules/divider/verif/evidence/seq_eq/c_rename_lemmas.sv; 

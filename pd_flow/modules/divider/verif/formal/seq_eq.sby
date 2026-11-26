@@ -36,6 +36,9 @@ read_verilog -formal gold.v
 read_verilog -formal divider_fv.v
 hierarchy -top divider_miter
 proc
+# review fix F1 (agent 2): no formal cell other than an assertion anywhere (a candidate-side
+# assume, e.g. under `ifdef FORMAL, would constrain the shared inputs of the miter).
+select -assert-none t:$assume t:$live t:$fair t:$cover t:$allconst t:$allseq t:$check r:FLAVOR=assert %d
 # guard: neither instance carries an initial value; only the miter's observers may.
 select -assert-none a:init divider_miter/* %d
 flatten

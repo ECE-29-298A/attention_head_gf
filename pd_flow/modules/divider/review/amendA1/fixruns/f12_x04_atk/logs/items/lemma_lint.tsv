@@ -1,0 +1,1 @@
+lemma_lint	lemlint	failed	false	0.043	logs/lemma_lint.log	RESULT lemma_lint statements=1 errors=1; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/amendA1/atk_seen_only.sv; REJECT l_atk: token not allowed in a lemma expression: "seen >>= 1) == 1'b0 " 

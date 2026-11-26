@@ -1,0 +1,436 @@
+== verilator --lint-only -Wall (simulation view, config 00)
+- V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
+- Verilator: Built from 0.094 MB sources in 57 modules, into 0.397 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.082 s (elab=0.008, cvt=0.061, bld=0.000); cpu 0.082 s on 1 threads; allocated 26.766 MB
+%Warning-DECLFILENAME: divider.v:2177:8: Filename 'divider' does not match MODULE name: 'gf180mcu_fd_sc_mcu7t5v0__and2_1'
+ 2177 | module gf180mcu_fd_sc_mcu7t5v0__and2_1( A1, A2, Z );
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/DECLFILENAME?v=5.046
+                       ... Use "/* verilator lint_off DECLFILENAME */" and lint_on around source to disable this message.
+%Warning-IMPLICIT: divider.v:2339:16: Signal definition not found, creating implicitly: 'MGM_D0'
+ 2339 |  not MGM_BG_0( MGM_D0, D );
+      |                ^~~~~~
+                   ... For warning description see https://verilator.org/warn/IMPLICIT?v=5.046
+                   ... Use "/* verilator lint_off IMPLICIT */" and lint_on around source to disable this message.
+%Warning-IMPLICIT: divider.v:2340:40: Signal definition not found, creating implicitly: 'IQ1'
+ 2340 |  gf180mcu_fd_sc_mcu7t5v0__udp_n_iq_ff( IQ1, 1'b0, 1'b0, CLK, MGM_D0, notifier );
+      |                                        ^~~
+%Warning-BLKSEQ: divider.v:2632:4: Blocking assignment '=' in sequential logic process
+                                 : ... note: In instance 'divider._437_.gf180mcu_fd_sc_mcu7t5v0___05Fxor3_inst'
+                                 : ... Suggest using delayed assignment '<='
+ 2632 |    ?  0  r   0  ?  :  ?  :  0;
+      |    ^
+                 ... For warning description see https://verilator.org/warn/BLKSEQ?v=5.046
+                 ... Use "/* verilator lint_off BLKSEQ */" and lint_on around source to disable this message.
+%Warning-BLKSEQ: divider.v:2633:4: Blocking assignment '=' in sequential logic process
+                                 : ... note: In instance 'divider._437_.gf180mcu_fd_sc_mcu7t5v0___05Fxor3_inst'
+                                 : ... Suggest using delayed assignment '<='
+ 2633 |    ?  0  p   0  ?  :  0  :  0;
+      |    ^
+%Warning-BLKSEQ: divider.v:2635:4: Blocking assignment '=' in sequential logic process
+                                 : ... note: In instance 'divider._437_.gf180mcu_fd_sc_mcu7t5v0___05Fxor3_inst'
+                                 : ... Suggest using delayed assignment '<='
+ 2635 |    0  ?  r   1  ?  :  ?  :  1;
+      |    ^
+%Warning-BLKSEQ: divider.v:2636:4: Blocking assignment '=' in sequential logic process
+                                 : ... note: In instance 'divider._437_.gf180mcu_fd_sc_mcu7t5v0___05Fxor3_inst'
+                                 : ... Suggest using delayed assignment '<='
+ 2636 |    0  ?  p   1  ?  :  1  :  1;
+      |    ^
+%Warning-BLKSEQ: divider.v:2638:4: Blocking assignment '=' in sequential logic process
+                                 : ... note: In instance 'divider._437_.gf180mcu_fd_sc_mcu7t5v0___05Fxor3_inst'
+                                 : ... Suggest using delayed assignment '<='
+ 2638 |    ?  ?  ?   ?  *  :  ?  :  x;
+      |    ^
+%Warning-UNUSEDSIGNAL: divider.v:25:15: Bits of signal are not driven, nor used: '_000_'[3:0]
+                                      : ... note: In instance 'divider'
+   25 |   wire [22:0] _000_;
+      |               ^~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.046
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: divider.v:299:15: Bits of signal are not driven, nor used: 'next_quotient'[0]
+                                       : ... note: In instance 'divider'
+  299 |   wire [22:0] next_quotient;
+      |               ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: divider.v:300:15: Bits of signal are not used: 'quotient'[21:0]
+                                       : ... note: In instance 'divider'
+  300 |   wire [22:0] quotient;
+      |               ^~~~~~~~
+%Warning-UNDRIVEN: divider.v:2332:5: Signal is not driven: 'notifier'
+                                   : ... note: In instance 'divider._620_'
+ 2332 | reg notifier;
+      |     ^~~~~~~~
+                   ... For warning description see https://verilator.org/warn/UNDRIVEN?v=5.046
+                   ... Use "/* verilator lint_off UNDRIVEN */" and lint_on around source to disable this message.
+verilator_rc=0
+LIBRARY (not counted) %Warning-DECLFILENAME: divider.v:2177:8: Filename 'divider' does not match MODULE name: 'gf180mcu_fd_sc_mcu7t5v0__and2_1'
+LIBRARY (not counted) %Warning-IMPLICIT: divider.v:2339:16: Signal definition not found, creating implicitly: 'MGM_D0'
+LIBRARY (not counted) %Warning-IMPLICIT: divider.v:2340:40: Signal definition not found, creating implicitly: 'IQ1'
+LIBRARY (not counted) %Warning-BLKSEQ: divider.v:2632:4: Blocking assignment '=' in sequential logic process
+LIBRARY (not counted) %Warning-BLKSEQ: divider.v:2633:4: Blocking assignment '=' in sequential logic process
+LIBRARY (not counted) %Warning-BLKSEQ: divider.v:2635:4: Blocking assignment '=' in sequential logic process
+LIBRARY (not counted) %Warning-BLKSEQ: divider.v:2636:4: Blocking assignment '=' in sequential logic process
+LIBRARY (not counted) %Warning-BLKSEQ: divider.v:2638:4: Blocking assignment '=' in sequential logic process
+LIBRARY (not counted) %Warning-UNDRIVEN: divider.v:2332:5: Signal is not driven: 'notifier'
+WAIVED (unused internal signal) %Warning-UNUSEDSIGNAL: divider.v:25:15: Bits of signal are not driven, nor used: '_000_'[3:0]
+WAIVED (unused internal signal) %Warning-UNUSEDSIGNAL: divider.v:299:15: Bits of signal are not driven, nor used: 'next_quotient'[0]
+WAIVED (unused internal signal) %Warning-UNUSEDSIGNAL: divider.v:300:15: Bits of signal are not used: 'quotient'[21:0]
+RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0
+== yosys structural check (Yosys view)
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+
+-- Running command `read_verilog divider_fv.v;  hierarchy -check -top divider; proc -noopt; flatten; check -assert; scc -select; select -assert-none %; select -clear; select -assert-none t:$adff* t:$aldff* t:$sdff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*; opt_clean; write_json lint_00.json' --
+
+1. Executing Verilog-2005 frontend: divider_fv.v
+Parsing Verilog input from `divider_fv.v' to AST representation.
+Generating RTLIL representation for module `\divider'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__and4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi211_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi21_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi221_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__aoi22_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__clkinv_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__mux2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nand4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__nor4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai21_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai221_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai22_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai31_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__oai32_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__or4_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xnor2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor2_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__dffq_1'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \divider
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__dffq_1
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__clkinv_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi21_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai21_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai21_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai31_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai31_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai221_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai221_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi211_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__mux2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__mux2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi22_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi22_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai32_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai32_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi221_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai22_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai22_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xnor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xnor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand4_func
+Reprocessing module divider because instantiated module gf180mcu_fd_sc_mcu7t5v0__dffq_1 has become available.
+Generating RTLIL representation for module `\divider'.
+
+2.2. Analyzing design hierarchy..
+Top module:  \divider
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__dffq_1
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__clkinv_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi21_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai21_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai21_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai31_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai31_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai221_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai221_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi211_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__mux2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__mux2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi22_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi22_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai32_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai32_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi221_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai22_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai22_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xnor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xnor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand4_func
+
+2.3. Analyzing design hierarchy..
+Top module:  \divider
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__dffq_1
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__clkinv_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi21_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai21_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai21_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai31_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai31_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__and3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__and3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai221_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai221_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi211_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__mux2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__mux2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi22_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi22_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai32_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai32_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__aoi221_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__oai22_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__oai22_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xnor2_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xnor2_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__or4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__or4_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__nand4_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__nand4_func
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\gf180mcu_fd_sc_mcu7t5v0__dffq_1.$divider_fv.v:2691$proc$155'.
+Creating decoders for process `\gf180mcu_fd_sc_mcu7t5v0__dffq_1.$divider_fv.v:2689$proc$154'.
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\gf180mcu_fd_sc_mcu7t5v0__dffq_1.\_0_' using process `\gf180mcu_fd_sc_mcu7t5v0__dffq_1.$divider_fv.v:2691$proc$155'.
+  created $dff cell `$procdff$255' with positive edge clock.
+Creating register for signal `\gf180mcu_fd_sc_mcu7t5v0__dffq_1.\IQ1' using process `\gf180mcu_fd_sc_mcu7t5v0__dffq_1.$divider_fv.v:2689$proc$154'.
+  created $dff cell `$procdff$256' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `gf180mcu_fd_sc_mcu7t5v0__dffq_1.$divider_fv.v:2691$proc$155'.
+Removing empty process `gf180mcu_fd_sc_mcu7t5v0__dffq_1.$divider_fv.v:2689$proc$154'.
+Cleaned up 0 empty switches.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xor3_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xor3_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xor2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xor2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xnor2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xnor2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__or4_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__or4_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__or3_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__or3_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__or2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__or2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai32_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai32_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai31_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai31_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai22_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai22_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai221_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai221_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai21_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__oai21_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nor4_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nor4_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nor3_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nor3_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nor2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nor2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nand4_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nand4_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nand3_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nand3_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nand2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__nand2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__mux2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__mux2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__clkinv_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__clkinv_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi22_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi22_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi221_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi221_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi21_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi21_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi211_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__aoi211_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__and4_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__and4_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__and3_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__and3_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__and2_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__and2_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__dffq_1.
+<suppressed ~374 debug messages>
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module divider...
+Found and reported 0 problems.
+
+6. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module divider.
+Found 0 SCCs.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider..
+Removed 112 unused cells and 1827 unused wires.
+<suppressed ~169 debug messages>
+
+8. Executing JSON backend.
+
+End of script. Logfile hash: 52fe38122e, time: 0.09s, user: 0.09s, system: 0.01s, MEM: 27.97 MB peak
+Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+Time spent: 28% 2x read_verilog (0 sec), 26% 2x write_json (0 sec), ...
+yosys_rc=0
+== interface / structure check
+RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=56 errors=0
+interface_rc=0

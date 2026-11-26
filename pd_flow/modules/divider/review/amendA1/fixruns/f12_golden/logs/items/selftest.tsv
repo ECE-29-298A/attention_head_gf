@@ -1,0 +1,1 @@
+selftest	selftest	pass	true	0.435	logs/selftest.log	RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0

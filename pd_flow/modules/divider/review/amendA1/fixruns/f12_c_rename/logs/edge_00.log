@@ -1,0 +1,2 @@
+RESULT sim=icarus cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/gaA1fix/pd_flow/modules/divider/verif/sim/tb_edge.sv:147: $finish called at 1823625000 (1ps)

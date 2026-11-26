@@ -1,0 +1,37 @@
+DUT: /private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/gaA1fix/pd_flow/modules/divider/verif/evidence/seq_eq/c_rename.v
+seq_eq lemmas: /private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/gaA1fix/pd_flow/modules/divider/verif/evidence/seq_eq/c_rename_lemmas.sv
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/amendA1/fixruns/c_rename
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//divider_verif.iIIHAs
+== phase build
+== phase sim
+== phase formal
+gen                  pass                pass-static       0.09s  RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_do
+selftest             pass                pass-static       0.53s  RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792
+lemma_lint           pass                pass-static       0.04s  RESULT lemma_lint statements=7 errors=0; file=/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-g
+lint_00              pass-with-waiver    pass-static       0.17s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk'
+lint_11              pass-with-waiver    pass-static       0.21s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk'
+refcheck             pass                pass-static       0.38s  RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
+edge_00              pass-edge-spot      pass-sampled      1.75s  cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 
+edge_11              pass-edge-spot      pass-sampled      2.33s  cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 ser
+fv_cover_00          covered             bounded-pass     13.11s  sby_status=PASS asserts=7 covers=14 reached=14 unreached=0 depth=30 (expected asserts=7 covers=14)
+fv_cover_11          covered             bounded-pass     13.48s  sby_status=PASS asserts=7 covers=15 reached=15 unreached=0 depth=30 (expected asserts=7 covers=15)
+fv_pdr_proto_00      proven              proven            0.61s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_proto_11      proven              proven            0.70s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_00          proven              proven            1.30s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_proto_11          proven              proven            1.50s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_result_00         unsupported         unsupported   (non-gating)     0.04s  white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative) not in the DUT: golden characterization o
+fv_result_11         unsupported         unsupported   (non-gating)     0.04s  white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative w:g_divisor.saved_divisor w:invalid_r) not
+fv_sanity_lat_11     failed-as-expected  failed            1.45s  sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
+fv_sanity_pu_00      failed-as-expected  failed            0.34s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion divider_props.a_wrong_pu
+fv_sanity_round_00   failed-as-expected  failed            4.17s  sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+fv_sanity_round_11   failed-as-expected  failed            3.45s  sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+fv_sanity_stab_00    failed-as-expected  failed            3.61s  sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
+eqy_rtl_00           failed              failed        (non-gating)     0.41s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=12 (strategy sat, depth 1, merged partition, gold 
+eqy_rtl_11           failed              failed        (non-gating)     0.45s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=12 (strategy sat, depth 1, merged partition, gold 
+fv_sanity_seq_00     failed-as-expected  failed            0.39s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_11     failed-as-expected  failed            0.39s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_00            proven              proven        (non-gating)     1.09s  sby_status=PASS asserts=6 covers=0 (a_eq + 5 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=c_r
+seq_eq_11            proven              proven        (non-gating)     1.22s  sby_status=PASS asserts=8 covers=0 (a_eq + 7 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=c_r
+equiv_00             proven              proven            0.00s  eqy_rtl: failed; seq_eq_00: proven (ok if either is proven)
+equiv_11             proven              proven            0.00s  eqy_rtl: failed; seq_eq_11: proven (ok if either is proven)
+TOTAL 23/23 gating ok, all_ok=True; 27.623 s

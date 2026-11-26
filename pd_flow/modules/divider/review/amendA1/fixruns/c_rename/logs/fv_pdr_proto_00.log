@@ -1,0 +1,105 @@
+SBY 17:42:57 [divider_pdr_proto_00] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_pdr_proto_00'.
+SBY 17:42:57 [divider_pdr_proto_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_pdr_proto_00/src/divider_fv.v'.
+SBY 17:42:57 [divider_pdr_proto_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_pdr_proto_00/src/divider_props.sv'.
+SBY 17:42:57 [divider_pdr_proto_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/ref_divider_seq.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_pdr_proto_00/src/ref_divider_seq.v'.
+SBY 17:42:57 [divider_pdr_proto_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.iIIHAs/fv_pdr_proto_00/divider_pdr_proto_00/src/fv_mode.vh'.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: abc pdr
+SBY 17:42:57 [divider_pdr_proto_00] base: starting process "cd divider_pdr_proto_00/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:42:57 [divider_pdr_proto_00] base: finished (returncode=0)
+SBY 17:42:57 [divider_pdr_proto_00] prep: starting process "cd divider_pdr_proto_00/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:42:57 [divider_pdr_proto_00] prep: finished (returncode=0)
+SBY 17:42:57 [divider_pdr_proto_00] aig: starting process "cd divider_pdr_proto_00/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\clk like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\rst_n like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\start like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [0] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [1] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [2] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [3] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [4] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [5] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [6] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [7] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [8] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [9] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [10] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [11] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [12] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [13] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [14] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [15] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [16] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [17] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [18] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\sum_in [19] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [0] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [1] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [2] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [3] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [4] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [5] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [6] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [7] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [8] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [9] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [10] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\denominator [11] like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating undriven bit divider_props.\shift like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: Warning: Treating a total of 36 undriven bits in divider_props like $anyseq.
+SBY 17:42:57 [divider_pdr_proto_00] aig: finished (returncode=0)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: starting process "cd divider_pdr_proto_00; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Warning: The last output is interpreted as a constraint.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 219. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 1 : 0 23                                                                1    24      0.00 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 2 : 0 3 34 ~1                                                            1    36      0.01 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 3 : 0 3 3 34 ~2                                                          1    36      0.01 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 4 : 0 3 3 22 37 ~3                                                       4    38      0.02 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 5 : 0 3 2 3 3 37 ~3                                                      1    38      0.02 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 6 : 0 3 2 5 4 25 37 ~3                                                   5    39      0.03 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 7 : 0 3 2 5 2 9 27 37 ~3                                                 3    39      0.04 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 8 : 0 3 2 6 2 5 8 28 41 ~3                                               7    39      0.05 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 9 : 0 3 2 4 2 4 3 3 4 44 ~3                                              1    39      0.05 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 10 : 0 3 2 5 3 5 4 5 6 24 47 ~3                                           9    40      0.07 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 11 : 0 3 2 4 2 5 4 3 2 9 30 42 ~3                                         3    40      0.07 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 12 : 0 3 2 4 2 5 4 3 2 7 9 32 45 ~3                                       4    40      0.08 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 13 : 0 3 2 4 2 6 5 4 3 8 8 16 37 50 ~3                                   10    40      0.10 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 14 : 0 3 2 4 2 4 3 3 2 6 5 7 6 7 51 ~3                                    0    40      0.11 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 15 : 0 3 2 4 2 4 3 3 2 5 5 6 5 6 15 39 ~3                                 1    40      0.11 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 16 : 0 3 2 5 3 5 4 5 4 8 8 10 11 9 23 35 49 ~3                           18    41      0.14 sec  T/O =  0  PRV =  0
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Proved output 1 in frame 16.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 17 : 0 3 2 4 2 4 3 3 2 7 5 2 4 3 8 20 39 51 ~6                            3    41      0.15 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 18 : 0 3 2 4 2 4 3 3 2 7 5 2 5 4 10 18 24 35 42 ~6                        8    41      0.16 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 19 : 0 3 2 4 2 4 3 3 2 7 5 1 4 3 10 17 23 28 42 46 ~6                    14    41      0.19 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 20 : 0 3 2 4 2 4 3 3 2 7 5 1 4 3 3 3 2 3 5 4 80 ~6                        0    41      0.19 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 21 : 0 3 2 4 2 4 3 3 2 7 5 1 4 3 3 3 2 3 5 4 3 76 ~6                      0    41      0.20 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 22 : 0 3 2 4 2 4 3 3 2 7 5 1 4 3 3 3 2 3 5 4 3 8 71 ~6                    1    41      0.20 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 23 : 0 3 2 4 2 4 3 3 2 7 5 1 4 3 4 4 4 5 6 5 5 12 23 81 ~6               18    41      0.22 sec  T/O =  0  PRV =  1
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Proved output 0 in frame 23.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Proved output 2 in frame 23.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 24 : 0 3 2 4 2 4 3 3 2 6 4 1 3 2 3 3 2 4 6 4 3 10 14 24 64 ~63            1    42      0.24 sec  T/O =  0  PRV =  3
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Proved output 3 in frame 24.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Proved output 4 in frame 24.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Proved output 5 in frame 24.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: 25 : ... 4 3 3 2 6 4 1 3 2 3 3 2 4 6 4 3 10 14 24 0 -6 ~115       0    42      0.25 sec  T/O =  0  PRV =  6
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Block =  356  Oblig =   793  Clause =   631  Call =  7060 (sat=62.8%)  Cex =   0  Start =  12
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: SAT solving =     0.14 sec ( 53.57 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: unsat     =     0.02 sec (  5.98 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: sat       =     0.12 sec ( 47.58 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Generalize  =     0.08 sec ( 30.94 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Push clause =     0.06 sec ( 22.96 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Ternary sim =     0.00 sec (  1.62 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Containment =     0.00 sec (  0.17 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: CNF compute =     0.01 sec (  5.17 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: TOTAL       =     0.25 sec (100.00 %)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Property proved.  Time =     0.26 sec
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Counter-example is not available.
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: finished (returncode=0)
+SBY 17:42:57 [divider_pdr_proto_00] engine_0: Status returned by engine: PASS
+SBY 17:42:57 [divider_pdr_proto_00] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:42:57 [divider_pdr_proto_00] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:42:57 [divider_pdr_proto_00] summary: engine_0 (abc pdr) returned PASS
+SBY 17:42:57 [divider_pdr_proto_00] summary: engine_0 did not produce any traces
+SBY 17:42:57 [divider_pdr_proto_00] DONE (PASS, rc=0)

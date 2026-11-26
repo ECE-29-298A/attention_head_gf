@@ -1,0 +1,2 @@
+ERROR: Assertion failed: selection contains 0 elements, less than the minimum number 1: w:state
+Selection contains:

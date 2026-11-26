@@ -1,0 +1,20 @@
+# Side proof (bridge): the gate side's observer outputs obs_* are demoted to internal wires
+# (delete -port), so only the original ports are compared. Otherwise as eqy_P*.eqy:
+# Agent 3 (divider): sequential equivalence golden vs candidate at LATCH_DENOMINATOR=0, CHECK_INVALID=0.
+# Flops matched by name (same encoding both sides) -> SAT depth 1 is an unbounded induction step.
+# No assumptions, cutpoints or black boxes. Ports (busy, done, result) matched by name.
+[gold]
+read_verilog -sv gold.v
+chparam -set LATCH_DENOMINATOR 0 -set CHECK_INVALID 0 divider
+prep -top divider
+
+[gate]
+read_verilog -sv gate.v
+chparam -set LATCH_DENOMINATOR 0 -set CHECK_INVALID 0 divider
+prep -top divider
+delete -port divider/obs_*
+opt_clean
+
+[strategy sat]
+use sat
+depth 1

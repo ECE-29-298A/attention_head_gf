@@ -1,0 +1,1 @@
+seq_eq_00	seq	failed	false	0.405	logs/seq_eq_00.log	counterexample: failed l_rare (returned FAIL for basecase); trace formal/runs/seq_eq_00/seq_eq_seq_00/engine_0/trace.vcd; lemmas=x03_lemmas.sv

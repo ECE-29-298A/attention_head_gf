@@ -1,0 +1,9 @@
+{
+ "c00_golden": "golden snapshot (cosmetic variants v1-v6 give the noise band)",
+ "c01_dq19": "19-bit dividend/quotient shift register; the 4 constant-zero dividend LSBs are not stored (mask from step >= 19)",
+ "c02_dq19_flip": "c01 + quotient bits stored pre-complemented (q ^ negative): the output stage loses 12 XORs",
+ "c03_dq19_flip_phase": "c02 + one 5-bit phase counter for state, step and done (done decoded from phase 25)",
+ "c04_dq19_flip_phase_done": "c02 + one 5-bit phase counter for state and step (0 idle, 1..23 divide, 24 round); done flop kept",
+ "c05_flip": "golden 23-bit register + pre-complemented quotient bits only (isolates the flip)",
+ "c06_dq19_flip_step": "c02 + state merged into the 5-bit step counter (0..22 divide, 23 round, 24 idle/reset); done flop kept; step keeps golden values while busy"
+}

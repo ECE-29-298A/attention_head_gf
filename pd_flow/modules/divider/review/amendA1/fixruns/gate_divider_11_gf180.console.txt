@@ -1,0 +1,24 @@
+DUT: /private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/gaA1fix/pd_flow/modules/divider/verif/gate/netlists/divider_11_gf180.v (gate-level netlist, config 11, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog, flop models from /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib)
+seq_eq lemmas: /private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/gaA1fix/pd_flow/modules/divider/verif/evidence/seq_eq/golden_gate_lemmas.sv
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/amendA1/fixruns/gate_divider_11_gf180
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//divider_verif.HkyZEC
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass                pass-static       0.27s  RESULT cells netlist_modules=['divider'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=2584ce
+gen                  pass                pass-static       0.09s  RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_do
+selftest             pass                pass-static       0.53s  RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792
+lemma_lint           pass                pass-static       0.04s  RESULT lemma_lint statements=7 errors=0; file=/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-g
+lint_11              pass-with-waiver    pass-static       0.37s  RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'cl
+refcheck             pass                pass-static       0.38s  RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
+edge_11              pass-edge-spot      pass-sampled      9.21s  cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 ser
+fv_pdr_proto_11      proven              proven            1.11s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_11          proven              proven            6.06s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat_11     failed-as-expected  failed           10.25s  sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
+fv_sanity_round_11   failed-as-expected  failed           15.55s  sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+eqy_rtl              proven              proven        (non-gating)     1.33s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold 
+fv_sanity_seq_11     failed-as-expected  failed            1.35s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_11            proven              proven        (non-gating)    22.92s  sby_status=PASS asserts=8 covers=0 (a_eq + 7 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=gol
+equiv_11             proven              proven            0.00s  eqy_rtl: proven; seq_eq_11: proven (ok if either is proven)
+TOTAL 13/13 gating ok, all_ok=True; 45.841 s

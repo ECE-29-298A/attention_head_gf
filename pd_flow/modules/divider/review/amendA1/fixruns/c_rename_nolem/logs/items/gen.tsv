@@ -1,0 +1,1 @@
+gen	gen	pass	true	0.084	logs/gen.log	RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162

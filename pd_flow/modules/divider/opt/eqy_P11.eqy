@@ -1,0 +1,16 @@
+# Agent 3 (divider): sequential equivalence golden vs candidate at LATCH_DENOMINATOR=1, CHECK_INVALID=1.
+# Flops matched by name (same encoding both sides) -> SAT depth 1 is an unbounded induction step.
+# No assumptions, cutpoints or black boxes. Ports (busy, done, result) matched by name.
+[gold]
+read_verilog -sv gold.v
+chparam -set LATCH_DENOMINATOR 1 -set CHECK_INVALID 1 divider
+prep -top divider
+
+[gate]
+read_verilog -sv gate.v
+chparam -set LATCH_DENOMINATOR 1 -set CHECK_INVALID 1 divider
+prep -top divider
+
+[strategy sat]
+use sat
+depth 1

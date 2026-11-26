@@ -1,0 +1,1 @@
+seq_eq_11	seq	inconclusive	false	0.205	logs/seq_eq_11.log	tool/infrastructure error: sby_status=ERROR ; SBY 18:09:22 [seq_eq_seq_11] base: ERROR: Assertion failed: selection is not empty: t:$assume t:$live t:$fair t:$cover t:$allconst t:$allseq

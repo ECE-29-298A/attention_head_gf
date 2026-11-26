@@ -1,0 +1,60 @@
+e04_magnitude_neg 00 none timed-out(45s; induction: FAIL)
+e04_magnitude_neg 00 golden_self proven
+e04_magnitude_neg 11 none timed-out(45s; induction: FAIL)
+e04_magnitude_neg 11 golden_self proven
+e05_step_hold_in_idle 00 none timed-out(45s; induction: FAIL)
+e05_step_hold_in_idle 00 golden_self proven
+e05_step_hold_in_idle 11 none timed-out(45s; induction: FAIL)
+e05_step_hold_in_idle 11 golden_self proven
+e06_done_explicit 00 none not-proven
+e06_done_explicit 00 golden_self proven
+e06_done_explicit 11 none not-proven
+e06_done_explicit 11 golden_self proven
+m13_latch_always 00 none not-proven
+m13_latch_always 00 golden_self proven
+m13_latch_always 11 none failed(a_eq returned FAIL for basecase)
+m13_latch_always 11 golden_self failed(l_div returned FAIL for basecase)
+m14_remainder_not_cleared 00 none failed(a_eq returned FAIL for basecase)
+m14_remainder_not_cleared 00 golden_self failed(l_rem returned FAIL for basecase)
+m14_remainder_not_cleared 11 none failed(a_eq returned FAIL for basecase)
+m14_remainder_not_cleared 11 golden_self failed(l_rem returned FAIL for basecase)
+m15_ovf_neg_2048 00 none not-proven
+m15_ovf_neg_2048 00 golden_self proven
+m15_ovf_neg_2048 11 none failed(a_eq returned FAIL for basecase)
+m15_ovf_neg_2048 11 golden_self failed(a_eq returned FAIL for basecase)
+m16_rare_point 00 none failed(a_eq returned FAIL for basecase)
+m16_rare_point 00 golden_self failed(a_eq returned FAIL for basecase)
+m16_rare_point 11 none failed(a_eq returned FAIL for basecase)
+m16_rare_point 11 golden_self failed(a_eq returned FAIL for basecase)
+m17_rare_maxL 00 none failed(a_eq returned FAIL for basecase)
+m17_rare_maxL 00 golden_self failed(a_eq returned FAIL for basecase)
+m17_rare_maxL 11 none failed(a_eq returned FAIL for basecase)
+m17_rare_maxL 11 golden_self failed(a_eq returned FAIL for basecase)
+m18_invalid_den0_dropped 00 none not-proven
+m18_invalid_den0_dropped 00 golden_self proven
+m18_invalid_den0_dropped 11 none not-proven
+m18_invalid_den0_dropped 11 golden_self failed(l_inv returned FAIL for basecase)
+m19_busy_low_in_round 00 none failed(a_eq returned FAIL for basecase)
+m19_busy_low_in_round 00 golden_self failed(a_eq returned FAIL for basecase)
+m19_busy_low_in_round 11 none failed(a_eq returned FAIL for basecase)
+m19_busy_low_in_round 11 golden_self failed(a_eq returned FAIL for basecase)
+m20_done_sticky 00 none failed(a_eq returned FAIL for basecase)
+m20_done_sticky 00 golden_self failed(a_eq returned FAIL for basecase)
+m20_done_sticky 11 none failed(a_eq returned FAIL for basecase)
+m20_done_sticky 11 golden_self failed(a_eq returned FAIL for basecase)
+m21_default_check0 00 none not-proven
+m21_default_check0 00 golden_self proven
+m21_default_check0 11 none not-proven
+m21_default_check0 11 golden_self proven
+m22_default_latch0 00 none not-proven
+m22_default_latch0 00 golden_self proven
+m22_default_latch0 11 none not-proven
+m22_default_latch0 11 golden_self proven
+m23_carry_bit8_lost 00 none failed(a_eq returned FAIL for basecase)
+m23_carry_bit8_lost 00 golden_self failed(a_eq returned FAIL for basecase)
+m23_carry_bit8_lost 11 none failed(a_eq returned FAIL for basecase)
+m23_carry_bit8_lost 11 golden_self failed(a_eq returned FAIL for basecase)
+m24_start_during_reset 00 none failed(a_eq returned FAIL for basecase)
+m24_start_during_reset 00 golden_self failed(a_eq l_state returned FAIL for basecase)
+m24_start_during_reset 11 none failed(a_eq returned FAIL for basecase)
+m24_start_during_reset 11 golden_self failed(a_eq l_state returned FAIL for basecase)

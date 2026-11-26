@@ -1,0 +1,4 @@
+== net widths (flattened miter, no lemmas)
+== lemmas: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/amendA1/atk_seen_only.sv
+REJECT l_atk: token not allowed in a lemma expression: "seen >>= 1) == 1'b0 "
+RESULT lemma_gen lemmas=0 nets=0 errors=1

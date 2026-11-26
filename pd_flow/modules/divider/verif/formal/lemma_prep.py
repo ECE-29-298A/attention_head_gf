@@ -49,6 +49,34 @@ def strip_comments(text):
     return "\n".join(out)
 
 
+# Review fix F2 (agent 2): a lemma expression is checked against a token WHITELIST, not
+# only a keyword blacklist. Allowed: gold.*/cand.* names, numeric literals, $signed /
+# $unsigned, pure operators, brackets and commas. Rejected: any other identifier (the miter's
+# own first / seen / rst_n_in / clk / g_* / c_*, keywords such as s_eventually, disable, iff,
+# inside, always_comb) and every side-effecting operator (++, --, =, op=, <<=, >>=, ...).
+TOKEN = re.compile(r"""\s+
+  | (?P<hier>\b(?:gold|cand)\.[A-Za-z_][\w$]*(?:\.[A-Za-z_][\w$]*)*)
+  | (?P<num>\d*\s*'[sS]?[bBoOdDhH]\s*[0-9a-fA-F_xXzZ?]+|\d[\d_]*)
+  | (?P<sys>\$(?:signed|unsigned)\b)
+  | (?P<op>===|!==|==|!=|<=|>=|&&|\|\||<<<|>>>|<<|>>|\*\*|~&|~\||~\^|\^~|[-+*/%&|^~!<>?:(){}\[\],])
+""", re.X)
+
+
+def expr_whitelist(expr):
+    errs = []
+    for bad in ("++", "--"):
+        if bad in expr:
+            errs.append(f"operator '{bad}' is not allowed")
+    pos = 0   # a lone '=' is not a whitelisted token, so every assignment form is rejected
+    while pos < len(expr):
+        m = TOKEN.match(expr, pos)
+        if not m or m.end() == pos:
+            errs.append(f"token not allowed in a lemma expression: {expr[pos:pos + 20]!r}")
+            break
+        pos = m.end()
+    return errs
+
+
 def parse(path):
     """Return (lemmas [(label, config, expr)], errors)."""
     raw = open(path).read()
@@ -80,6 +108,7 @@ def parse(path):
         expr = m.group(2)
         if not HIER.search(expr):
             errors.append(f"{label}: references no gold.* / cand.* name")
+        errors += [f"{label}: {e}" for e in expr_whitelist(expr)]
         lemmas.append((label, cfg, expr))
     labels = [l for l, _, _ in lemmas]
     if len(set(labels)) != len(labels):

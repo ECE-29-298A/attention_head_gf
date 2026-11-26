@@ -1,0 +1,2 @@
+REJECT l_atk: token not allowed in a lemma expression: "seen >>= 1) == 1'b0 "
+RESULT lemma_lint statements=1 errors=1

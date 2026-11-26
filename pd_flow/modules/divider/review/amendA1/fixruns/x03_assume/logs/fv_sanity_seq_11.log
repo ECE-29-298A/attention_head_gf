@@ -1,0 +1,26 @@
+== net widths (flattened miter, no lemmas)
+== lemmas: none
+RESULT lemma_gen lemmas=0 nets=0 errors=0
+// no lemma file
+# no lemma file
+== sby sanity_seq_11
+SBY 17:44:10 [seq_eq_sanity_seq_11] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/divider_miter.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11/src/divider_miter.sv'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/gold.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11/src/gold.v'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/divider_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11/src/divider_fv.v'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11/src/fv_mode.vh'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_lemmas.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11/src/seq_lemmas.vh'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_lemmas.ys' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.O9AYCg/fv_sanity_seq_11/seq_eq_sanity_seq_11/src/seq_lemmas.ys'.
+SBY 17:44:10 [seq_eq_sanity_seq_11] engine_0: smtbmc z3
+SBY 17:44:10 [seq_eq_sanity_seq_11] base: starting process "cd seq_eq_sanity_seq_11/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:44:10 [seq_eq_sanity_seq_11] base: ERROR: Assertion failed: selection is not empty: t:$assume t:$live t:$fair t:$cover t:$allconst t:$allseq t:$check r:FLAVOR=assert %d
+SBY 17:44:10 [seq_eq_sanity_seq_11] base: Selection contains:
+SBY 17:44:10 [seq_eq_sanity_seq_11] base: $paramod$25d4e8f417a1cf67098674252345eb6db09d8c36\divider/$divider_fv.v:67$assume$113
+SBY 17:44:10 [seq_eq_sanity_seq_11] base: finished (returncode=1)
+SBY 17:44:10 [seq_eq_sanity_seq_11] base: task failed. ERROR.
+SBY 17:44:10 [seq_eq_sanity_seq_11] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:44:10 [seq_eq_sanity_seq_11] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:44:10 [seq_eq_sanity_seq_11] summary: engine_0 (smtbmc z3) did not return a status
+SBY 17:44:10 [seq_eq_sanity_seq_11] summary: engine_0 did not produce any traces
+SBY 17:44:10 [seq_eq_sanity_seq_11] DONE (ERROR, rc=16)
+SBY 17:44:10 The following tasks failed: ['sanity_seq_11']

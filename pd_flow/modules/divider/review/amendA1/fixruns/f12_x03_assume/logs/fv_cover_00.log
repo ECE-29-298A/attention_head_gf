@@ -1,0 +1,140 @@
+SBY 18:09:08 [divider_cover_00] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_cover_00'.
+SBY 18:09:08 [divider_cover_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_cover_00/src/divider_fv.v'.
+SBY 18:09:08 [divider_cover_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_cover_00/src/divider_props.sv'.
+SBY 18:09:08 [divider_cover_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/ref_divider_seq.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_cover_00/src/ref_divider_seq.v'.
+SBY 18:09:08 [divider_cover_00] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/divider_verif.BW0KYj/fv_cover_00/divider_cover_00/src/fv_mode.vh'.
+SBY 18:09:08 [divider_cover_00] engine_0: smtbmc z3
+SBY 18:09:08 [divider_cover_00] base: starting process "cd divider_cover_00/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 18:09:08 [divider_cover_00] base: finished (returncode=0)
+SBY 18:09:08 [divider_cover_00] prep: starting process "cd divider_cover_00/model; yosys -ql design_prep.log design_prep.ys"
+SBY 18:09:08 [divider_cover_00] prep: finished (returncode=0)
+SBY 18:09:08 [divider_cover_00] smt2: starting process "cd divider_cover_00/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 18:09:08 [divider_cover_00] smt2: finished (returncode=0)
+SBY 18:09:08 [divider_cover_00] engine_0: starting process "cd divider_cover_00; yosys-smtbmc -s z3 --presat -c --noprogress -t 30  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Solver: z3
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Reached cover statement in step 0 at divider_props: c_pu_result
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Reached cover statement in step 0 at divider_props: c_pu_busy
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Reached cover statement in step 1 at divider_props: c_abort
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Reached cover statement in step 3 at divider_props: c_start_busy
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 11..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 13..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 14..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 15..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 16..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 17..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 18..
+SBY 18:09:08 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 19..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 20..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 21..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 22..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:00  Checking cover reachability in step 23..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:01  Checking cover reachability in step 24..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:01  Checking cover reachability in step 25..
+SBY 18:09:09 [divider_cover_00] engine_0: ##   0:00:01  Checking cover reachability in step 26..
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Reached cover statement in step 26 at divider_props: c_shift_done
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Reached cover statement in step 26 at divider_props: c_unspec
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace4.vcd
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace4.smtc
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:01  Checking cover reachability in step 26..
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:02  Reached cover statement in step 26 at divider_props: c_done_neg
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace5.vcd
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace5.smtc
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY 18:09:10 [divider_cover_00] engine_0: ##   0:00:02  Checking cover reachability in step 26..
+SBY 18:09:11 [divider_cover_00] engine_0: ##   0:00:03  Reached cover statement in step 26 at divider_props: c_min
+SBY 18:09:11 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace6.vcd
+SBY 18:09:11 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+SBY 18:09:11 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace6.smtc
+SBY 18:09:11 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace6.yw
+SBY 18:09:11 [divider_cover_00] engine_0: ##   0:00:03  Checking cover reachability in step 26..
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:03  Reached cover statement in step 26 at divider_props: c_done_pos
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace7.vcd
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace7.smtc
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace7.yw
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:03  Checking cover reachability in step 26..
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:04  Reached cover statement in step 26 at divider_props: c_tie_neg
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:04  Writing trace to VCD file: engine_0/trace8.vcd
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:04  Writing trace to Verilog testbench: engine_0/trace8_tb.v
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:04  Writing trace to constraints file: engine_0/trace8.smtc
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:04  Writing trace to Yosys witness file: engine_0/trace8.yw
+SBY 18:09:12 [divider_cover_00] engine_0: ##   0:00:04  Checking cover reachability in step 26..
+SBY 18:09:13 [divider_cover_00] engine_0: ##   0:00:05  Reached cover statement in step 26 at divider_props: c_max
+SBY 18:09:13 [divider_cover_00] engine_0: ##   0:00:05  Writing trace to VCD file: engine_0/trace9.vcd
+SBY 18:09:13 [divider_cover_00] engine_0: ##   0:00:05  Writing trace to Verilog testbench: engine_0/trace9_tb.v
+SBY 18:09:13 [divider_cover_00] engine_0: ##   0:00:05  Writing trace to constraints file: engine_0/trace9.smtc
+SBY 18:09:13 [divider_cover_00] engine_0: ##   0:00:05  Writing trace to Yosys witness file: engine_0/trace9.yw
+SBY 18:09:13 [divider_cover_00] engine_0: ##   0:00:05  Checking cover reachability in step 26..
+SBY 18:09:14 [divider_cover_00] engine_0: ##   0:00:05  Checking cover reachability in step 27..
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Reached cover statement in step 27 at divider_props: c_b2b
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to VCD file: engine_0/trace10.vcd
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to Verilog testbench: engine_0/trace10_tb.v
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to constraints file: engine_0/trace10.smtc
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to Yosys witness file: engine_0/trace10.yw
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Checking cover reachability in step 27..
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Reached cover statement in step 27 at divider_props: c_hold
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to VCD file: engine_0/trace11.vcd
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to Verilog testbench: engine_0/trace11_tb.v
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to constraints file: engine_0/trace11.smtc
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Writing trace to Yosys witness file: engine_0/trace11.yw
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:06  Checking cover reachability in step 27..
+SBY 18:09:15 [divider_cover_00] engine_0: ##   0:00:07  Checking cover reachability in step 28..
+SBY 18:09:16 [divider_cover_00] engine_0: ##   0:00:07  Reached cover statement in step 28 at divider_props: c_shift_busy
+SBY 18:09:16 [divider_cover_00] engine_0: ##   0:00:07  Writing trace to VCD file: engine_0/trace12.vcd
+SBY 18:09:16 [divider_cover_00] engine_0: ##   0:00:07  Writing trace to Verilog testbench: engine_0/trace12_tb.v
+SBY 18:09:16 [divider_cover_00] engine_0: ##   0:00:07  Writing trace to constraints file: engine_0/trace12.smtc
+SBY 18:09:16 [divider_cover_00] engine_0: ##   0:00:07  Writing trace to Yosys witness file: engine_0/trace12.yw
+SBY 18:09:16 [divider_cover_00] engine_0: ##   0:00:07  Status: passed
+SBY 18:09:16 [divider_cover_00] engine_0: finished (returncode=0)
+SBY 18:09:16 [divider_cover_00] engine_0: Status returned by engine: pass
+SBY 18:09:16 [divider_cover_00] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:07 (7)
+SBY 18:09:16 [divider_cover_00] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:07 (7)
+SBY 18:09:16 [divider_cover_00] summary: engine_0 (smtbmc z3) returned pass
+SBY 18:09:16 [divider_cover_00] summary: cover trace: divider_cover_00/engine_0/trace0.vcd
+SBY 18:09:16 [divider_cover_00] summary:   reached cover statement divider_props.c_pu_result at divider_props.sv:193.9-193.56
+SBY 18:09:16 [divider_cover_00] summary: cover trace: divider_cover_00/engine_0/trace1.vcd
+SBY 18:09:16 [divider_cover_00] summary:   reached cover statement divider_props.c_pu_busy at divider_props.sv:192.9-192.44
+SBY 18:09:16 [divider_cover_00] summary: cover trace: divider_cover_00/engine_0/trace10.vcd
+SBY 18:09:16 [divider_cover_00] summary:   reached cover statement divider_props.c_b2b at divider_props.sv:202.9-202.73 step 27
+SBY 18:09:16 [divider_cover_00] summary: cover trace: divider_cover_00/engine_0/trace11.vcd
+SBY 18:09:16 [divider_cover_00] summary:   reached cover statement divider_props.c_hold at divider_props.sv:204.9-204.94 step 27
+SBY 18:09:16 [divider_cover_00] summary: cover trace: divider_cover_00/engine_0/trace12.vcd
+SBY 18:09:16 [divider_cover_00] summary:   reached cover statement divider_props.c_shift_busy at divider_props.sv:200.9-200.83 step 28
+SBY 18:09:16 [divider_cover_00] summary: and 8 further traces
+SBY 18:09:16 [divider_cover_00] summary: see divider_cover_00/PASS for a complete summary
+SBY 18:09:16 [divider_cover_00] DONE (PASS, rc=0)

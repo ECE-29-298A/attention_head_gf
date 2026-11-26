@@ -1,0 +1,1 @@
+seq_eq_00	seq	proven	true	0.428	logs/seq_eq_00.log	sby_status=PASS asserts=6 covers=0 (a_eq + 5 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=golden_self_lemmas.sv

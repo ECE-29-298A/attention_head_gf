@@ -1,0 +1,1 @@
+seq_eq_11	seq	not-proven	false	1.275	logs/seq_eq_11.log	induction did not close (basecase depth 30 passed; add or strengthen lemmas): asserts=1 covers=0; lemmas=none
