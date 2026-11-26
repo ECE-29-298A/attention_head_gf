@@ -139,6 +139,12 @@
   induction, ICG modelled faithfully, no assumes) shows identical chip pins for every input sequence. Otherwise
   fall back to g1 (port-identical at mac_unit), measured the same way. Power is still not an objective.
 
+- Signoff (orchestrator-checked, 2026-11-26):
+  - wc_ref2 = c06 + c09: 43,429.8 um2 (-1,481.8 vs x0 44,911.6; -3,389.4 / -7.2% vs the 46,819.2 baseline).
+    Slew/cap/fanout 146/1/0, setup +39.42, hold +0.081, clean.
+  - wc_ref3 = + g2: 44,446.2 (+1,016.4; CTS +1,660 from 4 clock trees and dummy loads). **g2 REJECTED.** g1 is being
+    measured. The whole-chip tetris reference is wc_ref2. Fixing placement after step 32 (r32) has zero FIRM penalty.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
