@@ -45,3 +45,6 @@ pd_flow/**/contract_*/formal/
 pd_flow/**/harden/steps/
 pd_flow/**/impl/*/run/
 pd_flow/**/integration/cell_models_*.v
+pd_flow/**/opt/**/*.nl.v
+pd_flow/**/opt/**/*.il
+pd_flow/**/opt/**/model.json

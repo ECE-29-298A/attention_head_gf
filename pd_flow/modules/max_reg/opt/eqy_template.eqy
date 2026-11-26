@@ -1,0 +1,13 @@
+# Agent 3 (Phase 2): sequential equivalence golden max_reg vs candidate (copy of the reviewer template).
+# Same 22 M flops on both sides, matched by name: next-state equivalence over all (M, S_in, en, first).
+[gold]
+read_verilog -sv gold.v
+prep -top max_reg
+
+[gate]
+read_verilog -sv gate.v
+prep -top max_reg
+
+[strategy sat]
+use sat
+depth 1
