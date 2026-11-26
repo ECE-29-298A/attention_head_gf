@@ -129,6 +129,10 @@
 - mac_unit c09 (provisional; contract 037dffd RTL 24/24, gate 13/13, EQY by name): synthesis -727 um2 with c06.
   The whole-chip tetris reference moves to wc_ref2 = c06 + c09.
 
+- D12 (user, 2026-11-26): "i dont care about clock gating, i dont want power optimizatoion, only area". The mac_unit
+  clock-gating proposals g1 (-204 um2) and g2 (-795 um2) are dropped, and no gated-clock contract extension will be
+  built. Power is never an objective, not even a tiebreak; it stays a diagnostic only.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

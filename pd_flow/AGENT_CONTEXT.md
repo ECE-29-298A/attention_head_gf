@@ -219,3 +219,22 @@ Placement, tetrising and floorplan agents run at effort **high** (was max). The 
 
 ## Packing density (user decision D8c, 2026-11-26, supersedes D8's target)
 ~90% is a **potentially achievable bound** to note, not a target. Do not start from it. Tighten packing only while dry-run std-cell area improves, and **stop when packing density converges**: successive tighter trials give no further area gain, or density stops rising. Report the converged density and the trial sequence that shows convergence. No justification is needed for ending below 90% (or 85%).
+
+## TT precheck gate (user request, 2026-11-26)
+"we need this on so when we submit GDS direct to tinytapeout we dont get jumpscared with DRC".
+- **Every signoff harden** that is accepted, reported as a result, or submitted must pass the real TT precheck:
+  `pd_flow/scripts/tt_precheck.sh <run_dir> <evidence_dir>` (exit 0 = pass). It runs `tt/precheck/precheck.py`
+  with every gf180mcuD check, including the KLayout GF180MCU DRC (`gf180mcu.drc`, decks `all,-density,-antenna`) and
+  the KLayout antenna deck. It uses the precheck's PDK (open_pdks e8daeda7, as tt-gds-action@ttgf26c installs it) and
+  the LibreLane image's KLayout 0.30.7. About 1 minute; no harden slot needed; counts as one LibreLane container.
+- Put the evidence next to the experiment's signoff metrics (`results.md`, `results.xml`, `drc_*.xml`,
+  `precheck.log`, `gds.sha256`). A review artifact's verification status names the precheck result.
+- Why not the in-flow `RUN_KLAYOUT_DRC`: it sits below the TT template's "DO NOT CHANGE" line in `src/config.json`.
+  The flow PDK (54435919) also ships the older deck interface (`feol`/`beol`/`offgrid`), not the deck the precheck
+  runs. Magic DRC stays the in-flow check; the precheck is the KLayout gate.
+- Validated 2026-11-26: x0 (`md_x0_full`) and `xpk20_s1` (`dp_xpk20`) pass 12/12. A negative control (xpk20 GDS
+  plus two Metal1 squares 0.1 µm apart) fails the KLayout GF180MCU DRC with exactly M1.2a = 1
+  (`clusters/datapath/signoff/tt_precheck{,_negctl}/`).
+
+## No clock gating, no power optimization (user decision D12, 2026-11-26)
+Do not propose or use clock gating (icgtp/ICG cells, gated clocks). Power is never an objective or a tiebreak; it is reported as a diagnostic only. Area is the only objective.
