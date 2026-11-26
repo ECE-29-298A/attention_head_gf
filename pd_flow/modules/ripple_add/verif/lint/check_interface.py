@@ -3,13 +3,14 @@
 
 Usage: check_interface.py <design.json> <N>
 R5: ports exactly {a: in [N-1:0], b: in [N-1:0], cin: in 1, s: out [N-1:0]}.
-R3: no state cells (flops, latches, memories) in the elaborated, flattened module.
+R3: no state cells (flops, latches, memories, word-level or gate-level) and no remaining
+    non-primitive (black-box) cell instances in the elaborated, flattened module.
 """
 import json
 import sys
 
 STATE_PREFIXES = ("$ff", "$dff", "$adff", "$sdff", "$aldff", "$dlatch", "$adlatch", "$sr",
-                  "$mem", "$anyinit", "$_DFF", "$_SDFF", "$_DLATCH", "$_SR", "$_ALDFF")
+                  "$mem", "$anyinit", "$_FF_", "$_DFF", "$_SDFF", "$_DLATCH", "$_SR", "$_ALDFF")
 
 
 def main() -> int:
@@ -32,6 +33,10 @@ def main() -> int:
              if d["type"].startswith(STATE_PREFIXES)]
     if state:
         errors.append(f"state elements present: {state[:10]}")
+    opaque = [(m, c, d["type"]) for m, md in mods.items() for c, d in md["cells"].items()
+              if not d["type"].startswith("$")]
+    if opaque:
+        errors.append(f"unflattened / black-box cells present: {opaque[:10]}")
     for e in errors:
         print("ERROR", e)
     print(f"RESULT interface N={n} top={top} ports={sorted(ports)} state_cells={len(state)} "

@@ -2,7 +2,7 @@
 
 - Current module: 1 ripple_add (order: ripple_add → max_reg → exp_lut → divider → mac_unit →
   attention_controller → tt_um_attention_head_gf)
-- Phase: 0 complete (gate passed 2026-11-26 after user decisions); module 1 ripple_add Phase 1: Agent 1 contract done (68/68, commit 92d5473; orchestrator rerun confirmed); Agent 2 independent review and mutation testing running
+- Phase: module 1 ripple_add: Phase 1 gate PASSED (contract hash b879560878477abf, `modules/ripple_add/PHASE1_GATE.md`); Phase 2 (Agent 3, area optimization) in progress
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -37,7 +37,7 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-Wait for the Agent 2 verdict (`pd_flow/modules/ripple_add/review/REVIEW.md`). If APPROVE: verify the mutation evidence, freeze and hash the contract, then Phase 2 (Agent 3). If CHANGES REQUIRED: send the changes to Agent 1 and iterate.
+Wait for Agent 3 (`modules/ripple_add/opt/`). At the gate, check the frozen contract on the candidate (RTL and gate level), the EQY proof against `baseline/original_rtl/ripple_add.v`, the area under the identical recipe, and the top-level area. Then Phase 3.
 
 ## Environment workarounds in place
 - sby/eqy: run with `/usr/local/bin/python3 ~/.local/bin/{sby,eqy}`

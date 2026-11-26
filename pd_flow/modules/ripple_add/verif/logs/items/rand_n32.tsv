@@ -1,1 +1,1 @@
-rand_n32	rand	pass-sampled	true	0.349	logs/rand_n32.log	RESULT mode=random N=32 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000
+rand_n32	rand	pass-sampled	true	0.357	logs/rand_n32.log	RESULT mode=random N=32 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000

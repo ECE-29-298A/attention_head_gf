@@ -1,1 +1,1 @@
-fv_pdr_n22	sby	proven	true	0.330	logs/fv_pdr_n22.log	sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS
+fv_pdr_n22	sby	proven	true	0.318	logs/fv_pdr_n22.log	sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS

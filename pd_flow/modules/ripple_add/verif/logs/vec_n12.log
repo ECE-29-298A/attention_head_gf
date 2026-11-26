@@ -4,4 +4,4 @@ RESULT vectors N=12 written=207064 file=vec_12.txt
 RESULT mode=vectors N=12 vectors=207064 applied=207064 mismatches=0 checksum=0x0000000000000000
 == icarus
 RESULT sim=icarus N=12 vectors=207064 mismatches=0
-tb_vectors.sv:44: $finish called at 207064000 (1ps)
+tb_vectors.sv:48: $finish called at 207064000 (1ps)

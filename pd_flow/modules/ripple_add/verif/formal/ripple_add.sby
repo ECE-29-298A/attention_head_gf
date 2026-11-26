@@ -57,8 +57,10 @@ n22: chparam -set N 22 ripple_add_props
 n32: chparam -set N 32 ripple_add_props
 n64: chparam -set N 64 ripple_add_props
 prep -top ripple_add_props
-# guard: the proof's completeness argument needs a stateless model
+# guard: the proof's completeness argument needs a stateless model (word-level and
+# gate-level Yosys state cells)
 select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit
+select -assert-none t:$_FF_ t:$_DFF* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*
 
 [files]
 ripple_add.v

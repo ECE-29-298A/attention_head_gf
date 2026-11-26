@@ -1,1 +1,1 @@
-fv_cover_n8	sby	covered	true	0.314	logs/fv_cover_n8.log	sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n8	sby	covered	true	0.319	logs/fv_cover_n8.log	sby_status=PASS asserts=2 covers=16 reached=16 unreached=0

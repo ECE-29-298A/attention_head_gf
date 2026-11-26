@@ -1,0 +1,52 @@
+e01_carry_or rc=0 TOTAL 68/68 ok, all_ok=True, 25.359 s
+e02_carry_majority rc=0 TOTAL 68/68 ok, all_ok=True, 29.213 s
+e03_behavioural rc=0 TOTAL 68/68 ok, all_ok=True, 15.577 s
+m01_sum_xor_to_or rc=1 TOTAL 27/68 ok, all_ok=False, 24.87 s
+m02_no_generate rc=1 TOTAL 35/68 ok, all_ok=False, 19.324 s
+m03_no_propagate rc=1 TOTAL 30/68 ok, all_ok=False, 17.321 s
+m04_carry_wrong_index rc=1 TOTAL 35/68 ok, all_ok=False, 27.948 s
+m05_cin_ignored rc=1 TOTAL 17/68 ok, all_ok=False, 23.313 s
+m06_bit0_sum_no_cin rc=1 TOTAL 27/68 ok, all_ok=False, 25.033 s
+m07_msb_no_carry_in rc=1 TOTAL 27/68 ok, all_ok=False, 25.026 s
+m08_loop_bound_short rc=1 TOTAL 25/68 ok, all_ok=False, 18.219 s
+m09_stuck_at0_bit5 rc=1 TOTAL 39/68 ok, all_ok=False, 24.963 s
+m10_stuck_at1_msb rc=1 TOTAL 27/68 ok, all_ok=False, 24.987 s
+m11_b_bit_reversed rc=1 TOTAL 35/68 ok, all_ok=False, 23.338 s
+m12_n22_only_bit20 rc=1 TOTAL 64/68 ok, all_ok=False, 25.118 s
+m13_n12_only_msb rc=1 TOTAL 63/68 ok, all_ok=False, 24.937 s
+m14_n22_only_cin1 rc=1 TOTAL 63/68 ok, all_ok=False, 24.929 s
+m15_cin1_full_chain rc=1 TOTAL 27/68 ok, all_ok=False, 25.389 s
+m16_rare_n22 rc=1 TOTAL 58/68 ok, all_ok=False, 25.186 s
+m17_rare_all_n rc=1 TOTAL 33/68 ok, all_ok=False, 25.408 s
+m18_rare_n12_window rc=1 TOTAL 57/68 ok, all_ok=False, 25.327 s
+m19_latch rc=1 TOTAL 1/68 ok, all_ok=False, 13.898 s
+m20_default_n8 rc=1 TOTAL 67/68 ok, all_ok=False, 24.844 s
+m21_x_on_zero rc=1 TOTAL 52/68 ok, all_ok=False, 25.187 s
+m22_comb_loop rc=1 TOTAL 25/68 ok, all_ok=False, 16.796 s
+
+m01_sum_xor_to_or        before=KILLED now=KILLED items_ok=27/68 functional_killers=35
+m02_no_generate          before=KILLED now=KILLED items_ok=35/68 functional_killers=33
+m03_no_propagate         before=KILLED now=KILLED items_ok=30/68 functional_killers=33
+m04_carry_wrong_index    before=KILLED now=KILLED items_ok=35/68 functional_killers=33
+m05_cin_ignored          before=KILLED now=KILLED items_ok=17/68 functional_killers=35
+m06_bit0_sum_no_cin      before=KILLED now=KILLED items_ok=27/68 functional_killers=35
+m07_msb_no_carry_in      before=KILLED now=KILLED items_ok=27/68 functional_killers=35
+m08_loop_bound_short     before=KILLED now=KILLED items_ok=25/68 functional_killers=35
+m09_stuck_at0_bit5       before=KILLED now=KILLED items_ok=39/68 functional_killers=25
+m10_stuck_at1_msb        before=KILLED now=KILLED items_ok=27/68 functional_killers=35
+m11_b_bit_reversed       before=KILLED now=KILLED items_ok=35/68 functional_killers=33
+m12_n22_only_bit20       before=KILLED now=KILLED items_ok=64/68 functional_killers=4
+m13_n12_only_msb         before=KILLED now=KILLED items_ok=63/68 functional_killers=4
+m14_n22_only_cin1        before=KILLED now=KILLED items_ok=63/68 functional_killers=4
+m15_cin1_full_chain      before=KILLED now=KILLED items_ok=27/68 functional_killers=35
+m16_rare_n22             before=KILLED now=KILLED items_ok=58/68 functional_killers=2
+m17_rare_all_n           before=KILLED now=KILLED items_ok=33/68 functional_killers=26
+m18_rare_n12_window      before=KILLED now=KILLED items_ok=57/68 functional_killers=3
+m19_latch                before=KILLED now=KILLED items_ok=1/68 functional_killers=35 killers=lint_n1,lint_n12,lint_n16,lint_n22,lint_n32,lint_n64,lint_n8,lint_ndefault,build_n1,build_n10,build_n11,build_n12
+m20_default_n8           before=KILLED now=KILLED items_ok=67/68 functional_killers=0
+m21_x_on_zero            before=KILLED now=KILLED items_ok=52/68 functional_killers=16 killers=vec_n12,vec_n22,fv_pdr_n12,fv_pdr_n22,fv_prove_n1,fv_prove_n12,fv_prove_n16,fv_prove_n2,fv_prove_n22,fv_prove_n3,fv_prove_n32,fv_prove_n4
+m22_comb_loop            before=KILLED now=KILLED items_ok=25/68 functional_killers=20 killers=lint_n1,lint_n12,lint_n16,lint_n22,lint_n32,lint_n64,lint_n8,lint_ndefault,build_n1,build_n10,build_n11,build_n12
+e01_carry_or             before=SURVIVED now=SURVIVED items_ok=68/68 functional_killers=0
+e02_carry_majority       before=SURVIVED now=SURVIVED items_ok=68/68 functional_killers=0
+e03_behavioural          before=SURVIVED now=SURVIVED items_ok=68/68 functional_killers=0
+unchanged verdicts: 25/25

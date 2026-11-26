@@ -1,0 +1,131 @@
+{
+  "module": "ripple_add",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/verif/gate/netlists/ripple_add_gf180_n22.v",
+  "dut_sha256": "50171c5f9fc6213a83286649f32c7c2accfce801f662a08a5bf65f4e87c212f0",
+  "mode": "gate-level",
+  "gate_n": 22,
+  "cells": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog",
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 10.724,
+  "items_total": 10,
+  "items_ok": 10,
+  "all_ok": true,
+  "items": [
+    {
+      "id": "cells_prep",
+      "kind": "prep",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.18,
+      "log": "logs/cells_prep.log",
+      "detail": "RESULT cells netlist_modules=['ripple_add'] cell_types=9 models_copied=18 udps=0; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.049,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest kat=19 mismatches=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "lint_n22",
+      "kind": "lint",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.181,
+      "log": "logs/lint_n22.log",
+      "detail": "RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=22 warnings=0 waived=0 other=0 errors=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "build_n22",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.259,
+      "log": "logs/build_n22.log",
+      "detail": "obj_22/sim",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "vec_n22",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 6.039,
+      "log": "logs/vec_n22.log",
+      "detail": "golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vectors=216556 applied=216556 mismatches=0 checksum=0x0000000000000000; RESULT sim=icarus N=22 vectors=216556 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "rand_n22",
+      "kind": "rand",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 2.036,
+      "log": "logs/rand_n22.log",
+      "detail": "RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=0 checksum=0x0000000000000000",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_cover_n22",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 1.123,
+      "log": "logs/fv_cover_n22.log",
+      "detail": "sby_status=PASS asserts=2 covers=16 reached=16 unreached=0",
+      "label": "bounded-pass",
+      "expected_outcome": "pass",
+      "depth": 1
+    },
+    {
+      "id": "fv_pdr_n22",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.394,
+      "log": "logs/fv_pdr_n22.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_n22",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.545,
+      "log": "logs/fv_prove_n22.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_sanity_n22",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.379,
+      "log": "logs/fv_sanity_n22.log",
+      "detail": "sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong",
+      "label": "failed",
+      "expected_outcome": "fail"
+    }
+  ]
+}

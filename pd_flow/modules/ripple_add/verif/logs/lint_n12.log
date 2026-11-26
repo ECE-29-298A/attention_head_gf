@@ -1,7 +1,7 @@
 == verilator --lint-only -Wall -GN=12
 - V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
 - Verilator: Built from 0.033 MB sources in 2 modules, into 0.020 MB in 3 C++ files needing 0.000 MB
-- Verilator: Walltime 0.006 s (elab=0.000, cvt=0.003, bld=0.000); cpu 0.006 s on 1 threads; allocated 9.953 MB
+- Verilator: Walltime 0.006 s (elab=0.000, cvt=0.003, bld=0.000); cpu 0.006 s on 1 threads; allocated 9.844 MB
 %Warning-UNUSEDSIGNAL: ripple_add.v:12:16: Bits of signal are not used: 'c'[12]
                                          : ... note: In instance 'ripple_add'
    12 |     wire [N:0] c;
@@ -19,7 +19,7 @@ RESULT lint N=12 warnings=1 waived=1 other=0 errors=0
  \----------------------------------------------------------------------------/
  Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
 
--- Running command `read_verilog ripple_add.v; hierarchy -check -top ripple_add -chparam N 12; proc; flatten; check -assert; select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem*; write_json lint_12.json' --
+-- Running command `read_verilog ripple_add.v; hierarchy -check -top ripple_add -chparam N 12; proc -noopt; flatten; check -assert; scc -all_cell_types -select; select -assert-none %; select -clear; select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit t:$_FF_ t:$_DFF* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*; select -assert-none t:* t:$* %d; write_json lint_12.json' --
 
 1. Executing Verilog-2005 frontend: ripple_add.v
 Parsing Verilog input from `ripple_add.v' to AST representation.
@@ -71,20 +71,21 @@ Converted 0 switches.
 4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
 Cleaned up 0 empty switches.
 
-4.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module ripple_add.
-
 5. Executing FLATTEN pass (flatten design).
 
 6. Executing CHECK pass (checking for obvious problems).
 Checking module ripple_add...
 Found and reported 0 problems.
 
-7. Executing JSON backend.
+7. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module ripple_add.
+Found 0 SCCs.
 
-End of script. Logfile hash: b5f6b51bd9, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 15.08 MB peak
+8. Executing JSON backend.
+
+End of script. Logfile hash: 18ed51aad7, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 14.97 MB peak
 Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
-Time spent: 36% 2x read_verilog (0 sec), 28% 1x hierarchy (0 sec), ...
+Time spent: 35% 2x read_verilog (0 sec), 27% 1x hierarchy (0 sec), ...
 yosys_rc=0
 == interface check
 RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0

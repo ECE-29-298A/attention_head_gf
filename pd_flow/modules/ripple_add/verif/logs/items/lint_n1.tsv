@@ -1,1 +1,1 @@
-lint_n1	lint	pass-with-waiver	true	0.138	logs/lint_n1.log	RESULT interface N=1 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=1 warnings=1 waived=1 other=0 errors=0
+lint_n1	lint	pass-with-waiver	true	0.141	logs/lint_n1.log	RESULT interface N=1 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=1 warnings=1 waived=1 other=0 errors=0

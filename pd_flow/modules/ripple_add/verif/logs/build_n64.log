@@ -11,4 +11,4 @@ c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   tb_ripple_add.o veril
 rm Vripple_add__ALL.verilator_deplist.tmp
 - V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
 - Verilator: Built from 0.031 MB sources in 2 modules, into 0.100 MB in 5 C++ files needing 0.001 MB
-- Verilator: Walltime 3.185 s (elab=0.002, cvt=0.019, bld=3.161); cpu 0.025 s on 1 threads; allocated 12.766 MB
+- Verilator: Walltime 3.142 s (elab=0.002, cvt=0.018, bld=3.118); cpu 0.024 s on 1 threads; allocated 12.562 MB

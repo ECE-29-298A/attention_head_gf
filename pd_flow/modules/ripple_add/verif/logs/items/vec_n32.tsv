@@ -1,1 +1,1 @@
-vec_n32	vec	pass-sampled	true	0.917	logs/vec_n32.log	golden_vectors=232960 verilator_checked=232960 icarus_checked=not-run; RESULT mode=vectors N=32 vectors=232960 applied=232960 mismatches=0 checksum=0x0000000000000000; 
+vec_n32	vec	pass-sampled	true	0.720	logs/vec_n32.log	golden_vectors=232960 verilator_checked=232960 icarus_checked=not-run; RESULT mode=vectors N=32 vectors=232960 applied=232960 mismatches=0 checksum=0x0000000000000000; 

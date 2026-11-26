@@ -19,7 +19,7 @@ RESULT lint N=16 warnings=1 waived=1 other=0 errors=0
  \----------------------------------------------------------------------------/
  Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
 
--- Running command `read_verilog ripple_add.v; hierarchy -check -top ripple_add -chparam N 16; proc; flatten; check -assert; select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem*; write_json lint_16.json' --
+-- Running command `read_verilog ripple_add.v; hierarchy -check -top ripple_add -chparam N 16; proc -noopt; flatten; check -assert; scc -all_cell_types -select; select -assert-none %; select -clear; select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit t:$_FF_ t:$_DFF* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*; select -assert-none t:* t:$* %d; write_json lint_16.json' --
 
 1. Executing Verilog-2005 frontend: ripple_add.v
 Parsing Verilog input from `ripple_add.v' to AST representation.
@@ -71,20 +71,21 @@ Converted 0 switches.
 4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
 Cleaned up 0 empty switches.
 
-4.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module ripple_add.
-
 5. Executing FLATTEN pass (flatten design).
 
 6. Executing CHECK pass (checking for obvious problems).
 Checking module ripple_add...
 Found and reported 0 problems.
 
-7. Executing JSON backend.
+7. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module ripple_add.
+Found 0 SCCs.
 
-End of script. Logfile hash: 6ae466518b, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 15.28 MB peak
+8. Executing JSON backend.
+
+End of script. Logfile hash: c9ebf22955, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 15.11 MB peak
 Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
-Time spent: 36% 2x read_verilog (0 sec), 31% 1x hierarchy (0 sec), ...
+Time spent: 31% 2x read_verilog (0 sec), 30% 1x hierarchy (0 sec), ...
 yosys_rc=0
 == interface check
 RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0

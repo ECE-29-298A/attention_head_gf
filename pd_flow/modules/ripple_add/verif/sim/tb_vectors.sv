@@ -6,7 +6,11 @@ module tb_vectors;
     reg  [N-1:0] a, b, e;
     reg          cin;
     wire [N-1:0] s;
+`ifdef GATE_LEVEL
+    ripple_add dut (.a(a), .b(b), .cin(cin), .s(s));   // fixed-width netlist, width N
+`else
     ripple_add #(.N(N)) dut (.a(a), .b(b), .cin(cin), .s(s));
+`endif
 
     integer fd, rc, n_vec, n_bad, c_in;
     reg [1023:0] fname;

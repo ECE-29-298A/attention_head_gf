@@ -1,1 +1,1 @@
-vec_n64	vec	pass-sampled	true	0.864	logs/vec_n64.log	golden_vectors=331328 verilator_checked=331328 icarus_checked=not-run; RESULT mode=vectors N=64 vectors=331328 applied=331328 mismatches=0 checksum=0x0000000000000000; 
+vec_n64	vec	pass-sampled	true	0.764	logs/vec_n64.log	golden_vectors=331328 verilator_checked=331328 icarus_checked=not-run; RESULT mode=vectors N=64 vectors=331328 applied=331328 mismatches=0 checksum=0x0000000000000000; 

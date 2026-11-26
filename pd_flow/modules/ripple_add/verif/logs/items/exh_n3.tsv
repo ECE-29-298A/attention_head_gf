@@ -1,1 +1,1 @@
-exh_n3	exh	pass-exhaustive	true	0.705	logs/exh_n3.log	RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=0 checksum=0x704f712d864635ce; model_checksum=0x704f712d864635ce
+exh_n3	exh	pass-exhaustive	true	0.600	logs/exh_n3.log	RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=0 checksum=0x704f712d864635ce; model_checksum=0x704f712d864635ce

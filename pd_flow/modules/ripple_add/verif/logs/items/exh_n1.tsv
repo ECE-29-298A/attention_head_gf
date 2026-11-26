@@ -1,1 +1,1 @@
-exh_n1	exh	pass-exhaustive	true	0.322	logs/exh_n1.log	RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=0 checksum=0xfaa22921e0ff4c30; model_checksum=0xfaa22921e0ff4c30
+exh_n1	exh	pass-exhaustive	true	0.252	logs/exh_n1.log	RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=0 checksum=0xfaa22921e0ff4c30; model_checksum=0xfaa22921e0ff4c30

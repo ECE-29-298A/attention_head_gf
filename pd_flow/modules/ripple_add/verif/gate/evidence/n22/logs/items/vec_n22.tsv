@@ -1,0 +1,1 @@
+vec_n22	vec	pass-sampled	true	6.039	logs/vec_n22.log	golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vectors=216556 applied=216556 mismatches=0 checksum=0x0000000000000000; RESULT sim=icarus N=22 vectors=216556 mismatches=0

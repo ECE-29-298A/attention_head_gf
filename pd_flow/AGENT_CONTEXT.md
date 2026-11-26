@@ -77,3 +77,7 @@ from the user's earlier work: about 80% power, 20 to 50% area, about 20% timing 
 Baseline: 3.05 mW tt, 46,819.2 µm² std-cell area, 90.09% utilization, ss setup WNS +41.79 ns
 on 100 ns. Power is dominated by switched capacitance (wires and clock). Report it per
 module with stated activity.
+
+## Result labels (orchestrator ruling)
+`pass-static` is accepted for static checks: lint, structure, interface, build, cell extraction.
+It is evidence, not a proof. Simulation uses `pass-exhaustive` / `pass-sampled`.

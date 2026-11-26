@@ -1,0 +1,1 @@
+lint_n12	lint	pass	true	0.159	logs/lint_n12.log	RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=12 warnings=0 waived=0 other=0 errors=0

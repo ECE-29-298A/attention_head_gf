@@ -1,1 +1,1 @@
-fv_prove_n64	sby	proven	true	0.655	logs/fv_prove_n64.log	sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n64	sby	proven	true	0.666	logs/fv_prove_n64.log	sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
