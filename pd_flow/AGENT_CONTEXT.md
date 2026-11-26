@@ -112,3 +112,28 @@ files. Run at most 2 at once (Docker memory). Use `synth_area.py` for module-lev
 - The sequential contracts accept only positive-edge flops clocked directly by `clk`. **Clock
   gating**, a key power lever (the mac ring shifts every clock), needs a reviewed contract
   extension: a gated-clock formal model plus equivalence to the ungated golden under the enable.
+
+## Area-first ranking (user decision D6, 2026-11-26)
+Rank every option by area. Setup slack is a constraint (WNS >= 0 at all corners, 100 ns clock),
+not an objective; hold must be met. Measured baseline std-cell area, 46,819.2 µm²
+(`metrics.json` `design__instance__area__class:*`):
+
+| Category | µm² |
+|---|---:|
+| Flops (329) | 21,001.5 |
+| Logic gates | 20,237.5 |
+| Inverters | 763.9 |
+| Clock buffers and clock inverters | 1,527.9 |
+| Taps and endcaps | 1,870.3 |
+| Timing-repair buffers | 1,154.7 |
+| Tie cells | 158.1 |
+
+Resizer upsizing adds about 1,150 µm² over synthesis (41,116.1).
+
+The overhead physical design can act on is about 3,800 µm² (8%):
+- clock tree (1,527.9 µm²);
+- repair buffers (1,154.7 µm²);
+- resizer upsizing (about 1,150 µm²).
+
+Flops (45%) and logic (45%) are reduced only by architecture and synthesis. Always report the
+std-cell area breakdown by class next to totals.

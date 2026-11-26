@@ -24,6 +24,12 @@
   +41.79 ns at ss_125C_3v00 on 100 ns (critical path about 58.2 ns). Report the measured
   improvement per metric honestly, whether or not the targets are met.
 
+- D6 (user, 2026-11-26): "dont worry too much about timing, focus on MINIMIZING AREA with physical
+  design". Area is now the primary objective. Timing only has to stay legal: setup and hold WNS
+  >= 0 at every corner on the 100 ns clock, so the chip still works. Lost slack is no longer a
+  reason to reject an option. Still required: signoff (DRC, LVS, antenna), hold, the verification
+  contracts, no new slew/cap/fanout beyond the D2 noise band, and the TT tile and pins.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
