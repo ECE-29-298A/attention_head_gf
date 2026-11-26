@@ -1,8 +1,8 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
-- Current module: none started (order: ripple_add → max_reg → exp_lut → divider → mac_unit →
+- Current module: 1 ripple_add (order: ripple_add → max_reg → exp_lut → divider → mac_unit →
   attention_controller → tt_um_attention_head_gf)
-- Phase: 0 complete (gate passed 2026-11-26 after user decisions); module 1 ripple_add Phase 1 in progress
+- Phase: 0 complete (gate passed 2026-11-26 after user decisions); module 1 ripple_add Phase 1: Agent 1 contract done (68/68, commit 92d5473; orchestrator rerun confirmed); Agent 2 independent review and mutation testing running
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -37,7 +37,7 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-After the decisions: Phase 1 for ripple_add (Agents 1+2), outputs in `pd_flow/modules/ripple_add/`.
+Wait for the Agent 2 verdict (`pd_flow/modules/ripple_add/review/REVIEW.md`). If APPROVE: verify the mutation evidence, freeze and hash the contract, then Phase 2 (Agent 3). If CHANGES REQUIRED: send the changes to Agent 1 and iterate.
 
 ## Environment workarounds in place
 - sby/eqy: run with `/usr/local/bin/python3 ~/.local/bin/{sby,eqy}`

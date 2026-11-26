@@ -1,0 +1,4 @@
+RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=0 checksum=0x704f712d864635ce
+sim_rc=0
+CHECKSUM N=3 vectors=128 checksum=0x704f712d864635ce
+model_rc=0

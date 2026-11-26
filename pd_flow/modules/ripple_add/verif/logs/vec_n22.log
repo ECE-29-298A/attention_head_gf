@@ -1,0 +1,7 @@
+RESULT vectors N=22 written=216556 file=vec_22.txt
+3513766d73b43659e11c4c652f04ba65c5441f73a52cf336557afcc0639d178b  vec_22.txt
+== verilator
+RESULT mode=vectors N=22 vectors=216556 applied=216556 mismatches=0 checksum=0x0000000000000000
+== icarus
+RESULT sim=icarus N=22 vectors=216556 mismatches=0
+tb_vectors.sv:44: $finish called at 216556000 (1ps)

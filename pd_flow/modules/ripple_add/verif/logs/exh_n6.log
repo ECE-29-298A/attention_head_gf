@@ -1,0 +1,4 @@
+RESULT mode=exhaustive N=6 vectors=8192 applied=8192 mismatches=0 checksum=0x9b07f433a9504163
+sim_rc=0
+CHECKSUM N=6 vectors=8192 checksum=0x9b07f433a9504163
+model_rc=0

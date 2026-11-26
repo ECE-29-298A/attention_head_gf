@@ -1,0 +1,4 @@
+RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=0 checksum=0xfaa22921e0ff4c30
+sim_rc=0
+CHECKSUM N=1 vectors=8 checksum=0xfaa22921e0ff4c30
+model_rc=0

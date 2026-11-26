@@ -29,3 +29,9 @@ pd_flow/**/harden/spice/
 pd_flow/**/harden/sta_postpnr/
 pd_flow/**/obj_dir/
 pd_flow/**/sim_build/
+# Workflow: bulky per-run logs and formal work dirs (kept on disk; results.json and cex are tracked)
+pd_flow/**/formal/runs/
+pd_flow/**/mutation_runs/*/logs/
+pd_flow/**/mutation_runs/*/formal/
+pd_flow/**/rerun_golden/logs/
+pd_flow/**/rerun_golden/formal/runs/

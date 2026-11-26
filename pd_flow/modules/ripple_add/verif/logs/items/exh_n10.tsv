@@ -1,0 +1,1 @@
+exh_n10	exh	pass-exhaustive	true	1.171	logs/exh_n10.log	RESULT mode=exhaustive N=10 vectors=2097152 applied=2097152 mismatches=0 checksum=0x465b77b0c133d934; model_checksum=0x465b77b0c133d934

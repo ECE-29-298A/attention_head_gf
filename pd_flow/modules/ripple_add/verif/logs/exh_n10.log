@@ -1,0 +1,4 @@
+RESULT mode=exhaustive N=10 vectors=2097152 applied=2097152 mismatches=0 checksum=0x465b77b0c133d934
+sim_rc=0
+CHECKSUM N=10 vectors=2097152 checksum=0x465b77b0c133d934
+model_rc=0

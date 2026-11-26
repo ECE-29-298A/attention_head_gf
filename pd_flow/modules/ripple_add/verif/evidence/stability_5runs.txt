@@ -1,0 +1,5 @@
+run 1 rc=0 TOTAL 68/68 ok, all_ok=True, 25.0 s 0 infra
+run 2 rc=0 TOTAL 68/68 ok, all_ok=True, 24.831 s 0 infra
+run 3 rc=0 TOTAL 68/68 ok, all_ok=True, 25.501 s 0 infra
+run 4 rc=0 TOTAL 68/68 ok, all_ok=True, 24.835 s 0 infra
+run 5 rc=0 TOTAL 68/68 ok, all_ok=True, 24.792 s 0 infra

@@ -1,0 +1,1 @@
+vec_n16	vec	pass-sampled	true	0.916	logs/vec_n16.log	golden_vectors=208352 verilator_checked=208352 icarus_checked=not-run; RESULT mode=vectors N=16 vectors=208352 applied=208352 mismatches=0 checksum=0x0000000000000000; 

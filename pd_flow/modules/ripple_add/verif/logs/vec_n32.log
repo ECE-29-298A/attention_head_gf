@@ -1,0 +1,4 @@
+RESULT vectors N=32 written=232960 file=vec_32.txt
+aea75c609f0eab6deaa2bebb79c350c66fda43900989be0681f3d4eebdda48e8  vec_32.txt
+== verilator
+RESULT mode=vectors N=32 vectors=232960 applied=232960 mismatches=0 checksum=0x0000000000000000

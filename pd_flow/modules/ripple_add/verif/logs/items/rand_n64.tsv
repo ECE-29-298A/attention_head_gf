@@ -1,0 +1,1 @@
+rand_n64	rand	pass-sampled	true	0.629	logs/rand_n64.log	RESULT mode=random N=64 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000

@@ -1,0 +1,4 @@
+RESULT vectors N=64 written=331328 file=vec_64.txt
+de9dda75c46c734f1bcd151d2a538a4987f3975d6d83eae59abfa8d6b63bad3a  vec_64.txt
+== verilator
+RESULT mode=vectors N=64 vectors=331328 applied=331328 mismatches=0 checksum=0x0000000000000000
