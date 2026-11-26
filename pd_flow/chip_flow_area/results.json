@@ -1,0 +1,2682 @@
+{
+ "baseline": {
+  "run": "/Users/samuelzhang/ttharden/attention_head_gf/runs/wokwi",
+  "kind": "full",
+  "netlist": "/Users/samuelzhang/ttharden/attention_head_gf/runs/wokwi/final/nl/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46819.2,
+  "count_stdcell": 1942,
+  "utilization": 0.900942,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1352.24,
+   "clock_inverter": 175.616,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 76.06432676795528,
+   "max_ss_125C_3v00": 41.794153321137905,
+   "max_tt_025C_3v30": 70.72196894950362,
+   "min_ff_n40C_3v60": 76.18101209932189,
+   "min_ss_125C_3v00": 44.42838755977302,
+   "min_tt_025C_3v30": 72.22586111398228,
+   "nom_ff_n40C_3v60": 76.1282542996996,
+   "nom_ss_125C_3v00": 43.3066963436691,
+   "nom_tt_025C_3v30": 71.54852912653534
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.1085760401207967,
+   "max_ss_125C_3v00": 1.1362586748666261,
+   "max_tt_025C_3v30": 0.4145532923165126,
+   "min_ff_n40C_3v60": 0.11504952871586384,
+   "min_ss_125C_3v00": 1.1563550444483353,
+   "min_tt_025C_3v30": 0.4248133076664566,
+   "nom_ff_n40C_3v60": 0.11199763655715833,
+   "nom_ss_125C_3v00": 1.1471859342732407,
+   "nom_tt_025C_3v30": 0.42008175904629175
+  },
+  "setup_ws_min": 41.794153321137905,
+  "hold_ws_min": 0.1085760401207967,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 381,
+  "cap_vio": 1,
+  "fanout_vio": 11,
+  "power_total_W": 0.003049642313271761,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 53890,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1527.859,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 1,
+   "clkbuf_4": 3,
+   "clkbuf_8": 16,
+   "clkinv_4": 3,
+   "inv_2": 3,
+   "inv_3": 4
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {},
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 0.0,
+  "delta_ref": "baseline",
+  "delta_census_um2": {
+   "cts": 0.0,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "c1_root8": {
+  "run": "/Users/samuelzhang/ttharden/fx_c1_root8/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_c1_root8/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46661.2,
+  "count_stdcell": 1942,
+  "utilization": 0.897901,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1194.19,
+   "clock_inverter": 175.616,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.4253
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.429486
+  },
+  "setup_ws_min": 73.4253,
+  "hold_ws_min": 0.429486,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 11,
+  "power_total_W": 0.00233973,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1369.805,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_2": 1,
+   "clkbuf_4": 3,
+   "clkbuf_8": 19,
+   "clkinv_4": 3,
+   "inv_2": 3,
+   "inv_3": 4
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8"
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.1894,
+    "hold_ws": 1.16298,
+    "slew": 170,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.4253,
+    "hold_ws": 0.429486,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2041,
+    "hold_ws": 0.118286,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -158.0,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -158.1,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "c2_cl20_buf4": {
+  "run": "/Users/samuelzhang/ttharden/fx_c2_cl20_buf4/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_c2_cl20_buf4/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46138.7,
+  "count_stdcell": 1939,
+  "utilization": 0.887847,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 755.149,
+   "clock_inverter": 92.1984,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.341
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.445238
+  },
+  "setup_ws_min": 73.341,
+  "hold_ws_min": 0.445238,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00227737,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 847.347,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 6,
+   "clkinv_4": 1,
+   "inv_3": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0296,
+    "hold_ws": 1.19731,
+    "slew": 174,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.341,
+    "hold_ws": 0.445238,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.1186,
+    "hold_ws": 0.129651,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -680.5,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -680.5,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "c3_cl20_d80": {
+  "run": "/Users/samuelzhang/ttharden/fx_c3_cl20_d80/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_c3_cl20_d80/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46823.6,
+  "count_stdcell": 1939,
+  "utilization": 0.901026,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1492.74,
+   "clock_inverter": 39.5136,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3389
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.455694
+  },
+  "setup_ws_min": 73.3389,
+  "hold_ws_min": 0.455694,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 63,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00235738,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1532.25,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 6,
+   "clkbuf_4": 1,
+   "clkbuf_8": 18,
+   "clkinv_4": 1,
+   "inv_3": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0279,
+    "hold_ws": 1.21302,
+    "slew": 170,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3389,
+    "hold_ws": 0.455694,
+    "slew": 63,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2348,
+    "hold_ws": 0.134259,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 4.4,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 4.4,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "c4_cl20_buf2": {
+  "run": "/Users/samuelzhang/ttharden/fx_c4_cl20_buf2/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_c4_cl20_buf2/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45936.8,
+  "count_stdcell": 1939,
+  "utilization": 0.883961,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 592.704,
+   "clock_inverter": 52.6848,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.1523
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.397082
+  },
+  "setup_ws_min": 73.1523,
+  "hold_ws_min": 0.397082,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00230495,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 645.389,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_2": 24,
+   "clkbuf_8": 3,
+   "clkinv_2": 1,
+   "clkinv_4": 1,
+   "inv_3": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0189,
+    "hold_ws": 1.11601,
+    "slew": 166,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.1523,
+    "hold_ws": 0.397082,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 75.885,
+    "hold_ws": 0.101336,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -882.4,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -882.5,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "c5_cl20_buf4_root4": {
+  "run": "/Users/samuelzhang/ttharden/fx_c5_cl20_buf4_root4/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_c5_cl20_buf4_root4/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46059.7,
+  "count_stdcell": 1939,
+  "utilization": 0.886326,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 676.122,
+   "clock_inverter": 92.1984,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.2901
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.425095
+  },
+  "setup_ws_min": 73.2901,
+  "hold_ws_min": 0.425095,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00226741,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 768.32,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 22,
+   "clkinv_1": 6,
+   "clkinv_4": 1,
+   "inv_3": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0993,
+    "hold_ws": 1.1578,
+    "slew": 166,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.2901,
+    "hold_ws": 0.425095,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 75.9616,
+    "hold_ws": 0.118102,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -759.5,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -759.5,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "d96": {
+  "run": "/Users/samuelzhang/ttharden/fx_d96/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_d96/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46900.4,
+  "count_stdcell": 1942,
+  "utilization": 0.902505,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20323.2,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1308.34,
+   "clock_inverter": 206.349,
+   "timing_repair_buffer": 1163.46,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 72.4768
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.445104
+  },
+  "setup_ws_min": 72.4768,
+  "hold_ws_min": 0.445104,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 63,
+  "cap_vio": 0,
+  "fanout_vio": 11,
+  "power_total_W": 0.00236612,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1514.688,
+   "logic": 42193.939,
+   "repair": 1163.456,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 2,
+   "clkbuf_4": 1,
+   "clkbuf_8": 16,
+   "clkinv_4": 3,
+   "inv_2": 5,
+   "inv_3": 3,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 10,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 3,
+   "clkbuf_2": 14,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 13
+  },
+  "overrides": {
+   "PL_TARGET_DENSITY_PCT": 96
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 44.2521,
+    "hold_ws": 1.1909,
+    "slew": 150,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 72.4768,
+    "hold_ws": 0.445104,
+    "slew": 63,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.252,
+    "hold_ws": 0.129013,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 81.2,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -13.2,
+   "logic": 85.6,
+   "repair": 8.8,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "h1_k4": {
+  "run": "/Users/samuelzhang/ttharden/fx_h1_k4/runs/wokwi",
+  "kind": "full",
+  "netlist": "/Users/samuelzhang/ttharden/fx_h1_k4/runs/wokwi/final/nl/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45388,
+  "count_stdcell": 1924,
+  "utilization": 0.8734,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 785.882,
+   "clock_inverter": 83.4176,
+   "timing_repair_buffer": 777.101,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 75.88479392983324,
+   "max_ss_125C_3v00": 41.89618726087877,
+   "max_tt_025C_3v30": 71.26763025886294,
+   "min_ff_n40C_3v60": 76.02519007296274,
+   "min_ss_125C_3v00": 44.15838131254789,
+   "min_tt_025C_3v30": 72.40594107002632,
+   "nom_ff_n40C_3v60": 75.96172439400972,
+   "nom_ss_125C_3v00": 43.1415591017807,
+   "nom_tt_025C_3v30": 71.88882936859727
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.0653157546535832,
+   "max_ss_125C_3v00": 1.0063403728506497,
+   "max_tt_025C_3v30": 0.3404914224721803,
+   "min_ff_n40C_3v60": 0.08249201555333684,
+   "min_ss_125C_3v00": 1.0543468618823677,
+   "min_tt_025C_3v30": 0.3685460929640835,
+   "nom_ff_n40C_3v60": 0.07453804451306116,
+   "nom_ss_125C_3v00": 1.0299952293715282,
+   "nom_tt_025C_3v30": 0.3553675232444626
+  },
+  "setup_ws_min": 41.89618726087877,
+  "hold_ws_min": 0.0653157546535832,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 425,
+  "cap_vio": 2,
+  "fanout_vio": 6,
+  "power_total_W": 0.002925846492871642,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 50057,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 869.299,
+   "logic": 41713.19,
+   "repair": 777.101,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 20,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_2": 18,
+   "buf_3": 3,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1431.2,
+  "delta_ref": "baseline",
+  "delta_census_um2": {
+   "cts": -658.6,
+   "logic": -395.1,
+   "repair": -377.6,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "h2_k6": {
+  "run": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi",
+  "kind": "full",
+  "netlist": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/nl/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45475.8,
+  "count_stdcell": 1924,
+  "utilization": 0.87509,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 75.97297228583491,
+   "max_ss_125C_3v00": 41.791936427739635,
+   "max_tt_025C_3v30": 71.1975494268529,
+   "min_ff_n40C_3v60": 76.10719381241604,
+   "min_ss_125C_3v00": 44.09279111075485,
+   "min_tt_025C_3v30": 72.35792969601316,
+   "nom_ff_n40C_3v60": 76.04624345481875,
+   "nom_ss_125C_3v00": 43.057352679784245,
+   "nom_tt_025C_3v30": 71.82787190557242
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.05762379625452929,
+   "max_ss_125C_3v00": 0.9742891214016699,
+   "max_tt_025C_3v30": 0.3251305983136378,
+   "min_ff_n40C_3v60": 0.07754475059338647,
+   "min_ss_125C_3v00": 1.0322671898333766,
+   "min_tt_025C_3v30": 0.35819082047593265,
+   "nom_ff_n40C_3v60": 0.06812750556527063,
+   "nom_ss_125C_3v00": 1.0038183901565847,
+   "nom_tt_025C_3v30": 0.3422775493247124
+  },
+  "setup_ws_min": 41.791936427739635,
+  "hold_ws_min": 0.05762379625452929,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 281,
+  "cap_vio": 2,
+  "fanout_vio": 6,
+  "power_total_W": 0.0029335184954106808,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 50554,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 851.738,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1343.4,
+  "delta_ref": "baseline",
+  "delta_census_um2": {
+   "cts": -676.1,
+   "logic": -368.8,
+   "repair": -298.5,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "h3_k8": {
+  "run": "/Users/samuelzhang/ttharden/fx_h3_k8/runs/wokwi",
+  "kind": "full",
+  "netlist": "/Users/samuelzhang/ttharden/fx_h3_k8/runs/wokwi/final/nl/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45633.8,
+  "count_stdcell": 1924,
+  "utilization": 0.878131,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 913.203,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 76.04825429081782,
+   "max_ss_125C_3v00": 41.36009696244082,
+   "max_tt_025C_3v30": 71.01025035640936,
+   "min_ff_n40C_3v60": 76.16641044568905,
+   "min_ss_125C_3v00": 43.80963626983261,
+   "min_tt_025C_3v30": 72.23230573677789,
+   "nom_ff_n40C_3v60": 76.11277157304951,
+   "nom_ss_125C_3v00": 42.718434443382456,
+   "nom_tt_025C_3v30": 71.6802424371883
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.07565703833122817,
+   "max_ss_125C_3v00": 1.0310503853639739,
+   "max_tt_025C_3v30": 0.35492410015588644,
+   "min_ff_n40C_3v60": 0.09158951634131765,
+   "min_ss_125C_3v00": 1.0761782880560316,
+   "min_tt_025C_3v30": 0.3812410495205002,
+   "nom_ff_n40C_3v60": 0.08390888221743519,
+   "nom_ss_125C_3v00": 1.0542482740749928,
+   "nom_tt_025C_3v30": 0.3681224318459046
+  },
+  "setup_ws_min": 41.36009696244082,
+  "hold_ws_min": 0.07565703833122817,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 264,
+  "cap_vio": 2,
+  "fanout_vio": 6,
+  "power_total_W": 0.002959630684927106,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 50988,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1009.792,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_4": 19,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_16",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1185.4,
+  "delta_ref": "baseline",
+  "delta_census_um2": {
+   "cts": -518.1,
+   "logic": -368.8,
+   "repair": -298.5,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "k3_x_c2": {
+  "run": "/Users/samuelzhang/ttharden/fx_k3_x_c2/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_k3_x_c2/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45809.4,
+  "count_stdcell": 1928,
+  "utilization": 0.881511,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20246.3,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 724.416,
+   "clock_inverter": 100.979,
+   "timing_repair_buffer": 838.566,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.521
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.436154
+  },
+  "setup_ws_min": 73.521,
+  "hold_ws_min": 0.436154,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00227832,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 825.395,
+   "logic": 42117.107,
+   "repair": 838.566,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 18,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "inv_3": 1,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_2": 21,
+   "buf_3": 9,
+   "buf_4": 5,
+   "buf_8": 1,
+   "clkbuf_3": 2
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.31,
+    "hold_ws": 1.17973,
+    "slew": 66,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.521,
+    "hold_ws": 0.436154,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.124,
+    "hold_ws": 0.124222,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1009.8,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -702.5,
+   "logic": 8.8,
+   "repair": -316.1,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "k4_x_c2_s0": {
+  "run": "/Users/samuelzhang/ttharden/fx_k4_x_c2_s0/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_k4_x_c2_s0/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45388,
+  "count_stdcell": 1924,
+  "utilization": 0.8734,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 785.882,
+   "clock_inverter": 83.4176,
+   "timing_repair_buffer": 777.101,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.1654
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.436919
+  },
+  "setup_ws_min": 73.1654,
+  "hold_ws_min": 0.436919,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00226307,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 869.299,
+   "logic": 41713.19,
+   "repair": 777.101,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 20,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_2": 18,
+   "buf_3": 3,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6047,
+    "hold_ws": 1.18179,
+    "slew": 122,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.1654,
+    "hold_ws": 0.436919,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.159,
+    "hold_ws": 0.124309,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1431.2,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -658.6,
+   "logic": -395.1,
+   "repair": -377.6,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "k5_x_c2_s5": {
+  "run": "/Users/samuelzhang/ttharden/fx_k5_x_c2_s5/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_k5_x_c2_s5/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45737,
+  "count_stdcell": 1930,
+  "utilization": 0.880117,
+  "class_um2": {
+   "sequential_cell": 20990.5,
+   "multi_input_combinational_cell": 20088.3,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 755.149,
+   "clock_inverter": 100.979,
+   "timing_repair_buffer": 904.422,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.5875
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.443946
+  },
+  "setup_ws_min": 73.5875,
+  "hold_ws_min": 0.443946,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 7,
+  "power_total_W": 0.00227278,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 856.128,
+   "logic": 41948.077,
+   "repair": 904.422,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_3": 1
+  },
+  "census_repair": {
+   "buf_2": 21,
+   "buf_3": 5,
+   "buf_4": 8,
+   "buf_8": 1,
+   "clkbuf_4": 4
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 5
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.7027,
+    "hold_ws": 1.19491,
+    "slew": 77,
+    "cap": 0,
+    "fanout": 7,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.5875,
+    "hold_ws": 0.443946,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 7,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.1452,
+    "hold_ws": 0.12866,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 7,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1082.2,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -671.7,
+   "logic": -160.2,
+   "repair": -250.3,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "k6_x2_c2_s0": {
+  "run": "/Users/samuelzhang/ttharden/fx_k6_x2_c2_s0/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_k6_x2_c2_s0/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45475.8,
+  "count_stdcell": 1924,
+  "utilization": 0.87509,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.1631
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.428992
+  },
+  "setup_ws_min": 73.1631,
+  "hold_ws_min": 0.428992,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00226199,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 851.738,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6091,
+    "hold_ws": 1.1669,
+    "slew": 38,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.1631,
+    "hold_ws": 0.428992,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2227,
+    "hold_ws": 0.11948,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1343.4,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -676.1,
+   "logic": -368.8,
+   "repair": -298.5,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "k7_x2_c2": {
+  "run": "/Users/samuelzhang/ttharden/fx_k7_x2_c2/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_k7_x2_c2/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45958.7,
+  "count_stdcell": 1926,
+  "utilization": 0.884383,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20246.3,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 92.1984,
+   "timing_repair_buffer": 939.546,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.4919
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.439305
+  },
+  "setup_ws_min": 73.4919,
+  "hold_ws_min": 0.439305,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00228246,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 847.347,
+   "logic": 42143.45,
+   "repair": 939.546,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 6,
+   "clkinv_4": 1,
+   "inv_3": 1
+  },
+  "census_repair": {
+   "buf_3": 25,
+   "buf_4": 7,
+   "buf_8": 2,
+   "clkbuf_3": 2
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.2867,
+    "hold_ws": 1.18588,
+    "slew": 28,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.4919,
+    "hold_ws": 0.439305,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.179,
+    "hold_ws": 0.126049,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -860.5,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -680.5,
+   "logic": 35.1,
+   "repair": -215.1,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "k8_x2_c2r16_s0": {
+  "run": "/Users/samuelzhang/ttharden/fx_k8_x2_c2r16_s0/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_k8_x2_c2r16_s0/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45633.8,
+  "count_stdcell": 1924,
+  "utilization": 0.878131,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 913.203,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.1646
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.444386
+  },
+  "setup_ws_min": 73.1646,
+  "hold_ws_min": 0.444386,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00228613,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1009.792,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_4": 19,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_16",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6069,
+    "hold_ws": 1.19638,
+    "slew": 44,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.1646,
+    "hold_ws": 0.444386,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.25,
+    "hold_ws": 0.128805,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -1185.4,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -518.1,
+   "logic": -368.8,
+   "repair": -298.5,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p0_control": {
+  "run": "/Users/samuelzhang/ttharden/fx_p0_control/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p0_control/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46819.2,
+  "count_stdcell": 1942,
+  "utilization": 0.900942,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1352.24,
+   "clock_inverter": 175.616,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3523
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.450477
+  },
+  "setup_ws_min": 73.3523,
+  "hold_ws_min": 0.450477,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 11,
+  "power_total_W": 0.00236269,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1527.859,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 1,
+   "clkbuf_4": 3,
+   "clkbuf_8": 16,
+   "clkinv_4": 3,
+   "inv_2": 3,
+   "inv_3": 4
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {},
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0382,
+    "hold_ws": 1.20389,
+    "slew": 170,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 46.0382,
+    "hold_ws": 1.20389,
+    "slew": 170,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3523,
+    "hold_ws": 0.450477,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2656,
+    "hold_ws": 0.130521,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2656,
+    "hold_ws": 0.130521,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 0.0,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 0.0,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p1_nodly": {
+  "run": "/Users/samuelzhang/ttharden/fx_p1_nodly/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p1_nodly/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46569,
+  "count_stdcell": 1943,
+  "utilization": 0.896126,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1343.46,
+   "clock_inverter": 144.883,
+   "timing_repair_buffer": 943.936,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3623
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.462009
+  },
+  "setup_ws_min": 73.3623,
+  "hold_ws_min": 0.462009,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 12,
+  "power_total_W": 0.0023564,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1488.346,
+   "logic": 42108.326,
+   "repair": 943.936,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 4,
+   "clkbuf_4": 1,
+   "clkbuf_8": 16,
+   "clkinv_4": 1,
+   "inv_2": 4,
+   "inv_3": 4
+  },
+  "census_repair": {
+   "buf_1": 12,
+   "buf_2": 20,
+   "buf_3": 7,
+   "buf_4": 4,
+   "clkbuf_1": 1,
+   "clkbuf_2": 5,
+   "clkbuf_8": 1
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*"
+   ]
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0539,
+    "hold_ws": 1.2238,
+    "slew": 168,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3623,
+    "hold_ws": 0.462009,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2734,
+    "hold_ws": 0.138734,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -250.2,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -39.5,
+   "logic": 0.0,
+   "repair": -210.7,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p2_cts_small": {
+  "run": "/Users/samuelzhang/ttharden/fx_p2_cts_small/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p2_cts_small/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 47126.6,
+  "count_stdcell": 1972,
+  "utilization": 0.906856,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1760.55,
+   "clock_inverter": 74.6368,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.2989
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.431921
+  },
+  "setup_ws_min": 73.2989,
+  "hold_ws_min": 0.431921,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 63,
+  "cap_vio": 0,
+  "fanout_vio": 0,
+  "power_total_W": 0.0023892,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1835.187,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_2": 14,
+   "clkbuf_4": 40,
+   "clkbuf_8": 5,
+   "clkinv_3": 1,
+   "clkinv_4": 2,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8"
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.9265,
+    "hold_ws": 1.16735,
+    "slew": 174,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.2989,
+    "hold_ws": 0.431921,
+    "slew": 63,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2493,
+    "hold_ws": 0.12018,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 307.4,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 307.3,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p3_cts_derate100": {
+  "run": "/Users/samuelzhang/ttharden/fx_p3_cts_derate100/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p3_cts_derate100/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 47302.2,
+  "count_stdcell": 1988,
+  "utilization": 0.910235,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1988.85,
+   "clock_inverter": 21.952,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3343
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.444911
+  },
+  "setup_ws_min": 73.3343,
+  "hold_ws_min": 0.444911,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 63,
+  "cap_vio": 0,
+  "fanout_vio": 0,
+  "power_total_W": 0.00242986,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 2010.803,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 5,
+   "clkbuf_2": 65,
+   "clkbuf_4": 6,
+   "clkbuf_8": 2,
+   "clkinv_4": 1
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "CTS_SINK_BUFFER_MAX_CAP_DERATE_PCT": 100
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0107,
+    "hold_ws": 1.19448,
+    "slew": 177,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3343,
+    "hold_ws": 0.444911,
+    "slew": 63,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.1871,
+    "hold_ws": 0.129576,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 483.0,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 482.9,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p4_margin0": {
+  "run": "/Users/samuelzhang/ttharden/fx_p4_margin0/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p4_margin0/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46230.9,
+  "count_stdcell": 1925,
+  "utilization": 0.889621,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1369.8,
+   "clock_inverter": 158.054,
+   "timing_repair_buffer": 961.498,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.165
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.459545
+  },
+  "setup_ws_min": 73.165,
+  "hold_ws_min": 0.459545,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 84,
+  "cap_vio": 0,
+  "fanout_vio": 12,
+  "power_total_W": 0.00234403,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1527.859,
+   "logic": 41713.19,
+   "repair": 961.498,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 2,
+   "clkbuf_4": 3,
+   "clkbuf_8": 16,
+   "clkinv_4": 1,
+   "inv_2": 3,
+   "inv_3": 2,
+   "inv_4": 1,
+   "inv_8": 1
+  },
+  "census_repair": {
+   "buf_2": 5,
+   "buf_4": 3,
+   "clkbuf_2": 5,
+   "clkbuf_4": 7,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0,
+   "DESIGN_REPAIR_MAX_CAP_PCT": 0
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6596,
+    "hold_ws": 1.22098,
+    "slew": 274,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.165,
+    "hold_ws": 0.459545,
+    "slew": 84,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2836,
+    "hold_ws": 0.136308,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -588.3,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 0.0,
+   "logic": -395.1,
+   "repair": -193.2,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p5_nodly_nox1": {
+  "run": "/Users/samuelzhang/ttharden/fx_p5_nodly_nox1/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p5_nodly_nox1/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46472.4,
+  "count_stdcell": 1931,
+  "utilization": 0.894268,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20246.3,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1343.46,
+   "clock_inverter": 144.883,
+   "timing_repair_buffer": 838.566,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3726
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.459959
+  },
+  "setup_ws_min": 73.3726,
+  "hold_ws_min": 0.459959,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 12,
+  "power_total_W": 0.00235707,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1488.346,
+   "logic": 42117.107,
+   "repair": 838.566,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 4,
+   "clkbuf_4": 1,
+   "clkbuf_8": 16,
+   "clkinv_4": 1,
+   "inv_2": 4,
+   "inv_3": 4
+  },
+  "census_repair": {
+   "buf_2": 21,
+   "buf_3": 9,
+   "buf_4": 5,
+   "buf_8": 1,
+   "clkbuf_3": 2
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1"
+   ]
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0233,
+    "hold_ws": 1.22108,
+    "slew": 64,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3726,
+    "hold_ws": 0.459959,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2649,
+    "hold_ws": 0.136949,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -346.8,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": -39.5,
+   "logic": 8.8,
+   "repair": -316.1,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p6_slew0": {
+  "run": "/Users/samuelzhang/ttharden/fx_p6_slew0/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p6_slew0/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46230.9,
+  "count_stdcell": 1925,
+  "utilization": 0.889621,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1369.8,
+   "clock_inverter": 158.054,
+   "timing_repair_buffer": 961.498,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.165
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.459545
+  },
+  "setup_ws_min": 73.165,
+  "hold_ws_min": 0.459545,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 84,
+  "cap_vio": 0,
+  "fanout_vio": 12,
+  "power_total_W": 0.00234403,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1527.859,
+   "logic": 41713.19,
+   "repair": 961.498,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 2,
+   "clkbuf_4": 3,
+   "clkbuf_8": 16,
+   "clkinv_4": 1,
+   "inv_2": 3,
+   "inv_3": 2,
+   "inv_4": 1,
+   "inv_8": 1
+  },
+  "census_repair": {
+   "buf_2": 5,
+   "buf_4": 3,
+   "clkbuf_2": 5,
+   "clkbuf_4": 7,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6596,
+    "hold_ws": 1.22098,
+    "slew": 274,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.165,
+    "hold_ws": 0.459545,
+    "slew": 84,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2836,
+    "hold_ws": 0.136308,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 12,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": -588.3,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 0.0,
+   "logic": -395.1,
+   "repair": -193.2,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ },
+ "p7_cap0": {
+  "run": "/Users/samuelzhang/ttharden/fx_p7_cap0/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/fx_p7_cap0/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46819.2,
+  "count_stdcell": 1942,
+  "utilization": 0.900942,
+  "class_um2": {
+   "sequential_cell": 21001.5,
+   "multi_input_combinational_cell": 20237.5,
+   "inverter": 763.93,
+   "buffer": 105.37,
+   "clock_buffer": 1352.24,
+   "clock_inverter": 175.616,
+   "timing_repair_buffer": 1154.68,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3523
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.450477
+  },
+  "setup_ws_min": 73.3523,
+  "hold_ws_min": 0.450477,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 42,
+  "cap_vio": 0,
+  "fanout_vio": 11,
+  "power_total_W": 0.00236269,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 1527.859,
+   "logic": 42108.326,
+   "repair": 1154.675,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_2": 1,
+   "clkbuf_4": 3,
+   "clkbuf_8": 16,
+   "clkinv_4": 3,
+   "inv_2": 3,
+   "inv_3": 4
+  },
+  "census_repair": {
+   "buf_1": 1,
+   "buf_2": 9,
+   "buf_3": 1,
+   "buf_4": 1,
+   "clkbuf_1": 5,
+   "clkbuf_2": 15,
+   "clkbuf_4": 4,
+   "clkbuf_8": 1,
+   "dlyb_1": 12
+  },
+  "overrides": {
+   "DESIGN_REPAIR_MAX_CAP_PCT": 0
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0382,
+    "hold_ws": 1.20389,
+    "slew": 170,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3523,
+    "hold_ws": 0.450477,
+    "slew": 42,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2656,
+    "hold_ws": 0.130521,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 11,
+    "power": null
+   }
+  },
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "delta_stdcell_um2": 0.0,
+  "delta_ref": "p0_control",
+  "delta_census_um2": {
+   "cts": 0.0,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  }
+ }
+}

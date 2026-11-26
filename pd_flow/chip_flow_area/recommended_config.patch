@@ -1,0 +1,33 @@
+--- a/src/config.json
++++ b/src/config.json
+@@ -29,10 +29,28 @@
+   "MAX_FANOUT_CONSTRAINT": 20,
+ 
+   "//": "Design repair margins - repair_design aims 20% below the Liberty slew/cap limits by default.",
+-  "//": "10% halves the over-repair. Signoff still fails on any real slew/cap violation.",
+-  "DESIGN_REPAIR_MAX_SLEW_PCT": 10,
++  "//": "Slew 0% (chip_flow_area h2): repair to the limit itself; -369 um2 of driver upsizing. Cap 10%: no area effect.",
++  "DESIGN_REPAIR_MAX_SLEW_PCT": 0,
+   "DESIGN_REPAIR_MAX_CAP_PCT": 10,
+ 
++  "//": "Repair/CTS dont-use (chip_flow_area h2). Fanout repair inserts the weakest buffer in the library:",
++  "//": "dlyb_1 (35 um2), then buf_1/clkbuf_1, then buf_2, each driving 21 loads at 3-8.6 ns ss slew.",
++  "//": "Excluding them makes it insert buf_3. Synthesis netlist is unchanged (bit-identical).",
++  "EXTRA_EXCLUDED_CELLS": [
++    "gf180mcu_fd_sc_mcu7t5v0__dly*",
++    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
++    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
++    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
++    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
++  ],
++
++  "//": "Clock tree (chip_flow_area h2): clkbuf_4 sink buffers in 17 clusters of <= 20 sinks, clkbuf_8 root,",
++  "//": "instead of clkbuf_8 sinks and clkbuf_16 root/trunk. -676 um2; ff hold WNS +0.109 -> +0.058 ns.",
++  "CTS_CLK_BUFFERS": ["gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"],
++  "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
++  "CTS_SINK_CLUSTERING_SIZE": 20,
++  "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
++
+   "//": "Input port buffers - 12 dlyb_1 cells (420 um^2); repair still buffers a pin that needs it.",
+   "DESIGN_REPAIR_BUFFER_INPUT_PORTS": 0,
+ 

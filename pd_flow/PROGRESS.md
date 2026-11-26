@@ -53,6 +53,18 @@
   each in an isolated workspace with an immutable snapshot; the acceptance gates are unchanged. Still one
   module at a time. See AGENT_CONTEXT "Parallel execution".
 
+- F1 (orchestrator, 2026-11-26): accepted chip flow-config delta `pd_flow/chip_flow_area/recommended_config.patch`
+  (h2). Verified against the raw metrics.json:
+  - std-cell 46,819.2 -> 45,475.8 µm² (-1,343.4, -2.87%); the synthesized netlist is bit-identical;
+  - setup WNS >= 41.79 ns and hold WNS >= +0.058 ns (ff) at all corners;
+  - slew/cap/fanout 281/2/6; DRC/LVS/antenna 0; power 2.934 mW.
+
+  **Not yet applied to src/**, because applying it mid-module would shift the ll_synth noise band of
+  running comparisons (EXTRA_EXCLUDED_CELLS also restricts ABC). It is applied at chip assembly,
+  and h2 (`/Users/samuelzhang/ttharden/fx_h2_k6`) is the reference for cluster and chip
+  evaluation. Risk: the ff hold margin falls to +0.058 ns; the fallback is `alt_holdsafe_config.patch`
+  (h3, +0.076 ns, -1,185.4 µm²).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
