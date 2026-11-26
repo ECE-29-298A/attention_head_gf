@@ -1,7 +1,8 @@
 # divider: verification specification
 
 Design under test: `pd_flow/modules/divider/snapshot/divider.v` (immutable golden, SHA-256
-`a4943458…`, equal to `pd_flow/baseline/original_rtl/divider.v`; never edited). Any later
+`a4943458…`, equal to `pd_flow/baseline/original_rtl/divider.v`; never edited). Amendment A-1 (2026-11-26, after `be7df42`) adds the
+sequential-equivalence item `seq_eq_*` and the gating `equiv_*` (section 4). Any later
 implementation is checked against this contract with `run_all.sh --rtl FILE --out DIR` (both
 configurations), and a gate-level netlist of one configuration with
 `run_all.sh --gate --rtl NETLIST [--config CC] --out DIR` (section 6).
@@ -123,10 +124,13 @@ need the reviewed extension described in max_reg SPEC §7).
 | Reference check | `refcheck` | The formal reference `formal/ref_divider_seq.v` (Icarus, `sim/tb_ref.sv`) is checked against the model on every `edges.txt` point: the value at 11, and the value and validity at 00. 0 mismatches are required. This ties the formal reference to the exact-integer definition. | edge/spot (reference) |
 | Edge cases + spot checks | `edge_00`, `edge_11` | Every `edges.txt` point runs through the DUT (`sim/tb_edge.sv`, Icarus 4-state, `!==`); details below the table. About 2 s each for RTL and 30 s for gate level. | edge/spot (sampled) |
 | Formal, black box | `fv_proto_00/11` (k-induction, depth 28), `fv_pdr_proto_00/11` (abc pdr) | Assertions `a_busy` (R4, R5, R6), `a_done` (R5), `a_rst` (R11), `a_shift` (R9), `a_hold` (R8) and `a_cnt` (harness), checked against a reference counter `cnt` (accept when `cnt` = 0 and `start`; completion at `cnt` = 24; starts while `cnt` != 0 ignored). Everything is asserted from the first reset edge with the DUT's power-up state free (R13). Depth 28 is more than one 25-edge division, so the induction closes without internal knowledge. Valid for **any** DUT, including gate netlists. | proof (sequential) |
-| Formal, result | `fv_result_00/11` (k-induction, depth 3) | All of the above plus **`a_comp`**: at every completion, `result` equals the reference value (R1, R2, R3, R10, R12, R17). See "Result proof" below. **White-box**: run when the DUT has the golden's register names (RTL). A candidate without them reports `unsupported` (non-gating), and its result correctness rests on `eqy_rtl_*`. | proof (sequential + arithmetic) |
+| Formal, result | `fv_result_00/11` (k-induction, depth 3) | All of the above plus **`a_comp`**: at every completion, `result` equals the reference value (R1, R2, R3, R10, R12, R17). See "Result proof" below. **White-box**: run when the DUT has the golden's register names (RTL). A candidate without them reports `unsupported` (non-gating), and its result correctness then follows from `equiv_*` (below) plus the golden's own `fv_result_*`. | proof (sequential + arithmetic) |
 | Covers | `fv_cover_00` (14), `fv_cover_11` (15), depth 30 | Each cover is a witness of the condition, and the assertions are proven separately. Covered: power-up busy and power-up result non-zero; a positive, a negative, a 2047 and a −2048 completion; a negative tie; a start while busy; a shift while busy that changes `result`; a shift and `done` on the same edge (the new result wins); back-to-back (start in the `done` cycle); a reset while busy; a hold with a non-zero result. At 11: an overflow or S = −2^19 completion, and an L = 0 completion. At 00: a completion outside A1–A4 (shows that `spec_p` is not vacuously true). | bounded-pass |
 | Negative controls | `fv_sanity_pu_00`, `fv_sanity_lat_11`, `fv_sanity_round_00/11`, `fv_sanity_stab_00` | Each must be **refuted** with a trace: power-up state = reset state; a latency of 23; a truncating reference; a 00 claim that ignores A1 (a denominator that moves during the division changes the result). | checker sanity |
-| EQY vs golden | `eqy_rtl_00`, `eqy_rtl_11` (RTL), `eqy_rtl` (gate) | `gate/eqy_rtl.eqy`, strategy `sat`, depth 1, one merged partition. Ports and registers are matched by name; the golden's combinational wire names are excluded. **Mandatory** candidate-vs-golden gate (D9b). It is a **strict** equivalence and does not use A1–A4 (section 6). | equivalence proof |
+| EQY vs golden | `eqy_rtl_00`, `eqy_rtl_11` (RTL), `eqy_rtl` (gate); non-gating constituents of `equiv_*` | `gate/eqy_rtl.eqy`, strategy `sat`, depth 1, one merged partition. Ports and registers are matched by name; the golden's combinational wire names are excluded. It is a **strict** equivalence and does not use A1–A4 (section 6). | equivalence proof |
+| Sequential equivalence vs golden (amendment A-1) | `seq_eq_00`, `seq_eq_11`; non-gating constituents of `equiv_*`; negative controls `fv_sanity_seq_00/11` | Miter `formal/divider_miter.sv` of the golden (renamed `divider_gold`) against the DUT, both driven by the same free inputs (`formal/seq_eq.sby`). See "Sequential equivalence" below. | equivalence proof |
+| **Equivalence gate** | **`equiv_00`, `equiv_11`** (derived, gating) | ok if `eqy_rtl[_c]` **or** `seq_eq_c` is proven. Inconclusive, not-proven and timed-out all count as fail. **Mandatory** candidate-vs-golden gate (D9b). | equivalence proof |
+| Lemma lint | `lemma_lint` (only with a lemma file) | `formal/lemma_prep.py lint`: the file may contain only `[label:] assert property (expr);`, comments and `// @config 00/11/all`. Any `assume`, `restrict`, `anyconst`, `anyseq`, `anyinit`, `force`, `release`, `initial`, `always`, `assign`, `cover`, a declaration, a backtick, a temporal operator (`@`, `##`, `|->`, `|=>`) or an assignment `=` rejects it. | static |
 | Structure / interface / lint | `lint_00`, `lint_11` | Yosys on the unoptimised netlist per configuration (`proc -noopt; flatten`): `check -assert`, `scc` empty, forbidden state types. `lint/check_interface.py`: ports, parameter values, flop polarity and clock, no `init`, no black boxes. `lint_11` also elaborates **without** parameters and requires the defaults 1/1 (exit status taken from the check, B1). Verilator `-Wall` via `lint/check_lint.py`. | static |
 
 **`gen` point classes.** For each L of 1, 2, 3, 31, 32, 33, 254, 255, 256, 2047, 2048, 4080,
@@ -200,12 +204,55 @@ is checked by lint and by the `.sby` guards, which reject negative-edge, asynchr
 memory cells after `flatten; opt_clean`. A clock that is still derived after that is refused by
 SBY: the run is `inconclusive` (fails closed).
 
+### Sequential equivalence (`seq_eq_*`, amendment A-1)
+
+`eqy_rtl_*` matches flops by name, so an equivalent candidate that re-encodes or renames its
+state fails it, and `fv_result_*` then reports `unsupported`. `seq_eq_*` closes that gap:
+- **Anchored on R13.** `rst_n` of both instances is low in cycle 0. This is done structurally
+  (`rst_n = rst_n_in && !first`, with `first` an initialised observer), not by an assumption.
+  All inputs are free afterwards. The power-up state of both instances is free, so cycle 0
+  stands for any state at the first reset edge.
+- **Property.** `a_eq`: `busy`, `done` and `result` of the two instances are equal at every
+  cycle from cycle 1 on.
+- **No assume, restrict, anyconst or anyseq anywhere.** The `.sby` init guard (before `flatten`)
+  forbids initial values in both instances.
+- **Proof.** SBY prove mode, smtbmc z3: a base-case BMC to depth 30 from the cycle-0 reset (more
+  than one 25-edge division, so a mismatch at a first completion is a counterexample with a
+  trace), plus k-induction at depth 30. PASS is an unbounded proof. UNKNOWN (induction did not
+  close) is `not-proven` and fails. abc pdr was tried: it found counterexamples but SBY could not
+  replay them, and without lemmas it did not prove golden-vs-golden within 3 minutes, so it is
+  not used.
+- **Lemmas.** `--lemmas FILE` is an optional, candidate-supplied file of strengthening
+  invariants over `gold.<name>` and `cand.<name>`, linted by `lemma_lint`.
+  - `formal/lemma_prep.py` maps each hierarchical name to a harness wire of the right width and
+    signedness, connected with `connect` after `flatten`. A missing name fails the item.
+  - Each lemma becomes an **assertion** from cycle 1 on, **proven together with `a_eq`**. A false
+    lemma fails the item; it is never assumed, so the item is sound whoever wrote the lemmas.
+  - The assertion count must be 1 + the number of lemmas.
+  - The file's SHA-256 is recorded in `results.json` (`seq_eq_lemmas_sha256`).
+  - Default: `formal/golden_self_lemmas.sv` when the DUT is the golden RTL, otherwise none. The
+    golden needs simple lemmas: control registers equal, and datapath registers equal while busy.
+    Without lemmas the induction does not close (`not-proven`).
+- **Transitivity of result correctness.** For a candidate whose `fv_result_*` is `unsupported`,
+  R1–R3, R10, R12 and R17 follow from `equiv_c` (the candidate's port behaviour equals the
+  golden's from any first reset) together with the golden's proven `fv_result_c`. Black-box
+  `fv_proto_*` still runs on the candidate itself.
+- **Self-check** (`evidence/seq_eq/selfcheck.{sh,txt}`):
+  - golden with its lemmas: proven;
+  - `c_rename.v` (every register renamed, sign bit stored complemented) with
+    `c_rename_lemmas.sv`: proven, while `eqy_rtl` fails;
+  - the same without lemmas: not-proven;
+  - the 3 smoke mutants: failed with a base-case counterexample;
+  - a lemma file with an `assume`: rejected;
+  - a false lemma: failed.
+
 ## 5. Result labels (results.json)
 
 Each item has `status` (the contract's own label), `label` (the standard AGENT_CONTEXT label),
 `expected_outcome`, `gating` and `ok`. `all_ok` is the conjunction of `ok` over the gating items.
-Every item gates, except a `fv_result_*` item that reports `unsupported` on a DUT without the
-golden's register names.
+Every item gates, except:
+- `eqy_rtl*` and `seq_eq_*`, which are the constituents of the gating `equiv_*`;
+- a `fv_result_*` item that reports `unsupported` on a DUT without the golden's register names.
 
 | status | label | meaning |
 |---|---|---|
@@ -215,7 +262,7 @@ golden's register names.
 | `failed-as-expected` | `failed` (`expected_outcome: fail`, `ok: true`) | Negative control refuted with a trace (the named wrong assertion) |
 | `pass`, `pass-with-waiver` | `pass-static` | Static check passed (lint, structure, interface, model, generation, refcheck, cell extraction). `pass-with-waiver`: only internal UNUSEDSIGNAL or PDK-model warnings |
 | `failed` | `failed` | Check failed. Also used when an engine returned FAIL and SBY could not replay the trace |
-| `not-proven` | `inconclusive` | k-induction did not close (SBY UNKNOWN). Not a proof, not a counterexample, not a tool error; `ok: false` |
+| `not-proven` | `inconclusive` | k-induction did not close (SBY UNKNOWN). Not a proof, not a counterexample, not a tool error; `ok: false`. For `seq_eq_*`: add or strengthen the lemmas |
 | `timed-out` | `timed-out` | 900 s formal, 600 s simulation |
 | `unsupported` | `unsupported` | `fv_result_*` on a DUT without the white-box names (non-gating) |
 | `inconclusive` | `inconclusive` | Tool or infrastructure error, or a job that recorded no result; `ok: false` |
@@ -234,13 +281,16 @@ golden's register names.
   - the Yosys view: combinational models + liberty flop models, used by lint, SBY and EQY.
 
   Gate mode runs `cells_prep`, `selftest`, `gen`, `lint_CC`, `refcheck`, `edge_CC`,
-  `fv_proto_CC`, `fv_pdr_proto_CC`, the `fv_sanity_*_CC` controls and **`eqy_rtl`**. It does
+  `fv_proto_CC`, `fv_pdr_proto_CC`, the `fv_sanity_*_CC` controls, **`eqy_rtl`**, `seq_eq_CC` and the gating **`equiv_CC`**. It does
   not run:
   - `fv_result_*`: white-box, the netlist has no lemma names;
   - `fv_cover_*`: covers are harness reachability, already shown on the RTL, and cost 423 s at
     gate level.
 
-  A gate netlist's arithmetic therefore rests on `eqy_rtl` (proof) and `edge_CC` (sampled).
+  A gate netlist's arithmetic therefore rests on `equiv_CC` (proof) and `edge_CC` (sampled).
+  For `seq_eq_CC` on a gate netlist, the lemmas use the netlist's net names. The golden netlists
+  use `evidence/seq_eq/golden_gate_lemmas.sv`, because at 11 the mapped flops are named
+  `divisor` and `invalid`.
 - **EQY (`gate/eqy_rtl.eqy`).**
   - Both sides get `proc; prep; dffunmap`.
   - Ports and registers are matched by name. The golden's combinational wire names (`trial`,
@@ -254,9 +304,12 @@ golden's register names.
     - A netlist that re-encodes or renames the golden's state fails (equivalence unknown) and
       would need its own reviewed match.
     - EQY cannot see clock polarity; lint and the `.sby` guards check it.
-    - **EQY is strict.** It does not use A1–A4, so a 00 candidate that exploits those don't-cares
-      fails `eqy_rtl_00` and needs a reviewed domain-restricted equivalence. One candidate
-      route is a `fv_result_00`-style proof of the candidate against the same reference.
+    - **EQY and `seq_eq` are strict.** They do not use A1–A4, so a 00 candidate that exploits
+      those don't-cares fails both and needs a reviewed domain-restricted equivalence. One
+      candidate route is a `fv_result_00`-style proof of the candidate against the same
+      reference.
+    - A candidate that re-encodes or renames its state fails `eqy_rtl` but can pass `equiv`
+      through `seq_eq` with a lemma file (amendment A-1).
 - **Golden netlists.** Made with `gate/synth_gf180.sh <out.v> <00|11> [rtl.v]` (the
   `synth_area.py` recipe with `chparam`):
   - `gate/netlists/divider_00_gf180.v`: 8,853.24 µm², 56 `dffq_1`;

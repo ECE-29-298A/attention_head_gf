@@ -9,3 +9,6 @@ m_shift: a shift on the completion edge overrides the new result (shift moved af
 m_restart: a start while busy reloads the dividend register (protocol unchanged)
   gating 16/22 ok, all_ok=False, 46.0 s; killed by: edge_00 edge_11 fv_result_00 fv_result_11 eqy_rtl_00 eqy_rtl_11
   (fv_proto_* pass, as expected: busy/done timing is unchanged; the result proof and EQY catch it)
+# Amendment A-1 rerun (evidence/seq_eq/selfcheck.txt, golden_self_lemmas.sv): each mutant also fails seq_eq_00 and seq_eq_11
+# with a base-case counterexample (m_tie, m_shift: a_eq; m_restart: lemma l_quot), so equiv_00/11 (eqy_rtl OR seq_eq) fail.
+# Gating there: m_tie 19/25, m_shift 17/25, m_restart 19/25; killed by edge_*, fv_result_* (now not-proven), equiv_* (+ fv_cover_* for m_shift).

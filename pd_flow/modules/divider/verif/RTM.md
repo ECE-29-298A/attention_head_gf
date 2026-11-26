@@ -8,6 +8,8 @@ everything with `./run_all.sh`. A new implementation is checked with
 `--gate --rtl NETLIST --config CC --out DIR` (gate level, one configuration). Those runs never
 write here.
 
+Amendment A-1 (after `be7df42`) adds `seq_eq_*`, `lemma_lint` and the gating `equiv_*`.
+
 Evidence kinds (D9b, SPEC §4):
 - **proof**: SBY k-induction and abc pdr (`proven`);
 - **EQY**: equivalence with the golden (`proven`);
@@ -16,7 +18,7 @@ Evidence kinds (D9b, SPEC §4):
 - **cover**: `bounded-pass`, depth 30;
 - **static**: lint, structure, interface, model (`pass-static`).
 
-There is no exhaustive simulation. Every item is gating.
+There is no exhaustive simulation. Every item is gating except `eqy_rtl*` and `seq_eq_*` (the constituents of `equiv_*`) and an `unsupported` `fv_result_*`.
 
 | Req | Requirement (short) | Gating evidence (item IDs; assertion / class names) | Kind | Expected status |
 |---|---|---|---|---|
@@ -42,18 +44,24 @@ There is no exhaustive simulation. Every item is gating.
 | — | formal reference = definition | `refcheck` (`ref_divider_seq.v` vs model on every edge point) | edge/spot | pass-static |
 | — | checker sanity | `fv_sanity_pu_00`, `fv_sanity_lat_11`, `fv_sanity_round_00/11`, `fv_sanity_stab_00` (must fail; traces in `formal/runs/divider_sanity_*/engine_0/`) | negative control | failed-as-expected |
 | — | proofs not vacuous | assertion counts checked per task (proto 6, result 16 / 18, cover 7 + 14 / 15, sanity 1 / 6 / 7); all covers reached; no assumptions | model inspection | — |
-| — | candidate vs golden | `eqy_rtl_00`, `eqy_rtl_11` (RTL), `eqy_rtl` (gate) | EQY | proven |
+| — | candidate vs golden (amendment A-1) | **`equiv_00`, `equiv_11`** (gating): ok if `eqy_rtl[_c]` (name-matched EQY) **or** `seq_eq_c` (miter from the cycle-0 reset; base-case BMC 30 + k-induction with linted, proven lemmas) is proven; `lemma_lint`; negative controls `fv_sanity_seq_00/11`; self-check `evidence/seq_eq/selfcheck.txt` | EQY / proof | proven |
+| R1–R3, R10, R12, R17 for a candidate whose `fv_result_*` is unsupported | — | transitivity: `equiv_c` (the candidate's port behaviour = the golden's from any first reset) plus the golden's `fv_result_c` | proof | proven |
 | — | gate-level reuse | `gate/evidence/golden_00_gf180/`, `golden_11_gf180/`, `clkbuf_00/`: `results.json` all_ok | all methods | all_ok |
 
 ## Coverage gaps (stated limits)
 
 - **The result proof is white-box.** `fv_result_*` needs the golden's register names. For a
-  candidate without them it reports `unsupported` (non-gating). Its result correctness then rests
-  on `eqy_rtl_*` (strict equivalence with the golden, which `fv_result_*` characterises) plus the
-  sampled `edge_*`. Gate netlists do not run `fv_result_*`.
-- **EQY is strict.** It does not use A1–A4, so a 00 candidate that exploits those don't-cares
-  fails it. It also needs the golden's register names (or their alias names `divisor`/`invalid`).
-  Re-encoded state needs a reviewed match or a domain-restricted proof.
+  candidate without them it reports `unsupported` (non-gating). Its result correctness then follows
+  from `equiv_*` (equivalence with the golden: `eqy_rtl` or `seq_eq`) plus the golden's
+  `fv_result_*` (transitivity), with the sampled `edge_*` alongside. Gate netlists do not run `fv_result_*`.
+- **EQY and `seq_eq` are strict.** Neither uses A1–A4, so a 00 candidate that exploits those
+  don't-cares fails both and needs a reviewed domain-restricted proof. EQY needs the golden's
+  register names (or their aliases `divisor`/`invalid`). A re-encoded or renamed state passes
+  only through `seq_eq`, usually with candidate lemmas; without them the induction typically
+  does not close (`not-proven` = fail).
+- **`seq_eq` depth.** The base case is 30 cycles (one division plus margin). A bug visible only
+  after a longer prefix cannot be proven equivalent either: no inductive strengthening exists,
+  so it ends `not-proven` or `failed`, never `proven`.
 - **A1–A4 are assumptions of this module contract.** They are discharged nowhere yet; the
   controller-level contract must prove them (SPEC §2 gives the argument).
 - **Covers run on RTL only** (gate covers take minutes). Gate netlists still run the black-box

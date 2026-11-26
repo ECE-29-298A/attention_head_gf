@@ -2,76 +2,95 @@
 # gate/evidence/{golden_00_gf180,golden_11_gf180,clkbuf_00}/ deleted before each run; fresh temp build dir per run)
 # per run: golden RTL (configs 00 and 11), GF180 golden netlists 00 and 11, the 00 netlist with a clock buffer;
 # per-item id, status, label, ok, detail compared (timings excluded)
-run 1: rtl rtl gating 22/22 all_ok=True 19.834s | g00 gate-level gating 12/12 all_ok=True 55.26s | g11 gate-level gating 11/11 all_ok=True 79.847s | cb gate-level gating 12/12 all_ok=True 133.588s
-run 2: rtl rtl gating 22/22 all_ok=True 56.109s | g00 gate-level gating 12/12 all_ok=True 86.092s | g11 gate-level gating 11/11 all_ok=True 43.306s | cb gate-level gating 12/12 all_ok=True 61.298s
-rtl: all 22 items identical across runs
-g00: all 12 items identical across runs
-g11: all 11 items identical across runs
-cb: all 12 items identical across runs
+run 1: rtl rtl gating 25/25 all_ok=True 20.758s | g00 gate-level gating 14/14 all_ok=True 26.304s | g11 gate-level gating 13/13 all_ok=True 41.493s | cb gate-level gating 14/14 all_ok=True 25.803s
+run 2: rtl rtl gating 25/25 all_ok=True 20.499s | g00 gate-level gating 14/14 all_ok=True 26.229s | g11 gate-level gating 13/13 all_ok=True 42.989s | cb gate-level gating 14/14 all_ok=True 26.153s
+rtl: all 29 items identical across runs
+g00: all 16 items identical across runs
+g11: all 15 items identical across runs
+cb: all 16 items identical across runs
 
 ## run 2 items (rtl)
 gen pass pass-static ok=True gating=True 0.09s RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
-selftest pass pass-static ok=True gating=True 0.59s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
-lint_00 pass-with-waiver pass-static ok=True gating=True 0.18s RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 0, 'LATCH_DENOMINATOR': 0} flop_bits=56 errors=0
-lint_11 pass-with-waiver pass-static ok=True gating=True 0.33s RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 1, 'LATCH_DENOMINATOR': 1} flop_bits=69 errors=0; RESULT default_param top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 1, 'LATCH_DENOMINATOR': 1} flop_bits=69 errors=0
-refcheck pass pass-static ok=True gating=True 0.45s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
-edge_00 pass-edge-spot pass-sampled ok=True gating=True 1.99s cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0 (expected points=6066)
-edge_11 pass-edge-spot pass-sampled ok=True gating=True 2.72s cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 serial=735 b2b=3186 idle=5514 mismatches=0 (expected points=7353)
-fv_cover_00 covered bounded-pass ok=True gating=True 40.72s sby_status=PASS asserts=7 covers=14 reached=14 unreached=0 depth=30 (expected asserts=7 covers=14)
-fv_cover_11 covered bounded-pass ok=True gating=True 30.82s sby_status=PASS asserts=7 covers=15 reached=15 unreached=0 depth=30 (expected asserts=7 covers=15)
-fv_pdr_proto_00 proven proven ok=True gating=True 5.47s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_pdr_proto_11 proven proven ok=True gating=True 4.81s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_proto_00 proven proven ok=True gating=True 10.09s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_proto_11 proven proven ok=True gating=True 11.47s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_result_00 proven proven ok=True gating=True 8.15s sby_status=PASS asserts=16 covers=0 (expected asserts=16 covers=0); summary: successful proof by k-induction
-fv_result_11 proven proven ok=True gating=True 8.25s sby_status=PASS asserts=18 covers=0 (expected asserts=18 covers=0); summary: successful proof by k-induction
-fv_sanity_lat_11 failed-as-expected failed ok=True gating=True 14.00s sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
-fv_sanity_pu_00 failed-as-expected failed ok=True gating=True 2.68s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion divider_props.a_wrong_pu
-fv_sanity_round_00 failed-as-expected failed ok=True gating=True 7.56s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
-fv_sanity_round_11 failed-as-expected failed ok=True gating=True 4.45s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
-fv_sanity_stab_00 failed-as-expected failed ok=True gating=True 3.50s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
-eqy_rtl_00 proven proven ok=True gating=True 0.47s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
-eqy_rtl_11 proven proven ok=True gating=True 0.52s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+selftest pass pass-static ok=True gating=True 0.53s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
+lemma_lint pass pass-static ok=True gating=True 0.05s RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/formal/golden_self_lemmas.sv; 
+lint_00 pass-with-waiver pass-static ok=True gating=True 0.17s RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 0, 'LATCH_DENOMINATOR': 0} flop_bits=56 errors=0
+lint_11 pass-with-waiver pass-static ok=True gating=True 0.22s RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 1, 'LATCH_DENOMINATOR': 1} flop_bits=69 errors=0; RESULT default_param top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={'CHECK_INVALID': 1, 'LATCH_DENOMINATOR': 1} flop_bits=69 errors=0
+refcheck pass pass-static ok=True gating=True 0.38s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
+edge_00 pass-edge-spot pass-sampled ok=True gating=True 1.76s cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0 (expected points=6066)
+edge_11 pass-edge-spot pass-sampled ok=True gating=True 2.35s cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 serial=735 b2b=3186 idle=5514 mismatches=0 (expected points=7353)
+fv_cover_00 covered bounded-pass ok=True gating=True 12.37s sby_status=PASS asserts=7 covers=14 reached=14 unreached=0 depth=30 (expected asserts=7 covers=14)
+fv_cover_11 covered bounded-pass ok=True gating=True 13.33s sby_status=PASS asserts=7 covers=15 reached=15 unreached=0 depth=30 (expected asserts=7 covers=15)
+fv_pdr_proto_00 proven proven ok=True gating=True 0.62s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_proto_11 proven proven ok=True gating=True 0.69s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_00 proven proven ok=True gating=True 1.29s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_proto_11 proven proven ok=True gating=True 1.49s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_result_00 proven proven ok=True gating=True 1.55s sby_status=PASS asserts=16 covers=0 (expected asserts=16 covers=0); summary: successful proof by k-induction
+fv_result_11 proven proven ok=True gating=True 1.51s sby_status=PASS asserts=18 covers=0 (expected asserts=18 covers=0); summary: successful proof by k-induction
+fv_sanity_lat_11 failed-as-expected failed ok=True gating=True 1.39s sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
+fv_sanity_pu_00 failed-as-expected failed ok=True gating=True 0.32s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion divider_props.a_wrong_pu
+fv_sanity_round_00 failed-as-expected failed ok=True gating=True 5.94s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+fv_sanity_round_11 failed-as-expected failed ok=True gating=True 4.34s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+fv_sanity_stab_00 failed-as-expected failed ok=True gating=True 3.61s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
+eqy_rtl_00 proven proven ok=True gating=False 0.47s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+eqy_rtl_11 proven proven ok=True gating=False 0.52s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+fv_sanity_seq_00 failed-as-expected failed ok=True gating=True 0.40s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_11 failed-as-expected failed ok=True gating=True 0.40s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_00 proven proven ok=True gating=False 0.51s sby_status=PASS asserts=6 covers=0 (a_eq + 5 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=golden_self_lemmas.sv
+seq_eq_11 proven proven ok=True gating=False 0.57s sby_status=PASS asserts=8 covers=0 (a_eq + 7 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=golden_self_lemmas.sv
+equiv_00 proven proven ok=True gating=True 0.00s eqy_rtl: proven; seq_eq_00: proven (ok if either is proven)
+equiv_11 proven proven ok=True gating=True 0.00s eqy_rtl: proven; seq_eq_11: proven (ok if either is proven)
 
 ## run 2 items (g00)
 cells_prep pass pass-static ok=True gating=True 0.28s RESULT cells netlist_modules=['divider'] cell_types=27 models_copied=55 udps=1 liberty_flop_cells=1 netlist_lines=2171cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
 gen pass pass-static ok=True gating=True 0.09s RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
 selftest pass pass-static ok=True gating=True 0.53s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
-lint_00 pass-with-waiver pass-static ok=True gating=True 0.34s RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=56 errors=0
+lemma_lint pass pass-static ok=True gating=True 0.05s RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/evidence/seq_eq/golden_gate_lemmas.sv; 
+lint_00 pass-with-waiver pass-static ok=True gating=True 0.35s RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=56 errors=0
 refcheck pass pass-static ok=True gating=True 0.38s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
-edge_00 pass-edge-spot pass-sampled ok=True gating=True 6.60s cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0 (expected points=6066)
-fv_pdr_proto_00 proven proven ok=True gating=True 0.99s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_proto_00 proven proven ok=True gating=True 5.32s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+edge_00 pass-edge-spot pass-sampled ok=True gating=True 6.64s cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0 (expected points=6066)
+fv_pdr_proto_00 proven proven ok=True gating=True 0.97s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_00 proven proven ok=True gating=True 5.50s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
 fv_sanity_pu_00 failed-as-expected failed ok=True gating=True 0.92s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion divider_props.a_wrong_pu
-fv_sanity_round_00 failed-as-expected failed ok=True gating=True 75.97s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
-fv_sanity_stab_00 failed-as-expected failed ok=True gating=True 77.46s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
-eqy_rtl proven proven ok=True gating=True 48.54s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=14 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+fv_sanity_round_00 failed-as-expected failed ok=True gating=True 15.70s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+fv_sanity_stab_00 failed-as-expected failed ok=True gating=True 16.03s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
+eqy_rtl proven proven ok=True gating=False 1.16s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=14 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+fv_sanity_seq_00 failed-as-expected failed ok=True gating=True 1.18s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_00 proven proven ok=True gating=False 11.94s sby_status=PASS asserts=6 covers=0 (a_eq + 5 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=golden_gate_lemmas.sv
+equiv_00 proven proven ok=True gating=True 0.00s eqy_rtl: proven; seq_eq_00: proven (ok if either is proven)
 
 ## run 2 items (g11)
-cells_prep pass pass-static ok=True gating=True 1.50s RESULT cells netlist_modules=['divider'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=2584cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
-gen pass pass-static ok=True gating=True 0.91s RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
-selftest pass pass-static ok=True gating=True 3.07s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
-lint_11 pass-with-waiver pass-static ok=True gating=True 3.33s RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=69 errors=0
-refcheck pass pass-static ok=True gating=True 1.67s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
-edge_11 pass-edge-spot pass-sampled ok=True gating=True 18.45s cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 serial=735 b2b=3186 idle=5514 mismatches=0 (expected points=7353)
-fv_pdr_proto_11 proven proven ok=True gating=True 1.28s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_proto_11 proven proven ok=True gating=True 6.55s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_sanity_lat_11 failed-as-expected failed ok=True gating=True 10.90s sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
-fv_sanity_round_11 failed-as-expected failed ok=True gating=True 17.46s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
-eqy_rtl proven proven ok=True gating=True 1.32s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+cells_prep pass pass-static ok=True gating=True 0.28s RESULT cells netlist_modules=['divider'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=2584cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
+gen pass pass-static ok=True gating=True 0.09s RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
+selftest pass pass-static ok=True gating=True 0.54s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
+lemma_lint pass pass-static ok=True gating=True 0.05s RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/evidence/seq_eq/golden_gate_lemmas.sv; 
+lint_11 pass-with-waiver pass-static ok=True gating=True 0.38s RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=69 errors=0
+refcheck pass pass-static ok=True gating=True 0.38s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
+edge_11 pass-edge-spot pass-sampled ok=True gating=True 9.26s cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 serial=735 b2b=3186 idle=5514 mismatches=0 (expected points=7353)
+fv_pdr_proto_11 proven proven ok=True gating=True 1.13s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_11 proven proven ok=True gating=True 6.49s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat_11 failed-as-expected failed ok=True gating=True 10.81s sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
+fv_sanity_round_11 failed-as-expected failed ok=True gating=True 16.79s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+eqy_rtl proven proven ok=True gating=False 1.30s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+fv_sanity_seq_11 failed-as-expected failed ok=True gating=True 1.38s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_11 proven proven ok=True gating=False 24.94s sby_status=PASS asserts=8 covers=0 (a_eq + 7 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=golden_gate_lemmas.sv
+equiv_11 proven proven ok=True gating=True 0.00s eqy_rtl: proven; seq_eq_11: proven (ok if either is proven)
 
 ## run 2 items (cb)
-cells_prep pass pass-static ok=True gating=True 0.32s RESULT cells netlist_modules=['divider'] cell_types=28 models_copied=57 udps=1 liberty_flop_cells=1 netlist_lines=2176cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
-gen pass pass-static ok=True gating=True 0.15s RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
-selftest pass pass-static ok=True gating=True 0.58s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
-lint_00 pass-with-waiver pass-static ok=True gating=True 0.41s RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=56 errors=0
-refcheck pass pass-static ok=True gating=True 0.45s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
-edge_00 pass-edge-spot pass-sampled ok=True gating=True 12.95s cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0 (expected points=6066)
-fv_pdr_proto_00 proven proven ok=True gating=True 1.56s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_proto_00 proven proven ok=True gating=True 35.74s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_sanity_pu_00 failed-as-expected failed ok=True gating=True 1.47s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion divider_props.a_wrong_pu
-fv_sanity_round_00 failed-as-expected failed ok=True gating=True 45.42s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
-fv_sanity_stab_00 failed-as-expected failed ok=True gating=True 45.64s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
-eqy_rtl proven proven ok=True gating=True 1.17s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=14 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+cells_prep pass pass-static ok=True gating=True 0.27s RESULT cells netlist_modules=['divider'] cell_types=28 models_copied=57 udps=1 liberty_flop_cells=1 netlist_lines=2176cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
+gen pass pass-static ok=True gating=True 0.09s RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
+selftest pass pass-static ok=True gating=True 0.52s RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0
+lemma_lint pass pass-static ok=True gating=True 0.05s RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/evidence/seq_eq/golden_gate_lemmas.sv; 
+lint_00 pass-with-waiver pass-static ok=True gating=True 0.34s RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=56 errors=0
+refcheck pass pass-static ok=True gating=True 0.38s RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
+edge_00 pass-edge-spot pass-sampled ok=True gating=True 6.67s cfg=00 points=6066 skipped=1287 cycles=165784 checks=331568 start_busy=5223 shift_busy=14088 shift_done=1011 aborts=210 serial=606 b2b=2629 idle=4550 mismatches=0 (expected points=6066)
+fv_pdr_proto_00 proven proven ok=True gating=True 0.98s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_00 proven proven ok=True gating=True 5.31s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_pu_00 failed-as-expected failed ok=True gating=True 0.92s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion divider_props.a_wrong_pu
+fv_sanity_round_00 failed-as-expected failed ok=True gating=True 15.47s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+fv_sanity_stab_00 failed-as-expected failed ok=True gating=True 15.76s sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_stab
+eqy_rtl proven proven ok=True gating=False 1.15s eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=14 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+fv_sanity_seq_00 failed-as-expected failed ok=True gating=True 1.21s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_00 proven proven ok=True gating=False 12.05s sby_status=PASS asserts=6 covers=0 (a_eq + 5 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=golden_gate_lemmas.sv
+equiv_00 proven proven ok=True gating=True 0.00s eqy_rtl: proven; seq_eq_00: proven (ok if either is proven)
 
 VERDICT stable: both runs all ok and identical

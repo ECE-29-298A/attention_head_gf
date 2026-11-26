@@ -1,0 +1,77 @@
+# seq_eq (amendment A-1) self-check; runs: ./run_all.sh --rtl X [--lemmas F] --out <scratchpad>/<tag>, --jobs 3
+c_rename: expected all_ok (equiv via seq_eq; eqy_rtl fails on the renamed state)
+  all_ok=True gating 23/23 20.525s lemmas_sha256=16270a6470f3e80d; failing gating items: -
+  lemma_lint: pass - RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/evidence/seq_eq/c_rena
+  eqy_rtl_00: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=12 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=12 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: proven - sby_status=PASS asserts=6 covers=0 (a_eq + 5 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=c_rename_lemmas.sv
+  seq_eq_11: proven - sby_status=PASS asserts=8 covers=0 (a_eq + 7 lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=c_rename_lemmas.sv
+  equiv_00: proven - eqy_rtl: failed; seq_eq_00: proven (ok if either is proven)
+  equiv_11: proven - eqy_rtl: failed; seq_eq_11: proven (ok if either is proven)
+  fv_result_00: unsupported - white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative) not in the DUT: golden characterization only; candidate result correctn
+  fv_result_11: unsupported - white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative w:g_divisor.saved_divisor w:invalid_r) not in the DUT: golden characteri
+c_rename_nolem: expected not all_ok (no lemmas: seq_eq not-proven, eqy_rtl failed)
+  all_ok=False gating 20/22 20.885s lemmas_sha256=-; failing gating items: equiv_00 equiv_11
+  eqy_rtl_00: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=12 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=12 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: not-proven - induction did not close (basecase depth 30 passed; add or strengthen lemmas): asserts=1 covers=0; lemmas=none
+  seq_eq_11: not-proven - induction did not close (basecase depth 30 passed; add or strengthen lemmas): asserts=1 covers=0; lemmas=none
+  equiv_00: failed - eqy_rtl: failed; seq_eq_00: not-proven (ok if either is proven)
+  equiv_11: failed - eqy_rtl: failed; seq_eq_11: not-proven (ok if either is proven)
+  fv_result_00: unsupported - white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative) not in the DUT: golden characterization only; candidate result correctn
+  fv_result_11: unsupported - white-box lemma names (w:state w:step w:quotient w:remainder_value w:negative w:g_divisor.saved_divisor w:invalid_r) not in the DUT: golden characteri
+m_tie: expected not all_ok; seq_eq failed with a counterexample
+  all_ok=False gating 19/25 22.399s lemmas_sha256=7f4df9b68e929995; failing gating items: edge_00 edge_11 fv_result_00 fv_result_11 equiv_00 equiv_11
+  lemma_lint: pass - RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/formal/golden_self_lem
+  eqy_rtl_00: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: failed - counterexample: failed a_eq (returned FAIL for basecase); trace formal/runs/seq_eq_00/seq_eq_seq_00/engine_0/trace.vcd; lemmas=golden_self_lemmas.sv
+  seq_eq_11: failed - counterexample: failed a_eq (returned FAIL for basecase); trace formal/runs/seq_eq_11/seq_eq_seq_11/engine_0/trace.vcd; lemmas=golden_self_lemmas.sv
+  equiv_00: failed - eqy_rtl: failed; seq_eq_00: failed (ok if either is proven)
+  equiv_11: failed - eqy_rtl: failed; seq_eq_11: failed (ok if either is proven)
+  fv_result_00: not-proven - induction did not close (UNKNOWN): returned pass for basecase, returned FAIL for induction; asserts=16 covers=0
+  fv_result_11: not-proven - induction did not close (UNKNOWN): returned pass for basecase, returned FAIL for induction; asserts=18 covers=0
+m_shift: expected not all_ok; seq_eq failed with a counterexample
+  all_ok=False gating 17/25 18.319s lemmas_sha256=7f4df9b68e929995; failing gating items: edge_00 edge_11 fv_cover_00 fv_cover_11 fv_result_00 fv_result_11 equiv_00 equiv_11
+  lemma_lint: pass - RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/formal/golden_self_lem
+  eqy_rtl_00: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: failed - counterexample: failed a_eq (returned FAIL for basecase); trace formal/runs/seq_eq_00/seq_eq_seq_00/engine_0/trace.vcd; lemmas=golden_self_lemmas.sv
+  seq_eq_11: failed - counterexample: failed a_eq (returned FAIL for basecase); trace formal/runs/seq_eq_11/seq_eq_seq_11/engine_0/trace.vcd; lemmas=golden_self_lemmas.sv
+  equiv_00: failed - eqy_rtl: failed; seq_eq_00: failed (ok if either is proven)
+  equiv_11: failed - eqy_rtl: failed; seq_eq_11: failed (ok if either is proven)
+  fv_result_00: not-proven - induction did not close (UNKNOWN): returned pass for basecase, returned FAIL for induction; asserts=16 covers=0
+  fv_result_11: not-proven - induction did not close (UNKNOWN): returned pass for basecase, returned FAIL for induction; asserts=18 covers=0
+m_restart: expected not all_ok; seq_eq failed with a counterexample
+  all_ok=False gating 19/25 17.142s lemmas_sha256=7f4df9b68e929995; failing gating items: edge_00 edge_11 fv_result_00 fv_result_11 equiv_00 equiv_11
+  lemma_lint: pass - RESULT lemma_lint statements=7 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/formal/golden_self_lem
+  eqy_rtl_00: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: failed - eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: failed - counterexample: failed l_quot (returned FAIL for basecase); trace formal/runs/seq_eq_00/seq_eq_seq_00/engine_0/trace.vcd; lemmas=golden_self_lemmas.sv
+  seq_eq_11: failed - counterexample: failed l_quot (returned FAIL for basecase); trace formal/runs/seq_eq_11/seq_eq_seq_11/engine_0/trace.vcd; lemmas=golden_self_lemmas.sv
+  equiv_00: failed - eqy_rtl: failed; seq_eq_00: failed (ok if either is proven)
+  equiv_11: failed - eqy_rtl: failed; seq_eq_11: failed (ok if either is proven)
+  fv_result_00: not-proven - induction did not close (UNKNOWN): returned pass for basecase, returned FAIL for induction; asserts=16 covers=0
+  fv_result_11: not-proven - induction did not close (UNKNOWN): returned pass for basecase, returned FAIL for induction; asserts=18 covers=0
+golden_assume: expected lemma file rejected (lemma_lint and seq_eq failed)
+  all_ok=False gating 24/25 19.919s lemmas_sha256=3252364064ad2629; failing gating items: lemma_lint
+  lemma_lint: failed - RESULT lemma_lint statements=1 errors=2; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/evidence/seq_eq/bad_as
+  eqy_rtl_00: proven - eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: proven - eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: failed - lemma file rejected or a referenced net does not exist: REJECT forbidden keyword 'assume' REJECT not an 'assert property (...)' statement: 'a_cheat: a
+  seq_eq_11: failed - lemma file rejected or a referenced net does not exist: REJECT forbidden keyword 'assume' REJECT not an 'assert property (...)' statement: 'a_cheat: a
+  equiv_00: proven - eqy_rtl: proven; seq_eq_00: failed (ok if either is proven)
+  equiv_11: proven - eqy_rtl: proven; seq_eq_11: failed (ok if either is proven)
+  fv_result_00: proven - sby_status=PASS asserts=16 covers=0 (expected asserts=16 covers=0); summary: successful proof by k-induction
+  fv_result_11: proven - sby_status=PASS asserts=18 covers=0 (expected asserts=18 covers=0); summary: successful proof by k-induction
+golden_false: expected seq_eq failed (the false lemma is refuted)
+  all_ok=True gating 25/25 20.288s lemmas_sha256=480da1d1711468b0; failing gating items: -
+  lemma_lint: pass - RESULT lemma_lint statements=2 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/evidence/seq_eq/false_
+  eqy_rtl_00: proven - eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 00)
+  eqy_rtl_11: proven - eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)
+  seq_eq_00: failed - counterexample: failed l_false (returned FAIL for basecase); trace formal/runs/seq_eq_00/seq_eq_seq_00/engine_0/trace.vcd; lemmas=false_lemma_lemmas.s
+  seq_eq_11: failed - counterexample: failed l_false (returned FAIL for basecase); trace formal/runs/seq_eq_11/seq_eq_seq_11/engine_0/trace.vcd; lemmas=false_lemma_lemmas.s
+  equiv_00: proven - eqy_rtl: proven; seq_eq_00: failed (ok if either is proven)
+  equiv_11: proven - eqy_rtl: proven; seq_eq_11: failed (ok if either is proven)
+  fv_result_00: proven - sby_status=PASS asserts=16 covers=0 (expected asserts=16 covers=0); summary: successful proof by k-induction
+  fv_result_11: proven - sby_status=PASS asserts=18 covers=0 (expected asserts=18 covers=0); summary: successful proof by k-induction

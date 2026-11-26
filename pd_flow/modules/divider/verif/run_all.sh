@@ -1,7 +1,8 @@
 #!/bin/bash
 # divider verification contract: reruns every item and writes results.json.
 #
-# Usage: run_all.sh [--rtl FILE --out DIR] [--gate [--config CC] [--cells DIR] [--lib LIB]] [--jobs J]
+# Usage: run_all.sh [--rtl FILE --out DIR] [--gate [--config CC] [--cells DIR] [--lib LIB]]
+#                   [--lemmas FILE] [--jobs J]
 #   --rtl FILE  design under test (default: golden pd_flow/modules/divider/snapshot/divider.v).
 #               Later phases pass their implementation here; the contract is unchanged.
 #               RTL mode checks both configurations: 00 (LATCH_DENOMINATOR = 0,
@@ -16,10 +17,20 @@
 #   --config CC gate mode only: 00 or 11 (LATCH_DENOMINATOR, CHECK_INVALID of the netlist).
 #   --cells DIR cell Verilog models for --gate (default: GF180 7-track).
 #   --lib LIB   liberty for the Yosys/formal models of flop cells (default: 7-track TT 025C 3V30).
+#   --lemmas FILE  optional candidate-supplied seq_eq lemma file (assertions over gold.* and
+#               cand.*; formal/lemma_prep.py documents the format). It is linted (item
+#               lemma_lint; any assume/restrict/anyconst/anyseq/force/initial... rejects it)
+#               and every lemma is PROVEN with the port equality, never assumed. Its SHA-256
+#               is recorded in results.json. Default: formal/golden_self_lemmas.sv when the DUT
+#               is the golden RTL, otherwise none.
 #   --jobs J    concurrent jobs, at most 8 (default 3). Jobs are single-threaded.
-# Exit status: 0 only if every gating item has ok = true. Every item is gating except a
-# white-box result_* proof that reports `unsupported` because a non-golden DUT lacks the
-# golden's register names (SPEC section 4: candidate result correctness then rests on eqy_rtl).
+# Exit status: 0 only if every gating item has ok = true.
+#   - Equivalence with the golden (amendment A-1): the gating item equiv_<c> is ok if
+#     eqy_rtl[_<c>] is proven OR seq_eq_<c> is proven (inconclusive / not-proven = fail);
+#     those two are its non-gating constituents.
+#   - A white-box fv_result_* proof that reports `unsupported` (a non-golden DUT without the
+#     golden's register names) is non-gating: the candidate's result correctness then follows
+#     from equiv_<c> plus the golden's fv_result_<c> (SPEC section 4).
 #
 # Builds run in a space-free temp dir (SBY and EQY do not quote paths); logs and formal
 # results are written back to the output directory. Every check's exit status is taken from
@@ -51,6 +62,7 @@ want_props() {
     sanity_pu_00) echo "asserts=1 covers=0" ;;
     sanity_lat_11) echo "asserts=6 covers=0" ;;
     sanity_round_*|sanity_stab_00) echo "asserts=7 covers=0" ;;
+    sanity_seq_*) echo "asserts=1 covers=0" ;;
     esac
 }
 
@@ -209,6 +221,53 @@ job() {
         elif [ "$estat" = FAIL ]; then st=failed; ok=false
         else st=inconclusive; ok=false; det="tool/infrastructure error: $det; $(grep -m1 'ERROR' "$log" | cut -c1-120)"; fi
         mkdir -p "$OUT/formal/runs"; rm -rf "$OUT/formal/runs/$ed"; cp -R "$ed" "$OUT/formal/runs/" 2>/dev/null ;;
+    lemlint)  # candidate lemma file: assertions only
+        "$PY" "$VERIF/formal/lemma_prep.py" lint "$LEMMAS" > "$log" 2>&1; rc=$?
+        det="$(grep '^RESULT' "$log" | tail -1); file=$LEMMAS; $(grep -m2 '^REJECT' "$log" | tr '\n' ' ')"
+        if [ $rc -eq 0 ]; then st=pass; ok=true; else st=failed; ok=false; fi ;;
+    seq)    # cc [sanity]: golden vs DUT miter from the cycle-0 reset (formal/divider_miter.sv)
+        local c=$1 mode=${2:-} t defs="" lf=$LEMMAS nl sstat nas fails
+        t=seq_$c; [ "$mode" = sanity ] && { t=sanity_seq_$c; lf=none; }
+        [ "$c" = 11 ] && defs="-DP11"
+        [ "$mode" = sanity ] && defs="$defs -DSANITY_EQ"
+        rm -rf "$id"; mkdir "$id"
+        sed 's/^module divider #/module divider_gold #/' "$GOLDEN" > "$id/gold.v"
+        cp divider_fv.v divider_miter.sv seq_eq.sby fv_mode.vh "$id/"
+        cd "$id" || exit 1
+        echo '// no lemmas' > seq_lemmas.vh; echo '# no lemmas' > seq_lemmas.ys
+        (
+            echo "== net widths (flattened miter, no lemmas)"
+            yosys -q -p "read_verilog -formal -sv $defs divider_miter.sv; read_verilog -formal gold.v; read_verilog -formal divider_fv.v; hierarchy -top divider_miter; proc; flatten; write_json widths.json" || exit 3
+            echo "== lemmas: $lf"
+            "$PY" "$VERIF/formal/lemma_prep.py" gen "$lf" "$c" widths.json seq_lemmas.vh seq_lemmas.ys || exit 3
+            cat seq_lemmas.vh seq_lemmas.ys
+            echo "== sby $t"
+            timeout $T_FV "$PY" "$HOME/.local/bin/sby" -f seq_eq.sby "$t"
+        ) > "$log" 2>&1; rc=$?
+        nl=$(sed -n 's/^RESULT lemma_gen .*lemmas=\([0-9]*\) .*/\1/p' "$log")
+        sstat=$(awk '{print $1}' "seq_eq_$t/status" 2>/dev/null)
+        nas=$("$PY" "$VERIF/formal/count_props.py" "seq_eq_$t/model/design.json" 2>/dev/null)
+        fails=$(grep -o 'Assert failed in divider_miter: [A-Za-z_0-9]*' "$log" | sed 's/.*: //' | sort -u | tr '\n' ' ')
+        if [ $rc -eq 3 ]; then
+            st=failed; ok=false; det="lemma file rejected or a referenced net does not exist: $(grep -m2 '^REJECT\|ERROR' "$log" | tr '\n' ' ')"
+        elif [ $rc -eq 124 ]; then st=timed-out; ok=false; det="sby_status=${sstat:-none}; timeout ${T_FV}s"
+        elif [ "$mode" = sanity ]; then
+            det="sby_status=$sstat (expected FAIL) $nas failed: $fails"
+            if [ "$sstat" = FAIL ] && [ "$nas" = "asserts=1 covers=0" ] && echo "$fails" | grep -q a_wrong_eq \
+               && ls seq_eq_$t/engine_0/trace*.vcd >/dev/null 2>&1; then st=failed-as-expected; ok=true
+            else st=failed; ok=false; det="$det; negative control NOT refuted"; fi
+        elif [ "$sstat" = PASS ] && [ "$nas" = "asserts=$((1 + ${nl:-0})) covers=0" ]; then
+            st=proven; ok=true; det="sby_status=PASS $nas (a_eq + $nl lemmas); basecase depth 30 from the cycle-0 reset + k-induction; lemmas=$(basename "$lf")"
+        elif [ "$sstat" = FAIL ]; then
+            st=failed; ok=false
+            det="counterexample: failed $fails($(grep -o 'returned FAIL for basecase' "$log" | head -1)); trace formal/runs/$id/seq_eq_$t/engine_0/trace.vcd; lemmas=$(basename "$lf")"
+        elif [ "$sstat" = UNKNOWN ]; then
+            st=not-proven; ok=false
+            det="induction did not close (basecase depth 30 passed; add or strengthen lemmas): $nas; lemmas=$(basename "$lf")"
+        else
+            st=inconclusive; ok=false; det="tool/infrastructure error: sby_status=${sstat:-none} $nas; $(grep -m1 'ERROR' "$log" | cut -c1-140)"
+        fi
+        mkdir -p "$OUT/formal/runs"; rm -rf "$OUT/formal/runs/$id"; cd "$BUILD" && cp -R "$id" "$OUT/formal/runs/" 2>/dev/null ;;
     prep)   # gate-level DUT views: netlist + the cell models it uses
         "$PY" "$VERIF/gate/extract_cells.py" "$DUT" "$CELLS" "$LIB" divider.v divider_fv.v > "$log" 2>&1; rc=$?
         det="$(grep '^RESULT' "$log" | tail -1)cells=$(basename "$CELLS"); lib=$(basename "$LIB")"
@@ -222,7 +281,7 @@ if [ "${1:-}" = __job ]; then shift; job "$@"; exit 0; fi
 
 # ------------------------------------------------------------------ driver
 GOLDEN="$(cd "$VERIF/../snapshot" && pwd)/divider.v"
-RTL=""; OUT=""; JOBS=3; GATE=""; GCFG=00
+RTL=""; OUT=""; JOBS=3; GATE=""; GCFG=00; LEMMAS=
 PDKSC=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0
 CELLS="$PDKSC/verilog"
 LIB="$PDKSC/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib"
@@ -235,6 +294,7 @@ while [ $# -gt 0 ]; do
     --cells) CELLS=$2; shift 2 ;;
     --lib) LIB=$2; shift 2 ;;
     --jobs) JOBS=$2; shift 2 ;;
+    --lemmas) LEMMAS=$2; shift 2 ;;
     *) echo "unknown argument $1" >&2; exit 2 ;;
     esac
 done
@@ -261,7 +321,15 @@ if [ -n "$GATE" ]; then
 else
     CONFIGS="00 11"
 fi
-export OUT GATE GCFG CELLS LIB DUT="$RTL" GOLDEN FORBID WBNAMES WB11NAMES
+if [ -n "$LEMMAS" ]; then
+    [ -f "$LEMMAS" ] || { echo "lemma file not found: $LEMMAS" >&2; exit 2; }
+    LEMMAS="$(cd "$(dirname "$LEMMAS")" && pwd)/$(basename "$LEMMAS")"
+elif [ -z "$GATE" ] && [ "$(shasum -a 256 < "$RTL")" = "$(shasum -a 256 < "$GOLDEN")" ]; then
+    LEMMAS="$VERIF/formal/golden_self_lemmas.sv"   # golden vs golden self-check
+else
+    LEMMAS=none
+fi
+export OUT GATE GCFG CELLS LIB DUT="$RTL" GOLDEN FORBID WBNAMES WB11NAMES LEMMAS
 
 export LOGS="$OUT/logs"
 rm -rf "$LOGS" "$OUT/formal/runs" "$OUT/results.json" "$OUT/run_all.console.log"
@@ -270,10 +338,12 @@ export BUILD="$(mktemp -d "${TMPDIR:-/tmp}/divider_verif.XXXXXX")"
 # RTL: one file serves simulation and Yosys. Gate: both views are rebuilt by cells_prep.
 cp "$RTL" "$BUILD/divider.v"
 cp "$RTL" "$BUILD/divider_fv.v"
-cp "$VERIF/formal/divider.sby" "$VERIF/formal/divider_props.sv" "$VERIF/formal/ref_divider_seq.v" "$BUILD/"
+cp "$VERIF/formal/divider.sby" "$VERIF/formal/divider_props.sv" "$VERIF/formal/ref_divider_seq.v" \
+   "$VERIF/formal/divider_miter.sv" "$VERIF/formal/seq_eq.sby" "$BUILD/"
 if [ -n "$GATE" ]; then echo '`define GATE' > "$BUILD/fv_mode.vh"; else echo '// RTL mode' > "$BUILD/fv_mode.vh"; fi
 T_START=$(now)
 echo "DUT: $RTL${GATE:+ (gate-level netlist, config $GCFG, cells $CELLS, flop models from $LIB)}"
+echo "seq_eq lemmas: $LEMMAS"
 echo "output: $OUT"
 echo "build dir: $BUILD"
 
@@ -288,6 +358,7 @@ FV_TASKS=$(sed -n '/^\[tasks\]/,/^$/p' "$VERIF/formal/divider.sby" | awk 'NR>1 &
     echo "selftest selftest"
     echo "gen gen"
     for c in $CONFIGS; do echo "lint_$c lint $c"; done
+    [ "$LEMMAS" != none ] && echo "lemma_lint lemlint"
 } | phase build
 {
     echo "refcheck refcheck"
@@ -304,12 +375,13 @@ FV_TASKS=$(sed -n '/^\[tasks\]/,/^$/p' "$VERIF/formal/divider.sby" | awk 'NR>1 &
         echo "fv_$t sby $t"
     done
     if [ -n "$GATE" ]; then echo "eqy_rtl eqy $GCFG"; else for c in $CONFIGS; do echo "eqy_rtl_$c eqy $c"; done; fi
+    for c in $CONFIGS; do echo "seq_eq_$c seq $c"; echo "fv_sanity_seq_$c seq $c sanity"; done
 } | phase formal
 
 T_END=$(now)
-"$PY" - "$LOGS/items" "$OUT/results.json" "$LOGS/expected.txt" "$RTL" "$T_START" "$T_END" "$GATE" "$CELLS" "$LIB" "$GCFG" "$GOLDEN" <<'EOF' | tee "$OUT/run_all.console.log"
+"$PY" - "$LOGS/items" "$OUT/results.json" "$LOGS/expected.txt" "$RTL" "$T_START" "$T_END" "$GATE" "$CELLS" "$LIB" "$GCFG" "$GOLDEN" "$LEMMAS" <<'EOF' | tee "$OUT/run_all.console.log"
 import csv, glob, hashlib, json, os, re, subprocess, sys
-items_dir, out, exp_file, rtl, t0, t1, gate, cells, lib, gcfg, golden = sys.argv[1:12]
+items_dir, out, exp_file, rtl, t0, t1, gate, cells, lib, gcfg, golden, lemmas = sys.argv[1:13]
 # Standard (AGENT_CONTEXT) label per item, next to the contract's own status.
 LABEL = {"proven": "proven", "pass-edge-spot": "pass-sampled", "not-proven": "inconclusive",
          "covered": "bounded-pass", "failed-as-expected": "failed", "failed": "failed",
@@ -343,7 +415,22 @@ for line in open(exp_file):
         items.append({"id": f[0], "kind": f[1], "status": "inconclusive", "label": "inconclusive",
                       "expected_outcome": "pass", "ok": False, "seconds": 0.0, "gating": True,
                       "log": f"logs/{f[0]}.log", "detail": "no result recorded (job crashed)"})
-order = {"prep": -1, "selftest": 0, "gen": 0, "lint": 1, "refcheck": 2, "edge": 3, "sby": 6, "eqy": 7}
+# Amendment A-1: equivalence with the golden = eqy_rtl OR seq_eq (a derived gating item per
+# configuration; inconclusive or not-proven counts as a fail). The constituents do not gate.
+byid = {i["id"]: i for i in items}
+for c in ([gcfg] if gate else ["00", "11"]):
+    e = byid.get("eqy_rtl" if gate else f"eqy_rtl_{c}")
+    q = byid.get(f"seq_eq_{c}")
+    for x in (e, q):
+        if x:
+            x["gating"] = False
+            x["part_of"] = f"equiv_{c}"
+    okk = bool((e and e["ok"]) or (q and q["ok"]))
+    items.append({"id": f"equiv_{c}", "kind": "derived", "status": "proven" if okk else "failed",
+                  "label": "proven" if okk else "failed", "expected_outcome": "pass", "ok": okk,
+                  "gating": True, "seconds": 0.0, "log": "",
+                  "detail": f"eqy_rtl: {e['status'] if e else 'missing'}; seq_eq_{c}: {q['status'] if q else 'missing'} (ok if either is proven)"})
+order = {"prep": -1, "selftest": 0, "gen": 0, "lint": 1, "lemlint": 1, "refcheck": 2, "edge": 3, "sby": 6, "eqy": 7, "seq": 8, "derived": 9}
 items.sort(key=lambda i: (order.get(i["kind"], 9), i["id"]))
 res = {
     "module": "divider",
@@ -353,6 +440,8 @@ res = {
     "mode": "gate-level" if gate else "rtl",
     "configs": [gcfg] if gate else ["00", "11"],
     "config_meaning": "first digit LATCH_DENOMINATOR, second CHECK_INVALID; 00 shipped, 11 defaults",
+    "seq_eq_lemmas": None if lemmas == "none" else lemmas,
+    "seq_eq_lemmas_sha256": None if lemmas == "none" else sha(lemmas),
     "cells": cells if gate else None,
     "flop_liberty": lib if gate else None,
     "tools": {"iverilog": ver("iverilog -V 2>&1"), "verilator": ver("verilator --version"),

@@ -2,6 +2,7 @@
 # Two clean runs of the divider contract: golden RTL (configs 00 and 11), the GF180 golden
 # netlists 00 and 11, and the 00 netlist with a CTS-style clock buffer; per-item id, status,
 # label, ok, detail compared (timings excluded). Runs one contract at a time (--jobs 3).
+# Gate runs pass evidence/seq_eq/golden_gate_lemmas.sv for seq_eq (amendment A-1).
 V="/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif"
 S=/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/div_stab
 mkdir -p "$S"
@@ -10,9 +11,9 @@ for n in 1 2; do
     rm -rf "$V/logs" "$V/formal/runs" "$V/results.json" "$V/run_all.console.log" \
            "$V/gate/evidence/golden_00_gf180" "$V/gate/evidence/golden_11_gf180" "$V/gate/evidence/clkbuf_00"
     ./run_all.sh > /dev/null 2>&1; echo "run $n rtl rc=$?"
-    ./run_all.sh --gate --config 00 --rtl gate/netlists/divider_00_gf180.v --out gate/evidence/golden_00_gf180 > /dev/null 2>&1; echo "run $n gate 00 rc=$?"
-    ./run_all.sh --gate --config 11 --rtl gate/netlists/divider_11_gf180.v --out gate/evidence/golden_11_gf180 > /dev/null 2>&1; echo "run $n gate 11 rc=$?"
-    ./run_all.sh --gate --config 00 --rtl gate/netlists/divider_00_clkbuf_gf180.v --out gate/evidence/clkbuf_00 > /dev/null 2>&1; echo "run $n gate 00 clkbuf rc=$?"
+    ./run_all.sh --gate --config 00 --lemmas evidence/seq_eq/golden_gate_lemmas.sv --rtl gate/netlists/divider_00_gf180.v --out gate/evidence/golden_00_gf180 > /dev/null 2>&1; echo "run $n gate 00 rc=$?"
+    ./run_all.sh --gate --config 11 --lemmas evidence/seq_eq/golden_gate_lemmas.sv --rtl gate/netlists/divider_11_gf180.v --out gate/evidence/golden_11_gf180 > /dev/null 2>&1; echo "run $n gate 11 rc=$?"
+    ./run_all.sh --gate --config 00 --lemmas evidence/seq_eq/golden_gate_lemmas.sv --rtl gate/netlists/divider_00_clkbuf_gf180.v --out gate/evidence/clkbuf_00 > /dev/null 2>&1; echo "run $n gate 00 clkbuf rc=$?"
     cp results.json "$S/rtl_$n.json"
     cp gate/evidence/golden_00_gf180/results.json "$S/g00_$n.json"
     cp gate/evidence/golden_11_gf180/results.json "$S/g11_$n.json"
