@@ -15,4 +15,4 @@ c++  -Wl,-U,__Z15vl_time_stamp64v,-U,__Z13sc_time_stampv   tb_max_reg.o verilate
 rm Vmax_reg__ALL.verilator_deplist.tmp
 - V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
 - Verilator: Built from 0.061 MB sources in 39 modules, into 0.267 MB in 5 C++ files needing 0.000 MB
-- Verilator: Walltime 3.062 s (elab=0.003, cvt=0.026, bld=3.025); cpu 0.037 s on 1 threads; allocated 17.484 MB
+- Verilator: Walltime 3.096 s (elab=0.003, cvt=0.026, bld=3.058); cpu 0.037 s on 1 threads; allocated 17.203 MB

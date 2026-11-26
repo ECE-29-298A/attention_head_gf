@@ -1,7 +1,7 @@
 == verilator --lint-only -Wall (simulation view)
 - V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
 - Verilator: Built from 0.063 MB sources in 39 modules, into 0.198 MB in 3 C++ files needing 0.000 MB
-- Verilator: Walltime 0.033 s (elab=0.003, cvt=0.023, bld=0.000); cpu 0.033 s on 1 threads; allocated 17.328 MB
+- Verilator: Walltime 0.033 s (elab=0.003, cvt=0.023, bld=0.000); cpu 0.033 s on 1 threads; allocated 17.250 MB
 %Warning-DECLFILENAME: max_reg.v:866:8: Filename 'max_reg' does not match MODULE name: 'gf180mcu_fd_sc_mcu7t5v0__and3_1'
   866 | module gf180mcu_fd_sc_mcu7t5v0__and3_1( A1, A2, A3, Z );
       |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -320,9 +320,9 @@ Removed 44 unused cells and 832 unused wires.
 
 8. Executing JSON backend.
 
-End of script. Logfile hash: 3fe720e429, time: 0.03s, user: 0.04s, system: 0.00s, MEM: 20.98 MB peak
+End of script. Logfile hash: 3fe720e429, time: 0.04s, user: 0.04s, system: 0.01s, MEM: 21.36 MB peak
 Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
-Time spent: 27% 2x read_verilog (0 sec), 23% 2x write_json (0 sec), ...
+Time spent: 29% 2x read_verilog (0 sec), 24% 2x write_json (0 sec), ...
 yosys_rc=0
 == interface / state check
 RESULT interface top=max_reg ports=['M', 'S_in', 'clk', 'en', 'first'] flop_bits=22 errors=0

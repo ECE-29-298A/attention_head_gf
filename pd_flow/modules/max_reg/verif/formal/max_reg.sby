@@ -35,6 +35,18 @@ cover: read_verilog -formal -sv -DSTEP -DSEQ -DPOWERUP -DCOVERS max_reg_props.sv
 sanity_unsigned: read_verilog -formal -sv -DSANITY_UNSIGNED max_reg_props.sv
 sanity_pu: read_verilog -formal -sv -DPOWERUP -DSANITY_POWERUP max_reg_props.sv
 read_verilog -formal max_reg_fv.v
+hierarchy -top max_reg_props
+proc
+# guard: the DUT carries no initial value (R8: power-up value unconstrained); only the
+# harness's own observer registers may have one. Runs after proc (which turns `initial`
+# blocks into init attributes) and before flatten (afterwards every wire lives in
+# max_reg_props).
+select -assert-none a:init max_reg_props/* %d
+# flatten + opt_clean collapse non-inverting buffers (e.g. a CTS clkbuf from clk to the flops),
+# so "clocked by clk" means the same here as in the lint structure check (SPEC R11). An
+# inverting or gated clock stays a derived clock, which SBY refuses (inconclusive).
+flatten
+opt_clean
 prep -top max_reg_props
 # guard: one positive-edge clock, no asynchronous or reset state, no latches or memories.
 # (Without multiclock, SBY treats every flop as clocked by the global step, so a
@@ -42,9 +54,6 @@ prep -top max_reg_props
 select -assert-none t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*
 select -assert-none t:$dff r:CLK_POLARITY=1'b0 %i
 select -assert-none t:$dffe r:CLK_POLARITY=1'b0 %i
-# guard: the DUT flops carry no initial value (R8: power-up value unconstrained)
-# (only the harness's own observer registers may have one)
-select -assert-none a:init max_reg_props/* %d
 
 [files]
 max_reg_fv.v

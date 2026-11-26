@@ -22,10 +22,11 @@ those runs never write here. The `label` column of `results.json` gives the stan
 | R8 | no reset, power-up value arbitrary; independent of it after a load | `fv_prove_pu`, `fv_pdr_pu` (`a_pu`, two copies with free power-up values); `fv_sanity_pu` (copies do differ before a load: power-up really free); covers `c_pu_differ`, `c_pu_converge`, `c_preload_update`; `sim_powerup` (64 distinct random power-up values, identical traces after the load); `lint` (no reset port, no reset-type flop, no `init` attribute); `.sby` guard (no `init` outside the harness, in every `fv_*` run) | proof + sim + static | proven |
 | R9 | ports clk, first, en, S_in[21:0] in; M[21:0] out | `lint` (`lint/check_interface.py` on the Yosys JSON) | static | pass-static |
 | R10 | lint clean | `lint` (Verilator `-Wall`, `lint/check_lint.py`; RTL: no waivers) | static | pass-static |
-| R11 | 22 posedge flops on `clk`, no reset/latch/memory/loop/black box | `lint` (Yosys `check -assert`, `scc` empty on the unoptimised netlist, forbidden state types, `check_interface.py`: 22 flop bits, polarity, clock net); `.sby` guard in every `fv_*` run (no negedge, async, latch, memory cells) | static | pass-static |
+| R11 | 22 posedge flops on `clk` (after collapsing non-inverting buffers), no reset/latch/memory/loop/black box | `lint` (Yosys `check -assert`, `scc` empty on the unoptimised netlist, forbidden state types, `check_interface.py`: 22 flop bits, polarity, clock net after `flatten; opt_clean`); `.sby` guard in every `fv_*` run (no negedge, async, latch, memory cells; the same `flatten; opt_clean` before `prep`, so a CTS clock buffer is accepted by both and a derived clock is refused by SBY) | static | pass-static |
 | R12 | controller pattern: max after pass 1, held through pass 2 and continue runs | `sim_ctrl` (115,709 queries, 202,639 per-query checks), `vec` (3,000 controller-style queries); follows from R1 to R7 (proven) | sim (+ proof of R1 to R7) | pass-sampled |
 | — | checker sanity | `fv_sanity_unsigned`, `fv_sanity_pu` (must fail; traces in `formal/runs/max_reg_sanity_*/engine_0/trace.vcd`) | negative control | failed-as-expected |
 | — | proofs not vacuous | every `fv_prove_*` / `fv_pdr_*` detail shows the expected assertion count (5 / 3 / 1, `formal/count_props.py`); `fv_cover`: 23/23 covers reached, 0 unreached, 9 asserts in the model, each antecedent of `a_hold`, `a_first`, `a_gt`, `a_le`, `a_seq`, `a_pu` reached by a cover; no assumptions | cover + model inspection | covered (bounded-pass, depth 10) |
+| — | gate netlist equivalent to the golden RTL (gate mode) | `eqy_rtl` (EQY, sat, depth 1, state matched by name; `formal/runs/eqy_rtl/`) | equivalence proof | proven |
 | — | gate-level reuse (Phase 2/3) | `gate/evidence/golden_gf180/results.json`: the GF180-mapped golden netlist (`gate/netlists/max_reg_gf180.v`) run with `--gate` | all methods | all_ok |
 
 Build items (`build`, gate `cells_prep`) are infrastructure, not requirement evidence; a failed
@@ -33,15 +34,15 @@ build makes the dependent simulation items fail.
 
 ## Coverage gaps (stated limits)
 
-- Single-clock formal model: flop clocking (positive edge, directly on `clk`) is checked
-  structurally (R11), not by the formal engines. A clock-gated implementation (for example an
-  ICG cell for power) is rejected by R11 and needs a reviewed contract extension
-  (multiclock formal with the gate modelled); the liberty also has no function for the ICG cells.
+- Single-clock formal model: flop clocking (positive edge, on `clk` after buffer collapse) is
+  checked structurally (R11), not by the formal engines. A clock-gated implementation (for
+  example an ICG cell for power) is rejected by R11; the requirements for a reviewed extension
+  are recorded in SPEC §7.
 - Gate-level formal uses the liberty model of the flop, simulation the Verilog UDP; the two
   are not proven equivalent to each other, but both views must pass the contract.
 - `sim_onestep` is exhaustive only over the declared subspace (labelled `pass-sampled`); the full
   one-step space is covered by the proofs.
 - X/Z inputs are not specified. X on M after a load is seen by Icarus and, in practice, formal;
-  Verilator results are 2-state (SPEC §7).
+  Verilator results are 2-state (SPEC §8).
 - The negative controls check the formal flow only. DUT mutation testing is assigned to the
   independent verifier (Agent 2).

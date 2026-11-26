@@ -1,1 +1,1 @@
-sim_free	sim	pass-sampled	true	5.816	logs/sim_free.log	RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100000000 expected=100000000 seq_checked=99997476 vec_checked=0 mismatches=0
+sim_free	sim	pass-sampled	true	5.984	logs/sim_free.log	RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100000000 expected=100000000 seq_checked=99997476 vec_checked=0 mismatches=0

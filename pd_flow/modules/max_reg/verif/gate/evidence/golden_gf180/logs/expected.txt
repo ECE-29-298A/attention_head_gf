@@ -16,3 +16,4 @@ fv_pdr_pu sby pdr_pu
 fv_cover sby cover
 fv_sanity_unsigned sby sanity_unsigned
 fv_sanity_pu sby sanity_pu
+eqy_rtl eqy

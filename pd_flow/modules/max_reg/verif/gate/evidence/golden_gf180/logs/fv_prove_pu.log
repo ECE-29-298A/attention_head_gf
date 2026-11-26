@@ -1,38 +1,38 @@
-SBY  5:52:52 [max_reg_prove_pu] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_prove_pu/max_reg_prove_pu'.
-SBY  5:52:52 [max_reg_prove_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_prove_pu/max_reg_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_prove_pu/max_reg_prove_pu/src/max_reg_fv.v'.
-SBY  5:52:52 [max_reg_prove_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_prove_pu/max_reg_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_prove_pu/max_reg_prove_pu/src/max_reg_props.sv'.
-SBY  5:52:52 [max_reg_prove_pu] engine_0: smtbmc z3
-SBY  5:52:52 [max_reg_prove_pu] base: starting process "cd max_reg_prove_pu/src; yosys -ql ../model/design.log ../model/design.ys"
-SBY  5:52:52 [max_reg_prove_pu] base: finished (returncode=0)
-SBY  5:52:52 [max_reg_prove_pu] prep: starting process "cd max_reg_prove_pu/model; yosys -ql design_prep.log design_prep.ys"
-SBY  5:52:52 [max_reg_prove_pu] prep: finished (returncode=0)
-SBY  5:52:52 [max_reg_prove_pu] smt2: starting process "cd max_reg_prove_pu/model; yosys -ql design_smt2.log design_smt2.ys"
-SBY  5:52:52 [max_reg_prove_pu] smt2: finished (returncode=0)
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: starting process "cd max_reg_prove_pu; yosys-smtbmc -s z3 --presat --noprogress -t 4  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: starting process "cd max_reg_prove_pu; yosys-smtbmc -s z3 --presat -i --noprogress -t 4  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Solver: z3
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Solver: z3
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Trying induction in step 4..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Trying induction in step 3..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Temporal induction successful.
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Status: passed
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: finished (returncode=0)
-SBY  5:52:52 [max_reg_prove_pu] engine_0.induction: Status returned by engine for induction: pass
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Status: passed
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: finished (returncode=0)
-SBY  5:52:52 [max_reg_prove_pu] engine_0.basecase: Status returned by engine for basecase: pass
-SBY  5:52:52 [max_reg_prove_pu] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
-SBY  5:52:52 [max_reg_prove_pu] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
-SBY  5:52:52 [max_reg_prove_pu] summary: engine_0 (smtbmc z3) returned pass for basecase
-SBY  5:52:52 [max_reg_prove_pu] summary: engine_0 (smtbmc z3) returned pass for induction
-SBY  5:52:52 [max_reg_prove_pu] summary: engine_0 did not produce any traces
-SBY  5:52:52 [max_reg_prove_pu] summary: successful proof by k-induction.
-SBY  5:52:52 [max_reg_prove_pu] DONE (PASS, rc=0)
+SBY  7:44:06 [max_reg_prove_pu] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_prove_pu/max_reg_prove_pu'.
+SBY  7:44:06 [max_reg_prove_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_prove_pu/max_reg_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_prove_pu/max_reg_prove_pu/src/max_reg_fv.v'.
+SBY  7:44:06 [max_reg_prove_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_prove_pu/max_reg_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_prove_pu/max_reg_prove_pu/src/max_reg_props.sv'.
+SBY  7:44:06 [max_reg_prove_pu] engine_0: smtbmc z3
+SBY  7:44:06 [max_reg_prove_pu] base: starting process "cd max_reg_prove_pu/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  7:44:06 [max_reg_prove_pu] base: finished (returncode=0)
+SBY  7:44:06 [max_reg_prove_pu] prep: starting process "cd max_reg_prove_pu/model; yosys -ql design_prep.log design_prep.ys"
+SBY  7:44:07 [max_reg_prove_pu] prep: finished (returncode=0)
+SBY  7:44:07 [max_reg_prove_pu] smt2: starting process "cd max_reg_prove_pu/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  7:44:07 [max_reg_prove_pu] smt2: finished (returncode=0)
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: starting process "cd max_reg_prove_pu; yosys-smtbmc -s z3 --presat --noprogress -t 4  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: starting process "cd max_reg_prove_pu; yosys-smtbmc -s z3 --presat -i --noprogress -t 4  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: ##   0:00:00  Status: passed
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: finished (returncode=0)
+SBY  7:44:07 [max_reg_prove_pu] engine_0.induction: Status returned by engine for induction: pass
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: ##   0:00:00  Status: passed
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: finished (returncode=0)
+SBY  7:44:07 [max_reg_prove_pu] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  7:44:07 [max_reg_prove_pu] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  7:44:07 [max_reg_prove_pu] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  7:44:07 [max_reg_prove_pu] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  7:44:07 [max_reg_prove_pu] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  7:44:07 [max_reg_prove_pu] summary: engine_0 did not produce any traces
+SBY  7:44:07 [max_reg_prove_pu] summary: successful proof by k-induction.
+SBY  7:44:07 [max_reg_prove_pu] DONE (PASS, rc=0)

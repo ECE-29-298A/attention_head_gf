@@ -1,0 +1,53 @@
+# Mutant rerun after the review amendments (N1 flatten-before-prep, N2 labels, eqy_rtl gate item), 2026-11-26
+# Contract run unmodified on every reviewer mutant (review/mutation_results.json is the baseline, read only); outputs in a scratch --out tree.
+# Columns: mutant  old verdict -> new verdict  same/CHANGED  +items newly failing  -items no longer failing
+m01_ge                     survived -> survived same +- -- 23.4s
+m02_lt                       killed -> killed   same +- -- 23.5s
+m03_unsigned                 killed -> killed   same +- -- 23.0s
+m04_first_ignored            killed -> killed   same +- -- 31.6s
+m05_en_ignored               killed -> killed   same +- -- 28.2s
+m06_prec_swap                killed -> killed   same +- -- 26.9s
+m07_signbit                  killed -> killed   same +- -- 25.3s
+m08_stuck0_b13               killed -> killed   same +- -- 27.9s
+m09_cmp21                    killed -> killed   same +- -- 24.0s
+m10_reset_first              killed -> killed   same +- -- 26.4s
+m11_initval                  killed -> killed   same +- -- 22.9s
+m12_latch                    killed -> killed   same +- -- 6.8s
+m13_negedge                  killed -> killed   same +- -- 22.7s
+m14_rare_pair                killed -> killed   same +- -- 25.6s
+m15_minneg                   killed -> killed   same +- -- 23.9s
+m16_equiv_not_le           survived -> survived same +- -- 23.4s
+m17_equiv_sub                killed -> killed   same +- -- 25.3s
+m18_comb_bypass              killed -> killed   same +- -- 25.1s
+m19_twocycle                 killed -> killed   same +- -- 23.2s
+m20_clkgate                  killed -> killed   same +- -- 6.8s
+m21_async_rst                killed -> killed   same +- -- 27.0s
+m22_minneg_tie               killed -> killed   same +- -- 25.6s
+m23_sub_overflow             killed -> killed   same +- -- 25.2s
+m24_first_onlyhigh           killed -> killed   same +- -- 27.1s
+m25_rst_port                 killed -> killed   same +- -- 32.5s
+m26_cmp_nolsb                killed -> killed   same +- -- 25.8s
+m27_stuck1_b21               killed -> killed   same +- -- 28.5s
+gate_g01_nand2_to_nor2       killed -> killed   same +eqy_rtl -- 103.8s
+gate_g02_dswap_b0_b1         killed -> killed   same +eqy_rtl -- 112.5s
+gate_g03_dffnq_b0            killed -> killed   same +eqy_rtl -- 99.8s
+gate_g04_latq_b4             killed -> killed   same +eqy_rtl -- 117.9s
+gate_g05_clkbuf              killed -> survived CHANGED +- -fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned 104.7s
+gate_g06_icg_const           killed -> killed   same +eqy_rtl -- 108.9s
+gate_g07_icg_en              killed -> killed   same +eqy_rtl -- 93.5s
+gate_g08_dffrnq_tied         killed -> killed   same +- -- 99.7s
+gate_s_m01_ge              survived -> survived same +- -- 96.5s
+gate_s_m03_unsigned          killed -> killed   same +eqy_rtl -- 100.8s
+gate_s_m09_cmp21             killed -> killed   same +eqy_rtl -- 105.8s
+gate_s_m10_reset_first       killed -> killed   same +eqy_rtl -- 129.8s
+gate_s_m13_negedge           killed -> killed   same +- -- 98.5s
+gate_s_m14_rare_pair         killed -> killed   same +eqy_rtl -- 112.6s
+gate_s_m15_minneg            killed -> killed   same +eqy_rtl -- 113.1s
+gate_s_m26_cmp_nolsb         killed -> killed   same +eqy_rtl -- 104.9s
+m28_deep_counter             killed -> killed   same +- -- 38.9s
+
+[exited with code 0]
+
+# Result: 43/44 verdicts unchanged. The one change is g05_clkbuf (equivalent post-CTS clock buffer): killed (all formal inconclusive) -> passes 19/19, as intended by N1.
+# eqy_rtl is newly failing on g01-g04, s_m03/m09/m10/m14/m15/m26 (non-equivalent) and g06/g07 (ICG: no liberty function, cells_prep fails). It passes g05, g08 and s_m01 (equivalent; g08 stays rejected by R11 lint) and s_m13_negedge (clock-edge polarity is outside a single-clock equivalence; still killed by lint, the .sby guards and the sims).
+# After this rerun the N2 UNKNOWN branch was corrected (an induction-step FAIL is not an engine counterexample). m28 rerun with the final run_all.sh: still killed by the same 7 items; fv_prove_pu is now status not-proven (label inconclusive), fv_pdr_seq/fv_pdr_step are failed (engine FAIL, trace not replayed).

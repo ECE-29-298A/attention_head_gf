@@ -9,7 +9,8 @@
 #               evidence lives here and is only written by a run on the golden RTL).
 #               Default without --rtl: this directory.
 #   --gate      FILE is a gate-level netlist (top module max_reg, GF180 cells). The
-#               cells_prep item builds the simulation and Yosys views (SPEC.md section 6).
+#               cells_prep item builds the simulation and Yosys views, and the eqy_rtl
+#               item proves the netlist equivalent to the golden RTL (SPEC.md section 6).
 #   --cells DIR cell Verilog models for --gate (default: GF180 7-track,
 #               $PDKV/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog).
 #   --lib LIB   liberty for the Yosys/formal models of flop cells (default: the 7-track
@@ -121,7 +122,21 @@ job() {
         cover)  want="asserts=9 covers=$NCOV" ;;
         sanity_*) want="asserts=1 covers=0" ;;
         esac
+        # an engine counterexample verdict (not "FAIL for induction", which only means the
+        # induction step did not close)
+        local efail; efail=$(grep -o 'summary: engine_[0-9]* ([^)]*) returned FAIL[^.]*' "$log" | grep -v 'for induction' | head -1)
         if [ $rc -eq 124 ]; then st=timed-out; ok=false; det="sby_status=${sstat:-none}; timeout ${T_FV}s"
+        elif [ -n "$efail" ] && [ "$sstat" != FAIL ] && [ "${t#sanity_}" = "$t" ]; then
+            # an engine returned FAIL (a real counterexample) but SBY could not replay the
+            # trace (abc pdr: "Could not determine aigsmt status") and ends in ERROR: the
+            # engine's verdict stands
+            st=failed; ok=false
+            det="engine verdict FAIL, trace not replayed: sby_status=${sstat:-none}; ${efail#summary: }; $(grep -m1 'ERROR' "$log" | sed 's/.*ERROR: //' | cut -c1-100)"
+        elif [ "$sstat" = UNKNOWN ]; then
+            # k-induction did not close: basecase passed, induction step failed. Not a proof
+            # and not a tool error.
+            st=not-proven; ok=false
+            det="induction did not close (UNKNOWN): $(grep -o 'returned [a-zA-Z]* for basecase' "$log" | head -1), $(grep -o 'returned [a-zA-Z]* for induction' "$log" | head -1) at depth 4; $nas"
         elif grep -q 'Traceback' "$log" || { [ "$sstat" != PASS ] && [ "$sstat" != FAIL ]; }; then
             # tool or infrastructure error: no verdict either way (not ok)
             st=inconclusive; ok=false
@@ -147,6 +162,20 @@ job() {
         mkdir -p "$OUT/formal/runs"
         rm -rf "$OUT/formal/runs/max_reg_$t"
         cp -R "max_reg_$t" "$OUT/formal/runs/" 2>/dev/null ;;
+    eqy)    # gate mode: EQY equivalence of the netlist's Yosys view against the golden RTL
+        rm -rf eqy_rtl; mkdir eqy_rtl
+        cp "$GOLDEN" eqy_rtl/gold.v; cp max_reg_fv.v eqy_rtl/gate.v; cp "$VERIF/gate/eqy_rtl.eqy" eqy_rtl/eq.eqy
+        ( cd eqy_rtl && timeout $T_FV "$PY" "$HOME/.local/bin/eqy" -f eq.eqy ) > "$log" 2>&1; rc=$?
+        local estat np nf
+        estat=$(grep -o 'DONE ([A-Z]*' "$log" | tail -1 | sed 's/DONE (//')
+        np=$(grep -c 'Successfully proved equivalence of partition' "$log")
+        nf=$(grep -c 'Failed to prove equivalence of partition' "$log")
+        det="eqy_status=${estat:-none} partitions_proved=$np partitions_failed=$nf (strategy sat, depth 1, gold = golden RTL)"
+        if [ $rc -eq 124 ]; then st=timed-out; ok=false
+        elif [ "$estat" = PASS ] && [ "$np" -ge 1 ] && [ "$nf" -eq 0 ]; then st=proven; ok=true
+        elif [ "$estat" = FAIL ]; then st=failed; ok=false
+        else st=inconclusive; ok=false; det="tool/infrastructure error: $det; $(grep -m1 'ERROR' "$log" | cut -c1-120)"; fi
+        mkdir -p "$OUT/formal/runs"; rm -rf "$OUT/formal/runs/eqy_rtl"; cp -R eqy_rtl "$OUT/formal/runs/" 2>/dev/null ;;
     prep)   # gate-level DUT views: netlist + the cell models it uses
         "$PY" "$VERIF/gate/extract_cells.py" "$DUT" "$CELLS" "$LIB" max_reg.v max_reg_fv.v > "$log" 2>&1; rc=$?
         det="$(grep '^RESULT' "$log" | tail -1); cells=$CELLS; lib=$(basename "$LIB")"
@@ -194,7 +223,7 @@ if [ -n "$GATE" ]; then
     [ -f "$LIB" ] || { echo "liberty not found: $LIB" >&2; exit 2; }
     CELLS="$(cd "$CELLS" && pwd)"
 fi
-export OUT GATE CELLS LIB DUT="$RTL" NCOV
+export OUT GATE CELLS LIB DUT="$RTL" NCOV GOLDEN
 
 export LOGS="$OUT/logs"
 rm -rf "$LOGS" "$OUT/formal/runs" "$OUT/results.json" "$OUT/run_all.console.log"
@@ -229,7 +258,10 @@ FV_TASKS=$(sed -n '/^\[tasks\]/,/^$/p' "$VERIF/formal/max_reg.sby" | awk 'NR>1 &
     echo "sim_onestep sim onestep 6 6"
     echo "sim_powerup sim powerup 64"
 } | phase sim
-for t in $FV_TASKS; do echo "fv_$t sby $t"; done | phase formal
+{
+    for t in $FV_TASKS; do echo "fv_$t sby $t"; done
+    [ -n "$GATE" ] && echo "eqy_rtl eqy"
+} | phase formal
 
 T_END=$(now)
 "$PY" - "$LOGS/items" "$OUT/results.json" "$LOGS/expected.txt" "$RTL" "$T_START" "$T_END" "$GATE" "$CELLS" "$LIB" <<'EOF' | tee "$OUT/run_all.console.log"
@@ -237,7 +269,7 @@ import csv, glob, hashlib, json, os, re, subprocess, sys
 items_dir, out, exp_file, rtl, t0, t1, gate, cells, lib = sys.argv[1:10]
 # Standard (AGENT_CONTEXT) label per item, next to the contract's own status.
 LABEL = {"proven": "proven", "pass-exhaustive": "pass-exhaustive", "pass-sampled": "pass-sampled",
-         "pass-exhaustive-subspace": "pass-sampled",
+         "pass-exhaustive-subspace": "pass-sampled", "not-proven": "inconclusive",
          "covered": "bounded-pass", "failed-as-expected": "failed", "failed": "failed",
          "timed-out": "timed-out", "inconclusive": "inconclusive", "unsupported": "unsupported",
          "pass": "pass-static", "pass-with-waiver": "pass-static"}
@@ -265,7 +297,7 @@ for line in open(exp_file):
         items.append({"id": f[0], "kind": f[1], "status": "inconclusive", "label": "inconclusive",
                       "expected_outcome": "pass", "ok": False, "seconds": 0.0,
                       "log": f"logs/{f[0]}.log", "detail": "no result recorded (job crashed)"})
-order = {"prep": -1, "selftest": 0, "lint": 1, "build": 2, "vec": 3, "sim": 4, "sby": 6}
+order = {"prep": -1, "selftest": 0, "lint": 1, "build": 2, "vec": 3, "sim": 4, "sby": 6, "eqy": 7}
 items.sort(key=lambda i: (order.get(i["kind"], 9), i["id"]))
 res = {
     "module": "max_reg",

@@ -1,0 +1,940 @@
+{
+  "m01_ge": {
+    "mode": "rtl",
+    "old_outcome": "survived",
+    "new_outcome": "survived",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {},
+    "seconds": 23.4
+  },
+  "m02_lt": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 23.5
+  },
+  "m03_unsigned": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "fv_sanity_unsigned": "failed"
+    },
+    "seconds": 23.0
+  },
+  "m04_first_ignored": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_pu": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_pu": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 31.6
+  },
+  "m05_en_ignored": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 28.2
+  },
+  "m06_prec_swap": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 26.9
+  },
+  "m07_signbit": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "fv_sanity_unsigned": "failed"
+    },
+    "seconds": 25.3
+  },
+  "m08_stuck0_b13": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 27.9
+  },
+  "m09_cmp21": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 24.0
+  },
+  "m10_reset_first": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 26.4
+  },
+  "m11_initval": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 22.9
+  },
+  "m12_latch": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "build": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 6.8
+  },
+  "m13_negedge": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 22.7
+  },
+  "m14_rare_pair": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 25.6
+  },
+  "m15_minneg": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 23.9
+  },
+  "m16_equiv_not_le": {
+    "mode": "rtl",
+    "old_outcome": "survived",
+    "new_outcome": "survived",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {},
+    "seconds": 23.4
+  },
+  "m17_equiv_sub": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed"
+    },
+    "seconds": 25.3
+  },
+  "m18_comb_bypass": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 25.1
+  },
+  "m19_twocycle": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_pdr_pu": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_pu": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 23.2
+  },
+  "m20_clkgate": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "build": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 6.8
+  },
+  "m21_async_rst": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 27.0
+  },
+  "m22_minneg_tie": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 25.6
+  },
+  "m23_sub_overflow": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 25.2
+  },
+  "m24_first_onlyhigh": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_pu": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_pu": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 27.1
+  },
+  "m25_rst_port": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "sim_ctrl": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_pdr_pu": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_pu": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 32.5
+  },
+  "m26_cmp_nolsb": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 25.8
+  },
+  "m27_stuck1_b21": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 28.5
+  },
+  "gate_g01_nand2_to_nor2": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 103.8
+  },
+  "gate_g02_dswap_b0_b1": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 112.5
+  },
+  "gate_g03_dffnq_b0": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive",
+      "eqy_rtl": "inconclusive"
+    },
+    "seconds": 99.8
+  },
+  "gate_g04_latq_b4": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive",
+      "eqy_rtl": "inconclusive"
+    },
+    "seconds": 117.9
+  },
+  "gate_g05_clkbuf": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "survived",
+    "verdict_unchanged": false,
+    "killed_by_added": [],
+    "killed_by_removed": [
+      "fv_cover",
+      "fv_pdr_pu",
+      "fv_pdr_seq",
+      "fv_pdr_step",
+      "fv_prove_pu",
+      "fv_prove_seq",
+      "fv_prove_step",
+      "fv_sanity_pu",
+      "fv_sanity_unsigned"
+    ],
+    "new_killed_by_status": {},
+    "seconds": 104.7
+  },
+  "gate_g06_icg_const": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "cells_prep": "failed",
+      "lint": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive",
+      "eqy_rtl": "inconclusive"
+    },
+    "seconds": 108.9
+  },
+  "gate_g07_icg_en": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "cells_prep": "failed",
+      "lint": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive",
+      "eqy_rtl": "inconclusive"
+    },
+    "seconds": 93.5
+  },
+  "gate_g08_dffrnq_tied": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_pu": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 99.7
+  },
+  "gate_s_m01_ge": {
+    "mode": "gate",
+    "old_outcome": "survived",
+    "new_outcome": "survived",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {},
+    "seconds": 96.5
+  },
+  "gate_s_m03_unsigned": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "fv_sanity_unsigned": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 100.8
+  },
+  "gate_s_m09_cmp21": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 105.8
+  },
+  "gate_s_m10_reset_first": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 129.8
+  },
+  "gate_s_m13_negedge": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "sim_powerup": "failed",
+      "fv_cover": "inconclusive",
+      "fv_pdr_pu": "inconclusive",
+      "fv_pdr_seq": "inconclusive",
+      "fv_pdr_step": "inconclusive",
+      "fv_prove_pu": "inconclusive",
+      "fv_prove_seq": "inconclusive",
+      "fv_prove_step": "inconclusive",
+      "fv_sanity_unsigned": "inconclusive"
+    },
+    "seconds": 98.5
+  },
+  "gate_s_m14_rare_pair": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 112.6
+  },
+  "gate_s_m15_minneg": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "fv_cover": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 113.1
+  },
+  "gate_s_m26_cmp_nolsb": {
+    "mode": "gate",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [
+      "eqy_rtl"
+    ],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "vec": "failed",
+      "sim_ctrl": "failed",
+      "sim_free": "failed",
+      "sim_onestep": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed",
+      "eqy_rtl": "failed"
+    },
+    "seconds": 104.9
+  },
+  "m28_deep_counter": {
+    "mode": "rtl",
+    "old_outcome": "killed",
+    "new_outcome": "killed",
+    "verdict_unchanged": true,
+    "killed_by_added": [],
+    "killed_by_removed": [],
+    "new_killed_by_status": {
+      "lint": "failed",
+      "sim_ctrl": "failed",
+      "fv_pdr_seq": "failed",
+      "fv_pdr_step": "failed",
+      "fv_prove_pu": "failed",
+      "fv_prove_seq": "failed",
+      "fv_prove_step": "failed"
+    },
+    "seconds": 38.9
+  }
+}

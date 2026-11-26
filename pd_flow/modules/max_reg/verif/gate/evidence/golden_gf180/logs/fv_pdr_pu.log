@@ -1,64 +1,64 @@
-SBY  5:52:52 [max_reg_pdr_pu] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_pdr_pu/max_reg_pdr_pu'.
-SBY  5:52:52 [max_reg_pdr_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_pdr_pu/max_reg_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_pdr_pu/max_reg_pdr_pu/src/max_reg_fv.v'.
-SBY  5:52:52 [max_reg_pdr_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_pdr_pu/max_reg_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.zuf1oj/fv_pdr_pu/max_reg_pdr_pu/src/max_reg_props.sv'.
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: abc pdr
-SBY  5:52:52 [max_reg_pdr_pu] base: starting process "cd max_reg_pdr_pu/src; yosys -ql ../model/design.log ../model/design.ys"
-SBY  5:52:52 [max_reg_pdr_pu] base: finished (returncode=0)
-SBY  5:52:52 [max_reg_pdr_pu] prep: starting process "cd max_reg_pdr_pu/model; yosys -ql design_prep.log design_prep.ys"
-SBY  5:52:52 [max_reg_pdr_pu] prep: finished (returncode=0)
-SBY  5:52:52 [max_reg_pdr_pu] aig: starting process "cd max_reg_pdr_pu/model; yosys -ql design_aiger.log design_aiger.ys"
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\clk like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\first like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\en like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [0] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [1] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [2] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [3] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [4] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [5] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [6] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [7] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [8] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [9] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [10] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [11] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [12] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [13] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [14] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [15] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [16] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [17] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [18] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [19] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [20] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [21] like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: Warning: Treating a total of 25 undriven bits in max_reg_props like $anyseq.
-SBY  5:52:52 [max_reg_pdr_pu] aig: finished (returncode=0)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: starting process "cd max_reg_pdr_pu; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Warning: The last 47 outputs are interpreted as constraints.
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 119. MonoCNF = no. SkipGen = no. SolveAll = no.
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Frame Clauses                                                     Max Queue Flops Time
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: 1 : 0 45                                                                1    46      0.01 sec  T/O =  0  PRV =  0
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Proved output 0 in frame 1.
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: 2 : 0 0 0 ~45                                                            0    46      0.01 sec  T/O =  0  PRV =  1
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Block =   45  Oblig =    45  Clause =    45  Call =   226 (sat=78.8%)  Cex =   0  Start =   0
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: SAT solving =     0.00 sec ( 17.45 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: unsat     =     0.00 sec (  1.00 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: sat       =     0.00 sec ( 16.45 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Generalize  =     0.00 sec ( 14.12 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Push clause =     0.00 sec (  0.02 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Ternary sim =     0.00 sec (  2.97 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Containment =     0.00 sec (  0.07 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: CNF compute =     0.00 sec (  1.60 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Refinement  =     0.00 sec (  0.00 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: TOTAL       =     0.02 sec (100.00 %)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Property proved.  Time =     0.02 sec
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Counter-example is not available.
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: finished (returncode=0)
-SBY  5:52:52 [max_reg_pdr_pu] engine_0: Status returned by engine: PASS
-SBY  5:52:52 [max_reg_pdr_pu] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
-SBY  5:52:52 [max_reg_pdr_pu] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
-SBY  5:52:52 [max_reg_pdr_pu] summary: engine_0 (abc pdr) returned PASS
-SBY  5:52:52 [max_reg_pdr_pu] summary: engine_0 did not produce any traces
-SBY  5:52:52 [max_reg_pdr_pu] DONE (PASS, rc=0)
+SBY  7:44:06 [max_reg_pdr_pu] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_pdr_pu/max_reg_pdr_pu'.
+SBY  7:44:06 [max_reg_pdr_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_pdr_pu/max_reg_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_pdr_pu/max_reg_pdr_pu/src/max_reg_fv.v'.
+SBY  7:44:06 [max_reg_pdr_pu] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_pdr_pu/max_reg_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.6Wz0Qr/fv_pdr_pu/max_reg_pdr_pu/src/max_reg_props.sv'.
+SBY  7:44:06 [max_reg_pdr_pu] engine_0: abc pdr
+SBY  7:44:06 [max_reg_pdr_pu] base: starting process "cd max_reg_pdr_pu/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  7:44:06 [max_reg_pdr_pu] base: finished (returncode=0)
+SBY  7:44:06 [max_reg_pdr_pu] prep: starting process "cd max_reg_pdr_pu/model; yosys -ql design_prep.log design_prep.ys"
+SBY  7:44:07 [max_reg_pdr_pu] prep: finished (returncode=0)
+SBY  7:44:07 [max_reg_pdr_pu] aig: starting process "cd max_reg_pdr_pu/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\clk like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\first like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\en like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [0] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [1] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [2] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [3] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [4] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [5] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [6] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [7] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [8] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [9] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [10] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [11] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [12] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [13] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [14] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [15] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [16] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [17] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [18] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [19] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [20] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating undriven bit max_reg_props.\S_in [21] like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: Warning: Treating a total of 25 undriven bits in max_reg_props like $anyseq.
+SBY  7:44:07 [max_reg_pdr_pu] aig: finished (returncode=0)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: starting process "cd max_reg_pdr_pu; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Warning: The last output is interpreted as a constraint.
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 119. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: 1 : 0 45                                                                1    46      0.01 sec  T/O =  0  PRV =  0
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Proved output 0 in frame 1.
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: 2 : 0 0 0 ~45                                                            0    46      0.01 sec  T/O =  0  PRV =  1
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Block =   45  Oblig =    45  Clause =    45  Call =   226 (sat=78.8%)  Cex =   0  Start =   0
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: SAT solving =     0.00 sec ( 16.55 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: unsat     =     0.00 sec (  1.05 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: sat       =     0.00 sec ( 15.50 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Generalize  =     0.00 sec ( 13.24 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Push clause =     0.00 sec (  0.02 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Ternary sim =     0.00 sec (  2.94 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Containment =     0.00 sec (  0.07 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: CNF compute =     0.00 sec (  1.58 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: TOTAL       =     0.02 sec (100.00 %)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Property proved.  Time =     0.02 sec
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Counter-example is not available.
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: finished (returncode=0)
+SBY  7:44:07 [max_reg_pdr_pu] engine_0: Status returned by engine: PASS
+SBY  7:44:07 [max_reg_pdr_pu] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  7:44:07 [max_reg_pdr_pu] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  7:44:07 [max_reg_pdr_pu] summary: engine_0 (abc pdr) returned PASS
+SBY  7:44:07 [max_reg_pdr_pu] summary: engine_0 did not produce any traces
+SBY  7:44:07 [max_reg_pdr_pu] DONE (PASS, rc=0)

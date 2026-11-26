@@ -1,9 +1,9 @@
-# max_reg contract stability: 2 runs from a clean state (logs/, formal/runs/, results.json, gate/evidence/ deleted before each run), 2026-11-26
+# max_reg contract stability after the review amendments (N1, N2, eqy_rtl): 2 runs from a clean state (logs/, formal/runs/, results.json, gate/evidence/ deleted before each run), 2026-11-26
 # per run: golden RTL (./run_all.sh) then GF180 golden netlist (--gate); per-item id, status, label, ok, detail compared (timings excluded)
-run 1: rtl rtl 17 17 True 23.084  |  gate gate-level 18 18 True 103.322   (mode items_ok items_total all_ok seconds)
-run 2: rtl rtl 17 17 True 23.055  |  gate gate-level 18 18 True 103.213   (mode items_ok items_total all_ok seconds)
-rtl: all 17 items identical across runs (status, label, ok, detail)
-gate: all 18 items identical across runs (status, label, ok, detail)
+run 1: rtl rtl 17 17 True 23.12 | gate gate-level 19 19 True 104.414   (mode items_ok items_total all_ok seconds)
+run 2: rtl rtl 17 17 True 23.127 | gate gate-level 19 19 True 104.301   (mode items_ok items_total all_ok seconds)
+rtl: all 17 items identical across runs
+gate: all 19 items identical across runs
 
 ## run 2 items (rtl)
 selftest pass pass-static True RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0
@@ -43,3 +43,4 @@ fv_prove_seq proven proven True sby_status=PASS asserts=3 covers=0 (expected ass
 fv_prove_step proven proven True sby_status=PASS asserts=5 covers=0 (expected asserts=5 covers=0); summary: successful proof by k-induction
 fv_sanity_pu failed-as-expected failed True sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_pu
 fv_sanity_unsigned failed-as-expected failed True sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_unsigned
+eqy_rtl proven proven True eqy_status=PASS partitions_proved=1 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL)

@@ -1,1 +1,1 @@
-lint	lint	pass	true	0.133	logs/lint.log	RESULT lint mode=rtl warnings=0 netlist=0 library=0 errors=0; RESULT interface top=max_reg ports=['M', 'S_in', 'clk', 'en', 'first'] flop_bits=22 errors=0
+lint	lint	pass	true	0.129	logs/lint.log	RESULT lint mode=rtl warnings=0 netlist=0 library=0 errors=0; RESULT interface top=max_reg ports=['M', 'S_in', 'clk', 'en', 'first'] flop_bits=22 errors=0

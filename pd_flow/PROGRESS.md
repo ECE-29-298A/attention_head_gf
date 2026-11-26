@@ -1,7 +1,7 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
 - Current module: 2 max_reg (module 1 ripple_add COMPLETE, `modules/ripple_add/REPORT.md`)
-- Phase: module 2 max_reg Phase 1 (Agents 1+2) in progress
+- Phase: module 2 max_reg: Phase 1 PASSED (contract 6d7f5b5ff9a94fc9, `modules/max_reg/PHASE1_GATE.md`); Phase 2 (Agent 3) in progress
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -36,7 +36,7 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-max_reg Phase 1: Agent 1 builds the contract in `modules/max_reg/verif/` (reusing the ripple_add contract structure: --out, gate mode, standard labels), then Agent 2 reviews it independently with mutation testing.
+Wait for Agent 3 (`modules/max_reg/opt/`). Acceptance: frozen contract all ok, EQY against the golden, and a lower **shipped-flow** chip area (`ll_synth.sh`, baseline 41,116.096 µm²), with timing not worse.
 
 ## Completed modules
 - ripple_add: golden retained; standalone tetris block signed off (DRC/LVS clean, SPICE characterized); not integrated (D3).

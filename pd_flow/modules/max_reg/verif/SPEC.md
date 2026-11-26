@@ -53,11 +53,11 @@ Values are 22-bit two's complement: MINNEG = 22'h200000 = −2,097,152, MAXPOS =
 | R8 | **No reset; power-up independence.** There is no reset input and M has no initial value; its power-up value is arbitrary. Before the first load M is unspecified (only R1 constrains it). After a load, M and every later value of M are the same for every power-up value. |
 | R9 | **Interface.** Exactly the ports `clk` (input, 1), `first` (input, 1), `en` (input, 1), `S_in` (input [21:0]), `M` (output [21:0]); no parameter. Names, directions and widths must not change (the controller connects by name). Port signedness is not checked: the controller's connection carries bits, and the signed compare is required by R4. |
 | R10 | **Lint.** RTL: `verilator --lint-only -Wall` gives no warning and no error (no waivers). Gate level: no warning located in the netlist (section 6 for the PDK-model warnings). |
-| R11 | **Structure.** Exactly 22 flop bits; every flop is a positive-edge D flop (with or without enable) with no synchronous or asynchronous reset or set, clocked directly by the `clk` port; no latches, memories or `$anyinit`; no `init` attribute (power-up value) on any wire; no combinational loops, undriven or multiply-driven nets; no black-box cells. Besides R8, this is a **contract assumption**: the formal model is single-clock (section 4), so a clock-gated or negative-edge implementation is rejected here and needs a reviewed contract extension. |
+| R11 | **Structure.** Exactly 22 flop bits; every flop is a positive-edge D flop (with or without enable) with no synchronous or asynchronous reset or set, clocked by the `clk` port, where "clocked by `clk`" means after collapsing non-inverting buffers (`flatten; opt_clean`, as both the lint structure check and the `.sby` do), so a CTS clock buffer from `clk` to the flops is accepted, while an inverted, gated or otherwise derived clock is not; no latches, memories or `$anyinit`; no `init` attribute (power-up value) on any wire; no combinational loops, undriven or multiply-driven nets; no black-box cells. Besides R8, this is a **contract assumption**: the formal model is single-clock (section 4), so a clock-gated or negative-edge implementation is rejected here and needs the reviewed contract extension of section 7. |
 | R12 | **Controller use.** Under the stimulus the controller produces (section 2: `first` as a level, one `en` pulse per key with gaps, pass 2 and continue runs with `en = 0`, arbitrary `S_in` while `en = 0`), M after the last key of pass 1 equals the maximum of the query's scores, and M holds that value through pass 2 and through any continue runs. (Follows from R1 to R7; checked with directed stimulus.) |
 
 Out of scope: timing, area and power (Phase 2+ metrics); X/Z **inputs** (not specified; see
-section 7 for X on M); multi-clock behaviour (one clock only).
+section 8 for X on M); multi-clock behaviour (one clock only); clock gating (section 7).
 
 ## 4. Verification approach
 
@@ -101,7 +101,12 @@ groups.
 Single clock: without `multiclock`, SBY models every flop as updated at each step, whatever its
 clock signal. This is sound for the contract because R11 (checked by `lint` and by a guard in
 the `.sby` that rejects negative-edge, asynchronous, latch and memory cells) requires every flop
-to be a positive-edge flop clocked directly by `clk`.
+to be a positive-edge flop clocked by `clk`. The `.sby` script runs `hierarchy; proc`, then the
+init guard (it must run before `flatten`, because afterwards every wire belongs to
+`max_reg_props`), then `flatten; opt_clean` (which collapses non-inverting clock buffers), then
+`prep` and the type/polarity guards. A clock that is still derived after that (inverted,
+gated) is refused by SBY ("derived clocks are only supported with clk2fflogic"), which gives
+`inconclusive`, so it fails closed.
 
 ## 5. Result labels (results.json)
 
@@ -116,9 +121,10 @@ Each item has `status` (the contract's own label), `label` (the standard AGENT_C
 | `covered` | `bounded-pass` (`depth: 10`) | every cover reached within depth 10; a witness, not a proof |
 | `failed-as-expected` | `failed` (`expected_outcome: fail`, `ok: true`) | negative control refuted with a trace, the required outcome |
 | `pass`, `pass-with-waiver` | `pass-static` | static or infrastructure check passed: lint, structure, interface, model self-test, build, cell extraction. Evidence, not a proof. `pass-with-waiver` (gate mode only): lint passed, with warnings only in the unmodified PDK cell models |
-| `failed` | `failed` | check failed |
+| `failed` | `failed` | check failed. Includes an engine that returned FAIL when SBY then could not replay its trace (abc pdr: "Could not determine aigsmt status", SBY status ERROR): the engine's counterexample verdict stands; the detail names the engine line |
+| `not-proven` | `inconclusive` | k-induction did not close (SBY status UNKNOWN: basecase passed, induction step failed at depth 4). Not a proof, not a counterexample, not a tool error; `ok: false` |
 | `timed-out` | `timed-out` | tool timeout (900 s formal and simulation, 600 s build) |
-| `inconclusive` | `inconclusive` | tool or infrastructure error (an SBY traceback or error, no PASS/FAIL status, or a job that recorded no result); no verdict; `ok: false` |
+| `inconclusive` | `inconclusive` | tool or infrastructure error (an SBY traceback or error with no engine verdict, no PASS/FAIL status, or a job that recorded no result); no verdict; `ok: false` |
 
 Each SBY task runs in its own directory with its own copy of `max_reg.sby`, so parallel tasks
 never share SBY's status database.
@@ -144,7 +150,15 @@ never share SBY's status database.
   formal); both must pass. Compared with the ripple_add script, the UDP-instance pattern was
   fixed: an unnamed UDP instance written without a space before `(` was not recognised there
   (harmless for ripple_add, which has no flops).
-- Gate mode runs every item (no item depends on a parameter). Lint: Verilator `-Wall` on the
+- Gate mode runs every item (no item depends on a parameter), plus **`eqy_rtl`**: EQY
+  (`gate/eqy_rtl.eqy`, strategy `sat`, depth 1) of the Yosys view against the golden RTL. The
+  state is matched by name (the 22 flops behind `M`), and each partition's next-state and
+  output function is proven equal, so PASS is an unbounded equivalence proof (`proven`), in
+  under 1 s. It adds an independent full-function check of the netlist against the golden RTL,
+  with no harness. FAIL ("equivalence unknown") is labelled `failed`. A netlist that re-encodes
+  the state so that no name match exists would fail it and would need its own reviewed match.
+  Checked: PASS on the mapped golden netlist and on the mapped `>=` variant (equivalent), FAIL on
+  the mapped unsigned-compare netlist (`review/gate_netlists/`, `review/gate_mutants/`). Lint: Verilator `-Wall` on the
   simulation view; warnings located after the end-of-netlist marker (the unmodified PDK models:
   `IMPLICIT`, `BLKSEQ`, `UNDRIVEN notifier`, `DECLFILENAME`) are listed and not counted (status
   `pass-with-waiver`); any warning in the netlist fails. The Verilator build uses `-Wno-fatal`
@@ -153,7 +167,34 @@ never share SBY's status database.
   recipe with `write_verilog -noattr`; `gate/netlists/max_reg_gf180.v`, 135 cells including 22
   `dffq_1`, 3,360.85 µm²): `gate/evidence/golden_gf180/`.
 
-## 7. X (4-state) behaviour
+## 7. Future work: clock-gating extension (recorded from the Phase 1 review, N3)
+
+R11 rejects clock gating today. This is justified, because the single-clock SBY model is unsound
+for a gated clock, SBY refuses derived clocks, the liberty has no function for
+`icgtp`/`icgtn`, and glitch-freedom and enable timing are STA properties. It is also necessary:
+a hand-made latch+AND gate and ICG netlists pass every simulation item. Clock gating is a
+realistic power optimisation here (an ICG enabled by `en` stops the clock on all 22 flops except
+on the 1-in-1,024 `en` cycles). Allowing it needs a contract amendment with a new review, and
+the amendment must add all of the following:
+
+1. **Allow-list.** Only `gf180mcu_fd_sc_mcu7t5v0__icgtp_*`, with `CLK` = the `clk` net (after
+   buffer collapse) and `TE` tied 0. Every flop clock must be either `clk` or such an ICG's `Q`,
+   possibly through non-inverting clock buffers. No other logic on any clock net, so a hand-made
+   AND/latch gate stays rejected.
+2. **Validated ICG model.** A formal ICG model written from the datasheet (latch transparent
+   while CLK is low, then AND), validated against the PDK Verilog UDP model by exhaustive
+   simulation of its 3 inputs over both clock phases.
+3. **Multiclock formal.** `multiclock on` (clk2fflogic) with `clk` as an explicit toggling input.
+   The only new assumption allowed is that `clk` alternates. Rerun `a_step`, `a_seq` and `a_pu`.
+   The ICG latch has no init, so it joins the power-up miter. Keep the negative controls and add
+   one: an enable stuck at 0 must fail.
+4. **Enable-sufficiency property.** At every rising edge where the RTL load condition holds, the
+   gated clock pulses. This is implied by (3), but it is stated as its own assertion for diagnosis.
+5. **Extension mutants.** Enable stuck at 0 and at 1, enable missing `first`, enable = `S_in > M`
+   only, a hand-made AND gate, an ICG on an inverted clock, `TE` floating.
+6. **Signoff.** STA clock-gating setup/hold checks on the ICG enable, enabled in the Phase 4 flow.
+
+## 8. X (4-state) behaviour
 
 X/Z inputs are not specified. M has no reset, so before the first load it is X in Icarus and a
 random 2-state value in Verilator (`--x-initial unique`) and in formal (free).
