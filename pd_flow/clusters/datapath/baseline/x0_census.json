@@ -1,0 +1,563 @@
+{
+ "tech_lef": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/techlef/gf180mcu_fd_sc_mcu7t5v0__nom.tlef",
+ "cell_lef": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lef/gf180mcu_fd_sc_mcu7t5v0.lef",
+ "layers": {
+  "Metal1": {
+   "direction": "HORIZONTAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.23,
+   "area": 0.1444,
+   "min_spacing": 0.23,
+   "shortest_legal_wire": 0.628
+  },
+  "Metal2": {
+   "direction": "VERTICAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.28,
+   "area": 0.1444,
+   "min_spacing": 0.28,
+   "shortest_legal_wire": 0.516
+  },
+  "Metal3": {
+   "direction": "HORIZONTAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.28,
+   "area": 0.1444,
+   "min_spacing": 0.28,
+   "shortest_legal_wire": 0.516
+  },
+  "Metal4": {
+   "direction": "VERTICAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.28,
+   "area": 0.1444,
+   "min_spacing": 0.28,
+   "shortest_legal_wire": 0.516
+  },
+  "Metal5": {
+   "direction": "HORIZONTAL",
+   "offset": 0.0,
+   "pitch": 0.9,
+   "width": 0.44,
+   "area": 0.5625,
+   "min_spacing": 0.46,
+   "shortest_legal_wire": 1.278
+  }
+ },
+ "routing_window": [
+  "Metal2",
+  "Metal3",
+  "Metal4"
+ ],
+ "per_direction": {
+  "VERTICAL": 2,
+  "HORIZONTAL": 1
+ },
+ "grt_layer_adjustments": [
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "masters": {
+  "dffq_1": {
+   "count_in_dp": 216,
+   "width_sites": 29,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "D": 0,
+    "CLK": 1,
+    "Q": 2
+   }
+  },
+  "nand2_1": {
+   "count_in_dp": 126,
+   "width_sites": 5,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 0,
+    "ZN": 2
+   }
+  },
+  "mux2_1": {
+   "count_in_dp": 84,
+   "width_sites": 13,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "I0": 3,
+    "I1": 0,
+    "S": 5,
+    "Z": 1
+   }
+  },
+  "clkinv_1": {
+   "count_in_dp": 49,
+   "width_sites": 4,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "I": 0,
+    "ZN": 0
+   }
+  },
+  "xor2_1": {
+   "count_in_dp": 49,
+   "width_sites": 12,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 5,
+    "A2": 8,
+    "Z": 4
+   }
+  },
+  "aoi22_1": {
+   "count_in_dp": 38,
+   "width_sites": 9,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 2,
+    "B1": 0,
+    "B2": 1,
+    "ZN": 2
+   }
+  },
+  "oai21_1": {
+   "count_in_dp": 38,
+   "width_sites": 8,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "B": 2,
+    "ZN": 2
+   }
+  },
+  "aoi21_1": {
+   "count_in_dp": 33,
+   "width_sites": 8,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 1,
+    "B": 1,
+    "ZN": 2
+   }
+  },
+  "nor2_1": {
+   "count_in_dp": 29,
+   "width_sites": 6,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 2,
+    "A2": 0,
+    "ZN": 2
+   }
+  },
+  "and2_1": {
+   "count_in_dp": 21,
+   "width_sites": 8,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "Z": 0
+   }
+  },
+  "nand3_1": {
+   "count_in_dp": 18,
+   "width_sites": 7,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "A3": 1,
+    "ZN": 4
+   }
+  },
+  "or2_1": {
+   "count_in_dp": 14,
+   "width_sites": 8,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "Z": 1
+   }
+  },
+  "xnor2_1": {
+   "count_in_dp": 13,
+   "width_sites": 13,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 5,
+    "A2": 9,
+    "ZN": 6
+   }
+  },
+  "oai211_1": {
+   "count_in_dp": 9,
+   "width_sites": 10,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "B": 2,
+    "C": 3,
+    "ZN": 6
+   }
+  },
+  "nor3_1": {
+   "count_in_dp": 8,
+   "width_sites": 8,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "A3": 2,
+    "ZN": 4
+   }
+  },
+  "aoi211_1": {
+   "count_in_dp": 7,
+   "width_sites": 10,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 0,
+    "B": 2,
+    "C": 2,
+    "ZN": 6
+   }
+  },
+  "mux4_1": {
+   "count_in_dp": 7,
+   "width_sites": 32,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "I0": 3,
+    "I1": 4,
+    "I2": 0,
+    "I3": 2,
+    "S0": 3,
+    "S1": 2,
+    "Z": 1
+   }
+  },
+  "xor3_1": {
+   "count_in_dp": 7,
+   "width_sites": 23,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 5,
+    "A2": 9,
+    "A3": 5,
+    "Z": 4
+   }
+  },
+  "oai31_1": {
+   "count_in_dp": 6,
+   "width_sites": 11,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 0,
+    "A3": 0,
+    "B": 0,
+    "ZN": 7
+   }
+  },
+  "oai32_1": {
+   "count_in_dp": 6,
+   "width_sites": 12,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 0,
+    "A3": 0,
+    "B1": 0,
+    "B2": 0,
+    "ZN": 2
+   }
+  },
+  "and3_1": {
+   "count_in_dp": 5,
+   "width_sites": 10,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 2,
+    "A2": 0,
+    "A3": 1,
+    "Z": 0
+   }
+  },
+  "aoi221_1": {
+   "count_in_dp": 5,
+   "width_sites": 11,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "B1": 1,
+    "B2": 1,
+    "C": 0,
+    "ZN": 7
+   }
+  },
+  "nor4_1": {
+   "count_in_dp": 5,
+   "width_sites": 10,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "A3": 0,
+    "A4": 1,
+    "ZN": 6
+   }
+  },
+  "oai22_1": {
+   "count_in_dp": 5,
+   "width_sites": 10,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "B1": 1,
+    "B2": 0,
+    "ZN": 2
+   }
+  },
+  "nand4_1": {
+   "count_in_dp": 4,
+   "width_sites": 9,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 0,
+    "A3": 0,
+    "A4": 1,
+    "ZN": 6
+   }
+  },
+  "oai221_1": {
+   "count_in_dp": 4,
+   "width_sites": 12,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 0,
+    "B1": 1,
+    "B2": 0,
+    "C": 1,
+    "ZN": 6
+   }
+  },
+  "xnor3_1": {
+   "count_in_dp": 3,
+   "width_sites": 24,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 5,
+    "A2": 9,
+    "A3": 5,
+    "ZN": 5
+   }
+  },
+  "and4_1": {
+   "count_in_dp": 2,
+   "width_sites": 11,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 2,
+    "A3": 2,
+    "A4": 3,
+    "Z": 0
+   }
+  },
+  "aoi222_1": {
+   "count_in_dp": 1,
+   "width_sites": 14,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 1,
+    "A2": 1,
+    "B1": 2,
+    "B2": 1,
+    "C1": 0,
+    "C2": 2,
+    "ZN": 9
+   }
+  },
+  "or4_1": {
+   "count_in_dp": 1,
+   "width_sites": 12,
+   "layers_with_shapes": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_free_over_cell": true,
+   "metal2_tracks_per_pin": {
+    "A1": 0,
+    "A2": 1,
+    "A3": 1,
+    "A4": 1,
+    "Z": 1
+   }
+  }
+ },
+ "row_tracks_metal3": 6.999999999999999,
+ "scarce_direction": "HORIZONTAL"
+}

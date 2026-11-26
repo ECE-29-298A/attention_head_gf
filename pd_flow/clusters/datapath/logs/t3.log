@@ -1,0 +1,5 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t3_probe0 24.3 s | resized 45 misses 1 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+PIPELINE round 0: 1 misses {'_1394_': 'or2_4'} -> placements/t3_r1 (shifted 2)
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t3_probe1 35.7 s | resized 45 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t3_firm 67.1 s | resized 45 misses 0 | held True | area 45491.1 slew/cap/fo 239/1/7 setup 43.4736525750125 hold 0.015651258509998503 drc 0 ant 0 wire 47866
+PIPELINE final placement placements/t3_r1

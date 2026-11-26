@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/xpk20_s1_probe0 32.7 s | resized 49 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/xpk20_s1_firm 1477.9 s | resized 49 misses 0 | held True | area 44907.2 slew/cap/fo 189/1/0 setup 42.30954550909778 hold 0.03441069748764294 drc 0 ant 0 wire 48217
+PIPELINE final placement placements/xpk20_s1

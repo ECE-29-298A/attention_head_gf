@@ -1,0 +1,64 @@
+{
+ "generator": "gen_packbound.py",
+ "args": {
+  "out": "placements/pb1",
+  "reserve": [
+   "placements/res_s0_probe.json"
+  ],
+  "movable": "union",
+  "rows": null
+ },
+ "hpwl_pins_um": 81282.0,
+ "rows": [
+  0,
+  38
+ ],
+ "region_left_site": 2,
+ "dp_span_sites": 11926,
+ "area_floor_sites_per_row": 306,
+ "free_sites_in_rows_from_left_edge": 15725,
+ "packed_right_site": 416,
+ "packed_width_um": 231.84,
+ "footprint_seed": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 37454.5,
+  "packing": 0.8506,
+  "dp_only_density": 0.6867,
+  "bbox_um": [
+   4.48,
+   3.92,
+   334.32,
+   156.8
+  ],
+  "dp_cells": 862,
+  "dp_area_um2": 25721.2
+ },
+ "footprint_packed": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 30967.7,
+  "packing": 0.9592,
+  "dp_only_density": 0.8306,
+  "bbox_um": [
+   4.48,
+   3.92,
+   236.32,
+   156.8
+  ],
+  "dp_cells": 862,
+  "dp_area_um2": 25721.2
+ },
+ "seconds": 3.1,
+ "nondp_moved": [
+  "_1254_"
+ ],
+ "nondp_moved_reason": "local legalization of the seed reservations (dplib.reserve)",
+ "netlist_sha16": "a339bf991497fc19"
+}

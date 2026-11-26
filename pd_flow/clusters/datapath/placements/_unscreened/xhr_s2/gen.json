@@ -1,0 +1,95 @@
+{
+ "generator": "gen_tetris.py",
+ "args": {
+  "out": "placements/xhr_s2",
+  "reserve": [],
+  "iters": 300000,
+  "seed": 2,
+  "T0": 1.0,
+  "T1": 0.005,
+  "weights": "repair",
+  "repair_from": [
+   "baseline/x0_area_classes.json"
+  ],
+  "K": 4.0,
+  "crit": "baseline/x0_crit.json",
+  "Kc": 10.0,
+  "Ks": 5.0,
+  "K2": 30.0,
+  "hpwl_thr": 60.0,
+  "slices": false,
+  "slice_w": 0.3,
+  "movable": "dp",
+  "window_rows": 3,
+  "window_sites": 40,
+  "init": null,
+  "hinge_frac": 0.0,
+  "hinge_w": 200.0,
+  "sensitive_from": [],
+  "freeze_flops": true,
+  "hinge_json": "baseline/x0_targets.json",
+  "pack_w": 0.0,
+  "ring": 4.0,
+  "edge": 0.0
+ },
+ "hpwl_pins_um": 36822.4,
+ "footprint": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 36967.2,
+  "packing": 0.8338,
+  "dp_only_density": 0.6879,
+  "bbox_um": [
+   4.48,
+   3.92,
+   334.32,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "footprint_seed": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 37188.9,
+  "packing": 0.8331,
+  "dp_only_density": 0.6838,
+  "bbox_um": [
+   4.48,
+   3.92,
+   339.92,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "cells_moved_from_h2": 597,
+ "dp_moved": 597,
+ "nondp_moved": [],
+ "mean_disp_um": 5.87,
+ "max_disp_um": 72.8,
+ "reserved": 49,
+ "seconds": 10.4,
+ "netlist_sha16": "99daa702b88da8c9",
+ "log": [
+  "seed h2: HPWL 38024.7",
+  "reservations: 49 cells, widened now 0, cells shifted 0",
+  "movable cells: 757",
+  "weights: 55 repaired-driver nets x4.0, of which 33 wire-sensitive (seed HPWL >= 60.0 um) x30.0",
+  "crit weights from baseline/x0_crit.json: 1350 nets raised (Kc 10.0, Ks 5.0); nets with weight > 10: 101",
+  "ring: 160 ring flops movable, 140 shift nets x4.0",
+  "explicit hinge targets from baseline/x0_targets.json: 29 nets, weight 200.0",
+  "  it   60000 T 0.347 cost 357470.3 hpwl 23553.7",
+  "  it  120000 T 0.120 cost 348787.9 hpwl 23232.5",
+  "  it  180000 T 0.042 cost 345361.1 hpwl 23215.0",
+  "  it  240000 T 0.014 cost 343877.3 hpwl 23214.7",
+  "  it  300000 T 0.005 cost 343860.3 hpwl 23211.8",
+  "optimizer: cost 496976.3 -> 343860.3, movable-net HPWL 24414.1 -> 23211.8"
+ ]
+}

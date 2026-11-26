@@ -1,0 +1,137 @@
+{
+ "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_s1",
+ "run": "/Users/samuelzhang/ttharden/dp_xpk20/runs/wokwi",
+ "configured": 1362,
+ "defs_checked": 16,
+ "ALL_HELD": true,
+ "steps": {
+  "17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 0,
+   "instances": 1380,
+   "not_in_cfg": 18
+  },
+  "18-openroad-cutrows/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 0,
+   "instances": 1380,
+   "not_in_cfg": 18
+  },
+  "19-openroad-tapendcapinsertion/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 0,
+   "instances": 1806,
+   "not_in_cfg": 444
+  },
+  "21-openroad-generatepdn/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 0,
+   "instances": 1806,
+   "not_in_cfg": 444
+  },
+  "27-odb-applydeftemplate/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 0,
+   "instances": 1806,
+   "not_in_cfg": 444
+  },
+  "28-openroad-globalplacement/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 0,
+   "instances": 1806,
+   "not_in_cfg": 444
+  },
+  "32-openroad-repairdesignpostgpl/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1832,
+   "not_in_cfg": 470
+  },
+  "34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1832,
+   "not_in_cfg": 470
+  },
+  "35-openroad-cts/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1855,
+   "not_in_cfg": 493
+  },
+  "37-openroad-resizertimingpostcts/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1855,
+   "not_in_cfg": 493
+  },
+  "39-openroad-globalrouting/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1855,
+   "not_in_cfg": 493
+  },
+  "44-openroad-detailedrouting/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1855,
+   "not_in_cfg": 493
+  },
+  "48-odb-reportdisconnectedpins/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 1855,
+   "not_in_cfg": 493
+  },
+  "52-openroad-fillinsertion/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 2854,
+   "not_in_cfg": 1492
+  },
+  "53-odb-cellfrequencytables/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 2854,
+   "not_in_cfg": 1492
+  },
+  "final/def/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49,
+   "instances": 2854,
+   "not_in_cfg": 1492
+  }
+ }
+}

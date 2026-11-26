@@ -1,0 +1,28 @@
+STEP FAILED OpenROAD.RepairDesignPostGPL (log /Users/samuelzhang/ttharden/dp_work/s0_firm/chain/12-32-openroad-repairdesignpostgpl.log)
+total displacement        447.9 u                                               
+average displacement        0.2 u                                               
+max displacement           26.0 u                                               
+original HPWL           41969.4 u                                               
+legalized HPWL          42200.8 u                                               
+delta HPWL                    1 %                                               
+                                                                                
+[INFO DPL-0020] Mirrored 29 instances                                           
+[INFO DPL-0021] HPWL before           42200.8 u                                 
+[INFO DPL-0022] HPWL after            42146.9 u                                 
+[INFO DPL-0023] HPWL delta               -0.1 %                                 
+[16:28:24] WARNING  [DPL-0005] Overlap check failed (2).         openroad.py:314
+ _1248_ (gf180mcu_fd_sc_mcu7t5v0__oai31_2) overlaps TAP_TAPCELL_ROW_12_189      
+(gf180mcu_fd_sc_mcu7t5v0__filltie)                                              
+ _1568_ (gf180mcu_fd_sc_mcu7t5v0__xor2_1) overlaps _1248_                       
+(gf180mcu_fd_sc_mcu7t5v0__oai31_2)                                              
+[16:28:24] WARNING  [DPL-0011] Padding check failed (2).         openroad.py:314
+ _1248_                                                                         
+ _1568_                                                                         
+[16:28:24] ERROR    [DPL-0033] detailed placement checks failed. openroad.py:312
+Error: repair_design.tcl, 68 DPL-0033                                           
+[16:28:24] ERROR    An error occurred while executing your step: __main__.py:155
+[16:28:24] ERROR    OpenROAD.RepairDesignPostGPL failed with the __main__.py:156
+                    following errors:                                           
+                    [DPL-0033] detailed placement checks failed.                
+
+DRYRUN FAILED at OpenROAD.RepairDesignPostGPL /Users/samuelzhang/ttharden/dp_work/s0_firm 26.2 s | resized 0 misses 0 | held True | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None

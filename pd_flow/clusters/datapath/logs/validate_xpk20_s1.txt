@@ -1,0 +1,1 @@
+{"cells": 1362, "site_rows": 18883, "moved_outside_cluster": 0, "regen": "identical", "self_test": "rejected overlap"} OK

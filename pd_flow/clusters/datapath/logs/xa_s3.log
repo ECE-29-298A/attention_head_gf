@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/xa_s3_probe0 1153.9 s | resized 49 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/xa_s3_firm 200.0 s | resized 49 misses 0 | held True | area 44929.2 slew/cap/fo 182/1/0 setup 43.849646932414835 hold 0.006979639286308651 drc 0 ant 0 wire 48110
+PIPELINE final placement placements/xa_s3

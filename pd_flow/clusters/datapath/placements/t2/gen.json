@@ -1,0 +1,43 @@
+{
+ "generator": "gen_tetris.py",
+ "args": {
+  "out": "placements/t2",
+  "reserve": [
+   "placements/res_s0_probe.json"
+  ],
+  "iters": 200000,
+  "seed": 1,
+  "T0": 1.0,
+  "T1": 0.005,
+  "weights": "flat",
+  "repair_from": [],
+  "K": 4.0,
+  "slices": false,
+  "slice_w": 0.3,
+  "movable": "dp",
+  "window_rows": 3,
+  "window_sites": 40,
+  "init": null
+ },
+ "hpwl_pins_um": 35789.8,
+ "cells_moved_from_h2": 573,
+ "dp_moved": 572,
+ "nondp_moved": [
+  "_1254_"
+ ],
+ "mean_disp_um": 3.436,
+ "max_disp_um": 70.56,
+ "reserved": 48,
+ "seconds": 7.8,
+ "netlist_sha16": "a339bf991497fc19",
+ "log": [
+  "seed h2: HPWL 39053.5",
+  "reservations: 48 cells, widened now 1, cells shifted 2",
+  "  it   40000 T 0.347 cost 22782.9 hpwl 22782.9",
+  "  it   80000 T 0.120 cost 22417.9 hpwl 22417.9",
+  "  it  120000 T 0.042 cost 22301.8 hpwl 22301.8",
+  "  it  160000 T 0.014 cost 22226.9 hpwl 22226.9",
+  "  it  200000 T 0.005 cost 22189.4 hpwl 22189.4",
+  "optimizer: cost 25463.4 -> 22189.4, movable-net HPWL 25463.4 -> 22189.4"
+ ]
+}

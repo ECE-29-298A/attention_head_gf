@@ -1,0 +1,5149 @@
+{
+ "objective": "D10 area: design__instance__area__stdcell after signoff (dry run reproduces the harden)",
+ "references": {
+  "h2": {
+   "run": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi",
+   "metrics": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/metrics.json"
+  },
+  "x0": {
+   "run": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi",
+   "metrics": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi/final/metrics.json",
+   "shipping": true
+  }
+ },
+ "gate": "area < ref; slew/cap/fanout <= ref (x0 242/1/0); setup and hold >= 0 at all 9 corners; route DRC 0; antenna 0; every FIRM cell held at every step DEF (check_held); resized cells within their reservations",
+ "notes": {
+  "firm_penalty_x0": "x_s0 (x0 tool placement re-fed FIRM) +48.3, all repair",
+  "review_page": "pd_flow/review_artifacts/datapath_tetris_xpk20.html",
+  "review_spec": "pd_flow/review_artifacts/specs/datapath_tetris_xpk20.json"
+ },
+ "h2_screens": {
+  "ref": {
+   "stdcell_area": 45475.8,
+   "slew": 281,
+   "cap": 2,
+   "fanout": 6,
+   "setup_ws_min": 41.7919,
+   "hold_ws_min": 0.0576,
+   "wirelength_um": 50554
+  },
+  "ref_tag": "h2",
+  "rows": [
+   {
+    "tag": "s0r",
+    "area": 45546,
+    "d_area": 70.2,
+    "d_upsize": 17.56,
+    "d_repair": 52.68,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "235/1/6",
+    "setup": 41.64229612335644,
+    "hold": 0.07091438748050309,
+    "wire": 50716,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 54,
+    "rep_drivers_dp": 26,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45546"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/s0r/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/s0r_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 908.813,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 799.048
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.94204946510008,
+      "hold": 0.07091438748050309,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 41.64229612335644,
+      "hold": 1.0171361818474312,
+      "slew": 235,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.12851309269396,
+      "hold": 0.3478502029321213,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.08749046179616,
+      "hold": 0.08807621548052841,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 43.935000880961994,
+      "hold": 1.0685732601222644,
+      "slew": 113,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.29071945673677,
+      "hold": 0.37671133945192065,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.02191447085825,
+      "hold": 0.08024314773105379,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 42.90170118368651,
+      "hold": 1.0439005511036228,
+      "slew": 163,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 71.76166353158179,
+      "hold": 0.3635420956059703,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 48,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37454.5,
+     "packing": 0.8506,
+     "dp_only_density": 0.6808,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/s0r",
+    "generator_args": null,
+    "hpwl_pins_um": null,
+    "footprint": null,
+    "cells_moved": null,
+    "nondp_moved": null
+   },
+   {
+    "tag": "t1",
+    "area": 45473.6,
+    "d_area": -2.2,
+    "d_upsize": -32.93,
+    "d_repair": 17.56,
+    "d_cts": 13.17,
+    "d_hold": 0.0,
+    "slew_cap_fo": "258/1/7",
+    "setup": 43.149687710907685,
+    "hold": 0.07880474273966857,
+    "wire": 47762,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 23,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 8,
+     "clkinv_8": 1
+    },
+    "pass": false,
+    "why": [
+     "fanout 7"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t1_firm",
+    "area_classes": {
+     "cts": 864.909,
+     "endcap": 342.451,
+     "repair": 873.69,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.92893995125455,
+      "hold": 0.07880474273966857,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.149687710907685,
+      "hold": 1.0287526677272258,
+      "slew": 258,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.8932844716765,
+      "hold": 0.35675019503843536,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.07605782885446,
+      "hold": 0.09327272551655626,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.0901941880045,
+      "hold": 1.0715761914441992,
+      "slew": 130,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.86105791600696,
+      "hold": 0.3812910095580213,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.00955102690637,
+      "hold": 0.08616829715875046,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.21098634547766,
+      "hold": 1.0518528568093144,
+      "slew": 160,
+      "cap": 1,
+      "fanout": 7
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.42047166938357,
+      "hold": 0.3690339249749006,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37195.5,
+     "packing": 0.8556,
+     "dp_only_density": 0.6855,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t1",
+    "generator_args": {
+     "out": "placements/t1",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 200000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json"
+     ],
+     "K": 4.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null
+    },
+    "hpwl_pins_um": 35818.3,
+    "footprint": null,
+    "cells_moved": 563,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t3",
+    "area": 45491.1,
+    "d_area": 15.3,
+    "d_upsize": -15.37,
+    "d_repair": 39.51,
+    "d_cts": -8.78,
+    "d_hold": 0.0,
+    "slew_cap_fo": "239/1/7",
+    "setup": 43.4736525750125,
+    "hold": 0.015651258509998503,
+    "wire": 47866,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 23,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_1": 9,
+     "clkinv_8": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45491.1",
+     "fanout 7"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t3_r1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t3_firm",
+    "area_classes": {
+     "cts": 842.957,
+     "endcap": 342.451,
+     "repair": 895.642,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 766.12
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 76.03351763406138,
+      "hold": 0.015651258509998503,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.4736525750125,
+      "hold": 0.8271477070729757,
+      "slew": 239,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_tt_025C_3v30": {
+      "setup": 72.04014655388428,
+      "hold": 0.2506968037455373,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.14976953434692,
+      "hold": 0.043728466529938996,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.3567791718602,
+      "hold": 0.9159362416662494,
+      "slew": 90,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_tt_025C_3v30": {
+      "setup": 73.00174538166638,
+      "hold": 0.2982092435173243,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.09718226498605,
+      "hold": 0.030908720902025146,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.52136207937673,
+      "hold": 0.8756067230223291,
+      "slew": 157,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.57170358953988,
+      "hold": 0.2762758988671173,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36848.6,
+     "packing": 0.8567,
+     "dp_only_density": 0.6919,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t3_r1",
+    "generator_args": {
+     "out": "placements/t3",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 600000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json"
+     ],
+     "K": 8.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null
+    },
+    "hpwl_pins_um": 35721.1,
+    "footprint": null,
+    "cells_moved": 626,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t5",
+    "area": 45504.3,
+    "d_area": 28.5,
+    "d_upsize": -32.93,
+    "d_repair": 61.47,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "233/1/6",
+    "setup": 42.77465258622575,
+    "hold": 0.04960598738853222,
+    "wire": 48826,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 23,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45504.3"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t5/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t5_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 917.594,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.95324761893237,
+      "hold": 0.04960598738853222,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.77465258622575,
+      "hold": 0.9512160217621483,
+      "slew": 233,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.72607955036854,
+      "hold": 0.3124784963671836,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.09214451684703,
+      "hold": 0.07376766073448583,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.77286579323938,
+      "hold": 1.0229013481327547,
+      "slew": 123,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.7266374374542,
+      "hold": 0.3526750102889922,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.02904832012705,
+      "hold": 0.06257228245984128,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.876395314459025,
+      "hold": 0.9876886255094397,
+      "slew": 184,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.26644731619675,
+      "hold": 0.33392067833740546,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37199.9,
+     "packing": 0.8545,
+     "dp_only_density": 0.6854,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t5",
+    "generator_args": {
+     "out": "placements/t5",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 200000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json"
+     ],
+     "K": 4.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 36464.0,
+    "footprint": null,
+    "cells_moved": 428,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t6",
+    "area": 45486.7,
+    "d_area": 10.9,
+    "d_upsize": -32.93,
+    "d_repair": 39.51,
+    "d_cts": 4.39,
+    "d_hold": 0.0,
+    "slew_cap_fo": "221/1/7",
+    "setup": 42.38861470696939,
+    "hold": 0.06314093870913699,
+    "wire": 47580,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 23,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "clkinv_8": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45486.7",
+     "fanout 7"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t6/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t6_firm",
+    "area_classes": {
+     "cts": 856.128,
+     "endcap": 342.451,
+     "repair": 895.642,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 76.00532329750902,
+      "hold": 0.06314093870913699,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.38861470696939,
+      "hold": 0.9782894771171371,
+      "slew": 221,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.52388039833471,
+      "hold": 0.3302307409884027,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.1274655972406,
+      "hold": 0.08260037332360481,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.55886807874457,
+      "hold": 1.0392353938222083,
+      "slew": 122,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.60612228063353,
+      "hold": 0.36371751084882215,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.07187983745003,
+      "hold": 0.07381817588353494,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.57446082849952,
+      "hold": 1.0104131151093698,
+      "slew": 178,
+      "cap": 1,
+      "fanout": 7
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.1185123144276,
+      "hold": 0.34872483665565734,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36536.9,
+     "packing": 0.8625,
+     "dp_only_density": 0.6978,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t6",
+    "generator_args": {
+     "out": "placements/t6",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 200000,
+     "seed": 2,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json"
+     ],
+     "K": 4.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": false
+    },
+    "hpwl_pins_um": 35695.4,
+    "footprint": null,
+    "cells_moved": 579,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t7",
+    "area": 45499.9,
+    "d_area": 24.1,
+    "d_upsize": -15.37,
+    "d_repair": 39.51,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "248/1/6",
+    "setup": 42.28930214598345,
+    "hold": 0.03441835802672951,
+    "wire": 49615,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 52,
+    "rep_drivers_dp": 24,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45499.9"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t7/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t7_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 895.642,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 766.12
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.88772847141492,
+      "hold": 0.03441835802672951,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.28930214598345,
+      "hold": 0.8949210514833745,
+      "slew": 248,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.54898387389909,
+      "hold": 0.2843174665065133,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.03881828302006,
+      "hold": 0.057821749025418444,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.444715832302585,
+      "hold": 0.9660197359911777,
+      "slew": 122,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.65108542622407,
+      "hold": 0.3240536819492941,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.97079091957444,
+      "hold": 0.04697464772344877,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.472881636122395,
+      "hold": 0.9321943480986709,
+      "slew": 173,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.14721113633661,
+      "hold": 0.30523717750657003,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 46,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37140.6,
+     "packing": 0.8528,
+     "dp_only_density": 0.6865,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t7",
+    "generator_args": {
+     "out": "placements/t7",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37113.7,
+    "footprint": null,
+    "cells_moved": 457,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t8",
+    "area": 45510.9,
+    "d_area": 35.1,
+    "d_upsize": -17.56,
+    "d_repair": 61.47,
+    "d_cts": -8.78,
+    "d_hold": 0.0,
+    "slew_cap_fo": "264/2/6",
+    "setup": 42.50289840382121,
+    "hold": 0.060222384339460026,
+    "wire": 48656,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 52,
+    "rep_drivers_dp": 24,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 6,
+     "inv_4": 1,
+     "inv_2": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45510.9"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t8/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t8_firm",
+    "area_classes": {
+     "cts": 842.957,
+     "endcap": 342.451,
+     "repair": 917.594,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 763.924
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.98464650331363,
+      "hold": 0.060222384339460026,
+      "slew": 0,
+      "cap": 2,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.50289840382121,
+      "hold": 0.9624608049627859,
+      "slew": 264,
+      "cap": 2,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.63919438218252,
+      "hold": 0.32319459134854245,
+      "slew": 0,
+      "cap": 2,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.11866907792312,
+      "hold": 0.07887279941300286,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.59226714098356,
+      "hold": 1.0218217672330765,
+      "slew": 110,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.67904528366698,
+      "hold": 0.3558560213891133,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.05817346768957,
+      "hold": 0.07001044386828802,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.645284177689426,
+      "hold": 0.9936078907549395,
+      "slew": 163,
+      "cap": 2,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.20588775711516,
+      "hold": 0.340003368416752,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 46,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36907.9,
+     "packing": 0.8567,
+     "dp_only_density": 0.6908,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t8",
+    "generator_args": {
+     "out": "placements/t8",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": false
+    },
+    "hpwl_pins_um": 36271.4,
+    "footprint": null,
+    "cells_moved": 616,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t9s1",
+    "area": 45504.3,
+    "d_area": 28.5,
+    "d_upsize": 19.76,
+    "d_repair": 8.78,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "249/1/6",
+    "setup": 43.57412332069048,
+    "hold": 0.07139100623845437,
+    "wire": 49149,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 30,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45504.3"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t9s1_r1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t9s1_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 864.909,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 801.243
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.95363131202053,
+      "hold": 0.07139100623845437,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.57412332069048,
+      "hold": 1.003402722644409,
+      "slew": 249,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 72.14760193485233,
+      "hold": 0.3436029336089943,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.09360112949653,
+      "hold": 0.08747680605258083,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.68053797856581,
+      "hold": 1.0532335302017863,
+      "slew": 125,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 73.21026125879976,
+      "hold": 0.37150972238983504,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.02976596831046,
+      "hold": 0.07997314148382866,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.73190655607809,
+      "hold": 1.028084313447499,
+      "slew": 158,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.73213703838452,
+      "hold": 0.35827719582969136,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37329.4,
+     "packing": 0.8493,
+     "dp_only_density": 0.683,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t9s1_r1",
+    "generator_args": {
+     "out": "placements/t9s1",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37179.9,
+    "footprint": null,
+    "cells_moved": 504,
+    "nondp_moved": [
+     "_1254_",
+     "_1248_"
+    ]
+   },
+   {
+    "tag": "t9s2",
+    "area": 45548.2,
+    "d_area": 72.4,
+    "d_upsize": 15.37,
+    "d_repair": 57.07,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "255/1/6",
+    "setup": 42.837741677518174,
+    "hold": 0.04664646578808795,
+    "wire": 49122,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 54,
+    "rep_drivers_dp": 29,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45548.2"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t9s2_r1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t9s2_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 913.203,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 796.853
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.909762402274,
+      "hold": 0.04664646578808795,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.837741677518174,
+      "hold": 0.9247656235862003,
+      "slew": 255,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.79287056941897,
+      "hold": 0.3022018276713993,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.05949507721546,
+      "hold": 0.07004852451910966,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.862930640257865,
+      "hold": 0.9984391374055352,
+      "slew": 135,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.82017328583503,
+      "hold": 0.34280002029487744,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.99116218038482,
+      "hold": 0.05932476899866429,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.93957322359593,
+      "hold": 0.962669082808096,
+      "slew": 215,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.35321879754183,
+      "hold": 0.3242322058167028,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 48,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37281.1,
+     "packing": 0.8486,
+     "dp_only_density": 0.6839,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t9s2_r1",
+    "generator_args": {
+     "out": "placements/t9s2",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 2,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37088.7,
+    "footprint": null,
+    "cells_moved": 517,
+    "nondp_moved": [
+     "_1254_",
+     "_1248_"
+    ]
+   },
+   {
+    "tag": "t1p",
+    "area": 45464.8,
+    "d_area": -11.0,
+    "d_upsize": -32.93,
+    "d_repair": 8.78,
+    "d_cts": 13.17,
+    "d_hold": 0.0,
+    "slew_cap_fo": "302/1/6",
+    "setup": 43.059136142101444,
+    "hold": 0.04997413735390991,
+    "wire": 56286,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 10,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "slew 302"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t1p/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t1p_firm",
+    "area_classes": {
+     "cts": 864.909,
+     "endcap": 342.451,
+     "repair": 864.909,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.76246688898513,
+      "hold": 0.04997413735390991,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.059136142101444,
+      "hold": 0.9391319099311561,
+      "slew": 302,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.86661780204923,
+      "hold": 0.30905834322079484,
+      "slew": 4,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 75.95596189225974,
+      "hold": 0.07165412910273215,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.10606416045654,
+      "hold": 1.0046226357383687,
+      "slew": 175,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.88930199055223,
+      "hold": 0.3456139916526769,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.86798959365726,
+      "hold": 0.06136491488641475,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.17974733321646,
+      "hold": 0.9738516935175963,
+      "slew": 225,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.42304383415977,
+      "hold": 0.327731850933903,
+      "slew": 2,
+      "cap": 1,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 20,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36220.8,
+     "packing": 0.7235,
+     "dp_only_density": 0.6879,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 814,
+     "dp_area_um2": 24917.7
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t1p",
+    "generator_args": {
+     "out": "placements/t1",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 200000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json"
+     ],
+     "K": 4.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null
+    },
+    "hpwl_pins_um": 35818.3,
+    "footprint": null,
+    "cells_moved": 563,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "t7p",
+    "area": 45464.8,
+    "d_area": -11.0,
+    "d_upsize": -15.37,
+    "d_repair": 17.56,
+    "d_cts": -13.17,
+    "d_hold": 0.0,
+    "slew_cap_fo": "303/1/8",
+    "setup": 42.432092818200196,
+    "hold": 0.10849588201615175,
+    "wire": 56376,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 52,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_1": 8,
+     "inv_2": 1,
+     "clkinv_8": 1
+    },
+    "pass": false,
+    "why": [
+     "slew 303",
+     "fanout 8"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t7p/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/t7p_firm",
+    "area_classes": {
+     "cts": 838.566,
+     "endcap": 342.451,
+     "repair": 873.69,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 766.12
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.17881285847021,
+      "hold": 0.10849588201615175,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 8
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.432092818200196,
+      "hold": 1.124631974934716,
+      "slew": 303,
+      "cap": 1,
+      "fanout": 8
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.56708850331829,
+      "hold": 0.4069062979512277,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 8
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 75.50754546446682,
+      "hold": 0.12119094959487406,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 8
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.62854745409755,
+      "hold": 1.1662857676398624,
+      "slew": 188,
+      "cap": 0,
+      "fanout": 8
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.5109735001969,
+      "hold": 0.4305054212746937,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 8
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.35674697539157,
+      "hold": 0.11584733500392297,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 8
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.632469539087566,
+      "hold": 1.1451075967123632,
+      "slew": 277,
+      "cap": 1,
+      "fanout": 8
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.17204460565377,
+      "hold": 0.4193370214203106,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 8
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 21,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36339.3,
+     "packing": 0.7229,
+     "dp_only_density": 0.6857,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 814,
+     "dp_area_um2": 24917.7
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/t7p",
+    "generator_args": {
+     "out": "placements/t7",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37113.7,
+    "footprint": null,
+    "cells_moved": 457,
+    "nondp_moved": [
+     "_1254_"
+    ]
+   },
+   {
+    "tag": "u1s1",
+    "area": 45482.3,
+    "d_area": 6.5,
+    "d_upsize": -32.93,
+    "d_repair": 39.51,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "295/2/6",
+    "setup": 42.434252868178,
+    "hold": 0.055114581125608526,
+    "wire": 50807,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45482.3",
+     "slew 295"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/u1s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/u1s1_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 895.642,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.94619192936672,
+      "hold": 0.055114581125608526,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.434252868178,
+      "hold": 0.9488530230097059,
+      "slew": 295,
+      "cap": 2,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.56316630730596,
+      "hold": 0.3156428541214644,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.08932366210628,
+      "hold": 0.07505729583636378,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.595254973271935,
+      "hold": 1.0104664058160588,
+      "slew": 149,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.63394713495283,
+      "hold": 0.349319472124464,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.02428057823525,
+      "hold": 0.06557665707174894,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.620273072683304,
+      "hold": 0.9816290280696585,
+      "slew": 213,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.14792878452003,
+      "hold": 0.3328566405605117,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37070.3,
+     "packing": 0.8522,
+     "dp_only_density": 0.6878,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/u1s1",
+    "generator_args": {
+     "out": "placements/u1s1",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json",
+      "placements/t9s2_r1/firm_summary.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "union",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.85,
+     "hinge_w": 200.0,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 38432.7,
+    "footprint": null,
+    "cells_moved": 534,
+    "nondp_moved": [
+     "_1301_",
+     "_1142_",
+     "_1249_",
+     "_1253_",
+     "_1263_",
+     "_1254_",
+     "_1143_",
+     "_1328_",
+     "_1503_",
+     "_1144_",
+     "_1248_",
+     "_1262_"
+    ]
+   },
+   {
+    "tag": "u1s2",
+    "area": 45504.3,
+    "d_area": 28.5,
+    "d_upsize": -32.93,
+    "d_repair": 61.47,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "263/1/6",
+    "setup": 43.04508871181818,
+    "hold": 0.018268165275353635,
+    "wire": 50586,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45504.3"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/u1s2/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/u1s2_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 917.594,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.8604223133074,
+      "hold": 0.018268165275353635,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.04508871181818,
+      "hold": 0.852875572084063,
+      "slew": 263,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.88007548184514,
+      "hold": 0.26079983355535946,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.02322186952902,
+      "hold": 0.04825706637546256,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.05077682862341,
+      "hold": 0.9405592126919812,
+      "slew": 120,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.87281029318882,
+      "hold": 0.3094478094688482,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.94927568492713,
+      "hold": 0.03405464895357591,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.14316859214502,
+      "hold": 0.8997545185800825,
+      "slew": 188,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.42894133903337,
+      "hold": 0.2860283202358469,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37327.2,
+     "packing": 0.851,
+     "dp_only_density": 0.6831,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/u1s2",
+    "generator_args": {
+     "out": "placements/u1s2",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 2,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json",
+      "placements/t9s2_r1/firm_summary.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "union",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.85,
+     "hinge_w": 200.0,
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37967.8,
+    "footprint": null,
+    "cells_moved": 540,
+    "nondp_moved": [
+     "_1253_",
+     "_1249_",
+     "_1301_",
+     "_1142_",
+     "_1263_",
+     "_1254_",
+     "_1328_",
+     "_1143_",
+     "_1144_",
+     "_1262_",
+     "_1503_",
+     "_1311_",
+     "_1248_"
+    ]
+   },
+   {
+    "tag": "v1s1",
+    "area": 45504.3,
+    "d_area": 28.5,
+    "d_upsize": -32.93,
+    "d_repair": 61.47,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "238/2/6",
+    "setup": 42.83654796568833,
+    "hold": 0.017986945775262653,
+    "wire": 49710,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45504.3"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v1s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/v1s1_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 917.594,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.88148280059094,
+      "hold": 0.017986945775262653,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.83654796568833,
+      "hold": 0.8349570160490515,
+      "slew": 238,
+      "cap": 2,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.76514519108548,
+      "hold": 0.25491054433237237,
+      "slew": 0,
+      "cap": 2,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.03969225060976,
+      "hold": 0.04715850066152641,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.9046892380195,
+      "hold": 0.9251542016558089,
+      "slew": 110,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.8176579644793,
+      "hold": 0.30424352787142817,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.96772137486914,
+      "hold": 0.033143377869191075,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.96720623137115,
+      "hold": 0.883235287684884,
+      "slew": 174,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.34192116772373,
+      "hold": 0.28038594462051963,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37140.6,
+     "packing": 0.8499,
+     "dp_only_density": 0.6865,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v1s1",
+    "generator_args": {
+     "out": "placements/v1s1",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "union",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.8,
+     "hinge_w": 200.0,
+     "sensitive_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json",
+      "placements/t9s2_r1/firm_summary.json",
+      "placements/u1s1/firm_summary.json",
+      "placements/u1s2/firm_summary.json"
+     ],
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37236.2,
+    "footprint": null,
+    "cells_moved": 505,
+    "nondp_moved": [
+     "_1301_",
+     "_1253_",
+     "_1249_",
+     "_1142_",
+     "_1263_",
+     "_1254_",
+     "_1311_",
+     "_1328_",
+     "_1143_",
+     "_1503_",
+     "_1248_"
+    ]
+   },
+   {
+    "tag": "v1s2",
+    "area": 45467,
+    "d_area": -8.8,
+    "d_upsize": -17.56,
+    "d_repair": 8.78,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "285/1/6",
+    "setup": 40.95461152795669,
+    "hold": 0.06737810500245414,
+    "wire": 49873,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 52,
+    "rep_drivers_dp": 29,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "slew 285"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v1s2/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/v1s2_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 864.909,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 763.924
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.91106269551722,
+      "hold": 0.06737810500245414,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 40.95461152795669,
+      "hold": 1.0001626476777077,
+      "slew": 285,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 70.82128861591711,
+      "hold": 0.33986658893624977,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.05831557624074,
+      "hold": 0.08414802426370284,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 43.460866358120875,
+      "hold": 1.0494609922574154,
+      "slew": 141,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.07708056633366,
+      "hold": 0.3680886810650015,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.99130428893599,
+      "hold": 0.07597223065683349,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 42.31573433650128,
+      "hold": 1.025734637371729,
+      "slew": 207,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 71.50739580639886,
+      "hold": 0.3540048354654982,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 46,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37270.1,
+     "packing": 0.8515,
+     "dp_only_density": 0.6841,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v1s2",
+    "generator_args": {
+     "out": "placements/v1s2",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 2,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json"
+     ],
+     "K": 4.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "union",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.8,
+     "hinge_w": 200.0,
+     "sensitive_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json",
+      "placements/t9s2_r1/firm_summary.json",
+      "placements/u1s1/firm_summary.json",
+      "placements/u1s2/firm_summary.json"
+     ],
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37576.8,
+    "footprint": null,
+    "cells_moved": 527,
+    "nondp_moved": [
+     "_1253_",
+     "_1301_",
+     "_1142_",
+     "_1249_",
+     "_1263_",
+     "_1254_",
+     "_1328_",
+     "_1503_",
+     "_1143_",
+     "_1248_",
+     "_1144_",
+     "_1262_",
+     "_1311_"
+    ]
+   },
+   {
+    "tag": "v2s1",
+    "area": 45530.6,
+    "d_area": 54.8,
+    "d_upsize": -32.93,
+    "d_repair": 87.81,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "208/1/6",
+    "setup": 42.278771902341674,
+    "hold": 0.020566104956712957,
+    "wire": 49818,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 45530.6"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v2s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/v2s1_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 943.936,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.89081222697533,
+      "hold": 0.020566104956712957,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.278771902341674,
+      "hold": 0.8435088422049962,
+      "slew": 208,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.48584504461375,
+      "hold": 0.2589413201595746,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.04665556961714,
+      "hold": 0.049533711867585026,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.474448493921365,
+      "hold": 0.9320318114432689,
+      "slew": 102,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.59180484410304,
+      "hold": 0.3079709907597245,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.97589261656148,
+      "hold": 0.03591216314861035,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.47650540417726,
+      "hold": 0.8896204025246917,
+      "slew": 172,
+      "cap": 1,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.08842082871712,
+      "hold": 0.28461167561635975,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36929.8,
+     "packing": 0.8519,
+     "dp_only_density": 0.6904,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v2s1",
+    "generator_args": {
+     "out": "placements/v2s1",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/h2_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "union",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.8,
+     "hinge_w": 200.0,
+     "sensitive_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json",
+      "placements/t9s2_r1/firm_summary.json",
+      "placements/u1s1/firm_summary.json",
+      "placements/u1s2/firm_summary.json",
+      "placements/v1s1/firm_summary.json",
+      "placements/v1s2/firm_summary.json"
+     ],
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37333.9,
+    "footprint": null,
+    "cells_moved": 469,
+    "nondp_moved": [
+     "_1249_",
+     "_1142_",
+     "_1253_",
+     "_1263_",
+     "_1301_",
+     "_1328_",
+     "_1311_",
+     "_1254_",
+     "_1143_",
+     "_1503_",
+     "_1262_",
+     "_1248_"
+    ]
+   },
+   {
+    "tag": "v2s2",
+    "area": 45451.6,
+    "d_area": -24.2,
+    "d_upsize": -32.93,
+    "d_repair": 8.78,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "209/1/6",
+    "setup": 42.463413542878314,
+    "hold": 0.06008993472887631,
+    "wire": 49857,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 51,
+    "rep_drivers_dp": 28,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_1": 7,
+     "inv_2": 1,
+     "clkinv_4": 1
+    },
+    "pass": true,
+    "why": [],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v2s2/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/v2s2_firm",
+    "area_classes": {
+     "cts": 851.738,
+     "endcap": 342.451,
+     "repair": 864.909,
+     "synth": 40958.042,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 748.558
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.94351318317715,
+      "hold": 0.06008993472887631,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.463413542878314,
+      "hold": 0.9727929848113714,
+      "slew": 209,
+      "cap": 1,
+      "fanout": 6
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.55931516556923,
+      "hold": 0.32630143954852114,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.08494671873021,
+      "hold": 0.08023604230349524,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.64734130998993,
+      "hold": 1.0343806104428246,
+      "slew": 113,
+      "cap": 0,
+      "fanout": 6
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.68587359955076,
+      "hold": 0.3606453016081914,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.02030153880246,
+      "hold": 0.07091327725744707,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.671869134899765,
+      "hold": 1.00407551781636,
+      "slew": 151,
+      "cap": 0,
+      "fanout": 6
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.1769260343865,
+      "hold": 0.3445359650652772,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 6
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 45,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37173.5,
+     "packing": 0.8547,
+     "dp_only_density": 0.6859,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 848,
+     "dp_area_um2": 25497.2
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/v2s2",
+    "generator_args": {
+     "out": "placements/v2s2",
+     "reserve": [
+      "placements/res_s0_probe.json"
+     ],
+     "iters": 300000,
+     "seed": 2,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/h2_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "union",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.8,
+     "hinge_w": 200.0,
+     "sensitive_from": [
+      "baseline/h2_area_classes.json",
+      "logs/s0r_firm_summary.json",
+      "placements/t1/firm_summary.json",
+      "placements/t3_r1/firm_summary.json",
+      "placements/t5/firm_summary.json",
+      "placements/t6/firm_summary.json",
+      "placements/t7/firm_summary.json",
+      "placements/t8/firm_summary.json",
+      "placements/t9s1_r1/firm_summary.json",
+      "placements/t9s2_r1/firm_summary.json",
+      "placements/u1s1/firm_summary.json",
+      "placements/u1s2/firm_summary.json",
+      "placements/v1s1/firm_summary.json",
+      "placements/v1s2/firm_summary.json"
+     ],
+     "freeze_flops": true
+    },
+    "hpwl_pins_um": 37554.4,
+    "footprint": null,
+    "cells_moved": 489,
+    "nondp_moved": [
+     "_1253_",
+     "_1249_",
+     "_1301_",
+     "_1142_",
+     "_1263_",
+     "_1311_",
+     "_1328_",
+     "_1254_",
+     "_1143_",
+     "_1144_",
+     "_1503_",
+     "_1248_",
+     "_1262_"
+    ]
+   }
+  ],
+  "missing": []
+ },
+ "x0_screens": {
+  "ref": {
+   "stdcell_area": 44911.6,
+   "slew": 242,
+   "cap": 1,
+   "fanout": 0,
+   "setup_ws_min": 43.1557,
+   "hold_ws_min": 0.00695,
+   "wirelength_um": 49125
+  },
+  "ref_tag": "x0",
+  "rows": [
+   {
+    "tag": "x_s0",
+    "area": 44959.9,
+    "d_area": 48.3,
+    "d_upsize": 0.0,
+    "d_repair": 48.29,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "232/1/0",
+    "setup": 42.74669272878283,
+    "hold": 0.005584755038719584,
+    "wire": 49136,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44959.9"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/x_s0/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/x_s0_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 720.026,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.96250599104117,
+      "hold": 0.005584755038719584,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.74669272878283,
+      "hold": 0.8006759926143522,
+      "slew": 232,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.68297092137078,
+      "hold": 0.23628566438911808,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.0998965383134,
+      "hold": 0.03315603441202976,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.92194476884546,
+      "hold": 0.8836007731149272,
+      "slew": 128,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.76295327770598,
+      "hold": 0.2821341018445357,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.03736877579811,
+      "hold": 0.020203062017392977,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.92771071228692,
+      "hold": 0.8451315442236815,
+      "slew": 151,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.27491698584655,
+      "hold": 0.26004021894042756,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 37188.9,
+     "packing": 0.8331,
+     "dp_only_density": 0.6838,
+     "bbox_um": [
+      4.48,
+      3.92,
+      339.92,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/x_s0",
+    "generator_args": {
+     "out": "placements/x_s0",
+     "reserve": [],
+     "iters": 0,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "flat",
+     "repair_from": [],
+     "K": 4.0,
+     "crit": null,
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 0.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": false
+    },
+    "hpwl_pins_um": 38024.7,
+    "footprint": null,
+    "cells_moved": 0,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xa_s1",
+    "area": 44929.2,
+    "d_area": 17.6,
+    "d_upsize": 0.0,
+    "d_repair": 17.56,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "183/1/0",
+    "setup": 42.96745836302718,
+    "hold": 0.02600975064501184,
+    "wire": 48091,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44929.2"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xa_s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xa_s1_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 689.293,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.97971533658799,
+      "hold": 0.02600975064501184,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.96745836302718,
+      "hold": 0.8765717289026256,
+      "slew": 183,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.78667463658792,
+      "hold": 0.2735542980675791,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.11245182880938,
+      "hold": 0.04851574834751625,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.032505221656585,
+      "hold": 0.939765625251535,
+      "slew": 85,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.8254597239386,
+      "hold": 0.30983705367229036,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.05188516430024,
+      "hold": 0.03766354001948886,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.091703980338394,
+      "hold": 0.9105196854205175,
+      "slew": 141,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.35034820480817,
+      "hold": 0.2920832547387928,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36666.4,
+     "packing": 0.8388,
+     "dp_only_density": 0.6936,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xa_s1",
+    "generator_args": {
+     "out": "placements/xa_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37216.7,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36666.4,
+     "packing": 0.8388,
+     "dp_only_density": 0.6936,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 455,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xa_s2",
+    "area": 44898.4,
+    "d_area": -13.2,
+    "d_upsize": -8.78,
+    "d_repair": -4.39,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "215/3/0",
+    "setup": 42.792544052818194,
+    "hold": 0.04827371972130293,
+    "wire": 48016,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 54,
+    "rep_drivers_dp": 31,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "cap 3"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xa_s2/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xa_s2_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 667.341,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 796.85
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.93567589658005,
+      "hold": 0.04827371972130293,
+      "slew": 0,
+      "cap": 3,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.792544052818194,
+      "hold": 0.9381655717831925,
+      "slew": 215,
+      "cap": 3,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.6854365047336,
+      "hold": 0.30796299715372116,
+      "slew": 0,
+      "cap": 3,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.08178480346665,
+      "hold": 0.0650969296892408,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.857729467285004,
+      "hold": 0.9882033249182126,
+      "slew": 115,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.7219904878309,
+      "hold": 0.33639958437689677,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.01527800151857,
+      "hold": 0.057265305229739015,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.9226907277168,
+      "hold": 0.9627219294255628,
+      "slew": 143,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.25505021039282,
+      "hold": 0.32296988220200307,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 48,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36690.6,
+     "packing": 0.8392,
+     "dp_only_density": 0.6931,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xa_s2",
+    "generator_args": {
+     "out": "placements/xa_s2",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 2,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 36936.8,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36690.6,
+     "packing": 0.8392,
+     "dp_only_density": 0.6931,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 452,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xa_s3",
+    "area": 44929.2,
+    "d_area": 17.6,
+    "d_upsize": 0.0,
+    "d_repair": 17.56,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "182/1/0",
+    "setup": 43.849646932414835,
+    "hold": 0.006979639286308651,
+    "wire": 48110,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44929.2"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xa_s3/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xa_s3_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 689.293,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.9667692475763,
+      "hold": 0.006979639286308651,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.849646932414835,
+      "hold": 0.8039560356110707,
+      "slew": 182,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 72.21441427018544,
+      "hold": 0.2383333597936495,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.10553114236734,
+      "hold": 0.034623305202871615,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.6484960529905,
+      "hold": 0.8876823971580954,
+      "slew": 96,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 73.1207257661344,
+      "hold": 0.28442604632139246,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.04244205107493,
+      "hold": 0.021823099500743792,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.831780445841154,
+      "hold": 0.8480936193371547,
+      "slew": 130,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.7107781231435,
+      "hold": 0.2625726377312192,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36708.1,
+     "packing": 0.8385,
+     "dp_only_density": 0.6928,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xa_s3",
+    "generator_args": {
+     "out": "placements/xa_s3",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 3,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "hinge_json": null,
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37149.2,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36708.1,
+     "packing": 0.8385,
+     "dp_only_density": 0.6928,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 485,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xsl_s1",
+    "area": 44970.9,
+    "d_area": 59.3,
+    "d_upsize": 10.98,
+    "d_repair": -13.17,
+    "d_cts": 61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "164/2/7",
+    "setup": 44.82599662780849,
+    "hold": 0.001288746923433134,
+    "wire": 47898,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "clkinv_1": 7,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44970.9",
+     "cap 2",
+     "fanout 7"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xsl_s1_r1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xsl_s1_firm",
+    "area_classes": {
+     "cts": 821.005,
+     "endcap": 342.451,
+     "repair": 658.56,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 816.607
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.9562247930794,
+      "hold": 0.001288746923433134,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "max_ss_125C_3v00": {
+      "setup": 44.82599662780849,
+      "hold": 0.7820166957563611,
+      "slew": 164,
+      "cap": 2,
+      "fanout": 7
+     },
+     "max_tt_025C_3v30": {
+      "setup": 72.67225960034857,
+      "hold": 0.2275759645146066,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 7
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.09603118572156,
+      "hold": 0.025537794823895864,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_ss_125C_3v00": {
+      "setup": 46.650993721799644,
+      "hold": 0.8575118635660209,
+      "slew": 91,
+      "cap": 0,
+      "fanout": 7
+     },
+     "min_tt_025C_3v30": {
+      "setup": 73.49916794333066,
+      "hold": 0.2677305120048974,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.03245892535516,
+      "hold": 0.014375945285543264,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 45.82350628647152,
+      "hold": 0.8229603897948741,
+      "slew": 134,
+      "cap": 0,
+      "fanout": 7
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 73.21514268753249,
+      "hold": 0.2492357502038092,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 7
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36727.9,
+     "packing": 0.8388,
+     "dp_only_density": 0.6924,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xsl_s1_r1",
+    "generator_args": {
+     "out": "placements/xsl_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": true,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 36925.3,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36727.9,
+     "packing": 0.8388,
+     "dp_only_density": 0.6924,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 471,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xrg_s1",
+    "area": 44929.2,
+    "d_area": 17.6,
+    "d_upsize": 0.0,
+    "d_repair": 8.78,
+    "d_cts": 8.78,
+    "d_hold": 0.0,
+    "slew_cap_fo": "154/1/0",
+    "setup": 43.27817160473528,
+    "hold": 0.012705170608532131,
+    "wire": 47304,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_8": 1,
+     "inv_2": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44929.2"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xrg_s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xrg_s1_firm",
+    "area_classes": {
+     "cts": 768.32,
+     "endcap": 342.451,
+     "repair": 680.512,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.99781996600719,
+      "hold": 0.012705170608532131,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.27817160473528,
+      "hold": 0.8145293559074247,
+      "slew": 154,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.95653698780275,
+      "hold": 0.2461433349035588,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.12876589048382,
+      "hold": 0.04043154814276891,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.236477177866284,
+      "hold": 0.9014225176994535,
+      "slew": 80,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.9289431709014,
+      "hold": 0.29207170841901015,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.06933609438406,
+      "hold": 0.02773681363096341,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.35034509618362,
+      "hold": 0.8617369284280274,
+      "slew": 120,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.49694028076875,
+      "hold": 0.27093617005686227,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36607.2,
+     "packing": 0.8389,
+     "dp_only_density": 0.6947,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xrg_s1",
+    "generator_args": {
+     "out": "placements/xrg_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "pack_w": 0.0,
+     "ring": 4.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 36260.6,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36607.2,
+     "packing": 0.8389,
+     "dp_only_density": 0.6947,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 577,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xh_s1",
+    "area": 44951.1,
+    "d_area": 39.5,
+    "d_upsize": -8.78,
+    "d_repair": 48.29,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "207/2/0",
+    "setup": 43.260663831231,
+    "hold": -0.015050960903606105,
+    "wire": 48581,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 54,
+    "rep_drivers_dp": 31,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44951.1",
+     "cap 2",
+     "hold"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xh_s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xh_s1_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 720.026,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 796.85
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.99354249861695,
+      "hold": -0.015050960903606105,
+      "slew": 0,
+      "cap": 2,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.260663831231,
+      "hold": 0.7364420393065592,
+      "slew": 207,
+      "cap": 2,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.96059418693869,
+      "hold": 0.20234214876345022,
+      "slew": 0,
+      "cap": 2,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.12342971438734,
+      "hold": 0.017340795956656448,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.27178049469097,
+      "hold": 0.8349912109191769,
+      "slew": 93,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.97114941059924,
+      "hold": 0.25633251802252843,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.06410649970096,
+      "hold": 0.002303046707417034,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.34881742925853,
+      "hold": 0.7890164300799838,
+      "slew": 125,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.5162883600107,
+      "hold": 0.23084557141459847,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 48,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36960.6,
+     "packing": 0.8343,
+     "dp_only_density": 0.6881,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xh_s1",
+    "generator_args": {
+     "out": "placements/xh_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 200.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "hinge_json": "baseline/x0_targets.json",
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37401.9,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36960.6,
+     "packing": 0.8343,
+     "dp_only_density": 0.6881,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 484,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xhr_s1",
+    "area": 44981.8,
+    "d_area": 70.2,
+    "d_upsize": -8.78,
+    "d_repair": 70.25,
+    "d_cts": 8.78,
+    "d_hold": 0.0,
+    "slew_cap_fo": "212/1/0",
+    "setup": 43.112618695334696,
+    "hold": 0.04169287255671824,
+    "wire": 47912,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 54,
+    "rep_drivers_dp": 31,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_8": 1,
+     "inv_2": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44981.8"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xhr_s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xhr_s1_firm",
+    "area_classes": {
+     "cts": 768.32,
+     "endcap": 342.451,
+     "repair": 741.978,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 796.85
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.99684652243167,
+      "hold": 0.04169287255671824,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 43.112618695334696,
+      "hold": 0.9105307876510778,
+      "slew": 212,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.83942533078263,
+      "hold": 0.29559666662188766,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.12797718802483,
+      "hold": 0.060243700622135694,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 45.11359946638239,
+      "hold": 0.9664207485590137,
+      "slew": 120,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.84707443457172,
+      "hold": 0.32607650835737056,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.06832712367074,
+      "hold": 0.0514157619921576,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 44.19349633554227,
+      "hold": 0.9409731038472671,
+      "slew": 137,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.38908699585743,
+      "hold": 0.3116633705994505,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 48,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36824.5,
+     "packing": 0.8339,
+     "dp_only_density": 0.6906,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xhr_s1",
+    "generator_args": {
+     "out": "placements/xhr_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 200.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "hinge_json": "baseline/x0_targets.json",
+     "pack_w": 0.0,
+     "ring": 4.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 36779.9,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 36824.5,
+     "packing": 0.8339,
+     "dp_only_density": 0.6906,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 596,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xpk10_s1",
+    "area": 44929.2,
+    "d_area": 17.6,
+    "d_upsize": -8.78,
+    "d_repair": 26.34,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "191/2/0",
+    "setup": 42.41557269912656,
+    "hold": 0.03933531389725041,
+    "wire": 48089,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 54,
+    "rep_drivers_dp": 31,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44929.2",
+     "cap 2"
+    ],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk10_s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xpk10_s1_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 698.074,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 796.85
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.98893818155899,
+      "hold": 0.03933531389725041,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.41557269912656,
+      "hold": 0.8958616324564385,
+      "slew": 191,
+      "cap": 2,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.53846784111242,
+      "hold": 0.2900260114159796,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.12026069369624,
+      "hold": 0.0586885001652567,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.69630125858216,
+      "hold": 0.9607110934264914,
+      "slew": 111,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.65942009275025,
+      "hold": 0.3237474824304426,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.06025535796422,
+      "hold": 0.05017641999471756,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.658486062093225,
+      "hold": 0.9313439172377561,
+      "slew": 158,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.15747137373117,
+      "hold": 0.3085760623252578,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 48,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 35123.2,
+     "packing": 0.8546,
+     "dp_only_density": 0.7241,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk10_s1",
+    "generator_args": {
+     "out": "placements/xpk10_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "pack_w": 10.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37008.8,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 35123.2,
+     "packing": 0.8546,
+     "dp_only_density": 0.7241,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 463,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xpk20_s1",
+    "area": 44907.2,
+    "d_area": -4.4,
+    "d_upsize": 0.0,
+    "d_repair": -4.39,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "189/1/0",
+    "setup": 42.30954550909778,
+    "hold": 0.03441069748764294,
+    "wire": 48217,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": true,
+    "why": [],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_s1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xpk20_s1_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 667.341,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.98930766379203,
+      "hold": 0.03441069748764294,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.30954550909778,
+      "hold": 0.8836887027809645,
+      "slew": 189,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.43528992753463,
+      "hold": 0.28171266117246885,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.12175283348353,
+      "hold": 0.053978267827767545,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.501985578424545,
+      "hold": 0.9433689652021677,
+      "slew": 102,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.54701933420145,
+      "hold": 0.31478665010065837,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.06197487143339,
+      "hold": 0.044586890996857066,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.49996752597561,
+      "hold": 0.9151892835941562,
+      "slew": 144,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.04160316653379,
+      "hold": 0.2985780596165356,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 34401.0,
+     "packing": 0.8655,
+     "dp_only_density": 0.7393,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_s1",
+    "generator_args": {
+     "out": "placements/xpk20_s1",
+     "reserve": [],
+     "iters": 300000,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "pack_w": 20.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37384.2,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 34401.0,
+     "packing": 0.8655,
+     "dp_only_density": 0.7393,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 479,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xpk20_p1",
+    "area": 44907.2,
+    "d_area": -4.4,
+    "d_upsize": 0.0,
+    "d_repair": -4.39,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "189/1/0",
+    "setup": 42.18239388293741,
+    "hold": 0.03188627230285464,
+    "wire": 48296,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": true,
+    "why": [],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_p1/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xpk20_p1_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 667.341,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 75.98483834985771,
+      "hold": 0.03188627230285464,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.18239388293741,
+      "hold": 0.8759229145486849,
+      "slew": 189,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.38089077414632,
+      "hold": 0.27762504192479814,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.11864776164045,
+      "hold": 0.052029715342139106,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.42855809003443,
+      "hold": 0.9385479326036873,
+      "slew": 102,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.51368066809671,
+      "hold": 0.3121294422383695,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.05807399170375,
+      "hold": 0.042562732321113364,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.40081838982352,
+      "hold": 0.9085803477862541,
+      "slew": 148,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 72.00940136883841,
+      "hold": 0.2955022976621256,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 34401.0,
+     "packing": 0.8655,
+     "dp_only_density": 0.7393,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_p1",
+    "generator_args": {
+     "out": "placements/xpk20_p1",
+     "reserve": [],
+     "iters": 20000,
+     "seed": 11,
+     "T0": 0.05,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": "placements/xpk20_s1",
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "hinge_json": null,
+     "pack_w": 20.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37380.6,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 34401.0,
+     "packing": 0.8655,
+     "dp_only_density": 0.7393,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 480,
+    "nondp_moved": []
+   },
+   {
+    "tag": "xpk20_p2",
+    "area": 44907.2,
+    "d_area": -4.4,
+    "d_upsize": 0.0,
+    "d_repair": -4.39,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "184/1/0",
+    "setup": 42.09133072334696,
+    "hold": 0.02304911882151155,
+    "wire": 48163,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 32,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 1
+    },
+    "pass": true,
+    "why": [],
+    "summary": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_p2/firm_summary.json",
+    "firm_run": "/Users/samuelzhang/ttharden/dp_work/xpk20_p2_firm",
+    "area_classes": {
+     "cts": 759.539,
+     "endcap": 342.451,
+     "repair": 667.341,
+     "synth": 40646.323,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 805.631
+    },
+    "per_corner": {
+     "max_ff_n40C_3v60": {
+      "setup": 76.00354694061939,
+      "hold": 0.02304911882151155,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_ss_125C_3v00": {
+      "setup": 42.09133072334696,
+      "hold": 0.8453797900990085,
+      "slew": 184,
+      "cap": 1,
+      "fanout": 0
+     },
+     "max_tt_025C_3v30": {
+      "setup": 71.33562209517076,
+      "hold": 0.2619722291025212,
+      "slew": 0,
+      "cap": 1,
+      "fanout": 0
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 76.13168622121039,
+      "hold": 0.046181726416836134,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_ss_125C_3v00": {
+      "setup": 44.35709169965047,
+      "hold": 0.9167369345342542,
+      "slew": 106,
+      "cap": 0,
+      "fanout": 0
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.47324367986097,
+      "hold": 0.3011337930915038,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 76.07374856489793,
+      "hold": 0.035107695522215064,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 43.327891834076276,
+      "hold": 0.8832863579454612,
+      "slew": 141,
+      "cap": 0,
+      "fanout": 0
+     },
+     "nom_tt_025C_3v30": {
+      "setup": 71.95742516624757,
+      "hold": 0.2820219693158772,
+      "slew": 0,
+      "cap": 0,
+      "fanout": 0
+     }
+    },
+    "all_held": true,
+    "reservation_misses": {},
+    "resized": 49,
+    "footprint_measured": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 34401.0,
+     "packing": 0.8655,
+     "dp_only_density": 0.7393,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "placement": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/clusters/datapath/placements/xpk20_p2",
+    "generator_args": {
+     "out": "placements/xpk20_p2",
+     "reserve": [],
+     "iters": 20000,
+     "seed": 12,
+     "T0": 0.05,
+     "T1": 0.005,
+     "weights": "repair",
+     "repair_from": [
+      "baseline/x0_area_classes.json"
+     ],
+     "K": 4.0,
+     "crit": "baseline/x0_crit.json",
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 30.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "dp",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": "placements/xpk20_s1",
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": true,
+     "hinge_json": null,
+     "pack_w": 20.0,
+     "ring": 0.0,
+     "edge": 0.0
+    },
+    "hpwl_pins_um": 37384.2,
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 34401.0,
+     "packing": 0.8655,
+     "dp_only_density": 0.7393,
+     "bbox_um": [
+      4.48,
+      3.92,
+      334.32,
+      156.8
+     ],
+     "dp_cells": 813,
+     "dp_area_um2": 25431.4
+    },
+    "cells_moved": 479,
+    "nondp_moved": []
+   }
+  ],
+  "missing": []
+ },
+ "packing_sequence": [
+  {
+   "tag": "x_s0",
+   "packing": 0.8331,
+   "region_um2": 37188.9,
+   "pack_w": null,
+   "area": 44959.9,
+   "slew_cap_fanout": "232/1/0",
+   "pass": false,
+   "firm_run": "/Users/samuelzhang/ttharden/dp_work/x_s0_firm"
+  },
+  {
+   "tag": "xa_s1",
+   "packing": 0.8388,
+   "region_um2": 36666.4,
+   "pack_w": 0.0,
+   "area": 44929.2,
+   "slew_cap_fanout": "183/1/0",
+   "pass": false,
+   "firm_run": "/Users/samuelzhang/ttharden/dp_work/xa_s1_firm"
+  },
+  {
+   "tag": "xpk10_s1",
+   "packing": 0.8546,
+   "region_um2": 35123.2,
+   "pack_w": 10.0,
+   "area": 44929.2,
+   "slew_cap_fanout": "191/2/0",
+   "pass": false,
+   "firm_run": "/Users/samuelzhang/ttharden/dp_work/xpk10_s1_firm"
+  },
+  {
+   "tag": "xpk20_s1",
+   "packing": 0.8655,
+   "region_um2": 34401.0,
+   "pack_w": 20.0,
+   "area": 44907.2,
+   "slew_cap_fanout": "189/1/0",
+   "pass": true,
+   "firm_run": "/Users/samuelzhang/ttharden/dp_work/xpk20_s1_firm"
+  }
+ ],
+ "packing_converged": {
+  "density": 0.8655,
+  "region_um2": 34401.0,
+  "rule": "D8c: density stopped rising",
+  "generator_only_tighter": [
+   {
+    "tag": "xpk40_s1",
+    "pack_w": 40,
+    "packing": 0.8651,
+    "region_um2": 34449.3,
+    "screened": false
+   },
+   {
+    "tag": "xpk80_s1",
+    "pack_w": 80,
+    "packing": 0.8664,
+    "region_um2": 34497.6,
+    "screened": false
+   }
+  ],
+  "bound": {
+   "tag": "pb1 (h2)",
+   "packing": 0.9592,
+   "result": "unroutable: 3,568 DRC violations at detailed-route iteration 37, stopped",
+   "log": "logs/pb1_firm_drt_killed.log"
+  },
+  "note": "flops frozen at tool sites fix the region's row extremes; pack-w 20/40/80 give 86.55/86.51/86.64%"
+ },
+ "winner": {
+  "tag": "xpk20_s1",
+  "placement": "placements/xpk20_s1",
+  "cfg": "macro_placement_xpk20.cfg",
+  "dry_run": "/Users/samuelzhang/ttharden/dp_work/xpk20_s1_firm",
+  "area": 44907.2,
+  "d_vs_x0": -4.4,
+  "by_class_vs_x0": {
+   "repair": -4.39,
+   "upsize": 0.0,
+   "cts": 0.0,
+   "synth": 0.0,
+   "tap_endcap_tie": 0.0
+  },
+  "repair_by_driver_vs_x0": {
+   "_1222_": -21.95,
+   "_1085_ (non-dp)": 8.78,
+   "_1311_": 8.78
+  },
+  "footprint": {
+   "seed_packing": 0.8331,
+   "seed_region_um2": 37188.9,
+   "packing": 0.8655,
+   "region_um2": 34401.0
+  }
+ },
+ "robustness": {
+  "rule": "winner and 2 perturbed variants must all pass the gate (beat x0)",
+  "variants": [
+   {
+    "tag": "xpk20_p1",
+    "how": "re-anneal from winner, 20k iters, T 0.05->0.005, seed 11",
+    "cells_changed": 13,
+    "area": 44907.2,
+    "scf": "189/1/0",
+    "pass": true
+   },
+   {
+    "tag": "xpk20_p2",
+    "how": "re-anneal from winner, 20k iters, T 0.05->0.005, seed 12",
+    "cells_changed": 10,
+    "area": 44907.2,
+    "scf": "184/1/0",
+    "pass": true
+   }
+  ],
+  "result": "pass (local); recipe-level seed robustness NOT shown: xa_s1/xa_s3 +17.6, xa_s2 cap 3, xpk10_s1 cap 2"
+ },
+ "signoff": {
+  "tag": "xpk20",
+  "run": "/Users/samuelzhang/ttharden/dp_xpk20/runs/wokwi",
+  "check_held": "logs/check_held_dp_xpk20.json",
+  "area_classes": "logs/dp_xpk20_area_classes.json",
+  "netlist_sha256_equal_x0": true,
+  "dry_run_equal": true,
+  "metrics": {
+   "metrics_json": "/Users/samuelzhang/ttharden/dp_xpk20/runs/wokwi/final/metrics.json",
+   "stdcell_area": 44907.2,
+   "slew": 189,
+   "cap": 1,
+   "fanout": 0,
+   "setup_ws_min": 42.30954550909778,
+   "hold_ws_min": 0.03441069748764294,
+   "route_drc": 0,
+   "magic_drc": 0,
+   "klayout_drc": null,
+   "lvs_errors": 0,
+   "antenna_nets": 0,
+   "wirelength_um": 48217,
+   "power_total_W": 0.0027725491672754288,
+   "instance_count": 2854
+  }
+ }
+}

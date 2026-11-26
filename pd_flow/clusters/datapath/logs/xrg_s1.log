@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/xrg_s1_probe0 998.0 s | resized 49 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/xrg_s1_firm 491.2 s | resized 49 misses 0 | held True | area 44929.2 slew/cap/fo 154/1/0 setup 43.27817160473528 hold 0.012705170608532131 drc 0 ant 0 wire 47304
+PIPELINE final placement placements/xrg_s1

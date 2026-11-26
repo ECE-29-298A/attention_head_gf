@@ -1,0 +1,58 @@
+{
+ "generator": "gen_tetris.py",
+ "args": {
+  "out": "placements/t9s1",
+  "reserve": [
+   "placements/res_s0_probe.json"
+  ],
+  "iters": 300000,
+  "seed": 1,
+  "T0": 1.0,
+  "T1": 0.005,
+  "weights": "repair",
+  "repair_from": [
+   "baseline/h2_area_classes.json",
+   "logs/s0r_firm_summary.json",
+   "placements/t1/firm_summary.json",
+   "placements/t3_r1/firm_summary.json",
+   "placements/t5/firm_summary.json",
+   "placements/t6/firm_summary.json",
+   "placements/t7/firm_summary.json",
+   "placements/t8/firm_summary.json"
+  ],
+  "K": 4.0,
+  "K2": 30.0,
+  "hpwl_thr": 60.0,
+  "slices": false,
+  "slice_w": 0.3,
+  "movable": "dp",
+  "window_rows": 3,
+  "window_sites": 40,
+  "init": null,
+  "freeze_flops": true
+ },
+ "hpwl_pins_um": 37179.9,
+ "cells_moved_from_h2": 504,
+ "dp_moved": 502,
+ "nondp_moved": [
+  "_1254_",
+  "_1248_"
+ ],
+ "mean_disp_um": 3.762,
+ "max_disp_um": 63.28,
+ "reserved": 48,
+ "seconds": 11.3,
+ "netlist_sha16": "a339bf991497fc19",
+ "log": [
+  "seed h2: HPWL 39053.5",
+  "reservations: 48 cells, widened now 1, cells shifted 2",
+  "movable cells: 632",
+  "weights: 54 repaired-driver nets x4.0, of which 33 wire-sensitive (seed HPWL >= 60.0 um) x30.0",
+  "  it   60000 T 0.347 cost 110226.3 hpwl 22184.8",
+  "  it  120000 T 0.120 cost 109693.4 hpwl 22039.2",
+  "  it  180000 T 0.042 cost 109656.2 hpwl 22003.7",
+  "  it  240000 T 0.014 cost 109521.9 hpwl 21999.2",
+  "  it  300000 T 0.005 cost 109516.3 hpwl 21993.7",
+  "optimizer: cost 125751.7 -> 109516.3, movable-net HPWL 23877.6 -> 21993.7"
+ ]
+}

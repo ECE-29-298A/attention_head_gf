@@ -1,0 +1,74 @@
+{
+ "placements/x_s0": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 37188.9,
+  "packing": 0.8331,
+  "dp_only_density": 0.6838,
+  "bbox_um": [
+   4.48,
+   3.92,
+   339.92,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "placements/xa_s1": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 36666.4,
+  "packing": 0.8388,
+  "dp_only_density": 0.6936,
+  "bbox_um": [
+   4.48,
+   3.92,
+   334.32,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "placements/xa_s2": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 36690.6,
+  "packing": 0.8392,
+  "dp_only_density": 0.6931,
+  "bbox_um": [
+   4.48,
+   3.92,
+   334.32,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "placements/xrg_s1": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 36607.2,
+  "packing": 0.8389,
+  "dp_only_density": 0.6947,
+  "bbox_um": [
+   4.48,
+   3.92,
+   334.32,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ }
+}

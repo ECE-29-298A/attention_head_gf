@@ -1,0 +1,1473 @@
+{
+ "_1093_": {
+  "master_synth": "clkinv_1",
+  "master_final": "clkinv_1",
+  "label": "core.divider_unit",
+  "net": "_0539_",
+  "fanout": 32,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 32
+  },
+  "hpwl_um": 451.6,
+  "bbox": [
+   25.5,
+   13.7,
+   339.9,
+   150.9
+  ],
+  "sink_cap_pf": 0.1456,
+  "repair": [
+   [
+    "fanout21",
+    "buf_3"
+   ],
+   [
+    "fanout22",
+    "buf_3"
+   ]
+  ],
+  "upsize": null
+ },
+ "_1145_": {
+  "master_synth": "and2_1",
+  "master_final": "and2_2",
+  "label": "core",
+  "net": "_0591_",
+  "fanout": 15,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 3,
+   "core": 12
+  },
+  "hpwl_um": 180.0,
+  "bbox": [
+   190.4,
+   103.9,
+   323.4,
+   150.9
+  ],
+  "sink_cap_pf": 0.0853,
+  "repair": [
+   [
+    "load_slew33",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "and2_1",
+   "and2_2",
+   2.195
+  ]
+ },
+ "_1146_": {
+  "master_synth": "nand2_1",
+  "master_final": "nand2_1",
+  "label": "core",
+  "net": "_0592_",
+  "fanout": 29,
+  "ports": null,
+  "sink_labels": {
+   "core": 16,
+   "core.divider_unit": 13
+  },
+  "hpwl_um": 205.0,
+  "bbox": [
+   171.4,
+   103.9,
+   329.3,
+   150.9
+  ],
+  "sink_cap_pf": 0.1241,
+  "repair": [
+   [
+    "fanout31",
+    "buf_3"
+   ],
+   [
+    "load_slew32",
+    "buf_3"
+   ]
+  ],
+  "upsize": null
+ },
+ "_1162_": {
+  "master_synth": "nor4_1",
+  "master_final": "nor4_4",
+  "label": "core",
+  "net": "_0605_",
+  "fanout": 6,
+  "ports": null,
+  "sink_labels": {
+   "core": 6
+  },
+  "hpwl_um": 76.2,
+  "bbox": [
+   209.2,
+   96.0,
+   254.0,
+   127.4
+  ],
+  "sink_cap_pf": 0.023,
+  "repair": [],
+  "upsize": [
+   "nor4_1",
+   "nor4_4",
+   59.27
+  ]
+ },
+ "_1262_": {
+  "master_synth": "oai31_1",
+  "master_final": "oai31_2",
+  "label": "core.mac",
+  "net": "_0681_",
+  "fanout": 2,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 1,
+   "core.divider_unit": 1
+  },
+  "hpwl_um": 32.5,
+  "bbox": [
+   41.2,
+   72.5,
+   50.1,
+   96.0
+  ],
+  "sink_cap_pf": 0.0117,
+  "repair": [],
+  "upsize": [
+   "oai31_1",
+   "oai31_2",
+   17.562
+  ]
+ },
+ "_1291_": {
+  "master_synth": "and2_1",
+  "master_final": "and2_1",
+  "label": "core.mac",
+  "net": "_0704_",
+  "fanout": 31,
+  "ports": null,
+  "sink_labels": {
+   "core": 1,
+   "core.mac": 30
+  },
+  "hpwl_um": 297.4,
+  "bbox": [
+   40.3,
+   21.6,
+   227.9,
+   131.3
+  ],
+  "sink_cap_pf": 0.1379,
+  "repair": [
+   [
+    "fanout14",
+    "buf_3"
+   ],
+   [
+    "fanout15",
+    "buf_3"
+   ]
+  ],
+  "upsize": null
+ },
+ "_1292_": {
+  "master_synth": "nand2_1",
+  "master_final": "nand2_1",
+  "label": "core.mac",
+  "net": "_0705_",
+  "fanout": 39,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 37,
+   "core.exponent_unit": 2
+  },
+  "hpwl_um": 342.2,
+  "bbox": [
+   28.3,
+   17.6,
+   248.9,
+   139.2
+  ],
+  "sink_cap_pf": 0.2453,
+  "repair": [
+   [
+    "fanout12",
+    "buf_3"
+   ],
+   [
+    "fanout13",
+    "buf_3"
+   ]
+  ],
+  "upsize": null
+ },
+ "_1297_": {
+  "master_synth": "nor2_1",
+  "master_final": "nor2_2",
+  "label": "core.mac",
+  "net": "_0710_",
+  "fanout": 7,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 7
+  },
+  "hpwl_um": 43.1,
+  "bbox": [
+   177.0,
+   45.1,
+   184.8,
+   80.4
+  ],
+  "sink_cap_pf": 0.032,
+  "repair": [],
+  "upsize": [
+   "nor2_1",
+   "nor2_2",
+   8.781
+  ]
+ },
+ "_1320_": {
+  "master_synth": "xnor2_1",
+  "master_final": "xnor2_2",
+  "label": "core.exponent_unit",
+  "net": "_0733_",
+  "fanout": 7,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 7
+  },
+  "hpwl_um": 61.0,
+  "bbox": [
+   222.0,
+   49.0,
+   255.6,
+   76.4
+  ],
+  "sink_cap_pf": 0.0327,
+  "repair": [],
+  "upsize": [
+   "xnor2_1",
+   "xnor2_2",
+   8.781
+  ]
+ },
+ "_1339_": {
+  "master_synth": "xor2_1",
+  "master_final": "xor2_2",
+  "label": "core.exponent_unit",
+  "net": "_0752_",
+  "fanout": 6,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 6
+  },
+  "hpwl_um": 47.9,
+  "bbox": [
+   231.3,
+   60.8,
+   255.6,
+   84.3
+  ],
+  "sink_cap_pf": 0.0256,
+  "repair": [],
+  "upsize": [
+   "xor2_1",
+   "xor2_2",
+   13.171
+  ]
+ },
+ "_1340_": {
+  "master_synth": "xnor2_1",
+  "master_final": "xnor2_2",
+  "label": "core.exponent_unit",
+  "net": "_0753_",
+  "fanout": 6,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 6
+  },
+  "hpwl_um": 36.7,
+  "bbox": [
+   230.4,
+   49.0,
+   243.6,
+   72.5
+  ],
+  "sink_cap_pf": 0.0245,
+  "repair": [],
+  "upsize": [
+   "xnor2_1",
+   "xnor2_2",
+   8.781
+  ]
+ },
+ "_1350_": {
+  "master_synth": "xor2_1",
+  "master_final": "xor2_2",
+  "label": "core.exponent_unit",
+  "net": "_0763_",
+  "fanout": 8,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 8
+  },
+  "hpwl_um": 58.2,
+  "bbox": [
+   226.8,
+   49.0,
+   249.8,
+   84.3
+  ],
+  "sink_cap_pf": 0.0419,
+  "repair": [],
+  "upsize": [
+   "xor2_1",
+   "xor2_2",
+   13.171
+  ]
+ },
+ "_1351_": {
+  "master_synth": "xnor2_1",
+  "master_final": "xnor2_2",
+  "label": "core.exponent_unit",
+  "net": "_0764_",
+  "fanout": 5,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 5
+  },
+  "hpwl_um": 42.0,
+  "bbox": [
+   226.5,
+   52.9,
+   256.8,
+   64.7
+  ],
+  "sink_cap_pf": 0.0272,
+  "repair": [],
+  "upsize": [
+   "xnor2_1",
+   "xnor2_2",
+   8.781
+  ]
+ },
+ "_1371_": {
+  "master_synth": "aoi21_1",
+  "master_final": "aoi21_2",
+  "label": "core.mac",
+  "net": "_0784_",
+  "fanout": 9,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 9
+  },
+  "hpwl_um": 80.4,
+  "bbox": [
+   164.1,
+   56.8,
+   201.3,
+   100.0
+  ],
+  "sink_cap_pf": 0.0334,
+  "repair": [
+   [
+    "load_slew19",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "aoi21_1",
+   "aoi21_2",
+   10.976
+  ]
+ },
+ "_1376_": {
+  "master_synth": "nand2_1",
+  "master_final": "nand2_2",
+  "label": "core",
+  "net": "_0789_",
+  "fanout": 11,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 11
+  },
+  "hpwl_um": 67.5,
+  "bbox": [
+   192.1,
+   45.1,
+   208.6,
+   96.0
+  ],
+  "sink_cap_pf": 0.0592,
+  "repair": [
+   [
+    "load_slew11",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "nand2_1",
+   "nand2_2",
+   8.781
+  ]
+ },
+ "_1381_": {
+  "master_synth": "nor4_1",
+  "master_final": "nor4_4",
+  "label": "core",
+  "net": "_0794_",
+  "fanout": 4,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 3,
+   "core.max_unit": 1
+  },
+  "hpwl_um": 201.3,
+  "bbox": [
+   156.0,
+   60.8,
+   306.3,
+   111.7
+  ],
+  "sink_cap_pf": 0.0185,
+  "repair": [],
+  "upsize": [
+   "nor4_1",
+   "nor4_4",
+   59.27
+  ]
+ },
+ "_1382_": {
+  "master_synth": "or4_1",
+  "master_final": "or4_2",
+  "label": "core",
+  "net": "_0795_",
+  "fanout": 14,
+  "ports": null,
+  "sink_labels": {
+   "core.mac.l_adder": 6,
+   "core.mac": 6,
+   "core": 2
+  },
+  "hpwl_um": 165.5,
+  "bbox": [
+   234.6,
+   9.8,
+   306.0,
+   103.9
+  ],
+  "sink_cap_pf": 0.0582,
+  "repair": [],
+  "upsize": [
+   "or4_1",
+   "or4_2",
+   4.39
+  ]
+ },
+ "_1384_": {
+  "master_synth": "and2_1",
+  "master_final": "and2_2",
+  "label": "core.mac",
+  "net": "_0797_",
+  "fanout": 19,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 19
+  },
+  "hpwl_um": 260.4,
+  "bbox": [
+   31.1,
+   17.6,
+   177.8,
+   131.3
+  ],
+  "sink_cap_pf": 0.0846,
+  "repair": [
+   [
+    "load_slew8",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "and2_1",
+   "and2_2",
+   2.195
+  ]
+ },
+ "_1387_": {
+  "master_synth": "nor4_1",
+  "master_final": "nor4_2",
+  "label": "core.mac",
+  "net": "_0800_",
+  "fanout": 2,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 2
+  },
+  "hpwl_um": 25.2,
+  "bbox": [
+   165.8,
+   52.9,
+   171.4,
+   72.5
+  ],
+  "sink_cap_pf": 0.0092,
+  "repair": [],
+  "upsize": [
+   "nor4_1",
+   "nor4_2",
+   17.562
+  ]
+ },
+ "_1394_": {
+  "master_synth": "or2_1",
+  "master_final": "or2_2",
+  "label": "core.mac",
+  "net": "_0806_",
+  "fanout": 16,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 15,
+   "core.mac.adder": 1
+  },
+  "hpwl_um": 91.8,
+  "bbox": [
+   155.1,
+   37.2,
+   184.2,
+   100.0
+  ],
+  "sink_cap_pf": 0.1017,
+  "repair": [
+   [
+    "load_slew7",
+    "clkbuf_3"
+   ]
+  ],
+  "upsize": [
+   "or2_1",
+   "or2_2",
+   4.39
+  ]
+ },
+ "_1395_": {
+  "master_synth": "nor2_1",
+  "master_final": "nor2_2",
+  "label": "core.mac",
+  "net": "_0807_",
+  "fanout": 6,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 5,
+   "core.mac.adder": 1
+  },
+  "hpwl_um": 51.5,
+  "bbox": [
+   156.8,
+   60.8,
+   177.0,
+   92.1
+  ],
+  "sink_cap_pf": 0.0357,
+  "repair": [
+   [
+    "load_slew6",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "nor2_1",
+   "nor2_2",
+   8.781
+  ]
+ },
+ "_1412_": {
+  "master_synth": "nor4_1",
+  "master_final": "nor4_2",
+  "label": "core.mac",
+  "net": "_0824_",
+  "fanout": 2,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 1,
+   "core.mac.adder": 1
+  },
+  "hpwl_um": 33.3,
+  "bbox": [
+   164.4,
+   56.8,
+   185.9,
+   68.6
+  ],
+  "sink_cap_pf": 0.0147,
+  "repair": [],
+  "upsize": [
+   "nor4_1",
+   "nor4_2",
+   17.562
+  ]
+ },
+ "_1417_": {
+  "master_synth": "oai32_1",
+  "master_final": "oai32_2",
+  "label": "core.mac",
+  "net": "_0828_",
+  "fanout": 2,
+  "ports": null,
+  "sink_labels": {
+   "core.mac.adder": 2
+  },
+  "hpwl_um": 25.2,
+  "bbox": [
+   167.4,
+   45.1,
+   173.0,
+   64.7
+  ],
+  "sink_cap_pf": 0.0121,
+  "repair": [],
+  "upsize": [
+   "oai32_1",
+   "oai32_2",
+   24.147
+  ]
+ },
+ "_1487_": {
+  "master_synth": "aoi211_1",
+  "master_final": "aoi211_2",
+  "label": "core.exponent_unit",
+  "net": "_0895_",
+  "fanout": 3,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 1,
+   "core": 1,
+   "core.mac.l_adder": 1
+  },
+  "hpwl_um": 83.2,
+  "bbox": [
+   224.3,
+   33.3,
+   283.9,
+   56.8
+  ],
+  "sink_cap_pf": 0.0162,
+  "repair": [],
+  "upsize": [
+   "aoi211_1",
+   "aoi211_2",
+   15.366
+  ]
+ },
+ "_1617_": {
+  "master_synth": "aoi21_1",
+  "master_final": "aoi21_4",
+  "label": "core.mac.adder",
+  "net": "_1015_",
+  "fanout": 10,
+  "ports": null,
+  "sink_labels": {
+   "core.mac.adder": 8,
+   "core.mac": 2
+  },
+  "hpwl_um": 126.8,
+  "bbox": [
+   80.4,
+   96.0,
+   168.0,
+   135.2
+  ],
+  "sink_cap_pf": 0.0495,
+  "repair": [],
+  "upsize": [
+   "aoi21_1",
+   "aoi21_4",
+   35.123
+  ]
+ },
+ "_1618_": {
+  "master_synth": "oai21_1",
+  "master_final": "oai21_2",
+  "label": "core.mac",
+  "net": "_1016_",
+  "fanout": 5,
+  "ports": null,
+  "sink_labels": {
+   "core.mac.adder": 4,
+   "core.mac": 1
+  },
+  "hpwl_um": 110.9,
+  "bbox": [
+   72.0,
+   100.0,
+   159.3,
+   123.5
+  ],
+  "sink_cap_pf": 0.0262,
+  "repair": [
+   [
+    "wire5",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "oai21_1",
+   "oai21_2",
+   15.366
+  ]
+ },
+ "_1704_": {
+  "master_synth": "nand3_1",
+  "master_final": "nand3_2",
+  "label": "core",
+  "net": "_0186_",
+  "fanout": 8,
+  "ports": null,
+  "sink_labels": {
+   "core": 8
+  },
+  "hpwl_um": 100.8,
+  "bbox": [
+   195.7,
+   29.4,
+   222.0,
+   103.9
+  ],
+  "sink_cap_pf": 0.0793,
+  "repair": [
+   [
+    "load_slew18",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "nand3_1",
+   "nand3_2",
+   13.171
+  ]
+ },
+ "_1741_": {
+  "master_synth": "nor3_1",
+  "master_final": "nor3_2",
+  "label": "core",
+  "net": "_0210_",
+  "fanout": 1,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 1
+  },
+  "hpwl_um": 14.6,
+  "bbox": [
+   285.6,
+   131.3,
+   292.3,
+   139.2
+  ],
+  "sink_cap_pf": 0.0042,
+  "repair": [],
+  "upsize": [
+   "nor3_1",
+   "nor3_2",
+   13.171
+  ]
+ },
+ "_1742_": {
+  "master_synth": "nor2_1",
+  "master_final": "nor2_4",
+  "label": "core.divider_unit",
+  "net": "_0211_",
+  "fanout": 12,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 12
+  },
+  "hpwl_um": 99.1,
+  "bbox": [
+   271.3,
+   100.0,
+   339.1,
+   131.3
+  ],
+  "sink_cap_pf": 0.0564,
+  "repair": [],
+  "upsize": [
+   "nor2_1",
+   "nor2_4",
+   26.342
+  ]
+ },
+ "_1778_": {
+  "master_synth": "nor2_1",
+  "master_final": "nor2_4",
+  "label": "core.divider_unit",
+  "net": "_0247_",
+  "fanout": 17,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 17
+  },
+  "hpwl_um": 132.7,
+  "bbox": [
+   285.6,
+   13.7,
+   339.9,
+   92.1
+  ],
+  "sink_cap_pf": 0.0753,
+  "repair": [
+   [
+    "load_slew4",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "nor2_1",
+   "nor2_4",
+   26.342
+  ]
+ },
+ "_1785_": {
+  "master_synth": "nor4_1",
+  "master_final": "nor4_4",
+  "label": "core",
+  "net": "_0253_",
+  "fanout": 11,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 11
+  },
+  "hpwl_um": 100.8,
+  "bbox": [
+   281.4,
+   100.0,
+   339.1,
+   143.1
+  ],
+  "sink_cap_pf": 0.0506,
+  "repair": [
+   [
+    "load_slew17",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "nor4_1",
+   "nor4_4",
+   59.27
+  ]
+ },
+ "_1905_": {
+  "master_synth": "nand4_1",
+  "master_final": "nand4_4",
+  "label": "core.mac",
+  "net": "_0339_",
+  "fanout": 13,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 13
+  },
+  "hpwl_um": 195.2,
+  "bbox": [
+   202.7,
+   17.6,
+   323.4,
+   92.1
+  ],
+  "sink_cap_pf": 0.0582,
+  "repair": [],
+  "upsize": [
+   "nand4_1",
+   "nand4_4",
+   50.49
+  ]
+ },
+ "_1925_": {
+  "master_synth": "oai32_1",
+  "master_final": "oai32_2",
+  "label": "core.mac.l_adder",
+  "net": "_0356_",
+  "fanout": 2,
+  "ports": null,
+  "sink_labels": {
+   "core.mac.l_adder": 2
+  },
+  "hpwl_um": 14.8,
+  "bbox": [
+   265.2,
+   45.1,
+   268.2,
+   56.8
+  ],
+  "sink_cap_pf": 0.0117,
+  "repair": [],
+  "upsize": [
+   "oai32_1",
+   "oai32_2",
+   24.147
+  ]
+ },
+ "_1966_": {
+  "master_synth": "aoi211_1",
+  "master_final": "aoi211_2",
+  "label": "core.mac",
+  "net": "_0392_",
+  "fanout": 3,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 3
+  },
+  "hpwl_um": 27.4,
+  "bbox": [
+   299.3,
+   52.9,
+   315.0,
+   64.7
+  ],
+  "sink_cap_pf": 0.0135,
+  "repair": [],
+  "upsize": [
+   "aoi211_1",
+   "aoi211_2",
+   15.366
+  ]
+ },
+ "_1979_": {
+  "master_synth": "and2_1",
+  "master_final": "and2_2",
+  "label": "core",
+  "net": "_0401_",
+  "fanout": 15,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 2,
+   "core": 13
+  },
+  "hpwl_um": 173.0,
+  "bbox": [
+   86.0,
+   21.6,
+   157.1,
+   123.5
+  ],
+  "sink_cap_pf": 0.0711,
+  "repair": [
+   [
+    "load_slew20",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "and2_1",
+   "and2_2",
+   2.195
+  ]
+ },
+ "_1984_": {
+  "master_synth": "and2_1",
+  "master_final": "and2_1",
+  "label": "core.mac",
+  "net": "_0406_",
+  "fanout": 24,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 24
+  },
+  "hpwl_um": 185.4,
+  "bbox": [
+   79.2,
+   17.6,
+   154.8,
+   127.4
+  ],
+  "sink_cap_pf": 0.1068,
+  "repair": [
+   [
+    "fanout10",
+    "buf_3"
+   ]
+  ],
+  "upsize": null
+ },
+ "_1988_": {
+  "master_synth": "nor2_1",
+  "master_final": "nor2_4",
+  "label": "core",
+  "net": "_0409_",
+  "fanout": 20,
+  "ports": null,
+  "sink_labels": {
+   "core": 14,
+   "core.mac": 6
+  },
+  "hpwl_um": 181.2,
+  "bbox": [
+   79.2,
+   21.6,
+   158.5,
+   123.5
+  ],
+  "sink_cap_pf": 0.0917,
+  "repair": [
+   [
+    "wire9",
+    "clkbuf_4"
+   ]
+  ],
+  "upsize": [
+   "nor2_1",
+   "nor2_4",
+   26.342
+  ]
+ },
+ "_2092_": {
+  "master_synth": "oai21_1",
+  "master_final": "oai21_2",
+  "label": "core.max_unit",
+  "net": "_0492_",
+  "fanout": 44,
+  "ports": null,
+  "sink_labels": {
+   "core.max_unit": 44
+  },
+  "hpwl_um": 208.0,
+  "bbox": [
+   73.4,
+   13.7,
+   156.0,
+   139.2
+  ],
+  "sink_cap_pf": 0.1999,
+  "repair": [
+   [
+    "fanout1",
+    "buf_3"
+   ],
+   [
+    "fanout2",
+    "buf_3"
+   ],
+   [
+    "load_slew3",
+    "buf_3"
+   ]
+  ],
+  "upsize": [
+   "oai21_1",
+   "oai21_2",
+   15.366
+  ]
+ },
+ "_2137_": {
+  "master_synth": "nand4_1",
+  "master_final": "nand4_4",
+  "label": "top",
+  "net": "_0515_",
+  "fanout": 11,
+  "ports": null,
+  "sink_labels": {
+   "top": 11
+  },
+  "hpwl_um": 219.8,
+  "bbox": [
+   129.1,
+   68.6,
+   270.5,
+   147.0
+  ],
+  "sink_cap_pf": 0.0873,
+  "repair": [
+   [
+    "wire16",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "nand4_1",
+   "nand4_4",
+   50.49
+  ]
+ },
+ "_2242_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_2",
+  "label": "core.divider_unit",
+  "net": "core.divider_unit.negative",
+  "fanout": 14,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 14
+  },
+  "hpwl_um": 97.4,
+  "bbox": [
+   254.8,
+   84.3,
+   332.6,
+   103.9
+  ],
+  "sink_cap_pf": 0.0974,
+  "repair": [
+   [
+    "load_slew30",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "dffq_1",
+   "dffq_2",
+   4.39
+  ]
+ },
+ "_2304_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_2",
+  "label": "top",
+  "net": "config_chain[5]",
+  "fanout": 10,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 8,
+   "top": 2
+  },
+  "hpwl_um": 58.8,
+  "bbox": [
+   113.1,
+   56.8,
+   140.6,
+   88.2
+  ],
+  "sink_cap_pf": 0.0789,
+  "repair": [
+   [
+    "wire29",
+    "clkbuf_4"
+   ]
+  ],
+  "upsize": [
+   "dffq_1",
+   "dffq_2",
+   4.39
+  ]
+ },
+ "_2305_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_2",
+  "label": "top",
+  "net": "config_chain[6]",
+  "fanout": 12,
+  "ports": null,
+  "sink_labels": {
+   "core.exponent_unit": 10,
+   "top": 2
+  },
+  "hpwl_um": 79.8,
+  "bbox": [
+   108.4,
+   52.9,
+   141.1,
+   100.0
+  ],
+  "sink_cap_pf": 0.0761,
+  "repair": [
+   [
+    "load_slew28",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "dffq_1",
+   "dffq_2",
+   4.39
+  ]
+ },
+ "_2306_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_4",
+  "label": "top",
+  "net": "config_chain[7]",
+  "fanout": 19,
+  "ports": null,
+  "sink_labels": {
+   "core.mac": 2,
+   "core.exponent_unit": 15,
+   "top": 2
+  },
+  "hpwl_um": 133.0,
+  "bbox": [
+   94.4,
+   49.0,
+   141.1,
+   135.2
+  ],
+  "sink_cap_pf": 0.1434,
+  "repair": [
+   [
+    "load_slew27",
+    "buf_8"
+   ]
+  ],
+  "upsize": [
+   "dffq_1",
+   "dffq_4",
+   15.366
+  ]
+ },
+ "_2309_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_2",
+  "label": "core",
+  "net": "core.mac.accum_en",
+  "fanout": 15,
+  "ports": null,
+  "sink_labels": {
+   "core": 11,
+   "core.mac": 4
+  },
+  "hpwl_um": 97.7,
+  "bbox": [
+   163.5,
+   88.2,
+   210.3,
+   139.2
+  ],
+  "sink_cap_pf": 0.0751,
+  "repair": [
+   [
+    "load_slew26",
+    "buf_4"
+   ]
+  ],
+  "upsize": [
+   "dffq_1",
+   "dffq_2",
+   4.39
+  ]
+ },
+ "_2316_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_1",
+  "label": "core.divider_unit",
+  "net": "core.divider_unit.state[0]",
+  "fanout": 30,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 30
+  },
+  "hpwl_um": 398.2,
+  "bbox": [
+   66.1,
+   29.4,
+   338.8,
+   154.8
+  ],
+  "sink_cap_pf": 0.1471,
+  "repair": [
+   [
+    "fanout24",
+    "buf_3"
+   ],
+   [
+    "fanout25",
+    "buf_3"
+   ]
+  ],
+  "upsize": null
+ },
+ "_2317_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_2",
+  "label": "core.divider_unit",
+  "net": "core.divider_unit.state[1]",
+  "fanout": 10,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 9,
+   "core": 1
+  },
+  "hpwl_um": 89.3,
+  "bbox": [
+   275.0,
+   96.0,
+   317.2,
+   143.1
+  ],
+  "sink_cap_pf": 0.0436,
+  "repair": [],
+  "upsize": [
+   "dffq_1",
+   "dffq_2",
+   4.39
+  ]
+ },
+ "_2344_": {
+  "master_synth": "dffq_1",
+  "master_final": "dffq_2",
+  "label": "core.mac",
+  "net": "core.divider_unit.sum_in[19]",
+  "fanout": 18,
+  "ports": null,
+  "sink_labels": {
+   "core.divider_unit": 12,
+   "core.mac": 6
+  },
+  "hpwl_um": 378.8,
+  "bbox": [
+   26.3,
+   21.6,
+   287.6,
+   139.2
+  ],
+  "sink_cap_pf": 0.0831,
+  "repair": [
+   [
+    "load_slew23",
+    "clkbuf_4"
+   ]
+  ],
+  "upsize": [
+   "dffq_1",
+   "dffq_2",
+   4.39
+  ]
+ },
+ "_2506_": {
+  "master_synth": "buf_1",
+  "master_final": "buf_3",
+  "label": "core",
+  "net": "uio_oe[1]",
+  "fanout": 0,
+  "ports": "uio_oe[1]",
+  "sink_labels": {},
+  "hpwl_um": 18.5,
+  "bbox": [
+   76.4,
+   150.9,
+   85.7,
+   160.2
+  ],
+  "sink_cap_pf": 0,
+  "repair": [],
+  "upsize": [
+   "buf_1",
+   "buf_3",
+   8.781
+  ]
+ },
+ "_2507_": {
+  "master_synth": "buf_1",
+  "master_final": "buf_3",
+  "label": "core",
+  "net": "uio_out[0]",
+  "fanout": 0,
+  "ports": "uio_out[0]",
+  "sink_labels": {},
+  "hpwl_um": 16.9,
+  "bbox": [
+   142.0,
+   147.0,
+   145.6,
+   160.2
+  ],
+  "sink_cap_pf": 0,
+  "repair": [],
+  "upsize": [
+   "buf_1",
+   "buf_3",
+   8.781
+  ]
+ },
+ "_2508_": {
+  "master_synth": "buf_1",
+  "master_final": "buf_3",
+  "label": "core",
+  "net": "uio_out[1]",
+  "fanout": 0,
+  "ports": "uio_out[1]",
+  "sink_labels": {},
+  "hpwl_um": 11.3,
+  "bbox": [
+   134.7,
+   154.8,
+   140.6,
+   160.2
+  ],
+  "sink_cap_pf": 0,
+  "repair": [],
+  "upsize": [
+   "buf_1",
+   "buf_3",
+   8.781
+  ]
+ },
+ "_2509_": {
+  "master_synth": "buf_1",
+  "master_final": "buf_3",
+  "label": "top",
+  "net": "uio_out[3]",
+  "fanout": 0,
+  "ports": "uio_out[3]",
+  "sink_labels": {},
+  "hpwl_um": 31.4,
+  "bbox": [
+   120.1,
+   154.8,
+   146.2,
+   160.2
+  ],
+  "sink_cap_pf": 0,
+  "repair": [],
+  "upsize": [
+   "buf_1",
+   "buf_3",
+   8.781
+  ]
+ },
+ "_2510_": {
+  "master_synth": "buf_1",
+  "master_final": "buf_3",
+  "label": "core.divider_unit",
+  "net": "uo_out[0]",
+  "fanout": 0,
+  "ports": "uo_out[0]",
+  "sink_labels": {},
+  "hpwl_um": 91.9,
+  "bbox": [
+   200.2,
+   150.9,
+   282.8,
+   160.2
+  ],
+  "sink_cap_pf": 0,
+  "repair": [],
+  "upsize": [
+   "buf_1",
+   "buf_3",
+   8.781
+  ]
+ },
+ "_2511_": {
+  "master_synth": "buf_1",
+  "master_final": "buf_3",
+  "label": "top",
+  "net": "uo_out[1]",
+  "fanout": 0,
+  "ports": "uo_out[1]",
+  "sink_labels": {},
+  "hpwl_um": 10.1,
+  "bbox": [
+   192.9,
+   154.8,
+   197.7,
+   160.2
+  ],
+  "sink_cap_pf": 0,
+  "repair": [],
+  "upsize": [
+   "buf_1",
+   "buf_3",
+   8.781
+  ]
+ }
+}

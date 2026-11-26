@@ -1,0 +1,5 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t9s2_probe0 27.9 s | resized 48 misses 1 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+PIPELINE round 0: 1 misses {'_1904_': 'nor3_2'} -> placements/t9s2_r1 (shifted 6)
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t9s2_probe1 30.8 s | resized 48 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t9s2_firm 74.9 s | resized 48 misses 0 | held True | area 45548.2 slew/cap/fo 255/1/6 setup 42.837741677518174 hold 0.04664646578808795 drc 0 ant 0 wire 49122
+PIPELINE final placement placements/t9s2_r1

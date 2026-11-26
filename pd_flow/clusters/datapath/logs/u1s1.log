@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/u1s1_probe0 24.8 s | resized 45 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/u1s1_firm 67.9 s | resized 45 misses 0 | held True | area 45482.3 slew/cap/fo 295/2/6 setup 42.434252868178 hold 0.055114581125608526 drc 0 ant 0 wire 50807
+PIPELINE final placement placements/u1s1

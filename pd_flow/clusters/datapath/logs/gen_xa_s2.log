@@ -1,0 +1,12 @@
+seed h2: HPWL 38024.7
+reservations: 49 cells, widened now 0, cells shifted 0
+movable cells: 597
+weights: 55 repaired-driver nets x4.0, of which 33 wire-sensitive (seed HPWL >= 60.0 um) x30.0
+crit weights from baseline/x0_crit.json: 1350 nets raised (Kc 10.0, Ks 5.0); nets with weight > 10: 101
+  it   60000 T 0.347 cost 259364.4 hpwl 21384.7
+  it  120000 T 0.120 cost 257250.0 hpwl 21533.9
+  it  180000 T 0.042 cost 257118.5 hpwl 21486.6
+  it  240000 T 0.014 cost 257111.8 hpwl 21487.1
+  it  300000 T 0.005 cost 257109.4 hpwl 21486.4
+optimizer: cost 289970.2 -> 257109.4, movable-net HPWL 22574.3 -> 21486.4
+wrote placements/xa_s2: HPWL 36936.8, moved 452 (non-dp 0), mean disp 4.006 um

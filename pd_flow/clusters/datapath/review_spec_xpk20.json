@@ -1,0 +1,28 @@
+{
+ "title": "Datapath Cluster Tetris",
+ "module": "datapath cluster (mac_unit + ripple_add x2 + max_reg + exp_lut)",
+ "date": "2026-11-26",
+ "commit": "77ed54a",
+ "summary": "The 813 datapath cells of the shipping netlist x0 were re-placed starting from the tool's own x0 placement. The 216 flops and every non-datapath cell stay at their tool sites. 597 combinational dp cells were moved by a legal-move annealer on repair- and criticality-weighted wire length, plus a compaction term. All 1,362 synthesized cells are held FIRM (MACRO_PLACEMENT_CFG) with the resizer's upsizes reserved in place. Packing was tightened one weight at a time (D8c) and converged at 86.6% (seed 83.3%). The winner xpk20_s1 is 4.4 um2 below x0 at signoff, all from timing-repair buffers.",
+ "decision": {"label": "Winner on x0: -4.4 um2, D2 better, robust to local perturbation; small", "kind": "accepted",
+   "text": "xpk20_s1 signs off at 44,907.2 um2 against x0's 44,911.6 (-4.4), slew/cap/fanout 189/1/0 against 242/1/0, setup +42.31 ns, hold +0.034 ns (x0 +0.007), DRC/LVS/antenna 0, all FIRM cells held at all 16 step DEFs. The harden reproduced the dry run exactly. The gain is entirely repair buffers (_1222_ needs 2 buffers instead of 3, -22.0; _1085_ and _1311_ get buf_4 instead of buf_3, +17.6). Upsizing (805.6) and the clock tree (759.5) are unchanged. Two perturbed variants (13 and 10 cells re-annealed) also give 44,907.2. The recipe is not seed-robust: other annealer seeds give +17.6 or fail cap. Of the structural terms, bit slices (+59.3), hinge targets (+39.5 / +70.2) and the ring array (+17.6) lost; only compaction won."},
+ "baseline": {"label": "x0 (shipping netlist, tool placement)", "run": "/Users/samuelzhang/ttharden/md_x0_full"},
+ "runs": [
+   {"label": "xpk20_s1: tool seed + weighted annealing + compaction (pack-w 20), all cells FIRM", "run": "/Users/samuelzhang/ttharden/dp_xpk20",
+    "note": "Synthesized netlist sha256 identical to x0 (99daa702b88da8c9...). 49 in-place upsizes, all inside their reservations; 0 FIRM cells moved."}],
+ "verification": [
+   "Placement only: netlist byte-identical to x0 (sha256 99daa702b88da8c9f458...), LVS 0 differences against it.",
+   "Validator (scripts/validate.py --regen): regenerated placement byte-identical, views agree, geometry legal, 0 non-cluster cells moved, planted overlap rejected (logs/validate_xpk20_s1.txt, _p1, _p2).",
+   "check_held_run.py: all 1,362 FIRM cells FIXED at configured origin/orientation at all 16 step DEFs; 49 resized cells inside their reserved spans (logs/check_held_dp_xpk20.json).",
+   "Dry run (dp_work/xpk20_s1_firm) and signoff harden agree exactly: area, slew/cap/fanout, setup, hold and wire length.",
+   "Robustness: perturbed variants xpk20_p1 / xpk20_p2 dry-run at 44,907.2 with 189/1/0 and 184/1/0, setup and hold >= 0 at all corners."],
+ "evidence": [
+   "pd_flow/clusters/datapath/PLAN.md",
+   "pd_flow/clusters/datapath/results.json",
+   "pd_flow/clusters/datapath/placements/xpk20_s1/macro_placement.cfg",
+   "pd_flow/clusters/datapath/scripts/gen_tetris.py",
+   "pd_flow/clusters/datapath/scripts/validate.py",
+   "pd_flow/clusters/datapath/logs/check_held_dp_xpk20.json",
+   "pd_flow/clusters/datapath/logs/dp_xpk20_area_classes.json",
+   "/Users/samuelzhang/ttharden/dp_xpk20/runs/wokwi/final/metrics.json"]
+}

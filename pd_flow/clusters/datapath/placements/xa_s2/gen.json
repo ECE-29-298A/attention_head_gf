@@ -1,0 +1,92 @@
+{
+ "generator": "gen_tetris.py",
+ "args": {
+  "out": "placements/xa_s2",
+  "reserve": [],
+  "iters": 300000,
+  "seed": 2,
+  "T0": 1.0,
+  "T1": 0.005,
+  "weights": "repair",
+  "repair_from": [
+   "baseline/x0_area_classes.json"
+  ],
+  "K": 4.0,
+  "crit": "baseline/x0_crit.json",
+  "Kc": 10.0,
+  "Ks": 5.0,
+  "K2": 30.0,
+  "hpwl_thr": 60.0,
+  "slices": false,
+  "slice_w": 0.3,
+  "movable": "dp",
+  "window_rows": 3,
+  "window_sites": 40,
+  "init": null,
+  "hinge_frac": 0.0,
+  "hinge_w": 0.0,
+  "sensitive_from": [],
+  "freeze_flops": true,
+  "pack_w": 0.0,
+  "ring": 0.0,
+  "edge": 0.0
+ },
+ "hpwl_pins_um": 36936.8,
+ "footprint": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 36690.6,
+  "packing": 0.8392,
+  "dp_only_density": 0.6931,
+  "bbox_um": [
+   4.48,
+   3.92,
+   334.32,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "footprint_seed": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 37188.9,
+  "packing": 0.8331,
+  "dp_only_density": 0.6838,
+  "bbox_um": [
+   4.48,
+   3.92,
+   339.92,
+   156.8
+  ],
+  "dp_cells": 813,
+  "dp_area_um2": 25431.4
+ },
+ "cells_moved_from_h2": 452,
+ "dp_moved": 452,
+ "nondp_moved": [],
+ "mean_disp_um": 4.006,
+ "max_disp_um": 63.84,
+ "reserved": 49,
+ "seconds": 11.8,
+ "netlist_sha16": "99daa702b88da8c9",
+ "log": [
+  "seed h2: HPWL 38024.7",
+  "reservations: 49 cells, widened now 0, cells shifted 0",
+  "movable cells: 597",
+  "weights: 55 repaired-driver nets x4.0, of which 33 wire-sensitive (seed HPWL >= 60.0 um) x30.0",
+  "crit weights from baseline/x0_crit.json: 1350 nets raised (Kc 10.0, Ks 5.0); nets with weight > 10: 101",
+  "  it   60000 T 0.347 cost 259364.4 hpwl 21384.7",
+  "  it  120000 T 0.120 cost 257250.0 hpwl 21533.9",
+  "  it  180000 T 0.042 cost 257118.5 hpwl 21486.6",
+  "  it  240000 T 0.014 cost 257111.8 hpwl 21487.1",
+  "  it  300000 T 0.005 cost 257109.4 hpwl 21486.4",
+  "optimizer: cost 289970.2 -> 257109.4, movable-net HPWL 22574.3 -> 21486.4"
+ ]
+}

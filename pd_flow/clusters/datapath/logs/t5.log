@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t5_probe0 30.1 s | resized 45 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t5_firm 74.3 s | resized 45 misses 0 | held True | area 45504.3 slew/cap/fo 233/1/6 setup 42.77465258622575 hold 0.04960598738853222 drc 0 ant 0 wire 48826
+PIPELINE final placement placements/t5

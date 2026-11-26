@@ -1,0 +1,43 @@
+{
+ "generator": "gen_tetris.py",
+ "args": {
+  "out": "placements/x_s0",
+  "reserve": [],
+  "iters": 0,
+  "seed": 1,
+  "T0": 1.0,
+  "T1": 0.005,
+  "weights": "flat",
+  "repair_from": [],
+  "K": 4.0,
+  "crit": null,
+  "Kc": 10.0,
+  "Ks": 5.0,
+  "K2": 0.0,
+  "hpwl_thr": 60.0,
+  "slices": false,
+  "slice_w": 0.3,
+  "movable": "dp",
+  "window_rows": 3,
+  "window_sites": 40,
+  "init": null,
+  "hinge_frac": 0.0,
+  "hinge_w": 0.0,
+  "sensitive_from": [],
+  "freeze_flops": false
+ },
+ "hpwl_pins_um": 38024.7,
+ "cells_moved_from_h2": 0,
+ "dp_moved": 0,
+ "nondp_moved": [],
+ "mean_disp_um": 0.0,
+ "max_disp_um": 0.0,
+ "reserved": 49,
+ "seconds": 2.3,
+ "netlist_sha16": "99daa702b88da8c9",
+ "log": [
+  "seed h2: HPWL 38024.7",
+  "reservations: 49 cells, widened now 0, cells shifted 0",
+  "movable cells: 813"
+ ]
+}

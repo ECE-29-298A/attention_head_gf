@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t7_probe0 23.1 s | resized 46 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t7_firm 80.5 s | resized 46 misses 0 | held True | area 45499.9 slew/cap/fo 248/1/6 setup 42.28930214598345 hold 0.03441835802672951 drc 0 ant 0 wire 49615
+PIPELINE final placement placements/t7

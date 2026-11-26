@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t8_probe0 28.5 s | resized 46 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/dp_work/t8_firm 64.5 s | resized 46 misses 0 | held True | area 45510.9 slew/cap/fo 264/2/6 setup 42.50289840382121 hold 0.060222384339460026 drc 0 ant 0 wire 48656
+PIPELINE final placement placements/t8
