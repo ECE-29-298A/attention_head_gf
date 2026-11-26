@@ -1,0 +1,1 @@
+edge_r0	edge	pass-edge-spot	true	1.752	logs/edge_r0.log	edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: reg=0 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=0 mismatches=0

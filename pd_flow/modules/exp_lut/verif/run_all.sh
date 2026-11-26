@@ -82,7 +82,9 @@ job() {
             if [ -z "$GATE" ] && [ "$r" = 1 ]; then
                 echo "== default parameter value: the block test instantiates exp_lut without a parameter, so the default must be REGISTERED = 1"
                 yosys -q -p "read_verilog exp_lut_fv.v; hierarchy -check -top exp_lut; proc -noopt -norom; flatten; opt_clean; write_json lint_default.json"; r4=$?
-                "$PY" "$VERIF/lint/check_interface.py" lint_default.json --registered 1 | sed 's/^RESULT interface/RESULT default_param/' || r4=1
+                # Exit status from the check itself, not from sed (review B1: the piped form could never fail).
+                "$PY" "$VERIF/lint/check_interface.py" lint_default.json --registered 1 > lint_default.txt || r4=1
+                sed 's/^RESULT interface/RESULT default_param/' lint_default.txt
                 echo "default_rc=$r4"
             fi
             [ $r1 -eq 0 ] && [ $r2 -eq 0 ] && [ $r3 -eq 0 ] && [ $r4 -eq 0 ]

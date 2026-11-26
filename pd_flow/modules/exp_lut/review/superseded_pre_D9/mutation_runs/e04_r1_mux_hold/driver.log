@@ -1,0 +1,37 @@
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/clean/pd_flow/modules/exp_lut/verif/run_all.sh --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutants/e04_r1_mux_hold.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutation_runs/e04_r1_mux_hold --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutants/e04_r1_mux_hold.v
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutation_runs/e04_r1_mux_hold
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//exp_lut_verif.dbXrPZ
+== phase build
+== phase sim
+== phase formal
+gen                    pass                 pass-static         2.01s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206
+selftest               pass                 pass-static         1.09s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0                pass                 pass-static         0.14s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+lint_r1                pass                 pass-static         0.19s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+build_r0               pass                 pass-static         3.17s  obj_r0/sim
+build_r1               pass                 pass-static         3.14s  obj_r1/sim
+sim_exh_r0             pass-exhaustive      pass-exhaustive     1.69s  RESULT mode=exh0 points=67108864 expected=67108864 mismatches=0
+sim_exh_r1             pass-exhaustive      pass-exhaustive     8.81s  RESULT_EXH1 loads=67108864 (expected 67108864) shadow_checked=134234113; RESULT mode=exh1 cycles=134234113 che
+sim_powerup_r1         pass-sampled         pass-sampled        0.06s  RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+sim_seq_r1             pass-sampled         pass-sampled        8.69s  RESULT_SEQ regimes=98061 shadow_checked=99996179; RESULT mode=seq cycles=100000000 expected=100000000 checked=
+vec_r1                 pass-sampled         pass-sampled        3.04s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+ivl_exh_r0_s0_3        pass-exhaustive      pass-exhaustive    34.07s  RESULT sim=icarus reg=0 shifts=0..3 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input
+ivl_exh_r0_s12_15      pass-exhaustive      pass-exhaustive    26.61s  RESULT sim=icarus reg=0 shifts=12..15 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the inp
+ivl_exh_r0_s4_7        pass-exhaustive      pass-exhaustive    28.34s  RESULT sim=icarus reg=0 shifts=4..7 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input
+ivl_exh_r0_s8_11       pass-exhaustive      pass-exhaustive    26.53s  RESULT sim=icarus reg=0 shifts=8..11 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the inpu
+ivl_exh_r1_s0_3        pass-exhaustive      pass-exhaustive    86.99s  RESULT sim=icarus reg=1 shifts=0..3 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of th
+ivl_exh_r1_s12_15      pass-exhaustive      pass-exhaustive    80.99s  RESULT sim=icarus reg=1 shifts=12..15 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of 
+ivl_exh_r1_s4_7        pass-exhaustive      pass-exhaustive    81.33s  RESULT sim=icarus reg=1 shifts=4..7 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of th
+ivl_exh_r1_s8_11       pass-exhaustive      pass-exhaustive    80.63s  RESULT sim=icarus reg=1 shifts=8..11 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of t
+fv_cover_r0            covered              bounded-pass        1.08s  sby_status=PASS asserts=3 covers=47 reached=47 unreached=0 max_step=0 depth=1
+fv_cover_r1            covered              bounded-pass        0.75s  sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_equiv_r0            proven               proven              5.42s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+fv_pdr_equiv_r0        proven               proven              1.22s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_r1              proven               proven              2.18s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_r1            proven               proven              3.67s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_d21_r0       failed-as-expected   failed              0.57s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_d21
+fv_sanity_lat0_r1      failed-as-expected   failed              0.56s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1        failed-as-expected   failed              0.55s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r0     failed-as-expected   failed              0.56s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+TOTAL 29/29 ok, all_ok=True, 250.636 s

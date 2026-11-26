@@ -1,0 +1,1 @@
+fv_sanity_trunc_r1	sby	failed-as-expected	true	0.683	logs/fv_sanity_trunc_r1.log	sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc

@@ -1,0 +1,1 @@
+lint_r0	lint	pass	true	0.173	logs/lint_r0.log	RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut registered=0 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=0 errors=0

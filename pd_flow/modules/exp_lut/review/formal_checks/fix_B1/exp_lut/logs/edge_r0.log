@@ -1,0 +1,8 @@
+== verilator
+intervals loaded: 352
+edge points loaded: 105418
+RESULT_EDGE points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386
+RESULT mode=edge0 points=105418 expected=105418 mismatches=0
+== icarus (4-state)
+RESULT sim=icarus reg=0 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=0 mismatches=0
+tb_edge.sv:127: $finish called at 210809000 (1ps)

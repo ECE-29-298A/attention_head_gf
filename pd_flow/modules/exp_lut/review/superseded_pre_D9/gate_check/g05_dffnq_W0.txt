@@ -1,0 +1,1 @@
+gate sweep R=1 rc=1 {"registered": 1, "checks": 67112080, "mismatches": 227} MISMATCH reset D=0 shift=0 got=1 exp=0 MISMATCH W-before-edge D=0 shift=0 got=1 exp=0 

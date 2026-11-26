@@ -1,0 +1,8 @@
+RESULT intervals lines=352
+RESULT vhdr wtab=64 thresholds=400
+RESULT edges points=105418 d20_set=448 d21_d20_set=448 d21_set=496 dprime_edge=176 fixed=224 half_way=2602 last_nonzero=16 random=100000 transition=1008
+RESULT vectors written=206052 checked_values=206049
+e01a966d8701aa2024546909469669e0a2a8da022937aebdee3c075ef8c7c14b  iv.txt
+b9e70681adf7a4fd2d97ff7c8b2183e7218e42b6bb71e1d389786cbcfe31c172  ref_table.vh
+bc83957c765a9c78b8e284ebb27eff732f6d1da662ab04b98ca3d41d5780befb  edges.txt
+64a1350b703bb735b7ac8134074733d1c3fcbb90b62c280522c38717be9d5eaa  vec.txt

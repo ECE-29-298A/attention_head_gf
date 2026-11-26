@@ -1,0 +1,27 @@
+/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif/run_all.sh --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutants/m29_r1_initval.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutation_runs/m29_r1_initval --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutants/m29_r1_initval.v
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutation_runs/m29_r1_initval
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//exp_lut_verif.HpShYm
+== phase build
+== phase sim
+== phase formal
+gen                    pass                 pass-static         4.51s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
+selftest               pass                 pass-static         1.39s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0                pass                 pass-static         0.17s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+lint_r1                failed               failed              0.21s  RESULT lint mode=rtl warnings=2 netlist=2 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+build_r0               pass                 pass-static         3.95s  obj_r0/sim
+build_r1               pass                 pass-static         3.78s  obj_r1/sim
+edge_r0                pass-edge-spot       pass-sampled        1.98s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: re
+edge_r1                pass-edge-spot       pass-sampled        2.48s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=2174
+smoke_powerup_r1       failed               failed          (smoke)     0.07s  RESULT_POWERUP seeds=64 distinct_initial_state=1; RESULT mode=powerup cycles=195264 checked=195264 mismatches=
+smoke_seq_r1           pass-sampled         pass-sampled    (smoke)     0.56s  RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=500000
+smoke_vec_r1           pass-sampled         pass-sampled    (smoke)     3.85s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+fv_cover_r1            inconclusive         inconclusive        0.50s  tool/infrastructure error: sby_status=ERROR; SBY 12:38:00 [exp_lut_cover_r1] base: ERROR: Assertion failed: se
+fv_pdr_r1              inconclusive         inconclusive        0.51s  tool/infrastructure error: sby_status=ERROR; SBY 12:38:00 [exp_lut_pdr_r1] base: ERROR: Assertion failed: sele
+fv_prove_r1            inconclusive         inconclusive        0.50s  tool/infrastructure error: sby_status=ERROR; SBY 12:38:00 [exp_lut_prove_r1] base: ERROR: Assertion failed: se
+fv_sanity_lat0_r1      inconclusive         inconclusive        0.50s  tool/infrastructure error: sby_status=ERROR; SBY 12:38:01 [exp_lut_sanity_lat0_r1] base: ERROR: Assertion fail
+fv_sanity_pu_r1        inconclusive         inconclusive        0.50s  tool/infrastructure error: sby_status=ERROR; SBY 12:38:00 [exp_lut_sanity_pu_r1] base: ERROR: Assertion failed
+fv_sanity_trunc_r1     inconclusive         inconclusive        0.50s  tool/infrastructure error: sby_status=ERROR; SBY 12:38:01 [exp_lut_sanity_trunc_r1] base: ERROR: Assertion fai
+eqy_rtl_r0             proven               proven              3.18s  eqy_status=PASS partitions_proved=60 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGIST
+eqy_rtl_r1             proven               proven              3.24s  eqy_status=PASS partitions_proved=61 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGIST
+TOTAL 9/16 gating ok, all_ok=False; smoke 2/3 ok (non-gating); 19.914 s

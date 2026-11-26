@@ -1,0 +1,16 @@
+[gold]
+read_verilog -sv gold.v
+chparam -set REGISTERED 0 exp_lut
+prep -top exp_lut
+memory_map; opt_clean
+
+[gate]
+read_verilog gate.v
+hierarchy -top exp_lut
+proc; flatten; opt_clean
+prep -top exp_lut
+memory_map; opt_clean
+
+[strategy sat]
+use sat
+depth 1

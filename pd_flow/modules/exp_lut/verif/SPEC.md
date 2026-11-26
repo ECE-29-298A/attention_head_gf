@@ -22,7 +22,7 @@ remaining simulations are non-gating smoke checks (section 4).
     D' = round_half_up(D / 2^shift) = floor(D / 2^shift + 1/2)      D unsigned 22-bit, shift 0..15
     W  = round(255 · e^(−D'/4))                                     8-bit unsigned
 
-`W` is 0 for every `D' >= 25` (because `255·e^(−25/4) = 0.493 < 1/2` and `e^x` is monotone), so
+`W` is 0 for every `D' >= 25` (because `255·e^(−25/4) = 0.4923 < 1/2` and `e^x` is monotone), so
 only 25 non-zero values exist (255, 199, 155, 120, 94, 73, 57, 44, 35, 27, 21, 16, 13, 10, 8, 6,
 5, 4, 3, 2, 2, 1, 1, 1, 1 for D' = 0..24). Call this function `f(D, shift)`.
 

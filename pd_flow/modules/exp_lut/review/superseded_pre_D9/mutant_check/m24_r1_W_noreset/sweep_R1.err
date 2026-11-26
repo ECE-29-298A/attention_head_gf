@@ -1,0 +1,6 @@
+MISMATCH reset D=201268 shift=14 got=13 exp=0
+MISMATCH W-before-edge D=201269 shift=14 got=13 exp=0
+MISMATCH reset D=201268 shift=15 got=57 exp=0
+MISMATCH W-before-edge D=201269 shift=15 got=57 exp=0
+MISMATCH reset D=660020 shift=15 got=2 exp=0
+MISMATCH W-before-edge D=660021 shift=15 got=2 exp=0

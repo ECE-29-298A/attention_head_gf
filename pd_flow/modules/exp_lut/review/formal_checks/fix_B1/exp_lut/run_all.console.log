@@ -1,0 +1,20 @@
+gen                    pass                 pass-static         4.43s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
+selftest               pass                 pass-static         1.33s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0                pass                 pass-static         0.17s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+lint_r1                pass                 pass-static         0.22s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+build_r0               pass                 pass-static         3.88s  obj_r0/sim
+build_r1               pass                 pass-static         3.88s  obj_r1/sim
+edge_r0                pass-edge-spot       pass-sampled        1.75s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: re
+edge_r1                pass-edge-spot       pass-sampled        2.58s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=2174
+smoke_powerup_r1       pass-sampled         pass-sampled    (smoke)     0.07s  RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+smoke_seq_r1           pass-sampled         pass-sampled    (smoke)     0.55s  RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=500000
+smoke_vec_r1           pass-sampled         pass-sampled    (smoke)     3.69s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+fv_cover_r1            covered              bounded-pass        0.89s  sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_pdr_r1              proven               proven              2.41s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_r1            proven               proven              4.44s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat0_r1      failed-as-expected   failed              0.67s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1        failed-as-expected   failed              0.66s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1     failed-as-expected   failed              0.68s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl_r0             proven               proven              3.04s  eqy_status=PASS partitions_proved=60 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGIST
+eqy_rtl_r1             proven               proven              3.08s  eqy_status=PASS partitions_proved=61 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGIST
+TOTAL 16/16 gating ok, all_ok=True; smoke 3/3 ok (non-gating); 23.042 s

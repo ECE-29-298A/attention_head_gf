@@ -15,7 +15,7 @@ never a tie; the model checks that every value for k = 0..63 is at least TIE_MAR
 from a half-integer, so round-half-up, round-half-even and round-half-away give the same W.
 e^x is evaluated twice, with Python's math.exp (double) and with decimal.Decimal at 60
 digits; both must give the same W. For k >= 25, W = 0 follows from monotonicity:
-255 * e^(-25/4) = 0.4928... < 1/2 and e^(-k/4) decreases in k.
+255 * e^(-25/4) = 0.4923... < 1/2 and e^(-k/4) decreases in k.
 
 Where the RTL (and its header) is the specification rather than mathematics:
   S1 the constants 255 (scale) and 4 (D' units per nat), the 8-bit unsigned output;
@@ -154,7 +154,7 @@ def selftest() -> int:
              16: 5,           # 255 / e^4    = 4.67
              20: 2,           # 255 / e^5    = 1.72
              24: 1,           # 255 / e^6    = 0.632
-             25: 0,           # 255 e^-6.25  = 0.493
+             25: 0,           # 255 e^-6.25  = 0.4923
              2: 155,          # 255 / sqrt(e) = 154.66
              1: 199}          # 255 e^-0.25  = 198.59
     for k, w in kat_w.items():

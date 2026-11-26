@@ -1,0 +1,92 @@
+SBY 12:49:26 [exp_lut_pdr_r1] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_pdr_r1'.
+SBY 12:49:26 [exp_lut_pdr_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_pdr_r1/src/exp_lut_fv.v'.
+SBY 12:49:26 [exp_lut_pdr_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_pdr_r1/src/exp_lut_props.sv'.
+SBY 12:49:26 [exp_lut_pdr_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/ref_table.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_pdr_r1/src/ref_table.vh'.
+SBY 12:49:26 [exp_lut_pdr_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.jprNBs/fv_pdr_r1/exp_lut_pdr_r1/src/fv_mode.vh'.
+SBY 12:49:26 [exp_lut_pdr_r1] engine_0: abc pdr
+SBY 12:49:26 [exp_lut_pdr_r1] base: starting process "cd exp_lut_pdr_r1/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 12:49:27 [exp_lut_pdr_r1] base: finished (returncode=0)
+SBY 12:49:27 [exp_lut_pdr_r1] prep: starting process "cd exp_lut_pdr_r1/model; yosys -ql design_prep.log design_prep.ys"
+SBY 12:49:27 [exp_lut_pdr_r1] prep: finished (returncode=0)
+SBY 12:49:27 [exp_lut_pdr_r1] aig: starting process "cd exp_lut_pdr_r1/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [0] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [1] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [2] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [3] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [4] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [5] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [6] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [7] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [8] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [9] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [10] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [11] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [12] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [13] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [14] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [15] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [16] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [17] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [18] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [19] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [20] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\D [21] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\clk like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\rst_n like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\start like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\shift [0] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\shift [1] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\shift [2] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating undriven bit exp_lut_props.\shift [3] like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: Warning: Treating a total of 29 undriven bits in exp_lut_props like $anyseq.
+SBY 12:49:27 [exp_lut_pdr_r1] aig: finished (returncode=0)
+SBY 12:49:27 [exp_lut_pdr_r1] engine_0: starting process "cd exp_lut_pdr_r1; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Warning: The last output is interpreted as a constraint.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 219. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 1 : 0 79                                                                1    47      0.10 sec  T/O =  0  PRV =  0
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Proved output 0 in frame 1.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Proved output 1 in frame 1.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Proved output 2 in frame 1.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Proved output 4 in frame 1.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Proved output 5 in frame 1.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 2 : 0 16 6 ~63                                                           1    47      0.39 sec  T/O =  0  PRV =  5
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Timing out on output 3 in frame 2 (retrying in next anytime pass).
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 2 : 0 16 6 ~63                                                           0    47      0.39 sec  T/O =  1  PRV =  5
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 3 : 0 16 0 0 ~69                                                         0    47      0.54 sec  T/O =  1  PRV =  5
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: All outputs solved or timed out in frame 3.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Starting new anytime pass, reusing clauses.
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 1 : 0 16 ~69                                                             0     0      0.01 sec  T/O =  0  PRV =  5
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 2 : 0 16 4 ~69                                                           1     9      0.22 sec  T/O =  0  PRV =  5
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: Timing out on output 3 in frame 2 (retrying in next anytime pass).
+SBY 12:49:28 [exp_lut_pdr_r1] engine_0: 2 : 0 16 4 ~69                                                           0     9      0.22 sec  T/O =  1  PRV =  5
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: 3 : 0 16 0 0 ~73                                                         0     9      0.43 sec  T/O =  1  PRV =  5
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: All outputs solved or timed out in frame 3.
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Starting new anytime pass, reusing clauses.
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: 1 : 0 16 ~73                                                             0     0      0.01 sec  T/O =  0  PRV =  5
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: 2 : 0 16 6 ~73                                                           1    13      0.23 sec  T/O =  0  PRV =  5
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Proved output 3 in frame 2.
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: 3 : 0 16 0 0 ~79                                                         0    13      0.44 sec  T/O =  0  PRV =  6
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Block =   97  Oblig =    97  Clause =    95  Call =   533 (sat=77.5%)  Cex =   0  Start =   0
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: SAT solving =     0.69 sec ( 48.75 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: unsat     =     0.59 sec ( 41.94 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: sat       =     0.10 sec (  6.82 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Generalize  =     0.65 sec ( 45.82 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Push clause =     0.04 sec (  3.08 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Ternary sim =     0.00 sec (  0.09 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Containment =     0.00 sec (  0.01 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: CNF compute =     0.01 sec (  1.01 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: TOTAL       =     1.42 sec (100.00 %)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Property proved.  Time =     1.42 sec
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Counter-example is not available.
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: finished (returncode=0)
+SBY 12:49:29 [exp_lut_pdr_r1] engine_0: Status returned by engine: PASS
+SBY 12:49:29 [exp_lut_pdr_r1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY 12:49:29 [exp_lut_pdr_r1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY 12:49:29 [exp_lut_pdr_r1] summary: engine_0 (abc pdr) returned PASS
+SBY 12:49:29 [exp_lut_pdr_r1] summary: engine_0 did not produce any traces
+SBY 12:49:29 [exp_lut_pdr_r1] DONE (PASS, rc=0)

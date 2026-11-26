@@ -1,0 +1,20 @@
+SBY 12:49:55 [exp_lut_cover_r1] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_cover_r1'.
+SBY 12:49:55 [exp_lut_cover_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_cover_r1/src/exp_lut_fv.v'.
+SBY 12:49:55 [exp_lut_cover_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_cover_r1/src/exp_lut_props.sv'.
+SBY 12:49:55 [exp_lut_cover_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/ref_table.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_cover_r1/src/ref_table.vh'.
+SBY 12:49:55 [exp_lut_cover_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/el_fc.9Vw25d/rom/exp_lut_cover_r1/src/fv_mode.vh'.
+SBY 12:49:55 [exp_lut_cover_r1] engine_0: smtbmc z3
+SBY 12:49:55 [exp_lut_cover_r1] base: starting process "cd exp_lut_cover_r1/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 12:49:56 [exp_lut_cover_r1] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_ALDFF* t:$_DLATCH* t:$_SR_* t:$_SDFF_N* t:$_SDFFE_N* t:$_SDFFCE_N*
+SBY 12:49:56 [exp_lut_cover_r1] base: Selection contains:
+SBY 12:49:56 [exp_lut_cover_r1] base: exp_lut_props/$auto$proc_rom.cc:155:do_switch$398
+SBY 12:49:56 [exp_lut_cover_r1] base: exp_lut_props/$auto$proc_rom.cc:155:do_switch$402
+SBY 12:49:56 [exp_lut_cover_r1] base: exp_lut_props/$flatten\dut.$auto$proc_rom.cc:155:do_switch$394
+SBY 12:49:56 [exp_lut_cover_r1] base: finished (returncode=1)
+SBY 12:49:56 [exp_lut_cover_r1] base: task failed. ERROR.
+SBY 12:49:56 [exp_lut_cover_r1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 12:49:56 [exp_lut_cover_r1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 12:49:56 [exp_lut_cover_r1] summary: engine_0 (smtbmc z3) did not return a status
+SBY 12:49:56 [exp_lut_cover_r1] summary: engine_0 did not produce any traces
+SBY 12:49:56 [exp_lut_cover_r1] DONE (ERROR, rc=16)
+SBY 12:49:56 The following tasks failed: ['cover_r1']

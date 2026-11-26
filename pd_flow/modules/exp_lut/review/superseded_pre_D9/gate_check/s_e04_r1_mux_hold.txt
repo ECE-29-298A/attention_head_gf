@@ -1,0 +1,1 @@
+gate sweep R=1 rc=0 {"registered": 1, "checks": 67112080, "mismatches": 0} 

@@ -1,0 +1,32 @@
+SBY 12:48:42 [exp_lut_sanity_pu_r1] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_sanity_pu_r1'.
+SBY 12:48:42 [exp_lut_sanity_pu_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_sanity_pu_r1/src/exp_lut_fv.v'.
+SBY 12:48:42 [exp_lut_sanity_pu_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_sanity_pu_r1/src/exp_lut_props.sv'.
+SBY 12:48:42 [exp_lut_sanity_pu_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/ref_table.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_sanity_pu_r1/src/ref_table.vh'.
+SBY 12:48:42 [exp_lut_sanity_pu_r1] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/exp_lut_verif.P5yolH/fv_sanity_pu_r1/exp_lut_sanity_pu_r1/src/fv_mode.vh'.
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: smtbmc z3
+SBY 12:48:42 [exp_lut_sanity_pu_r1] base: starting process "cd exp_lut_sanity_pu_r1/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 12:48:42 [exp_lut_sanity_pu_r1] base: finished (returncode=0)
+SBY 12:48:42 [exp_lut_sanity_pu_r1] prep: starting process "cd exp_lut_sanity_pu_r1/model; yosys -ql design_prep.log design_prep.ys"
+SBY 12:48:42 [exp_lut_sanity_pu_r1] prep: finished (returncode=0)
+SBY 12:48:42 [exp_lut_sanity_pu_r1] smt2: starting process "cd exp_lut_sanity_pu_r1/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 12:48:42 [exp_lut_sanity_pu_r1] smt2: finished (returncode=0)
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: starting process "cd exp_lut_sanity_pu_r1; yosys-smtbmc -s z3 --presat --noprogress -t 4  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Solver: z3
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  BMC failed!
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Assert failed in exp_lut_props: a_wrong_pu
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: ##   0:00:00  Status: failed
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: finished (returncode=1)
+SBY 12:48:42 [exp_lut_sanity_pu_r1] engine_0: Status returned by engine: FAIL
+SBY 12:48:42 [exp_lut_sanity_pu_r1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 12:48:42 [exp_lut_sanity_pu_r1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 12:48:42 [exp_lut_sanity_pu_r1] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 12:48:42 [exp_lut_sanity_pu_r1] summary: counterexample trace: exp_lut_sanity_pu_r1/engine_0/trace.vcd
+SBY 12:48:42 [exp_lut_sanity_pu_r1] summary:   failed assertion exp_lut_props.a_wrong_pu at exp_lut_props.sv:87.24-87.54
+SBY 12:48:42 [exp_lut_sanity_pu_r1] DONE (FAIL, rc=2)
+SBY 12:48:42 The following tasks failed: ['sanity_pu_r1']

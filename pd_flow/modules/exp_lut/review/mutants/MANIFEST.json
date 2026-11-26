@@ -1,0 +1,222 @@
+{
+ "m01_lut8_34": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "entry D'=8 35 -> 34 (near-tie 34.5105 truncated/rounded down)"
+ },
+ "m02_lut25_1": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "D'=25 gives 1 instead of 0 (near-tie 0.4923 rounded up)"
+ },
+ "m03_lut1_198": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "entry D'=1 off by one: 199 -> 198"
+ },
+ "m04_lut20_1": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "entry D'=20 off by one: 2 -> 1 (equal-neighbour region)"
+ },
+ "m05_lut24_0": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "last nonzero entry D'=24: 1 -> 0"
+ },
+ "m06_lut0_254": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "entry D'=0: 255 -> 254 (W[0] bit stuck 0 at the peak)"
+ },
+ "m07_truncate": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "no rounding: D' = D >> s (rounding bit ignored)"
+ },
+ "m08_tie_down": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "ties round down: D' = (D + 2^(s-1) - 1) >> s (round-half-down, full-width reformulation)"
+ },
+ "m09_tie_even": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "ties round to even (banker's rounding of D/2^s; full-width reformulation)"
+ },
+ "m10_shift8_decode": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "shift = 8 decoded as shift = 0 (stage-8 select boundary off by one)"
+ },
+ "m11_shift0_oor": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "shift = 0: D = 32..63 not flagged out of range (last stage check skipped at s=0)"
+ },
+ "m12_s15_noround": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "shift = 15 only: rounding bit ignored"
+ },
+ "m13_carry_lost": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "rounding carry to D'=32 not flagged (index[5] dropped): e.g. s=1, D=63 gives 255"
+ },
+ "m14_bit21_ignored": {
+  "class": "out-of-context-bug",
+  "scope": "both",
+  "description": "D[21] ignored (D >= 2^21 aliases to D - 2^21); unreachable with a consistent tape"
+ },
+ "m15_bit20_ignored": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "D >= 2^20 check removed: D = 2^20 gives 255"
+ },
+ "m16_default_1": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "table default D'=25..31 gives 1 (saturation region nonzero)"
+ },
+ "m17_default_x": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "table default D'=25..31 gives X (unspecified; 2-state sims may read 0)"
+ },
+ "m18_stage_check": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "stage-4 discarded-bit check dropped: shift without bit 2 and D bits lost from stage8[12:9]"
+ },
+ "m19_rare_point": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "one rare point: D = 1337, shift = 7 (D'=10) gives 22 instead of 21 (1 of 2^26 inputs)"
+ },
+ "m20_rare_highD": {
+  "class": "out-of-context-bug",
+  "scope": "both",
+  "description": "one rare point above the consistent-tape range: D = 22'h3FFFFF, shift = 15 gives 255"
+ },
+ "m21_r1_latency2": {
+  "class": "functional-bug",
+  "scope": "R1",
+  "description": "REGISTERED=1: two-cycle latency (extra W and done stage)"
+ },
+ "m22_r1_comb_bypass": {
+  "class": "functional-bug",
+  "scope": "R1",
+  "description": "REGISTERED=1: W shows the new weight combinationally in the start cycle (latency 0)"
+ },
+ "m23_r1_load_always": {
+  "class": "functional-bug",
+  "scope": "R1",
+  "description": "REGISTERED=1: W reloads every cycle (no hold while start = 0)"
+ },
+ "m24_r1_W_noreset": {
+  "class": "functional-bug",
+  "scope": "R1",
+  "description": "REGISTERED=1: W not cleared by reset (done still is)"
+ },
+ "m25_r1_start_over_reset": {
+  "class": "functional-bug",
+  "scope": "R1",
+  "description": "REGISTERED=1: start has priority over reset for W"
+ },
+ "m26_r1_done_stretch": {
+  "class": "functional-bug",
+  "scope": "R1",
+  "description": "REGISTERED=1: done stays high one extra cycle"
+ },
+ "m27_r1_async_reset": {
+  "class": "structural",
+  "scope": "R1",
+  "description": "REGISTERED=1: asynchronous reset (clears W/done when rst_n falls, before the edge)"
+ },
+ "m28_r1_negedge": {
+  "class": "structural",
+  "scope": "R1",
+  "description": "REGISTERED=1: negedge flops"
+ },
+ "m29_r1_initval": {
+  "class": "structural",
+  "scope": "R1",
+  "description": "REGISTERED=1: initial values on W_r/done_r (no ASIC power-up value)"
+ },
+ "m30_r0_rst_gates_W": {
+  "class": "out-of-context-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0: W forced to 0 while rst_n = 0 (never observed in the chip)"
+ },
+ "m31_r0_done_zero": {
+  "class": "out-of-context-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0: done tied 0 (chip ties start = 0)"
+ },
+ "m32_r0_registered_W": {
+  "class": "functional-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0: W registered (one-cycle latency in the chip configuration)"
+ },
+ "m33_r0_latch": {
+  "class": "structural",
+  "scope": "R0",
+  "description": "REGISTERED=0: W through a transparent-high latch on clk"
+ },
+ "m34_default_param0": {
+  "class": "structural",
+  "scope": "both",
+  "description": "interface: default REGISTERED changed 1 -> 0 (test/blocks instantiates the default)"
+ },
+ "m35_r0_rare_point": {
+  "class": "functional-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0 only: one interior point D = 1337, shift = 7 (D'=10) gives 22 instead of 21; R1 correct"
+ },
+ "m36_r0_entry_one_shift": {
+  "class": "functional-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0 only: entry D'=6 wrong (57 -> 56) at shift 11 only (2,048 D values)"
+ },
+ "m37_r0_mid_interval": {
+  "class": "functional-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0 only: W off by one for D in [3000, 3010] at shift 10 (inside the D'=3 interval, away from every boundary)"
+ },
+ "m38_r0_rare_x": {
+  "class": "functional-bug",
+  "scope": "R0",
+  "description": "REGISTERED=0 only: W = X at one interior point (D = 1337, shift = 7); probes the X check off the edge set"
+ },
+ "m39_rare_x_both": {
+  "class": "functional-bug",
+  "scope": "both",
+  "description": "weight = X at one interior point (D = 1337, shift = 7), both configurations"
+ },
+ "e01_swap_19_20": {
+  "class": "equivalent",
+  "scope": "both",
+  "description": "entries D'=19 and D'=20 swapped (both 2)"
+ },
+ "e02_fullwidth_round": {
+  "class": "equivalent",
+  "scope": "both",
+  "description": "full-width reformulation: D' = (D + 2^(s-1)) >> s at 23 bits, W = D' < 25 ? table : 0"
+ },
+ "e03_ge_2_20": {
+  "class": "equivalent",
+  "scope": "both",
+  "description": "|D[21:20] written as D >= 2^20"
+ },
+ "e04_r1_mux_hold": {
+  "class": "equivalent",
+  "scope": "both",
+  "description": "REGISTERED=1: if (start) W_r <= weight written as W_r <= start ? weight : W_r"
+ },
+ "e05_explicit_zeros": {
+  "class": "equivalent",
+  "scope": "both",
+  "description": "explicit zero entries D'=25..31 added before the default"
+ }
+}

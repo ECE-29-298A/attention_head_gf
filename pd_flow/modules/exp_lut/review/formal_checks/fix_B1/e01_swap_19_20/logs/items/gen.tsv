@@ -1,0 +1,1 @@
+gen	gen	pass	true	4.409	logs/gen.log	RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_set=448 d21_set=496 dprime_edge=176 fixed=224 half_way=2602 last_nonzero=16 random=100000 transition=1008;RESULT vectors written=206052 checked_values=206049

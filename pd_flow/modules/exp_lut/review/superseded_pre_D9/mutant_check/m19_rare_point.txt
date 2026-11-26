@@ -1,0 +1,4 @@
+sweep REGISTERED=0 rc=1 {"registered": 0, "checks": 67108864, "mismatches": 1}
+sweep REGISTERED=1 rc=1 {"registered": 1, "checks": 67112080, "mismatches": 2}
+sat proof W(rtl)==W(ref_threshold), done==start, all inputs: rc=1 (0 SAT SUCCESS)
+python model: rc=0 python model agrees with exact reference at 49945 points; EXP_TABLE equal

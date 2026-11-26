@@ -1,0 +1,257 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+
+-- Running command `read_verilog exp_lut.v ref_threshold.v wrap.v; hierarchy -check -top cmp; proc; flatten; memory; opt; sat -verify -prove ok 1 -show-inputs cmp' --
+
+1. Executing Verilog-2005 frontend: exp_lut.v
+Parsing Verilog input from `exp_lut.v' to AST representation.
+Generating RTLIL representation for module `\exp_lut'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: ref_threshold.v
+Parsing Verilog input from `ref_threshold.v' to AST representation.
+Generating RTLIL representation for module `\ref_threshold'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: wrap.v
+Parsing Verilog input from `wrap.v' to AST representation.
+Generating RTLIL representation for module `\cmp'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \cmp
+Used module:     \ref_threshold
+Used module:     \exp_lut
+Parameter \REGISTERED = 0
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\exp_lut'.
+Parameter \REGISTERED = 0
+Generating RTLIL representation for module `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000'.
+
+4.3. Analyzing design hierarchy..
+Top module:  \cmp
+Used module:     \ref_threshold
+Used module:     $paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000
+
+4.4. Analyzing design hierarchy..
+Top module:  \cmp
+Used module:     \ref_threshold
+Used module:     $paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000
+Removing unused module `\exp_lut'.
+Removed 1 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $ref_threshold.v:4$proc$26 in module ref_threshold.
+Marked 2 switch rules as full_case in process $ref_threshold.v:4$proc$26 in module ref_threshold.
+Marked 2 switch rules as full_case in process $exp_lut.v:77$proc$836 in module $paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.
+Removed a total of 1 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 2 switches.
+<suppressed ~2 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ref_threshold.$ref_threshold.v:4$proc$26'.
+     1/2: $1\W[7:0]
+     2/2: $1\k[5:0]
+Creating decoders for process `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.$exp_lut.v:77$proc$836'.
+     1/2: $2\weight[7:0]
+     2/2: $1\weight[7:0]
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ref_threshold.\W' from process `\ref_threshold.$ref_threshold.v:4$proc$26'.
+No latch inferred for signal `\ref_threshold.\k' from process `\ref_threshold.$ref_threshold.v:4$proc$26'.
+No latch inferred for signal `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.\weight' from process `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.$exp_lut.v:77$proc$836'.
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\ref_threshold.$ref_threshold.v:4$proc$26'.
+Removing empty process `ref_threshold.$ref_threshold.v:4$proc$26'.
+Found and cleaned up 2 empty switches in `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.$exp_lut.v:77$proc$836'.
+Removing empty process `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.$exp_lut.v:77$proc$836'.
+Cleaned up 4 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmp.
+Optimizing module ref_threshold.
+<suppressed ~3 debug messages>
+Optimizing module $paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.
+<suppressed ~1 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module ref_threshold.
+Deleting now unused module $paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000.
+<suppressed ~2 debug messages>
+
+7. Executing MEMORY pass.
+
+7.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `$flatten\r.$auto$proc_rom.cc:155:do_switch$839'[0] in module `\cmp':
+    no output FF found.
+Checking read port `$flatten\u.$auto$proc_rom.cc:155:do_switch$843'[0] in module `\cmp':
+    no output FF found.
+Checking read port address `$flatten\r.$auto$proc_rom.cc:155:do_switch$839'[0] in module `\cmp':
+    no address FF found.
+Checking read port address `$flatten\u.$auto$proc_rom.cc:155:do_switch$843'[0] in module `\cmp':
+    no address FF found.
+
+7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmp..
+Removed 1 unused cells and 21 unused wires.
+<suppressed ~2 debug messages>
+
+7.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmp..
+
+7.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $flatten\r.$auto$proc_rom.cc:155:do_switch$839 in module \cmp:
+  created 32 $dff cells and 0 static cells of width 8.
+  read interface: 0 $dff and 31 $mux cells.
+  write interface: 0 write mux blocks.
+Mapping memory $flatten\u.$auto$proc_rom.cc:155:do_switch$843 in module \cmp:
+  created 32 $dff cells and 0 static cells of width 8.
+  read interface: 0 $dff and 31 $mux cells.
+  write interface: 0 write mux blocks.
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmp.
+<suppressed ~12 debug messages>
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmp'.
+Computing hashes of 881 cells of `\cmp'.
+Finding duplicate cells in `\cmp'.
+Computing hashes of 856 cells of `\cmp'.
+Finding duplicate cells in `\cmp'.
+<suppressed ~75 debug messages>
+Removed a total of 25 cells.
+
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cmp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\u.$procmux$868.
+Removed 1 multiplexer ports.
+<suppressed ~67 debug messages>
+
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cmp.
+Performed a total of 0 changes.
+
+8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmp'.
+Computing hashes of 855 cells of `\cmp'.
+Finding duplicate cells in `\cmp'.
+Removed a total of 0 cells.
+
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmp..
+Removed 0 unused cells and 102 unused wires.
+<suppressed ~1 debug messages>
+
+8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmp.
+
+8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cmp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cmp.
+Performed a total of 0 changes.
+
+8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cmp'.
+Computing hashes of 855 cells of `\cmp'.
+Finding duplicate cells in `\cmp'.
+Removed a total of 0 cells.
+
+8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cmp..
+
+8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cmp.
+
+8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 855 cells to SAT database.
+Import proof-constraint: \ok = 1'1
+Final proof equation: \ok = 1'1
+Import show expression: \start
+Import show expression: \shift
+Import show expression: \D
+
+Solving problem with 46493 variables and 129308 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 6ec36b1575, time: 0.35s, user: 0.35s, system: 0.01s, MEM: 64.12 MB peak
+Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+Time spent: 82% 1x sat (0 sec), 4% 4x opt_expr (0 sec), ...

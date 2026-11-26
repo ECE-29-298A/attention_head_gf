@@ -1,7 +1,7 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
 - Current module: 2 max_reg (module 1 ripple_add COMPLETE, `modules/ripple_add/REPORT.md`)
-- Phase: re-plan under D7. max_reg Phases 1-2 done; its standalone Phase 3 was stopped (plan rev 2 kept as a building block). Chip partition and floorplan (architect agent) in progress; chip-flow area experiment running.
+- Phase: exp_lut Phases 1-2 PASSED (contract d01fc4b8eb4f0492, original retained). Next module: divider (Phases 1+2, S1 parallel). Datapath-cluster tetris running.
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 

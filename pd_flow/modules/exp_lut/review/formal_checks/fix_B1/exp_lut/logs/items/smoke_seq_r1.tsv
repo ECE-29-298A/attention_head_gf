@@ -1,0 +1,1 @@
+smoke_seq_r1	sim	pass-sampled	true	0.547	logs/smoke_seq_r1.log	RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=5000000 mismatches=0

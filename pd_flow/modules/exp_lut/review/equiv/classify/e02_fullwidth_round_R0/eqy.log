@@ -1,0 +1,114 @@
+EQY 11:18:33 [eq] read_gold: starting process "yosys -ql eq/gold.log eq/gold.ys"
+EQY 11:18:33 [eq] read_gold: finished (returncode=0)
+EQY 11:18:33 [eq] read_gate: starting process "yosys -ql eq/gate.log eq/gate.ys"
+EQY 11:18:33 [eq] read_gate: finished (returncode=0)
+EQY 11:18:33 [eq] combine: starting process "yosys -ql eq/combine.log eq/combine.ys"
+EQY 11:18:33 [eq] combine: finished (returncode=0)
+EQY 11:18:33 [eq] partition: starting process "cd eq; yosys -ql partition.log partition.ys"
+EQY 11:18:33 [eq] partition: finished (returncode=0)
+EQY 11:18:33 [eq] run: starting process "make -C eq -f strategies.mk"
+EQY 11:18:33 [eq] run: Running strategy 'sat' on 'exp_lut.W'..
+EQY 11:18:33 [eq] run: Proved equivalence of partition 'exp_lut.W' using strategy 'sat'
+EQY 11:18:33 [eq] run: Running strategy 'sat' on 'exp_lut.diff.0'..
+EQY 11:18:33 [eq] run: Proved equivalence of partition 'exp_lut.diff.0' using strategy 'sat'
+EQY 11:18:33 [eq] run: Running strategy 'sat' on 'exp_lut.diff.1'..
+EQY 11:18:33 [eq] run: Proved equivalence of partition 'exp_lut.diff.1' using strategy 'sat'
+EQY 11:18:33 [eq] run: Running strategy 'sat' on 'exp_lut.diff.10'..
+EQY 11:18:33 [eq] run: Proved equivalence of partition 'exp_lut.diff.10' using strategy 'sat'
+EQY 11:18:33 [eq] run: Running strategy 'sat' on 'exp_lut.diff.11'..
+EQY 11:18:33 [eq] run: Proved equivalence of partition 'exp_lut.diff.11' using strategy 'sat'
+EQY 11:18:33 [eq] run: Running strategy 'sat' on 'exp_lut.diff.12'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.12' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.13'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.13' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.14'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.14' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.15'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.15' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.16'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.16' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.17'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.17' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.18'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.18' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.19'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.19' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.2'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.2' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.20'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.20' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.21'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.21' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.3'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.3' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.4'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.4' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.5'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.5' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.6'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.6' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.7'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.7' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.8'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.8' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.diff.9'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.diff.9' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.done'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.done' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.g_combinational._unused'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.g_combinational._unused' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.0'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.0' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.1'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.1' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.2'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.2' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.3'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.3' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.4'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.4' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.5'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.5' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.6'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.6' using strategy 'sat'
+EQY 11:18:34 [eq] run: Running strategy 'sat' on 'exp_lut.weight.7'..
+EQY 11:18:34 [eq] run: Proved equivalence of partition 'exp_lut.weight.7' using strategy 'sat'
+EQY 11:18:34 [eq] run: /Applications/Xcode.app/Contents/Developer/usr/bin/make -f strategies.mk summary
+EQY 11:18:34 [eq] run: finished (returncode=0)
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.7
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.6
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.5
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.4
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.3
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.2
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.1
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.weight.0
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.g_combinational._unused
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.done
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.21
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.20
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.19
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.18
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.17
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.16
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.15
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.14
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.13
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.12
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.11
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.10
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.9
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.8
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.7
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.6
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.5
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.4
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.3
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.2
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.1
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.diff.0
+EQY 11:18:34 [eq] Successfully proved equivalence of partition exp_lut.W
+EQY 11:18:34 [eq] Successfully proved designs equivalent
+EQY 11:18:34 [eq] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 11:18:34 [eq] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 11:18:34 [eq] DONE (PASS, rc=0)

@@ -1,0 +1,25 @@
+/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif/run_all.sh --gate --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/gate_mutants/s_m21_r1_latency2.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutation_runs/gate_s_m21_r1_latency2 --registered 1 --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/gate_mutants/s_m21_r1_latency2.v (gate-level netlist, REGISTERED=1, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog, flop models from /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib)
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/mutation_runs/gate_s_m21_r1_latency2
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//exp_lut_verif.Od8Vt4
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep             pass                 pass-static         0.27s  RESULT cells netlist_modules=['exp_lut'] cell_types=22 models_copied=45 udps=1 liberty_flop_cells=1 netlist_li
+gen                    pass                 pass-static         4.40s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
+selftest               pass                 pass-static         1.35s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r1                failed               failed              0.24s  RESULT lint mode=gate warnings=9 netlist=0 library=9 port_waived=0 errors=0; RESULT interface top=exp_lut regi
+build_r1               pass                 pass-static         4.01s  obj_r1/sim
+edge_r1                failed               failed              5.67s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=2174
+smoke_powerup_r1       failed               failed          (smoke)     0.10s  RESULT_POWERUP seeds=64 distinct_initial_state=61; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+smoke_seq_r1           failed               failed          (smoke)     1.70s  RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=500000
+smoke_vec_r1           failed               failed          (smoke)     8.56s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+fv_cover_r1            covered              bounded-pass        3.19s  sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_pdr_r1              failed               failed              1.45s  engine verdict FAIL, trace not replayed: sby_status=ERROR; engine_0 (abc pdr) returned FAIL; engine_0: Could n
+fv_prove_r1            failed               failed              1.21s  sby_status=FAIL asserts=6 covers=0 (expected asserts=6 covers=0); 
+fv_sanity_lat0_r1      failed-as-expected   failed              1.06s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1        failed-as-expected   failed              0.97s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1     failed-as-expected   failed              1.03s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl                failed               failed              1.06s  eqy_status=FAIL partitions_proved=1 partitions_failed=10 (strategy sat, depth 1, gold = golden RTL with REGIST
+TOTAL 8/13 gating ok, all_ok=False; smoke 0/3 ok (non-gating); 21.974 s

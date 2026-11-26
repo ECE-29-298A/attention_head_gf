@@ -1,0 +1,1 @@
+smoke_powerup_r1	sim	pass-sampled	true	0.174	logs/smoke_powerup_r1.log	RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0

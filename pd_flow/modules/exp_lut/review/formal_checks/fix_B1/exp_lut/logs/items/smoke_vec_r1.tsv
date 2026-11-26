@@ -1,0 +1,1 @@
+smoke_vec_r1	vec	pass-sampled	true	3.687	logs/smoke_vec_r1.log	golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)

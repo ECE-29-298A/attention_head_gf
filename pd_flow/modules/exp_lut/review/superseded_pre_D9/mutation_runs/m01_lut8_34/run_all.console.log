@@ -1,0 +1,30 @@
+gen                    pass                 pass-static         1.99s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206
+selftest               pass                 pass-static         1.10s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0                pass                 pass-static         0.14s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+lint_r1                pass                 pass-static         0.17s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+build_r0               pass                 pass-static         3.14s  obj_r0/sim
+build_r1               pass                 pass-static         3.10s  obj_r1/sim
+sim_exh_r0             failed               failed              1.76s  RESULT mode=exh0 points=67108864 expected=67108864 mismatches=65535
+sim_exh_r1             failed               failed              8.79s  RESULT_EXH1 loads=67108864 (expected 67108864) shadow_checked=134234113; RESULT mode=exh1 cycles=134234113 che
+sim_powerup_r1         failed               failed              0.06s  RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+sim_seq_r1             failed               failed              8.74s  RESULT_SEQ regimes=98061 shadow_checked=99996179; RESULT mode=seq cycles=100000000 expected=100000000 checked=
+vec_r1                 failed               failed              3.02s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+ivl_exh_r0_s0_3        failed               failed             33.80s  RESULT sim=icarus reg=0 shifts=0..3 points=16777216 expected=16777216 cycles=0 mismatches=15; part of the inpu
+ivl_exh_r0_s12_15      failed               failed             26.59s  RESULT sim=icarus reg=0 shifts=12..15 points=16777216 expected=16777216 cycles=0 mismatches=61440; part of the
+ivl_exh_r0_s4_7        failed               failed             28.27s  RESULT sim=icarus reg=0 shifts=4..7 points=16777216 expected=16777216 cycles=0 mismatches=240; part of the inp
+ivl_exh_r0_s8_11       failed               failed             26.52s  RESULT sim=icarus reg=0 shifts=8..11 points=16777216 expected=16777216 cycles=0 mismatches=3840; part of the i
+ivl_exh_r1_s0_3        failed               failed             87.00s  RESULT sim=icarus reg=1 shifts=0..3 points=16777216 expected=16777216 cycles=17829892 mismatches=18; part of t
+ivl_exh_r1_s12_15      failed               failed             80.89s  RESULT sim=icarus reg=1 shifts=12..15 points=16777216 expected=16777216 cycles=17829892 mismatches=65280; part
+ivl_exh_r1_s4_7        failed               failed             81.31s  RESULT sim=icarus reg=1 shifts=4..7 points=16777216 expected=16777216 cycles=17829892 mismatches=255; part of 
+ivl_exh_r1_s8_11       failed               failed             81.13s  RESULT sim=icarus reg=1 shifts=8..11 points=16777216 expected=16777216 cycles=17829892 mismatches=4080; part o
+fv_cover_r0            failed               failed              1.01s  sby_status=FAIL asserts=3 covers=47 reached=46 unreached=2 max_step=0 depth=1
+fv_cover_r1            covered              bounded-pass        0.71s  sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_equiv_r0            failed               failed              0.82s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); 
+fv_pdr_equiv_r0        failed               failed              1.04s  engine verdict FAIL, trace not replayed: sby_status=ERROR; engine_0 (abc pdr) returned FAIL; engine_0: Could n
+fv_pdr_r1              failed               failed              1.08s  engine verdict FAIL, trace not replayed: sby_status=ERROR; engine_0 (abc pdr) returned FAIL; engine_0: Could n
+fv_prove_r1            failed               failed              0.86s  sby_status=FAIL asserts=6 covers=0 (expected asserts=6 covers=0); 
+fv_sanity_d21_r0       failed-as-expected   failed              0.54s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_d21
+fv_sanity_lat0_r1      failed-as-expected   failed              0.55s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1        failed-as-expected   failed              0.54s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r0     failed-as-expected   failed              0.55s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+TOTAL 11/29 ok, all_ok=False, 245.872 s

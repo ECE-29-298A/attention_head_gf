@@ -1,0 +1,17 @@
+cells_prep             pass                 pass-static         0.29s  RESULT cells netlist_modules=['exp_lut'] cell_types=25 models_copied=51 udps=1 liberty_flop_cells=2 netlist_li
+gen                    pass                 pass-static         4.68s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
+selftest               pass                 pass-static         1.43s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r1                failed               failed              0.27s  RESULT lint mode=gate warnings=13 netlist=0 library=13 port_waived=0 errors=0; RESULT interface top=exp_lut re
+build_r1               pass                 pass-static         4.35s  obj_r1/sim
+edge_r1                failed               failed              5.29s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=2174
+smoke_powerup_r1       failed               failed          (smoke)     0.10s  RESULT_POWERUP seeds=64 distinct_initial_state=60; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+smoke_seq_r1           failed               failed          (smoke)     1.40s  RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=500000
+smoke_vec_r1           failed               failed          (smoke)     8.18s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+fv_cover_r1            inconclusive         inconclusive        0.71s  tool/infrastructure error: sby_status=ERROR; SBY 12:42:27 [exp_lut_cover_r1] prep: ERROR: CLK clk on $flatten\
+fv_pdr_r1              inconclusive         inconclusive        0.72s  tool/infrastructure error: sby_status=ERROR; SBY 12:42:26 [exp_lut_pdr_r1] prep: ERROR: CLK clk on $flatten\du
+fv_prove_r1            inconclusive         inconclusive        0.72s  tool/infrastructure error: sby_status=ERROR; SBY 12:42:26 [exp_lut_prove_r1] prep: ERROR: CLK clk on $flatten\
+fv_sanity_lat0_r1      inconclusive         inconclusive        0.66s  tool/infrastructure error: sby_status=ERROR; SBY 12:42:28 [exp_lut_sanity_lat0_r1] prep: ERROR: CLK clk on $fl
+fv_sanity_pu_r1        inconclusive         inconclusive        0.62s  tool/infrastructure error: sby_status=ERROR; SBY 12:42:27 [exp_lut_sanity_pu_r1] prep: ERROR: CLK clk on $flat
+fv_sanity_trunc_r1     inconclusive         inconclusive        0.67s  tool/infrastructure error: sby_status=ERROR; SBY 12:42:28 [exp_lut_sanity_trunc_r1] prep: ERROR: CLK clk on $f
+eqy_rtl                proven               proven              1.80s  eqy_status=PASS partitions_proved=9 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTE
+TOTAL 5/13 gating ok, all_ok=False; smoke 0/3 ok (non-gating); 20.189 s

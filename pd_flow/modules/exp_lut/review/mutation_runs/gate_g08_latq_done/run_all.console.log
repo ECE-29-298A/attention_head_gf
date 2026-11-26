@@ -1,0 +1,17 @@
+cells_prep             pass                 pass-static         0.29s  RESULT cells netlist_modules=['exp_lut'] cell_types=25 models_copied=52 udps=2 liberty_flop_cells=2 netlist_li
+gen                    pass                 pass-static         4.98s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
+selftest               pass                 pass-static         1.40s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r1                failed               failed              0.37s  RESULT lint mode=gate warnings=18 netlist=0 library=18 port_waived=0 errors=0; 
+build_r1               pass                 pass-static         4.86s  obj_r1/sim
+edge_r1                pass-edge-spot       pass-sampled        5.87s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=2174
+smoke_powerup_r1       pass-sampled         pass-sampled    (smoke)     0.11s  RESULT_POWERUP seeds=64 distinct_initial_state=60; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+smoke_seq_r1           pass-sampled         pass-sampled    (smoke)     1.53s  RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=500000
+smoke_vec_r1           pass-sampled         pass-sampled    (smoke)     9.33s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+fv_cover_r1            inconclusive         inconclusive        0.82s  tool/infrastructure error: sby_status=ERROR; SBY 12:43:36 [exp_lut_cover_r1] base: ERROR: Assertion failed: se
+fv_pdr_r1              inconclusive         inconclusive        0.90s  tool/infrastructure error: sby_status=ERROR; SBY 12:43:35 [exp_lut_pdr_r1] base: ERROR: Assertion failed: sele
+fv_prove_r1            inconclusive         inconclusive        0.84s  tool/infrastructure error: sby_status=ERROR; SBY 12:43:35 [exp_lut_prove_r1] base: ERROR: Assertion failed: se
+fv_sanity_lat0_r1      failed-as-expected   failed              1.40s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1        failed-as-expected   failed              1.19s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1     failed-as-expected   failed              1.40s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl                failed               failed              2.17s  eqy_status=FAIL partitions_proved=8 partitions_failed=1 (strategy sat, depth 1, gold = golden RTL with REGISTE
+TOTAL 8/13 gating ok, all_ok=False; smoke 3/3 ok (non-gating); 23.683 s

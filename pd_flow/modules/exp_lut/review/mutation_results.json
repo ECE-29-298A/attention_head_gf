@@ -1,0 +1,2750 @@
+{
+  "runs": {
+    "e01_swap_19_20": {
+      "file": "mutants/e01_swap_19_20.v",
+      "mode": "rtl",
+      "description": "entries D'=19 and D'=20 swapped (both 2)",
+      "class": "equivalent",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/e01_swap_19_20.v --out mutation_runs/e01_swap_19_20 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 55.3,
+      "items_ok": 16,
+      "items_total": 16,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/e01_swap_19_20_R*"
+    },
+    "e02_fullwidth_round": {
+      "file": "mutants/e02_fullwidth_round.v",
+      "mode": "rtl",
+      "description": "full-width reformulation: D' = (D + 2^(s-1)) >> s at 23 bits, W = D' < 25 ? table : 0",
+      "class": "equivalent",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/e02_fullwidth_round.v --out mutation_runs/e02_fullwidth_round --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 23.4,
+      "items_ok": 16,
+      "items_total": 16,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/e02_fullwidth_round_R*"
+    },
+    "e03_ge_2_20": {
+      "file": "mutants/e03_ge_2_20.v",
+      "mode": "rtl",
+      "description": "|D[21:20] written as D >= 2^20",
+      "class": "equivalent",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/e03_ge_2_20.v --out mutation_runs/e03_ge_2_20 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 653.0,
+      "items_ok": 16,
+      "items_total": 16,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/e03_ge_2_20_R*"
+    },
+    "e04_r1_mux_hold": {
+      "file": "mutants/e04_r1_mux_hold.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: if (start) W_r <= weight written as W_r <= start ? weight : W_r",
+      "class": "equivalent",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/e04_r1_mux_hold.v --out mutation_runs/e04_r1_mux_hold --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 23.2,
+      "items_ok": 16,
+      "items_total": 16,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/e04_r1_mux_hold_R*"
+    },
+    "e05_explicit_zeros": {
+      "file": "mutants/e05_explicit_zeros.v",
+      "mode": "rtl",
+      "description": "explicit zero entries D'=25..31 added before the default",
+      "class": "equivalent",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/e05_explicit_zeros.v --out mutation_runs/e05_explicit_zeros --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 1934.7,
+      "items_ok": 16,
+      "items_total": 16,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/e05_explicit_zeros_R*"
+    },
+    "m01_lut8_34": {
+      "file": "mutants/m01_lut8_34.v",
+      "mode": "rtl",
+      "description": "entry D'=8 35 -> 34 (near-tie 34.5105 truncated/rounded down)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m01_lut8_34.v --out mutation_runs/m01_lut8_34 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.7,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m01_lut8_34_R*"
+    },
+    "m02_lut25_1": {
+      "file": "mutants/m02_lut25_1.v",
+      "mode": "rtl",
+      "description": "D'=25 gives 1 instead of 0 (near-tie 0.4923 rounded up)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m02_lut25_1.v --out mutation_runs/m02_lut25_1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 104.2,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m02_lut25_1_R*"
+    },
+    "m03_lut1_198": {
+      "file": "mutants/m03_lut1_198.v",
+      "mode": "rtl",
+      "description": "entry D'=1 off by one: 199 -> 198",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m03_lut1_198.v --out mutation_runs/m03_lut1_198 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.1,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m03_lut1_198_R*"
+    },
+    "m04_lut20_1": {
+      "file": "mutants/m04_lut20_1.v",
+      "mode": "rtl",
+      "description": "entry D'=20 off by one: 2 -> 1 (equal-neighbour region)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m04_lut20_1.v --out mutation_runs/m04_lut20_1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 53.3,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m04_lut20_1_R*"
+    },
+    "m05_lut24_0": {
+      "file": "mutants/m05_lut24_0.v",
+      "mode": "rtl",
+      "description": "last nonzero entry D'=24: 1 -> 0",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m05_lut24_0.v --out mutation_runs/m05_lut24_0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 30.7,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m05_lut24_0_R*"
+    },
+    "m06_lut0_254": {
+      "file": "mutants/m06_lut0_254.v",
+      "mode": "rtl",
+      "description": "entry D'=0: 255 -> 254 (W[0] bit stuck 0 at the peak)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m06_lut0_254.v --out mutation_runs/m06_lut0_254 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 201.7,
+      "items_ok": 9,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_cover_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m06_lut0_254_R*"
+    },
+    "m07_truncate": {
+      "file": "mutants/m07_truncate.v",
+      "mode": "rtl",
+      "description": "no rounding: D' = D >> s (rounding bit ignored)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m07_truncate.v --out mutation_runs/m07_truncate --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 47.4,
+      "items_ok": 9,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_trunc_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "fv_sanity_trunc_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_trunc_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m07_truncate_R*"
+    },
+    "m08_tie_down": {
+      "file": "mutants/m08_tie_down.v",
+      "mode": "rtl",
+      "description": "ties round down: D' = (D + 2^(s-1) - 1) >> s (round-half-down, full-width reformulation)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m08_tie_down.v --out mutation_runs/m08_tie_down --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 107.1,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m08_tie_down_R*"
+    },
+    "m09_tie_even": {
+      "file": "mutants/m09_tie_even.v",
+      "mode": "rtl",
+      "description": "ties round to even (banker's rounding of D/2^s; full-width reformulation)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m09_tie_even.v --out mutation_runs/m09_tie_even --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 43.5,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "inconclusive",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m09_tie_even_R*"
+    },
+    "m10_shift8_decode": {
+      "file": "mutants/m10_shift8_decode.v",
+      "mode": "rtl",
+      "description": "shift = 8 decoded as shift = 0 (stage-8 select boundary off by one)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m10_shift8_decode.v --out mutation_runs/m10_shift8_decode --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.0,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m10_shift8_decode_R*"
+    },
+    "m11_shift0_oor": {
+      "file": "mutants/m11_shift0_oor.v",
+      "mode": "rtl",
+      "description": "shift = 0: D = 32..63 not flagged out of range (last stage check skipped at s=0)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m11_shift0_oor.v --out mutation_runs/m11_shift0_oor --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 114.1,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m11_shift0_oor_R*"
+    },
+    "m12_s15_noround": {
+      "file": "mutants/m12_s15_noround.v",
+      "mode": "rtl",
+      "description": "shift = 15 only: rounding bit ignored",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m12_s15_noround.v --out mutation_runs/m12_s15_noround --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 31.6,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m12_s15_noround_R*"
+    },
+    "m13_carry_lost": {
+      "file": "mutants/m13_carry_lost.v",
+      "mode": "rtl",
+      "description": "rounding carry to D'=32 not flagged (index[5] dropped): e.g. s=1, D=63 gives 255",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m13_carry_lost.v --out mutation_runs/m13_carry_lost --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 46.9,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m13_carry_lost_R*"
+    },
+    "m14_bit21_ignored": {
+      "file": "mutants/m14_bit21_ignored.v",
+      "mode": "rtl",
+      "description": "D[21] ignored (D >= 2^21 aliases to D - 2^21); unreachable with a consistent tape",
+      "class": "out-of-context-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m14_bit21_ignored.v --out mutation_runs/m14_bit21_ignored --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 43.7,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m14_bit21_ignored_R*"
+    },
+    "m15_bit20_ignored": {
+      "file": "mutants/m15_bit20_ignored.v",
+      "mode": "rtl",
+      "description": "D >= 2^20 check removed: D = 2^20 gives 255",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m15_bit20_ignored.v --out mutation_runs/m15_bit20_ignored --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 95.3,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m15_bit20_ignored_R*"
+    },
+    "m16_default_1": {
+      "file": "mutants/m16_default_1.v",
+      "mode": "rtl",
+      "description": "table default D'=25..31 gives 1 (saturation region nonzero)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m16_default_1.v --out mutation_runs/m16_default_1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 48.5,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m16_default_1_R*"
+    },
+    "m17_default_x": {
+      "file": "mutants/m17_default_x.v",
+      "mode": "rtl",
+      "description": "table default D'=25..31 gives X (unspecified; 2-state sims may read 0)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m17_default_x.v --out mutation_runs/m17_default_x --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 31.0,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m17_default_x_R*"
+    },
+    "m18_stage_check": {
+      "file": "mutants/m18_stage_check.v",
+      "mode": "rtl",
+      "description": "stage-4 discarded-bit check dropped: shift without bit 2 and D bits lost from stage8[12:9]",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m18_stage_check.v --out mutation_runs/m18_stage_check --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 22.0,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m18_stage_check_R*"
+    },
+    "m19_rare_point": {
+      "file": "mutants/m19_rare_point.v",
+      "mode": "rtl",
+      "description": "one rare point: D = 1337, shift = 7 (D'=10) gives 22 instead of 21 (1 of 2^26 inputs)",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m19_rare_point.v --out mutation_runs/m19_rare_point --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.9,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_seq_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m19_rare_point_R*"
+    },
+    "m20_rare_highD": {
+      "file": "mutants/m20_rare_highD.v",
+      "mode": "rtl",
+      "description": "one rare point above the consistent-tape range: D = 22'h3FFFFF, shift = 15 gives 255",
+      "class": "out-of-context-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m20_rare_highD.v --out mutation_runs/m20_rare_highD --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 23.5,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m20_rare_highD_R*"
+    },
+    "m21_r1_latency2": {
+      "file": "mutants/m21_r1_latency2.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: two-cycle latency (extra W and done stage)",
+      "class": "functional-bug",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m21_r1_latency2.v --out mutation_runs/m21_r1_latency2 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 22.9,
+      "items_ok": 11,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r1",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m21_r1_latency2_R*"
+    },
+    "m22_r1_comb_bypass": {
+      "file": "mutants/m22_r1_comb_bypass.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: W shows the new weight combinationally in the start cycle (latency 0)",
+      "class": "functional-bug",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m22_r1_comb_bypass.v --out mutation_runs/m22_r1_comb_bypass --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.5,
+      "items_ok": 11,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "fv_sanity_lat0_r1": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m22_r1_comb_bypass_R*"
+    },
+    "m23_r1_load_always": {
+      "file": "mutants/m23_r1_load_always.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: W reloads every cycle (no hold while start = 0)",
+      "class": "functional-bug",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m23_r1_load_always.v --out mutation_runs/m23_r1_load_always --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 22.4,
+      "items_ok": 11,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_cover_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m23_r1_load_always_R*"
+    },
+    "m24_r1_W_noreset": {
+      "file": "mutants/m24_r1_W_noreset.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: W not cleared by reset (done still is)",
+      "class": "functional-bug",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m24_r1_W_noreset.v --out mutation_runs/m24_r1_W_noreset --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.0,
+      "items_ok": 11,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_cover_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m24_r1_W_noreset_R*"
+    },
+    "m25_r1_start_over_reset": {
+      "file": "mutants/m25_r1_start_over_reset.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: start has priority over reset for W",
+      "class": "functional-bug",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m25_r1_start_over_reset.v --out mutation_runs/m25_r1_start_over_reset --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.9,
+      "items_ok": 12,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m25_r1_start_over_reset_R*"
+    },
+    "m26_r1_done_stretch": {
+      "file": "mutants/m26_r1_done_stretch.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: done stays high one extra cycle",
+      "class": "functional-bug",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m26_r1_done_stretch.v --out mutation_runs/m26_r1_done_stretch --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.8,
+      "items_ok": 11,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r1",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m26_r1_done_stretch_R*"
+    },
+    "m27_r1_async_reset": {
+      "file": "mutants/m27_r1_async_reset.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: asynchronous reset (clears W/done when rst_n falls, before the edge)",
+      "class": "structural",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m27_r1_async_reset.v --out mutation_runs/m27_r1_async_reset --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 19.9,
+      "items_ok": 7,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r1",
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "edge_r1": "failed",
+        "fv_cover_r1": "inconclusive",
+        "fv_pdr_r1": "inconclusive",
+        "fv_prove_r1": "inconclusive",
+        "fv_sanity_lat0_r1": "inconclusive",
+        "fv_sanity_pu_r1": "inconclusive",
+        "fv_sanity_trunc_r1": "inconclusive",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m27_r1_async_reset_R*"
+    },
+    "m28_r1_negedge": {
+      "file": "mutants/m28_r1_negedge.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: negedge flops",
+      "class": "structural",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m28_r1_negedge.v --out mutation_runs/m28_r1_negedge --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.5,
+      "items_ok": 8,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r1",
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "edge_r1": "failed",
+        "fv_cover_r1": "inconclusive",
+        "fv_pdr_r1": "inconclusive",
+        "fv_prove_r1": "inconclusive",
+        "fv_sanity_lat0_r1": "inconclusive",
+        "fv_sanity_pu_r1": "inconclusive",
+        "fv_sanity_trunc_r1": "inconclusive"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m28_r1_negedge_R*"
+    },
+    "m29_r1_initval": {
+      "file": "mutants/m29_r1_initval.v",
+      "mode": "rtl",
+      "description": "REGISTERED=1: initial values on W_r/done_r (no ASIC power-up value)",
+      "class": "structural",
+      "scope": "R1",
+      "command": "../verif/run_all.sh --rtl mutants/m29_r1_initval.v --out mutation_runs/m29_r1_initval --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.3,
+      "items_ok": 9,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "fv_cover_r1": "inconclusive",
+        "fv_pdr_r1": "inconclusive",
+        "fv_prove_r1": "inconclusive",
+        "fv_sanity_lat0_r1": "inconclusive",
+        "fv_sanity_pu_r1": "inconclusive",
+        "fv_sanity_trunc_r1": "inconclusive"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m29_r1_initval_R*"
+    },
+    "m30_r0_rst_gates_W": {
+      "file": "mutants/m30_r0_rst_gates_W.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0: W forced to 0 while rst_n = 0 (never observed in the chip)",
+      "class": "out-of-context-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m30_r0_rst_gates_W.v --out mutation_runs/m30_r0_rst_gates_W --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 24.4,
+      "items_ok": 14,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m30_r0_rst_gates_W_R*"
+    },
+    "m31_r0_done_zero": {
+      "file": "mutants/m31_r0_done_zero.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0: done tied 0 (chip ties start = 0)",
+      "class": "out-of-context-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m31_r0_done_zero.v --out mutation_runs/m31_r0_done_zero --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 25.4,
+      "items_ok": 14,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m31_r0_done_zero_R*"
+    },
+    "m32_r0_registered_W": {
+      "file": "mutants/m32_r0_registered_W.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0: W registered (one-cycle latency in the chip configuration)",
+      "class": "functional-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m32_r0_registered_W.v --out mutation_runs/m32_r0_registered_W --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 24.8,
+      "items_ok": 13,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r0",
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "lint_r0": "failed",
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [
+        "lint_r0"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m32_r0_registered_W_R*"
+    },
+    "m33_r0_latch": {
+      "file": "mutants/m33_r0_latch.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0: W through a transparent-high latch on clk",
+      "class": "structural",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m33_r0_latch.v --out mutation_runs/m33_r0_latch --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.1,
+      "items_ok": 12,
+      "items_total": 16,
+      "killed_by": [
+        "lint_r0",
+        "build_r0",
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "lint_r0": "failed",
+        "build_r0": "failed",
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [
+        "lint_r0",
+        "build_r0"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m33_r0_latch_R*"
+    },
+    "m34_default_param0": {
+      "file": "mutants/m34_default_param0.v",
+      "mode": "rtl",
+      "description": "interface: default REGISTERED changed 1 -> 0 (test/blocks instantiates the default)",
+      "class": "structural",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m34_default_param0.v --out mutation_runs/m34_default_param0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 27.4,
+      "items_ok": 16,
+      "items_total": 16,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m34_default_param0_R*"
+    },
+    "m35_r0_rare_point": {
+      "file": "mutants/m35_r0_rare_point.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0 only: one interior point D = 1337, shift = 7 (D'=10) gives 22 instead of 21; R1 correct",
+      "class": "functional-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m35_r0_rare_point.v --out mutation_runs/m35_r0_rare_point --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 26.2,
+      "items_ok": 14,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m35_r0_rare_point_R*"
+    },
+    "m36_r0_entry_one_shift": {
+      "file": "mutants/m36_r0_entry_one_shift.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0 only: entry D'=6 wrong (57 -> 56) at shift 11 only (2,048 D values)",
+      "class": "functional-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m36_r0_entry_one_shift.v --out mutation_runs/m36_r0_entry_one_shift --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 23.7,
+      "items_ok": 14,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m36_r0_entry_one_shift_R*"
+    },
+    "m37_r0_mid_interval": {
+      "file": "mutants/m37_r0_mid_interval.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0 only: W off by one for D in [3000, 3010] at shift 10 (inside the D'=3 interval, away from every boundary)",
+      "class": "functional-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m37_r0_mid_interval.v --out mutation_runs/m37_r0_mid_interval --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 23.8,
+      "items_ok": 15,
+      "items_total": 16,
+      "killed_by": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m37_r0_mid_interval_R*"
+    },
+    "gate_g01_nand2_to_nor2_W3": {
+      "file": "gate_mutants/g01_nand2_to_nor2_W3.v",
+      "mode": "gate",
+      "description": "R0: cell _097_ (drives W[3]) nand2_1 replaced by nor2_1",
+      "class": "functional-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g01_nand2_to_nor2_W3.v --out mutation_runs/gate_g01_nand2_to_nor2_W3 --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 11.2,
+      "items_ok": 5,
+      "items_total": 7,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_g01_nand2_to_nor2_W3_R*"
+    },
+    "gate_g02_swap_W0_W1": {
+      "file": "gate_mutants/g02_swap_W0_W1.v",
+      "mode": "gate",
+      "description": "R0: output nets W[0] and W[1] swapped",
+      "class": "functional-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g02_swap_W0_W1.v --out mutation_runs/gate_g02_swap_W0_W1 --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 14.1,
+      "items_ok": 5,
+      "items_total": 7,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_g02_swap_W0_W1_R*"
+    },
+    "gate_g03_tie_input": {
+      "file": "gate_mutants/g03_tie_input.v",
+      "mode": "gate",
+      "description": "R0: input A2 of cell _139_ tied to 1'b1 (found redundant: exhaustive sweep 0 mismatches; EQY to confirm)",
+      "class": "equivalent",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g03_tie_input.v --out mutation_runs/gate_g03_tie_input --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 11.7,
+      "items_ok": 7,
+      "items_total": 7,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/gate_g03_tie_input_R*"
+    },
+    "gate_g04_buf_internal": {
+      "file": "gate_mutants/g04_buf_internal.v",
+      "mode": "gate",
+      "description": "R0: a buf_1 inserted on the W[3] output (equivalent; models resizer buffering)",
+      "class": "equivalent",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g04_buf_internal.v --out mutation_runs/gate_g04_buf_internal --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 11.2,
+      "items_ok": 7,
+      "items_total": 7,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/gate_g04_buf_internal_R*"
+    },
+    "gate_g05_dffnq_W0": {
+      "file": "gate_mutants/g05_dffnq_W0.v",
+      "mode": "gate",
+      "description": "R1: flop W[0] replaced by negative-edge dffnq_1",
+      "class": "structural",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g05_dffnq_W0.v --out mutation_runs/gate_g05_dffnq_W0 --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 20.4,
+      "items_ok": 5,
+      "items_total": 13,
+      "killed_by": [
+        "lint_r1",
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "edge_r1": "failed",
+        "fv_cover_r1": "inconclusive",
+        "fv_pdr_r1": "inconclusive",
+        "fv_prove_r1": "inconclusive",
+        "fv_sanity_lat0_r1": "inconclusive",
+        "fv_sanity_pu_r1": "inconclusive",
+        "fv_sanity_trunc_r1": "inconclusive"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "fv_sanity_lat0_r1",
+        "fv_sanity_pu_r1",
+        "fv_sanity_trunc_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/gate_g05_dffnq_W0_R*"
+    },
+    "gate_g06_clkbuf": {
+      "file": "gate_mutants/g06_clkbuf.v",
+      "mode": "gate",
+      "description": "R1: all 9 flops clocked through one clkbuf_1 from clk (equivalent; models a post-CTS netlist)",
+      "class": "equivalent",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g06_clkbuf.v --out mutation_runs/gate_g06_clkbuf --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 24.6,
+      "items_ok": 13,
+      "items_total": 13,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/gate_g06_clkbuf_R*"
+    },
+    "gate_g07_dswap_W6_W7": {
+      "file": "gate_mutants/g07_dswap_W6_W7.v",
+      "mode": "gate",
+      "description": "R1: D inputs of flops W[6] and W[7] swapped",
+      "class": "functional-bug",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g07_dswap_W6_W7.v --out mutation_runs/gate_g07_dswap_W6_W7 --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.8,
+      "items_ok": 9,
+      "items_total": 13,
+      "killed_by": [
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_g07_dswap_W6_W7_R*"
+    },
+    "gate_g08_latq_done": {
+      "file": "gate_mutants/g08_latq_done.v",
+      "mode": "gate",
+      "description": "R1: done flop replaced by latch latq_1 (E = clk, transparent high)",
+      "class": "structural",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g08_latq_done.v --out mutation_runs/gate_g08_latq_done --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 24.0,
+      "items_ok": 8,
+      "items_total": 13,
+      "killed_by": [
+        "lint_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "fv_cover_r1": "inconclusive",
+        "fv_pdr_r1": "inconclusive",
+        "fv_prove_r1": "inconclusive",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_g08_latq_done_R*"
+    },
+    "gate_g09_stuck_W3_in": {
+      "file": "gate_mutants/g09_stuck_W3_in.v",
+      "mode": "gate",
+      "description": "R0: input A1 of cell _097_ (drives W[3]) tied to 1'b1 (stuck-at-1)",
+      "class": "functional-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/g09_stuck_W3_in.v --out mutation_runs/gate_g09_stuck_W3_in --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 11.9,
+      "items_ok": 4,
+      "items_total": 7,
+      "killed_by": [
+        "lint_r0",
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "lint_r0": "failed",
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [
+        "lint_r0"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_g09_stuck_W3_in_R*"
+    },
+    "gate_s_e02_fullwidth_round": {
+      "file": "gate_mutants/s_e02_fullwidth_round.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant e02_fullwidth_round (full-width reformulation: D' = (D + 2^(s-1)) >> s at 23 bits, W = D' < 25 ? table : 0)",
+      "class": "equivalent",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_e02_fullwidth_round.v --out mutation_runs/gate_s_e02_fullwidth_round --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 14.9,
+      "items_ok": 7,
+      "items_total": 7,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R0": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_e02_fullwidth_round_R*"
+    },
+    "gate_s_e04_r1_mux_hold": {
+      "file": "gate_mutants/s_e04_r1_mux_hold.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant e04_r1_mux_hold (REGISTERED=1: if (start) W_r <= weight written as W_r <= start ? weight : W_r)",
+      "class": "equivalent",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_e04_r1_mux_hold.v --out mutation_runs/gate_s_e04_r1_mux_hold --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 24.8,
+      "items_ok": 13,
+      "items_total": 13,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "eqy_vs_golden": {
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_e04_r1_mux_hold_R*"
+    },
+    "gate_s_m01_lut8_34": {
+      "file": "gate_mutants/s_m01_lut8_34.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m01_lut8_34 (entry D'=8 35 -> 34 (near-tie 34.5105 truncated/rounded down))",
+      "class": "functional-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m01_lut8_34.v --out mutation_runs/gate_s_m01_lut8_34 --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 11.5,
+      "items_ok": 5,
+      "items_total": 7,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m01_lut8_34_R*"
+    },
+    "gate_s_m13_carry_lost": {
+      "file": "gate_mutants/s_m13_carry_lost.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m13_carry_lost (rounding carry to D'=32 not flagged (index[5] dropped): e.g. s=1, D=63 gives 255)",
+      "class": "functional-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m13_carry_lost.v --out mutation_runs/gate_s_m13_carry_lost --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 11.2,
+      "items_ok": 5,
+      "items_total": 7,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m13_carry_lost_R*"
+    },
+    "gate_s_m14_bit21_ignored": {
+      "file": "gate_mutants/s_m14_bit21_ignored.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m14_bit21_ignored (D[21] ignored (D >= 2^21 aliases to D - 2^21); unreachable with a consistent tape)",
+      "class": "out-of-context-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m14_bit21_ignored.v --out mutation_runs/gate_s_m14_bit21_ignored --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 11.7,
+      "items_ok": 4,
+      "items_total": 7,
+      "killed_by": [
+        "lint_r0",
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "lint_r0": "failed",
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [
+        "lint_r0"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m14_bit21_ignored_R*"
+    },
+    "gate_s_m19_rare_point": {
+      "file": "gate_mutants/s_m19_rare_point.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m19_rare_point (one rare point: D = 1337, shift = 7 (D'=10) gives 22 instead of 21 (1 of 2^26 inputs))",
+      "class": "functional-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m19_rare_point.v --out mutation_runs/gate_s_m19_rare_point --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 10.9,
+      "items_ok": 5,
+      "items_total": 7,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m19_rare_point_R*"
+    },
+    "gate_s_m21_r1_latency2": {
+      "file": "gate_mutants/s_m21_r1_latency2.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant m21_r1_latency2 (REGISTERED=1: two-cycle latency (extra W and done stage))",
+      "class": "functional-bug",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m21_r1_latency2.v --out mutation_runs/gate_s_m21_r1_latency2 --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 22.2,
+      "items_ok": 8,
+      "items_total": 13,
+      "killed_by": [
+        "lint_r1",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "lint_r1": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [
+        "lint_r1"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m21_r1_latency2_R*"
+    },
+    "gate_s_m23_r1_load_always": {
+      "file": "gate_mutants/s_m23_r1_load_always.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant m23_r1_load_always (REGISTERED=1: W reloads every cycle (no hold while start = 0))",
+      "class": "functional-bug",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m23_r1_load_always.v --out mutation_runs/gate_s_m23_r1_load_always --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 22.6,
+      "items_ok": 8,
+      "items_total": 13,
+      "killed_by": [
+        "edge_r1",
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_cover_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_cover_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m23_r1_load_always_R*"
+    },
+    "gate_s_m25_r1_start_over_reset": {
+      "file": "gate_mutants/s_m25_r1_start_over_reset.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant m25_r1_start_over_reset (REGISTERED=1: start has priority over reset for W)",
+      "class": "functional-bug",
+      "scope": 1,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m25_r1_start_over_reset.v --out mutation_runs/gate_s_m25_r1_start_over_reset --registered 1 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 22.5,
+      "items_ok": 9,
+      "items_total": 13,
+      "killed_by": [
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [
+        "smoke_powerup_r1",
+        "smoke_seq_r1",
+        "smoke_vec_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m25_r1_start_over_reset_R*"
+    },
+    "gate_s_m30_r0_rst_gates_W": {
+      "file": "gate_mutants/s_m30_r0_rst_gates_W.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m30_r0_rst_gates_W (REGISTERED=0: W forced to 0 while rst_n = 0 (never observed in the chip))",
+      "class": "out-of-context-bug",
+      "scope": 0,
+      "command": "../verif/run_all.sh --gate --rtl gate_mutants/s_m30_r0_rst_gates_W.v --out mutation_runs/gate_s_m30_r0_rst_gates_W --registered 0 --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 11.5,
+      "items_ok": 5,
+      "items_total": 7,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/gate_s_m30_r0_rst_gates_W_R*"
+    },
+    "m38_r0_rare_x": {
+      "file": "mutants/m38_r0_rare_x.v",
+      "mode": "rtl",
+      "description": "REGISTERED=0 only: W = X at one interior point (D = 1337, shift = 7); probes the X check off the edge set",
+      "class": "functional-bug",
+      "scope": "R0",
+      "command": "../verif/run_all.sh --rtl mutants/m38_r0_rare_x.v --out mutation_runs/m38_r0_rare_x --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 23.3,
+      "items_ok": 14,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "eqy_rtl_r0"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "eqy_rtl_r0": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_r0"
+      ],
+      "killed_by_edge": [
+        "edge_r0"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "PASS"
+      },
+      "eqy_evidence": "equiv/classify/m38_r0_rare_x_R*"
+    },
+    "m39_rare_x_both": {
+      "file": "mutants/m39_rare_x_both.v",
+      "mode": "rtl",
+      "description": "weight = X at one interior point (D = 1337, shift = 7), both configurations",
+      "class": "functional-bug",
+      "scope": "both",
+      "command": "../verif/run_all.sh --rtl mutants/m39_rare_x_both.v --out mutation_runs/m39_rare_x_both --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/exp_lut/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 21.6,
+      "items_ok": 10,
+      "items_total": 16,
+      "killed_by": [
+        "edge_r0",
+        "edge_r1",
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_status": {
+        "edge_r0": "failed",
+        "edge_r1": "failed",
+        "fv_pdr_r1": "failed",
+        "fv_prove_r1": "failed",
+        "eqy_rtl_r0": "failed",
+        "eqy_rtl_r1": "failed"
+      },
+      "nongating_failed": [
+        "smoke_seq_r1"
+      ],
+      "killed_by_formal": [
+        "fv_pdr_r1",
+        "fv_prove_r1",
+        "eqy_rtl_r0",
+        "eqy_rtl_r1"
+      ],
+      "killed_by_edge": [
+        "edge_r0",
+        "edge_r1"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "eqy_vs_golden": {
+        "R0": "FAIL",
+        "R1": "FAIL"
+      },
+      "eqy_evidence": "equiv/classify/m39_rare_x_both_R*"
+    }
+  },
+  "summary": {
+    "contract": "pd_flow/modules/exp_lut/verif at commit 1437ea8 (unmodified; hashes in contract_hash_1437ea8.txt), gating items only (all_ok)",
+    "runs_total": 63,
+    "rtl_runs": 44,
+    "gate_runs": 19,
+    "must_kill": 53,
+    "must_kill_killed": 52,
+    "must_kill_survived": [
+      "m34_default_param0"
+    ],
+    "killed_by_edge_item": 49,
+    "killed_by_formal_item": 52,
+    "killed_only_by_formal_not_edge": [
+      "m29_r1_initval",
+      "m37_r0_mid_interval",
+      "gate_g08_latq_done"
+    ],
+    "equivalent": 10,
+    "equivalent_survived": 10,
+    "equivalent_all_eqy_pass": true,
+    "survivor_verdicts": {
+      "e01_swap_19_20": "EQY-proven equivalent",
+      "e02_fullwidth_round": "EQY-proven equivalent",
+      "e03_ge_2_20": "EQY-proven equivalent",
+      "e04_r1_mux_hold": "EQY-proven equivalent",
+      "e05_explicit_zeros": "EQY-proven equivalent",
+      "m34_default_param0": "CONTRACT GAP (B1: default-parameter check fails open)",
+      "gate_g03_tie_input": "EQY-proven equivalent",
+      "gate_g04_buf_internal": "EQY-proven equivalent",
+      "gate_g06_clkbuf": "EQY-proven equivalent",
+      "gate_s_e02_fullwidth_round": "EQY-proven equivalent",
+      "gate_s_e04_r1_mux_hold": "EQY-proven equivalent"
+    }
+  },
+  "superseded": "pre-D9 partial campaign (contract ec61c41, exhaustive items) in superseded_pre_D9/; not evidence"
+}

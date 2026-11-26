@@ -1,0 +1,2 @@
+rom prove_r1 status=ERROR summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0) SBY 12:49:55 [exp_lut_prove_r1] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t
+rom cover_r1 status=ERROR summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0) SBY 12:49:56 [exp_lut_cover_r1] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t

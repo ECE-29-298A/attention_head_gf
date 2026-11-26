@@ -1,0 +1,6 @@
+== verilator
+intervals loaded: 352
+RESULT mode=vectors cycles=206052 values_checked=206049 mismatches=0
+== icarus
+RESULT sim=icarus vectors=206052 checked=206049 mismatches=0
+tb_vectors.sv:76: $finish called at 2060525000 (1ps)

@@ -1,0 +1,19 @@
+selftest selftest
+gen gen
+lint_r0 lint 0
+build_r0 build 0
+lint_r1 lint 1
+build_r1 build 1
+edge_r0 edge 0
+edge_r1 edge 1
+smoke_seq_r1 sim 1 seq 5000000 0x5E01
+smoke_powerup_r1 sim 1 powerup 64
+smoke_vec_r1 vec
+fv_prove_r1 sby prove_r1
+fv_pdr_r1 sby pdr_r1
+fv_cover_r1 sby cover_r1
+fv_sanity_pu_r1 sby sanity_pu_r1
+fv_sanity_trunc_r1 sby sanity_trunc_r1
+fv_sanity_lat0_r1 sby sanity_lat0_r1
+eqy_rtl_r0 eqy 0
+eqy_rtl_r1 eqy 1

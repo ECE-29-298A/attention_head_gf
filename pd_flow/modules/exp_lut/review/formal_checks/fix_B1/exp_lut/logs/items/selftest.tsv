@@ -1,0 +1,1 @@
+selftest	selftest	pass	true	1.328	logs/selftest.log	RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0

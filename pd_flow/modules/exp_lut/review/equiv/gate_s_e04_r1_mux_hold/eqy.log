@@ -1,0 +1,50 @@
+EQY 10:06:09 [eq] read_gold: starting process "yosys -ql eq/gold.log eq/gold.ys"
+EQY 10:06:09 [eq] read_gold: finished (returncode=0)
+EQY 10:06:09 [eq] read_gate: starting process "yosys -ql eq/gate.log eq/gate.ys"
+EQY 10:06:09 [eq] read_gate: finished (returncode=0)
+EQY 10:06:09 [eq] combine: starting process "yosys -ql eq/combine.log eq/combine.ys"
+EQY 10:06:09 [eq] combine: finished (returncode=0)
+EQY 10:06:09 [eq] partition: starting process "cd eq; yosys -ql partition.log partition.ys"
+EQY 10:06:09 [eq] partition: finished (returncode=0)
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.7 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.6 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.5 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.4 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.3 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.2 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.1 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] Warning: Partition exp_lut.W.0 contains 1 unused gate inputs.
+EQY 10:06:09 [eq] run: starting process "make -C eq -f strategies.mk"
+EQY 10:06:09 [eq] run: Running strategy 'sat' on 'exp_lut.W.0'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.0' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.1'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.1' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.2'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.2' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.3'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.3' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.4'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.4' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.5'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.5' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.6'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.6' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.W.7'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.W.7' using strategy 'sat'
+EQY 10:06:10 [eq] run: Running strategy 'sat' on 'exp_lut.done'..
+EQY 10:06:10 [eq] run: Proved equivalence of partition 'exp_lut.done' using strategy 'sat'
+EQY 10:06:10 [eq] run: /Applications/Xcode.app/Contents/Developer/usr/bin/make -f strategies.mk summary
+EQY 10:06:10 [eq] run: finished (returncode=0)
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.done
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.7
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.6
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.5
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.4
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.3
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.2
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.1
+EQY 10:06:10 [eq] Successfully proved equivalence of partition exp_lut.W.0
+EQY 10:06:10 [eq] Successfully proved designs equivalent
+EQY 10:06:10 [eq] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 10:06:10 [eq] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 10:06:10 [eq] DONE (PASS, rc=0)

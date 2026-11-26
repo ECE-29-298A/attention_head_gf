@@ -1,0 +1,97 @@
+{
+ "g01_nand2_to_nor2_W3": {
+  "class": "functional-bug",
+  "registered": 0,
+  "description": "R0: cell _097_ (drives W[3]) nand2_1 replaced by nor2_1"
+ },
+ "g02_swap_W0_W1": {
+  "class": "functional-bug",
+  "registered": 0,
+  "description": "R0: output nets W[0] and W[1] swapped"
+ },
+ "g03_tie_input": {
+  "class": "equivalent",
+  "registered": 0,
+  "description": "R0: input A2 of cell _139_ tied to 1'b1 (found redundant: exhaustive sweep 0 mismatches; EQY to confirm)"
+ },
+ "g09_stuck_W3_in": {
+  "class": "functional-bug",
+  "registered": 0,
+  "description": "R0: input A1 of cell _097_ (drives W[3]) tied to 1'b1 (stuck-at-1)"
+ },
+ "g04_buf_internal": {
+  "class": "equivalent",
+  "registered": 0,
+  "description": "R0: a buf_1 inserted on the W[3] output (equivalent; models resizer buffering)"
+ },
+ "g05_dffnq_W0": {
+  "class": "structural",
+  "registered": 1,
+  "description": "R1: flop W[0] replaced by negative-edge dffnq_1"
+ },
+ "g06_clkbuf": {
+  "class": "equivalent",
+  "registered": 1,
+  "description": "R1: all 9 flops clocked through one clkbuf_1 from clk (equivalent; models a post-CTS netlist)"
+ },
+ "g07_dswap_W6_W7": {
+  "class": "functional-bug",
+  "registered": 1,
+  "description": "R1: D inputs of flops W[6] and W[7] swapped"
+ },
+ "g08_latq_done": {
+  "class": "structural",
+  "registered": 1,
+  "description": "R1: done flop replaced by latch latq_1 (E = clk, transparent high)"
+ },
+ "s_m01_lut8_34": {
+  "class": "functional-bug",
+  "registered": 0,
+  "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m01_lut8_34 (entry D'=8 35 -> 34 (near-tie 34.5105 truncated/rounded down))"
+ },
+ "s_m13_carry_lost": {
+  "class": "functional-bug",
+  "registered": 0,
+  "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m13_carry_lost (rounding carry to D'=32 not flagged (index[5] dropped): e.g. s=1, D=63 gives 255)"
+ },
+ "s_m14_bit21_ignored": {
+  "class": "out-of-context-bug",
+  "registered": 0,
+  "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m14_bit21_ignored (D[21] ignored (D >= 2^21 aliases to D - 2^21); unreachable with a consistent tape)"
+ },
+ "s_m19_rare_point": {
+  "class": "functional-bug",
+  "registered": 0,
+  "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m19_rare_point (one rare point: D = 1337, shift = 7 (D'=10) gives 22 instead of 21 (1 of 2^26 inputs))"
+ },
+ "s_m30_r0_rst_gates_W": {
+  "class": "out-of-context-bug",
+  "registered": 0,
+  "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant m30_r0_rst_gates_W (REGISTERED=0: W forced to 0 while rst_n = 0 (never observed in the chip))"
+ },
+ "s_e02_fullwidth_round": {
+  "class": "equivalent",
+  "registered": 0,
+  "description": "mapped GF180 netlist (REGISTERED=0) of RTL mutant e02_fullwidth_round (full-width reformulation: D' = (D + 2^(s-1)) >> s at 23 bits, W = D' < 25 ? table : 0)"
+ },
+ "s_m21_r1_latency2": {
+  "class": "functional-bug",
+  "registered": 1,
+  "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant m21_r1_latency2 (REGISTERED=1: two-cycle latency (extra W and done stage))"
+ },
+ "s_m23_r1_load_always": {
+  "class": "functional-bug",
+  "registered": 1,
+  "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant m23_r1_load_always (REGISTERED=1: W reloads every cycle (no hold while start = 0))"
+ },
+ "s_m25_r1_start_over_reset": {
+  "class": "functional-bug",
+  "registered": 1,
+  "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant m25_r1_start_over_reset (REGISTERED=1: start has priority over reset for W)"
+ },
+ "s_e04_r1_mux_hold": {
+  "class": "equivalent",
+  "registered": 1,
+  "description": "mapped GF180 netlist (REGISTERED=1) of RTL mutant e04_r1_mux_hold (REGISTERED=1: if (start) W_r <= weight written as W_r <= start ? weight : W_r)"
+ }
+}

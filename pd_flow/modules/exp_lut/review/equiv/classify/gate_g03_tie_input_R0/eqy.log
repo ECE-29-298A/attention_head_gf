@@ -1,0 +1,21 @@
+EQY 11:22:03 [eq] read_gold: starting process "yosys -ql eq/gold.log eq/gold.ys"
+EQY 11:22:03 [eq] read_gold: finished (returncode=0)
+EQY 11:22:03 [eq] read_gate: starting process "yosys -ql eq/gate.log eq/gate.ys"
+EQY 11:22:03 [eq] read_gate: finished (returncode=0)
+EQY 11:22:03 [eq] combine: starting process "yosys -ql eq/combine.log eq/combine.ys"
+EQY 11:22:03 [eq] combine: finished (returncode=0)
+EQY 11:22:03 [eq] partition: starting process "cd eq; yosys -ql partition.log partition.ys"
+EQY 11:22:04 [eq] partition: finished (returncode=0)
+EQY 11:22:04 [eq] run: starting process "make -C eq -f strategies.mk"
+EQY 11:22:04 [eq] run: Running strategy 'sat' on 'exp_lut.W'..
+EQY 11:22:04 [eq] run: Proved equivalence of partition 'exp_lut.W' using strategy 'sat'
+EQY 11:22:04 [eq] run: Running strategy 'sat' on 'exp_lut.done'..
+EQY 11:22:04 [eq] run: Proved equivalence of partition 'exp_lut.done' using strategy 'sat'
+EQY 11:22:04 [eq] run: /Applications/Xcode.app/Contents/Developer/usr/bin/make -f strategies.mk summary
+EQY 11:22:04 [eq] run: finished (returncode=0)
+EQY 11:22:04 [eq] Successfully proved equivalence of partition exp_lut.done
+EQY 11:22:04 [eq] Successfully proved equivalence of partition exp_lut.W
+EQY 11:22:04 [eq] Successfully proved designs equivalent
+EQY 11:22:04 [eq] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 11:22:04 [eq] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 11:22:04 [eq] DONE (PASS, rc=0)

@@ -1,0 +1,94 @@
+== verilator --lint-only -Wall (simulation view, REGISTERED=0)
+- V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.015 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.007 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.006 s on 1 threads; allocated 9.875 MB
+verilator_rc=0
+RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0
+== yosys structural check (Yosys view)
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+
+-- Running command `read_verilog exp_lut_fv.v; chparam -set REGISTERED 0 exp_lut; hierarchy -check -top exp_lut; proc -noopt -norom; flatten; check -assert; scc -select; select -assert-none %; select -clear; select -assert-none t:$adff* t:$aldff* t:$sdff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*; opt_clean; write_json lint_r0.json' --
+
+1. Executing Verilog-2005 frontend: exp_lut_fv.v
+Parsing Verilog input from `exp_lut_fv.v' to AST representation.
+Generating RTLIL representation for module `\exp_lut'.
+Successfully finished Verilog frontend.
+Parameter \REGISTERED = 0
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\exp_lut'.
+Parameter \REGISTERED = 0
+Generating RTLIL representation for module `$paramod\exp_lut\REGISTERED=s32'00000000000000000000000000000000'.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \exp_lut
+
+3.2. Analyzing design hierarchy..
+Top module:  \exp_lut
+Removed 0 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $exp_lut_fv.v:76$proc$48 in module exp_lut.
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\exp_lut.$exp_lut_fv.v:76$proc$48'.
+     1/2: $2\weight[7:0]
+     2/2: $1\weight[7:0]
+
+4.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\exp_lut.\weight' from process `\exp_lut.$exp_lut_fv.v:76$proc$48'.
+
+4.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\exp_lut.$exp_lut_fv.v:76$proc$48'.
+Removing empty process `exp_lut.$exp_lut_fv.v:76$proc$48'.
+Cleaned up 2 empty switches.
+
+5. Executing FLATTEN pass (flatten design).
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module exp_lut...
+Found and reported 0 problems.
+
+7. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module exp_lut.
+Found 0 SCCs.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \exp_lut..
+Removed 1 unused cells and 14 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+End of script. Logfile hash: 6b651e4172, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 15.58 MB peak
+Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+Time spent: 34% 2x read_verilog (0 sec), 22% 1x chparam (0 sec), ...
+yosys_rc=0
+== interface / state check
+RESULT interface top=exp_lut registered=0 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=0 errors=0
+interface_rc=0

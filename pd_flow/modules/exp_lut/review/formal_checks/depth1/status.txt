@@ -1,0 +1,1 @@
+depth1 prove_r1 status=PASS summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2) 

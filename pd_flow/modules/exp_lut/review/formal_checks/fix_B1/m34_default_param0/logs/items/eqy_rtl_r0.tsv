@@ -1,0 +1,1 @@
+eqy_rtl_r0	eqy	proven	true	3.174	logs/eqy_rtl_r0.log	eqy_status=PASS partitions_proved=60 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=0)
