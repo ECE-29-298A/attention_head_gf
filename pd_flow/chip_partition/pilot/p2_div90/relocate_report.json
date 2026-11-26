@@ -1,0 +1,36 @@
+{
+ "generator": "region_place.py gen2 (analytic + bisection + FFD + swaps)",
+ "base": "pilot/p1_refeed",
+ "module": "DIV",
+ "members": 325,
+ "member_cell_area": 8761.04,
+ "region_rows": [
+  0,
+  32
+ ],
+ "region_sites": [
+  457,
+  605
+ ],
+ "region_um": [
+  259.28,
+  3.92,
+  342.16,
+  129.36
+ ],
+ "region_area": 10396.47,
+ "tap_endcap_area_in_region": 289.77,
+ "density_D8_cells_taps": 0.8706,
+ "foreign_cells_displaced": 116,
+ "neighbours_slid": 161,
+ "foreign_displacement_um": {
+  "sum": 11578.0,
+  "max": 361.8
+ },
+ "slid_displacement_um_sum": 2078.2,
+ "swaps": 160,
+ "hpwl_base_um": 43266.7,
+ "hpwl_after_legalize_um": 54034.7,
+ "hpwl_final_um": 52312.4,
+ "cells_relocated": 584
+}

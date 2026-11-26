@@ -1,0 +1,49 @@
+{
+ "title": "Chip Partition Pilots A",
+ "module": "whole chip (MAC-C, DIV, CTRL, FE)",
+ "date": "2026-11-26",
+ "commit": "80bebf8 + uncommitted pd_flow/chip_partition",
+ "summary": "Architect A's integration pilots for an all-custom-placed chip. LibreLane 3.0.14 takes a structural netlist (SYNTH_ELABORATE_ONLY) and a MACRO_PLACEMENT_CFG that makes every instance FIRM; global placement is skipped, while CTS, tie re-creation and repair still get legal sites. P1 re-feeds the h2 placement (1,467 instances). P2 packs the 325-cell divider cluster into its floorplan region (D8 0.871 before CTS) with an analytic generator and leaves the rest of the chip where h2 put it.",
+ "decision": {
+  "label": "Mechanism adopted (P1); block-at-a-time insertion rejected (P2)",
+  "kind": "adopted",
+  "text": "P1: 1,449/1,449 placed instances held FIXED at their exact site, orientation and master through every step to final; DRC/LVS/antenna 0, timing met, +17.5 um2 (one pre-sized cell) and +0.1 % wire against h2. P2: clean DRC/LVS/antenna and timing, clock tree -26.3 um2, but 116 displaced neighbours give +22.4 % routed wire and 386 slow-corner slew violations, 5 above the D2 band. The chip is assembled from all regions at once, not block by block."
+ },
+ "baseline": {
+  "label": "h2 (F1) reference",
+  "run": "/Users/samuelzhang/ttharden/fx_h2_k6"
+ },
+ "runs": [
+  {
+   "label": "P1 p1_refeed: h2 placement re-fed, all FIRM",
+   "run": "/Users/samuelzhang/ttharden/cpa_p1_refeed",
+   "note": "h2 final netlist minus fill, taps and clock tree; 18 port assigns folded; _1248_ pre-sized oai31_1 to oai31_2 after the DPL-0033 attempt (fixed-point loop, 1 iteration). The 33 h2 repair buffers are part of the fed netlist, so the flow classes them as 'Buffers' instead of 'Repair buffers'. The two rows together are 987.8 um2 in all three columns."
+  },
+  {
+   "label": "P2 p2_div90: DIV cluster in its region",
+   "run": "/Users/samuelzhang/ttharden/cpa_p2_div90",
+   "note": "Same netlist as P1 (byte-identical body). DIV region rows 0-31, sites 457-604 (259.28-342.16 x 3.92-129.36 um). gen2 generator (region_place.py): pre-route HPWL +20.9 %. gen1 affine map rejected at +42 %."
+  }
+ ],
+ "verification": [
+  "check_held.py on every step DEF from step 17 to final: P1 and P2 ALL_HELD 1,449/1,449. Added instances only: 426 taps/endcaps, 30-31 CTS, 17 re-created ties, fill.",
+  "Yosys equiv_make / equiv_simple -seq 2 / equiv_induct of pilot.v against the golden flat synthesis (sha a339bf99): 5,533 of 5,533 $equiv cells proven.",
+  "In-flow LVS 0, Magic DRC 0, antenna 0, route DRC 0 for P1 and P2. Setup/hold WS P1 41.66/0.054 ns, P2 41.34/0.075 ns.",
+  "G1 legality asserted by make_pilot.py before each run: on-site, in-core, row orientation, no overlap with cells, taps or endcaps.",
+  "D2 band: P1 252/2/6 inside; P2 386/2/6, slew outside (max_ss 386, nom_ss 288, tt/ff 0)."
+ ],
+ "evidence": [
+  "pd_flow/chip_partition/PLAN.md",
+  "pd_flow/chip_partition/analysis/pilot_metrics.json",
+  "pd_flow/chip_partition/analysis/region_density.json",
+  "pd_flow/chip_partition/pilot/p1_refeed/held_full.json",
+  "pd_flow/chip_partition/pilot/p2_div90/held_full.json",
+  "pd_flow/chip_partition/pilot/p1_refeed/equiv/equiv_final.log",
+  "pd_flow/chip_partition/pilot/p1_refeed/attempt2_dpl0033_FAILED/openroad-repairdesignpostgpl.log",
+  "pd_flow/chip_partition/pilot/p2_div90/relocate_report.json",
+  "pd_flow/chip_partition/pilot/p2_div90/gen1_affine_REJECTED/hpwl_vs_p1.jsonl",
+  "pd_flow/chip_partition/floorplan/budget.md",
+  "/Users/samuelzhang/ttharden/cpa_p1_refeed/harden.log",
+  "/Users/samuelzhang/ttharden/cpa_p2_div90/harden.log"
+ ]
+}

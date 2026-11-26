@@ -1,0 +1,202 @@
+{
+ "pilot_dir": "pilot/p1_refeed",
+ "run": "/Users/samuelzhang/ttharden/cpa_p1_refeed/runs/wokwi",
+ "configured": 1467,
+ "ties_in_cfg": 18,
+ "steps": {
+  "17-odb-manualmacroplacement": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 18,
+   "added": {},
+   "ok": true
+  },
+  "18-openroad-cutrows": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 18,
+   "added": {},
+   "ok": true
+  },
+  "19-openroad-tapendcapinsertion": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 18,
+   "added": {
+    "tap/endcap": 426
+   },
+   "ok": true
+  },
+  "21-openroad-generatepdn": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 18,
+   "added": {
+    "tap/endcap": 426
+   },
+   "ok": true
+  },
+  "27-odb-applydeftemplate": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 18,
+   "added": {
+    "tap/endcap": 426
+   },
+   "ok": true
+  },
+  "28-openroad-globalplacement": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 18,
+   "added": {
+    "tap/endcap": 426
+   },
+   "ok": true
+  },
+  "32-openroad-repairdesignpostgpl": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "34-openroad-detailedplacement": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "35-openroad-cts": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "37-openroad-resizertimingpostcts": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "39-openroad-globalrouting": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "44-openroad-detailedrouting": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "48-odb-reportdisconnectedpins": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "52-openroad-fillinsertion": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "fill": 1049,
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "53-odb-cellfrequencytables": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "fill": 1049,
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  },
+  "final": {
+   "held_exact": 1449,
+   "of": 1449,
+   "violations": {},
+   "examples": [],
+   "orig_ties_present": 1,
+   "added": {
+    "fill": 1049,
+    "tap/endcap": 426,
+    "cts": 31,
+    "tie": 17
+   },
+   "ok": true
+  }
+ },
+ "ALL_HELD": true
+}

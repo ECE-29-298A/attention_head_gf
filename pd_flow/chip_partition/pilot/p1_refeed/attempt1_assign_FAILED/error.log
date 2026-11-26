@@ -1,0 +1,3 @@
+runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v:9347: assign statement found in netlist
+runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v:9348: assign statement found in netlist
+runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v:9349: assign statement found in netlist

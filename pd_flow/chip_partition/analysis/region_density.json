@@ -1,0 +1,116 @@
+{
+ "h2": {
+  "MAC-C": {
+   "d8": 0.8686,
+   "cell_area": 26970.2,
+   "cts_area": 511.5,
+   "area": 31048.9
+  },
+  "DIV": {
+   "d8": 0.901,
+   "cell_area": 9366.9,
+   "cts_area": 219.5,
+   "area": 10396.5
+  },
+  "FE": {
+   "d8": 0.8536,
+   "cell_area": 1600.3,
+   "cts_area": 0.0,
+   "area": 1874.7
+  },
+  "CTRL": {
+   "d8": 0.8713,
+   "cell_area": 6078.5,
+   "cts_area": 109.8,
+   "area": 6976.3
+  },
+  "SPARE-B": {
+   "d8": 0.8822,
+   "cell_area": 805.6,
+   "cts_area": 11.0,
+   "area": 913.2
+  },
+  "SPARE-T": {
+   "d8": 0.7513,
+   "cell_area": 311.7,
+   "cts_area": 0.0,
+   "area": 414.9
+  }
+ },
+ "P1": {
+  "MAC-C": {
+   "d8": 0.8691,
+   "cell_area": 26985.6,
+   "cts_area": 509.3,
+   "area": 31048.9
+  },
+  "DIV": {
+   "d8": 0.901,
+   "cell_area": 9366.9,
+   "cts_area": 219.5,
+   "area": 10396.5
+  },
+  "FE": {
+   "d8": 0.8536,
+   "cell_area": 1600.3,
+   "cts_area": 0.0,
+   "area": 1874.7
+  },
+  "CTRL": {
+   "d8": 0.8669,
+   "cell_area": 6047.8,
+   "cts_area": 79.0,
+   "area": 6976.3
+  },
+  "SPARE-B": {
+   "d8": 0.8846,
+   "cell_area": 807.8,
+   "cts_area": 13.2,
+   "area": 913.2
+  },
+  "SPARE-T": {
+   "d8": 0.8254,
+   "cell_area": 342.5,
+   "cts_area": 30.7,
+   "area": 414.9
+  }
+ },
+ "P2": {
+  "MAC-C": {
+   "d8": 0.8691,
+   "cell_area": 26985.6,
+   "cts_area": 461.0,
+   "area": 31048.9
+  },
+  "DIV": {
+   "d8": 0.8723,
+   "cell_area": 9068.4,
+   "cts_area": 17.6,
+   "area": 10396.5
+  },
+  "FE": {
+   "d8": 0.9157,
+   "cell_area": 1716.6,
+   "cts_area": 149.3,
+   "area": 1874.7
+  },
+  "CTRL": {
+   "d8": 0.8779,
+   "cell_area": 6124.6,
+   "cts_area": 166.8,
+   "area": 6976.3
+  },
+  "SPARE-B": {
+   "d8": 0.9712,
+   "cell_area": 886.9,
+   "cts_area": 0.0,
+   "area": 913.2
+  },
+  "SPARE-T": {
+   "d8": 0.8254,
+   "cell_area": 342.5,
+   "cts_area": 30.7,
+   "area": 414.9
+  }
+ }
+}

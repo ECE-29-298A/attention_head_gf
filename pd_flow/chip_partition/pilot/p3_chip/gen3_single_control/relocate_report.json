@@ -1,0 +1,52 @@
+{
+ "generator": "chip_place.py gen3 (iterated quadratic + bisection + FFD + swaps, all regions)",
+ "base": "pilot/p1_refeed",
+ "floorplan": "floorplan",
+ "iters": 5,
+ "alphas": [
+  0.01,
+  0.02,
+  0.06,
+  0.18,
+  0.54,
+  1.62
+ ],
+ "swap_passes": 6,
+ "swaps": 681,
+ "region_density_D8_cells_taps_before_CTS": {
+  "CORE": 0.8581
+ },
+ "hpwl_base_um": 43266.7,
+ "hpwl_after_legalize_um": 56771.1,
+ "hpwl_final_um": 50746.9,
+ "hpwl_by_cluster_set_base": {
+  "MAC-C": 23205.8,
+  "DIV": 8923.0,
+  "CTRL": 3752.7,
+  "DIV|MAC-C": 3021.2,
+  "CTRL|MAC-C": 1341.5,
+  "FE": 744.4,
+  "CTRL|DIV": 567.3,
+  "CTRL|FE": 538.2,
+  "FE|MAC-C": 527.5,
+  "CTRL|FE|MAC-C": 386.7,
+  "CTRL|DIV|MAC-C": 135.5,
+  "DIV|FE": 65.0,
+  "CTRL|DIV|FE": 58.0
+ },
+ "hpwl_by_cluster_set_final": {
+  "MAC-C": 28044.2,
+  "DIV": 9761.4,
+  "CTRL": 4839.4,
+  "DIV|MAC-C": 3731.0,
+  "CTRL|MAC-C": 1344.0,
+  "FE": 671.9,
+  "CTRL|FE": 636.4,
+  "CTRL|DIV": 597.5,
+  "FE|MAC-C": 507.9,
+  "CTRL|FE|MAC-C": 401.5,
+  "CTRL|DIV|MAC-C": 114.5,
+  "DIV|FE": 62.2,
+  "CTRL|DIV|FE": 35.0
+ }
+}

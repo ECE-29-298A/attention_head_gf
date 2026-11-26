@@ -1,0 +1,192 @@
+{
+ "a_flat": {
+  "tag": "a_flat",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/a_flat/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "a339bf991497fc19",
+  "hierarchy_mode": null,
+  "keep_modules": null,
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41116.096,
+  "cells": 1434,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41037.0688,
+  "area_by_class": {
+   "buf": 79.0272,
+   "flop": 20944.4032,
+   "inv": 763.9296,
+   "logic": 19170.6816,
+   "tie": 158.0544
+  },
+  "scopes": {
+   "(top)": {
+    "area": 41116.096,
+    "cells": 1434,
+    "flops": 329
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10
+  }
+ },
+ "k_exp": {
+  "tag": "k_exp",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_exp/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "026d8f516e21a17d",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\exp_lut*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\exp_lut\\REGISTERED=s32'00000000000000000000000000000000",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41579.2832,
+  "cells": 1446,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41487.0848,
+  "area_by_class": {
+   "buf": 92.1984,
+   "flop": 20944.4032,
+   "inv": 886.8608,
+   "logic": 19488.9856,
+   "tie": 166.8352
+  },
+  "scopes": {
+   "(top)": {
+    "area": 38896.7488,
+    "cells": 1338,
+    "flops": 329
+   },
+   "core.exponent_unit": {
+    "area": 2682.5344,
+    "cells": 108,
+    "flops": 0
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(top) -> core.exponent_unit": 27,
+   "core.exponent_unit -> (top)": 8
+  }
+ },
+ "k_exp_c08": {
+  "tag": "k_exp_c08",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_exp_c08/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "c6c51d6f76f434a1",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\exp_lut*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\exp_lut\\REGISTERED=s32'00000000000000000000000000000000",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41059.0208,
+  "cells": 1449,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 40966.8224,
+  "area_by_class": {
+   "buf": 92.1984,
+   "flop": 20944.4032,
+   "inv": 834.176,
+   "logic": 19021.408,
+   "tie": 166.8352
+  },
+  "scopes": {
+   "(top)": {
+    "area": 38945.0432,
+    "cells": 1346,
+    "flops": 329
+   },
+   "core.exponent_unit": {
+    "area": 2113.9776,
+    "cells": 103,
+    "flops": 0
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(top) -> core.exponent_unit": 27,
+   "core.exponent_unit -> (top)": 8
+  }
+ },
+ "k_exp_c10": {
+  "tag": "k_exp_c10",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_exp_c10/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "9cfee3a340d4f860",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\exp_lut*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\exp_lut\\REGISTERED=s32'00000000000000000000000000000000",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41315.8592,
+  "cells": 1476,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41223.6608,
+  "area_by_class": {
+   "buf": 92.1984,
+   "flop": 20944.4032,
+   "inv": 895.6416,
+   "logic": 19216.7808,
+   "tie": 166.8352
+  },
+  "scopes": {
+   "(top)": {
+    "area": 38945.0432,
+    "cells": 1346,
+    "flops": 329
+   },
+   "core.exponent_unit": {
+    "area": 2370.816,
+    "cells": 130,
+    "flops": 0
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(top) -> core.exponent_unit": 27,
+   "core.exponent_unit -> (top)": 8
+  }
+ }
+}

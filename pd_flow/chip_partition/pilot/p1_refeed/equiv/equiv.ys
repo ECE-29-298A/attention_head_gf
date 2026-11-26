@@ -1,0 +1,13 @@
+read_liberty -ignore_miss_func /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
+read_verilog gold_synth.nl.v
+rename tt_um_attention_head_gf gold
+read_verilog gate_pilot.v
+rename tt_um_attention_head_gf gate
+hierarchy -check
+flatten gold gate
+opt_clean
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple -seq 2
+equiv_induct -seq 2
+equiv_status -assert

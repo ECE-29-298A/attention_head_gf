@@ -1,0 +1,461 @@
+{
+ "a_flat": {
+  "tag": "a_flat",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/a_flat/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "a339bf991497fc19",
+  "hierarchy_mode": null,
+  "keep_modules": null,
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41116.096,
+  "cells": 1434,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41037.0688,
+  "area_by_class": {
+   "buf": 79.0272,
+   "flop": 20944.4032,
+   "inv": 763.9296,
+   "logic": 19170.6816,
+   "tie": 158.0544
+  },
+  "scopes": {
+   "(top)": {
+    "area": 41116.096,
+    "cells": 1434,
+    "flops": 329
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10
+  }
+ },
+ "a_keep": {
+  "tag": "a_keep",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/a_keep/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "0707d2824383be3a",
+  "hierarchy_mode": "keep",
+  "keep_modules": null,
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod$7255addc1faf0b4fda49af436a86fea9a44ab2f2\\divider",
+   "$paramod\\attention_controller\\OUTPUTS=s32'00000000000000000000000000001000",
+   "$paramod\\exp_lut\\REGISTERED=s32'00000000000000000000000000000000",
+   "$paramod\\mac_unit\\OUTPUTS=s32'00000000000000000000000000001000",
+   "$paramod\\ripple_add\\N=s32'00000000000000000000000000001100",
+   "$paramod\\ripple_add\\N=s32'00000000000000000000000000010110",
+   "max_reg",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 43684.48,
+  "cells": 1505,
+  "flops": 328,
+  "yosys_stat_area_h2_lib": 43328.8576,
+  "area_by_class": {
+   "buf": 355.6224,
+   "flop": 20880.7424,
+   "inv": 1238.0928,
+   "logic": 20999.2832,
+   "tie": 210.7392
+  },
+  "scopes": {
+   "(top)": {
+    "area": 1573.9584,
+    "cells": 54,
+    "flops": 15
+   },
+   "core": {
+    "area": 5863.3792,
+    "cells": 227,
+    "flops": 41
+   },
+   "core.divider_unit": {
+    "area": 9156.1792,
+    "cells": 384,
+    "flops": 56
+   },
+   "core.exponent_unit": {
+    "area": 2682.5344,
+    "cells": 108,
+    "flops": 0
+   },
+   "core.mac": {
+    "area": 18073.0816,
+    "cells": 477,
+    "flops": 194
+   },
+   "core.mac.adder": {
+    "area": 1973.4848,
+    "cells": 86,
+    "flops": 0
+   },
+   "core.mac.l_adder": {
+    "area": 1062.4768,
+    "cells": 46,
+    "flops": 0
+   },
+   "core.max_unit": {
+    "area": 3299.3856,
+    "cells": 123,
+    "flops": 22
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 6,
+   "(port) -> core": 5,
+   "(port) -> core.divider_unit": 1,
+   "(port) -> core.mac": 1,
+   "(port) -> core.max_unit": 1,
+   "(top) -> core": 8,
+   "(top) -> core.divider_unit": 1,
+   "(top) -> core.exponent_unit": 4,
+   "core -> (top)": 6,
+   "core -> core.divider_unit": 2,
+   "core -> core.exponent_unit": 1,
+   "core -> core.mac": 21,
+   "core -> core.max_unit": 2,
+   "core.divider_unit -> (top)": 1,
+   "core.divider_unit -> core": 1,
+   "core.exponent_unit -> core.mac": 8,
+   "core.exponent_unit -> core.mac.l_adder": 8,
+   "core.mac -> core.divider_unit": 32,
+   "core.mac -> core.exponent_unit": 22,
+   "core.mac -> core.mac.adder": 39,
+   "core.mac -> core.mac.l_adder": 17,
+   "core.mac -> core.max_unit": 22,
+   "core.mac.adder -> core.mac": 22,
+   "core.mac.l_adder -> core.mac": 12,
+   "core.max_unit -> core.mac": 22
+  }
+ },
+ "k_ctrl": {
+  "tag": "k_ctrl",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_ctrl/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "66ace50c392c13ba",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\attention_controller*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\attention_controller\\OUTPUTS=s32'00000000000000000000000000001000",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41252.1984,
+  "cells": 1434,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41173.1712,
+  "area_by_class": {
+   "buf": 79.0272,
+   "flop": 20944.4032,
+   "inv": 816.6144,
+   "logic": 19254.0992,
+   "tie": 158.0544
+  },
+  "scopes": {
+   "(top)": {
+    "area": 1573.9584,
+    "cells": 54,
+    "flops": 15
+   },
+   "core": {
+    "area": 39678.24,
+    "cells": 1380,
+    "flops": 314
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 6,
+   "(port) -> core": 5,
+   "(top) -> core": 12,
+   "core -> (top)": 7
+  }
+ },
+ "k_mac": {
+  "tag": "k_mac",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_mac/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "fc0e54c992206361",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\mac_unit*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\mac_unit\\OUTPUTS=s32'00000000000000000000000000001000",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 42134.6688,
+  "cells": 1476,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41792.2176,
+  "area_by_class": {
+   "buf": 342.4512,
+   "flop": 20944.4032,
+   "inv": 851.7376,
+   "logic": 19838.0224,
+   "tie": 158.0544
+  },
+  "scopes": {
+   "(top)": {
+    "area": 21291.2448,
+    "cells": 822,
+    "flops": 135
+   },
+   "core.mac": {
+    "area": 20843.424,
+    "cells": 654,
+    "flops": 194
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(port) -> core.mac": 1,
+   "(top) -> core.mac": 51,
+   "core.mac -> (top)": 54
+  }
+ },
+ "k_max": {
+  "tag": "k_max",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_max/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "5acbbbd94cf839ea",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "max_reg"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "max_reg",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41768.0704,
+  "cells": 1419,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41689.0432,
+  "area_by_class": {
+   "buf": 79.0272,
+   "flop": 20944.4032,
+   "inv": 834.176,
+   "logic": 19752.4096,
+   "tie": 158.0544
+  },
+  "scopes": {
+   "(top)": {
+    "area": 38468.6848,
+    "cells": 1296,
+    "flops": 307
+   },
+   "core.max_unit": {
+    "area": 3299.3856,
+    "cells": 123,
+    "flops": 22
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(port) -> core.max_unit": 1,
+   "(top) -> core.max_unit": 24,
+   "core.max_unit -> (top)": 22
+  }
+ },
+ "k_exp": {
+  "tag": "k_exp",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_exp/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "026d8f516e21a17d",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\exp_lut*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\exp_lut\\REGISTERED=s32'00000000000000000000000000000000",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41579.2832,
+  "cells": 1446,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41487.0848,
+  "area_by_class": {
+   "buf": 92.1984,
+   "flop": 20944.4032,
+   "inv": 886.8608,
+   "logic": 19488.9856,
+   "tie": 166.8352
+  },
+  "scopes": {
+   "(top)": {
+    "area": 38896.7488,
+    "cells": 1338,
+    "flops": 329
+   },
+   "core.exponent_unit": {
+    "area": 2682.5344,
+    "cells": 108,
+    "flops": 0
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(top) -> core.exponent_unit": 27,
+   "core.exponent_unit -> (top)": 8
+  }
+ },
+ "k_div": {
+  "tag": "k_div",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_div/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "dd77bfedc4e8a0bc",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod*divider"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod$7255addc1faf0b4fda49af436a86fea9a44ab2f2\\divider",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41974.4192,
+  "cells": 1487,
+  "flops": 328,
+  "yosys_stat_area_h2_lib": 41908.5632,
+  "area_by_class": {
+   "buf": 65.856,
+   "flop": 20880.7424,
+   "inv": 974.6688,
+   "logic": 19895.0976,
+   "tie": 158.0544
+  },
+  "scopes": {
+   "(top)": {
+    "area": 32818.24,
+    "cells": 1103,
+    "flops": 272
+   },
+   "core.divider_unit": {
+    "area": 9156.1792,
+    "cells": 384,
+    "flops": 56
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(port) -> core.divider_unit": 1,
+   "(top) -> core.divider_unit": 35,
+   "core.divider_unit -> (port)": 1,
+   "core.divider_unit -> (top)": 1
+  }
+ },
+ "k_ra": {
+  "tag": "k_ra",
+  "netlist": "/Users/samuelzhang/ttharden/cpa_llsynth/k_ra/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256_16": "375de2f2439eb676",
+  "hierarchy_mode": "flatten",
+  "keep_modules": [
+   "$paramod\\ripple_add*"
+  ],
+  "verilog_files": [
+   "dir::project.v",
+   "dir::attention_controller.sv",
+   "dir::mac_unit.v",
+   "dir::ripple_add.v",
+   "dir::max_reg.v",
+   "dir::exp_lut.v",
+   "dir::divider.v"
+  ],
+  "modules_in_netlist": [
+   "$paramod\\ripple_add\\N=s32'00000000000000000000000000001100",
+   "$paramod\\ripple_add\\N=s32'00000000000000000000000000010110",
+   "tt_um_attention_head_gf"
+  ],
+  "area_full_lib": 41792.2176,
+  "cells": 1421,
+  "flops": 329,
+  "yosys_stat_area_h2_lib": 41713.1904,
+  "area_by_class": {
+   "buf": 79.0272,
+   "flop": 20944.4032,
+   "inv": 851.7376,
+   "logic": 19715.0912,
+   "tie": 201.9584
+  },
+  "scopes": {
+   "(top)": {
+    "area": 38756.256,
+    "cells": 1289,
+    "flops": 329
+   },
+   "core.mac.adder": {
+    "area": 1973.4848,
+    "cells": 86,
+    "flops": 0
+   },
+   "core.mac.l_adder": {
+    "area": 1062.4768,
+    "cells": 46,
+    "flops": 0
+   }
+  },
+  "inter_scope_bits": {
+   "(port) -> (top)": 10,
+   "(top) -> core.mac.adder": 39,
+   "(top) -> core.mac.l_adder": 25,
+   "core.mac.adder -> (top)": 22,
+   "core.mac.l_adder -> (top)": 12
+  }
+ }
+}

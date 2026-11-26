@@ -1,0 +1,32 @@
+{
+ "module": "DIV",
+ "members": 325,
+ "member_cell_area": 8761.04,
+ "region_rows": [
+  0,
+  32
+ ],
+ "region_sites": [
+  457,
+  605
+ ],
+ "columns_added_for_packability": 0,
+ "region_um": [
+  259.28,
+  3.92,
+  342.16,
+  129.36
+ ],
+ "region_area": 10396.47,
+ "tap_endcap_area_in_region": 289.77,
+ "density_D8": 0.8706,
+ "target": 0.9,
+ "moved_area_sites_proxy": 3006.0,
+ "foreign_cells_displaced": 116,
+ "neighbours_slid": 159,
+ "foreign_displacement_um": {
+  "sum": 12210.2,
+  "max": 257.04
+ },
+ "member_displacement_um_mean": 74.56
+}

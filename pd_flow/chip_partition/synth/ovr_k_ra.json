@@ -1,0 +1,6 @@
+{
+ "SYNTH_HIERARCHY_MODE": "flatten",
+ "SYNTH_KEEP_HIERARCHY_MODULES": [
+  "$paramod\\ripple_add*"
+ ]
+}
