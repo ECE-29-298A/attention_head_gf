@@ -104,3 +104,11 @@ files. Run at most 2 at once (Docker memory). Use `synth_area.py` for module-lev
 - **Unit of tetrising:** a frozen leaf block cannot absorb the surrounding logic that ABC folds
   into it (operand inversion, muxes, constants). Evaluate tetris gains at mac_unit bit-slice
   level, and compare a placement-only approach that keeps ABC's in-context mapping.
+
+## Notes from max_reg Phase 1
+- For gate-level contracts with flops, use `modules/max_reg/verif/gate/extract_cells.py`, not the
+  ripple_add copy. The ripple_add copy misses unnamed UDP instances written without a space before
+  `(`, which is harmless there (no flops), and that contract stays frozen as is.
+- The sequential contracts accept only positive-edge flops clocked directly by `clk`. **Clock
+  gating**, a key power lever (the mac ring shifts every clock), needs a reviewed contract
+  extension: a gated-clock formal model plus equivalence to the ungated golden under the enable.

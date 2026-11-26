@@ -110,3 +110,5 @@ The integration path is demonstrated in the chip run `layout_plan/chip_runs/fixe
 - Placement: `layout_plan/gen_placement.py`, `validate_placement.py`
 - Implementation, all steps: `impl/scripts/reproduce_all.sh` (commands in IMPLEMENTATION.md §10)
 - Full harden trees: `/Users/samuelzhang/ttharden/ra_*` (on disk, not in git)
+
+7. Latent bug, no effect here: `verif/gate/extract_cells.py` misses unnamed UDP instances written as `udp(`. ripple_add has no flops, so it is unaffected; later modules use the fixed copy in `modules/max_reg/verif/gate/`.
