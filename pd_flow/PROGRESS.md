@@ -49,6 +49,10 @@
   - Per-module Phase 3/4 are replaced by cluster- and chip-level physical design.
   - ripple_add's and max_reg's standalone blocks are kept as building blocks and references only.
 
+- S1 (user, 2026-11-26): parallel-execution supplement. Agents 1, 2 and 3 run concurrently per module,
+  each in an isolated workspace with an immutable snapshot; the acceptance gates are unchanged. Still one
+  module at a time. See AGENT_CONTEXT "Parallel execution".
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

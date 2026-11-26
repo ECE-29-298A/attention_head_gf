@@ -147,3 +147,21 @@ std-cell area breakdown by class next to totals.
 - A frozen block must be compared with its **in-context** cone (the cells synthesis gives it in
   the full chip), never with the module synthesized alone.
 - Never accept or reject one module by a single chip harden; the chip is evaluated when assembled.
+
+## Parallel execution (user supplement S1 to MASTER_WORKFLOW, 2026-11-26)
+- **Concurrency:** Agents 1, 2 and 3 start together for each module.
+  - Agent 1 builds the contract in `modules/<m>/verif/`.
+  - Agent 2 characterizes independently in `review/`: it writes EXPECTED.md first, then audits
+    and mutation-tests Agent 1's contract once it is ready.
+  - Agent 3 optimizes in `opt/`, working on copies only.
+  - Physical preparation may overlap with all of these.
+- **Workspace isolation:** each agent writes only to its own directory. The immutable golden is
+  `modules/<m>/snapshot/` (read-only, SHA256SUMS, BASE_COMMIT), equal to `baseline/original_rtl/`.
+- **Agent 3 and the contract:** Agent 3 must not read or influence `verif/` or `review/` until
+  the contract is frozen, and nothing is accepted before then. Until then, Agent 3 evaluates
+  provisionally with EQY against the golden plus the existing `test/` suites.
+- **Constraint relay:** the orchestrator passes newly found behavioural constraints to Agent 3.
+- **CPU budget** (10 cores / 64 GB, shared): at most 1 LibreLane harden at a time machine-wide
+  (check `docker ps`), using about 4 cores. Agent 1 uses at most 3 jobs, Agent 2 at most 2, and
+  Agent 3 at most 1 job, with no `ll_synth.sh` while a harden runs. Reuse cached artifacts when
+  the hashes match.
