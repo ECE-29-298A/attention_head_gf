@@ -1,0 +1,576 @@
+{
+ "modules": {
+  "top": {
+   "module": "tt_um_attention_head_gf",
+   "in_bits": 19,
+   "out_bits": 24,
+   "ports": {
+    "ui_in": [
+     "input",
+     8
+    ],
+    "uo_out": [
+     "output",
+     8
+    ],
+    "uio_in": [
+     "input",
+     8
+    ],
+    "uio_out": [
+     "output",
+     8
+    ],
+    "uio_oe": [
+     "output",
+     8
+    ],
+    "ena": [
+     "input",
+     1
+    ],
+    "clk": [
+     "input",
+     1
+    ],
+    "rst_n": [
+     "input",
+     1
+    ]
+   }
+  },
+  "core": {
+   "module": "attention_controller",
+   "in_bits": 18,
+   "out_bits": 7,
+   "ports": {
+    "clk": [
+     "input",
+     1
+    ],
+    "rst_n": [
+     "input",
+     1
+    ],
+    "start": [
+     "input",
+     1
+    ],
+    "last": [
+     "input",
+     4
+    ],
+    "score_shift": [
+     "input",
+     4
+    ],
+    "cont": [
+     "input",
+     1
+    ],
+    "idle": [
+     "output",
+     1
+    ],
+    "spi_cs_n": [
+     "output",
+     1
+    ],
+    "spi_sck": [
+     "output",
+     1
+    ],
+    "spi_mosi": [
+     "output",
+     1
+    ],
+    "spi_mosi_oe": [
+     "output",
+     1
+    ],
+    "spi_io": [
+     "input",
+     4
+    ],
+    "out_valid": [
+     "output",
+     1
+    ],
+    "out_ready": [
+     "input",
+     1
+    ],
+    "out_shift": [
+     "input",
+     1
+    ],
+    "out_bit": [
+     "output",
+     1
+    ]
+   }
+  },
+  "core.divider_unit": {
+   "module": "divider",
+   "in_bits": 36,
+   "out_bits": 14,
+   "ports": {
+    "clk": [
+     "input",
+     1
+    ],
+    "rst_n": [
+     "input",
+     1
+    ],
+    "start": [
+     "input",
+     1
+    ],
+    "sum_in": [
+     "input",
+     20
+    ],
+    "denominator": [
+     "input",
+     12
+    ],
+    "shift": [
+     "input",
+     1
+    ],
+    "busy": [
+     "output",
+     1
+    ],
+    "done": [
+     "output",
+     1
+    ],
+    "result": [
+     "output",
+     12
+    ]
+   }
+  },
+  "core.exponent_unit": {
+   "module": "exp_lut",
+   "in_bits": 29,
+   "out_bits": 9,
+   "ports": {
+    "clk": [
+     "input",
+     1
+    ],
+    "rst_n": [
+     "input",
+     1
+    ],
+    "start": [
+     "input",
+     1
+    ],
+    "D": [
+     "input",
+     22
+    ],
+    "shift": [
+     "input",
+     4
+    ],
+    "done": [
+     "output",
+     1
+    ],
+    "W": [
+     "output",
+     8
+    ]
+   }
+  },
+  "core.mac": {
+   "module": "mac_unit",
+   "in_bits": 67,
+   "out_bits": 54,
+   "ports": {
+    "clk": [
+     "input",
+     1
+    ],
+    "accum_mode": [
+     "input",
+     1
+    ],
+    "load": [
+     "input",
+     1
+    ],
+    "subtract": [
+     "input",
+     1
+    ],
+    "M": [
+     "input",
+     22
+    ],
+    "score_en": [
+     "input",
+     1
+    ],
+    "qi": [
+     "input",
+     8
+    ],
+    "ki": [
+     "input",
+     8
+    ],
+    "first": [
+     "input",
+     1
+    ],
+    "accum_en": [
+     "input",
+     1
+    ],
+    "W": [
+     "input",
+     8
+    ],
+    "sel": [
+     "input",
+     3
+    ],
+    "v": [
+     "input",
+     8
+    ],
+    "bit_sel": [
+     "input",
+     3
+    ],
+    "S": [
+     "output",
+     22
+    ],
+    "L": [
+     "output",
+     12
+    ],
+    "O0": [
+     "output",
+     20
+    ]
+   }
+  },
+  "core.mac.adder": {
+   "module": "ripple_add",
+   "in_bits": 45,
+   "out_bits": 22,
+   "ports": {
+    "a": [
+     "input",
+     22
+    ],
+    "b": [
+     "input",
+     22
+    ],
+    "cin": [
+     "input",
+     1
+    ],
+    "s": [
+     "output",
+     22
+    ]
+   }
+  },
+  "core.mac.l_adder": {
+   "module": "ripple_add",
+   "in_bits": 25,
+   "out_bits": 12,
+   "ports": {
+    "a": [
+     "input",
+     12
+    ],
+    "b": [
+     "input",
+     12
+    ],
+    "cin": [
+     "input",
+     1
+    ],
+    "s": [
+     "output",
+     12
+    ]
+   }
+  },
+  "core.max_unit": {
+   "module": "max_reg",
+   "in_bits": 25,
+   "out_bits": 22,
+   "ports": {
+    "clk": [
+     "input",
+     1
+    ],
+    "first": [
+     "input",
+     1
+    ],
+    "en": [
+     "input",
+     1
+    ],
+    "S_in": [
+     "input",
+     22
+    ],
+    "M": [
+     "output",
+     22
+    ]
+   }
+  }
+ },
+ "pairs": [
+  {
+   "parent": "top",
+   "from": "OWN:top",
+   "to": "PARENT_PORT",
+   "bits": 24
+  },
+  {
+   "parent": "top",
+   "from": "OWN:top",
+   "to": "core",
+   "bits": 12
+  },
+  {
+   "parent": "top",
+   "from": "core",
+   "to": "OWN:top",
+   "bits": 7
+  },
+  {
+   "parent": "top",
+   "from": "PARENT_PORT",
+   "to": "OWN:top",
+   "bits": 6
+  },
+  {
+   "parent": "top",
+   "from": "PARENT_PORT",
+   "to": "core",
+   "bits": 5
+  },
+  {
+   "parent": "core",
+   "from": "core.mac",
+   "to": "core.divider_unit",
+   "bits": 32
+  },
+  {
+   "parent": "core",
+   "from": "core.mac",
+   "to": "core.max_unit",
+   "bits": 22
+  },
+  {
+   "parent": "core",
+   "from": "core.mac",
+   "to": "core.exponent_unit",
+   "bits": 22
+  },
+  {
+   "parent": "core",
+   "from": "core.max_unit",
+   "to": "core.mac",
+   "bits": 22
+  },
+  {
+   "parent": "core",
+   "from": "OWN:core",
+   "to": "core.mac",
+   "bits": 21
+  },
+  {
+   "parent": "core",
+   "from": "PARENT_PORT",
+   "to": "OWN:core",
+   "bits": 14
+  },
+  {
+   "parent": "core",
+   "from": "core.exponent_unit",
+   "to": "core.mac",
+   "bits": 8
+  },
+  {
+   "parent": "core",
+   "from": "PARENT_PORT",
+   "to": "core.exponent_unit",
+   "bits": 6
+  },
+  {
+   "parent": "core",
+   "from": "OWN:core",
+   "to": "PARENT_PORT",
+   "bits": 6
+  },
+  {
+   "parent": "core",
+   "from": "PARENT_PORT",
+   "to": "core.divider_unit",
+   "bits": 2
+  },
+  {
+   "parent": "core",
+   "from": "OWN:core",
+   "to": "core.divider_unit",
+   "bits": 2
+  },
+  {
+   "parent": "core",
+   "from": "OWN:core",
+   "to": "core.max_unit",
+   "bits": 2
+  },
+  {
+   "parent": "core",
+   "from": "PARENT_PORT",
+   "to": "core.max_unit",
+   "bits": 1
+  },
+  {
+   "parent": "core",
+   "from": "PARENT_PORT",
+   "to": "core.mac",
+   "bits": 1
+  },
+  {
+   "parent": "core",
+   "from": "core.divider_unit",
+   "to": "PARENT_PORT",
+   "bits": 1
+  },
+  {
+   "parent": "core",
+   "from": "core.divider_unit",
+   "to": "OWN:core",
+   "bits": 1
+  },
+  {
+   "parent": "core",
+   "from": "OWN:core",
+   "to": "core.exponent_unit",
+   "bits": 1
+  },
+  {
+   "parent": "core.divider_unit",
+   "from": "PARENT_PORT",
+   "to": "OWN:core.divider_unit",
+   "bits": 36
+  },
+  {
+   "parent": "core.divider_unit",
+   "from": "OWN:core.divider_unit",
+   "to": "PARENT_PORT",
+   "bits": 14
+  },
+  {
+   "parent": "core.exponent_unit",
+   "from": "PARENT_PORT",
+   "to": "OWN:core.exponent_unit",
+   "bits": 27
+  },
+  {
+   "parent": "core.exponent_unit",
+   "from": "OWN:core.exponent_unit",
+   "to": "PARENT_PORT",
+   "bits": 9
+  },
+  {
+   "parent": "core.mac",
+   "from": "PARENT_PORT",
+   "to": "OWN:core.mac",
+   "bits": 67
+  },
+  {
+   "parent": "core.mac",
+   "from": "OWN:core.mac",
+   "to": "PARENT_PORT",
+   "bits": 54
+  },
+  {
+   "parent": "core.mac",
+   "from": "OWN:core.mac",
+   "to": "core.mac.adder",
+   "bits": 39
+  },
+  {
+   "parent": "core.mac",
+   "from": "core.mac.adder",
+   "to": "OWN:core.mac",
+   "bits": 22
+  },
+  {
+   "parent": "core.mac",
+   "from": "OWN:core.mac",
+   "to": "core.mac.l_adder",
+   "bits": 17
+  },
+  {
+   "parent": "core.mac",
+   "from": "core.mac.l_adder",
+   "to": "OWN:core.mac",
+   "bits": 12
+  },
+  {
+   "parent": "core.mac",
+   "from": "PARENT_PORT",
+   "to": "core.mac.l_adder",
+   "bits": 8
+  },
+  {
+   "parent": "core.mac.adder",
+   "from": "PARENT_PORT",
+   "to": "OWN:core.mac.adder",
+   "bits": 45
+  },
+  {
+   "parent": "core.mac.adder",
+   "from": "OWN:core.mac.adder",
+   "to": "PARENT_PORT",
+   "bits": 22
+  },
+  {
+   "parent": "core.mac.l_adder",
+   "from": "PARENT_PORT",
+   "to": "OWN:core.mac.l_adder",
+   "bits": 25
+  },
+  {
+   "parent": "core.mac.l_adder",
+   "from": "OWN:core.mac.l_adder",
+   "to": "PARENT_PORT",
+   "bits": 12
+  },
+  {
+   "parent": "core.max_unit",
+   "from": "PARENT_PORT",
+   "to": "OWN:core.max_unit",
+   "bits": 25
+  },
+  {
+   "parent": "core.max_unit",
+   "from": "OWN:core.max_unit",
+   "to": "PARENT_PORT",
+   "bits": 22
+  }
+ ]
+}

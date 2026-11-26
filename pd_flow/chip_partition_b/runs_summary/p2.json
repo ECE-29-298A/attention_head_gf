@@ -1,0 +1,92 @@
+{
+ "run": "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi",
+ "metrics_sha16": "2960bb8e8406b94f",
+ "synth_nl_sha16": "a339bf991497fc19",
+ "stdcell_area": 45585.5,
+ "core_area": 51967,
+ "utilization": 0.877202,
+ "magic_drc": 0,
+ "klayout_drc": null,
+ "route_drc": 0,
+ "lvs_errors": 0,
+ "lvs_unmatched_devices": 0,
+ "lvs_unmatched_nets": 0,
+ "antenna_nets": 0,
+ "antenna_pins": 0,
+ "illegal_overlap": 0,
+ "disconnected_pins": 9,
+ "wirelength_um": 73427,
+ "vias": 11116,
+ "slew_violations": 474,
+ "cap_violations": 3,
+ "fanout_violations": 5,
+ "setup_ws_min": 33.09247014526936,
+ "hold_ws_min": 0.04440092863497298,
+ "power_total_W": 0.003147044451907277,
+ "instance_count": 2939,
+ "per_corner": {
+  "max_ff_n40C_3v60": {
+   "setup_ws": 75.776890906929,
+   "hold_ws": 0.04440092863497298,
+   "slew": 0,
+   "cap": 3,
+   "fanout": 5
+  },
+  "max_ss_125C_3v00": {
+   "setup_ws": 33.09247014526936,
+   "hold_ws": 0.9226784042408744,
+   "slew": 474,
+   "cap": 3,
+   "fanout": 5
+  },
+  "max_tt_025C_3v30": {
+   "setup_ws": 66.77704977984831,
+   "hold_ws": 0.30125880420761214,
+   "slew": 24,
+   "cap": 3,
+   "fanout": 5
+  },
+  "min_ff_n40C_3v60": {
+   "setup_ws": 75.96188071341601,
+   "hold_ws": 0.06769329732805948,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 5
+  },
+  "min_ss_125C_3v00": {
+   "setup_ws": 37.65893659060936,
+   "hold_ws": 0.9909744416660495,
+   "slew": 281,
+   "cap": 1,
+   "fanout": 5
+  },
+  "min_tt_025C_3v30": {
+   "setup_ws": 69.08724454738926,
+   "hold_ws": 0.33949821692626087,
+   "slew": 6,
+   "cap": 1,
+   "fanout": 5
+  },
+  "nom_ff_n40C_3v60": {
+   "setup_ws": 75.87786613796365,
+   "hold_ws": 0.05674094688037869,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 5
+  },
+  "nom_ss_125C_3v00": {
+   "setup_ws": 35.578616615442826,
+   "hold_ws": 0.9587069187657562,
+   "slew": 340,
+   "cap": 1,
+   "fanout": 5
+  },
+  "nom_tt_025C_3v30": {
+   "setup_ws": 68.03989741983051,
+   "hold_ws": 0.3209923528946124,
+   "slew": 10,
+   "cap": 1,
+   "fanout": 5
+  }
+ }
+}

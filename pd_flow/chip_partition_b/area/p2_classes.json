@@ -1,0 +1,165 @@
+{
+ "run": "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi",
+ "def": "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+ "def_sha16": "039c1389f48bdabf",
+ "synth_nl": "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+ "synth_nl_sha16": "a339bf991497fc19",
+ "classes": {
+  "cts": {
+   "count": 28,
+   "area": 812.224
+  },
+  "endcap": {
+   "count": 78,
+   "area": 342.451
+  },
+  "fill": {
+   "count": 1013,
+   "area": 6381.446
+  },
+  "repair": {
+   "count": 38,
+   "area": 965.888
+  },
+  "synth": {
+   "count": 1416,
+   "area": 40958.042
+  },
+  "tap": {
+   "count": 348,
+   "area": 1527.859
+  },
+  "tie": {
+   "count": 18,
+   "area": 158.054
+  },
+  "upsize": {
+   "count": 50,
+   "area": 821.005
+  }
+ },
+ "stdcell": 45585.523,
+ "synth_instances_missing_in_def": [],
+ "metrics_stdcell": 45585.5,
+ "metrics_core": 51967,
+ "regions": {
+  "spi_0": {
+   "rect": [
+    237.44,
+    137.2,
+    342.16,
+    152.88
+   ],
+   "area": 1642.01,
+   "cell_area": 1464.198,
+   "packing": 0.8917,
+   "by_class": {
+    "tap": 52.68,
+    "synth": 1411.51
+   }
+  },
+  "ctrl_0": {
+   "rect": [
+    4.48,
+    152.88,
+    342.16,
+    156.8
+   ],
+   "area": 1323.706,
+   "cell_area": 1170.042,
+   "packing": 0.8839,
+   "by_class": {
+    "tap": 74.64,
+    "synth": 1007.6,
+    "repair": 43.9,
+    "tie": 43.9
+   }
+  },
+  "ctrl_1": {
+   "rect": [
+    4.48,
+    137.2,
+    237.44,
+    152.88
+   ],
+   "area": 3652.813,
+   "cell_area": 3453.05,
+   "packing": 0.9453,
+   "by_class": {
+    "tap": 96.59,
+    "synth": 3303.78,
+    "tie": 52.68
+   }
+  },
+  "ctrl_2": {
+   "rect": [
+    4.48,
+    121.52,
+    198.24,
+    137.2
+   ],
+   "area": 3038.157,
+   "cell_area": 2651.802,
+   "packing": 0.8728,
+   "by_class": {
+    "tap": 79.03,
+    "synth": 2210.57,
+    "cts": 105.37,
+    "repair": 197.57,
+    "tie": 59.27
+   }
+  },
+  "div_0": {
+   "rect": [
+    198.24,
+    121.52,
+    342.16,
+    137.2
+   ],
+   "area": 2256.666,
+   "cell_area": 2096.416,
+   "packing": 0.929,
+   "by_class": {
+    "tap": 70.25,
+    "synth": 1879.09,
+    "cts": 70.25,
+    "repair": 74.64,
+    "tie": 2.2
+   }
+  },
+  "div_1": {
+   "rect": [
+    276.64,
+    3.92,
+    342.16,
+    121.52
+   ],
+   "area": 7705.152,
+   "cell_area": 6873.171,
+   "packing": 0.892,
+   "by_class": {
+    "tap": 267.81,
+    "synth": 6475.84,
+    "cts": 26.34,
+    "repair": 103.17
+   }
+  },
+  "dp_0": {
+   "rect": [
+    4.48,
+    3.92,
+    276.64,
+    121.52
+   ],
+   "area": 32006.016,
+   "cell_area": 27534.394,
+   "packing": 0.8603,
+   "by_class": {
+    "tap": 886.86,
+    "synth": 25490.66,
+    "cts": 610.27,
+    "repair": 546.6
+   }
+  }
+ }
+}

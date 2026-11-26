@@ -1,0 +1,20 @@
+{
+ "upsize": {
+  "core": 309.52,
+  "core.mac": 206.35,
+  "top": 92.2,
+  "core.divider_unit": 70.25,
+  "core.exponent_unit": 68.05,
+  "core.mac.adder": 35.12,
+  "core.mac.l_adder": 24.15,
+  "core.max_unit": 15.37
+ },
+ "repair": {
+  "core": 298.55,
+  "core.mac": 280.99,
+  "core.divider_unit": 149.27,
+  "top": 149.27,
+  "core.max_unit": 65.86,
+  "core.exponent_unit": 21.95
+ }
+}

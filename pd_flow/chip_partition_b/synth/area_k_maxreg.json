@@ -1,0 +1,40 @@
+{
+ "netlist_json": "/Users/samuelzhang/ttharden/cpb_synth/k_maxreg/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v.json",
+ "sha16": "fa3ee0f0fd0b21e9",
+ "top": "tt_um_attention_head_gf",
+ "total_area": 41768.0704,
+ "total_cells": 1419,
+ "total_seq": 329,
+ "instances": {
+  "tt_um_attention_head_gf": {
+   "module": "tt_um_attention_head_gf",
+   "area": 38468.6848,
+   "cells": 1296,
+   "seq": 307,
+   "by_class": {
+    "clkinv": 588.3136,
+    "logic": 18099.424,
+    "seq": 19543.8656,
+    "tie": 158.0544,
+    "buf": 79.0272
+   },
+   "total_area": 41768.0704,
+   "total_cells": 1419,
+   "total_seq": 329
+  },
+  "tt_um_attention_head_gf/core.max_unit": {
+   "module": "max_reg",
+   "area": 3299.3856,
+   "cells": 123,
+   "seq": 22,
+   "by_class": {
+    "clkinv": 245.8624,
+    "logic": 1652.9856,
+    "seq": 1400.5376
+   },
+   "total_area": 3299.3856,
+   "total_cells": 123,
+   "total_seq": 22
+  }
+ }
+}

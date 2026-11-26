@@ -1,0 +1,328 @@
+{
+ "meta": {
+  "labels": [
+   "top"
+  ],
+  "region": [
+   237.44,
+   137.2,
+   342.16,
+   152.88
+  ],
+  "rows": 4,
+  "cells": 32,
+  "cell_area": 1319.315,
+  "tap_area_in_region": 52.685,
+  "region_area": 1642.01,
+  "packing_incl_taps": 0.8356,
+  "packing_with_reserved_upsizing": 0.8917,
+  "hpwl_block_nets_um": 2705.1,
+  "hpwl_initial_um": 3327.8,
+  "nets": 40,
+  "netlist": "connectivity/h2_vnames.json",
+  "netlist_sha16": "23c82e33d2b990cb",
+  "ref_def": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+  "ref_def_sha16": "44edea0aea77e243",
+  "seed": 3,
+  "iters": 300000,
+  "reserve": {
+   "_2137_": "nand4_4",
+   "_2304_": "dffq_2",
+   "_2305_": "dffq_2",
+   "_2306_": "dffq_4",
+   "_2509_": "buf_3",
+   "_2511_": "buf_3"
+  },
+  "reserved_extra_area": 92.198
+ },
+ "cells": {
+  "_1081_": {
+   "x": 278.88,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "clkinv_1",
+   "w_sites": 4,
+   "w_res_sites": 4,
+   "reserved_master": null
+  },
+  "_1121_": {
+   "x": 281.12,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "clkinv_1",
+   "w_sites": 4,
+   "w_res_sites": 4,
+   "reserved_master": null
+  },
+  "_2137_": {
+   "x": 279.44,
+   "y": 137.2,
+   "orient": "N",
+   "master": "nand4_1",
+   "w_sites": 9,
+   "w_res_sites": 32,
+   "reserved_master": "nand4_4"
+  },
+  "_2138_": {
+   "x": 307.44,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2139_": {
+   "x": 299.04,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2140_": {
+   "x": 287.28,
+   "y": 145.04,
+   "orient": "N",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2141_": {
+   "x": 250.88,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2142_": {
+   "x": 259.28,
+   "y": 145.04,
+   "orient": "N",
+   "master": "nor2_1",
+   "w_sites": 6,
+   "w_res_sites": 6,
+   "reserved_master": null
+  },
+  "_2143_": {
+   "x": 253.68,
+   "y": 145.04,
+   "orient": "N",
+   "master": "aoi21_1",
+   "w_sites": 8,
+   "w_res_sites": 8,
+   "reserved_master": null
+  },
+  "_2144_": {
+   "x": 259.28,
+   "y": 137.2,
+   "orient": "N",
+   "master": "nand2_1",
+   "w_sites": 5,
+   "w_res_sites": 5,
+   "reserved_master": null
+  },
+  "_2145_": {
+   "x": 255.92,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "oai21_1",
+   "w_sites": 8,
+   "w_res_sites": 8,
+   "reserved_master": null
+  },
+  "_2146_": {
+   "x": 259.28,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2147_": {
+   "x": 267.68,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2148_": {
+   "x": 262.64,
+   "y": 145.04,
+   "orient": "N",
+   "master": "mux2_2",
+   "w_sites": 15,
+   "w_res_sites": 15,
+   "reserved_master": null
+  },
+  "_2149_": {
+   "x": 237.44,
+   "y": 137.2,
+   "orient": "N",
+   "master": "nand2_1",
+   "w_sites": 5,
+   "w_res_sites": 5,
+   "reserved_master": null
+  },
+  "_2299_": {
+   "x": 299.6,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2300_": {
+   "x": 298.48,
+   "y": 145.04,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2301_": {
+   "x": 283.36,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2302_": {
+   "x": 237.44,
+   "y": 145.04,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2303_": {
+   "x": 239.68,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2304_": {
+   "x": 240.24,
+   "y": 137.2,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 31,
+   "reserved_master": "dffq_2"
+  },
+  "_2305_": {
+   "x": 262.08,
+   "y": 137.2,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 31,
+   "reserved_master": "dffq_2"
+  },
+  "_2306_": {
+   "x": 278.88,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 36,
+   "reserved_master": "dffq_4"
+  },
+  "_2307_": {
+   "x": 260.4,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2319_": {
+   "x": 314.72,
+   "y": 145.04,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2320_": {
+   "x": 314.72,
+   "y": 137.2,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2321_": {
+   "x": 298.48,
+   "y": 137.2,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2322_": {
+   "x": 318.08,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2323_": {
+   "x": 318.08,
+   "y": 141.12,
+   "orient": "FS",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2324_": {
+   "x": 271.04,
+   "y": 145.04,
+   "orient": "N",
+   "master": "dffq_1",
+   "w_sites": 29,
+   "w_res_sites": 29,
+   "reserved_master": null
+  },
+  "_2509_": {
+   "x": 239.68,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "buf_1",
+   "w_sites": 6,
+   "w_res_sites": 10,
+   "reserved_master": "buf_3"
+  },
+  "_2511_": {
+   "x": 245.28,
+   "y": 148.96,
+   "orient": "FS",
+   "master": "buf_1",
+   "w_sites": 6,
+   "w_res_sites": 10,
+   "reserved_master": "buf_3"
+  }
+ }
+}

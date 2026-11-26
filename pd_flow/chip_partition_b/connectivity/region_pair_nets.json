@@ -1,0 +1,56 @@
+[
+ {
+  "a": "ctrl",
+  "b": "dp",
+  "nets": 85,
+  "sink_pins": 130
+ },
+ {
+  "a": "div",
+  "b": "dp",
+  "nets": 45,
+  "sink_pins": 83
+ },
+ {
+  "a": "PINS",
+  "b": "ctrl",
+  "nets": 28,
+  "sink_pins": 70
+ },
+ {
+  "a": "ctrl",
+  "b": "spi",
+  "nets": 15,
+  "sink_pins": 23
+ },
+ {
+  "a": "ctrl",
+  "b": "div",
+  "nets": 8,
+  "sink_pins": 33
+ },
+ {
+  "a": "dp",
+  "b": "spi",
+  "nets": 6,
+  "sink_pins": 42
+ },
+ {
+  "a": "PINS",
+  "b": "spi",
+  "nets": 6,
+  "sink_pins": 20
+ },
+ {
+  "a": "PINS",
+  "b": "div",
+  "nets": 2,
+  "sink_pins": 58
+ },
+ {
+  "a": "PINS",
+  "b": "dp",
+  "nets": 2,
+  "sink_pins": 216
+ }
+]

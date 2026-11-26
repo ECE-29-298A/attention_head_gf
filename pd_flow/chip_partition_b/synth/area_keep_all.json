@@ -1,0 +1,125 @@
+{
+ "netlist_json": "/Users/samuelzhang/ttharden/cpb_synth/keep_all/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v.json",
+ "sha16": "e1ce7ce228fc4b0c",
+ "top": "tt_um_attention_head_gf",
+ "total_area": 43684.48,
+ "total_cells": 1505,
+ "total_seq": 328,
+ "instances": {
+  "tt_um_attention_head_gf": {
+   "module": "tt_um_attention_head_gf",
+   "area": 1573.9584,
+   "cells": 54,
+   "seq": 15,
+   "by_class": {
+    "clkinv": 17.5616,
+    "logic": 364.4032,
+    "seq": 954.912,
+    "tie": 158.0544,
+    "buf": 79.0272
+   },
+   "total_area": 43684.48,
+   "total_cells": 1505,
+   "total_seq": 328
+  },
+  "tt_um_attention_head_gf/core": {
+   "module": "$paramod\\attention_controller\\OUTPUTS=s32'00000000000000000000000000001000",
+   "area": 5863.3792,
+   "cells": 227,
+   "seq": 41,
+   "by_class": {
+    "clkinv": 166.8352,
+    "logic": 3077.6704,
+    "seq": 2610.0928,
+    "tie": 8.7808
+   },
+   "total_area": 42110.5216,
+   "total_cells": 1451,
+   "total_seq": 313
+  },
+  "tt_um_attention_head_gf/core/divider_unit": {
+   "module": "$paramod$7255addc1faf0b4fda49af436a86fea9a44ab2f2\\divider",
+   "area": 9156.1792,
+   "cells": 384,
+   "seq": 56,
+   "by_class": {
+    "clkinv": 386.3552,
+    "logic": 5204.8192,
+    "seq": 3565.0048
+   },
+   "total_area": 9156.1792,
+   "total_cells": 384,
+   "total_seq": 56
+  },
+  "tt_um_attention_head_gf/core/exponent_unit": {
+   "module": "$paramod\\exp_lut\\REGISTERED=s32'00000000000000000000000000000000",
+   "area": 2682.5344,
+   "cells": 108,
+   "seq": 0,
+   "by_class": {
+    "clkinv": 52.6848,
+    "logic": 2616.6784,
+    "buf": 13.1712
+   },
+   "total_area": 2682.5344,
+   "total_cells": 108,
+   "total_seq": 0
+  },
+  "tt_um_attention_head_gf/core/mac": {
+   "module": "$paramod\\mac_unit\\OUTPUTS=s32'00000000000000000000000000001000",
+   "area": 18073.0816,
+   "cells": 477,
+   "seq": 194,
+   "by_class": {
+    "clkinv": 351.232,
+    "logic": 5064.3264,
+    "seq": 12350.1952,
+    "tie": 43.904,
+    "buf": 263.424
+   },
+   "total_area": 21109.0432,
+   "total_cells": 609,
+   "total_seq": 194
+  },
+  "tt_um_attention_head_gf/core/mac/adder": {
+   "module": "$paramod\\ripple_add\\N=s32'00000000000000000000000000010110",
+   "area": 1973.4848,
+   "cells": 86,
+   "seq": 0,
+   "by_class": {
+    "clkinv": 8.7808,
+    "logic": 1964.704
+   },
+   "total_area": 1973.4848,
+   "total_cells": 86,
+   "total_seq": 0
+  },
+  "tt_um_attention_head_gf/core/mac/l_adder": {
+   "module": "$paramod\\ripple_add\\N=s32'00000000000000000000000000001100",
+   "area": 1062.4768,
+   "cells": 46,
+   "seq": 0,
+   "by_class": {
+    "clkinv": 8.7808,
+    "logic": 1053.696
+   },
+   "total_area": 1062.4768,
+   "total_cells": 46,
+   "total_seq": 0
+  },
+  "tt_um_attention_head_gf/core/max_unit": {
+   "module": "max_reg",
+   "area": 3299.3856,
+   "cells": 123,
+   "seq": 22,
+   "by_class": {
+    "clkinv": 245.8624,
+    "logic": 1652.9856,
+    "seq": 1400.5376
+   },
+   "total_area": 3299.3856,
+   "total_cells": 123,
+   "total_seq": 22
+  }
+ }
+}

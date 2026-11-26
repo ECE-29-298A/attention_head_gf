@@ -1,0 +1,92 @@
+{
+ "run": "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi",
+ "metrics_sha16": "1fdf84ce9c653297",
+ "synth_nl_sha16": "a339bf991497fc19",
+ "stdcell_area": 45467,
+ "core_area": 51967,
+ "utilization": 0.874921,
+ "magic_drc": 0,
+ "klayout_drc": null,
+ "route_drc": 0,
+ "lvs_errors": 0,
+ "lvs_unmatched_devices": 0,
+ "lvs_unmatched_nets": 0,
+ "antenna_nets": 0,
+ "antenna_pins": 0,
+ "illegal_overlap": 0,
+ "disconnected_pins": 9,
+ "wirelength_um": 51056,
+ "vias": 9701,
+ "slew_violations": 233,
+ "cap_violations": 1,
+ "fanout_violations": 5,
+ "setup_ws_min": 41.453639916249216,
+ "hold_ws_min": 0.04682365738782945,
+ "power_total_W": 0.00292304833419621,
+ "instance_count": 3005,
+ "per_corner": {
+  "max_ff_n40C_3v60": {
+   "setup_ws": 75.9303894584765,
+   "hold_ws": 0.04682365738782945,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 5
+  },
+  "max_ss_125C_3v00": {
+   "setup_ws": 41.453639916249216,
+   "hold_ws": 0.9349721261848439,
+   "slew": 233,
+   "cap": 1,
+   "fanout": 5
+  },
+  "max_tt_025C_3v30": {
+   "setup_ws": 71.08863032780779,
+   "hold_ws": 0.3058995365817942,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 5
+  },
+  "min_ff_n40C_3v60": {
+   "setup_ws": 76.07028111624935,
+   "hold_ws": 0.06370593122234781,
+   "slew": 0,
+   "cap": 0,
+   "fanout": 5
+  },
+  "min_ss_125C_3v00": {
+   "setup_ws": 43.87916643120686,
+   "hold_ws": 0.9856657991013632,
+   "slew": 141,
+   "cap": 0,
+   "fanout": 5
+  },
+  "min_tt_025C_3v30": {
+   "setup_ws": 72.29691538956783,
+   "hold_ws": 0.33318371227281646,
+   "slew": 0,
+   "cap": 0,
+   "fanout": 5
+  },
+  "nom_ff_n40C_3v60": {
+   "setup_ws": 76.00655253647666,
+   "hold_ws": 0.05603173639219029,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 5
+  },
+  "nom_ss_125C_3v00": {
+   "setup_ws": 42.79289932419612,
+   "hold_ws": 0.9627365843699024,
+   "slew": 211,
+   "cap": 1,
+   "fanout": 5
+  },
+  "nom_tt_025C_3v30": {
+   "setup_ws": 71.74725372449304,
+   "hold_ws": 0.3207341150117811,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 5
+  }
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "run": "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi",
+ "def": "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+ "def_sha16": "96e664f258bc5bac",
+ "synth_nl": "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+ "synth_nl_sha16": "a339bf991497fc19",
+ "classes": {
+  "cts": {
+   "count": 29,
+   "area": 812.224
+  },
+  "endcap": {
+   "count": 78,
+   "area": 342.451
+  },
+  "fill": {
+   "count": 1082,
+   "area": 6499.987
+  },
+  "repair": {
+   "count": 34,
+   "area": 886.861
+  },
+  "synth": {
+   "count": 1416,
+   "area": 40958.042
+  },
+  "tap": {
+   "count": 348,
+   "area": 1527.859
+  },
+  "tie": {
+   "count": 18,
+   "area": 158.054
+  },
+  "upsize": {
+   "count": 47,
+   "area": 781.491
+  }
+ },
+ "stdcell": 45466.982,
+ "synth_instances_missing_in_def": [],
+ "metrics_stdcell": 45467,
+ "metrics_core": 51967,
+ "regions": {
+  "spi_p1": {
+   "rect": [
+    237.44,
+    137.2,
+    342.16,
+    152.88
+   ],
+   "area": 1642.01,
+   "cell_area": 1600.301,
+   "packing": 0.9746,
+   "by_class": {
+    "tap": 52.68,
+    "synth": 1525.66,
+    "repair": 21.95
+   }
+  }
+ }
+}

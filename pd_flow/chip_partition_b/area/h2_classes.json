@@ -1,0 +1,45 @@
+{
+ "run": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi",
+ "def": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+ "def_sha16": "44edea0aea77e243",
+ "synth_nl": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+ "synth_nl_sha16": "a339bf991497fc19",
+ "classes": {
+  "cts": {
+   "count": 31,
+   "area": 851.738
+  },
+  "endcap": {
+   "count": 78,
+   "area": 342.451
+  },
+  "fill": {
+   "count": 1052,
+   "area": 6491.206
+  },
+  "repair": {
+   "count": 33,
+   "area": 856.128
+  },
+  "synth": {
+   "count": 1416,
+   "area": 40958.042
+  },
+  "tap": {
+   "count": 348,
+   "area": 1527.859
+  },
+  "tie": {
+   "count": 18,
+   "area": 158.054
+  },
+  "upsize": {
+   "count": 47,
+   "area": 781.491
+  }
+ },
+ "stdcell": 45475.763,
+ "synth_instances_missing_in_def": [],
+ "metrics_stdcell": 45475.8,
+ "metrics_core": 51967
+}

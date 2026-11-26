@@ -1,0 +1,17 @@
+{
+ "placement": "placements/spi_p1/placement.json",
+ "placement_sha16": "82bc8ca228f6bb0f",
+ "cells": 32,
+ "errors": [],
+ "overlaps": 0,
+ "region": [
+  237.44,
+  137.2,
+  342.16,
+  152.88
+ ],
+ "region_area": 1642.01,
+ "cell_area": 1319.315,
+ "tap_area": 52.685,
+ "packing_incl_taps": 0.8356
+}

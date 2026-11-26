@@ -1,0 +1,33 @@
+{
+ "title": "Chip partition B pilot: SPI block custom-placed (FIRM) inside the h2 chip",
+ "module": "top (TT wrapper: SPI target, CS#/SCK synchronizers, config chain), isolated block, 32 flat cells",
+ "date": "2026-11-26",
+ "commit": "224df2b (working tree; pilot files only in pd_flow/chip_partition_b and /Users/samuelzhang/ttharden/cpb_p1)",
+ "summary": "Integration-mechanism pilot for the all-custom-placed chip. The 32 flat cells attributed to the SPI wrapper are placed by tools/region_place.py into a 4-row region (237.44..342.16 x 137.20..152.88 um) under the host SPI pins, at 83.6% packing (cells + taps) before the flow and 89.2% after in-place upsizing, which uses the whitespace reserved for it. MACRO_PLACEMENT_CFG makes them FIRM at step 17; nothing else in the h2 config changes. The reservations come from a deterministic dry run of steps 17-32 (resizer decisions are status-agnostic) and converged in one iteration: the same 6 upsizes, all within the reserved space. Result: the 32 cells end FIXED at their exact positions (0 moved, 0 mirrored), DRC/LVS/antenna clean, slew/cap/fanout below h2, timing legal. Std-cell area 45,467.0 against 45,475.8 (-8.8 um2): within the ~400 um2 harden noise, so the area effect is inconclusive. The SPI cells' upsizing (92.2 um2) and repair buffers (149.3 um2) are identical to h2, because they are driven by the block's long nets to GPL-placed neighbours, not by its internal layout.",
+ "decision": {"label": "Mechanism proven; block kept for chip assembly", "kind": "block",
+              "text": "Adopt M-FIRM (MACRO_PLACEMENT_CFG + upsizing reservations from a standalone dry run) as the integration mechanism for the cluster placements. The SPI placement is not an area gain on its own (-8.8 um2, inconclusive); it is kept as the spi region of floorplan B and re-placed when its neighbours are placed."},
+ "baseline": {"label": "h2 (F1 flow config, golden RTL)", "run": "/Users/samuelzhang/ttharden/fx_h2_k6"},
+ "runs": [{"label": "p1: SPI block FIRM, 89.2% block packing", "run": "/Users/samuelzhang/ttharden/cpb_p1",
+           "note": "h2 copy + MACRO_PLACEMENT_CFG (32 cells, FIRM). Synthesized netlist bit-identical to h2 (sha256 a339bf991497fc19)."}],
+ "verification": [
+  "Synthesized netlist identical to h2: sha256[:16] a339bf991497fc19 for both runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v (tools/run_summary.py).",
+  "Placement validator (tools/check_place.py, negative-tested with off-grid, wrong orientation, overlap, tap overlap and missing cell): 0 errors pre-flow.",
+  "Post-flow (final DEF): 32/32 FIXED, 0 moved, max displacement 0.0 um, 0 orientation changes; 6 master changes (nand4_1->nand4_4, 2x dffq_1->dffq_2, dffq_1->dffq_4, 2x buf_1->buf_3), all within the reserved width.",
+  "Signoff (final/metrics.json): Magic DRC 0, route DRC 0, LVS 0 errors / 0 unmatched devices / 0 unmatched nets, antenna 0 nets, illegal overlap 0.",
+  "D2 band: slew/cap/fanout 233/1/5 against h2 281/2/6 (no increase).",
+  "Timing (D6, legality only): setup WNS min 41.45 ns (h2 41.79), hold WNS min +0.047 ns at max_ff (h2 +0.058); every corner >= 0.",
+  "Std-cell area by class (tools/area_classes.py): synth 40,958.0, upsizing 781.5, ties 158.1, repair 886.9 (h2 856.1), CTS 812.2 (h2 851.7), taps 1,527.9, endcaps 342.5; total 45,467.0 against 45,475.8.",
+  "Region packing in the final DEF: block cells + taps 89.2% (1,464.2 / 1,642.0 um2); every non-fill cell inside the region 97.5% (GPL-placed cells fill the remaining whitespace)."
+ ],
+ "evidence": [
+  "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi/final/metrics.json",
+  "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+  "/Users/samuelzhang/ttharden/cpb_p1/harden.log",
+  "pd_flow/chip_partition_b/placements/spi_p1/placement.json",
+  "pd_flow/chip_partition_b/placements/spi_p1/check_pre.json",
+  "pd_flow/chip_partition_b/placements/spi_p1/check_post_p1.json",
+  "pd_flow/chip_partition_b/area/p1_classes.json",
+  "pd_flow/chip_partition_b/runs_summary/p1.json",
+  "/Users/samuelzhang/ttharden/cpb_ortest/dry_it1/resized_custom.json (dry run of steps 17-37)"
+ ]
+}

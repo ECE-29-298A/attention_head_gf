@@ -1,0 +1,26 @@
+{
+ "netlist_json": "/Users/samuelzhang/ttharden/cpb_synth/flat+c10/runs/synth/06-yosys-synthesis/tt_um_attention_head_gf.nl.v.json",
+ "sha16": "6e070b68dbae4b0e",
+ "top": "tt_um_attention_head_gf",
+ "total_area": 41133.6576,
+ "total_cells": 1474,
+ "total_seq": 329,
+ "instances": {
+  "tt_um_attention_head_gf": {
+   "module": "tt_um_attention_head_gf",
+   "area": 41133.6576,
+   "cells": 1474,
+   "seq": 329,
+   "by_class": {
+    "clkinv": 886.8608,
+    "logic": 19065.312,
+    "seq": 20944.4032,
+    "tie": 158.0544,
+    "buf": 79.0272
+   },
+   "total_area": 41133.6576,
+   "total_cells": 1474,
+   "total_seq": 329
+  }
+ }
+}

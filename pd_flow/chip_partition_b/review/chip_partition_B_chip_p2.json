@@ -1,0 +1,42 @@
+{
+ "title": "Chip partition B pilot 2: every cell custom-placed (FIRM) in floorplan B",
+ "module": "whole chip: 1,416 synthesized cells in 4 regions (spi, ctrl, dp, div); only the 18 ties left to GPL",
+ "date": "2026-11-26",
+ "commit": "ec61c41 (working tree; pilot files only in pd_flow/chip_partition_b and /Users/samuelzhang/ttharden/cpb_p2)",
+ "summary": "Full-scale test of the M-FIRM integration mechanism. All 1,416 non-tie cells of the frozen h2 netlist are placed by tools/chip_place.py into floorplan B (spi from pilot 1, then dp, ctrl and div with simulated annealing). They are made FIRM through MACRO_PLACEMENT_CFG, the only change from the h2 config. Space for the resizer's 50 in-place upsizes is reserved in advance from a standalone probe of steps 17-32. Result: all 1,416 cells end FIXED where they were placed (0 moved, 0 mirrored), the 50 upsizes all fall within their reservations, and GPL moved only the 18 ties. Magic DRC, route DRC, LVS and antenna are all 0, and setup and hold are legal at all 9 corners. Every region reaches the D8 target: spi 89.2%, ctrl 90.8%, div 90.0%, dp 86.0% (all non-fill cells plus taps over the region area). The candidate is rejected on quality, not mechanism: std-cell area is 45,585.5 against 45,475.8 for h2 (+109.7 um2), and max_ss slew/cap violations rise to 474/3 against 281/2 (D2). The cause is wirelength: my placer's HPWL is 35% above GPL (55,032 against 40,659 um), and routed wire is 73,427 against 50,554 um. The standalone dry run of steps 17-55 reproduced this harden exactly (area, slew/cap/fanout, setup, hold), so later cluster placements can be judged without a harden.",
+ "decision": {"label": "Rejected as a chip candidate (D2 slew/cap, +109.7 um2); mechanism proven at full scale", "kind": "rejected",
+              "text": "Keep M-FIRM as the integration mechanism. Its all-custom form is now proven end to end at about 90% region packing with signoff clean. Do not use this placement: my quick annealing placer loses to GPL+DPL on wirelength, which adds repair buffers (+109.8 um2) and max_ss slew violations. Pilot 2 sets the bar the tetrising agents must clear. Judge their cluster placements with the standalone dry run through step 55 (scripts/pilot_dryrun.py --through 55): std-cell area below 45,475.8, slew/cap/fanout within 281/2/6, and setup and hold >= 0."},
+ "baseline": {"label": "h2 (F1 flow config, golden RTL, GPL placement)", "run": "/Users/samuelzhang/ttharden/fx_h2_k6"},
+ "runs": [{"label": "p2: all 1,416 cells FIRM, floorplan B", "run": "/Users/samuelzhang/ttharden/cpb_p2",
+           "note": "h2 copy + MACRO_PLACEMENT_CFG (1,416 cells, FIRM); config otherwise identical to h2. Synthesized netlist bit-identical to h2 (sha256 a339bf991497fc19). Placement: pd_flow/chip_partition_b/placements/chip_v2r (seed 1)."}],
+ "verification": [
+  "Synthesized netlist identical to h2: sha256[:16] a339bf991497fc19 (tools/run_summary.py); src/config.json differs from h2 only by the MACRO_PLACEMENT_CFG line.",
+  "Pre-flow placement validator (tools/check_place.py): 1,416 cells, 0 errors, packing 82.3% before upsizing.",
+  "Post-flow, final DEF: 1,416/1,416 FIXED, 0 moved, max displacement 0.0 um, 0 orientation changes. 50 master changes, equal to the 50 reserved upsizes (same instances, same masters).",
+  "Rows, taps and endcaps identical to h2 (426 tap and endcap cells). GPL: 'Movable instances: 18', the ties only.",
+  "Signoff (final/metrics.json): Magic DRC 0, route DRC 0, LVS 0 errors / 0 unmatched devices / 0 unmatched nets, antenna 0 nets / 0 pins, illegal overlap 0.",
+  "D2 FAILED: slew/cap/fanout 474/3/5 against h2 281/2/6 (max_ss_125C_3v00). Slew-violating pins by region (tools-side attribution, area/slew_violators_h2_p2.json): inside dp 100 -> 197, div+dp 23 -> 62, ctrl+spi 19 -> 35, ctrl 46 -> 64, dp+spi 0 -> 12, ctrl+div+dp 0 -> 12.",
+  "Timing (D6, legality only): setup WNS min 33.09 ns (h2 41.79), hold WNS min +0.044 ns at max_ff (h2 +0.058); every corner >= 0. Power 3.147 mW (h2 2.934).",
+  "Std-cell area by class (tools/area_classes.py): synth 40,958.0, upsizing 821.0 (h2 781.5), ties 158.1, repair 965.9 (h2 856.1), CTS 812.2 (h2 851.7), taps 1,527.9, endcaps 342.5; total 45,585.5 against 45,475.8 (+109.7).",
+  "Region packing, final DEF (all non-fill cells + taps over the region): spi 89.2%, ctrl 90.8%, div 90.0%, dp 86.0%; whole placeable core 87.6%.",
+  "Determinism: the standalone dry run of steps 17-55 on the same placement (/Users/samuelzhang/ttharden/cpb_ortest/chip_v2r_sta) gave std-cell 45,585.5, slew/cap/fanout 474/3/5, setup 33.09, hold +0.044: identical to this harden.",
+  "Placement sensitivity, the same placer with seeds 2 and 3 (dry runs through step 55): 45,644.8 and 45,649.2 um2, slew 513 and 485. The unpartitioned one-region placement (onecore_v5): 45,636.0 um2, slew/cap/fanout 308/4/9. All four custom placements are above h2.",
+  "Placement-invariant inserted area: 43 of h2's 47 upsizes (698.1 of 781.5 um2) appear with the same master in all four placements tried (h2 GPL, p2, onecore_v5, chip_v1r). 23 of h2's 26 repaired drivers are repaired in h2, p1, p2 and onecore_v5 (781.5 of 856.1 um2 in h2)."
+ ],
+ "evidence": [
+  "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi/final/metrics.json",
+  "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+  "/Users/samuelzhang/ttharden/cpb_p2/runs/wokwi/55-openroad-stapostpnr/max_ss_125C_3v00/checks.rpt",
+  "/Users/samuelzhang/ttharden/cpb_p2/harden.log",
+  "pd_flow/chip_partition_b/placements/chip_v2r/placement.json",
+  "pd_flow/chip_partition_b/placements/chip_v2r/check_pre.json",
+  "pd_flow/chip_partition_b/placements/chip_v2r/check_post_p2.json",
+  "pd_flow/chip_partition_b/placements/chip_v2/resized_probe.json (the 50 reservations)",
+  "pd_flow/chip_partition_b/area/p2_classes.json",
+  "pd_flow/chip_partition_b/area/p2_pnr_by_module.json",
+  "pd_flow/chip_partition_b/area/slew_violators_h2_p2.json",
+  "pd_flow/chip_partition_b/runs_summary/p2.json",
+  "/Users/samuelzhang/ttharden/cpb_ortest/chip_v2r_sta/chain/23-55-openroad-stapostpnr/state_out.json (dry run = harden)",
+  "/Users/samuelzhang/ttharden/cpb_ortest/chip_v2r_s2b_sta, chip_v2r_s3b_sta, onecore_v5_sta (placement sensitivity)"
+ ]
+}

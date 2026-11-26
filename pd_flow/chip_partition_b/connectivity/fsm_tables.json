@@ -1,0 +1,97 @@
+{
+ "_source": "Yosys FSM_RECODE tables: h2 synthesis log /Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/06-yosys-synthesis/yosys-synthesis.log lines 526-540 (core one-hot, divider one-hot) and keep_all log /Users/samuelzhang/ttharden/cpb_synth/keep_all/runs/synth/06-yosys-synthesis/yosys-synthesis.log line 678 (core one-hot; divider kept binary). Codes are printed MSB-first (checked: one-hot bit 1 = code 100 = VALUE carries the name core.mac.accum_en, and accum_en = state==VALUE in the RTL). Values = RTL states (IDLE 0, RESTART 1, CMD 2, SCORE 3, VALUE 4, DIV_START 5, DIV_WAIT 6, OUTPUT 7; divider IDLE 0, DIVIDE 1, ROUND 2) in which the flop is 1.",
+ "core": {
+  "states": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "flat": {
+   "core.idle": [
+    0
+   ],
+   "core.mac.accum_en": [
+    4
+   ],
+   "core.cmd": [
+    2
+   ],
+   "core.state[3]": [
+    6
+   ],
+   "core.state[4]": [
+    1
+   ],
+   "core.state[5]": [
+    5
+   ],
+   "core.state[6]": [
+    3
+   ],
+   "core.out_valid": [
+    7
+   ]
+  },
+  "hier": {
+   "core.idle": [
+    0
+   ],
+   "core.state[1]": [
+    4
+   ],
+   "core.cmd": [
+    2
+   ],
+   "core.state[3]": [
+    6
+   ],
+   "core.state[4]": [
+    1
+   ],
+   "core.state[5]": [
+    5
+   ],
+   "core.state[6]": [
+    3
+   ],
+   "core.out_valid": [
+    7
+   ]
+  }
+ },
+ "divider": {
+  "states": [
+   0,
+   1,
+   2
+  ],
+  "flat": {
+   "core.divider_unit.state[0]": [
+    0
+   ],
+   "core.divider_unit.state[1]": [
+    2
+   ],
+   "core.divider_unit.state[2]": [
+    1
+   ]
+  },
+  "hier": {
+   "core.divider_unit.state[0]": [
+    1
+   ],
+   "core.divider_unit.state[1]": [
+    2
+   ]
+  }
+ },
+ "_extra_alias": {
+  "_why": "magnitude = sum_in[19] ? ~sum_in[18:0]+1 : sum_in[18:0] has magnitude[0] == sum_in[0] for every input; ABC names the ring-head flop Q (O0[0] = ring[0]) after it in the flat netlist.",
+  "core.divider_unit.magnitude[0]": "core.mac.ring[0]"
+ }
+}

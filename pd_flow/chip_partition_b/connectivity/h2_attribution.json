@@ -1,0 +1,8746 @@
+{
+ "flat": "connectivity/h2_vnames.json",
+ "flat_sha16": "23c82e33d2b990cb",
+ "hier": "connectivity/keep_all_vnames.json",
+ "hier_sha16": "19105d536f3dd99f",
+ "vectors": 256,
+ "seed": 1,
+ "flops_matched": 329,
+ "flops_unmatched_flat": [],
+ "flops_unmatched_hier": [],
+ "po_mismatches": 0,
+ "flop_match_how": {
+  "name": 299,
+  "fsm": 11,
+  "alias": 19
+ },
+ "flop_D_function_agree": 318,
+ "flop_D_function_differ": 0,
+ "flop_D_differ_list": [],
+ "per_label": {
+  "core": {
+   "cells": 244,
+   "area": 6212.42,
+   "seq": 41,
+   "how": {
+    "func-multi": 17,
+    "func-unique": 110,
+    "nbr": 76,
+    "flop": 41
+   },
+   "by_class": {
+    "clkinv": 122.93,
+    "logic": 3439.88,
+    "seq": 2610.09,
+    "buf": 39.51
+   },
+   "hier_area": 5863.38,
+   "hier_cells": 227
+  },
+  "core.divider_unit": {
+   "cells": 312,
+   "area": 8284.68,
+   "seq": 57,
+   "how": {
+    "func-unique": 174,
+    "func-multi": 13,
+    "nbr": 68,
+    "flop": 57
+   },
+   "by_class": {
+    "clkinv": 140.49,
+    "logic": 4502.36,
+    "seq": 3628.67,
+    "buf": 13.17
+   },
+   "hier_area": 9156.18,
+   "hier_cells": 384
+  },
+  "core.exponent_unit": {
+   "cells": 96,
+   "area": 2430.09,
+   "seq": 0,
+   "how": {
+    "func-unique": 68,
+    "nbr": 28
+   },
+   "by_class": {
+    "clkinv": 17.56,
+    "logic": 2412.52
+   },
+   "hier_area": 2682.53,
+   "hier_cells": 108
+  },
+  "core.mac": {
+   "cells": 507,
+   "area": 17682.34,
+   "seq": 194,
+   "how": {
+    "func-unique": 148,
+    "func-multi": 68,
+    "nbr": 97,
+    "flop": 194
+   },
+   "by_class": {
+    "clkinv": 219.52,
+    "logic": 5112.62,
+    "seq": 12350.2
+   },
+   "hier_area": 18073.08,
+   "hier_cells": 477
+  },
+  "core.mac.adder": {
+   "cells": 75,
+   "area": 1525.66,
+   "seq": 0,
+   "how": {
+    "func-unique": 63,
+    "nbr": 3,
+    "func-multi": 9
+   },
+   "by_class": {
+    "logic": 1464.2,
+    "clkinv": 61.47
+   },
+   "hier_area": 1973.48,
+   "hier_cells": 86
+  },
+  "core.mac.l_adder": {
+   "cells": 29,
+   "area": 614.66,
+   "seq": 0,
+   "how": {
+    "func-unique": 23,
+    "func-multi": 2,
+    "nbr": 4
+   },
+   "by_class": {
+    "logic": 597.09,
+    "clkinv": 17.56
+   },
+   "hier_area": 1062.48,
+   "hier_cells": 46
+  },
+  "core.max_unit": {
+   "cells": 121,
+   "area": 2888.88,
+   "seq": 22,
+   "how": {
+    "func-multi": 4,
+    "nbr": 47,
+    "func-unique": 48,
+    "flop": 22
+   },
+   "by_class": {
+    "clkinv": 166.84,
+    "logic": 1321.51,
+    "seq": 1400.54
+   },
+   "hier_area": 3299.39,
+   "hier_cells": 123
+  },
+  "top": {
+   "cells": 32,
+   "area": 1319.32,
+   "seq": 15,
+   "how": {
+    "func-unique": 15,
+    "nbr": 2,
+    "flop": 15
+   },
+   "by_class": {
+    "clkinv": 17.56,
+    "logic": 320.5,
+    "seq": 954.91,
+    "buf": 26.34
+   },
+   "hier_area": 1573.96,
+   "hier_cells": 54
+  },
+  "unlabeled": {
+   "cells": 18,
+   "area": 158.05,
+   "seq": 0,
+   "how": {
+    "none": 18
+   },
+   "by_class": {
+    "tie": 158.05
+   },
+   "hier_area": 0,
+   "hier_cells": 0
+  }
+ },
+ "cells": {
+  "_1078_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1079_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1080_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1081_": {
+   "type": "clkinv_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_1082_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1083_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1084_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1085_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1086_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1087_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1088_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1089_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1090_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1091_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1092_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1093_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1094_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1095_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1096_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1097_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1098_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-multi"
+  },
+  "_1099_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1100_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1101_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1102_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1103_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-multi"
+  },
+  "_1104_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1105_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-multi"
+  },
+  "_1106_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-multi"
+  },
+  "_1107_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1108_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1109_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1110_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1111_": {
+   "type": "clkinv_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1112_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1113_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1114_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1115_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1116_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1117_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1118_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1119_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1120_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1121_": {
+   "type": "clkinv_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_1122_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1123_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1124_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1125_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1126_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_1127_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_1128_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1129_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1130_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1131_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_1132_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_1133_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_1134_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1135_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1136_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1137_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1138_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1139_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1140_": {
+   "type": "clkinv_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_1141_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1142_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1143_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1144_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1145_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1146_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1147_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1148_": {
+   "type": "or2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1149_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1150_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1151_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1152_": {
+   "type": "and4_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1153_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1154_": {
+   "type": "and3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1155_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1156_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1157_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1158_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1159_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1160_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1161_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1162_": {
+   "type": "nor4_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1163_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1164_": {
+   "type": "and4_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1165_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1166_": {
+   "type": "or3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1167_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1168_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1169_": {
+   "type": "or2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1170_": {
+   "type": "nand4_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1171_": {
+   "type": "or2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1172_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1173_": {
+   "type": "and4_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1174_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1175_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1176_": {
+   "type": "clkinv_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1177_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1178_": {
+   "type": "oai22_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1179_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1180_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1181_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1182_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1183_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1184_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1185_": {
+   "type": "and3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1186_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1187_": {
+   "type": "oai22_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1188_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1189_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1190_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1191_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1192_": {
+   "type": "oai31_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1193_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1194_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1195_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1196_": {
+   "type": "oai22_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1197_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1198_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1199_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1200_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1201_": {
+   "type": "oai22_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1202_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1203_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1204_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1205_": {
+   "type": "or2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1206_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1207_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1208_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1209_": {
+   "type": "mux2_2",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1210_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1211_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1212_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1213_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1214_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1215_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1216_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1217_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1218_": {
+   "type": "oai31_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1219_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1220_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1221_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1222_": {
+   "type": "or4_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1223_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1224_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1225_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1226_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1227_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1228_": {
+   "type": "or2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1229_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1230_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1231_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1232_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1233_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1234_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1235_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1236_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1237_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1238_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1239_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1240_": {
+   "type": "mux2_2",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1241_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1242_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1243_": {
+   "type": "mux2_2",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1244_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1245_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1246_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1247_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1248_": {
+   "type": "oai31_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1249_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1250_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1251_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1252_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1253_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1254_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1255_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1256_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1257_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1258_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1259_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1260_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1261_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1262_": {
+   "type": "oai31_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1263_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1264_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1265_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1266_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1267_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1268_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1269_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1270_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1271_": {
+   "type": "or2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1272_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1273_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1274_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1275_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1276_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1277_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1278_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1279_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1280_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1281_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_1282_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1283_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1284_": {
+   "type": "oai31_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1285_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1286_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1287_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1288_": {
+   "type": "or2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1289_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1290_": {
+   "type": "nor4_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1291_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1292_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1293_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1294_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1295_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1296_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1297_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1298_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1299_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1300_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1301_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1302_": {
+   "type": "oai21_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1303_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1304_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1305_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1306_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1307_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1308_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1309_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1310_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1311_": {
+   "type": "and2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1312_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1313_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1314_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1315_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1316_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1317_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1318_": {
+   "type": "or2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1319_": {
+   "type": "xor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1320_": {
+   "type": "xnor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1321_": {
+   "type": "and3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1322_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1323_": {
+   "type": "nor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1324_": {
+   "type": "or2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1325_": {
+   "type": "and2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1326_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1327_": {
+   "type": "oai21_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1328_": {
+   "type": "nor2_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1329_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1330_": {
+   "type": "mux4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1331_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1332_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1333_": {
+   "type": "and4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1334_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1335_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1336_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1337_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1338_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1339_": {
+   "type": "xor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1340_": {
+   "type": "xnor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1341_": {
+   "type": "nand3_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1342_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1343_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1344_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1345_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1346_": {
+   "type": "clkinv_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1347_": {
+   "type": "nand3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1348_": {
+   "type": "xor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1349_": {
+   "type": "xor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1350_": {
+   "type": "xor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1351_": {
+   "type": "xnor2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1352_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1353_": {
+   "type": "nand3_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1354_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1355_": {
+   "type": "and4_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1356_": {
+   "type": "nor2_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1357_": {
+   "type": "nor4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1358_": {
+   "type": "nor4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1359_": {
+   "type": "nor4_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1360_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1361_": {
+   "type": "nor3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1362_": {
+   "type": "oai221_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1363_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1364_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1365_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1366_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1367_": {
+   "type": "nor3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1368_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1369_": {
+   "type": "oai31_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1370_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1371_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1372_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1373_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1374_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1375_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1376_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1377_": {
+   "type": "nand3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1378_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1379_": {
+   "type": "nor3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1380_": {
+   "type": "nor3_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1381_": {
+   "type": "nor4_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1382_": {
+   "type": "or4_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1383_": {
+   "type": "nand3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1384_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1385_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1386_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1387_": {
+   "type": "nor4_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1388_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1389_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1390_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1391_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1392_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1393_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1394_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1395_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1396_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1397_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1398_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1399_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1400_": {
+   "type": "nand3_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1401_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1402_": {
+   "type": "oai211_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1403_": {
+   "type": "oai211_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1404_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1405_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1406_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1407_": {
+   "type": "nor3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1408_": {
+   "type": "oai31_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1409_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1410_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1411_": {
+   "type": "nor3_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1412_": {
+   "type": "nor4_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1413_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1414_": {
+   "type": "xor3_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1415_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1416_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1417_": {
+   "type": "oai32_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1418_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1419_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1420_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1421_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1422_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1423_": {
+   "type": "oai21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1424_": {
+   "type": "nor3_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1425_": {
+   "type": "oai211_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1426_": {
+   "type": "mux2_2",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1427_": {
+   "type": "or2_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1428_": {
+   "type": "oai31_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1429_": {
+   "type": "nand3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1430_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1431_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1432_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1433_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1434_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1435_": {
+   "type": "and3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1436_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1437_": {
+   "type": "oai31_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1438_": {
+   "type": "oai211_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1439_": {
+   "type": "aoi22_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1440_": {
+   "type": "xor3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1441_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1442_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1443_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1444_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1445_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1446_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1447_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1448_": {
+   "type": "nand4_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1449_": {
+   "type": "and3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1450_": {
+   "type": "oai211_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1451_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1452_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1453_": {
+   "type": "nor3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1454_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1455_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1456_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1457_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1458_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1459_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1460_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1461_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1462_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1463_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1464_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1465_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1466_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1467_": {
+   "type": "oai211_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1468_": {
+   "type": "oai21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1469_": {
+   "type": "and2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1470_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1471_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1472_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1473_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1474_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1475_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1476_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1477_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1478_": {
+   "type": "or2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1479_": {
+   "type": "and2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1480_": {
+   "type": "xor3_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1481_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1482_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1483_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1484_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1485_": {
+   "type": "aoi21_1",
+   "label": "core.exponent_unit",
+   "how": "nbr"
+  },
+  "_1486_": {
+   "type": "nand2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1487_": {
+   "type": "aoi211_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1488_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1489_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1490_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1491_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1492_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1493_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1494_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1495_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1496_": {
+   "type": "xnor3_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1497_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1498_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1499_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1500_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1501_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1502_": {
+   "type": "and3_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1503_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1504_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1505_": {
+   "type": "or2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1506_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1507_": {
+   "type": "oai32_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1508_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1509_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1510_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1511_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "nbr"
+  },
+  "_1512_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1513_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1514_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1515_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1516_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1517_": {
+   "type": "and2_1",
+   "label": "core.exponent_unit",
+   "how": "func-unique"
+  },
+  "_1518_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1519_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1520_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1521_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1522_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1523_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1524_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1525_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1526_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1527_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1528_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1529_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1530_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1531_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1532_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1533_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1534_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1535_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1536_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1537_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1538_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1539_": {
+   "type": "and2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1540_": {
+   "type": "xnor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1541_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "nbr"
+  },
+  "_1542_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1543_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1544_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1545_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1546_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1547_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1548_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1549_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1550_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1551_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1552_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1553_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1554_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1555_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1556_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1557_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1558_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1559_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1560_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1561_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1562_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1563_": {
+   "type": "oai32_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1564_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1565_": {
+   "type": "and2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1566_": {
+   "type": "xnor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1567_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "nbr"
+  },
+  "_1568_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1569_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1570_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1571_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1572_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1573_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1574_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1575_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1576_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1577_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1578_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1579_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1580_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1581_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1582_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1583_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1584_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1585_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1586_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1587_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1588_": {
+   "type": "nor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1589_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1590_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1591_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1592_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1593_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1594_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1595_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1596_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1597_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1598_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1599_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1600_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1601_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1602_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1603_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1604_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1605_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1606_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1607_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1608_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1609_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1610_": {
+   "type": "and2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1611_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1612_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1613_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1614_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1615_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1616_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1617_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1618_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1619_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1620_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1621_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1622_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1623_": {
+   "type": "xnor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1624_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1625_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1626_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1627_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1628_": {
+   "type": "nor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1629_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1630_": {
+   "type": "xor3_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1631_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1632_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1633_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1634_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1635_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1636_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1637_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1638_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1639_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1640_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1641_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1642_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1643_": {
+   "type": "and2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1644_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1645_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1646_": {
+   "type": "mux2_2",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1647_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1648_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1649_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1650_": {
+   "type": "nand2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1651_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1652_": {
+   "type": "clkinv_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_1653_": {
+   "type": "xor2_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_1654_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1655_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1656_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1657_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1658_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1659_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1660_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1661_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1662_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1663_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1664_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1665_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1666_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1667_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1668_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1669_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1670_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1671_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1672_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1673_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1674_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1675_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1676_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1677_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1678_": {
+   "type": "oai211_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1679_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1680_": {
+   "type": "and3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1681_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1682_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1683_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1684_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1685_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1686_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1687_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1688_": {
+   "type": "and3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1689_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1690_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1691_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1692_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1693_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1694_": {
+   "type": "xnor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1695_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1696_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1697_": {
+   "type": "and3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1698_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1699_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1700_": {
+   "type": "and4_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1701_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1702_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1703_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1704_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1705_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1706_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1707_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1708_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1709_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1710_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1711_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1712_": {
+   "type": "mux2_2",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1713_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1714_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1715_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1716_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1717_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1718_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1719_": {
+   "type": "oai21_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1720_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1721_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1722_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1723_": {
+   "type": "nand4_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1724_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1725_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1726_": {
+   "type": "oai32_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1727_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1728_": {
+   "type": "or3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1729_": {
+   "type": "or4_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1730_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1731_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1732_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1733_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1734_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1735_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1736_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1737_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1738_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1739_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1740_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1741_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1742_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1743_": {
+   "type": "xnor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1744_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1745_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1746_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1747_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1748_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1749_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1750_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1751_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1752_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1753_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1754_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1755_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1756_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1757_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1758_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1759_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1760_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1761_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1762_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1763_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1764_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1765_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1766_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1767_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1768_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1769_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1770_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1771_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1772_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1773_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1774_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1775_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1776_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1777_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1778_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1779_": {
+   "type": "or2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1780_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1781_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1782_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1783_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1784_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1785_": {
+   "type": "nor4_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_1786_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1787_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1788_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1789_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1790_": {
+   "type": "clkinv_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1791_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1792_": {
+   "type": "oai22_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1793_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1794_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1795_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1796_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1797_": {
+   "type": "oai32_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1798_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1799_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1800_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1801_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1802_": {
+   "type": "oai32_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1803_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1804_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1805_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1806_": {
+   "type": "or2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1807_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1808_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1809_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1810_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1811_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1812_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1813_": {
+   "type": "oai32_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1814_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1815_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1816_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1817_": {
+   "type": "aoi222_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1818_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1819_": {
+   "type": "xnor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1820_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1821_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1822_": {
+   "type": "aoi222_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1823_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1824_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1825_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1826_": {
+   "type": "or2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1827_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1828_": {
+   "type": "nand3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1829_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1830_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1831_": {
+   "type": "xnor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1832_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1833_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1834_": {
+   "type": "oai32_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1835_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1836_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1837_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1838_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1839_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1840_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1841_": {
+   "type": "aoi22_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1842_": {
+   "type": "xor3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1843_": {
+   "type": "oai22_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1844_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1845_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1846_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1847_": {
+   "type": "and2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1848_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1849_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1850_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1851_": {
+   "type": "and3_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1852_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1853_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1854_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1855_": {
+   "type": "or3_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1856_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1857_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1858_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1859_": {
+   "type": "and3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1860_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1861_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1862_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1863_": {
+   "type": "or3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1864_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1865_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1866_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1867_": {
+   "type": "and3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1868_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1869_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1870_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1871_": {
+   "type": "or3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1872_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1873_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1874_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1875_": {
+   "type": "and3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1876_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1877_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1878_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1879_": {
+   "type": "or3_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1880_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1881_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1882_": {
+   "type": "xor3_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1883_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1884_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1885_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1886_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1887_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1888_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1889_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1890_": {
+   "type": "aoi211_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1891_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1892_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1893_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1894_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1895_": {
+   "type": "and3_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1896_": {
+   "type": "nor3_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1897_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1898_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1899_": {
+   "type": "aoi21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1900_": {
+   "type": "xor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1901_": {
+   "type": "nor2_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1902_": {
+   "type": "nand2_1",
+   "label": "core.divider_unit",
+   "how": "nbr"
+  },
+  "_1903_": {
+   "type": "oai21_1",
+   "label": "core.divider_unit",
+   "how": "func-unique"
+  },
+  "_1904_": {
+   "type": "nor3_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1905_": {
+   "type": "nand4_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1906_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1907_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1908_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1909_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1910_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1911_": {
+   "type": "nand3_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1912_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1913_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1914_": {
+   "type": "xnor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1915_": {
+   "type": "nand4_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1916_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1917_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1918_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1919_": {
+   "type": "and2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1920_": {
+   "type": "nand2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-multi"
+  },
+  "_1921_": {
+   "type": "xnor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-multi"
+  },
+  "_1922_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1923_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1924_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1925_": {
+   "type": "oai32_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1926_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1927_": {
+   "type": "nor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1928_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1929_": {
+   "type": "xnor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1930_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1931_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1932_": {
+   "type": "aoi21_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1933_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1934_": {
+   "type": "nand3_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1935_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "nbr"
+  },
+  "_1936_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1937_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1938_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1939_": {
+   "type": "oai21_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1940_": {
+   "type": "clkinv_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1941_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1942_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1943_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1944_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1945_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1946_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1947_": {
+   "type": "oai21_1",
+   "label": "core.mac.l_adder",
+   "how": "nbr"
+  },
+  "_1948_": {
+   "type": "and3_1",
+   "label": "core.mac.l_adder",
+   "how": "nbr"
+  },
+  "_1949_": {
+   "type": "aoi21_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1950_": {
+   "type": "or2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1951_": {
+   "type": "clkinv_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1952_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1953_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1954_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1955_": {
+   "type": "aoi21_1",
+   "label": "core.mac.l_adder",
+   "how": "nbr"
+  },
+  "_1956_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1957_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1958_": {
+   "type": "nand3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1959_": {
+   "type": "xnor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1960_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1961_": {
+   "type": "xor2_1",
+   "label": "core.mac.l_adder",
+   "how": "func-unique"
+  },
+  "_1962_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1963_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1964_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1965_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1966_": {
+   "type": "aoi211_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1967_": {
+   "type": "xnor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1968_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1969_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1970_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1971_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1972_": {
+   "type": "nand3_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1973_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1974_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1975_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1976_": {
+   "type": "clkinv_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1977_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1978_": {
+   "type": "xor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1979_": {
+   "type": "and2_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_1980_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1981_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1982_": {
+   "type": "nor3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1983_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1984_": {
+   "type": "and2_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1985_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1986_": {
+   "type": "aoi221_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_1987_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1988_": {
+   "type": "nor2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1989_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1990_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1991_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1992_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1993_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1994_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1995_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1996_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_1997_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_1998_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_1999_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2000_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2001_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2002_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2003_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2004_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2005_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2006_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2007_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2008_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2009_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2010_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2011_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2012_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2013_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2014_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2015_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2016_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2017_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2018_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2019_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2020_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2021_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2022_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2023_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2024_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2025_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2026_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2027_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2028_": {
+   "type": "oai21_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2029_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2030_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2031_": {
+   "type": "aoi211_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2032_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2033_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2034_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2035_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2036_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2037_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2038_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2039_": {
+   "type": "aoi22_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2040_": {
+   "type": "nand2_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2041_": {
+   "type": "oai21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_2042_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_2043_": {
+   "type": "or2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_2044_": {
+   "type": "and2_1",
+   "label": "core.mac.adder",
+   "how": "func-unique"
+  },
+  "_2045_": {
+   "type": "xor3_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_2046_": {
+   "type": "aoi221_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2047_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_2048_": {
+   "type": "aoi21_1",
+   "label": "core.mac.adder",
+   "how": "func-multi"
+  },
+  "_2049_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_2050_": {
+   "type": "xor3_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_2051_": {
+   "type": "aoi221_1",
+   "label": "core.mac",
+   "how": "func-unique"
+  },
+  "_2052_": {
+   "type": "aoi21_1",
+   "label": "core.mac",
+   "how": "func-multi"
+  },
+  "_2053_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2054_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2055_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2056_": {
+   "type": "oai22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2057_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2058_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2059_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2060_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2061_": {
+   "type": "oai22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2062_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2063_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2064_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2065_": {
+   "type": "aoi22_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2066_": {
+   "type": "nor2_1",
+   "label": "core.mac",
+   "how": "nbr"
+  },
+  "_2067_": {
+   "type": "aoi221_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2068_": {
+   "type": "oai22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2069_": {
+   "type": "nor2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2070_": {
+   "type": "aoi221_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2071_": {
+   "type": "aoi221_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2072_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2073_": {
+   "type": "oai221_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2074_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2075_": {
+   "type": "oai221_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2076_": {
+   "type": "oai22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2077_": {
+   "type": "nand4_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2078_": {
+   "type": "nor2_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2079_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2080_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2081_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2082_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2083_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2084_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2085_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2086_": {
+   "type": "nor3_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2087_": {
+   "type": "aoi21_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2088_": {
+   "type": "aoi211_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2089_": {
+   "type": "oai32_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2090_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2091_": {
+   "type": "aoi22_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2092_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2093_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2094_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2095_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2096_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2097_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2098_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2099_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2100_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2101_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2102_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2103_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2104_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2105_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2106_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2107_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2108_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2109_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2110_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2111_": {
+   "type": "nor2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2112_": {
+   "type": "aoi21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2113_": {
+   "type": "nor2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2114_": {
+   "type": "aoi21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2115_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2116_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2117_": {
+   "type": "nor2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2118_": {
+   "type": "aoi21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2119_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2120_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2121_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2122_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2123_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2124_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2125_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2126_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2127_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2128_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2129_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2130_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2131_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2132_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2133_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2134_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2135_": {
+   "type": "nand2_1",
+   "label": "core.max_unit",
+   "how": "nbr"
+  },
+  "_2136_": {
+   "type": "oai21_1",
+   "label": "core.max_unit",
+   "how": "func-unique"
+  },
+  "_2137_": {
+   "type": "nand4_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2138_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2139_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2140_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2141_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2142_": {
+   "type": "nor2_1",
+   "label": "top",
+   "how": "nbr"
+  },
+  "_2143_": {
+   "type": "aoi21_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2144_": {
+   "type": "nand2_1",
+   "label": "top",
+   "how": "nbr"
+  },
+  "_2145_": {
+   "type": "oai21_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2146_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2147_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2148_": {
+   "type": "mux2_2",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2149_": {
+   "type": "nand2_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2150_": {
+   "type": "nand3_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2151_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2152_": {
+   "type": "nand2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2153_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "nbr"
+  },
+  "_2154_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2155_": {
+   "type": "xor2_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2156_": {
+   "type": "oai22_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2157_": {
+   "type": "aoi21_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2158_": {
+   "type": "oai32_1",
+   "label": "core",
+   "how": "func-unique"
+  },
+  "_2159_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2160_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2161_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2162_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2163_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2164_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2165_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2166_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2167_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2168_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2169_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2170_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2171_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2172_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2173_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2174_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2175_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2176_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2177_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2178_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2179_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2180_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2181_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2182_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2183_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2184_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2185_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2186_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2187_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2188_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2189_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2190_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2191_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2192_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2193_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2194_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2195_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2196_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2197_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2198_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2199_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2200_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2201_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2202_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2203_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2204_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2205_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2206_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2207_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2208_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2209_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2210_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2211_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2212_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2213_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2214_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2215_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2216_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2217_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2218_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2219_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2220_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2221_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2222_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2223_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2224_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2225_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2226_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2227_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2228_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2229_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2230_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2231_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2232_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2233_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2234_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2235_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2236_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2237_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2238_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2239_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2240_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2241_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2242_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2243_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2244_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2245_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2246_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2247_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2248_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2249_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2250_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2251_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2252_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2253_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2254_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2255_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2256_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2257_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2258_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2259_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2260_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2261_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2262_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2263_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2264_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2265_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2266_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2267_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2268_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2269_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2270_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2271_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2272_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2273_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2274_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2275_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2276_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2277_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2278_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2279_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2280_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2281_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2282_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2283_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2284_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2285_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2286_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2287_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2288_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2289_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2290_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2291_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2292_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2293_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2294_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2295_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2296_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2297_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2298_": {
+   "type": "dffq_1",
+   "label": "core.max_unit",
+   "how": "flop"
+  },
+  "_2299_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2300_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2301_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2302_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2303_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2304_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2305_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2306_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2307_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2308_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2309_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2310_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2311_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2312_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2313_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2314_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2315_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2316_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2317_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2318_": {
+   "type": "dffq_1",
+   "label": "core.divider_unit",
+   "how": "flop"
+  },
+  "_2319_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2320_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2321_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2322_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2323_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2324_": {
+   "type": "dffq_1",
+   "label": "top",
+   "how": "flop"
+  },
+  "_2325_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2326_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2327_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2328_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2329_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2330_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2331_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2332_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2333_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2334_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2335_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2336_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2337_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2338_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2339_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2340_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2341_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2342_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2343_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2344_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2345_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2346_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2347_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2348_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2349_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2350_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2351_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2352_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2353_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2354_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2355_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2356_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2357_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2358_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2359_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2360_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2361_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2362_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2363_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2364_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2365_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2366_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2367_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2368_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2369_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2370_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2371_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2372_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2373_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2374_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2375_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2376_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2377_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2378_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2379_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2380_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2381_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2382_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2383_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2384_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2385_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2386_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2387_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2388_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2389_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2390_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2391_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2392_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2393_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2394_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2395_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2396_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2397_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2398_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2399_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2400_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2401_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2402_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2403_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2404_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2405_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2406_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2407_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2408_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2409_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2410_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2411_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2412_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2413_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2414_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2415_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2416_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2417_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2418_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2419_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2420_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2421_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2422_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2423_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2424_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2425_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2426_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2427_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2428_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2429_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2430_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2431_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2432_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2433_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2434_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2435_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2436_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2437_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2438_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2439_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2440_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2441_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2442_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2443_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2444_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2445_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2446_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2447_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2448_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2449_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2450_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2451_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2452_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2453_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2454_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2455_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2456_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2457_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2458_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2459_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2460_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2461_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2462_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2463_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2464_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2465_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2466_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2467_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2468_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2469_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2470_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2471_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2472_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2473_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2474_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2475_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2476_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2477_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2478_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2479_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2480_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2481_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2482_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2483_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2484_": {
+   "type": "dffq_1",
+   "label": "core.mac",
+   "how": "flop"
+  },
+  "_2485_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2486_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2487_": {
+   "type": "dffq_1",
+   "label": "core",
+   "how": "flop"
+  },
+  "_2488_": {
+   "type": "tieh",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2489_": {
+   "type": "tieh",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2490_": {
+   "type": "tieh",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2491_": {
+   "type": "tieh",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2492_": {
+   "type": "tieh",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2493_": {
+   "type": "tieh",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2494_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2495_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2496_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2497_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2498_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2499_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2500_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2501_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2502_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2503_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2504_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2505_": {
+   "type": "tiel",
+   "label": "unlabeled",
+   "how": "none"
+  },
+  "_2506_": {
+   "type": "buf_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_2507_": {
+   "type": "buf_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_2508_": {
+   "type": "buf_1",
+   "label": "core",
+   "how": "func-multi"
+  },
+  "_2509_": {
+   "type": "buf_1",
+   "label": "top",
+   "how": "func-unique"
+  },
+  "_2510_": {
+   "type": "buf_1",
+   "label": "core.divider_unit",
+   "how": "func-multi"
+  },
+  "_2511_": {
+   "type": "buf_1",
+   "label": "top",
+   "how": "func-unique"
+  }
+ },
+ "flat_pair_nets": [
+  {
+   "from": "core.mac",
+   "to": "core.mac.adder",
+   "nets": 53,
+   "sink_pins": 81
+  },
+  {
+   "from": "core",
+   "to": "core.mac",
+   "nets": 46,
+   "sink_pins": 86
+  },
+  {
+   "from": "core.mac",
+   "to": "core.divider_unit",
+   "nets": 39,
+   "sink_pins": 77
+  },
+  {
+   "from": "core.mac",
+   "to": "core.max_unit",
+   "nets": 33,
+   "sink_pins": 58
+  },
+  {
+   "from": "core.mac",
+   "to": "core.exponent_unit",
+   "nets": 27,
+   "sink_pins": 49
+  },
+  {
+   "from": "core.mac.adder",
+   "to": "core.mac",
+   "nets": 24,
+   "sink_pins": 30
+  },
+  {
+   "from": "unlabeled",
+   "to": "PORT",
+   "nets": 18,
+   "sink_pins": 18
+  },
+  {
+   "from": "core.max_unit",
+   "to": "core",
+   "nets": 16,
+   "sink_pins": 16
+  },
+  {
+   "from": "core.mac.adder",
+   "to": "core",
+   "nets": 12,
+   "sink_pins": 12
+  },
+  {
+   "from": "top",
+   "to": "core",
+   "nets": 11,
+   "sink_pins": 18
+  },
+  {
+   "from": "core.max_unit",
+   "to": "core.mac",
+   "nets": 11,
+   "sink_pins": 11
+  },
+  {
+   "from": "core.exponent_unit",
+   "to": "core.mac",
+   "nets": 10,
+   "sink_pins": 13
+  },
+  {
+   "from": "core.exponent_unit",
+   "to": "core.mac.l_adder",
+   "nets": 10,
+   "sink_pins": 14
+  },
+  {
+   "from": "core.mac",
+   "to": "core.mac.l_adder",
+   "nets": 9,
+   "sink_pins": 12
+  },
+  {
+   "from": "core.mac.l_adder",
+   "to": "core.mac",
+   "nets": 9,
+   "sink_pins": 9
+  },
+  {
+   "from": "PORT",
+   "to": "core",
+   "nets": 7,
+   "sink_pins": 49
+  },
+  {
+   "from": "core.divider_unit",
+   "to": "core.mac",
+   "nets": 6,
+   "sink_pins": 6
+  },
+  {
+   "from": "core",
+   "to": "core.divider_unit",
+   "nets": 6,
+   "sink_pins": 30
+  },
+  {
+   "from": "core",
+   "to": "top",
+   "nets": 4,
+   "sink_pins": 5
+  },
+  {
+   "from": "core.mac",
+   "to": "core",
+   "nets": 4,
+   "sink_pins": 4
+  },
+  {
+   "from": "top",
+   "to": "core.exponent_unit",
+   "nets": 4,
+   "sink_pins": 38
+  },
+  {
+   "from": "PORT",
+   "to": "top",
+   "nets": 4,
+   "sink_pins": 18
+  },
+  {
+   "from": "core",
+   "to": "core.mac.l_adder",
+   "nets": 3,
+   "sink_pins": 8
+  },
+  {
+   "from": "core",
+   "to": "PORT",
+   "nets": 3,
+   "sink_pins": 3
+  },
+  {
+   "from": "core",
+   "to": "core.max_unit",
+   "nets": 2,
+   "sink_pins": 2
+  },
+  {
+   "from": "core.exponent_unit",
+   "to": "core",
+   "nets": 2,
+   "sink_pins": 2
+  },
+  {
+   "from": "core.divider_unit",
+   "to": "core",
+   "nets": 2,
+   "sink_pins": 3
+  },
+  {
+   "from": "top",
+   "to": "PORT",
+   "nets": 2,
+   "sink_pins": 2
+  },
+  {
+   "from": "core.exponent_unit",
+   "to": "top",
+   "nets": 1,
+   "sink_pins": 2
+  },
+  {
+   "from": "top",
+   "to": "core.mac",
+   "nets": 1,
+   "sink_pins": 2
+  },
+  {
+   "from": "core.divider_unit",
+   "to": "PORT",
+   "nets": 1,
+   "sink_pins": 1
+  },
+  {
+   "from": "PORT",
+   "to": "core.divider_unit",
+   "nets": 1,
+   "sink_pins": 57
+  },
+  {
+   "from": "PORT",
+   "to": "core.mac",
+   "nets": 1,
+   "sink_pins": 194
+  },
+  {
+   "from": "PORT",
+   "to": "core.max_unit",
+   "nets": 1,
+   "sink_pins": 22
+  }
+ ],
+ "shared_nets_top": [
+  {
+   "net": "clk[0]",
+   "driver": "PORT",
+   "driver_label": "PORT",
+   "fanout": 329,
+   "sink_labels": {
+    "core": 41,
+    "core.divider_unit": 57,
+    "core.mac": 194,
+    "core.max_unit": 22,
+    "top": 15
+   }
+  },
+  {
+   "net": "config_chain[7]",
+   "driver": "_2306_",
+   "driver_label": "top",
+   "fanout": 19,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 15,
+    "top": 2
+   }
+  },
+  {
+   "net": "_0795_",
+   "driver": "_1382_",
+   "driver_label": "core",
+   "fanout": 14,
+   "sink_labels": {
+    "core.mac.l_adder": 6,
+    "core.mac": 6,
+    "core": 2
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[9]",
+   "driver": "_2264_",
+   "driver_label": "core.mac",
+   "fanout": 8,
+   "sink_labels": {
+    "core.exponent_unit": 3,
+    "core.mac": 2,
+    "core.max_unit": 3
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[12]",
+   "driver": "_2267_",
+   "driver_label": "core.mac",
+   "fanout": 8,
+   "sink_labels": {
+    "core.exponent_unit": 3,
+    "core.mac": 2,
+    "core.max_unit": 3
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[10]",
+   "driver": "_2265_",
+   "driver_label": "core.mac",
+   "fanout": 7,
+   "sink_labels": {
+    "core.exponent_unit": 2,
+    "core.mac": 2,
+    "core.max_unit": 3
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[13]",
+   "driver": "_2268_",
+   "driver_label": "core.mac",
+   "fanout": 7,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 3,
+    "core.max_unit": 2
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[14]",
+   "driver": "_2269_",
+   "driver_label": "core.mac",
+   "fanout": 7,
+   "sink_labels": {
+    "core.mac": 3,
+    "core.exponent_unit": 2,
+    "core.max_unit": 2
+   }
+  },
+  {
+   "net": "_0566_",
+   "driver": "_1120_",
+   "driver_label": "core",
+   "fanout": 6,
+   "sink_labels": {
+    "core": 4,
+    "core.mac": 1,
+    "top": 1
+   }
+  },
+  {
+   "net": "core.divider_unit.denominator[0]",
+   "driver": "_2243_",
+   "driver_label": "core.mac",
+   "fanout": 6,
+   "sink_labels": {
+    "core.divider_unit": 3,
+    "core.mac": 1,
+    "core.mac.l_adder": 2
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[7]",
+   "driver": "_2262_",
+   "driver_label": "core.mac",
+   "fanout": 6,
+   "sink_labels": {
+    "core.max_unit": 1,
+    "core.mac": 3,
+    "core.exponent_unit": 2
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[15]",
+   "driver": "_2270_",
+   "driver_label": "core.mac",
+   "fanout": 6,
+   "sink_labels": {
+    "core.mac": 3,
+    "core.exponent_unit": 2,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[16]",
+   "driver": "_2271_",
+   "driver_label": "core.mac",
+   "fanout": 6,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 3,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "_0559_",
+   "driver": "_1113_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.exponent_unit": 1,
+    "core.mac": 1,
+    "core.max_unit": 3
+   }
+  },
+  {
+   "net": "core.divider_unit.denominator[1]",
+   "driver": "_2244_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.divider_unit": 2,
+    "core.mac": 2,
+    "core": 1
+   }
+  },
+  {
+   "net": "core.divider_unit.denominator[5]",
+   "driver": "_2248_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.divider_unit": 2,
+    "core.mac": 2,
+    "core": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[6]",
+   "driver": "_2261_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.max_unit": 1,
+    "core.mac": 3,
+    "core.exponent_unit": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[8]",
+   "driver": "_2263_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 2,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[17]",
+   "driver": "_2272_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 2,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[18]",
+   "driver": "_2273_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 2,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[19]",
+   "driver": "_2274_",
+   "driver_label": "core.mac",
+   "fanout": 5,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 2,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "_0555_",
+   "driver": "_1109_",
+   "driver_label": "core.mac",
+   "fanout": 4,
+   "sink_labels": {
+    "core.exponent_unit": 1,
+    "core.mac": 1,
+    "core.max_unit": 2
+   }
+  },
+  {
+   "net": "core.divider_unit.denominator[6]",
+   "driver": "_2249_",
+   "driver_label": "core.mac",
+   "fanout": 4,
+   "sink_labels": {
+    "core.divider_unit": 1,
+    "core.mac.l_adder": 2,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[1]",
+   "driver": "_2256_",
+   "driver_label": "core.mac",
+   "fanout": 4,
+   "sink_labels": {
+    "core.max_unit": 1,
+    "core.exponent_unit": 1,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[2]",
+   "driver": "_2257_",
+   "driver_label": "core.mac",
+   "fanout": 4,
+   "sink_labels": {
+    "core.max_unit": 1,
+    "core.exponent_unit": 1,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[20]",
+   "driver": "_2275_",
+   "driver_label": "core.mac",
+   "fanout": 4,
+   "sink_labels": {
+    "core.mac": 1,
+    "core.exponent_unit": 1,
+    "core.max_unit": 2
+   }
+  },
+  {
+   "net": "core.mac.M[4]",
+   "driver": "_2281_",
+   "driver_label": "core.max_unit",
+   "fanout": 4,
+   "sink_labels": {
+    "core.max_unit": 2,
+    "core": 1,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.mac.M[5]",
+   "driver": "_2282_",
+   "driver_label": "core.max_unit",
+   "fanout": 4,
+   "sink_labels": {
+    "core": 1,
+    "core.mac": 1,
+    "core.max_unit": 2
+   }
+  },
+  {
+   "net": "_0836_",
+   "driver": "_1425_",
+   "driver_label": "core.exponent_unit",
+   "fanout": 3,
+   "sink_labels": {
+    "core.exponent_unit": 1,
+    "core.mac": 1,
+    "core.mac.l_adder": 1
+   }
+  },
+  {
+   "net": "_0837_",
+   "driver": "_1426_",
+   "driver_label": "core.exponent_unit",
+   "fanout": 3,
+   "sink_labels": {
+    "core.exponent_unit": 1,
+    "core.mac": 1,
+    "core.mac.l_adder": 1
+   }
+  },
+  {
+   "net": "_0895_",
+   "driver": "_1487_",
+   "driver_label": "core.exponent_unit",
+   "fanout": 3,
+   "sink_labels": {
+    "core.mac": 1,
+    "core": 1,
+    "core.mac.l_adder": 1
+   }
+  },
+  {
+   "net": "core.divider_unit.denominator[4]",
+   "driver": "_2247_",
+   "driver_label": "core.mac",
+   "fanout": 3,
+   "sink_labels": {
+    "core.divider_unit": 1,
+    "core.mac": 1,
+    "core.mac.l_adder": 1
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[21]",
+   "driver": "_2276_",
+   "driver_label": "core.mac",
+   "fanout": 3,
+   "sink_labels": {
+    "core.mac": 1,
+    "core.exponent_unit": 1,
+    "core.max_unit": 1
+   }
+  },
+  {
+   "net": "_0705_",
+   "driver": "_1292_",
+   "driver_label": "core.mac",
+   "fanout": 39,
+   "sink_labels": {
+    "core.mac": 37,
+    "core.exponent_unit": 2
+   }
+  },
+  {
+   "net": "_0704_",
+   "driver": "_1291_",
+   "driver_label": "core.mac",
+   "fanout": 31,
+   "sink_labels": {
+    "core": 1,
+    "core.mac": 30
+   }
+  },
+  {
+   "net": "_0592_",
+   "driver": "_1146_",
+   "driver_label": "core",
+   "fanout": 29,
+   "sink_labels": {
+    "core": 16,
+    "core.divider_unit": 13
+   }
+  },
+  {
+   "net": "_0409_",
+   "driver": "_1988_",
+   "driver_label": "core",
+   "fanout": 20,
+   "sink_labels": {
+    "core": 14,
+    "core.mac": 6
+   }
+  },
+  {
+   "net": "core.divider_unit.sum_in[19]",
+   "driver": "_2344_",
+   "driver_label": "core.mac",
+   "fanout": 18,
+   "sink_labels": {
+    "core.divider_unit": 12,
+    "core.mac": 6
+   }
+  },
+  {
+   "net": "_0806_",
+   "driver": "_1394_",
+   "driver_label": "core.mac",
+   "fanout": 16,
+   "sink_labels": {
+    "core.mac": 15,
+    "core.mac.adder": 1
+   }
+  },
+  {
+   "net": "_0591_",
+   "driver": "_1145_",
+   "driver_label": "core",
+   "fanout": 15,
+   "sink_labels": {
+    "core.divider_unit": 3,
+    "core": 12
+   }
+  },
+  {
+   "net": "_0401_",
+   "driver": "_1979_",
+   "driver_label": "core",
+   "fanout": 15,
+   "sink_labels": {
+    "core.mac": 2,
+    "core": 13
+   }
+  },
+  {
+   "net": "core.mac.accum_en",
+   "driver": "_2309_",
+   "driver_label": "core",
+   "fanout": 15,
+   "sink_labels": {
+    "core": 11,
+    "core.mac": 4
+   }
+  },
+  {
+   "net": "config_chain[6]",
+   "driver": "_2305_",
+   "driver_label": "top",
+   "fanout": 12,
+   "sink_labels": {
+    "core.exponent_unit": 10,
+    "top": 2
+   }
+  },
+  {
+   "net": "_1015_",
+   "driver": "_1617_",
+   "driver_label": "core.mac.adder",
+   "fanout": 10,
+   "sink_labels": {
+    "core.mac.adder": 8,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "core.mac.sel[0]",
+   "driver": "_2165_",
+   "driver_label": "core",
+   "fanout": 10,
+   "sink_labels": {
+    "core": 9,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "config_chain[5]",
+   "driver": "_2304_",
+   "driver_label": "top",
+   "fanout": 10,
+   "sink_labels": {
+    "core.exponent_unit": 8,
+    "top": 2
+   }
+  },
+  {
+   "net": "core.divider_unit.state[1]",
+   "driver": "_2317_",
+   "driver_label": "core.divider_unit",
+   "fanout": 10,
+   "sink_labels": {
+    "core.divider_unit": 9,
+    "core": 1
+   }
+  },
+  {
+   "net": "core.mac.sel[1]",
+   "driver": "_2166_",
+   "driver_label": "core",
+   "fanout": 9,
+   "sink_labels": {
+    "core": 6,
+    "core.mac": 3
+   }
+  },
+  {
+   "net": "core.pos[3]",
+   "driver": "_2168_",
+   "driver_label": "core",
+   "fanout": 9,
+   "sink_labels": {
+    "core": 8,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.out_valid",
+   "driver": "_2315_",
+   "driver_label": "core",
+   "fanout": 9,
+   "sink_labels": {
+    "core": 7,
+    "top": 2
+   }
+  },
+  {
+   "net": "core.mac.sel[2]",
+   "driver": "_2167_",
+   "driver_label": "core",
+   "fanout": 8,
+   "sink_labels": {
+    "core": 6,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "core.idle",
+   "driver": "_2308_",
+   "driver_label": "core",
+   "fanout": 8,
+   "sink_labels": {
+    "core": 7,
+    "top": 1
+   }
+  },
+  {
+   "net": "core.pos[4]",
+   "driver": "_2169_",
+   "driver_label": "core",
+   "fanout": 7,
+   "sink_labels": {
+    "core": 6,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.state[6]",
+   "driver": "_2314_",
+   "driver_label": "core",
+   "fanout": 7,
+   "sink_labels": {
+    "core": 6,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.divider_unit.magnitude[0]",
+   "driver": "_2325_",
+   "driver_label": "core.mac",
+   "fanout": 7,
+   "sink_labels": {
+    "core.divider_unit": 5,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "_0807_",
+   "driver": "_1395_",
+   "driver_label": "core.mac",
+   "fanout": 6,
+   "sink_labels": {
+    "core.mac": 5,
+    "core.mac.adder": 1
+   }
+  },
+  {
+   "net": "_0405_",
+   "driver": "_1983_",
+   "driver_label": "core",
+   "fanout": 6,
+   "sink_labels": {
+    "core.mac": 3,
+    "core": 3
+   }
+  },
+  {
+   "net": "core.pos[5]",
+   "driver": "_2170_",
+   "driver_label": "core",
+   "fanout": 6,
+   "sink_labels": {
+    "core": 5,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.divider_unit.sum_in[1]",
+   "driver": "_2326_",
+   "driver_label": "core.mac",
+   "fanout": 6,
+   "sink_labels": {
+    "core.divider_unit": 4,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "_0557_",
+   "driver": "_1111_",
+   "driver_label": "core.exponent_unit",
+   "fanout": 5,
+   "sink_labels": {
+    "core.exponent_unit": 3,
+    "top": 2
+   }
+  }
+ ],
+ "high_fanout_top": [
+  {
+   "net": "clk[0]",
+   "driver": "PORT",
+   "driver_label": "PORT",
+   "fanout": 329,
+   "sink_labels": {
+    "core": 41,
+    "core.divider_unit": 57,
+    "core.mac": 194,
+    "core.max_unit": 22,
+    "top": 15
+   }
+  },
+  {
+   "net": "_0492_",
+   "driver": "_2092_",
+   "driver_label": "core.max_unit",
+   "fanout": 44,
+   "sink_labels": {
+    "core.max_unit": 44
+   }
+  },
+  {
+   "net": "_0705_",
+   "driver": "_1292_",
+   "driver_label": "core.mac",
+   "fanout": 39,
+   "sink_labels": {
+    "core.mac": 37,
+    "core.exponent_unit": 2
+   }
+  },
+  {
+   "net": "_0539_",
+   "driver": "_1093_",
+   "driver_label": "core.divider_unit",
+   "fanout": 32,
+   "sink_labels": {
+    "core.divider_unit": 32
+   }
+  },
+  {
+   "net": "_0704_",
+   "driver": "_1291_",
+   "driver_label": "core.mac",
+   "fanout": 31,
+   "sink_labels": {
+    "core": 1,
+    "core.mac": 30
+   }
+  },
+  {
+   "net": "core.divider_unit.state[0]",
+   "driver": "_2316_",
+   "driver_label": "core.divider_unit",
+   "fanout": 30,
+   "sink_labels": {
+    "core.divider_unit": 30
+   }
+  },
+  {
+   "net": "_0592_",
+   "driver": "_1146_",
+   "driver_label": "core",
+   "fanout": 29,
+   "sink_labels": {
+    "core": 16,
+    "core.divider_unit": 13
+   }
+  },
+  {
+   "net": "_0406_",
+   "driver": "_1984_",
+   "driver_label": "core.mac",
+   "fanout": 24,
+   "sink_labels": {
+    "core.mac": 24
+   }
+  },
+  {
+   "net": "_0409_",
+   "driver": "_1988_",
+   "driver_label": "core",
+   "fanout": 20,
+   "sink_labels": {
+    "core": 14,
+    "core.mac": 6
+   }
+  },
+  {
+   "net": "config_chain[7]",
+   "driver": "_2306_",
+   "driver_label": "top",
+   "fanout": 19,
+   "sink_labels": {
+    "core.mac": 2,
+    "core.exponent_unit": 15,
+    "top": 2
+   }
+  },
+  {
+   "net": "_0797_",
+   "driver": "_1384_",
+   "driver_label": "core.mac",
+   "fanout": 19,
+   "sink_labels": {
+    "core.mac": 19
+   }
+  },
+  {
+   "net": "core.divider_unit.sum_in[19]",
+   "driver": "_2344_",
+   "driver_label": "core.mac",
+   "fanout": 18,
+   "sink_labels": {
+    "core.divider_unit": 12,
+    "core.mac": 6
+   }
+  },
+  {
+   "net": "_0247_",
+   "driver": "_1778_",
+   "driver_label": "core.divider_unit",
+   "fanout": 17,
+   "sink_labels": {
+    "core.divider_unit": 17
+   }
+  },
+  {
+   "net": "_0806_",
+   "driver": "_1394_",
+   "driver_label": "core.mac",
+   "fanout": 16,
+   "sink_labels": {
+    "core.mac": 15,
+    "core.mac.adder": 1
+   }
+  },
+  {
+   "net": "_0591_",
+   "driver": "_1145_",
+   "driver_label": "core",
+   "fanout": 15,
+   "sink_labels": {
+    "core.divider_unit": 3,
+    "core": 12
+   }
+  },
+  {
+   "net": "_0401_",
+   "driver": "_1979_",
+   "driver_label": "core",
+   "fanout": 15,
+   "sink_labels": {
+    "core.mac": 2,
+    "core": 13
+   }
+  },
+  {
+   "net": "core.mac.accum_en",
+   "driver": "_2309_",
+   "driver_label": "core",
+   "fanout": 15,
+   "sink_labels": {
+    "core": 11,
+    "core.mac": 4
+   }
+  },
+  {
+   "net": "_0795_",
+   "driver": "_1382_",
+   "driver_label": "core",
+   "fanout": 14,
+   "sink_labels": {
+    "core.mac.l_adder": 6,
+    "core.mac": 6,
+    "core": 2
+   }
+  },
+  {
+   "net": "core.divider_unit.negative",
+   "driver": "_2242_",
+   "driver_label": "core.divider_unit",
+   "fanout": 14,
+   "sink_labels": {
+    "core.divider_unit": 14
+   }
+  },
+  {
+   "net": "_0785_",
+   "driver": "_1372_",
+   "driver_label": "core.mac",
+   "fanout": 13,
+   "sink_labels": {
+    "core.mac": 13
+   }
+  },
+  {
+   "net": "_0339_",
+   "driver": "_1905_",
+   "driver_label": "core.mac",
+   "fanout": 13,
+   "sink_labels": {
+    "core.mac": 13
+   }
+  },
+  {
+   "net": "config_chain[6]",
+   "driver": "_2305_",
+   "driver_label": "top",
+   "fanout": 12,
+   "sink_labels": {
+    "core.exponent_unit": 10,
+    "top": 2
+   }
+  },
+  {
+   "net": "_0211_",
+   "driver": "_1742_",
+   "driver_label": "core.divider_unit",
+   "fanout": 12,
+   "sink_labels": {
+    "core.divider_unit": 12
+   }
+  },
+  {
+   "net": "_0789_",
+   "driver": "_1376_",
+   "driver_label": "core",
+   "fanout": 11,
+   "sink_labels": {
+    "core.mac": 11
+   }
+  },
+  {
+   "net": "_0253_",
+   "driver": "_1785_",
+   "driver_label": "core",
+   "fanout": 11,
+   "sink_labels": {
+    "core.divider_unit": 11
+   }
+  },
+  {
+   "net": "_0515_",
+   "driver": "_2137_",
+   "driver_label": "top",
+   "fanout": 11,
+   "sink_labels": {
+    "top": 11
+   }
+  },
+  {
+   "net": "_1015_",
+   "driver": "_1617_",
+   "driver_label": "core.mac.adder",
+   "fanout": 10,
+   "sink_labels": {
+    "core.mac.adder": 8,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "core.mac.sel[0]",
+   "driver": "_2165_",
+   "driver_label": "core",
+   "fanout": 10,
+   "sink_labels": {
+    "core": 9,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "config_chain[5]",
+   "driver": "_2304_",
+   "driver_label": "top",
+   "fanout": 10,
+   "sink_labels": {
+    "core.exponent_unit": 8,
+    "top": 2
+   }
+  },
+  {
+   "net": "core.divider_unit.state[1]",
+   "driver": "_2317_",
+   "driver_label": "core.divider_unit",
+   "fanout": 10,
+   "sink_labels": {
+    "core.divider_unit": 9,
+    "core": 1
+   }
+  },
+  {
+   "net": "core.mac.sel[1]",
+   "driver": "_2166_",
+   "driver_label": "core",
+   "fanout": 9,
+   "sink_labels": {
+    "core": 6,
+    "core.mac": 3
+   }
+  },
+  {
+   "net": "core.pos[3]",
+   "driver": "_2168_",
+   "driver_label": "core",
+   "fanout": 9,
+   "sink_labels": {
+    "core": 8,
+    "core.mac": 1
+   }
+  },
+  {
+   "net": "core.out_valid",
+   "driver": "_2315_",
+   "driver_label": "core",
+   "fanout": 9,
+   "sink_labels": {
+    "core": 7,
+    "top": 2
+   }
+  },
+  {
+   "net": "_0784_",
+   "driver": "_1371_",
+   "driver_label": "core.mac",
+   "fanout": 9,
+   "sink_labels": {
+    "core.mac": 9
+   }
+  },
+  {
+   "net": "_0248_",
+   "driver": "_1779_",
+   "driver_label": "core.divider_unit",
+   "fanout": 9,
+   "sink_labels": {
+    "core.divider_unit": 9
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[9]",
+   "driver": "_2264_",
+   "driver_label": "core.mac",
+   "fanout": 8,
+   "sink_labels": {
+    "core.exponent_unit": 3,
+    "core.mac": 2,
+    "core.max_unit": 3
+   }
+  },
+  {
+   "net": "core.exponent_unit.D[12]",
+   "driver": "_2267_",
+   "driver_label": "core.mac",
+   "fanout": 8,
+   "sink_labels": {
+    "core.exponent_unit": 3,
+    "core.mac": 2,
+    "core.max_unit": 3
+   }
+  },
+  {
+   "net": "core.mac.sel[2]",
+   "driver": "_2167_",
+   "driver_label": "core",
+   "fanout": 8,
+   "sink_labels": {
+    "core": 6,
+    "core.mac": 2
+   }
+  },
+  {
+   "net": "core.idle",
+   "driver": "_2308_",
+   "driver_label": "core",
+   "fanout": 8,
+   "sink_labels": {
+    "core": 7,
+    "top": 1
+   }
+  },
+  {
+   "net": "_0608_",
+   "driver": "_1165_",
+   "driver_label": "core",
+   "fanout": 8,
+   "sink_labels": {
+    "core": 8
+   }
+  }
+ ],
+ "def": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+ "def_sha16": "44edea0aea77e243",
+ "placement": {
+  "core": {
+   "n": 244,
+   "centroid": [
+    202.66,
+    119.4
+   ],
+   "rms_spread": [
+    42.71,
+    29.72
+   ],
+   "bbox": [
+    82.88,
+    19.6,
+    325.92,
+    156.8
+   ],
+   "bbox_area": 33345.1,
+   "cell_area_over_bbox": 0.1863,
+   "nn6_same_label": 0.766
+  },
+  "top": {
+   "n": 32,
+   "centroid": [
+    214.17,
+    119.93
+   ],
+   "rms_spread": [
+    64.02,
+    26.99
+   ],
+   "bbox": [
+    119.84,
+    66.64,
+    314.72,
+    156.8
+   ],
+   "bbox_area": 17570.4,
+   "cell_area_over_bbox": 0.0751,
+   "nn6_same_label": 0.24
+  },
+  "core.divider_unit": {
+   "n": 312,
+   "centroid": [
+    260.57,
+    82.23
+   ],
+   "rms_spread": [
+    94.77,
+    38.9
+   ],
+   "bbox": [
+    24.08,
+    7.84,
+    342.16,
+    156.8
+   ],
+   "bbox_area": 47381.2,
+   "cell_area_over_bbox": 0.1749,
+   "nn6_same_label": 0.747
+  },
+  "core.max_unit": {
+   "n": 121,
+   "centroid": [
+    108.2,
+    73.65
+   ],
+   "rms_spread": [
+    24.62,
+    36.8
+   ],
+   "bbox": [
+    65.52,
+    11.76,
+    160.16,
+    141.12
+   ],
+   "bbox_area": 12242.6,
+   "cell_area_over_bbox": 0.236,
+   "nn6_same_label": 0.468
+  },
+  "core.mac": {
+   "n": 507,
+   "centroid": [
+    144.28,
+    65.33
+   ],
+   "rms_spread": [
+    86.49,
+    39.28
+   ],
+   "bbox": [
+    4.48,
+    3.92,
+    334.32,
+    156.8
+   ],
+   "bbox_area": 50425.9,
+   "cell_area_over_bbox": 0.3507,
+   "nn6_same_label": 0.633
+  },
+  "core.exponent_unit": {
+   "n": 96,
+   "centroid": [
+    191.17,
+    70.27
+   ],
+   "rms_spread": [
+    57.69,
+    11.37
+   ],
+   "bbox": [
+    92.96,
+    47.04,
+    259.28,
+    105.84
+   ],
+   "bbox_area": 9779.6,
+   "cell_area_over_bbox": 0.2485,
+   "nn6_same_label": 0.755
+  },
+  "core.mac.adder": {
+   "n": 75,
+   "centroid": [
+    103.45,
+    75.71
+   ],
+   "rms_spread": [
+    38.64,
+    38.03
+   ],
+   "bbox": [
+    54.88,
+    15.68,
+    185.36,
+    145.04
+   ],
+   "bbox_area": 16878.9,
+   "cell_area_over_bbox": 0.0904,
+   "nn6_same_label": 0.313
+  },
+  "core.mac.l_adder": {
+   "n": 29,
+   "centroid": [
+    279.97,
+    51.7
+   ],
+   "rms_spread": [
+    18.35,
+    13.15
+   ],
+   "bbox": [
+    255.36,
+    27.44,
+    319.2,
+    86.24
+   ],
+   "bbox_area": 3753.8,
+   "cell_area_over_bbox": 0.1637,
+   "nn6_same_label": 0.437
+  }
+ }
+}

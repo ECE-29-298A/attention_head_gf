@@ -1,0 +1,28 @@
+{
+ "h2": {
+  "pins": 281,
+  "nets": 50,
+  "by_region_set_pins": {
+   "dp": 100,
+   "ctrl+dp": 76,
+   "ctrl": 46,
+   "div+dp": 23,
+   "ctrl+spi": 19,
+   "div": 17
+  }
+ },
+ "p2": {
+  "pins": 474,
+  "nets": 88,
+  "by_region_set_pins": {
+   "dp": 197,
+   "ctrl+dp": 77,
+   "ctrl": 64,
+   "div+dp": 62,
+   "ctrl+spi": 35,
+   "div": 15,
+   "dp+spi": 12,
+   "ctrl+div+dp": 12
+  }
+ }
+}

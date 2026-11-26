@@ -1,0 +1,92 @@
+{
+ "run": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi",
+ "metrics_sha16": "4eb5f4137f6655fd",
+ "synth_nl_sha16": "a339bf991497fc19",
+ "stdcell_area": 45475.8,
+ "core_area": 51967,
+ "utilization": 0.87509,
+ "magic_drc": 0,
+ "klayout_drc": null,
+ "route_drc": 0,
+ "lvs_errors": 0,
+ "lvs_unmatched_devices": 0,
+ "lvs_unmatched_nets": 0,
+ "antenna_nets": 0,
+ "antenna_pins": 0,
+ "illegal_overlap": 0,
+ "disconnected_pins": 9,
+ "wirelength_um": 50554,
+ "vias": 9603,
+ "slew_violations": 281,
+ "cap_violations": 2,
+ "fanout_violations": 6,
+ "setup_ws_min": 41.791936427739635,
+ "hold_ws_min": 0.05762379625452929,
+ "power_total_W": 0.0029335184954106808,
+ "instance_count": 2976,
+ "per_corner": {
+  "max_ff_n40C_3v60": {
+   "setup_ws": 75.97297228583491,
+   "hold_ws": 0.05762379625452929,
+   "slew": 0,
+   "cap": 2,
+   "fanout": 6
+  },
+  "max_ss_125C_3v00": {
+   "setup_ws": 41.791936427739635,
+   "hold_ws": 0.9742891214016699,
+   "slew": 281,
+   "cap": 2,
+   "fanout": 6
+  },
+  "max_tt_025C_3v30": {
+   "setup_ws": 71.1975494268529,
+   "hold_ws": 0.3251305983136378,
+   "slew": 0,
+   "cap": 2,
+   "fanout": 6
+  },
+  "min_ff_n40C_3v60": {
+   "setup_ws": 76.10719381241604,
+   "hold_ws": 0.07754475059338647,
+   "slew": 0,
+   "cap": 0,
+   "fanout": 6
+  },
+  "min_ss_125C_3v00": {
+   "setup_ws": 44.09279111075485,
+   "hold_ws": 1.0322671898333766,
+   "slew": 128,
+   "cap": 1,
+   "fanout": 6
+  },
+  "min_tt_025C_3v30": {
+   "setup_ws": 72.35792969601316,
+   "hold_ws": 0.35819082047593265,
+   "slew": 0,
+   "cap": 0,
+   "fanout": 6
+  },
+  "nom_ff_n40C_3v60": {
+   "setup_ws": 76.04624345481875,
+   "hold_ws": 0.06812750556527063,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 6
+  },
+  "nom_ss_125C_3v00": {
+   "setup_ws": 43.057352679784245,
+   "hold_ws": 1.0038183901565847,
+   "slew": 189,
+   "cap": 1,
+   "fanout": 6
+  },
+  "nom_tt_025C_3v30": {
+   "setup_ws": 71.82787190557242,
+   "hold_ws": 0.3422775493247124,
+   "slew": 0,
+   "cap": 1,
+   "fanout": 6
+  }
+ }
+}

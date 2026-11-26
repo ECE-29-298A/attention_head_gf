@@ -1,0 +1,46 @@
+{
+ "labels": [
+  "top",
+  "core",
+  "core.divider_unit",
+  "core.exponent_unit",
+  "core.mac",
+  "core.mac.adder",
+  "core.mac.l_adder",
+  "core.max_unit"
+ ],
+ "region": [
+  4.48,
+  3.92,
+  342.16,
+  156.8
+ ],
+ "rects": [
+  [
+   4.48,
+   3.92,
+   342.16,
+   156.8
+  ]
+ ],
+ "rows": 39,
+ "cells": 1416,
+ "cell_area": 40958.042,
+ "tap_area_in_region": 1527.859,
+ "region_area": 51624.518,
+ "packing_incl_taps": 0.823,
+ "packing_with_reserved_upsizing": 0.823,
+ "hpwl_block_nets_um": 50465.3,
+ "hpwl_initial_um": 80063.5,
+ "nets": 1425,
+ "netlist": "connectivity/h2_vnames.json",
+ "netlist_sha16": "23c82e33d2b990cb",
+ "anchors": null,
+ "init_def": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/28-openroad-globalplacement/tt_um_attention_head_gf.def",
+ "ref_def": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+ "ref_def_sha16": "44edea0aea77e243",
+ "seed": 1,
+ "iters": 400000,
+ "reserve": {},
+ "reserved_extra_area": 0.0
+}

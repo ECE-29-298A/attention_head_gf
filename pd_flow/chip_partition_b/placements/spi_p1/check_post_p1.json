@@ -1,0 +1,110 @@
+{
+ "placement": "placements/spi_p1/placement.json",
+ "placement_sha16": "82bc8ca228f6bb0f",
+ "cells": 32,
+ "errors": [],
+ "overlaps": 0,
+ "rects": [
+  [
+   237.44,
+   137.2,
+   342.16,
+   152.88
+  ]
+ ],
+ "region_area": 1642.01,
+ "cell_area": 1319.315,
+ "tap_area": 52.685,
+ "packing_incl_taps": 0.8356,
+ "final": {
+  "def": "/Users/samuelzhang/ttharden/cpb_p1/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+  "def_sha16": "96e664f258bc5bac",
+  "missing": [],
+  "status": {
+   "FIXED": 32
+  },
+  "moved": 0,
+  "max_disp_um": 0.0,
+  "mean_disp_um": 0.0,
+  "top_moves": [
+   [
+    "_2511_",
+    0.0
+   ],
+   [
+    "_2509_",
+    0.0
+   ],
+   [
+    "_2324_",
+    0.0
+   ],
+   [
+    "_2323_",
+    0.0
+   ],
+   [
+    "_2322_",
+    0.0
+   ],
+   [
+    "_2321_",
+    0.0
+   ],
+   [
+    "_2320_",
+    0.0
+   ],
+   [
+    "_2319_",
+    0.0
+   ]
+  ],
+  "master_changes": [
+   [
+    "_2137_",
+    "nand4_1",
+    "nand4_4",
+    "within reservation"
+   ],
+   [
+    "_2304_",
+    "dffq_1",
+    "dffq_2",
+    "within reservation"
+   ],
+   [
+    "_2305_",
+    "dffq_1",
+    "dffq_2",
+    "within reservation"
+   ],
+   [
+    "_2306_",
+    "dffq_1",
+    "dffq_4",
+    "within reservation"
+   ],
+   [
+    "_2509_",
+    "buf_1",
+    "buf_3",
+    "within reservation"
+   ],
+   [
+    "_2511_",
+    "buf_1",
+    "buf_3",
+    "within reservation"
+   ]
+  ],
+  "orient_changes": 0,
+  "region_occupancy_um2": {
+   "tap": 52.68,
+   "custom": 1411.51,
+   "other_synth": 114.15,
+   "inserted": 21.95
+  },
+  "region_packing_final": 0.9746
+ }
+}

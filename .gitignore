@@ -53,3 +53,4 @@ pd_flow/**/contract_*/formal/runs/
 pd_flow/**/chip_runs/**/def/
 pd_flow/chip_partition*/**/partial.log
 pd_flow/chip_partition*/**/equiv.log
+pd_flow/chip_partition*/**/*.log
