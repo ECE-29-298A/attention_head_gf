@@ -1,80 +1,77 @@
-# exp_lut contract stability: 2 runs from a clean state (logs/, formal/runs/, results.json, run_all.console.log, gate/evidence/golden_r{0,1}_gf180/ deleted before each run; fresh temp build dir per run), 2026-11-26
-# per run: golden RTL (./run_all.sh, REGISTERED 0 and 1), then the GF180 golden netlists (--gate --registered 0 / 1);
+# exp_lut contract (amended for D9/D9b) stability: 2 runs from a clean state (logs/, formal/runs/, results.json, run_all.console.log, gate/evidence/{golden_r0_gf180,golden_r1_gf180,clkbuf_r1}/ deleted before each run; fresh temp build dir per run), 2026-11-26
+# per run: golden RTL (./run_all.sh, REGISTERED 0 and 1), the GF180 golden netlists (--gate --registered 0 / 1), the r1 netlist with a clock buffer;
 # per-item id, status, label, ok, detail compared (timings excluded)
-run 1: rtl rtl 29 29 True 216.635 | g0 gate-level 16 16 True 96.304 | g1 gate-level 19 19 True 277.304   (mode items_ok items_total all_ok seconds)
-run 2: rtl rtl 29 29 True 216.246 | g0 gate-level 16 16 True 93.966 | g1 gate-level 19 19 True 278.688   (mode items_ok items_total all_ok seconds)
-rtl: all 29 items identical across runs
-g0: all 16 items identical across runs
-g1: all 19 items identical across runs
+run 1: rtl rtl gating 16/16 all_ok=True smoke_ok=True 13.979s | g0 gate-level gating 7/7 all_ok=True smoke_ok=True 8.257s | g1 gate-level gating 13/13 all_ok=True smoke_ok=True 15.683s | cb gate-level gating 13/13 all_ok=True smoke_ok=True 16.675s
+run 2: rtl rtl gating 16/16 all_ok=True smoke_ok=True 15.916s | g0 gate-level gating 7/7 all_ok=True smoke_ok=True 8.208s | g1 gate-level gating 13/13 all_ok=True smoke_ok=True 15.826s | cb gate-level gating 13/13 all_ok=True smoke_ok=True 15.949s
+rtl: all 19 items identical across runs
+g0: all 7 items identical across runs
+g1: all 16 items identical across runs
+cb: all 16 items identical across runs
 
 ## run 2 items (rtl)
-gen pass pass-static True 2.02s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206049
-selftest pass pass-static True 1.13s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
-lint_r0 pass pass-static True 0.15s RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut registered=0 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=0 errors=0
-lint_r1 pass pass-static True 0.19s RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0; RESULT default_param top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0
-build_r0 pass pass-static True 3.16s obj_r0/sim
-build_r1 pass pass-static True 3.13s obj_r1/sim
-sim_exh_r0 pass-exhaustive pass-exhaustive True 1.64s RESULT mode=exh0 points=67108864 expected=67108864 mismatches=0
-sim_exh_r1 pass-exhaustive pass-exhaustive True 8.84s RESULT_EXH1 loads=67108864 (expected 67108864) shadow_checked=134234113; RESULT mode=exh1 cycles=134234113 checked=134234113 mismatches=0
-sim_powerup_r1 pass-sampled pass-sampled True 0.06s RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0
-sim_seq_r1 pass-sampled pass-sampled True 8.72s RESULT_SEQ regimes=98061 shadow_checked=99996179; RESULT mode=seq cycles=100000000 expected=100000000 checked=100000000 mismatches=0
-vec_r1 pass-sampled pass-sampled True 3.03s golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)
-ivl_exh_r0_s0_3 pass-exhaustive pass-exhaustive True 34.17s RESULT sim=icarus reg=0 shifts=0..3 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 0..3 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r0_s12_15 pass-exhaustive pass-exhaustive True 26.44s RESULT sim=icarus reg=0 shifts=12..15 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 12..15 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r0_s4_7 pass-exhaustive pass-exhaustive True 28.41s RESULT sim=icarus reg=0 shifts=4..7 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 4..7 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r0_s8_11 pass-exhaustive pass-exhaustive True 26.66s RESULT sim=icarus reg=0 shifts=8..11 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 8..11 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s0_3 pass-exhaustive pass-exhaustive True 87.31s RESULT sim=icarus reg=1 shifts=0..3 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 0..3 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s12_15 pass-exhaustive pass-exhaustive True 80.91s RESULT sim=icarus reg=1 shifts=12..15 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 12..15 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s4_7 pass-exhaustive pass-exhaustive True 81.87s RESULT sim=icarus reg=1 shifts=4..7 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 4..7 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s8_11 pass-exhaustive pass-exhaustive True 80.63s RESULT sim=icarus reg=1 shifts=8..11 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 8..11 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-fv_cover_r0 covered bounded-pass True 1.06s sby_status=PASS asserts=3 covers=47 reached=47 unreached=0 max_step=0 depth=1
-fv_cover_r1 covered bounded-pass True 0.75s sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
-fv_equiv_r0 proven proven True 5.48s sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
-fv_pdr_equiv_r0 proven proven True 1.19s sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_pdr_r1 proven proven True 2.15s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_prove_r1 proven proven True 3.74s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_sanity_d21_r0 failed-as-expected failed True 0.59s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_d21
-fv_sanity_lat0_r1 failed-as-expected failed True 0.57s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
-fv_sanity_pu_r1 failed-as-expected failed True 0.56s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
-fv_sanity_trunc_r0 failed-as-expected failed True 0.58s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+gen pass pass-static ok=True gating=True 4.26s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_set=448 d21_set=496 dprime_edge=176 fixed=224 half_way=2602 last_nonzero=16 random=100000 transition=1008;RESULT vectors written=206052 checked_values=206049
+selftest pass pass-static ok=True gating=True 1.24s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0 pass pass-static ok=True gating=True 0.26s RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut registered=0 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=0 errors=0
+lint_r1 pass pass-static ok=True gating=True 0.38s RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0; RESULT default_param top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0
+build_r0 pass pass-static ok=True gating=True 3.89s obj_r0/sim
+build_r1 pass pass-static ok=True gating=True 3.79s obj_r1/sim
+edge_r0 pass-edge-spot pass-sampled ok=True gating=True 1.77s edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: reg=0 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=0 mismatches=0
+edge_r1 pass-edge-spot pass-sampled ok=True gating=True 2.13s edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=217495; icarus: reg=1 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=217495 mismatches=0
+smoke_powerup_r1 pass-sampled pass-sampled ok=True gating=False 0.06s RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0
+smoke_seq_r1 pass-sampled pass-sampled ok=True gating=False 0.78s RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=5000000 mismatches=0
+smoke_vec_r1 pass-sampled pass-sampled ok=True gating=False 3.06s golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)
+fv_cover_r1 covered bounded-pass ok=True gating=True 0.76s sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_pdr_r1 proven proven ok=True gating=True 2.20s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_r1 proven proven ok=True gating=True 4.03s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat0_r1 failed-as-expected failed ok=True gating=True 0.66s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1 failed-as-expected failed ok=True gating=True 0.59s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1 failed-as-expected failed ok=True gating=True 0.73s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl_r0 proven proven ok=True gating=True 3.50s eqy_status=PASS partitions_proved=60 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=0)
+eqy_rtl_r1 proven proven ok=True gating=True 3.55s eqy_status=PASS partitions_proved=61 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=1)
 
 ## run 2 items (g0)
-cells_prep pass pass-static True 0.18s RESULT cells netlist_modules=['exp_lut'] cell_types=21 models_copied=42 udps=0 liberty_flop_cells=0 netlist_lines=725; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
-gen pass pass-static True 2.03s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206049
-selftest pass pass-static True 1.12s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
-lint_r0 pass-with-waiver pass-static True 0.19s RESULT lint mode=gate warnings=3 netlist=0 library=1 port_waived=2 errors=0; RESULT interface top=exp_lut registered=0 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=0 errors=0
-build_r0 pass pass-static True 3.21s obj_r0/sim
-sim_exh_r0 pass-exhaustive pass-exhaustive True 2.73s RESULT mode=exh0 points=67108864 expected=67108864 mismatches=0
-ivl_exh_r0_s0_3 pass-exhaustive pass-exhaustive True 85.23s RESULT sim=icarus reg=0 shifts=0..3 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 0..3 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r0_s12_15 pass-exhaustive pass-exhaustive True 31.78s RESULT sim=icarus reg=0 shifts=12..15 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 12..15 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r0_s4_7 pass-exhaustive pass-exhaustive True 37.28s RESULT sim=icarus reg=0 shifts=4..7 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 4..7 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-ivl_exh_r0_s8_11 pass-exhaustive pass-exhaustive True 31.99s RESULT sim=icarus reg=0 shifts=8..11 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input space: shifts 8..11 (the four ivl_exh_r0_* items together cover all 2^26 (D, shift))
-fv_cover_r0 covered bounded-pass True 4.04s sby_status=PASS asserts=3 covers=47 reached=47 unreached=0 max_step=0 depth=1
-fv_equiv_r0 proven proven True 5.03s sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
-fv_pdr_equiv_r0 proven proven True 1.33s sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_sanity_d21_r0 failed-as-expected failed True 0.78s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_d21
-fv_sanity_trunc_r0 failed-as-expected failed True 0.80s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
-eqy_rtl proven proven True 0.62s eqy_status=PASS partitions_proved=2 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=0)
+cells_prep pass pass-static ok=True gating=True 0.19s RESULT cells netlist_modules=['exp_lut'] cell_types=21 models_copied=42 udps=0 liberty_flop_cells=0 netlist_lines=725; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
+gen pass pass-static ok=True gating=True 3.70s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_set=448 d21_set=496 dprime_edge=176 fixed=224 half_way=2602 last_nonzero=16 random=100000 transition=1008;RESULT vectors written=206052 checked_values=206049
+selftest pass pass-static ok=True gating=True 1.12s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0 pass-with-waiver pass-static ok=True gating=True 0.19s RESULT lint mode=gate warnings=3 netlist=0 library=1 port_waived=2 errors=0; RESULT interface top=exp_lut registered=0 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=0 errors=0
+build_r0 pass pass-static ok=True gating=True 3.34s obj_r0/sim
+edge_r0 pass-edge-spot pass-sampled ok=True gating=True 3.57s edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: reg=0 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=0 mismatches=0
+eqy_rtl proven proven ok=True gating=True 0.63s eqy_status=PASS partitions_proved=2 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=0)
 
 ## run 2 items (g1)
-cells_prep pass pass-static True 0.24s RESULT cells netlist_modules=['exp_lut'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=786; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
-gen pass pass-static True 2.01s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206049
-selftest pass pass-static True 1.12s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
-lint_r1 pass-with-waiver pass-static True 0.20s RESULT lint mode=gate warnings=9 netlist=0 library=9 port_waived=0 errors=0; RESULT interface top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0
-build_r1 pass pass-static True 3.28s obj_r1/sim
-sim_exh_r1 pass-exhaustive pass-exhaustive True 22.06s RESULT_EXH1 loads=67108864 (expected 67108864) shadow_checked=134234113; RESULT mode=exh1 cycles=134234113 checked=134234113 mismatches=0
-sim_powerup_r1 pass-sampled pass-sampled True 0.27s RESULT_POWERUP seeds=64 distinct_initial_state=60; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0
-sim_seq_r1 pass-sampled pass-sampled True 19.35s RESULT_SEQ regimes=98061 shadow_checked=99996179; RESULT mode=seq cycles=100000000 expected=100000000 checked=100000000 mismatches=0
-vec_r1 pass-sampled pass-sampled True 6.52s golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)
-ivl_exh_r1_s0_3 pass-exhaustive pass-exhaustive True 162.63s RESULT sim=icarus reg=1 shifts=0..3 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 0..3 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s12_15 pass-exhaustive pass-exhaustive True 124.50s RESULT sim=icarus reg=1 shifts=12..15 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 12..15 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s4_7 pass-exhaustive pass-exhaustive True 126.52s RESULT sim=icarus reg=1 shifts=4..7 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 4..7 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-ivl_exh_r1_s8_11 pass-exhaustive pass-exhaustive True 124.39s RESULT sim=icarus reg=1 shifts=8..11 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of the input space: shifts 8..11 (the four ivl_exh_r1_* items together cover all 2^26 (D, shift))
-fv_cover_r1 covered bounded-pass True 2.33s sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
-fv_pdr_r1 proven proven True 2.14s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_prove_r1 proven proven True 3.66s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_sanity_lat0_r1 failed-as-expected failed True 0.85s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
-fv_sanity_pu_r1 failed-as-expected failed True 0.79s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
-eqy_rtl proven proven True 1.45s eqy_status=PASS partitions_proved=9 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=1)
+cells_prep pass pass-static ok=True gating=True 0.24s RESULT cells netlist_modules=['exp_lut'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=786; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
+gen pass pass-static ok=True gating=True 3.65s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_set=448 d21_set=496 dprime_edge=176 fixed=224 half_way=2602 last_nonzero=16 random=100000 transition=1008;RESULT vectors written=206052 checked_values=206049
+selftest pass pass-static ok=True gating=True 1.14s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r1 pass-with-waiver pass-static ok=True gating=True 0.19s RESULT lint mode=gate warnings=9 netlist=0 library=9 port_waived=0 errors=0; RESULT interface top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0
+build_r1 pass pass-static ok=True gating=True 3.27s obj_r1/sim
+edge_r1 pass-edge-spot pass-sampled ok=True gating=True 4.27s edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=217495; icarus: reg=1 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=217495 mismatches=0
+smoke_powerup_r1 pass-sampled pass-sampled ok=True gating=False 0.28s RESULT_POWERUP seeds=64 distinct_initial_state=60; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0
+smoke_seq_r1 pass-sampled pass-sampled ok=True gating=False 1.20s RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=5000000 mismatches=0
+smoke_vec_r1 pass-sampled pass-sampled ok=True gating=False 6.66s golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)
+fv_cover_r1 covered bounded-pass ok=True gating=True 2.43s sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_pdr_r1 proven proven ok=True gating=True 2.15s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_r1 proven proven ok=True gating=True 3.69s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat0_r1 failed-as-expected failed ok=True gating=True 0.84s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1 failed-as-expected failed ok=True gating=True 0.78s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1 failed-as-expected failed ok=True gating=True 0.86s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl proven proven ok=True gating=True 1.53s eqy_status=PASS partitions_proved=9 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=1)
+
+## run 2 items (cb)
+cells_prep pass pass-static ok=True gating=True 0.25s RESULT cells netlist_modules=['exp_lut'] cell_types=25 models_copied=51 udps=1 liberty_flop_cells=1 netlist_lines=792; cells=/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib
+gen pass pass-static ok=True gating=True 3.66s RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_set=448 d21_set=496 dprime_edge=176 fixed=224 half_way=2602 last_nonzero=16 random=100000 transition=1008;RESULT vectors written=206052 checked_values=206049
+selftest pass pass-static ok=True gating=True 1.11s RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r1 pass-with-waiver pass-static ok=True gating=True 0.19s RESULT lint mode=gate warnings=9 netlist=0 library=9 port_waived=0 errors=0; RESULT interface top=exp_lut registered=1 ports=['D', 'W', 'clk', 'done', 'rst_n', 'shift', 'start'] flop_bits=9 errors=0
+build_r1 pass pass-static ok=True gating=True 3.30s obj_r1/sim
+edge_r1 pass-edge-spot pass-sampled ok=True gating=True 4.29s edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=217495; icarus: reg=1 points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=217495 mismatches=0
+smoke_powerup_r1 pass-sampled pass-sampled ok=True gating=False 0.28s RESULT_POWERUP seeds=64 distinct_initial_state=60; RESULT mode=powerup cycles=195264 checked=195264 mismatches=0
+smoke_seq_r1 pass-sampled pass-sampled ok=True gating=False 1.19s RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=5000000 mismatches=0
+smoke_vec_r1 pass-sampled pass-sampled ok=True gating=False 6.70s golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values checked; done checked every cycle)
+fv_cover_r1 covered bounded-pass ok=True gating=True 2.49s sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_pdr_r1 proven proven ok=True gating=True 2.18s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_r1 proven proven ok=True gating=True 3.53s sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat0_r1 failed-as-expected failed ok=True gating=True 0.88s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1 failed-as-expected failed ok=True gating=True 0.81s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1 failed-as-expected failed ok=True gating=True 0.89s sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl proven proven ok=True gating=True 1.50s eqy_status=PASS partitions_proved=9 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTERED=1)
 
 VERDICT stable: both runs all ok and identical

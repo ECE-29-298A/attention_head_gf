@@ -1,30 +1,20 @@
-gen                    pass                 pass-static         2.02s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206
-selftest               pass                 pass-static         1.13s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
-lint_r0                pass                 pass-static         0.15s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
-lint_r1                pass                 pass-static         0.19s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
-build_r0               pass                 pass-static         3.16s  obj_r0/sim
-build_r1               pass                 pass-static         3.13s  obj_r1/sim
-sim_exh_r0             pass-exhaustive      pass-exhaustive     1.64s  RESULT mode=exh0 points=67108864 expected=67108864 mismatches=0
-sim_exh_r1             pass-exhaustive      pass-exhaustive     8.84s  RESULT_EXH1 loads=67108864 (expected 67108864) shadow_checked=134234113; RESULT mode=exh1 cycles=134234113 che
-sim_powerup_r1         pass-sampled         pass-sampled        0.06s  RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches
-sim_seq_r1             pass-sampled         pass-sampled        8.72s  RESULT_SEQ regimes=98061 shadow_checked=99996179; RESULT mode=seq cycles=100000000 expected=100000000 checked=
-vec_r1                 pass-sampled         pass-sampled        3.03s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
-ivl_exh_r0_s0_3        pass-exhaustive      pass-exhaustive    34.17s  RESULT sim=icarus reg=0 shifts=0..3 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input
-ivl_exh_r0_s12_15      pass-exhaustive      pass-exhaustive    26.44s  RESULT sim=icarus reg=0 shifts=12..15 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the inp
-ivl_exh_r0_s4_7        pass-exhaustive      pass-exhaustive    28.41s  RESULT sim=icarus reg=0 shifts=4..7 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input
-ivl_exh_r0_s8_11       pass-exhaustive      pass-exhaustive    26.66s  RESULT sim=icarus reg=0 shifts=8..11 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the inpu
-ivl_exh_r1_s0_3        pass-exhaustive      pass-exhaustive    87.31s  RESULT sim=icarus reg=1 shifts=0..3 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of th
-ivl_exh_r1_s12_15      pass-exhaustive      pass-exhaustive    80.91s  RESULT sim=icarus reg=1 shifts=12..15 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of 
-ivl_exh_r1_s4_7        pass-exhaustive      pass-exhaustive    81.87s  RESULT sim=icarus reg=1 shifts=4..7 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of th
-ivl_exh_r1_s8_11       pass-exhaustive      pass-exhaustive    80.63s  RESULT sim=icarus reg=1 shifts=8..11 points=16777216 expected=16777216 cycles=17829892 mismatches=0; part of t
-fv_cover_r0            covered              bounded-pass        1.06s  sby_status=PASS asserts=3 covers=47 reached=47 unreached=0 max_step=0 depth=1
-fv_cover_r1            covered              bounded-pass        0.75s  sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
-fv_equiv_r0            proven               proven              5.48s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
-fv_pdr_equiv_r0        proven               proven              1.19s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_pdr_r1              proven               proven              2.15s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_prove_r1            proven               proven              3.74s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
-fv_sanity_d21_r0       failed-as-expected   failed              0.59s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_d21
-fv_sanity_lat0_r1      failed-as-expected   failed              0.57s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
-fv_sanity_pu_r1        failed-as-expected   failed              0.56s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
-fv_sanity_trunc_r0     failed-as-expected   failed              0.58s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
-TOTAL 29/29 ok, all_ok=True, 216.246 s
+gen                    pass                 pass-static         3.64s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
+selftest               pass                 pass-static         1.12s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
+lint_r0                pass                 pass-static         0.14s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+lint_r1                pass                 pass-static         0.18s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 port_waived=0 errors=0; RESULT interface top=exp_lut regis
+build_r0               pass                 pass-static         3.21s  obj_r0/sim
+build_r1               pass                 pass-static         3.19s  obj_r1/sim
+edge_r0                pass-edge-spot       pass-sampled        1.47s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: re
+edge_r1                pass-edge-spot       pass-sampled        2.18s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386 cycles=2174
+smoke_powerup_r1       pass-sampled         pass-sampled    (smoke)     0.06s  RESULT_POWERUP seeds=64 distinct_initial_state=62; RESULT mode=powerup cycles=195264 checked=195264 mismatches
+smoke_seq_r1           pass-sampled         pass-sampled    (smoke)     0.77s  RESULT_SEQ regimes=4914 shadow_checked=4996179; RESULT mode=seq cycles=5000000 expected=5000000 checked=500000
+smoke_vec_r1           pass-sampled         pass-sampled    (smoke)     3.04s  golden_cycles=206052 golden_W_values=206049 verilator=206052/206049 icarus=206052/206049 (cycles/W values chec
+fv_cover_r1            covered              bounded-pass        0.73s  sby_status=PASS asserts=6 covers=10 reached=10 unreached=0 max_step=5 depth=10
+fv_pdr_r1              proven               proven              2.11s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_r1            proven               proven              3.62s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat0_r1      failed-as-expected   failed              0.56s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_lat0
+fv_sanity_pu_r1        failed-as-expected   failed              0.54s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_pu
+fv_sanity_trunc_r1     failed-as-expected   failed              0.56s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
+eqy_rtl_r0             proven               proven              2.55s  eqy_status=PASS partitions_proved=60 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGIST
+eqy_rtl_r1             proven               proven              2.63s  eqy_status=PASS partitions_proved=61 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGIST
+TOTAL 16/16 gating ok, all_ok=True; smoke 3/3 ok (non-gating); 13.617 s

@@ -10,7 +10,10 @@ Sources used to derive the requirements: the RTL header and body, the instance i
 produced and consumed), `python/src/attention_model.py` (`exp_weight`, `exp_table`),
 `test/blocks/test_exp_lut.py`, and `PHASE0_AUDIT.md` invariant 3. The structure follows the
 approved `max_reg` contract, including its review amendments (N1 clock-buffer flatten,
-N2 labels, gate-mode `eqy_rtl`).
+N2 labels, gate-mode `eqy_rtl`). **Amended for user decisions D9 and D9b** (2026-11-26): no
+exhaustive simulation; the combinational function rests on directed edge cases plus fixed-seed
+spot checks and on EQY against the golden; sequential behaviour rests on SBY proofs; the
+remaining simulations are non-gating smoke checks (section 4).
 
 ## 1. Function
 
@@ -73,8 +76,9 @@ The controller relies on R1 to R7 and R17. The contract checks the **full** 22-b
 every shift, not only the consumed range, because the module's own behaviour is specified there
 (S3). `D >= 2^21` (D[21] = 1) is a don't-care of the chip; exploiting it (for example ignoring
 `D[21]`) is **not** allowed by this contract and would need a reviewed amendment that restricts
-R4 to `D < 2^21` with a proof of the controller-side invariant. `fv_sanity_d21_r0` shows that the
-contract rejects such a design.
+R4 to `D < 2^21` with a proof of the controller-side invariant. The edge item's `d21_set`
+classes, `eqy_rtl_*` and the r1 proofs reject such a design (smoke mutant `m_d21`,
+`evidence/smoke_mutants/`).
 
 ## 3. Requirements
 
@@ -106,17 +110,25 @@ multi-clock behaviour; clock gating; `D` values the controller never consumes ar
 
 ## 4. Verification approach
 
-| Method | What | Strength |
-|---|---|---|
-| Golden model | `model/golden_model.py`: D' with `Fraction` (`floor(D/2^s + 1/2)`), W with `math.exp` and 60-digit `Decimal` (must agree), zero region by the monotone bound. `selftest`: 10 hand-derived W KATs (255/e = 93.81 → 94, …), 13 D' KATs, ties at every shift, tie margin, a second integer formulation of D' (`(2D + 2^s) // 2^(s+1)`) on 4,096 + 20,000 D per shift, thresholds vs D', interval consistency, and R18. Emits `intervals` (352 maximal constant runs `shift lo hi W`, covering every D for every shift), `vhdr` (`ref_wtab(k)`, `ref_thr(s, k)` for the formal harness) and `vectors`. | reference |
-| Exhaustive, Verilator | `sim_exh_r0`: all 2^26 (D, shift) with `clk`, `rst_n`, `start` pseudo-random at every point: W against **two** references (interval file; the TB's own double-precision formula `floor(255·exp(−floor(D/2^s + 0.5)/4) + 0.5)`), `done == start` (R1 to R7). `sim_exh_r1`: all 2^26 pairs loaded with `start` (W, `done` after the edge), each followed by a hold cycle with other random D, shift (W holds, `done = 0`), a reset with `start = 1` every 4,096 loads, the no-comb-path and falling-edge checks on every one of 134 M cycles, plus the next-state rule from the observed outputs (R1 to R5, R8 to R12). | exhaustive |
-| Exhaustive, Icarus (4-state) | `ivl_exh_r{0,1}_s{a}_{b}`: the same 2^26 pairs, split into four items by shift range (0..3, 4..7, 8..11, 12..15) so they run in parallel; together they cover the whole space. Compares with `!==`, so X/Z on W or done fails. REGISTERED = 0: `clk`, `rst_n`, `start` vary at each point. REGISTERED = 1: back-to-back loads (each checked), a hold cycle with other inputs after every 16th load, a reset before each shift and every 4,096 loads, no-comb-path and falling-edge checks. | exhaustive |
-| Sequential random (REGISTERED = 1) | `sim_seq_r1`: 100 M cycles, regimes of 20 to 2,000 cycles with P(start) in {0, 0.1, 0.5, 0.9, 1} and P(reset) in {0, 0.01, 0.2}, D near interval boundaries, small, in the consumed range or full 22-bit; next-state rule from the observed outputs on every cycle from a random power-up state, and a shadow reference after the first reset (R8 to R13). `vec_r1`: 206,052 golden-model vector cycles (directed: start before any reset, reset with start, every D' 0..33 at every shift at/below/above each threshold, holds with changing inputs; then random regimes) on Verilator and Icarus. `sim_powerup_r1`: 64 random power-up states (62 distinct), identical traces from the first reset on (R13). | sampled |
-| Formal REGISTERED = 0 | `fv_equiv_r0` (smtbmc/Z3) and `fv_pdr_equiv_r0` (abc pdr): `a_wA: W == wA`, `a_wB: W == wB`, `a_done: done == start` for every input (clk, rst_n, start, D, shift free). The design has no state, so this is a **complete combinational equivalence** against two independent formal references: wA computes D' by 23-bit add-and-shift and looks up `ref_wtab`; wB counts the thresholds `ref_thr(shift, k)`, k = 1..25, that D reaches (no shift, no add). Neither uses the RTL's guard bit, staged shifter or out-of-range terms; the only shared data is the generated include, which the model computes from the definition. | proven |
-| Formal REGISTERED = 1 | `fv_prove_r1` (k-induction, depth 4) and `fv_pdr_r1` (abc pdr): `a_step_W` (W == `!rst_n ? 0 : start ? wA : W` of the previous step, from the **observed** state), `a_step_done` (`done == rst_n && start` of the previous step), the decomposed `a_rst`, `a_load`, `a_hold` (R8, R9, R10, R12), and `a_seq` (after a reset, W == shadow register loaded with formulation **wB**, R11). DUT state free at step 0 and, in the induction step, everywhere. | proven |
-| Covers | `fv_cover_r0` (depth 1, 47 covers): every D' 0..25 with its W, a rounding tie rounded up at every shift 1..15 with non-zero W, D in [2^20, 2^21) and D[21] at shift 15 giving 0, the last non-zero (D = 802,815) and first zero (802,816) at shift 15, done with start high and low. `fv_cover_r1` (depth 10, 10 covers): non-zero power-up W, a load before any reset, a load changing W, a load giving 0, a hold while the inputs would give another W, 3 holds after a load, reset winning over start, back-to-back loads, the done pulse falling, W = 255 after a reset. Every cover must be reached; `run_all.sh` checks the counts. | bounded-pass |
-| Negative controls | Must be **refuted** with a trace: `sanity_trunc_r0` (reference truncates D'), `sanity_d21_r0` (reference ignores D[21]), `sanity_pu_r1` (W == 0 at power-up: shows the DUT state is free), `sanity_lat0_r1` (zero-latency reference). Checker sanity only; DUT mutation is Agent 2's task. | checker sanity |
-| Structure / interface | Yosys on the unoptimised netlist (`proc -noopt -norom; flatten`) per configuration (`chparam`): `check -assert`, `scc` asserted empty, no reset/async/latch/memory/negedge state types, then `opt_clean` and `lint/check_interface.py` on `write_json`: ports (R14), 0 or 9 flop bits, polarity, clock net = `clk`, no `init` attribute, no black boxes (R15). RTL mode also elaborates the default parameter and requires the REGISTERED = 1 structure (default = 1, R14). Verilator `-Wall` classified by `lint/check_lint.py` (R16). | static |
+Evidence kinds (user decision D9b): **combinational** behaviour (the function `f`, REGISTERED =
+0 timing) rests on directed **edge cases** plus fixed-seed **spot checks**, run in seconds on two
+simulators, and on **EQY** equivalence against the golden (mandatory for any candidate);
+**sequential** behaviour (REGISTERED = 1 reset, load/hold, latency, done, power-up) rests on
+**SBY proofs** (k-induction and abc pdr) with covers and negative controls; **structure**,
+interface and lint are static Yosys/Verilator checks. There is no exhaustive simulation and no
+full formal proof of the combinational function in this harness. Simulations other than the
+edge item are **non-gating smoke** (ids `smoke_*`, `gating: false`).
+
+| Method | Item(s) | What | Evidence kind |
+|---|---|---|---|
+| Golden model | `selftest`, `gen` | `model/golden_model.py`: D' with `Fraction` (`floor(D/2^s + 1/2)`), W with `math.exp` and 60-digit `Decimal` (must agree), zero region by the monotone bound. `selftest`: 10 hand-derived W KATs (255/e = 93.81 → 94, …), 13 D' KATs, ties at every shift, tie margin, a second integer formulation of D' (`(2D + 2^s) // 2^(s+1)`) on 4,096 + 20,000 D per shift, thresholds vs D', interval consistency, and R18 (33,251 sampled points against the project model). `gen` writes `edges.txt`, `iv.txt` (352 constant intervals), `ref_table.vh` (formal include) and `vec.txt`. | model (static) |
+| Edge cases + spot checks | `edge_r0`, `edge_r1` | `edges.txt` (105,418 points, golden-model expected W): for **every shift 0..15**: D' boundaries 0, 1, 24, 25 (threshold −1/0/+1; `dprime_edge`); **every output transition** D' = 1..19, 21, 25 (where W changes; threshold −1/0/+1; `transition`); rounding half-way points `k·2^s ± 1` and `(2k+1)·2^(s−1)` −1/0/+1 for k = 0..33 (`half_way`); D = 0..3, 2^20 − 1, 2^20, 2^20 + 1, 2^21 − 1, 2^21, 2^21 + 1, 2^22 − 2, 2^22 − 1, 2,088,960 (consumed maximum) and +1 (`fixed`); the last non-zero D (`last_nonzero`); **D[21] = 1 classes**: D[21] set over low bits that alone give every D' 0..25, 31, 32 (masked to 0), with and without D[20], plus all-ones and alternating patterns (`d21_set`, `d21_d20_set`), and D[20] set over the same low bits (`d20_set`); then **100,000 fixed-seed random spot checks** (seed 7: half in the non-zero region and its edge, a quarter in the consumed range, a quarter over the full 22 bits). Each point runs on **Verilator** (against the file and the TB's own double-precision formula) and **Icarus 4-state** (`!==`, so X/Z fails). r0: `clk`, `rst_n`, `start` pseudo-random at every point (must not change W), `done == start`. r1: each point loaded with `start` (W, `done` after the edge), next-state rule every cycle, holds and resets interleaved, no-comb-path and falling-edge checks. **Targeted R3/R4 checks** on every point: R4 `D >= 2^20 → W = 0` (32,791 points), R3 `W = 0 ⇔ D' >= 25` (every point), and local monotonicity `W(D+1) <= W(D)` at every point (105,386 checks). About 2 s each. | edge/spot (sampled) |
+| EQY vs golden | `eqy_rtl_r0`, `eqy_rtl_r1` (RTL mode), `eqy_rtl` (gate mode) | `gate/eqy_rtl.eqy`, strategy `sat`, depth 1, golden with `chparam REGISTERED N`; the candidate RTL gets the same `chparam`, a netlist is read as is. For N = 0 there is no state, so PASS is a full combinational equivalence; for N = 1 state is matched by name and PASS is an unbounded equivalence. **Mandatory** candidate-vs-golden gate (D9b). | equivalence proof |
+| Formal REGISTERED = 1 | `fv_prove_r1` (k-induction, depth 4), `fv_pdr_r1` (abc pdr) | `a_step_W` (W == `!rst_n ? 0 : start ? wA : W` of the previous step, from the **observed** state), `a_step_done` (`done == rst_n && start` of the previous step), the decomposed `a_rst`, `a_load`, `a_hold` (R8, R9, R10, R12), and `a_seq` (after a reset, W == a shadow register loaded with formulation **wB**, R11). DUT state free at step 0 and, in the induction step, everywhere (R13). wA computes D' by 23-bit add-and-shift and looks up `ref_wtab`; wB counts the thresholds `ref_thr(shift, k)`, k = 1..25, that D reaches. Neither uses the RTL's guard bit, staged shifter or out-of-range terms; the shared include is computed by the model. Because `a_load` holds for every D and shift, these proofs also cover the r1 load function for all inputs (a by-product, not required by D9b). | proof (sequential) |
+| Covers | `fv_cover_r1` (depth 10, 10 covers) | non-zero power-up W, a load before any reset, a load changing W, a load giving 0, a hold while the inputs would give another W, 3 holds after a load, reset winning over start, back-to-back loads, the done pulse falling, W = 255 after a reset. All must be reached. | bounded-pass |
+| Negative controls | `fv_sanity_pu_r1`, `fv_sanity_trunc_r1`, `fv_sanity_lat0_r1` | must be **refuted** with a trace: W == 0 at power-up (shows the DUT state is free), a reference that truncates D' (shows the harness distinguishes the rounding), a zero-latency reference. Checker sanity only. | checker sanity |
+| Structure / interface / lint | `lint_r0`, `lint_r1` | Yosys on the unoptimised netlist (`proc -noopt -norom; flatten`) per configuration (`chparam`): `check -assert`, `scc` empty, no reset/async/latch/memory/negedge state types; `lint/check_interface.py` on `write_json`: ports (R14), 0 or 9 flop bits, polarity, clock net = `clk`, no `init`, no black boxes (R15); RTL mode also elaborates the default parameter and requires the REGISTERED = 1 structure (default = 1). Verilator `-Wall` via `lint/check_lint.py` (R16). | static |
+| Smoke (non-gating) | `smoke_seq_r1`, `smoke_powerup_r1`, `smoke_vec_r1` | Verilator 5 M random cycles with the next-state rule from the observed outputs (0.9 s); 64 random power-up states, identical traces after reset (0.1 s); 206,052 golden-model vector cycles on Verilator and Icarus (3 s). Reported in `smoke_all_ok`, never in `all_ok`. | smoke |
 
 ### Assumptions and observer initialisation (formal)
 
@@ -124,20 +136,18 @@ There are **no assumptions** (`assume`, `restrict`, `anyconst`, `anyseq`) in the
 `.sby`; `clk`, `rst_n`, `start`, `D`, `shift` are free at every step. The DUT has no initial
 value; the `.sby` asserts that no wire outside the harness carries an `init` attribute (the
 guard runs after `proc` and **before** `flatten`, the max_reg N1 lesson), so the DUT's state is
-free at step 0 (and `sanity_pu_r1` demonstrates it). The only initialised registers are the
+free at step 0 (and `fv_sanity_pu_r1` demonstrates it). The only initialised registers are the
 harness observers (`pv`, `seen`, and for covers `pdone`, `nhold`, `ppl`), which start in "nothing
 observed yet". They never drive the DUT; they only define when a property applies. The
-reference registers `eW`, `eD`, `pW`, `pwA`, `prst`, `pst`, `sW` have no initial value and are
-read only once `pv` (or `seen`) guarantees they were written.
+reference registers `eW`, `eD`, `pW`, `pwA`, `pwT`, `prst`, `pst`, `sW` have no initial value and
+are read only once `pv` (or `seen`) guarantees they were written.
 
-### Why these are unbounded proofs
+### Why the r1 proofs are unbounded
 
-REGISTERED = 0: there is no state element (also checked by R15), so the asserted relation is a
-pure function of the current inputs; a pass at any depth >= 1 covers every input, and both
-engines (Z3 and abc pdr) report PASS. REGISTERED = 1: `prove_r1` is SBY k-induction (basecase
-BMC of depth 4 from a free state, and the induction step from an arbitrary state); the
-step assertions compare registered references bit by bit, so they are 1-inductive by
-construction. `pdr_r1` is abc pdr (IC3), an independent unbounded engine. Both agree.
+`fv_prove_r1` is SBY k-induction (basecase BMC of depth 4 from a free state, and the induction
+step from an arbitrary state); the step assertions compare registered references bit by bit, so
+they are 1-inductive by construction. `fv_pdr_r1` is abc pdr (IC3), an independent unbounded
+engine. Both agree.
 
 Single clock: without `multiclock`, SBY models every flop as updated at each step. This is sound
 because R15 (checked by `lint` and by guards in the `.sby` that reject negative-edge,
@@ -147,25 +157,38 @@ collapses non-inverting clock buffers), `prep` and the type/polarity guards. A c
 still derived after that is refused by SBY, which gives `inconclusive`: it fails closed.
 `proc -norom` keeps case tables as logic, so the `$mem` guard stays strict.
 
+### What rests on what (summary; details in RTM.md)
+
+| Requirements | Primary (gating) evidence |
+|---|---|
+| R1–R5 (function, rounding, zero region, large D, output/X) at REGISTERED = 0 | edge/spot `edge_r0` (Verilator + Icarus 4-state, targeted R3/R4/monotonicity) and EQY `eqy_rtl_r0` / gate `eqy_rtl` |
+| R1–R5 at REGISTERED = 1 | `fv_prove_r1`, `fv_pdr_r1` (`a_load` for every input), `edge_r1`, `eqy_rtl_r1` |
+| R6, R7 (r0 timing, `done = start`) | `edge_r0` (clk/rst_n/start varied), `eqy_rtl_r0`, `lint_r0` (no state) |
+| R8–R13 (r1 sequential, power-up) | SBY proofs `fv_prove_r1`, `fv_pdr_r1`, covers, negative controls |
+| R14–R16 (interface, structure, lint) | static `lint_r0`, `lint_r1`; `.sby` guards |
+| R17 (controller use) | subset of R1/R6/R7: `edge_r0` (consumed-range classes and spot checks), `eqy_rtl_r0` |
+| R18 (project model) | `selftest` (static model check) |
+
 ## 5. Result labels (results.json)
 
 Each item has `status` (the contract's own label), `label` (the standard AGENT_CONTEXT label),
-`expected_outcome` and `ok`. `all_ok` is the conjunction of `ok`.
+`expected_outcome`, `gating` and `ok`. `all_ok` is the conjunction of `ok` over the **gating**
+items; `smoke_all_ok` is the same over the `smoke_*` items, which never gate.
 
 | status | label | meaning |
 |---|---|---|
-| `proven` | `proven` | unbounded formal proof (section 4) with the expected number of assertions in the model, or an EQY PASS (`eqy_rtl`) |
-| `pass-exhaustive` | `pass-exhaustive` | simulation of every input pair of the declared space (`sim_exh_*`: all 2^26; `ivl_exh_*`: all D for the shifts named in the detail, the four items together all 2^26) |
-| `pass-sampled` | `pass-sampled` | directed or random simulation; not a proof |
-| `covered` | `bounded-pass` (`depth: 1` or `10`) | every cover reached within the depth; a witness, not a proof |
+| `proven` | `proven` | unbounded formal proof (section 4) with the expected number of assertions in the model, or an EQY PASS (`eqy_rtl*`) |
+| `pass-edge-spot` | `pass-sampled` | every edge-case point and every spot check of `edges.txt` passed on both simulators, with the expected point count; sampled, not exhaustive, not a proof |
+| `pass-sampled` | `pass-sampled` | smoke simulation passed (non-gating) |
+| `covered` | `bounded-pass` (`depth: 10`) | every cover reached within the depth; a witness, not a proof |
 | `failed-as-expected` | `failed` (`expected_outcome: fail`, `ok: true`) | negative control refuted with a trace, the required outcome |
 | `pass`, `pass-with-waiver` | `pass-static` | static or infrastructure check passed: lint, structure, interface, model self-test, model data generation, build, cell extraction. Evidence, not a proof. `pass-with-waiver` (gate mode only): lint passed, with warnings only in the unmodified PDK cell models or covered by the REGISTERED = 0 port waiver |
 | `failed` | `failed` | check failed. Includes an engine that returned FAIL when SBY then could not replay its trace (abc pdr: "Could not determine aigsmt status", SBY status ERROR): the engine's verdict stands; the detail names the engine line |
 | `not-proven` | `inconclusive` | k-induction did not close (SBY status UNKNOWN: basecase passed, induction step failed at depth 4). Not a proof, not a counterexample, not a tool error; `ok: false` |
 | `timed-out` | `timed-out` | tool timeout (900 s formal and simulation, 600 s build) |
-| `inconclusive` | `inconclusive` | tool or infrastructure error (an SBY traceback or error with no engine verdict, no PASS/FAIL status, or a job that recorded no result); `ok: false` |
+| `inconclusive` | `inconclusive` | tool or infrastructure error (an SBY/EQY traceback or error with no verdict, no PASS/FAIL status, or a job that recorded no result); `ok: false` |
 
-Each SBY task runs in its own directory with its own copy of `exp_lut.sby`.
+Each SBY task and each EQY item runs in its own directory with its own copy of its script.
 
 ## 6. Running on other designs, output location, gate level
 
@@ -174,16 +197,19 @@ Each SBY task runs in its own directory with its own copy of `exp_lut.sby`.
   Phase 1 evidence; `logs/` and `formal/runs/` are git-ignored). `--rtl FILE` requires
   `--out DIR`, and `DIR` may not be this directory. `--jobs J` (default 3, at most 8).
 - An RTL candidate must keep the `REGISTERED` parameter (R14); both configurations are run
-  (items suffixed `_r0`, `_r1`).
+  (items suffixed `_r0`, `_r1`), including `eqy_rtl_r0` and `eqy_rtl_r1` against the golden.
+  Golden RTL: 16 gating items + 3 smoke, about 15 s with 3 jobs.
 - `--gate --rtl NETLIST [--registered N]` runs a gate-level netlist (top module `exp_lut`, no
   parameter) of **one** configuration, `N` = 0 (default, shipped) or 1. Only that
-  configuration's items run. `gate/extract_cells.py` (the fixed max_reg version, unchanged)
+  configuration's items run (REGISTERED = 0: `cells_prep`, `selftest`, `gen`, `lint_r0`,
+  `build_r0`, `edge_r0`, `eqy_rtl`; REGISTERED = 1 adds the SBY items and the smoke items, and
+  runs `edge_r1`). `gate/extract_cells.py` (the fixed max_reg version, unchanged)
   builds two views from the unchanged netlist: the **simulation view** `exp_lut.v` (netlist plus
   only the Verilog models it uses, `FUNCTIONAL` defined, `USE_POWER_PINS` undefined, including
   the flop UDP) for Verilator and Icarus, and the **Yosys view** `exp_lut_fv.v` (the same netlist
   and combinational models, flops from the PDK liberty `ff` group) for the structure check, SBY
   and EQY. Flop behaviour therefore comes from two independent PDK views; both must pass.
-- Gate mode adds **`eqy_rtl`**: EQY (`gate/eqy_rtl.eqy`, strategy `sat`, depth 1) of the Yosys
+- Gate mode runs **`eqy_rtl`** (mandatory): EQY (`gate/eqy_rtl.eqy`, strategy `sat`, depth 1) of the Yosys
   view against the golden RTL with `chparam REGISTERED N` (`proc -norom` on both sides: the
   sat strategy skips any partition that contains a memory, and the golden's case table would
   otherwise become a ROM; without it the item ends `inconclusive`). For N = 0 there is no state, so PASS
@@ -191,7 +217,8 @@ Each SBY task runs in its own directory with its own copy of `exp_lut.sby`.
   drive `W` and `done` directly) and PASS is an unbounded equivalence proof. Labelled `proven`;
   FAIL is `failed`. A netlist that re-encodes the state would fail it and need its own reviewed
   match. `eqy_rtl` cannot see clock polarity (max_reg finding), which lint, the `.sby` guards
-  and simulation check.
+  and the edge item check. EQY treats an X constant as a free value, so an X-producing
+  netlist may or may not fail it; the X check is the Icarus part of the edge item (section 7).
 - Gate lint: Verilator `-Wall` on the simulation view. Warnings after the end-of-netlist marker
   (the unmodified PDK models: `IMPLICIT`, `BLKSEQ`, `UNDRIVEN notifier`) and `DECLFILENAME` are
   listed and not counted. **Port waiver**, REGISTERED = 0 netlists only: `UNUSEDSIGNAL` on
@@ -215,8 +242,11 @@ is X in Icarus and a random 2-state value in Verilator (`--x-initial unique`) an
 | Check | Value semantics | Sees an X on W or done? |
 |---|---|---|
 | SBY formal | 2-state; undriven nets become free values | usually, as a counterexample |
-| Icarus (`ivl_exh_*`, `vec_r1`) | 4-state, `!==` on every checked value | yes, over the full input space |
-| Verilator (`sim_*`, `vec_r1`) | 2-state | no |
+| EQY | an X constant is a free value | not reliably |
+| Icarus (`edge_r*`, `smoke_vec_r1`) | 4-state, `!==` on every checked value | yes, at every edge-case and spot-check point |
+| Verilator (`edge_r*`, smoke) | 2-state | no |
 
-So X-freedom of W and done for known inputs rests on the Icarus exhaustive items (REGISTERED = 1:
-after the first reset or load).
+So the X check of W and done for known inputs is the Icarus part of `edge_r0` / `edge_r1`
+(REGISTERED = 1: after the first reset or load): directed and sampled, not exhaustive (D9b).
+The smoke mutant `m_xdef` (case default `8'bx`) passes the Verilator part and fails the Icarus
+part with 15,675 X mismatches (`evidence/smoke_mutants/summary.txt`).

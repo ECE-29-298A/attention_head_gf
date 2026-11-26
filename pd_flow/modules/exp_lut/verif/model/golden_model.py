@@ -36,6 +36,10 @@ Subcommands
   vhdr --out F                      Verilog include for the formal harness: functions
                                     ref_wtab(k) (W for D' = k, k = 0..63) and
                                     ref_thr(shift, k) (smallest D with D' >= k, k = 1..25)
+  edges --random K --seed S --out F
+                                    combinational edge cases plus K fixed-seed random spot
+                                    checks, lines "D shift W class" (hex D, decimal shift, W;
+                                    class names the edge-case family, SPEC section 4)
   vectors --random K --seed S --out F
                                     REGISTERED = 1 cycle stimulus with expected outputs,
                                     lines "rst_n start D shift done W" (hex; W = x while
@@ -256,6 +260,68 @@ def write_vhdr(path):
     print(f"RESULT vhdr wtab={KMAX_TABLE} thresholds={16 * 25}")
 
 
+def edge_points():
+    """Directed edge cases [(D, shift, class)] for the combinational function (SPEC section 4)."""
+    pts = []
+    trans = [k for k in range(1, 26) if w_of_dprime(k) != w_of_dprime(k - 1)]   # W changes at D' = k
+    fixed = [0, 1, 2, 3, (1 << 20) - 1, 1 << 20, (1 << 20) + 1, (1 << 21) - 1, 1 << 21,
+             (1 << 21) + 1, DMAX - 1, DMAX, D_CTX_MAX, D_CTX_MAX + 1]
+
+    def add(d, s, c):
+        if 0 <= d <= DMAX:
+            pts.append((d, s, c))
+
+    for s in SHIFTS:
+        h = (1 << s) >> 1
+        for k in (0, 1, 24, 25):                       # D' boundaries incl. the zero-region edge
+            t = threshold(s, k) if k else 0
+            for off in (-1, 0, 1):
+                add(t + off, s, "dprime_edge")
+        for k in trans:                                # every output transition point
+            t = threshold(s, k)
+            for off in (-1, 0, 1):
+                add(t + off, s, "transition")
+        for k in range(0, 34):                         # rounding: k*2^s +- 1 and (2k+1)*2^(s-1) +- 0/1
+            for off in (-1, 1):
+                add(k * (1 << s) + off, s, "half_way")
+            if s:
+                m = (2 * k + 1) * h
+                for off in (-1, 0, 1):
+                    add(m + off, s, "half_way")
+        for d in fixed:                                # extremes of D
+            add(d, s, "fixed")
+        add(threshold(s, 25) - 1, s, "last_nonzero")
+        for k in list(range(25)) + [25, 31, 32]:       # D[21] = 1 classes: low bits that alone
+            t = threshold(s, k) if k else 0            # would give every D' (masked to 0)
+            add((1 << 21) | t, s, "d21_set")
+            add((1 << 21) | (1 << 20) | t, s, "d21_d20_set")
+            add((1 << 20) | t, s, "d20_set")
+        for d in ((1 << 21) | ((1 << 21) - 1), (1 << 21) | 0x155555, (1 << 21) | 0x0AAAAA):
+            add(d, s, "d21_set")
+    return pts
+
+
+def write_edges(path, nrand, seed):
+    rng = random.Random(seed)
+    pts = edge_points()
+    for _ in range(nrand):                             # fixed-seed spot checks
+        s = rng.randrange(16)
+        r = rng.random()
+        if r < 0.5:
+            d = rng.randrange(min(DMAX, threshold(s, 27)) + 1)   # the non-zero region and its edge
+        elif r < 0.75:
+            d = rng.randrange(D_CTX_MAX + 1)                    # the range the controller consumes
+        else:
+            d = rng.randrange(DMAX + 1)                         # full 22-bit, half of it D[21] = 1
+        pts.append((d, s, "random"))
+    cls = {}
+    with open(path, "w") as f:
+        for d, s, c in pts:
+            f.write(f"{d:06x} {s} {weight(d, s)} {c}\n")
+            cls[c] = cls.get(c, 0) + 1
+    print(f"RESULT edges points={len(pts)} " + " ".join(f"{k}={v}" for k, v in sorted(cls.items())))
+
+
 def write_vectors(path, nrand, seed):
     rng = random.Random(seed)
     iv = intervals()
@@ -327,7 +393,7 @@ def write_vectors(path, nrand, seed):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["selftest", "intervals", "vhdr", "vectors"])
+    ap.add_argument("cmd", choices=["selftest", "intervals", "vhdr", "edges", "vectors"])
     ap.add_argument("--out")
     ap.add_argument("--random", type=int, default=200000)
     ap.add_argument("--seed", type=int, default=1)
@@ -340,6 +406,8 @@ def main():
         write_intervals(a.out)
     elif a.cmd == "vhdr":
         write_vhdr(a.out)
+    elif a.cmd == "edges":
+        write_edges(a.out, a.random, a.seed)
     else:
         write_vectors(a.out, a.random, a.seed)
     return 0

@@ -1,17 +1,8 @@
-cells_prep             pass                 pass-static         0.18s  RESULT cells netlist_modules=['exp_lut'] cell_types=21 models_copied=42 udps=0 liberty_flop_cells=0 netlist_li
-gen                    pass                 pass-static         2.03s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT vectors written=206052 checked_values=206
+cells_prep             pass                 pass-static         0.19s  RESULT cells netlist_modules=['exp_lut'] cell_types=21 models_copied=42 udps=0 liberty_flop_cells=0 netlist_li
+gen                    pass                 pass-static         3.70s  RESULT intervals lines=352;RESULT vhdr wtab=64 thresholds=400;RESULT edges points=105418 d20_set=448 d21_d20_s
 selftest               pass                 pass-static         1.12s  RESULT selftest kat_w=10 kat_dp=13 tie_margin_min=0.0077 intervals=352 project_model_points=33251 mismatches=0
 lint_r0                pass-with-waiver     pass-static         0.19s  RESULT lint mode=gate warnings=3 netlist=0 library=1 port_waived=2 errors=0; RESULT interface top=exp_lut regi
-build_r0               pass                 pass-static         3.21s  obj_r0/sim
-sim_exh_r0             pass-exhaustive      pass-exhaustive     2.73s  RESULT mode=exh0 points=67108864 expected=67108864 mismatches=0
-ivl_exh_r0_s0_3        pass-exhaustive      pass-exhaustive    85.23s  RESULT sim=icarus reg=0 shifts=0..3 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input
-ivl_exh_r0_s12_15      pass-exhaustive      pass-exhaustive    31.78s  RESULT sim=icarus reg=0 shifts=12..15 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the inp
-ivl_exh_r0_s4_7        pass-exhaustive      pass-exhaustive    37.28s  RESULT sim=icarus reg=0 shifts=4..7 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the input
-ivl_exh_r0_s8_11       pass-exhaustive      pass-exhaustive    31.99s  RESULT sim=icarus reg=0 shifts=8..11 points=16777216 expected=16777216 cycles=0 mismatches=0; part of the inpu
-fv_cover_r0            covered              bounded-pass        4.04s  sby_status=PASS asserts=3 covers=47 reached=47 unreached=0 max_step=0 depth=1
-fv_equiv_r0            proven               proven              5.03s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
-fv_pdr_equiv_r0        proven               proven              1.33s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS
-fv_sanity_d21_r0       failed-as-expected   failed              0.78s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_d21
-fv_sanity_trunc_r0     failed-as-expected   failed              0.80s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion exp_lut_props.a_wrong_trunc
-eqy_rtl                proven               proven              0.62s  eqy_status=PASS partitions_proved=2 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTE
-TOTAL 16/16 ok, all_ok=True, 93.966 s
+build_r0               pass                 pass-static         3.34s  obj_r0/sim
+edge_r0                pass-edge-spot       pass-sampled        3.57s  edge_points=105418 verilator: points=105418 r3_checked=105418 r4_checked=32791 mono_checked=105386; icarus: re
+eqy_rtl                proven               proven              0.63s  eqy_status=PASS partitions_proved=2 partitions_failed=0 (strategy sat, depth 1, gold = golden RTL with REGISTE
+TOTAL 7/7 gating ok, all_ok=True; smoke 0/0 ok (non-gating); 8.208 s

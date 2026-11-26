@@ -3,7 +3,9 @@
 // (no assume, restrict, anyconst or anyseq). The DUT has no initial value: the .sby rejects
 // any init attribute outside this harness, so the DUT's state is free at step 0.
 //
-// Configuration: -DR0 (REGISTERED = 0) or -DR1 (REGISTERED = 1). fv_mode.vh (written by
+// Configuration: -DR1 (REGISTERED = 1, the sequential configuration). Under user decision D9b
+// the combinational REGISTERED = 0 function is checked by edge cases and spot checks plus EQY
+// against the golden, not by a proof in this harness (SPEC section 4). fv_mode.vh (written by
 // run_all.sh) defines GATE for a gate-level netlist, which has no parameter.
 //
 // Two formal references for W, both independent of the RTL's barrel shifter, guard bit and
@@ -55,47 +57,6 @@ module exp_lut_props (
     end
     wire [7:0] wB = ref_wtab(dpB);
 
-`ifdef R0
-    // ---------------------------------------------------------------- REGISTERED = 0
-`ifdef SANITY_TRUNC
-    // negative control: D' truncated instead of rounded half up (must be refuted)
-    wire [22:0] dpT = {1'b0, D} >> shift;
-    wire [7:0]  wT  = (dpT < 23'd64) ? ref_wtab(dpT[5:0]) : 8'd0;
-    always @* a_wrong_trunc: assert (W == wT);
-`elsif SANITY_D21
-    // negative control: D[21] ignored (D read as 21 bits); must be refuted, because the
-    // contract specifies W = 0 for every D >= 2^21 (SPEC R4)
-    wire [22:0] sumN = {2'b0, D[20:0]} + half;
-    wire [22:0] dpN  = sumN >> shift;
-    wire [7:0]  wN   = (dpN < 23'd64) ? ref_wtab(dpN[5:0]) : 8'd0;
-    always @* a_wrong_d21: assert (W == wN);
-`else
-    always @* begin
-        a_wA:   assert (W == wA);        // R1..R5: W = f(D, shift), every input, any clk/rst_n/start
-        a_wB:   assert (W == wB);        // the same against the second formulation
-        a_done: assert (done == start);  // R7
-    end
-`endif
-`ifdef COVERS
-    genvar ck;
-    generate for (ck = 0; ck <= 25; ck = ck + 1) begin : g_cdp
-        always @* cover (dpA == ck && W == ref_wtab(ck));           // every D' 0..25
-    end endgenerate
-    generate for (ck = 1; ck <= 15; ck = ck + 1) begin : g_ctie
-        // a rounding tie at every shift, rounded up, with a non-zero weight
-        always @* cover (shift == ck && D[ck-1:0] == (22'd1 << (ck - 1)) && W == wA && W != 8'd0);
-    end endgenerate
-    always @* begin
-        c_d20:      cover (D >= 22'h100000 && D < 22'h200000 && shift == 4'd15 && W == 8'd0);
-        c_d21:      cover (D[21] && shift == 4'd15 && W == 8'd0);
-        c_last_nz:  cover (shift == 4'd15 && D == 22'd802815 && W == 8'd1);   // 24*2^15 + 2^14 - 1
-        c_first_z:  cover (shift == 4'd15 && D == 22'd802816 && W == 8'd0);   // 24*2^15 + 2^14
-        c_done1:    cover (start && done && W == wA);
-        c_done0:    cover (!start && !done && W == wA);
-    end
-`endif
-`endif
-
 `ifdef R1
     // ---------------------------------------------------------------- REGISTERED = 1
     // Observers (initialised harness registers; they never drive the DUT):
@@ -124,6 +85,13 @@ module exp_lut_props (
 `ifdef SANITY_PU
     // negative control: W = 0 at power-up (must be refuted: the power-up state is free)
     always @* if (!pv) a_wrong_pu: assert (W == 8'd0);
+`elsif SANITY_TRUNC
+    // negative control: D' truncated instead of rounded half up (must be refuted)
+    wire [22:0] dpT = {1'b0, D} >> shift;
+    wire [7:0]  wT  = (dpT < 23'd64) ? ref_wtab(dpT[5:0]) : 8'd0;
+    reg  [7:0]  pwT;
+    always @(posedge clk) pwT <= wT;
+    always @* if (pv && prst && pst) a_wrong_trunc: assert (W == pwT);
 `elsif SANITY_LAT0
     // negative control: zero latency, W follows the current inputs on a start (must be refuted)
     always @* if (pv && rst_n && start) a_wrong_lat0: assert (W == wA);

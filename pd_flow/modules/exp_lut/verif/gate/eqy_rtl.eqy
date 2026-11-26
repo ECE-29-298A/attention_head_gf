@@ -1,6 +1,9 @@
-# Gate mode item eqy_rtl: the netlist (Yosys view exp_lut_fv.v: netlist + combinational PDK
-# models + liberty flop models) against the golden RTL (snapshot/exp_lut.v) at the same
-# REGISTERED value (@REG@ is replaced by run_all.sh). Strategy sat, depth 1.
+# Items eqy_rtl (gate mode) and eqy_rtl_r0 / eqy_rtl_r1 (RTL mode): the design under test
+# against the golden RTL (snapshot/exp_lut.v) at the same REGISTERED value. Gate mode: the
+# netlist's Yosys view exp_lut_fv.v (netlist + combinational PDK models + liberty flop
+# models). RTL mode: the candidate RTL, with the same chparam. run_all.sh replaces @REG@ with
+# the REGISTERED value and @GATEPARAM@ with the chparam line (RTL mode) or nothing (gate
+# mode). Strategy sat, depth 1. This is the mandatory candidate-vs-golden equivalence (D9b).
 #   REGISTERED = 0: no state; each partition is a combinational function of the inputs, so
 #     PASS is a complete combinational equivalence.
 #   REGISTERED = 1: the 9 state bits are matched by name (they drive the outputs W and done
@@ -18,7 +21,8 @@ proc -norom
 prep -top exp_lut
 
 [gate]
-read_verilog gate.v
+read_verilog -sv gate.v
+@GATEPARAM@
 hierarchy -top exp_lut
 proc -norom; flatten; opt_clean
 prep -top exp_lut

@@ -1,12 +1,15 @@
-# exp_lut Agent 1 smoke check (not the mutation campaign, which is Agent 2's): the frozen-candidate
-# contract run on 3 RTL mutants and 1 gate-level mutant; every one must have all_ok = false.
+# exp_lut Agent 1 smoke check of the amended (D9b) contract; not the mutation campaign (Agent 2).
+# Each mutant must have all_ok = false, killed by a gating edge/spot or formal item (D9b).
 # Sources: evidence/smoke_mutants/m_*.v (golden with one edit). Runs: scratchpad, --jobs 3.
 m_tab20: RTL: table entry D'=20 gives 1 instead of 2 (one wrong LUT value)
-  11/29 ok, all_ok=False; killed by: sim_exh_r0 sim_exh_r1 sim_powerup_r1 sim_seq_r1 vec_r1 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 ivl_exh_r1_s0_3 ivl_exh_r1_s12_15 ivl_exh_r1_s4_7 ivl_exh_r1_s8_11 fv_cover_r0 fv_equiv_r0 fv_pdr_equiv_r0 fv_pdr_r1 fv_prove_r1
+  gating 10/16 ok, all_ok=False, 13.46 s; killed by (gating): edge_r0 edge_r1 fv_pdr_r1 fv_prove_r1 eqy_rtl_r0 eqy_rtl_r1; smoke failing (non-gating): smoke_powerup_r1 smoke_seq_r1 smoke_vec_r1
 m_trunc: RTL: rounding bit dropped (D' truncated instead of rounded half up)
-  10/29 ok, all_ok=False; killed by: sim_exh_r0 sim_exh_r1 sim_powerup_r1 sim_seq_r1 vec_r1 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 ivl_exh_r1_s0_3 ivl_exh_r1_s12_15 ivl_exh_r1_s4_7 ivl_exh_r1_s8_11 fv_cover_r0 fv_equiv_r0 fv_pdr_equiv_r0 fv_pdr_r1 fv_prove_r1 fv_sanity_trunc_r0
+  gating 9/16 ok, all_ok=False, 14.591 s; killed by (gating): edge_r0 edge_r1 fv_pdr_r1 fv_prove_r1 fv_sanity_trunc_r1 eqy_rtl_r0 eqy_rtl_r1; smoke failing (non-gating): smoke_powerup_r1 smoke_seq_r1 smoke_vec_r1
 m_d21: RTL: D[21] ignored in the out-of-range term (D >= 2^21 no longer forced to 0)
-  11/29 ok, all_ok=False; killed by: sim_exh_r0 sim_exh_r1 sim_powerup_r1 sim_seq_r1 vec_r1 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 ivl_exh_r1_s0_3 ivl_exh_r1_s12_15 ivl_exh_r1_s4_7 ivl_exh_r1_s8_11 fv_equiv_r0 fv_pdr_equiv_r0 fv_pdr_r1 fv_prove_r1 fv_sanity_d21_r0
+  gating 10/16 ok, all_ok=False, 15.493 s; killed by (gating): edge_r0 edge_r1 fv_pdr_r1 fv_prove_r1 eqy_rtl_r0 eqy_rtl_r1; smoke failing (non-gating): smoke_powerup_r1 smoke_seq_r1 smoke_vec_r1
+m_xdef: RTL: case default gives 8'bx (W = X whenever the index is 25..31 and not out of range)
+  gating 10/16 ok, all_ok=False, 13.347 s; killed by (gating): edge_r0 edge_r1 fv_pdr_r1 fv_prove_r1 eqy_rtl_r0 eqy_rtl_r1; smoke failing (non-gating): smoke_vec_r1
 g_tab20: gate r0: GF180 netlist of m_tab20 (gate/synth_gf180.sh <out> 0 m_tab20.v), --gate --registered 0
-  7/16 ok, all_ok=False; killed by: sim_exh_r0 ivl_exh_r0_s0_3 ivl_exh_r0_s12_15 ivl_exh_r0_s4_7 ivl_exh_r0_s8_11 fv_cover_r0 fv_equiv_r0 fv_pdr_equiv_r0 eqy_rtl
-Note: m_trunc and m_d21 also make fv_sanity_trunc_r0 / fv_sanity_d21_r0 'pass' (the DUT matches the wrong reference), which is reported as not ok, as intended.
+  gating 5/7 ok, all_ok=False, 7.812 s; killed by (gating): edge_r0 eqy_rtl; smoke failing (non-gating): -
+m_xdef: edge_r0 Verilator part passes (2-state turns X into a value); the Icarus 4-state part reports 15,675 X mismatches, which is the contract's X check. EQY and the r1 proofs also kill it.
+m_trunc also makes fv_sanity_trunc_r1 'pass' (the DUT matches the wrong reference), reported as not ok, as intended.

@@ -8,14 +8,15 @@
 //   ref_fp : this file's own formula in double precision: D' = floor(D / 2^shift + 0.5)
 //            (exact in double for D < 2^22), W = floor(255 * exp(-D' / 4) + 0.5)
 // Modes (exit 0 only if mismatches == 0 and the expected number of points/cycles ran):
-//   sim exh0 <iv>               REGISTERED=0: every (D, shift), 2^26 points; clk, rst_n and
-//                               start are varied pseudo-randomly at every point and must not
-//                               change W; done == start at every point
-//   sim exh1 <iv>               REGISTERED=1: every (D, shift) loaded with start (2^26 loads);
-//                               after each load one hold cycle with different random D, shift
-//                               (W must hold, done = 0); a reset (with start = 1) every 4,096
-//                               loads; no change of W/done with inputs while clk is low or at
-//                               the falling edge, on every cycle
+//   sim edge0 <edges> <iv>      REGISTERED=0: every point of the golden model's edge/spot file
+//                               ("D shift W class"); clk, rst_n, start pseudo-random at each
+//                               point (must not change W); done == start; targeted checks:
+//                               R4 (D >= 2^20 -> W == 0), R3 (W == 0 exactly when D' >= 25,
+//                               D' from ref_fp), local monotonicity W(D+1) <= W(D) (same shift)
+//   sim edge1 <edges> <iv>      REGISTERED=1: every point loaded with start, then D+1 loaded
+//                               (monotonicity); a hold cycle with other inputs after every 16th
+//                               point, a reset (with start = 1) every 1,024 points; the same R3/R4
+//                               checks on the loaded W, plus the next-state rule every cycle
 //   sim seq <cycles> <seed> <iv>  REGISTERED=1: random rst_n/start/D/shift regimes from a random
 //                               power-up state; the next-state rule is checked from the OBSERVED
 //                               outputs on every cycle (also before the first reset), and a
@@ -83,29 +84,6 @@ static void new_dut(uint64_t seed) {
     dut->eval();
 }
 
-// ---------------------------------------------------------------- REGISTERED = 0
-static int run_exh0() {
-    rs = 0xE0E0;
-    for (unsigned s = 0; s < 16; ++s) {
-        size_t vi = 0;
-        for (uint32_t d = 0; d <= DMAX; ++d) {
-            while (d > ivs[s][vi].hi) ++vi;
-            int e1 = ivs[s][vi].w, e2 = ref_fp(d, s);
-            uint64_t r = rnd();
-            int clk = r & 1, rst = (r >> 1) & 1, st = (r >> 2) & 1;
-            dut->clk = clk; dut->rst_n = rst; dut->start = st; dut->D = d; dut->shift = s;
-            dut->eval();
-            int w = dut->W, dn = dut->done;
-            ++points;
-            if (w != e1 || dn != st) report("exh0", points, rst, st, d, s, dn, w, st, e1);
-            if (e1 != e2) report("refs-disagree", points, rst, st, d, s, dn, w, st, e2);
-        }
-    }
-    printf("RESULT mode=exh0 points=%" PRIu64 " expected=%" PRIu64 " mismatches=%" PRIu64 "\n",
-           points, (uint64_t)16 << 22, mismatches);
-    return (mismatches == 0 && points == ((uint64_t)16 << 22)) ? 0 : 1;
-}
-
 // ---------------------------------------------------------------- REGISTERED = 1
 // One clock cycle: inputs change with clk low (outputs must not move), rising edge, then the
 // next-state rule from the observed outputs: done' = rst_n && start,
@@ -137,23 +115,73 @@ static void cycle(int rst, int st, uint32_t d, unsigned s, int exp_done = -1, in
     ++cycles;
 }
 
-static int run_exh1() {
-    rs = 0xE1E1;
-    uint64_t loads = 0;
-    cycle(0, 1, rnd(), rnd());
-    for (unsigned s = 0; s < 16; ++s) {
-        size_t vi = 0;
-        for (uint32_t d = 0; d <= DMAX; ++d) {
-            while (d > ivs[s][vi].hi) ++vi;
-            cycle(1, 1, d, s, 1, ivs[s][vi].w);
-            ++loads;
-            cycle(1, 0, (uint32_t)rnd(), (unsigned)rnd(), 0, ivs[s][vi].w);
-            if ((loads & 4095) == 0) cycle(0, 1, (uint32_t)rnd(), (unsigned)rnd(), 0, 0);
+// ---------------------------------------------------------------- edge cases (both configurations)
+struct Pt { uint32_t d; unsigned s; int w; };
+static std::vector<Pt> pts;
+static uint64_t r3_checked = 0, r4_checked = 0, mono_checked = 0;
+static void load_edges(const char* f) {
+    FILE* fp = fopen(f, "r");
+    if (!fp) { printf("cannot open %s\n", f); exit(2); }
+    unsigned d, s; int w; char c[64];
+    while (fscanf(fp, "%x %u %d %63s", &d, &s, &w, c) == 4) pts.push_back({d & DMAX, s & 15, w});
+    fclose(fp);
+    printf("edge points loaded: %zu\n", pts.size());
+}
+static void targeted(uint32_t d, unsigned s, int w) {
+    if (d >= (1u << 20)) { ++r4_checked; if (w != 0) report("R4", points, 1, 1, d, s, -1, w, -1, 0); }
+    double dp = std::floor((double)d / (double)(1u << s) + 0.5);
+    ++r3_checked;
+    if ((w == 0) != (dp >= 25.0)) report("R3", points, 1, 1, d, s, -1, w, -1, -1);
+}
+static int eval0(uint32_t d, unsigned s, int* dn, int* st_out) {
+    uint64_t r = rnd();
+    int clk = r & 1, rst = (r >> 1) & 1, st = (r >> 2) & 1;
+    dut->clk = clk; dut->rst_n = rst; dut->start = st; dut->D = d; dut->shift = s;
+    dut->eval();
+    *dn = dut->done; *st_out = st;
+    return dut->W;
+}
+static int run_edge0() {
+    rs = 0xED0E;
+    for (const Pt& p : pts) {
+        int dn, st;
+        int w = eval0(p.d, p.s, &dn, &st);
+        ++points;
+        if (w != p.w || dn != st) report("edge0", points, -1, st, p.d, p.s, dn, w, st, p.w);
+        if (ref_fp(p.d, p.s) != p.w) report("refs-disagree", points, -1, st, p.d, p.s, dn, w, st, ref_fp(p.d, p.s));
+        targeted(p.d, p.s, w);
+        if (p.d < DMAX) {
+            int w1 = eval0(p.d + 1, p.s, &dn, &st);
+            ++mono_checked;
+            if (w1 > w) report("monotone", points, -1, st, p.d + 1, p.s, dn, w1, st, w);
+            if (dn != st) report("done", points, -1, st, p.d + 1, p.s, dn, w1, st, -1);
         }
     }
-    printf("RESULT_EXH1 loads=%" PRIu64 " (expected %" PRIu64 ") shadow_checked=%" PRIu64 "\n", loads, (uint64_t)16 << 22, shadow_checked);
-    printf("RESULT mode=exh1 cycles=%" PRIu64 " checked=%" PRIu64 " mismatches=%" PRIu64 "\n", cycles, checked, mismatches);
-    return (mismatches == 0 && loads == ((uint64_t)16 << 22)) ? 0 : 1;
+    printf("RESULT_EDGE points=%" PRIu64 " r3_checked=%" PRIu64 " r4_checked=%" PRIu64 " mono_checked=%" PRIu64 "\n",
+           points, r3_checked, r4_checked, mono_checked);
+    printf("RESULT mode=edge0 points=%" PRIu64 " expected=%zu mismatches=%" PRIu64 "\n", points, pts.size(), mismatches);
+    return (mismatches == 0 && points == pts.size() && points > 0) ? 0 : 1;
+}
+static int run_edge1() {
+    rs = 0xED1E;
+    cycle(0, 1, (uint32_t)rnd(), (unsigned)rnd(), 0, 0);
+    for (const Pt& p : pts) {
+        cycle(1, 1, p.d, p.s, 1, p.w);
+        ++points;
+        int w = cur_w();
+        targeted(p.d, p.s, w);
+        if (p.d < DMAX) {
+            cycle(1, 1, p.d + 1, p.s, 1, ref_iv(p.d + 1, p.s));
+            ++mono_checked;
+            if (cur_w() > w) report("monotone", points, 1, 1, p.d + 1, p.s, cur_d(), cur_w(), 1, w);
+        }
+        if ((points & 15) == 0) cycle(1, 0, (uint32_t)rnd(), (unsigned)rnd(), 0, cur_w());
+        if ((points & 1023) == 0) cycle(0, 1, (uint32_t)rnd(), (unsigned)rnd(), 0, 0);
+    }
+    printf("RESULT_EDGE points=%" PRIu64 " r3_checked=%" PRIu64 " r4_checked=%" PRIu64 " mono_checked=%" PRIu64 " cycles=%" PRIu64 "\n",
+           points, r3_checked, r4_checked, mono_checked, cycles);
+    printf("RESULT mode=edge1 points=%" PRIu64 " expected=%zu mismatches=%" PRIu64 "\n", points, pts.size(), mismatches);
+    return (mismatches == 0 && points == pts.size() && points > 0) ? 0 : 1;
 }
 
 static uint32_t rand_d() {
@@ -233,12 +261,12 @@ static int run_powerup(int nseeds) {
 }
 
 int main(int argc, char** argv) {
-    if (argc < 3) { printf("usage: sim exh0|exh1 <iv> | seq <n> <seed> <iv> | vectors <f> <iv> | powerup <k> <iv>\n"); return 2; }
+    if (argc < 3) { printf("usage: sim edge0|edge1 <edges> <iv> | seq <n> <seed> <iv> | vectors <f> <iv> | powerup <k> <iv>\n"); return 2; }
     const char* m = argv[1];
     load_iv(argv[argc - 1]);
     new_dut(0x5EED);
-    if (!strcmp(m, "exh0")) return run_exh0();
-    if (!strcmp(m, "exh1")) return run_exh1();
+    if (!strcmp(m, "edge0") && argc == 4) { load_edges(argv[2]); return run_edge0(); }
+    if (!strcmp(m, "edge1") && argc == 4) { load_edges(argv[2]); return run_edge1(); }
     if (!strcmp(m, "seq") && argc == 5) return run_seq(strtoull(argv[2], nullptr, 0), strtoull(argv[3], nullptr, 0));
     if (!strcmp(m, "vectors") && argc == 4) return run_vectors(argv[2]);
     if (!strcmp(m, "powerup") && argc == 4) return run_powerup(atoi(argv[2]));

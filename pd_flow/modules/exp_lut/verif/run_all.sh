@@ -20,7 +20,8 @@
 #   --lib LIB   liberty for the Yosys/formal models of flop cells (default: the 7-track
 #               TT 025C 3V30 liberty).
 #   --jobs J    concurrent jobs, at most 8 (default 3). Jobs are single-threaded.
-# Exit status: 0 only if every item has ok=true.
+# Exit status: 0 only if every gating item has ok=true. Items whose id starts with smoke_ are
+# non-gating smoke simulations (user decision D9b): reported (smoke_all_ok), never gating.
 #
 # Builds run in a space-free temp dir (Verilator makefiles and SBY do not quote paths);
 # logs and formal results are written back to the output directory.
@@ -36,7 +37,7 @@ record() { # id kind status ok seconds log detail
     printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" "$6" "$7" > "$LOGS/items/$1.tsv"
 }
 T_SIM=900; T_FV=900; T_BUILD=600
-NCOV_R0=47; NCOV_R1=10   # covers in formal/exp_lut_props.sv
+NCOV_R1=10   # covers in formal/exp_lut_props.sv
 FORBID='t:$adff* t:$aldff* t:$sdff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*'
 
 job() {
@@ -53,8 +54,9 @@ job() {
         (
             "$PY" "$VERIF/model/golden_model.py" intervals --out iv.txt &&
             "$PY" "$VERIF/model/golden_model.py" vhdr --out ref_table.vh &&
+            "$PY" "$VERIF/model/golden_model.py" edges --random 100000 --seed 7 --out edges.txt &&
             "$PY" "$VERIF/model/golden_model.py" vectors --random 200000 --seed 1 --out vec.txt &&
-            shasum -a 256 iv.txt ref_table.vh vec.txt
+            shasum -a 256 iv.txt ref_table.vh edges.txt vec.txt
         ) > "$log" 2>&1; rc=$?
         cp iv.txt ref_table.vh "$LOGS/" 2>/dev/null
         det="$(grep '^RESULT' "$log" | tr '\n' ';' | sed 's/;$//')"
@@ -105,7 +107,7 @@ job() {
         timeout $T_SIM obj_r$r/sim "$m" "$@" iv.txt > "$log" 2>&1; rc=$?
         det="$(grep '^RESULT_' "$log" | tail -1 | cut -c1-140)$(grep -q '^RESULT_' "$log" && echo '; ')$(grep '^RESULT mode' "$log" | tail -1)"
         if [ $rc -eq 0 ]; then
-            case $m in exh*) st=pass-exhaustive ;; *) st=pass-sampled ;; esac; ok=true
+            st=pass-sampled; ok=true
         elif [ $rc -eq 124 ]; then st=timed-out; ok=false; else st=failed; ok=false; fi ;;
     vec)    # REGISTERED=1 golden vectors on Verilator and Icarus
         local written known v1 c1 v2 c2 gdef=""
@@ -126,15 +128,20 @@ job() {
         if [ $rc -eq 0 ] && [ -n "$written" ] && [ "$written" = "$v1" ] && [ "$written" = "$v2" ] \
            && [ "$known" = "$c1" ] && [ "$known" = "$c2" ]; then st=pass-sampled; ok=true
         elif [ $rc -eq 124 ]; then st=timed-out; ok=false; else st=failed; ok=false; fi ;;
-    ivl)    # r slo shi: Icarus 4-state exhaustive over shifts slo..shi
-        local r=$1 slo=$2 shi=$3 gdef=""
+    edge)   # r: combinational edge cases + 100k fixed-seed spot checks, Verilator and Icarus
+        local r=$1 gdef="" n1 n2 want
         [ -n "$GATE" ] && gdef="-DGATE"
         (
-            iverilog -g2012 -DREG=$r $gdef -o ivl_${r}_${slo}.vvp tb_exh.sv exp_lut.v &&
-            timeout $T_SIM vvp -n ivl_${r}_${slo}.vvp +IV=iv.txt +SLO=$slo +SHI=$shi
+            echo "== verilator"; timeout $T_SIM obj_r$r/sim edge$r edges.txt iv.txt; r1=$?
+            echo "== icarus (4-state)"
+            iverilog -g2012 -DREG=$r $gdef -o ivl_edge_$r.vvp tb_edge.sv exp_lut.v && timeout $T_SIM vvp -n ivl_edge_$r.vvp +EDGES=edges.txt; r2=$?
+            exit $(( r1 == 124 || r2 == 124 ? 124 : (r1 || r2) ))
         ) > "$log" 2>&1; rc=$?
-        det="$(grep '^RESULT sim=icarus' "$log" | tail -1); part of the input space: shifts $slo..$shi (the four ivl_exh_r${r}_* items together cover all 2^26 (D, shift))"
-        if [ $rc -eq 0 ] && grep -q "^RESULT sim=icarus .* mismatches=0" "$log"; then st=pass-exhaustive; ok=true
+        want=$(sed -n 's/^RESULT edges points=\([0-9]*\) .*/\1/p' "$LOGS/gen.log")
+        n1=$(sed -n 's/^RESULT mode=edge[01] points=\([0-9]*\) .*/\1/p' "$log")
+        n2=$(sed -n 's/^RESULT sim=icarus reg=[01] points=\([0-9]*\) .*/\1/p' "$log")
+        det="edge_points=$want verilator: $(grep '^RESULT_EDGE' "$log" | sed 's/^RESULT_EDGE //'); icarus: $(grep '^RESULT sim=icarus' "$log" | sed 's/^RESULT sim=icarus //')"
+        if [ $rc -eq 0 ] && [ -n "$want" ] && [ "$want" = "$n1" ] && [ "$want" = "$n2" ]; then st=pass-edge-spot; ok=true
         elif [ $rc -eq 124 ]; then st=timed-out; ok=false; else st=failed; ok=false; fi ;;
     sby)    # task
         local t=$1 sstat nas ncov nreach want maxstep wcov dep
@@ -150,9 +157,7 @@ job() {
         maxstep=$(sed -n 's/.*Reached cover statement in step \([0-9]*\) at .*/\1/p' "$log" | sort -n | tail -1)
         nreach=$(grep -ci 'unreached cover' "$log")
         case $t in
-        equiv_r0|pdr_equiv_r0) want="asserts=3 covers=0" ;;
         prove_r1|pdr_r1) want="asserts=6 covers=0" ;;
-        cover_r0) want="asserts=3 covers=$NCOV_R0"; wcov=$NCOV_R0; dep=1 ;;
         cover_r1) want="asserts=6 covers=$NCOV_R1"; wcov=$NCOV_R1; dep=10 ;;
         sanity_*) want="asserts=1 covers=0" ;;
         esac
@@ -177,7 +182,7 @@ job() {
             det="tool/infrastructure error: sby_status=${sstat:-none}; $(grep -m1 'ERROR\|Error' "$log" | cut -c1-160)"
         else
         case $t in
-        equiv_r0|pdr_equiv_r0|prove_r1|pdr_r1)
+        prove_r1|pdr_r1)
             det="sby_status=$sstat $nas (expected $want); $(grep -o 'summary: successful proof[^.]*\|summary: engine_0 (abc pdr) returned PASS' "$log" | head -1)"
             if [ "$sstat" = PASS ] && [ "$nas" = "$want" ]; then st=proven; ok=true
             else st=failed; ok=false; fi ;;
@@ -196,21 +201,23 @@ job() {
         mkdir -p "$OUT/formal/runs"
         rm -rf "$OUT/formal/runs/exp_lut_$t"
         cp -R "exp_lut_$t" "$OUT/formal/runs/" 2>/dev/null ;;
-    eqy)    # gate mode: EQY equivalence of the netlist's Yosys view against the golden RTL
-        rm -rf eqy_rtl; mkdir eqy_rtl
-        cp "$GOLDEN" eqy_rtl/gold.v; cp exp_lut_fv.v eqy_rtl/gate.v
-        sed "s/@REG@/$GREG/" "$VERIF/gate/eqy_rtl.eqy" > eqy_rtl/eq.eqy
-        ( cd eqy_rtl && timeout $T_FV "$PY" "$HOME/.local/bin/eqy" -f eq.eqy ) > "$log" 2>&1; rc=$?
+    eqy)    # r: EQY equivalence of the DUT (gate: the netlist's Yosys view) against the golden RTL
+        local r=$1 ed=$id gp=""
+        [ -z "$GATE" ] && gp="chparam -set REGISTERED $r exp_lut"
+        rm -rf "$ed"; mkdir "$ed"
+        cp "$GOLDEN" "$ed/gold.v"; cp exp_lut_fv.v "$ed/gate.v"
+        sed "s/@REG@/$r/; s/@GATEPARAM@/$gp/" "$VERIF/gate/eqy_rtl.eqy" > "$ed/eq.eqy"
+        ( cd "$ed" && timeout $T_FV "$PY" "$HOME/.local/bin/eqy" -f eq.eqy ) > "$log" 2>&1; rc=$?
         local estat np nf
         estat=$(grep -o 'DONE ([A-Z]*' "$log" | tail -1 | sed 's/DONE (//')
         np=$(grep -c 'Successfully proved equivalence of partition' "$log")
         nf=$(grep -c 'Failed to prove equivalence of partition' "$log")
-        det="eqy_status=${estat:-none} partitions_proved=$np partitions_failed=$nf (strategy sat, depth 1, gold = golden RTL with REGISTERED=$GREG)"
+        det="eqy_status=${estat:-none} partitions_proved=$np partitions_failed=$nf (strategy sat, depth 1, gold = golden RTL with REGISTERED=$r)"
         if [ $rc -eq 124 ]; then st=timed-out; ok=false
         elif [ "$estat" = PASS ] && [ "$np" -ge 1 ] && [ "$nf" -eq 0 ]; then st=proven; ok=true
         elif [ "$estat" = FAIL ]; then st=failed; ok=false
         else st=inconclusive; ok=false; det="tool/infrastructure error: $det; $(grep -m1 'ERROR' "$log" | cut -c1-120)"; fi
-        mkdir -p "$OUT/formal/runs"; rm -rf "$OUT/formal/runs/eqy_rtl"; cp -R eqy_rtl "$OUT/formal/runs/" 2>/dev/null ;;
+        mkdir -p "$OUT/formal/runs"; rm -rf "$OUT/formal/runs/$ed"; cp -R "$ed" "$OUT/formal/runs/" 2>/dev/null ;;
     prep)   # gate-level DUT views: netlist + the cell models it uses
         "$PY" "$VERIF/gate/extract_cells.py" "$DUT" "$CELLS" "$LIB" exp_lut.v exp_lut_fv.v > "$log" 2>&1; rc=$?
         det="$(grep '^RESULT' "$log" | tail -1); cells=$CELLS; lib=$(basename "$LIB")"
@@ -263,7 +270,7 @@ if [ -n "$GATE" ]; then
 else
     CONFIGS="0 1"
 fi
-export OUT GATE GREG CELLS LIB DUT="$RTL" NCOV_R0 NCOV_R1 GOLDEN FORBID
+export OUT GATE GREG CELLS LIB DUT="$RTL" NCOV_R1 GOLDEN FORBID
 
 export LOGS="$OUT/logs"
 rm -rf "$LOGS" "$OUT/formal/runs" "$OUT/results.json" "$OUT/run_all.console.log"
@@ -272,7 +279,7 @@ export BUILD="$(mktemp -d "${TMPDIR:-/tmp}/exp_lut_verif.XXXXXX")"
 # RTL: one file serves simulation and Yosys. Gate: both views are rebuilt by cells_prep.
 cp "$RTL" "$BUILD/exp_lut.v"
 cp "$RTL" "$BUILD/exp_lut_fv.v"
-cp "$VERIF/sim/tb_exp_lut.cpp" "$VERIF/sim/tb_vectors.sv" "$VERIF/sim/tb_exh.sv" \
+cp "$VERIF/sim/tb_exp_lut.cpp" "$VERIF/sim/tb_vectors.sv" "$VERIF/sim/tb_edge.sv" \
    "$VERIF/formal/exp_lut.sby" "$VERIF/formal/exp_lut_props.sv" "$BUILD/"
 if [ -n "$GATE" ]; then echo '`define GATE' > "$BUILD/fv_mode.vh"; else echo '// RTL mode' > "$BUILD/fv_mode.vh"; fi
 T_START=$(now)
@@ -294,15 +301,12 @@ FV_TASKS=$(sed -n '/^\[tasks\]/,/^$/p' "$VERIF/formal/exp_lut.sby" | awk 'NR>1 &
 } | phase build
 {
     for r in $CONFIGS; do
-        if [ "$r" = 0 ]; then
-            echo "sim_exh_r0 sim 0 exh0"
-        else
-            echo "sim_exh_r1 sim 1 exh1"
-            echo "sim_seq_r1 sim 1 seq 100000000 0x5E01"
-            echo "sim_powerup_r1 sim 1 powerup 64"
-            echo "vec_r1 vec"
+        echo "edge_r$r edge $r"
+        if [ "$r" = 1 ]; then   # non-gating smoke (D9b): a few seconds each
+            echo "smoke_seq_r1 sim 1 seq 5000000 0x5E01"
+            echo "smoke_powerup_r1 sim 1 powerup 64"
+            echo "smoke_vec_r1 vec"
         fi
-        for q in "0 3" "4 7" "8 11" "12 15"; do set -- $q; echo "ivl_exh_r${r}_s$1_$2 ivl $r $1 $2"; done
     done
 } | phase sim
 {
@@ -310,7 +314,7 @@ FV_TASKS=$(sed -n '/^\[tasks\]/,/^$/p' "$VERIF/formal/exp_lut.sby" | awk 'NR>1 &
         case $t in *_r0) [ "${CONFIGS#*0}" = "$CONFIGS" ] && continue ;; *_r1) [ "${CONFIGS#*1}" = "$CONFIGS" ] && continue ;; esac
         echo "fv_$t sby $t"
     done
-    [ -n "$GATE" ] && echo "eqy_rtl eqy"
+    if [ -n "$GATE" ]; then echo "eqy_rtl eqy $GREG"; else for r in $CONFIGS; do echo "eqy_rtl_r$r eqy $r"; done; fi
 } | phase formal
 
 T_END=$(now)
@@ -318,11 +322,10 @@ T_END=$(now)
 import csv, glob, hashlib, json, os, re, subprocess, sys
 items_dir, out, exp_file, rtl, t0, t1, gate, cells, lib, greg = sys.argv[1:11]
 # Standard (AGENT_CONTEXT) label per item, next to the contract's own status.
-LABEL = {"proven": "proven", "pass-exhaustive": "pass-exhaustive", "pass-sampled": "pass-sampled",
-         "pass-exhaustive-subspace": "pass-sampled", "not-proven": "inconclusive",
+LABEL = {"proven": "proven", "pass-sampled": "pass-sampled", "not-proven": "inconclusive",
          "covered": "bounded-pass", "failed-as-expected": "failed", "failed": "failed",
          "timed-out": "timed-out", "inconclusive": "inconclusive", "unsupported": "unsupported",
-         "pass": "pass-static", "pass-with-waiver": "pass-static"}
+         "pass": "pass-static", "pass-with-waiver": "pass-static", "pass-edge-spot": "pass-sampled"}
 def ver(cmd):
     try:
         return subprocess.run(cmd, capture_output=True, text=True, shell=True).stdout.strip().splitlines()[0]
@@ -337,6 +340,7 @@ for p in sorted(glob.glob(os.path.join(items_dir, "*.tsv"))):
                           "seconds": float(sec or 0), "log": log, "detail": det})
 for i in items:
     i["label"] = LABEL.get(i["status"], "inconclusive")
+    i["gating"] = not i["id"].startswith("smoke_")
     i["expected_outcome"] = "fail" if i["id"].startswith("fv_sanity") else "pass"
     if i["status"] == "covered":
         m = re.search(r"depth=(\d+)", i["detail"])
@@ -347,8 +351,9 @@ for line in open(exp_file):
     if f and f[0] not in seen:
         items.append({"id": f[0], "kind": f[1], "status": "inconclusive", "label": "inconclusive",
                       "expected_outcome": "pass", "ok": False, "seconds": 0.0,
-                      "log": f"logs/{f[0]}.log", "detail": "no result recorded (job crashed)"})
-order = {"prep": -1, "selftest": 0, "gen": 0, "lint": 1, "build": 2, "sim": 3, "vec": 4, "ivl": 5, "sby": 6, "eqy": 7}
+                      "log": f"logs/{f[0]}.log", "detail": "no result recorded (job crashed)",
+                      "gating": not f[0].startswith("smoke_")})
+order = {"prep": -1, "selftest": 0, "gen": 0, "lint": 1, "build": 2, "edge": 3, "sim": 4, "vec": 4, "sby": 6, "eqy": 7}
 items.sort(key=lambda i: (order.get(i["kind"], 9), i["id"]))
 res = {
     "module": "exp_lut",
@@ -363,13 +368,16 @@ res = {
     "total_seconds": round(float(t1) - float(t0), 3),
     "items_total": len(items),
     "items_ok": sum(i["ok"] for i in items),
-    "all_ok": bool(items) and all(i["ok"] for i in items),
+    "gating_total": sum(i["gating"] for i in items),
+    "gating_ok": sum(i["ok"] for i in items if i["gating"]),
+    "all_ok": bool(items) and all(i["ok"] for i in items if i["gating"]),
+    "smoke_all_ok": all(i["ok"] for i in items if not i["gating"]),
     "items": items,
 }
 json.dump(res, open(out, "w"), indent=2)
 for i in items:
-    print(f'{i["id"]:<22} {i["status"]:<20} {i["label"]:<15} {i["seconds"]:8.2f}s  {i["detail"][:110]}')
-print(f'TOTAL {res["items_ok"]}/{res["items_total"]} ok, all_ok={res["all_ok"]}, {res["total_seconds"]} s')
+    print(f'{i["id"]:<22} {i["status"]:<20} {i["label"]:<15} {"" if i["gating"] else "(smoke) "}{i["seconds"]:8.2f}s  {i["detail"][:110]}')
+print(f'TOTAL {res["gating_ok"]}/{res["gating_total"]} gating ok, all_ok={res["all_ok"]}; smoke {res["items_ok"] - res["gating_ok"]}/{res["items_total"] - res["gating_total"]} ok (non-gating); {res["total_seconds"]} s')
 sys.exit(0 if res["all_ok"] else 1)
 EOF
 rc=${PIPESTATUS[0]}
