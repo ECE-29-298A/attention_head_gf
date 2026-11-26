@@ -1,0 +1,629 @@
+{
+  "module": "ripple_add",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/review/mutants/m19_latch.v",
+  "dut_sha256": "6362c4e2e5a33cb69396ac7eb189282973754a5dbb163c3e82a149dc52c32b5e",
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 13.965,
+  "items_total": 68,
+  "items_ok": 1,
+  "all_ok": false,
+  "items": [
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.047,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest kat=19 mismatches=0"
+    },
+    {
+      "id": "lint_n1",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.137,
+      "log": "logs/lint_n1.log",
+      "detail": "RESULT lint N=1 warnings=2 waived=1 other=1 errors=0; RESULT lint N=1 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_n12",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.137,
+      "log": "logs/lint_n12.log",
+      "detail": "RESULT lint N=12 warnings=2 waived=1 other=1 errors=0; RESULT lint N=12 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_n16",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.136,
+      "log": "logs/lint_n16.log",
+      "detail": "RESULT lint N=16 warnings=2 waived=1 other=1 errors=0; RESULT lint N=16 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_n22",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.145,
+      "log": "logs/lint_n22.log",
+      "detail": "RESULT lint N=22 warnings=2 waived=1 other=1 errors=0; RESULT lint N=22 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_n32",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.155,
+      "log": "logs/lint_n32.log",
+      "detail": "RESULT lint N=32 warnings=2 waived=1 other=1 errors=0; RESULT lint N=32 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_n64",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.167,
+      "log": "logs/lint_n64.log",
+      "detail": "RESULT lint N=64 warnings=2 waived=1 other=1 errors=0; RESULT lint N=64 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_n8",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.136,
+      "log": "logs/lint_n8.log",
+      "detail": "RESULT lint N=8 warnings=2 waived=1 other=1 errors=0; RESULT lint N=8 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "lint_ndefault",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.139,
+      "log": "logs/lint_ndefault.log",
+      "detail": "RESULT lint N=16 warnings=2 waived=1 other=1 errors=0; RESULT lint N=16 warnings=2 waived=1 other=1 errors=0"
+    },
+    {
+      "id": "build_n1",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.07,
+      "log": "logs/build_n1.log",
+      "detail": "obj_1/sim"
+    },
+    {
+      "id": "build_n10",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.075,
+      "log": "logs/build_n10.log",
+      "detail": "obj_10/sim"
+    },
+    {
+      "id": "build_n11",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.07,
+      "log": "logs/build_n11.log",
+      "detail": "obj_11/sim"
+    },
+    {
+      "id": "build_n12",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.073,
+      "log": "logs/build_n12.log",
+      "detail": "obj_12/sim"
+    },
+    {
+      "id": "build_n16",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.076,
+      "log": "logs/build_n16.log",
+      "detail": "obj_16/sim"
+    },
+    {
+      "id": "build_n2",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.07,
+      "log": "logs/build_n2.log",
+      "detail": "obj_2/sim"
+    },
+    {
+      "id": "build_n22",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.074,
+      "log": "logs/build_n22.log",
+      "detail": "obj_22/sim"
+    },
+    {
+      "id": "build_n3",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.075,
+      "log": "logs/build_n3.log",
+      "detail": "obj_3/sim"
+    },
+    {
+      "id": "build_n32",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.073,
+      "log": "logs/build_n32.log",
+      "detail": "obj_32/sim"
+    },
+    {
+      "id": "build_n4",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.075,
+      "log": "logs/build_n4.log",
+      "detail": "obj_4/sim"
+    },
+    {
+      "id": "build_n5",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.074,
+      "log": "logs/build_n5.log",
+      "detail": "obj_5/sim"
+    },
+    {
+      "id": "build_n6",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.074,
+      "log": "logs/build_n6.log",
+      "detail": "obj_6/sim"
+    },
+    {
+      "id": "build_n64",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.083,
+      "log": "logs/build_n64.log",
+      "detail": "obj_64/sim"
+    },
+    {
+      "id": "build_n7",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.074,
+      "log": "logs/build_n7.log",
+      "detail": "obj_7/sim"
+    },
+    {
+      "id": "build_n8",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.077,
+      "log": "logs/build_n8.log",
+      "detail": "obj_8/sim"
+    },
+    {
+      "id": "build_n9",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.075,
+      "log": "logs/build_n9.log",
+      "detail": "obj_9/sim"
+    },
+    {
+      "id": "exh_n1",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.094,
+      "log": "logs/exh_n1.log",
+      "detail": "; model_checksum=0xfaa22921e0ff4c30; checksum_match=no"
+    },
+    {
+      "id": "exh_n10",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.121,
+      "log": "logs/exh_n10.log",
+      "detail": "; model_checksum=0x465b77b0c133d934; checksum_match=no"
+    },
+    {
+      "id": "exh_n11",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.166,
+      "log": "logs/exh_n11.log",
+      "detail": "; model_checksum=0xd4da4b69ef53a228; checksum_match=no"
+    },
+    {
+      "id": "exh_n12",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.297,
+      "log": "logs/exh_n12.log",
+      "detail": "; model_checksum=0x05a0bf138bee72d4; checksum_match=no"
+    },
+    {
+      "id": "exh_n2",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.093,
+      "log": "logs/exh_n2.log",
+      "detail": "; model_checksum=0x6c75dec815e52fc8; checksum_match=no"
+    },
+    {
+      "id": "exh_n3",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.091,
+      "log": "logs/exh_n3.log",
+      "detail": "; model_checksum=0x704f712d864635ce; checksum_match=no"
+    },
+    {
+      "id": "exh_n4",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.091,
+      "log": "logs/exh_n4.log",
+      "detail": "; model_checksum=0x259258665d7f0156; checksum_match=no"
+    },
+    {
+      "id": "exh_n5",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.09,
+      "log": "logs/exh_n5.log",
+      "detail": "; model_checksum=0x1ddaba4df8d89d19; checksum_match=no"
+    },
+    {
+      "id": "exh_n6",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.088,
+      "log": "logs/exh_n6.log",
+      "detail": "; model_checksum=0x9b07f433a9504163; checksum_match=no"
+    },
+    {
+      "id": "exh_n7",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.097,
+      "log": "logs/exh_n7.log",
+      "detail": "; model_checksum=0x611024b62b78d7f6; checksum_match=no"
+    },
+    {
+      "id": "exh_n8",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.096,
+      "log": "logs/exh_n8.log",
+      "detail": "; model_checksum=0x5909ca14beb57b53; checksum_match=no"
+    },
+    {
+      "id": "exh_n9",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.101,
+      "log": "logs/exh_n9.log",
+      "detail": "; model_checksum=0x1ea8e35150169fe7; checksum_match=no"
+    },
+    {
+      "id": "vec_n12",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 5.181,
+      "log": "logs/vec_n12.log",
+      "detail": "golden_vectors=207064 verilator_checked= icarus_checked=207064; ; RESULT sim=icarus N=12 vectors=207064 mismatches=1"
+    },
+    {
+      "id": "vec_n16",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.292,
+      "log": "logs/vec_n16.log",
+      "detail": "golden_vectors=208352 verilator_checked= icarus_checked=not-run; ; "
+    },
+    {
+      "id": "vec_n22",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 12.319,
+      "log": "logs/vec_n22.log",
+      "detail": "golden_vectors=216556 verilator_checked= icarus_checked=216556; ; RESULT sim=icarus N=22 vectors=216556 mismatches=1"
+    },
+    {
+      "id": "vec_n32",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.337,
+      "log": "logs/vec_n32.log",
+      "detail": "golden_vectors=232960 verilator_checked= icarus_checked=not-run; ; "
+    },
+    {
+      "id": "vec_n64",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.469,
+      "log": "logs/vec_n64.log",
+      "detail": "golden_vectors=331328 verilator_checked= icarus_checked=not-run; ; "
+    },
+    {
+      "id": "rand_n16",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.013,
+      "log": "logs/rand_n16.log",
+      "detail": ""
+    },
+    {
+      "id": "rand_n22",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.019,
+      "log": "logs/rand_n22.log",
+      "detail": ""
+    },
+    {
+      "id": "rand_n32",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.013,
+      "log": "logs/rand_n32.log",
+      "detail": ""
+    },
+    {
+      "id": "rand_n64",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.013,
+      "log": "logs/rand_n64.log",
+      "detail": ""
+    },
+    {
+      "id": "fv_cover_n1",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.179,
+      "log": "logs/fv_cover_n1.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_cover_n12",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.172,
+      "log": "logs/fv_cover_n12.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_cover_n22",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.167,
+      "log": "logs/fv_cover_n22.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_cover_n32",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.166,
+      "log": "logs/fv_cover_n32.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_cover_n4",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.177,
+      "log": "logs/fv_cover_n4.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_cover_n8",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.177,
+      "log": "logs/fv_cover_n8.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_pdr_n12",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.182,
+      "log": "logs/fv_pdr_n12.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_pdr_n22",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.183,
+      "log": "logs/fv_pdr_n22.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n1",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.187,
+      "log": "logs/fv_prove_n1.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n12",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.183,
+      "log": "logs/fv_prove_n12.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n16",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.185,
+      "log": "logs/fv_prove_n16.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n2",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.186,
+      "log": "logs/fv_prove_n2.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n22",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.183,
+      "log": "logs/fv_prove_n22.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n3",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.186,
+      "log": "logs/fv_prove_n3.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n32",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.182,
+      "log": "logs/fv_prove_n32.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n4",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.186,
+      "log": "logs/fv_prove_n4.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n5",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.185,
+      "log": "logs/fv_prove_n5.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n64",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.189,
+      "log": "logs/fv_prove_n64.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n7",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.184,
+      "log": "logs/fv_prove_n7.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n8",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.181,
+      "log": "logs/fv_prove_n8.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_sanity_n12",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.159,
+      "log": "logs/fv_sanity_n12.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_sanity_n22",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.162,
+      "log": "logs/fv_sanity_n22.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    }
+  ]
+}

@@ -1,0 +1,629 @@
+{
+  "module": "ripple_add",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/review/mutants/m16_rare_n22.v",
+  "dut_sha256": "bdb355e728b60ea127c6dbe6243b9d82a4c99b945cba70a2a7d5af0d00facb83",
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 25.052,
+  "items_total": 68,
+  "items_ok": 58,
+  "all_ok": false,
+  "items": [
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.049,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest kat=19 mismatches=0"
+    },
+    {
+      "id": "lint_n1",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.168,
+      "log": "logs/lint_n1.log",
+      "detail": "RESULT interface N=1 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=1 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_n12",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.167,
+      "log": "logs/lint_n12.log",
+      "detail": "RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=12 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_n16",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.167,
+      "log": "logs/lint_n16.log",
+      "detail": "RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_n22",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.166,
+      "log": "logs/lint_n22.log",
+      "detail": "RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=22 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_n32",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.177,
+      "log": "logs/lint_n32.log",
+      "detail": "RESULT interface N=32 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=32 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_n64",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.193,
+      "log": "logs/lint_n64.log",
+      "detail": "RESULT interface N=64 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=64 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_n8",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.166,
+      "log": "logs/lint_n8.log",
+      "detail": "RESULT interface N=8 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=8 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "lint_ndefault",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.168,
+      "log": "logs/lint_ndefault.log",
+      "detail": "RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 warnings=3 waived=1 other=2 errors=0"
+    },
+    {
+      "id": "build_n1",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.295,
+      "log": "logs/build_n1.log",
+      "detail": "obj_1/sim"
+    },
+    {
+      "id": "build_n10",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.294,
+      "log": "logs/build_n10.log",
+      "detail": "obj_10/sim"
+    },
+    {
+      "id": "build_n11",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.28,
+      "log": "logs/build_n11.log",
+      "detail": "obj_11/sim"
+    },
+    {
+      "id": "build_n12",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.259,
+      "log": "logs/build_n12.log",
+      "detail": "obj_12/sim"
+    },
+    {
+      "id": "build_n16",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.225,
+      "log": "logs/build_n16.log",
+      "detail": "obj_16/sim"
+    },
+    {
+      "id": "build_n2",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.292,
+      "log": "logs/build_n2.log",
+      "detail": "obj_2/sim"
+    },
+    {
+      "id": "build_n22",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.222,
+      "log": "logs/build_n22.log",
+      "detail": "obj_22/sim"
+    },
+    {
+      "id": "build_n3",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.291,
+      "log": "logs/build_n3.log",
+      "detail": "obj_3/sim"
+    },
+    {
+      "id": "build_n32",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.211,
+      "log": "logs/build_n32.log",
+      "detail": "obj_32/sim"
+    },
+    {
+      "id": "build_n4",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.288,
+      "log": "logs/build_n4.log",
+      "detail": "obj_4/sim"
+    },
+    {
+      "id": "build_n5",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.287,
+      "log": "logs/build_n5.log",
+      "detail": "obj_5/sim"
+    },
+    {
+      "id": "build_n6",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.242,
+      "log": "logs/build_n6.log",
+      "detail": "obj_6/sim"
+    },
+    {
+      "id": "build_n64",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.248,
+      "log": "logs/build_n64.log",
+      "detail": "obj_64/sim"
+    },
+    {
+      "id": "build_n7",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.273,
+      "log": "logs/build_n7.log",
+      "detail": "obj_7/sim"
+    },
+    {
+      "id": "build_n8",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.258,
+      "log": "logs/build_n8.log",
+      "detail": "obj_8/sim"
+    },
+    {
+      "id": "build_n9",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.257,
+      "log": "logs/build_n9.log",
+      "detail": "obj_9/sim"
+    },
+    {
+      "id": "exh_n1",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.251,
+      "log": "logs/exh_n1.log",
+      "detail": "RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=0 checksum=0xfaa22921e0ff4c30; model_checksum=0xfaa22921e0ff4c30"
+    },
+    {
+      "id": "exh_n10",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.957,
+      "log": "logs/exh_n10.log",
+      "detail": "RESULT mode=exhaustive N=10 vectors=2097152 applied=2097152 mismatches=0 checksum=0x465b77b0c133d934; model_checksum=0x465b77b0c133d934"
+    },
+    {
+      "id": "exh_n11",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 1.103,
+      "log": "logs/exh_n11.log",
+      "detail": "RESULT mode=exhaustive N=11 vectors=8388608 applied=8388608 mismatches=0 checksum=0xd4da4b69ef53a228; model_checksum=0xd4da4b69ef53a228"
+    },
+    {
+      "id": "exh_n12",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 1.692,
+      "log": "logs/exh_n12.log",
+      "detail": "RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=0 checksum=0x05a0bf138bee72d4; model_checksum=0x05a0bf138bee72d4"
+    },
+    {
+      "id": "exh_n2",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.386,
+      "log": "logs/exh_n2.log",
+      "detail": "RESULT mode=exhaustive N=2 vectors=32 applied=32 mismatches=0 checksum=0x6c75dec815e52fc8; model_checksum=0x6c75dec815e52fc8"
+    },
+    {
+      "id": "exh_n3",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.516,
+      "log": "logs/exh_n3.log",
+      "detail": "RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=0 checksum=0x704f712d864635ce; model_checksum=0x704f712d864635ce"
+    },
+    {
+      "id": "exh_n4",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.748,
+      "log": "logs/exh_n4.log",
+      "detail": "RESULT mode=exhaustive N=4 vectors=512 applied=512 mismatches=0 checksum=0x259258665d7f0156; model_checksum=0x259258665d7f0156"
+    },
+    {
+      "id": "exh_n5",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.888,
+      "log": "logs/exh_n5.log",
+      "detail": "RESULT mode=exhaustive N=5 vectors=2048 applied=2048 mismatches=0 checksum=0x1ddaba4df8d89d19; model_checksum=0x1ddaba4df8d89d19"
+    },
+    {
+      "id": "exh_n6",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 1.033,
+      "log": "logs/exh_n6.log",
+      "detail": "RESULT mode=exhaustive N=6 vectors=8192 applied=8192 mismatches=0 checksum=0x9b07f433a9504163; model_checksum=0x9b07f433a9504163"
+    },
+    {
+      "id": "exh_n7",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.979,
+      "log": "logs/exh_n7.log",
+      "detail": "RESULT mode=exhaustive N=7 vectors=32768 applied=32768 mismatches=0 checksum=0x611024b62b78d7f6; model_checksum=0x611024b62b78d7f6"
+    },
+    {
+      "id": "exh_n8",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 0.986,
+      "log": "logs/exh_n8.log",
+      "detail": "RESULT mode=exhaustive N=8 vectors=131072 applied=131072 mismatches=0 checksum=0x5909ca14beb57b53; model_checksum=0x5909ca14beb57b53"
+    },
+    {
+      "id": "exh_n9",
+      "kind": "exh",
+      "status": "pass-exhaustive",
+      "ok": true,
+      "seconds": 1.002,
+      "log": "logs/exh_n9.log",
+      "detail": "RESULT mode=exhaustive N=9 vectors=524288 applied=524288 mismatches=0 checksum=0x1ea8e35150169fe7; model_checksum=0x1ea8e35150169fe7"
+    },
+    {
+      "id": "vec_n12",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 5.141,
+      "log": "logs/vec_n12.log",
+      "detail": "golden_vectors=207064 verilator_checked=207064 icarus_checked=207064; RESULT mode=vectors N=12 vectors=207064 applied=207064 mismatches=0 checksum=0x0000000000000000; RESULT sim=icarus N=12 vectors=207064 mismatches=0"
+    },
+    {
+      "id": "vec_n16",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.739,
+      "log": "logs/vec_n16.log",
+      "detail": "golden_vectors=208352 verilator_checked=208352 icarus_checked=not-run; RESULT mode=vectors N=16 vectors=208352 applied=208352 mismatches=0 checksum=0x0000000000000000; "
+    },
+    {
+      "id": "vec_n22",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 12.008,
+      "log": "logs/vec_n22.log",
+      "detail": "golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vectors=216556 applied=216556 mismatches=0 checksum=0x0000000000000000; RESULT sim=icarus N=22 vectors=216556 mismatches=0"
+    },
+    {
+      "id": "vec_n32",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.724,
+      "log": "logs/vec_n32.log",
+      "detail": "golden_vectors=232960 verilator_checked=232960 icarus_checked=not-run; RESULT mode=vectors N=32 vectors=232960 applied=232960 mismatches=0 checksum=0x0000000000000000; "
+    },
+    {
+      "id": "vec_n64",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.776,
+      "log": "logs/vec_n64.log",
+      "detail": "golden_vectors=331328 verilator_checked=331328 icarus_checked=not-run; RESULT mode=vectors N=64 vectors=331328 applied=331328 mismatches=0 checksum=0x0000000000000000; "
+    },
+    {
+      "id": "rand_n16",
+      "kind": "rand",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.225,
+      "log": "logs/rand_n16.log",
+      "detail": "RESULT mode=random N=16 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000"
+    },
+    {
+      "id": "rand_n22",
+      "kind": "rand",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 1.317,
+      "log": "logs/rand_n22.log",
+      "detail": "RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=0 checksum=0x0000000000000000"
+    },
+    {
+      "id": "rand_n32",
+      "kind": "rand",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.354,
+      "log": "logs/rand_n32.log",
+      "detail": "RESULT mode=random N=32 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000"
+    },
+    {
+      "id": "rand_n64",
+      "kind": "rand",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.628,
+      "log": "logs/rand_n64.log",
+      "detail": "RESULT mode=random N=64 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000"
+    },
+    {
+      "id": "fv_cover_n1",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.286,
+      "log": "logs/fv_cover_n1.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n12",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.31,
+      "log": "logs/fv_cover_n12.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n22",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.332,
+      "log": "logs/fv_cover_n22.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n32",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.351,
+      "log": "logs/fv_cover_n32.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n4",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.297,
+      "log": "logs/fv_cover_n4.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n8",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.297,
+      "log": "logs/fv_cover_n8.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_pdr_n12",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.286,
+      "log": "logs/fv_pdr_n12.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS"
+    },
+    {
+      "id": "fv_pdr_n22",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.417,
+      "log": "logs/fv_pdr_n22.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n1",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.314,
+      "log": "logs/fv_prove_n1.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n12",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.356,
+      "log": "logs/fv_prove_n12.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n16",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.363,
+      "log": "logs/fv_prove_n16.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n2",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.325,
+      "log": "logs/fv_prove_n2.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n22",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.396,
+      "log": "logs/fv_prove_n22.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n3",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.315,
+      "log": "logs/fv_prove_n3.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n32",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.434,
+      "log": "logs/fv_prove_n32.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n4",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.327,
+      "log": "logs/fv_prove_n4.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n5",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.321,
+      "log": "logs/fv_prove_n5.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n64",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.644,
+      "log": "logs/fv_prove_n64.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n7",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.32,
+      "log": "logs/fv_prove_n7.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_prove_n8",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.341,
+      "log": "logs/fv_prove_n8.log",
+      "detail": "sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction"
+    },
+    {
+      "id": "fv_sanity_n12",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.274,
+      "log": "logs/fv_sanity_n12.log",
+      "detail": "sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong"
+    },
+    {
+      "id": "fv_sanity_n22",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.288,
+      "log": "logs/fv_sanity_n22.log",
+      "detail": "sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong"
+    }
+  ]
+}

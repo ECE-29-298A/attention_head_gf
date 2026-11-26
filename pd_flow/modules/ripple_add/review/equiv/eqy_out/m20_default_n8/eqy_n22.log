@@ -1,0 +1,147 @@
+EQY  2:44:33 [eq] read_gold: starting process "yosys -ql eq/gold.log eq/gold.ys"
+EQY  2:44:33 [eq] read_gold: finished (returncode=0)
+EQY  2:44:33 [eq] read_gate: starting process "yosys -ql eq/gate.log eq/gate.ys"
+EQY  2:44:33 [eq] read_gate: finished (returncode=0)
+EQY  2:44:33 [eq] combine: starting process "yosys -ql eq/combine.log eq/combine.ys"
+EQY  2:44:33 [eq] combine: finished (returncode=0)
+EQY  2:44:33 [eq] partition: starting process "cd eq; yosys -ql partition.log partition.ys"
+EQY  2:44:33 [eq] partition: finished (returncode=0)
+EQY  2:44:34 [eq] run: starting process "make -C eq -f strategies.mk"
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.0'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.0' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.1'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.1' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.10'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.10' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.11'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.11' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.12'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.12' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.13'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.13' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.14'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.14' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.15'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.15' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.16'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.16' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.17'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.17' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.18'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.18' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.19'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.19' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.2'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.2' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.20'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.20' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.21'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.21' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.3'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.3' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.4'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.4' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.5'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.5' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.6'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.6' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.7'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.7' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.8'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.8' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.c.9'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.c.9' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.0'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.0' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.1'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.1' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.10'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.10' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.11'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.11' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.12'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.12' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.13'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.13' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.14'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.14' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.15'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.15' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.16'..
+EQY  2:44:34 [eq] run: Proved equivalence of partition 'ripple_add.s.16' using strategy 'sat'
+EQY  2:44:34 [eq] run: Running strategy 'sat' on 'ripple_add.s.17'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.17' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.18'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.18' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.19'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.19' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.2'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.2' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.20'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.20' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.21'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.21' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.3'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.3' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.4'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.4' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.5'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.5' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.6'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.6' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.7'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.7' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.8'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.8' using strategy 'sat'
+EQY  2:44:35 [eq] run: Running strategy 'sat' on 'ripple_add.s.9'..
+EQY  2:44:35 [eq] run: Proved equivalence of partition 'ripple_add.s.9' using strategy 'sat'
+EQY  2:44:35 [eq] run: /Applications/Xcode.app/Contents/Developer/usr/bin/make -f strategies.mk summary
+EQY  2:44:35 [eq] run: finished (returncode=0)
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.21
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.20
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.19
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.18
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.17
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.16
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.15
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.14
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.13
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.12
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.11
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.10
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.9
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.8
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.7
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.6
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.5
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.4
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.3
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.2
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.1
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.s.0
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.21
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.20
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.19
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.18
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.17
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.16
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.15
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.14
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.13
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.12
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.11
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.10
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.9
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.8
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.7
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.6
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.5
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.4
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.3
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.2
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.1
+EQY  2:44:35 [eq] Successfully proved equivalence of partition ripple_add.c.0
+EQY  2:44:35 [eq] Successfully proved designs equivalent
+EQY  2:44:35 [eq] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY  2:44:35 [eq] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY  2:44:35 [eq] DONE (PASS, rc=0)

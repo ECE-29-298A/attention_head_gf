@@ -1,0 +1,74 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/review/mutants/m19_latch.v
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//ripple_add_verif.UcWwcw
+== phase build
+== phase sim
+== phase formal
+selftest             pass                   0.05s  RESULT selftest kat=19 mismatches=0
+lint_n1              failed                 0.14s  RESULT lint N=1 warnings=2 waived=1 other=1 errors=0; RESULT lint N=1 warnings=2 waived=1 other=1 errors=0
+lint_n12             failed                 0.14s  RESULT lint N=12 warnings=2 waived=1 other=1 errors=0; RESULT lint N=12 warnings=2 waived=1 other=1 errors=0
+lint_n16             failed                 0.14s  RESULT lint N=16 warnings=2 waived=1 other=1 errors=0; RESULT lint N=16 warnings=2 waived=1 other=1 errors=0
+lint_n22             failed                 0.14s  RESULT lint N=22 warnings=2 waived=1 other=1 errors=0; RESULT lint N=22 warnings=2 waived=1 other=1 errors=0
+lint_n32             failed                 0.15s  RESULT lint N=32 warnings=2 waived=1 other=1 errors=0; RESULT lint N=32 warnings=2 waived=1 other=1 errors=0
+lint_n64             failed                 0.17s  RESULT lint N=64 warnings=2 waived=1 other=1 errors=0; RESULT lint N=64 warnings=2 waived=1 other=1 errors=0
+lint_n8              failed                 0.14s  RESULT lint N=8 warnings=2 waived=1 other=1 errors=0; RESULT lint N=8 warnings=2 waived=1 other=1 errors=0
+lint_ndefault        failed                 0.14s  RESULT lint N=16 warnings=2 waived=1 other=1 errors=0; RESULT lint N=16 warnings=2 waived=1 other=1 errors=0
+build_n1             failed                 0.07s  obj_1/sim
+build_n10            failed                 0.07s  obj_10/sim
+build_n11            failed                 0.07s  obj_11/sim
+build_n12            failed                 0.07s  obj_12/sim
+build_n16            failed                 0.08s  obj_16/sim
+build_n2             failed                 0.07s  obj_2/sim
+build_n22            failed                 0.07s  obj_22/sim
+build_n3             failed                 0.07s  obj_3/sim
+build_n32            failed                 0.07s  obj_32/sim
+build_n4             failed                 0.07s  obj_4/sim
+build_n5             failed                 0.07s  obj_5/sim
+build_n6             failed                 0.07s  obj_6/sim
+build_n64            failed                 0.08s  obj_64/sim
+build_n7             failed                 0.07s  obj_7/sim
+build_n8             failed                 0.08s  obj_8/sim
+build_n9             failed                 0.07s  obj_9/sim
+exh_n1               failed                 0.09s  ; model_checksum=0xfaa22921e0ff4c30; checksum_match=no
+exh_n10              failed                 0.12s  ; model_checksum=0x465b77b0c133d934; checksum_match=no
+exh_n11              failed                 0.17s  ; model_checksum=0xd4da4b69ef53a228; checksum_match=no
+exh_n12              failed                 0.30s  ; model_checksum=0x05a0bf138bee72d4; checksum_match=no
+exh_n2               failed                 0.09s  ; model_checksum=0x6c75dec815e52fc8; checksum_match=no
+exh_n3               failed                 0.09s  ; model_checksum=0x704f712d864635ce; checksum_match=no
+exh_n4               failed                 0.09s  ; model_checksum=0x259258665d7f0156; checksum_match=no
+exh_n5               failed                 0.09s  ; model_checksum=0x1ddaba4df8d89d19; checksum_match=no
+exh_n6               failed                 0.09s  ; model_checksum=0x9b07f433a9504163; checksum_match=no
+exh_n7               failed                 0.10s  ; model_checksum=0x611024b62b78d7f6; checksum_match=no
+exh_n8               failed                 0.10s  ; model_checksum=0x5909ca14beb57b53; checksum_match=no
+exh_n9               failed                 0.10s  ; model_checksum=0x1ea8e35150169fe7; checksum_match=no
+vec_n12              failed                 5.18s  golden_vectors=207064 verilator_checked= icarus_checked=207064; ; RESULT sim=icarus N=12 vectors=207064 mismat
+vec_n16              failed                 0.29s  golden_vectors=208352 verilator_checked= icarus_checked=not-run; ; 
+vec_n22              failed                12.32s  golden_vectors=216556 verilator_checked= icarus_checked=216556; ; RESULT sim=icarus N=22 vectors=216556 mismat
+vec_n32              failed                 0.34s  golden_vectors=232960 verilator_checked= icarus_checked=not-run; ; 
+vec_n64              failed                 0.47s  golden_vectors=331328 verilator_checked= icarus_checked=not-run; ; 
+rand_n16             failed                 0.01s  
+rand_n22             failed                 0.02s  
+rand_n32             failed                 0.01s  
+rand_n64             failed                 0.01s  
+fv_cover_n1          inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_cover_n12         inconclusive           0.17s  tool/infrastructure error: sby_status=ERROR; 
+fv_cover_n22         inconclusive           0.17s  tool/infrastructure error: sby_status=ERROR; 
+fv_cover_n32         inconclusive           0.17s  tool/infrastructure error: sby_status=ERROR; 
+fv_cover_n4          inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_cover_n8          inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_pdr_n12           inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_pdr_n22           inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n1          inconclusive           0.19s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n12         inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n16         inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n2          inconclusive           0.19s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n22         inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n3          inconclusive           0.19s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n32         inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n4          inconclusive           0.19s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n5          inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n64         inconclusive           0.19s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n7          inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n8          inconclusive           0.18s  tool/infrastructure error: sby_status=ERROR; 
+fv_sanity_n12        inconclusive           0.16s  tool/infrastructure error: sby_status=ERROR; 
+fv_sanity_n22        inconclusive           0.16s  tool/infrastructure error: sby_status=ERROR; 
+TOTAL 1/68 ok, all_ok=False, 13.965 s

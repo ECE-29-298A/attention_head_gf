@@ -1,0 +1,74 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/review/mutants/m04_carry_wrong_index.v
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//ripple_add_verif.30o6UK
+== phase build
+== phase sim
+== phase formal
+selftest             pass                   0.05s  RESULT selftest kat=19 mismatches=0
+lint_n1              pass-with-waiver       0.15s  RESULT interface N=1 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=1 warni
+lint_n12             pass-with-waiver       0.14s  RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=12 war
+lint_n16             pass-with-waiver       0.14s  RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 war
+lint_n22             pass-with-waiver       0.15s  RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=22 war
+lint_n32             pass-with-waiver       0.15s  RESULT interface N=32 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=32 war
+lint_n64             pass-with-waiver       0.16s  RESULT interface N=64 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=64 war
+lint_n8              pass-with-waiver       0.14s  RESULT interface N=8 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=8 warni
+lint_ndefault        pass-with-waiver       0.15s  RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 war
+build_n1             pass                   3.29s  obj_1/sim
+build_n10            pass                   3.31s  obj_10/sim
+build_n11            pass                   3.34s  obj_11/sim
+build_n12            pass                   3.30s  obj_12/sim
+build_n16            pass                   3.27s  obj_16/sim
+build_n2             pass                   3.29s  obj_2/sim
+build_n22            pass                   3.27s  obj_22/sim
+build_n3             pass                   3.29s  obj_3/sim
+build_n32            pass                   3.27s  obj_32/sim
+build_n4             pass                   3.29s  obj_4/sim
+build_n5             pass                   3.30s  obj_5/sim
+build_n6             pass                   3.29s  obj_6/sim
+build_n64            pass                   3.30s  obj_64/sim
+build_n7             pass                   3.31s  obj_7/sim
+build_n8             pass                   3.32s  obj_8/sim
+build_n9             pass                   3.31s  obj_9/sim
+exh_n1               pass-exhaustive        0.26s  RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=0 checksum=0xfaa22921e0ff4c30; model_checksum=0xfaa2
+exh_n10              failed                 1.08s  RESULT mode=exhaustive N=10 vectors=2097152 applied=2097152 mismatches=1939688 checksum=0x3ce9574331438d42; mo
+exh_n11              failed                 1.25s  RESULT mode=exhaustive N=11 vectors=8388608 applied=8388608 mismatches=7916216 checksum=0x9ab7103c08c8fe2a; mo
+exh_n12              failed                 1.86s  RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=32137256 checksum=0x6d6e3fac28745772;
+exh_n2               failed                 0.43s  RESULT mode=exhaustive N=2 vectors=32 applied=32 mismatches=8 checksum=0xcee7af5883adb45e; model_checksum=0x6c
+exh_n3               failed                 0.59s  RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=56 checksum=0xdaecc2fc0eb426c6; model_checksum=0
+exh_n4               failed                 0.75s  RESULT mode=exhaustive N=4 vectors=512 applied=512 mismatches=296 checksum=0x524f9ec9624ccaa4; model_checksum=
+exh_n5               failed                 0.95s  RESULT mode=exhaustive N=5 vectors=2048 applied=2048 mismatches=1400 checksum=0xbd72e49b13a58e73; model_checks
+exh_n6               failed                 1.11s  RESULT mode=exhaustive N=6 vectors=8192 applied=8192 mismatches=6248 checksum=0xb8f8b8dbddc4cb73; model_checks
+exh_n7               failed                 1.00s  RESULT mode=exhaustive N=7 vectors=32768 applied=32768 mismatches=26936 checksum=0x1c4da5a5899754b0; model_che
+exh_n8               failed                 1.03s  RESULT mode=exhaustive N=8 vectors=131072 applied=131072 mismatches=113576 checksum=0x99a5f6b83387c973; model_
+exh_n9               failed                 1.04s  RESULT mode=exhaustive N=9 vectors=524288 applied=524288 mismatches=471800 checksum=0xf089932a3193f9d3; model_
+vec_n12              failed                 5.27s  golden_vectors=207064 verilator_checked=207064 icarus_checked=207064; RESULT mode=vectors N=12 vectors=207064 
+vec_n16              failed                 0.85s  golden_vectors=208352 verilator_checked=208352 icarus_checked=not-run; RESULT mode=vectors N=16 vectors=208352
+vec_n22              failed                12.16s  golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vectors=216556 
+vec_n32              failed                 0.83s  golden_vectors=232960 verilator_checked=232960 icarus_checked=not-run; RESULT mode=vectors N=32 vectors=232960
+vec_n64              failed                 0.89s  golden_vectors=331328 verilator_checked=331328 icarus_checked=not-run; RESULT mode=vectors N=64 vectors=331328
+rand_n16             failed                 0.26s  RESULT mode=random N=16 vectors=10000000 applied=10000000 mismatches=8034913 checksum=0x0000000000000000
+rand_n22             failed                 1.41s  RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=43493117 checksum=0x0000000000000000
+rand_n32             failed                 0.37s  RESULT mode=random N=32 vectors=10000000 applied=10000000 mismatches=9322963 checksum=0x0000000000000000
+rand_n64             failed                 0.63s  RESULT mode=random N=64 vectors=10000000 applied=10000000 mismatches=9914552 checksum=0x0000000000000000
+fv_cover_n1          covered                0.29s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n12         covered                0.31s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n22         covered                0.32s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n32         covered                0.34s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n4          covered                0.29s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n8          covered                0.30s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_pdr_n12           inconclusive           0.39s  tool/infrastructure error: sby_status=ERROR; 
+fv_pdr_n22           inconclusive           0.40s  tool/infrastructure error: sby_status=ERROR; 
+fv_prove_n1          proven                 0.32s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n12         failed                 0.34s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n16         failed                 0.33s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n2          failed                 0.32s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n22         failed                 0.34s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n3          failed                 0.31s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n32         failed                 0.35s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n4          failed                 0.33s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n5          failed                 0.33s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n64         failed                 0.40s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n7          failed                 0.32s  sby_status=FAIL asserts=2 covers=0; 
+fv_prove_n8          failed                 0.34s  sby_status=FAIL asserts=2 covers=0; 
+fv_sanity_n12        failed-as-expected     0.27s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+fv_sanity_n22        failed-as-expected     0.28s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+TOTAL 35/68 ok, all_ok=False, 25.31 s

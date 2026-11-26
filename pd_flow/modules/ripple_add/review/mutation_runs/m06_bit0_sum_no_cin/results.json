@@ -1,0 +1,629 @@
+{
+  "module": "ripple_add",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/review/mutants/m06_bit0_sum_no_cin.v",
+  "dut_sha256": "2a737710a22c8b278ba03da5d0b7f638de37bcdb9c16ddefaa55c40219a037ad",
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 24.941,
+  "items_total": 68,
+  "items_ok": 33,
+  "all_ok": false,
+  "items": [
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.048,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest kat=19 mismatches=0"
+    },
+    {
+      "id": "lint_n1",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.144,
+      "log": "logs/lint_n1.log",
+      "detail": "RESULT interface N=1 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=1 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_n12",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.143,
+      "log": "logs/lint_n12.log",
+      "detail": "RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=12 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_n16",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.141,
+      "log": "logs/lint_n16.log",
+      "detail": "RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_n22",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.149,
+      "log": "logs/lint_n22.log",
+      "detail": "RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=22 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_n32",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.155,
+      "log": "logs/lint_n32.log",
+      "detail": "RESULT interface N=32 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=32 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_n64",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.168,
+      "log": "logs/lint_n64.log",
+      "detail": "RESULT interface N=64 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=64 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_n8",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.145,
+      "log": "logs/lint_n8.log",
+      "detail": "RESULT interface N=8 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=8 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "lint_ndefault",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 0.146,
+      "log": "logs/lint_ndefault.log",
+      "detail": "RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 warnings=1 waived=1 other=0 errors=0"
+    },
+    {
+      "id": "build_n1",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.269,
+      "log": "logs/build_n1.log",
+      "detail": "obj_1/sim"
+    },
+    {
+      "id": "build_n10",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.304,
+      "log": "logs/build_n10.log",
+      "detail": "obj_10/sim"
+    },
+    {
+      "id": "build_n11",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.293,
+      "log": "logs/build_n11.log",
+      "detail": "obj_11/sim"
+    },
+    {
+      "id": "build_n12",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.295,
+      "log": "logs/build_n12.log",
+      "detail": "obj_12/sim"
+    },
+    {
+      "id": "build_n16",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.196,
+      "log": "logs/build_n16.log",
+      "detail": "obj_16/sim"
+    },
+    {
+      "id": "build_n2",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.271,
+      "log": "logs/build_n2.log",
+      "detail": "obj_2/sim"
+    },
+    {
+      "id": "build_n22",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.195,
+      "log": "logs/build_n22.log",
+      "detail": "obj_22/sim"
+    },
+    {
+      "id": "build_n3",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.284,
+      "log": "logs/build_n3.log",
+      "detail": "obj_3/sim"
+    },
+    {
+      "id": "build_n32",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.197,
+      "log": "logs/build_n32.log",
+      "detail": "obj_32/sim"
+    },
+    {
+      "id": "build_n4",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.289,
+      "log": "logs/build_n4.log",
+      "detail": "obj_4/sim"
+    },
+    {
+      "id": "build_n5",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.281,
+      "log": "logs/build_n5.log",
+      "detail": "obj_5/sim"
+    },
+    {
+      "id": "build_n6",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.27,
+      "log": "logs/build_n6.log",
+      "detail": "obj_6/sim"
+    },
+    {
+      "id": "build_n64",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.218,
+      "log": "logs/build_n64.log",
+      "detail": "obj_64/sim"
+    },
+    {
+      "id": "build_n7",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.282,
+      "log": "logs/build_n7.log",
+      "detail": "obj_7/sim"
+    },
+    {
+      "id": "build_n8",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.281,
+      "log": "logs/build_n8.log",
+      "detail": "obj_8/sim"
+    },
+    {
+      "id": "build_n9",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.321,
+      "log": "logs/build_n9.log",
+      "detail": "obj_9/sim"
+    },
+    {
+      "id": "exh_n1",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.347,
+      "log": "logs/exh_n1.log",
+      "detail": "RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=4 checksum=0x85da69427d5634df; model_checksum=0xfaa22921e0ff4c30; checksum_match=no"
+    },
+    {
+      "id": "exh_n10",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.088,
+      "log": "logs/exh_n10.log",
+      "detail": "RESULT mode=exhaustive N=10 vectors=2097152 applied=2097152 mismatches=1048576 checksum=0xd27eff51724ad3af; model_checksum=0x465b77b0c133d934; checksum_match=no"
+    },
+    {
+      "id": "exh_n11",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.237,
+      "log": "logs/exh_n11.log",
+      "detail": "RESULT mode=exhaustive N=11 vectors=8388608 applied=8388608 mismatches=4194304 checksum=0xadfdcb3837d78634; model_checksum=0xd4da4b69ef53a228; checksum_match=no"
+    },
+    {
+      "id": "exh_n12",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.838,
+      "log": "logs/exh_n12.log",
+      "detail": "RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=16777216 checksum=0x1b18a846304c031c; model_checksum=0x05a0bf138bee72d4; checksum_match=no"
+    },
+    {
+      "id": "exh_n2",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.493,
+      "log": "logs/exh_n2.log",
+      "detail": "RESULT mode=exhaustive N=2 vectors=32 applied=32 mismatches=16 checksum=0xa10e0e65c056b027; model_checksum=0x6c75dec815e52fc8; checksum_match=no"
+    },
+    {
+      "id": "exh_n3",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.645,
+      "log": "logs/exh_n3.log",
+      "detail": "RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=64 checksum=0x4388a2f6ae37955e; model_checksum=0x704f712d864635ce; checksum_match=no"
+    },
+    {
+      "id": "exh_n4",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.85,
+      "log": "logs/exh_n4.log",
+      "detail": "RESULT mode=exhaustive N=4 vectors=512 applied=512 mismatches=256 checksum=0x63562cc2b96ae74a; model_checksum=0x259258665d7f0156; checksum_match=no"
+    },
+    {
+      "id": "exh_n5",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.007,
+      "log": "logs/exh_n5.log",
+      "detail": "RESULT mode=exhaustive N=5 vectors=2048 applied=2048 mismatches=1024 checksum=0x360528767c0c3cee; model_checksum=0x1ddaba4df8d89d19; checksum_match=no"
+    },
+    {
+      "id": "exh_n6",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.177,
+      "log": "logs/exh_n6.log",
+      "detail": "RESULT mode=exhaustive N=6 vectors=8192 applied=8192 mismatches=4096 checksum=0xa6ee5e28e3dbefc0; model_checksum=0x9b07f433a9504163; checksum_match=no"
+    },
+    {
+      "id": "exh_n7",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.009,
+      "log": "logs/exh_n7.log",
+      "detail": "RESULT mode=exhaustive N=7 vectors=32768 applied=32768 mismatches=16384 checksum=0x3de8e7d89093c4d2; model_checksum=0x611024b62b78d7f6; checksum_match=no"
+    },
+    {
+      "id": "exh_n8",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.015,
+      "log": "logs/exh_n8.log",
+      "detail": "RESULT mode=exhaustive N=8 vectors=131072 applied=131072 mismatches=65536 checksum=0xddbd51007dc78458; model_checksum=0x5909ca14beb57b53; checksum_match=no"
+    },
+    {
+      "id": "exh_n9",
+      "kind": "exh",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.031,
+      "log": "logs/exh_n9.log",
+      "detail": "RESULT mode=exhaustive N=9 vectors=524288 applied=524288 mismatches=262144 checksum=0x682006df516f5a62; model_checksum=0x1ea8e35150169fe7; checksum_match=no"
+    },
+    {
+      "id": "vec_n12",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 5.136,
+      "log": "logs/vec_n12.log",
+      "detail": "golden_vectors=207064 verilator_checked=207064 icarus_checked=207064; RESULT mode=vectors N=12 vectors=207064 applied=207064 mismatches=102321 checksum=0x0000000000000000; RESULT sim=icarus N=12 vectors=207064 mismatches=102321"
+    },
+    {
+      "id": "vec_n16",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.852,
+      "log": "logs/vec_n16.log",
+      "detail": "golden_vectors=208352 verilator_checked=208352 icarus_checked=not-run; RESULT mode=vectors N=16 vectors=208352 applied=208352 mismatches=104073 checksum=0x0000000000000000; "
+    },
+    {
+      "id": "vec_n22",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 11.854,
+      "log": "logs/vec_n22.log",
+      "detail": "golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vectors=216556 applied=216556 mismatches=108071 checksum=0x0000000000000000; RESULT sim=icarus N=22 vectors=216556 mismatches=108071"
+    },
+    {
+      "id": "vec_n32",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.779,
+      "log": "logs/vec_n32.log",
+      "detail": "golden_vectors=232960 verilator_checked=232960 icarus_checked=not-run; RESULT mode=vectors N=32 vectors=232960 applied=232960 mismatches=116434 checksum=0x0000000000000000; "
+    },
+    {
+      "id": "vec_n64",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.796,
+      "log": "logs/vec_n64.log",
+      "detail": "golden_vectors=331328 verilator_checked=331328 icarus_checked=not-run; RESULT mode=vectors N=64 vectors=331328 applied=331328 mismatches=165230 checksum=0x0000000000000000; "
+    },
+    {
+      "id": "rand_n16",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.318,
+      "log": "logs/rand_n16.log",
+      "detail": "RESULT mode=random N=16 vectors=10000000 applied=10000000 mismatches=4998172 checksum=0x0000000000000000"
+    },
+    {
+      "id": "rand_n22",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 1.73,
+      "log": "logs/rand_n22.log",
+      "detail": "RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=24999616 checksum=0x0000000000000000"
+    },
+    {
+      "id": "rand_n32",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.445,
+      "log": "logs/rand_n32.log",
+      "detail": "RESULT mode=random N=32 vectors=10000000 applied=10000000 mismatches=5003591 checksum=0x0000000000000000"
+    },
+    {
+      "id": "rand_n64",
+      "kind": "rand",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.663,
+      "log": "logs/rand_n64.log",
+      "detail": "RESULT mode=random N=64 vectors=10000000 applied=10000000 mismatches=4997950 checksum=0x0000000000000000"
+    },
+    {
+      "id": "fv_cover_n1",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.282,
+      "log": "logs/fv_cover_n1.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n12",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.311,
+      "log": "logs/fv_cover_n12.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n22",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.309,
+      "log": "logs/fv_cover_n22.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n32",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.337,
+      "log": "logs/fv_cover_n32.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n4",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.295,
+      "log": "logs/fv_cover_n4.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_cover_n8",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.293,
+      "log": "logs/fv_cover_n8.log",
+      "detail": "sby_status=PASS asserts=2 covers=11 reached=11 unreached=0"
+    },
+    {
+      "id": "fv_pdr_n12",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.378,
+      "log": "logs/fv_pdr_n12.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_pdr_n22",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.396,
+      "log": "logs/fv_pdr_n22.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; "
+    },
+    {
+      "id": "fv_prove_n1",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.326,
+      "log": "logs/fv_prove_n1.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n12",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.317,
+      "log": "logs/fv_prove_n12.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n16",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.329,
+      "log": "logs/fv_prove_n16.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n2",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.326,
+      "log": "logs/fv_prove_n2.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n22",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.326,
+      "log": "logs/fv_prove_n22.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n3",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.32,
+      "log": "logs/fv_prove_n3.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n32",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.329,
+      "log": "logs/fv_prove_n32.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n4",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.318,
+      "log": "logs/fv_prove_n4.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n5",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.319,
+      "log": "logs/fv_prove_n5.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n64",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.389,
+      "log": "logs/fv_prove_n64.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n7",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.322,
+      "log": "logs/fv_prove_n7.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_prove_n8",
+      "kind": "sby",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.322,
+      "log": "logs/fv_prove_n8.log",
+      "detail": "sby_status=FAIL asserts=2 covers=0; "
+    },
+    {
+      "id": "fv_sanity_n12",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.265,
+      "log": "logs/fv_sanity_n12.log",
+      "detail": "sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong"
+    },
+    {
+      "id": "fv_sanity_n22",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.274,
+      "log": "logs/fv_sanity_n22.log",
+      "detail": "sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+SBY  2:42:31 [miter_n22] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/miter_n22'.
+SBY  2:42:31 [miter_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/golden.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/miter_n22/src/golden.v'.
+SBY  2:42:31 [miter_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/dut.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/miter_n22/src/dut.v'.
+SBY  2:42:31 [miter_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/miter.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.sTJXiB/miter_n22/src/miter.sv'.
+SBY  2:42:31 [miter_n22] engine_0: smtbmc z3
+SBY  2:42:31 [miter_n22] base: starting process "cd miter_n22/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  2:42:31 [miter_n22] base: finished (returncode=0)
+SBY  2:42:31 [miter_n22] prep: starting process "cd miter_n22/model; yosys -ql design_prep.log design_prep.ys"
+SBY  2:42:31 [miter_n22] prep: finished (returncode=0)
+SBY  2:42:31 [miter_n22] smt2: starting process "cd miter_n22/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  2:42:31 [miter_n22] smt2: finished (returncode=0)
+SBY  2:42:31 [miter_n22] engine_0.basecase: starting process "cd miter_n22; yosys-smtbmc -s z3 --presat --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  2:42:31 [miter_n22] engine_0.induction: starting process "cd miter_n22; yosys-smtbmc -s z3 --presat -i --noprogress -t 1  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  2:42:31 [miter_n22] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  2:42:31 [miter_n22] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  2:42:31 [miter_n22] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  2:42:31 [miter_n22] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY  2:42:31 [miter_n22] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  2:42:31 [miter_n22] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  2:42:31 [miter_n22] engine_0.induction: ##   0:00:00  Status: passed
+SBY  2:42:31 [miter_n22] engine_0.induction: finished (returncode=0)
+SBY  2:42:31 [miter_n22] engine_0.induction: Status returned by engine for induction: pass
+SBY  2:42:31 [miter_n22] engine_0.basecase: ##   0:00:00  Status: passed
+SBY  2:42:31 [miter_n22] engine_0.basecase: finished (returncode=0)
+SBY  2:42:31 [miter_n22] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  2:42:31 [miter_n22] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  2:42:31 [miter_n22] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  2:42:31 [miter_n22] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  2:42:31 [miter_n22] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  2:42:31 [miter_n22] summary: engine_0 did not produce any traces
+SBY  2:42:31 [miter_n22] summary: successful proof by k-induction.
+SBY  2:42:31 [miter_n22] DONE (PASS, rc=0)

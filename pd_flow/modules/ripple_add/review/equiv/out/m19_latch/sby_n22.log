@@ -1,0 +1,18 @@
+SBY  2:42:46 [miter_n22] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n22'.
+SBY  2:42:46 [miter_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/golden.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n22/src/golden.v'.
+SBY  2:42:46 [miter_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/dut.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n22/src/dut.v'.
+SBY  2:42:46 [miter_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n22/src/miter.sv'.
+SBY  2:42:46 [miter_n22] engine_0: smtbmc z3
+SBY  2:42:46 [miter_n22] base: starting process "cd miter_n22/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  2:42:46 [miter_n22] base: Warning: Latch inferred for signal `$paramod\ripple_add\N=s32'00000000000000000000000000010110.\s' from process `$paramod\ripple_add\N=s32'00000000000000000000000000010110.$dut.v:15$proc$202': $auto$proc_dlatch.cc:649:proc_dlatch$484
+SBY  2:42:46 [miter_n22] base: ERROR: Assertion failed: selection is not empty: t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit
+SBY  2:42:46 [miter_n22] base: Selection contains:
+SBY  2:42:46 [miter_n22] base: $paramod\ripple_add\N=s32'00000000000000000000000000010110/$auto$proc_dlatch.cc:649:proc_dlatch$484
+SBY  2:42:46 [miter_n22] base: finished (returncode=1)
+SBY  2:42:46 [miter_n22] base: task failed. ERROR.
+SBY  2:42:46 [miter_n22] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  2:42:46 [miter_n22] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  2:42:46 [miter_n22] summary: engine_0 (smtbmc z3) did not return a status
+SBY  2:42:46 [miter_n22] summary: engine_0 did not produce any traces
+SBY  2:42:46 [miter_n22] DONE (ERROR, rc=16)
+SBY  2:42:46 The following tasks failed: ['n22']

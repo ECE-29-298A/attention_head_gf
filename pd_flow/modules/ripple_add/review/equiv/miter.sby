@@ -1,0 +1,26 @@
+[tasks]
+n12
+n16
+n22
+
+[options]
+mode prove
+depth 1
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal golden.v
+read_verilog -formal dut.v
+read_verilog -formal -sv miter.sv
+n12: chparam -set N 12 miter
+n16: chparam -set N 16 miter
+n22: chparam -set N 22 miter
+prep -top miter
+select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit
+
+[files]
+golden.v
+dut.v
+miter.sv

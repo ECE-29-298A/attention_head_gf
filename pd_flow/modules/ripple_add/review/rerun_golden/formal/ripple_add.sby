@@ -1,0 +1,65 @@
+# SymbiYosys contract for ripple_add #(N). Run one task at a time: sby -f ripple_add.sby <task>
+# The harness has no state elements, so a depth-1 prove (basecase + induction) is a complete
+# proof over all inputs; see SPEC.md section 4.
+[tasks]
+prove_n1 prove z3 n1
+prove_n2 prove z3 n2
+prove_n3 prove z3 n3
+prove_n4 prove z3 n4
+prove_n5 prove z3 n5
+prove_n7 prove z3 n7
+prove_n8 prove z3 n8
+prove_n12 prove z3 n12
+prove_n16 prove z3 n16
+prove_n22 prove z3 n22
+prove_n32 prove z3 n32
+prove_n64 prove z3 n64
+pdr_n12 prove pdr n12
+pdr_n22 prove pdr n22
+cover_n1 cover n1
+cover_n4 cover n4
+cover_n8 cover n8
+cover_n12 cover n12
+cover_n22 cover n22
+cover_n32 cover n32
+sanity_n22 sanity n22
+sanity_n12 sanity n12
+
+[options]
+prove: mode prove
+prove: depth 1
+cover: mode cover
+cover: depth 1
+sanity: mode bmc
+sanity: depth 1
+
+[engines]
+z3: smtbmc z3
+pdr: abc pdr
+cover: smtbmc z3
+sanity: smtbmc z3
+
+[script]
+prove: read_verilog -formal -sv ripple_add_props.sv
+cover: read_verilog -formal -sv -DCOVERS ripple_add_props.sv
+sanity: read_verilog -formal -sv -DSANITY_FAIL ripple_add_props.sv
+read_verilog -formal ripple_add.v
+n1: chparam -set N 1 ripple_add_props
+n2: chparam -set N 2 ripple_add_props
+n3: chparam -set N 3 ripple_add_props
+n4: chparam -set N 4 ripple_add_props
+n5: chparam -set N 5 ripple_add_props
+n7: chparam -set N 7 ripple_add_props
+n8: chparam -set N 8 ripple_add_props
+n12: chparam -set N 12 ripple_add_props
+n16: chparam -set N 16 ripple_add_props
+n22: chparam -set N 22 ripple_add_props
+n32: chparam -set N 32 ripple_add_props
+n64: chparam -set N 64 ripple_add_props
+prep -top ripple_add_props
+# guard: the proof's completeness argument needs a stateless model
+select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit
+
+[files]
+ripple_add.v
+ripple_add_props.sv

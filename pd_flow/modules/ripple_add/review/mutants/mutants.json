@@ -1,0 +1,177 @@
+[
+  {
+    "name": "m01_sum_xor_to_or",
+    "class": "operator",
+    "description": "sum: second XOR changed to OR, s[i] = (a^b) | c[i]",
+    "intent": "killed",
+    "file": "mutants/m01_sum_xor_to_or.v"
+  },
+  {
+    "name": "m02_no_generate",
+    "class": "carry",
+    "description": "carry generate term a&b dropped",
+    "intent": "killed",
+    "file": "mutants/m02_no_generate.v"
+  },
+  {
+    "name": "m03_no_propagate",
+    "class": "carry",
+    "description": "carry propagate term c&(a^b) dropped",
+    "intent": "killed",
+    "file": "mutants/m03_no_propagate.v"
+  },
+  {
+    "name": "m04_carry_wrong_index",
+    "class": "carry",
+    "description": "sum bit i uses carry c[i-1] (bit 0 uses c[0])",
+    "intent": "killed",
+    "file": "mutants/m04_carry_wrong_index.v"
+  },
+  {
+    "name": "m05_cin_ignored",
+    "class": "cin",
+    "description": "cin ignored: c[0] tied to 0",
+    "intent": "killed",
+    "file": "mutants/m05_cin_ignored.v"
+  },
+  {
+    "name": "m06_bit0_sum_no_cin",
+    "class": "bit0/cin1",
+    "description": "bit-0 sum drops cin (carry still uses it); differs only when cin=1",
+    "intent": "killed",
+    "file": "mutants/m06_bit0_sum_no_cin.v"
+  },
+  {
+    "name": "m07_msb_no_carry_in",
+    "class": "msb",
+    "description": "MSB-only fault: s[N-1] ignores its carry in",
+    "intent": "killed",
+    "file": "mutants/m07_msb_no_carry_in.v"
+  },
+  {
+    "name": "m08_loop_bound_short",
+    "class": "loop",
+    "description": "loop bound off by one (i < N-1): s[N-1] undriven",
+    "intent": "killed",
+    "file": "mutants/m08_loop_bound_short.v"
+  },
+  {
+    "name": "m09_stuck_at0_bit5",
+    "class": "stuck-at",
+    "description": "s[5] stuck at 0 (no effect for N <= 5)",
+    "intent": "killed",
+    "file": "mutants/m09_stuck_at0_bit5.v"
+  },
+  {
+    "name": "m10_stuck_at1_msb",
+    "class": "stuck-at",
+    "description": "s[N-1] stuck at 1",
+    "intent": "killed",
+    "file": "mutants/m10_stuck_at1_msb.v"
+  },
+  {
+    "name": "m11_b_bit_reversed",
+    "class": "wiring",
+    "description": "operand b bit-reversed (b[N-1-i])",
+    "intent": "killed",
+    "file": "mutants/m11_b_bit_reversed.v"
+  },
+  {
+    "name": "m12_n22_only_bit20",
+    "class": "N=22 only",
+    "description": "only at N=22: bit-20 carry out = a&b | c (propagate qualifier lost)",
+    "intent": "killed",
+    "file": "mutants/m12_n22_only_bit20.v"
+  },
+  {
+    "name": "m13_n12_only_msb",
+    "class": "N=12 only",
+    "description": "only at N=12: carry into bit 11 dropped from the sum",
+    "intent": "killed",
+    "file": "mutants/m13_n12_only_msb.v"
+  },
+  {
+    "name": "m14_n22_only_cin1",
+    "class": "N=22 only, cin=1 only",
+    "description": "only at N=22 and cin=1: carry into bit 21 suppressed (breaks mac_unit subtract MSB)",
+    "intent": "killed",
+    "file": "mutants/m14_n22_only_cin1.v"
+  },
+  {
+    "name": "m15_cin1_full_chain",
+    "class": "cin=1 only",
+    "description": "only when cin=1 and the carry ripples through every bit (a^b == all ones): s[N-1] flipped",
+    "intent": "killed",
+    "file": "mutants/m15_cin1_full_chain.v"
+  },
+  {
+    "name": "m16_rare_n22",
+    "class": "rare pattern, N=22 only",
+    "description": "only at N=22 for the single input a=KA[21:0], b=KB[21:0], cin=1: s[0] flipped (1 of 2^45 inputs)",
+    "intent": "killed (formal only expected)",
+    "file": "mutants/m16_rare_n22.v"
+  },
+  {
+    "name": "m17_rare_all_n",
+    "class": "rare pattern, all N",
+    "description": "every N: for the single input a=KA[N-1:0], b=KB[N-1:0], cin=0: s[0] flipped",
+    "intent": "killed (formal/exhaustive only expected)",
+    "file": "mutants/m17_rare_all_n.v"
+  },
+  {
+    "name": "m18_rare_n12_window",
+    "class": "rare pattern, N=12 only, outside mac_unit L range",
+    "description": "only at N=12 for a=12'hABC, b=12'h9F0 (b >= 256), cin=1: s[11] flipped",
+    "intent": "killed (formal/exhaustive only expected)",
+    "file": "mutants/m18_rare_n12_window.v"
+  },
+  {
+    "name": "m19_latch",
+    "class": "statelessness",
+    "description": "output through an always @* latch that holds when a==b==all ones (else transparent)",
+    "intent": "killed",
+    "file": "mutants/m19_latch.v"
+  },
+  {
+    "name": "m20_default_n8",
+    "class": "interface",
+    "description": "default parameter changed N=16 -> N=8 (function at given N unchanged)",
+    "intent": "killed by interface check only",
+    "file": "mutants/m20_default_n8.v"
+  },
+  {
+    "name": "m21_x_on_zero",
+    "class": "4-state",
+    "description": "s[0] = 1'bx when a==0, b==0, cin==0 (X output on a directed corner)",
+    "intent": "killed",
+    "file": "mutants/m21_x_on_zero.v"
+  },
+  {
+    "name": "m22_comb_loop",
+    "class": "statelessness/loop",
+    "description": "functionally redundant combinational loop: c[0] = cin | (s[N-1] & ~s[N-1])",
+    "intent": "killed",
+    "file": "mutants/m22_comb_loop.v"
+  },
+  {
+    "name": "e01_carry_or",
+    "class": "equivalent",
+    "description": "carry propagate qualifier a|b instead of a^b",
+    "intent": "survive (equivalent)",
+    "file": "mutants/e01_carry_or.v"
+  },
+  {
+    "name": "e02_carry_majority",
+    "class": "equivalent",
+    "description": "carry as majority(a, b, c)",
+    "intent": "survive (equivalent)",
+    "file": "mutants/e02_carry_majority.v"
+  },
+  {
+    "name": "e03_behavioural",
+    "class": "equivalent",
+    "description": "behavioural s = a + b + cin (no ripple chain, no c[N])",
+    "intent": "survive (equivalent)",
+    "file": "mutants/e03_behavioural.v"
+  }
+]

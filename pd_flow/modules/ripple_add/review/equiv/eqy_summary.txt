@@ -1,0 +1,6 @@
+e01_carry_or n12 PASS n22 PASS 
+e02_carry_majority n12 PASS n22 PASS 
+e03_behavioural n12 PASS n22 PASS 
+m01_sum_xor_to_or n12 FAIL n22 FAIL 
+m16_rare_n22 n12 PASS n22 FAIL 
+m20_default_n8 n12 PASS n22 PASS 

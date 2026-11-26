@@ -1,0 +1,18 @@
+SBY  2:42:46 [miter_n16] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n16'.
+SBY  2:42:46 [miter_n16] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/golden.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n16/src/golden.v'.
+SBY  2:42:46 [miter_n16] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/dut.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n16/src/dut.v'.
+SBY  2:42:46 [miter_n16] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ra_eq.KcP0yh/miter_n16/src/miter.sv'.
+SBY  2:42:46 [miter_n16] engine_0: smtbmc z3
+SBY  2:42:46 [miter_n16] base: starting process "cd miter_n16/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  2:42:46 [miter_n16] base: Warning: Latch inferred for signal `$paramod\ripple_add\N=s32'00000000000000000000000000010000.\s' from process `$paramod\ripple_add\N=s32'00000000000000000000000000010000.$dut.v:15$proc$202': $auto$proc_dlatch.cc:649:proc_dlatch$412
+SBY  2:42:46 [miter_n16] base: ERROR: Assertion failed: selection is not empty: t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit
+SBY  2:42:46 [miter_n16] base: Selection contains:
+SBY  2:42:46 [miter_n16] base: $paramod\ripple_add\N=s32'00000000000000000000000000010000/$auto$proc_dlatch.cc:649:proc_dlatch$412
+SBY  2:42:46 [miter_n16] base: finished (returncode=1)
+SBY  2:42:46 [miter_n16] base: task failed. ERROR.
+SBY  2:42:46 [miter_n16] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  2:42:46 [miter_n16] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  2:42:46 [miter_n16] summary: engine_0 (smtbmc z3) did not return a status
+SBY  2:42:46 [miter_n16] summary: engine_0 did not produce any traces
+SBY  2:42:46 [miter_n16] DONE (ERROR, rc=16)
+SBY  2:42:46 The following tasks failed: ['n16']

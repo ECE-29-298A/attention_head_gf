@@ -1,0 +1,74 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/review/mutants/e03_behavioural.v
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//ripple_add_verif.d8Xg5Z
+== phase build
+== phase sim
+== phase formal
+selftest             pass                   0.05s  RESULT selftest kat=19 mismatches=0
+lint_n1              pass                   0.14s  RESULT interface N=1 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=1 warni
+lint_n12             pass                   0.14s  RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=12 war
+lint_n16             pass                   0.14s  RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 war
+lint_n22             pass                   0.14s  RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=22 war
+lint_n32             pass                   0.14s  RESULT interface N=32 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=32 war
+lint_n64             pass                   0.14s  RESULT interface N=64 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=64 war
+lint_n8              pass                   0.14s  RESULT interface N=8 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=8 warni
+lint_ndefault        pass                   0.14s  RESULT interface N=16 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lint N=16 war
+build_n1             pass                   3.34s  obj_1/sim
+build_n10            pass                   3.27s  obj_10/sim
+build_n11            pass                   3.25s  obj_11/sim
+build_n12            pass                   3.22s  obj_12/sim
+build_n16            pass                   3.17s  obj_16/sim
+build_n2             pass                   3.33s  obj_2/sim
+build_n22            pass                   3.17s  obj_22/sim
+build_n3             pass                   3.31s  obj_3/sim
+build_n32            pass                   3.18s  obj_32/sim
+build_n4             pass                   3.31s  obj_4/sim
+build_n5             pass                   3.37s  obj_5/sim
+build_n6             pass                   3.34s  obj_6/sim
+build_n64            pass                   3.18s  obj_64/sim
+build_n7             pass                   3.24s  obj_7/sim
+build_n8             pass                   3.23s  obj_8/sim
+build_n9             pass                   3.25s  obj_9/sim
+exh_n1               pass-exhaustive        0.27s  RESULT mode=exhaustive N=1 vectors=8 applied=8 mismatches=0 checksum=0xfaa22921e0ff4c30; model_checksum=0xfaa2
+exh_n10              pass-exhaustive        1.10s  RESULT mode=exhaustive N=10 vectors=2097152 applied=2097152 mismatches=0 checksum=0x465b77b0c133d934; model_ch
+exh_n11              pass-exhaustive        1.23s  RESULT mode=exhaustive N=11 vectors=8388608 applied=8388608 mismatches=0 checksum=0xd4da4b69ef53a228; model_ch
+exh_n12              pass-exhaustive        1.79s  RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=0 checksum=0x05a0bf138bee72d4; model_
+exh_n2               pass-exhaustive        0.45s  RESULT mode=exhaustive N=2 vectors=32 applied=32 mismatches=0 checksum=0x6c75dec815e52fc8; model_checksum=0x6c
+exh_n3               pass-exhaustive        0.60s  RESULT mode=exhaustive N=3 vectors=128 applied=128 mismatches=0 checksum=0x704f712d864635ce; model_checksum=0x
+exh_n4               pass-exhaustive        0.76s  RESULT mode=exhaustive N=4 vectors=512 applied=512 mismatches=0 checksum=0x259258665d7f0156; model_checksum=0x
+exh_n5               pass-exhaustive        0.98s  RESULT mode=exhaustive N=5 vectors=2048 applied=2048 mismatches=0 checksum=0x1ddaba4df8d89d19; model_checksum=
+exh_n6               pass-exhaustive        1.14s  RESULT mode=exhaustive N=6 vectors=8192 applied=8192 mismatches=0 checksum=0x9b07f433a9504163; model_checksum=
+exh_n7               pass-exhaustive        1.02s  RESULT mode=exhaustive N=7 vectors=32768 applied=32768 mismatches=0 checksum=0x611024b62b78d7f6; model_checksu
+exh_n8               pass-exhaustive        1.03s  RESULT mode=exhaustive N=8 vectors=131072 applied=131072 mismatches=0 checksum=0x5909ca14beb57b53; model_check
+exh_n9               pass-exhaustive        1.05s  RESULT mode=exhaustive N=9 vectors=524288 applied=524288 mismatches=0 checksum=0x1ea8e35150169fe7; model_check
+vec_n12              pass-sampled           2.43s  golden_vectors=207064 verilator_checked=207064 icarus_checked=207064; RESULT mode=vectors N=12 vectors=207064 
+vec_n16              pass-sampled           0.83s  golden_vectors=208352 verilator_checked=208352 icarus_checked=not-run; RESULT mode=vectors N=16 vectors=208352
+vec_n22              pass-sampled           2.68s  golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vectors=216556 
+vec_n32              pass-sampled           0.83s  golden_vectors=232960 verilator_checked=232960 icarus_checked=not-run; RESULT mode=vectors N=32 vectors=232960
+vec_n64              pass-sampled           0.77s  golden_vectors=331328 verilator_checked=331328 icarus_checked=not-run; RESULT mode=vectors N=64 vectors=331328
+rand_n16             pass-sampled           0.18s  RESULT mode=random N=16 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000
+rand_n22             pass-sampled           0.83s  RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=0 checksum=0x0000000000000000
+rand_n32             pass-sampled           0.18s  RESULT mode=random N=32 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000
+rand_n64             pass-sampled           0.18s  RESULT mode=random N=64 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000
+fv_cover_n1          covered                0.29s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n12         covered                0.28s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n22         covered                0.29s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n32         covered                0.29s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n4          covered                0.30s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_cover_n8          covered                0.30s  sby_status=PASS asserts=2 covers=11 reached=11 unreached=0
+fv_pdr_n12           proven                 0.28s  sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS
+fv_pdr_n22           proven                 0.29s  sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS
+fv_prove_n1          proven                 0.31s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n12         proven                 0.30s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n16         proven                 0.30s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n2          proven                 0.31s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n22         proven                 0.31s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n3          proven                 0.30s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n32         proven                 0.33s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n4          proven                 0.30s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n5          proven                 0.31s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n64         proven                 0.54s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n7          proven                 0.30s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_prove_n8          proven                 0.30s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_sanity_n12        failed-as-expected     0.26s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+fv_sanity_n22        failed-as-expected     0.26s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+TOTAL 68/68 ok, all_ok=True, 15.575 s
