@@ -1,0 +1,208 @@
+{
+  "module": "max_reg",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/golden_copy/max_reg.v",
+  "dut_sha256": "d7cdf3813e57fab5812438c3535700d05812d8905623913a118d997d1027fd4c",
+  "mode": "rtl",
+  "cells": null,
+  "flop_liberty": null,
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 23.043,
+  "items_total": 17,
+  "items_ok": 17,
+  "all_ok": true,
+  "items": [
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.116,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "lint",
+      "kind": "lint",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.127,
+      "log": "logs/lint.log",
+      "detail": "RESULT lint mode=rtl warnings=0 netlist=0 library=0 errors=0; RESULT interface top=max_reg ports=['M', 'S_in', 'clk', 'en', 'first'] flop_bits=22 errors=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "build",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 2.986,
+      "log": "logs/build.log",
+      "detail": "obj/sim",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "vec",
+      "kind": "vec",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 6.116,
+      "log": "logs/vec.log",
+      "detail": "golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked); RESULT mode=vectors cycles=558544 expected=558544 seq_checked=558536 vec_checked=558536 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_ctrl",
+      "kind": "sim",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 5.044,
+      "log": "logs/sim_ctrl.log",
+      "detail": "RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_checked=100001441 vec_checked=0 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_free",
+      "kind": "sim",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 5.608,
+      "log": "logs/sim_free.log",
+      "detail": "RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100000000 expected=100000000 seq_checked=99997476 vec_checked=0 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_onestep",
+      "kind": "sim",
+      "status": "pass-exhaustive-subspace",
+      "ok": true,
+      "seconds": 19.193,
+      "log": "logs/sim_onestep.log",
+      "detail": "RESULT_SPACE values=8192 checks=268435456 (expected 268435456); RESULT mode=onestep cycles=369086465 expected=369086465 seq_checked=369086465 vec_checked=0 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_powerup",
+      "kind": "sim",
+      "status": "pass-sampled",
+      "ok": true,
+      "seconds": 0.216,
+      "log": "logs/sim_powerup.log",
+      "detail": "RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=0b4c3a 1cbb0a 208103 2ae84f 34253f 1e0af8 1091c4 164f40 ; RESULT mode=powerup cycles=204864 expected=204864 seq_checked=192064 vec_checked=0 mismatches=0",
+      "label": "pass-sampled",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_cover",
+      "kind": "sby",
+      "status": "covered",
+      "ok": true,
+      "seconds": 0.436,
+      "log": "logs/fv_cover.log",
+      "detail": "sby_status=PASS asserts=9 covers=23 reached=23 unreached=0 max_step=5 depth=10",
+      "label": "bounded-pass",
+      "expected_outcome": "pass",
+      "depth": 10
+    },
+    {
+      "id": "fv_pdr_pu",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.308,
+      "log": "logs/fv_pdr_pu.log",
+      "detail": "sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: engine_0 (abc pdr) returned PASS",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_seq",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.772,
+      "log": "logs/fv_pdr_seq.log",
+      "detail": "sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_step",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.35,
+      "log": "logs/fv_pdr_step.log",
+      "detail": "sby_status=PASS asserts=5 covers=0 (expected asserts=5 covers=0); summary: engine_0 (abc pdr) returned PASS",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_pu",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.298,
+      "log": "logs/fv_prove_pu.log",
+      "detail": "sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: successful proof by k-induction",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_seq",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.304,
+      "log": "logs/fv_prove_seq.log",
+      "detail": "sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_step",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 0.305,
+      "log": "logs/fv_prove_step.log",
+      "detail": "sby_status=PASS asserts=5 covers=0 (expected asserts=5 covers=0); summary: successful proof by k-induction",
+      "label": "proven",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_sanity_pu",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.263,
+      "log": "logs/fv_sanity_pu.log",
+      "detail": "sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_pu",
+      "label": "failed",
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "fv_sanity_unsigned",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 0.265,
+      "log": "logs/fv_sanity_unsigned.log",
+      "detail": "sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_unsigned",
+      "label": "failed",
+      "expected_outcome": "fail"
+    }
+  ]
+}

@@ -1,0 +1,2129 @@
+{
+  "runs": {
+    "m01_ge": {
+      "file": "mutants/m01_ge.v",
+      "mode": "rtl",
+      "description": "> changed to >= (tie loads; port-equivalent)",
+      "run_all_rc": 0,
+      "seconds": 23.5,
+      "items_ok": 17,
+      "items_total": 17,
+      "killed_by": [],
+      "killed_by_status": {},
+      "outcome": "survived",
+      "class": "equivalent",
+      "killed_by_formal_proof": [],
+      "killed_by_simulation": [],
+      "killed_by_static": [],
+      "equivalence_proof": "equiv/m01_ge (EQY sat, PASS: next-state functions identical; tie loads S_in == M)"
+    },
+    "m02_lt": {
+      "file": "mutants/m02_lt.v",
+      "mode": "rtl",
+      "description": "> changed to < (running minimum)",
+      "run_all_rc": 1,
+      "seconds": 23.6,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m03_unsigned": {
+      "file": "mutants/m03_unsigned.v",
+      "mode": "rtl",
+      "description": "unsigned compare",
+      "run_all_rc": 1,
+      "seconds": 22.8,
+      "items_ok": 6,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed",
+        "fv_sanity_unsigned": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m04_first_ignored": {
+      "file": "mutants/m04_first_ignored.v",
+      "mode": "rtl",
+      "description": "first ignored",
+      "run_all_rc": 1,
+      "seconds": 31.3,
+      "items_ok": 4,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "failed",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m05_en_ignored": {
+      "file": "mutants/m05_en_ignored.v",
+      "mode": "rtl",
+      "description": "en ignored",
+      "run_all_rc": 1,
+      "seconds": 28.1,
+      "items_ok": 6,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m06_prec_swap": {
+      "file": "mutants/m06_prec_swap.v",
+      "mode": "rtl",
+      "description": "en/first precedence swapped: first loads without en",
+      "run_all_rc": 1,
+      "seconds": 26.8,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m07_signbit": {
+      "file": "mutants/m07_signbit.v",
+      "mode": "rtl",
+      "description": "sign-bit fault: sign-differing pairs decided inverted (positive S vs negative M holds, negative S vs positive M loads)",
+      "run_all_rc": 1,
+      "seconds": 25.8,
+      "items_ok": 6,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed",
+        "fv_sanity_unsigned": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m08_stuck0_b13": {
+      "file": "mutants/m08_stuck0_b13.v",
+      "mode": "rtl",
+      "description": "stuck-at-0 on stored bit 13",
+      "run_all_rc": 1,
+      "seconds": 28.0,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m09_cmp21": {
+      "file": "mutants/m09_cmp21.v",
+      "mode": "rtl",
+      "description": "compare done on 21 bits (bit 21 dropped, bit 20 treated as sign)",
+      "run_all_rc": 1,
+      "seconds": 23.9,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m10_reset_first": {
+      "file": "mutants/m10_reset_first.v",
+      "mode": "rtl",
+      "description": "added clear on first while en = 0 (reset-like, uses existing input)",
+      "run_all_rc": 1,
+      "seconds": 26.3,
+      "items_ok": 8,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m11_initval": {
+      "file": "mutants/m11_initval.v",
+      "mode": "rtl",
+      "description": "power-up initial value M = 0 (no port change)",
+      "run_all_rc": 1,
+      "seconds": 22.9,
+      "items_ok": 6,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "structural-or-interface-violation",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_powerup"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m12_latch": {
+      "file": "mutants/m12_latch.v",
+      "mode": "rtl",
+      "description": "transparent-high latch instead of a flop",
+      "run_all_rc": 1,
+      "seconds": 6.8,
+      "items_ok": 1,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "build",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "build": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "structural-or-interface-violation",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "build",
+        "lint"
+      ]
+    },
+    "m13_negedge": {
+      "file": "mutants/m13_negedge.v",
+      "mode": "rtl",
+      "description": "negedge flop",
+      "run_all_rc": 1,
+      "seconds": 22.7,
+      "items_ok": 2,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m14_rare_pair": {
+      "file": "mutants/m14_rare_pair.v",
+      "mode": "rtl",
+      "description": "fault for one rare pair only: S_in = 0x0A5C3E vs M = 0x0A5C3D (adjacent, both positive) does not load",
+      "run_all_rc": 1,
+      "seconds": 25.3,
+      "items_ok": 13,
+      "items_total": 17,
+      "killed_by": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [],
+      "killed_by_static": []
+    },
+    "m15_minneg": {
+      "file": "mutants/m15_minneg.v",
+      "mode": "rtl",
+      "description": "fault only when M is the most-negative value: nothing beats MINNEG",
+      "run_all_rc": 1,
+      "seconds": 24.0,
+      "items_ok": 9,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_free",
+        "sim_onestep",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_free",
+        "sim_onestep",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m16_equiv_not_le": {
+      "file": "mutants/m16_equiv_not_le.v",
+      "mode": "rtl",
+      "description": "equivalent rewrite !(S_in <= M)",
+      "run_all_rc": 0,
+      "seconds": 23.4,
+      "items_ok": 17,
+      "items_total": 17,
+      "killed_by": [],
+      "killed_by_status": {},
+      "outcome": "survived",
+      "class": "equivalent",
+      "killed_by_formal_proof": [],
+      "killed_by_simulation": [],
+      "killed_by_static": [],
+      "equivalence_proof": "equiv/m16_equiv_not_le (EQY sat, PASS)"
+    },
+    "m17_equiv_sub": {
+      "file": "mutants/m17_equiv_sub.v",
+      "mode": "rtl",
+      "description": "equivalent rewrite: sign of 23-bit difference",
+      "run_all_rc": 1,
+      "seconds": 25.4,
+      "items_ok": 16,
+      "items_total": 17,
+      "killed_by": [
+        "lint"
+      ],
+      "killed_by_status": {
+        "lint": "failed"
+      },
+      "outcome": "killed",
+      "class": "equivalent",
+      "killed_by_formal_proof": [],
+      "killed_by_simulation": [],
+      "killed_by_static": [
+        "lint"
+      ],
+      "equivalence_proof": "equiv/m17_equiv_sub (EQY sat, PASS)"
+    },
+    "m18_comb_bypass": {
+      "file": "mutants/m18_comb_bypass.v",
+      "mode": "rtl",
+      "description": "combinational bypass: M shows S_in in the same cycle on a first load",
+      "run_all_rc": 1,
+      "seconds": 25.3,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m19_twocycle": {
+      "file": "mutants/m19_twocycle.v",
+      "mode": "rtl",
+      "description": "two-cycle latency (extra pipeline stage; 44 flops)",
+      "run_all_rc": 1,
+      "seconds": 23.2,
+      "items_ok": 5,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "failed",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m20_clkgate": {
+      "file": "mutants/m20_clkgate.v",
+      "mode": "rtl",
+      "description": "clock-gated (latch-based ICG style): functionally correct; contract rejects by R11",
+      "run_all_rc": 1,
+      "seconds": 6.8,
+      "items_ok": 1,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "build",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "build": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "clock-gating (function-preserving; excluded by R11 by design)",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "build",
+        "lint"
+      ]
+    },
+    "m21_async_rst": {
+      "file": "mutants/m21_async_rst.v",
+      "mode": "rtl",
+      "description": "async clear on first (no new port)",
+      "run_all_rc": 1,
+      "seconds": 27.1,
+      "items_ok": 2,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m22_minneg_tie": {
+      "file": "mutants/m22_minneg_tie.v",
+      "mode": "rtl",
+      "description": "MINNEG over MAXPOS wrongly loads (overflow-style compare fault on one pair)",
+      "run_all_rc": 1,
+      "seconds": 25.5,
+      "items_ok": 9,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_free",
+        "sim_onestep",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_free",
+        "sim_onestep",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m23_sub_overflow": {
+      "file": "mutants/m23_sub_overflow.v",
+      "mode": "rtl",
+      "description": "compare by 22-bit subtraction sign (overflow not handled)",
+      "run_all_rc": 1,
+      "seconds": 25.2,
+      "items_ok": 6,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m24_first_onlyhigh": {
+      "file": "mutants/m24_first_onlyhigh.v",
+      "mode": "rtl",
+      "description": "first only overrides for non-negative S_in",
+      "run_all_rc": 1,
+      "seconds": 27.1,
+      "items_ok": 5,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "failed",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m25_rst_port": {
+      "file": "mutants/m25_rst_port.v",
+      "mode": "rtl",
+      "description": "added synchronous active-low reset port (interface change; power-up behaviour defined)",
+      "run_all_rc": 1,
+      "seconds": 32.8,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "sim_ctrl",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "sim_ctrl": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "failed",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "structural-or-interface-violation",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_onestep",
+        "sim_powerup"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "m26_cmp_nolsb": {
+      "file": "mutants/m26_cmp_nolsb.v",
+      "mode": "rtl",
+      "description": "compare ignores bit 0 (S_in = M+1 with even M holds)",
+      "run_all_rc": 1,
+      "seconds": 25.8,
+      "items_ok": 9,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m27_stuck1_b21": {
+      "file": "mutants/m27_stuck1_b21.v",
+      "mode": "rtl",
+      "description": "stuck-at-1 on stored sign bit 21",
+      "run_all_rc": 1,
+      "seconds": 28.6,
+      "items_ok": 7,
+      "items_total": 17,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_g01_nand2_to_nor2": {
+      "file": "gate_mutants/g01_nand2_to_nor2.v",
+      "mode": "gate",
+      "description": "cell _155_ nand2_1 replaced by nor2_1 (wrong gate in compare logic)",
+      "run_all_rc": 1,
+      "seconds": 102.5,
+      "items_ok": 9,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_g02_dswap_b0_b1": {
+      "file": "gate_mutants/g02_dswap_b0_b1.v",
+      "mode": "gate",
+      "description": "D inputs of flops M[0] and M[1] swapped",
+      "run_all_rc": 1,
+      "seconds": 111.9,
+      "items_ok": 9,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_g03_dffnq_b0": {
+      "file": "gate_mutants/g03_dffnq_b0.v",
+      "mode": "gate",
+      "description": "flop M[0] replaced by negative-edge dffnq_1",
+      "run_all_rc": 1,
+      "seconds": 99.8,
+      "items_ok": 3,
+      "items_total": 18,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "gate_g04_latq_b4": {
+      "file": "gate_mutants/g04_latq_b4.v",
+      "mode": "gate",
+      "description": "flop M[4] replaced by latch latq_1 (E = clk, transparent high)",
+      "run_all_rc": 1,
+      "seconds": 117.8,
+      "items_ok": 4,
+      "items_total": 18,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "gate_g05_clkbuf": {
+      "file": "gate_mutants/g05_clkbuf.v",
+      "mode": "gate",
+      "description": "all flops clocked through one clkbuf_1 from clk (equivalent; models a post-CTS netlist)",
+      "run_all_rc": 1,
+      "seconds": 99.5,
+      "items_ok": 9,
+      "items_total": 18,
+      "killed_by": [
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "equivalent (buffered clock, post-CTS style); SHOULD be accepted",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [],
+      "killed_by_static": []
+    },
+    "gate_g06_icg_const": {
+      "file": "gate_mutants/g06_icg_const.v",
+      "mode": "gate",
+      "description": "all flops clocked through icgtp_1 with E = 1 (equivalent; clock-gating structure)",
+      "run_all_rc": 1,
+      "seconds": 108.9,
+      "items_ok": 7,
+      "items_total": 18,
+      "killed_by": [
+        "cells_prep",
+        "lint",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "cells_prep": "failed",
+        "lint": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "clock-gating (function-preserving; excluded by R11 by design)",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [],
+      "killed_by_static": [
+        "cells_prep",
+        "lint"
+      ]
+    },
+    "gate_g07_icg_en": {
+      "file": "gate_mutants/g07_icg_en.v",
+      "mode": "gate",
+      "description": "all flops clocked through icgtp_1 enabled by en (functionally equivalent power optimisation)",
+      "run_all_rc": 1,
+      "seconds": 93.6,
+      "items_ok": 7,
+      "items_total": 18,
+      "killed_by": [
+        "cells_prep",
+        "lint",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "cells_prep": "failed",
+        "lint": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "clock-gating (function-preserving; excluded by R11 by design)",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [],
+      "killed_by_static": [
+        "cells_prep",
+        "lint"
+      ]
+    },
+    "gate_g08_dffrnq_tied": {
+      "file": "gate_mutants/g08_dffrnq_tied.v",
+      "mode": "gate",
+      "description": "flop M[0] replaced by dffrnq_1 with RN tied 1 (reset never active; equivalent)",
+      "run_all_rc": 1,
+      "seconds": 99.5,
+      "items_ok": 8,
+      "items_total": 18,
+      "killed_by": [
+        "lint",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_pu",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_pu": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "equivalent, structural (reset flop, reset tied off; excluded by R11 by design)",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "gate_s_m01_ge": {
+      "file": "gate_mutants/s_m01_ge.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m01_ge (> changed to >= (tie loads; port-equivalent))",
+      "run_all_rc": 0,
+      "seconds": 95.4,
+      "items_ok": 18,
+      "items_total": 18,
+      "killed_by": [],
+      "killed_by_status": {},
+      "outcome": "survived",
+      "class": "equivalent",
+      "killed_by_formal_proof": [],
+      "killed_by_simulation": [],
+      "killed_by_static": [],
+      "equivalence_proof": "equiv/gate_s_m01_ge (EQY sat, mapped netlist Yosys view vs golden RTL, PASS)"
+    },
+    "gate_s_m03_unsigned": {
+      "file": "gate_mutants/s_m03_unsigned.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m03_unsigned (unsigned compare)",
+      "run_all_rc": 1,
+      "seconds": 99.9,
+      "items_ok": 7,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed",
+        "fv_sanity_unsigned": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_s_m09_cmp21": {
+      "file": "gate_mutants/s_m09_cmp21.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m09_cmp21 (compare done on 21 bits (bit 21 dropped, bit 20 treated as sign))",
+      "run_all_rc": 1,
+      "seconds": 105.2,
+      "items_ok": 8,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_s_m10_reset_first": {
+      "file": "gate_mutants/s_m10_reset_first.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m10_reset_first (added clear on first while en = 0 (reset-like, uses existing input))",
+      "run_all_rc": 1,
+      "seconds": 128.6,
+      "items_ok": 9,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_s_m13_negedge": {
+      "file": "gate_mutants/s_m13_negedge.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m13_negedge (negedge flop)",
+      "run_all_rc": 1,
+      "seconds": 98.5,
+      "items_ok": 4,
+      "items_total": 18,
+      "killed_by": [
+        "lint",
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "fv_cover",
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step",
+        "fv_sanity_unsigned"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "sim_powerup": "failed",
+        "fv_cover": "inconclusive",
+        "fv_pdr_pu": "inconclusive",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "inconclusive",
+        "fv_prove_step": "inconclusive",
+        "fv_sanity_unsigned": "inconclusive"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_pu",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "sim_powerup",
+        "vec"
+      ],
+      "killed_by_static": [
+        "lint"
+      ]
+    },
+    "gate_s_m14_rare_pair": {
+      "file": "gate_mutants/s_m14_rare_pair.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m14_rare_pair (fault for one rare pair only: S_in = 0x0A5C3E vs M = 0x0A5C3D (adjacent, both positive) does not load)",
+      "run_all_rc": 1,
+      "seconds": 111.5,
+      "items_ok": 14,
+      "items_total": 18,
+      "killed_by": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [],
+      "killed_by_static": []
+    },
+    "gate_s_m15_minneg": {
+      "file": "gate_mutants/s_m15_minneg.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m15_minneg (fault only when M is the most-negative value: nothing beats MINNEG)",
+      "run_all_rc": 1,
+      "seconds": 111.4,
+      "items_ok": 10,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_free",
+        "sim_onestep",
+        "fv_cover",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "fv_cover": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_free",
+        "sim_onestep",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "gate_s_m26_cmp_nolsb": {
+      "file": "gate_mutants/s_m26_cmp_nolsb.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist of RTL mutant m26_cmp_nolsb (compare ignores bit 0 (S_in = M+1 with even M holds))",
+      "run_all_rc": 1,
+      "seconds": 104.5,
+      "items_ok": 10,
+      "items_total": 18,
+      "killed_by": [
+        "vec",
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "vec": "failed",
+        "sim_ctrl": "failed",
+        "sim_free": "failed",
+        "sim_onestep": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl",
+        "sim_free",
+        "sim_onestep",
+        "vec"
+      ],
+      "killed_by_static": []
+    },
+    "m28_deep_counter": {
+      "file": "mutants/m28_deep_counter.v",
+      "mode": "rtl",
+      "description": "deep-state bug: after 1000 consecutive en = 0 cycles, M bit 3 flips once (hidden 10-bit counter)",
+      "run_all_rc": 1,
+      "seconds": 39.8,
+      "items_ok": 10,
+      "items_total": 17,
+      "killed_by": [
+        "lint",
+        "sim_ctrl",
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_status": {
+        "lint": "failed",
+        "sim_ctrl": "failed",
+        "fv_pdr_seq": "inconclusive",
+        "fv_pdr_step": "inconclusive",
+        "fv_prove_pu": "inconclusive",
+        "fv_prove_seq": "failed",
+        "fv_prove_step": "failed"
+      },
+      "outcome": "killed",
+      "class": "functional-bug",
+      "killed_by_formal_proof": [
+        "fv_pdr_seq",
+        "fv_pdr_step",
+        "fv_prove_pu",
+        "fv_prove_seq",
+        "fv_prove_step"
+      ],
+      "killed_by_simulation": [
+        "sim_ctrl"
+      ],
+      "killed_by_static": [
+        "lint"
+      ],
+      "note": "k-induction base case (depth 4) reaches the bug because the DUT's hidden counter is free at step 0; abc pdr finds it but SBY cannot replay the trace (aigsmt), so the contract labels pdr 'inconclusive'; prove_pu returns UNKNOWN (induction does not close with extra state) and is labelled inconclusive with detail 'tool/infrastructure error'; pdr_pu PASS (power-up independence does hold here). Only sim_ctrl (gaps up to 1100) among the simulations kills it."
+    }
+  },
+  "summary": {
+    "runs": 44,
+    "rtl_runs": 28,
+    "gate_runs": 16,
+    "must_kill": 35,
+    "must_kill_killed": 35,
+    "functional_bugs": 32,
+    "functional_bugs_killed_by_formal_proof": 32,
+    "functional_bugs_killed_by_simulation": 30,
+    "functional_bugs_formal_only": [
+      "gate_s_m14_rare_pair",
+      "m14_rare_pair"
+    ],
+    "survivors": [
+      "gate_s_m01_ge",
+      "m01_ge",
+      "m16_equiv_not_le"
+    ],
+    "survivors_all_proven_equivalent": true,
+    "equivalent_rejected": [
+      "gate_g05_clkbuf",
+      "gate_g06_icg_const",
+      "gate_g07_icg_en",
+      "gate_g08_dffrnq_tied",
+      "m17_equiv_sub",
+      "m20_clkgate"
+    ],
+    "eqy_negative_controls": [
+      "equiv/m03_unsigned FAIL",
+      "equiv/m14_rare_pair FAIL",
+      "equiv/gate_s_m03_unsigned_negctl FAIL"
+    ],
+    "contract": "verif/run_all.sh at HEAD 6708863, unmodified; one run at a time, --jobs 6"
+  }
+}

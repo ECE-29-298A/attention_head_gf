@@ -1,0 +1,1 @@
+sim_powerup	sim	pass-sampled	true	0.216	logs/sim_powerup.log	RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=0b4c3a 1cbb0a 208103 2ae84f 34253f 1e0af8 1091c4 164f40 ; RESULT mode=powerup cycles=204864 expected=204864 seq_checked=192064 vec_checked=0 mismatches=0

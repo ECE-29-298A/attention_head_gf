@@ -1,0 +1,160 @@
+SBY  6:00:18 [max_reg_cover] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.lyR5dc/fv_cover/max_reg_cover'.
+SBY  6:00:18 [max_reg_cover] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.lyR5dc/fv_cover/max_reg_fv.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.lyR5dc/fv_cover/max_reg_cover/src/max_reg_fv.v'.
+SBY  6:00:18 [max_reg_cover] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.lyR5dc/fv_cover/max_reg_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/max_reg_verif.lyR5dc/fv_cover/max_reg_cover/src/max_reg_props.sv'.
+SBY  6:00:18 [max_reg_cover] engine_0: smtbmc z3
+SBY  6:00:18 [max_reg_cover] base: starting process "cd max_reg_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:00:18 [max_reg_cover] base: finished (returncode=0)
+SBY  6:00:18 [max_reg_cover] prep: starting process "cd max_reg_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:00:18 [max_reg_cover] prep: finished (returncode=0)
+SBY  6:00:18 [max_reg_cover] smt2: starting process "cd max_reg_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:00:18 [max_reg_cover] smt2: finished (returncode=0)
+SBY  6:00:18 [max_reg_cover] engine_0: starting process "cd max_reg_cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 10  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Solver: z3
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 0 at max_reg_props: c_pu_differ
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_first_equal
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_pu_converge
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_gt_update
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_pos_vs_neg
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_preload_update
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_lt_hold
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_en0_first
+SBY  6:00:18 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace4.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace4.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_en0_greater
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace5.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace5.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Reached cover statement in step 1 at max_reg_props: c_first_lower
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace6.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace6.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace6.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Reached cover statement in step 1 at max_reg_props: c_tie_hold
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace7.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace7.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace7.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Reached cover statement in step 1 at max_reg_props: c_zero_over_m1
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace8.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace8_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace8.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace8.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Reached cover statement in step 1 at max_reg_props: c_max_over_min
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace9.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace9_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace9.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace9.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Reached cover statement in step 1 at max_reg_props: c_neg_vs_pos
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace10.vcd
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace10_tb.v
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace10.smtc
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace10.yw
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Reached cover statement in step 1 at max_reg_props: c_m1_vs_zero
+SBY  6:00:19 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace11.vcd
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace11_tb.v
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace11.smtc
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace11.yw
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:01  Reached cover statement in step 1 at max_reg_props: c_min_tie
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace12.vcd
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace12_tb.v
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace12.smtc
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace12.yw
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 1..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Reached cover statement in step 1 at max_reg_props: c_min_over_max_first
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace13.vcd
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace13_tb.v
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace13.smtc
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace13.yw
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 1..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Reached cover statement in step 1 at max_reg_props: c_min_vs_max
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace14.vcd
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace14_tb.v
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace14.smtc
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace14.yw
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 1..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Reached cover statement in step 1 at max_reg_props: c_max_tie
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace15.vcd
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace15_tb.v
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace15.smtc
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace15.yw
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 1..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 2..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Reached cover statement in step 2 at max_reg_props: c_reload_lower
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace16.vcd
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace16_tb.v
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace16.smtc
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace16.yw
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 2..
+SBY  6:00:20 [max_reg_cover] engine_0: ##   0:00:02  Checking cover reachability in step 3..
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:02  Reached cover statement in step 3 at max_reg_props: c_ctrl_pattern
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace17.vcd
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace17_tb.v
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace17.smtc
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace17.yw
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Checking cover reachability in step 3..
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Reached cover statement in step 3 at max_reg_props: c_seq3_not_last
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace18.vcd
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace18_tb.v
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace18.smtc
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace18.yw
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Checking cover reachability in step 3..
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Checking cover reachability in step 4..
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Checking cover reachability in step 5..
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Reached cover statement in step 5 at max_reg_props: c_hold4
+SBY  6:00:21 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to VCD file: engine_0/trace19.vcd
+SBY  6:00:22 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to Verilog testbench: engine_0/trace19_tb.v
+SBY  6:00:22 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to constraints file: engine_0/trace19.smtc
+SBY  6:00:22 [max_reg_cover] engine_0: ##   0:00:03  Writing trace to Yosys witness file: engine_0/trace19.yw
+SBY  6:00:22 [max_reg_cover] engine_0: ##   0:00:03  Status: passed
+SBY  6:00:22 [max_reg_cover] engine_0: finished (returncode=0)
+SBY  6:00:22 [max_reg_cover] engine_0: Status returned by engine: pass
+SBY  6:00:22 [max_reg_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:04 (4)
+SBY  6:00:22 [max_reg_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:04 (4)
+SBY  6:00:22 [max_reg_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY  6:00:22 [max_reg_cover] summary: cover trace: max_reg_cover/engine_0/trace0.vcd
+SBY  6:00:22 [max_reg_cover] summary:   reached cover statement max_reg_props.c_pu_differ at max_reg_props.sv:132.9-132.48
+SBY  6:00:22 [max_reg_cover] summary: cover trace: max_reg_cover/engine_0/trace1.vcd
+SBY  6:00:22 [max_reg_cover] summary:   reached cover statement max_reg_props.c_first_equal at max_reg_props.sv:108.9-108.71 step 1
+SBY  6:00:22 [max_reg_cover] summary:   reached cover statement max_reg_props.c_pu_converge at max_reg_props.sv:133.9-133.72 step 1
+SBY  6:00:22 [max_reg_cover] summary: cover trace: max_reg_cover/engine_0/trace10.vcd
+SBY  6:00:22 [max_reg_cover] summary:   reached cover statement max_reg_props.c_neg_vs_pos at max_reg_props.sv:115.9-115.81 step 1
+SBY  6:00:22 [max_reg_cover] summary: cover trace: max_reg_cover/engine_0/trace11.vcd
+SBY  6:00:22 [max_reg_cover] summary:   reached cover statement max_reg_props.c_m1_vs_zero at max_reg_props.sv:122.9-122.92 step 1
+SBY  6:00:22 [max_reg_cover] summary: cover trace: max_reg_cover/engine_0/trace12.vcd
+SBY  6:00:22 [max_reg_cover] summary:   reached cover statement max_reg_props.c_min_tie at max_reg_props.sv:119.9-119.96 step 1
+SBY  6:00:22 [max_reg_cover] summary: and 15 further traces
+SBY  6:00:22 [max_reg_cover] summary: see max_reg_cover/PASS for a complete summary
+SBY  6:00:22 [max_reg_cover] DONE (PASS, rc=0)

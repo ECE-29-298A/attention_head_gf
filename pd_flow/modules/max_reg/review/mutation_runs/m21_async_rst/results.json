@@ -1,0 +1,207 @@
+{
+  "module": "max_reg",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/mutants/m21_async_rst.v",
+  "dut_sha256": "648053730cd134354ecfa29d8c566e49245324d8ba5483db2622e2321003b2fa",
+  "mode": "rtl",
+  "cells": null,
+  "flop_liberty": null,
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 26.903,
+  "items_total": 17,
+  "items_ok": 2,
+  "all_ok": false,
+  "items": [
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.117,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "lint",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.124,
+      "log": "logs/lint.log",
+      "detail": "RESULT lint mode=rtl warnings=0 netlist=0 library=0 errors=0; ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "build",
+      "kind": "build",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.131,
+      "log": "logs/build.log",
+      "detail": "obj/sim",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "vec",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 6.176,
+      "log": "logs/vec.log",
+      "detail": "golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked); RESULT mode=vectors cycles=558544 expected=558544 seq_checked=558536 vec_checked=558536 mismatches=527512",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_ctrl",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 5.316,
+      "log": "logs/sim_ctrl.log",
+      "detail": "RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_checked=100001441 vec_checked=0 mismatches=18403352",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_free",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 5.892,
+      "log": "logs/sim_free.log",
+      "detail": "RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100000000 expected=100000000 seq_checked=99997476 vec_checked=0 mismatches=34531660",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_onestep",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 23.316,
+      "log": "logs/sim_onestep.log",
+      "detail": "RESULT_SPACE values=8192 checks=268435456 (expected 268435456); RESULT mode=onestep cycles=436187137 expected=436187137 seq_checked=436187137 vec_checked=0 mismatches=335503361",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_powerup",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.243,
+      "log": "logs/sim_powerup.log",
+      "detail": "RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=0b4c3a 1cbb0a 208103 2ae84f 34253f 1e0af8 1091c4 164f40 ; RESULT mode=powerup cycles=204864 expected=204864 seq_checked=192064 vec_checked=0 mismatches=34560",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_cover",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.162,
+      "log": "logs/fv_cover.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_cover] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_pu",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.175,
+      "log": "logs/fv_pdr_pu.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_pdr_pu] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_seq",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.183,
+      "log": "logs/fv_pdr_seq.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_pdr_seq] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_step",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.183,
+      "log": "logs/fv_pdr_step.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_pdr_step] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_pu",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.181,
+      "log": "logs/fv_prove_pu.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_prove_pu] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_seq",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.181,
+      "log": "logs/fv_prove_seq.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_prove_seq] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_step",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.185,
+      "log": "logs/fv_prove_step.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_prove_step] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_sanity_pu",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.159,
+      "log": "logs/fv_sanity_pu.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_sanity_pu] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "fv_sanity_unsigned",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.16,
+      "log": "logs/fv_sanity_unsigned.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:09:14 [max_reg_sanity_unsigned] base: ERROR: Multiple edge sensitive events found for this signal!",
+      "label": "inconclusive",
+      "expected_outcome": "fail"
+    }
+  ]
+}

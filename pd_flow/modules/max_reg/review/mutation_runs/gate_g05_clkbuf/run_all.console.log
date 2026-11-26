@@ -1,0 +1,19 @@
+cells_prep           pass                      pass-static        0.23s  RESULT cells netlist_modules=['max_reg'] cell_types=19 models_copied=39 udps=1 liberty_flop_cells=1 netlist_li
+selftest             pass                      pass-static        0.12s  RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0
+lint                 pass-with-waiver          pass-static        0.20s  RESULT lint mode=gate warnings=9 netlist=0 library=9 errors=0; RESULT interface top=max_reg ports=['M', 'S_in'
+build                pass                      pass-static        3.24s  obj/sim
+vec                  pass-sampled              pass-sampled      11.11s  golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked)
+sim_ctrl             pass-sampled              pass-sampled      24.39s  RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_check
+sim_free             pass-sampled              pass-sampled      26.56s  RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100
+sim_onestep          pass-exhaustive-subspace  pass-sampled      95.25s  RESULT_SPACE values=8192 checks=268435456 (expected 268435456); RESULT mode=onestep cycles=369086465 expected=
+sim_powerup          pass-sampled              pass-sampled       0.45s  RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=3a50ac 31c89d 02a4e6 38b7a8
+fv_cover             inconclusive              inconclusive       0.24s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_cover] prep: ERROR: derived signal \clk_buf
+fv_pdr_pu            inconclusive              inconclusive       0.25s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_pdr_pu] prep: ERROR: derived signal \clk_bu
+fv_pdr_seq           inconclusive              inconclusive       0.25s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_pdr_seq] prep: ERROR: derived signal \clk_b
+fv_pdr_step          inconclusive              inconclusive       0.25s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_pdr_step] prep: ERROR: derived signal \clk_
+fv_prove_pu          inconclusive              inconclusive       0.25s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_prove_pu] prep: ERROR: derived signal \clk_
+fv_prove_seq         inconclusive              inconclusive       0.26s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_prove_seq] prep: ERROR: derived signal \clk
+fv_prove_step        inconclusive              inconclusive       0.26s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_prove_step] prep: ERROR: derived signal \cl
+fv_sanity_pu         inconclusive              inconclusive       0.22s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_sanity_pu] prep: ERROR: derived signal \clk
+fv_sanity_unsigned   inconclusive              inconclusive       0.22s  tool/infrastructure error: sby_status=ERROR; SBY  6:20:51 [max_reg_sanity_unsigned] prep: ERROR: derived signa
+TOTAL 9/18 ok, all_ok=False, 99.352 s

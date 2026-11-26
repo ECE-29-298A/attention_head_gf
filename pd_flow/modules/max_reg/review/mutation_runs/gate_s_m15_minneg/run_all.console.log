@@ -1,0 +1,19 @@
+cells_prep           pass                      pass-static        0.23s  RESULT cells netlist_modules=['max_reg'] cell_types=23 models_copied=47 udps=1 liberty_flop_cells=1 netlist_li
+selftest             pass                      pass-static        0.12s  RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0
+lint                 pass-with-waiver          pass-static        0.20s  RESULT lint mode=gate warnings=9 netlist=0 library=9 errors=0; RESULT interface top=max_reg ports=['M', 'S_in'
+build                pass                      pass-static        3.20s  obj/sim
+vec                  failed                    failed            11.30s  golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked)
+sim_ctrl             pass-sampled              pass-sampled      26.30s  RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_check
+sim_free             failed                    failed            28.40s  RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100
+sim_onestep          failed                    failed           103.08s  RESULT_SPACE values=8192 checks=268435456 (expected 268435456); RESULT mode=onestep cycles=369078274 expected=
+sim_powerup          pass-sampled              pass-sampled       0.38s  RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=23d80e 190c6c 2ad210 02c28e
+fv_cover             failed                    failed             4.13s  sby_status=FAIL asserts=9 covers=23 reached=22 unreached=2 max_step=5 depth=10
+fv_pdr_pu            proven                    proven             0.44s  sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_seq           inconclusive              inconclusive       0.99s  tool/infrastructure error: sby_status=ERROR; SBY  6:38:20 [max_reg_pdr_seq] ERROR: engine_0: Could not determi
+fv_pdr_step          inconclusive              inconclusive       0.55s  tool/infrastructure error: sby_status=ERROR; SBY  6:38:19 [max_reg_pdr_step] ERROR: engine_0: Could not determ
+fv_prove_pu          proven                    proven             0.65s  sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: successful proof by k-induction
+fv_prove_seq         failed                    failed             0.62s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); 
+fv_prove_step        failed                    failed             0.56s  sby_status=FAIL asserts=5 covers=0 (expected asserts=5 covers=0); 
+fv_sanity_pu         failed-as-expected        failed             0.50s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_pu
+fv_sanity_unsigned   failed-as-expected        failed             0.49s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_unsigned
+TOTAL 10/18 ok, all_ok=False, 111.212 s

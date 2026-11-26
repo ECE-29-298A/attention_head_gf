@@ -1,0 +1,52 @@
+# SymbiYosys contract for max_reg. Run one task at a time: sby -f max_reg.sby <task>
+# max_reg_fv.v is the DUT as Yosys reads it (RTL: the RTL file; gate level: the Yosys view
+# from gate/extract_cells.py). No assumptions anywhere; the DUT's M has no initial value.
+# prove_*: k-induction (smtbmc/Z3); pdr_*: abc pdr (IC3), an independent unbounded engine.
+[tasks]
+prove_step prove z3 step
+pdr_step   prove pdr step
+prove_seq  prove z3 seq
+pdr_seq    prove pdr seq
+prove_pu   prove z3 pu
+pdr_pu     prove pdr pu
+cover      cover
+sanity_unsigned sanity
+sanity_pu  sanity
+
+[options]
+prove: mode prove
+prove: depth 4
+cover: mode cover
+cover: depth 10
+sanity: mode bmc
+sanity: depth 4
+
+[engines]
+z3: smtbmc z3
+pdr: abc pdr
+cover: smtbmc z3
+sanity: smtbmc z3
+
+[script]
+step: read_verilog -formal -sv -DSTEP max_reg_props.sv
+seq: read_verilog -formal -sv -DSEQ max_reg_props.sv
+pu: read_verilog -formal -sv -DPOWERUP max_reg_props.sv
+cover: read_verilog -formal -sv -DSTEP -DSEQ -DPOWERUP -DCOVERS max_reg_props.sv
+sanity_unsigned: read_verilog -formal -sv -DSANITY_UNSIGNED max_reg_props.sv
+sanity_pu: read_verilog -formal -sv -DPOWERUP -DSANITY_POWERUP max_reg_props.sv
+read_verilog -formal max_reg_fv.v
+hierarchy -top max_reg_props; flatten; opt_clean
+prep -top max_reg_props
+# guard: one positive-edge clock, no asynchronous or reset state, no latches or memories.
+# (Without multiclock, SBY treats every flop as clocked by the global step, so a
+# negative-edge or asynchronous element would be mis-modelled; lint_* also checks this.)
+select -assert-none t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*
+select -assert-none t:$dff r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$dffe r:CLK_POLARITY=1'b0 %i
+# guard: the DUT flops carry no initial value (R8: power-up value unconstrained)
+# (only the harness's own observer registers may have one)
+select -assert-none a:init max_reg_props/* %d
+
+[files]
+max_reg_fv.v
+max_reg_props.sv

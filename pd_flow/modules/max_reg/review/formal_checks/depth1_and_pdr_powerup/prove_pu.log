@@ -1,0 +1,32 @@
+SBY  6:00:48 [d1_prove_pu] Removing directory '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/d1_prove_pu'.
+SBY  6:00:48 [d1_prove_pu] Copy '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/max_reg_fv.v' to '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/d1_prove_pu/src/max_reg_fv.v'.
+SBY  6:00:48 [d1_prove_pu] Copy '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/max_reg_props.sv' to '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/d1_prove_pu/src/max_reg_props.sv'.
+SBY  6:00:48 [d1_prove_pu] engine_0: smtbmc z3
+SBY  6:00:48 [d1_prove_pu] base: starting process "cd d1_prove_pu/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:00:48 [d1_prove_pu] base: finished (returncode=0)
+SBY  6:00:48 [d1_prove_pu] prep: starting process "cd d1_prove_pu/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:00:48 [d1_prove_pu] prep: finished (returncode=0)
+SBY  6:00:48 [d1_prove_pu] smt2: starting process "cd d1_prove_pu/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:00:48 [d1_prove_pu] smt2: finished (returncode=0)
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: starting process "cd d1_prove_pu; yosys-smtbmc -s z3 --presat --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: starting process "cd d1_prove_pu; yosys-smtbmc -s z3 --presat -i --noprogress -t 1  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: ##   0:00:00  Trying induction in step 0..
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: ##   0:00:00  Status: passed
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: ##   0:00:00  Status: passed
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: finished (returncode=0)
+SBY  6:00:48 [d1_prove_pu] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: finished (returncode=0)
+SBY  6:00:48 [d1_prove_pu] engine_0.induction: Status returned by engine for induction: pass
+SBY  6:00:48 [d1_prove_pu] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:00:48 [d1_prove_pu] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:00:48 [d1_prove_pu] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  6:00:48 [d1_prove_pu] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  6:00:48 [d1_prove_pu] summary: engine_0 did not produce any traces
+SBY  6:00:48 [d1_prove_pu] summary: successful proof by k-induction.
+SBY  6:00:48 [d1_prove_pu] DONE (PASS, rc=0)

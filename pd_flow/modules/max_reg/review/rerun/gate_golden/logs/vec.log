@@ -1,0 +1,7 @@
+RESULT vectors written=558544 checked_values=558536 file=vec.txt
+a994a2fdbbc09b6568e3dc67d99b4d180447daa97acbd2594989e0ecb26e131d  vec.txt
+== verilator
+RESULT mode=vectors cycles=558544 expected=558544 seq_checked=558536 vec_checked=558536 mismatches=0
+== icarus
+RESULT sim=icarus vectors=558544 checked=558536 mismatches=0
+tb_vectors.sv:65: $finish called at 5585445000 (1ps)

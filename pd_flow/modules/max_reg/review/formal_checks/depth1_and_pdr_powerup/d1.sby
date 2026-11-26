@@ -1,0 +1,27 @@
+# Agent 2 check: Agent 1's harness, unchanged, with k-induction depth 1 (1-inductiveness),
+# plus abc pdr on the power-up negative control (does pdr see a free power-up M?).
+[tasks]
+prove_step prove z3 step
+prove_seq  prove z3 seq
+prove_pu   prove z3 pu
+pu_pdr     prove pdr pux
+
+[options]
+mode prove
+z3: depth 1
+
+[engines]
+z3: smtbmc z3
+pdr: abc pdr
+
+[script]
+step: read_verilog -formal -sv -DSTEP max_reg_props.sv
+seq: read_verilog -formal -sv -DSEQ max_reg_props.sv
+pu: read_verilog -formal -sv -DPOWERUP max_reg_props.sv
+pux: read_verilog -formal -sv -DPOWERUP -DSANITY_POWERUP max_reg_props.sv
+read_verilog -formal max_reg_fv.v
+prep -top max_reg_props
+
+[files]
+max_reg_fv.v
+max_reg_props.sv

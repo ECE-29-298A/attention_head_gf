@@ -1,0 +1,207 @@
+{
+  "module": "max_reg",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/mutants/m12_latch.v",
+  "dut_sha256": "bf63b24858ab30aa529f556b3b4b0e535dabc5b76e96711f99b03bed6cf112d8",
+  "mode": "rtl",
+  "cells": null,
+  "flop_liberty": null,
+  "tools": {
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 6.611,
+  "items_total": 17,
+  "items_ok": 1,
+  "all_ok": false,
+  "items": [
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.116,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0",
+      "label": "pass-static",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "lint",
+      "kind": "lint",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.128,
+      "log": "logs/lint.log",
+      "detail": "RESULT lint mode=rtl warnings=2 netlist=2 library=0 errors=0; ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "build",
+      "kind": "build",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.063,
+      "log": "logs/build.log",
+      "detail": "obj/sim",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "vec",
+      "kind": "vec",
+      "status": "failed",
+      "ok": false,
+      "seconds": 6.007,
+      "log": "logs/vec.log",
+      "detail": "golden_cycles=558544 golden_values=558536 verilator=/ icarus=558544/558536 (cycles/values checked); ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_ctrl",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.026,
+      "log": "logs/sim_ctrl.log",
+      "detail": "; ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_free",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.024,
+      "log": "logs/sim_free.log",
+      "detail": "; ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_onestep",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.026,
+      "log": "logs/sim_onestep.log",
+      "detail": "; ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "sim_powerup",
+      "kind": "sim",
+      "status": "failed",
+      "ok": false,
+      "seconds": 0.025,
+      "log": "logs/sim_powerup.log",
+      "detail": "; ",
+      "label": "failed",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_cover",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.177,
+      "log": "logs/fv_cover.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_cover] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N*",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_pu",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.187,
+      "log": "logs/fv_pdr_pu.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_pdr_pu] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_seq",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.188,
+      "log": "logs/fv_pdr_seq.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_pdr_seq] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_step",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.19,
+      "log": "logs/fv_pdr_step.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_pdr_step] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_pu",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.19,
+      "log": "logs/fv_prove_pu.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_prove_pu] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_seq",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.193,
+      "log": "logs/fv_prove_seq.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_prove_seq] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DF",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_prove_step",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.195,
+      "log": "logs/fv_prove_step.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_prove_step] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_D",
+      "label": "inconclusive",
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_sanity_pu",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.162,
+      "log": "logs/fv_sanity_pu.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_sanity_pu] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DF",
+      "label": "inconclusive",
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "fv_sanity_unsigned",
+      "kind": "sby",
+      "status": "inconclusive",
+      "ok": false,
+      "seconds": 0.163,
+      "log": "logs/fv_sanity_unsigned.log",
+      "detail": "tool/infrastructure error: sby_status=ERROR; SBY  6:05:51 [max_reg_sanity_unsigned] base: ERROR: Assertion failed: selection is not empty: t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* ",
+      "label": "inconclusive",
+      "expected_outcome": "fail"
+    }
+  ]
+}

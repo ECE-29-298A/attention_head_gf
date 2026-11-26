@@ -1,0 +1,1 @@
+sim_ctrl	sim	pass-sampled	true	5.044	logs/sim_ctrl.log	RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_checked=100001441 vec_checked=0 mismatches=0

@@ -1,0 +1,24 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/mutants/m15_minneg.v
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/mutant_runs/m15_minneg
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//max_reg_verif.6ppmZW
+== phase build
+== phase sim
+== phase formal
+selftest             pass                      pass-static        0.12s  RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0
+lint                 pass                      pass-static        0.13s  RESULT lint mode=rtl warnings=0 netlist=0 library=0 errors=0; RESULT interface top=max_reg ports=['M', 'S_in',
+build                pass                      pass-static        3.05s  obj/sim
+vec                  failed                    failed             6.09s  golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked)
+sim_ctrl             pass-sampled              pass-sampled       5.33s  RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_check
+sim_free             failed                    failed             5.77s  RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100
+sim_onestep          failed                    failed            19.81s  RESULT_SPACE values=8192 checks=268435456 (expected 268435456); RESULT mode=onestep cycles=369078274 expected=
+sim_powerup          pass-sampled              pass-sampled       0.29s  RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=0b4c3a 1cbb0a 208103 2ae84f
+fv_cover             failed                    failed             0.45s  sby_status=FAIL asserts=9 covers=23 reached=22 unreached=2 max_step=5 depth=10
+fv_pdr_pu            proven                    proven             0.32s  sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_seq           inconclusive              inconclusive       0.88s  tool/infrastructure error: sby_status=ERROR; SBY  6:07:03 [max_reg_pdr_seq] ERROR: engine_0: Could not determi
+fv_pdr_step          inconclusive              inconclusive       0.42s  tool/infrastructure error: sby_status=ERROR; SBY  6:07:03 [max_reg_pdr_step] ERROR: engine_0: Could not determ
+fv_prove_pu          proven                    proven             0.32s  sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: successful proof by k-induction
+fv_prove_seq         failed                    failed             0.33s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); 
+fv_prove_step        failed                    failed             0.32s  sby_status=FAIL asserts=5 covers=0 (expected asserts=5 covers=0); 
+fv_sanity_pu         failed-as-expected        failed             0.28s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_pu
+fv_sanity_unsigned   failed-as-expected        failed             0.28s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_unsigned
+TOTAL 9/17 ok, all_ok=False, 23.82 s

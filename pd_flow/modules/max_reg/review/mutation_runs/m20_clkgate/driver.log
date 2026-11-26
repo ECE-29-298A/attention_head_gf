@@ -1,0 +1,24 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/mutants/m20_clkgate.v
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/mutant_runs/m20_clkgate
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//max_reg_verif.HDFrO2
+== phase build
+== phase sim
+== phase formal
+selftest             pass                      pass-static        0.12s  RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0
+lint                 failed                    failed             0.13s  RESULT lint mode=rtl warnings=1 netlist=1 library=0 errors=0; 
+build                failed                    failed             0.06s  obj/sim
+vec                  failed                    failed             6.04s  golden_cycles=558544 golden_values=558536 verilator=/ icarus=558544/558536 (cycles/values checked); 
+sim_ctrl             failed                    failed             0.02s  ; 
+sim_free             failed                    failed             0.02s  ; 
+sim_onestep          failed                    failed             0.02s  ; 
+sim_powerup          failed                    failed             0.02s  ; 
+fv_cover             inconclusive              inconclusive       0.18s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_cover] base: ERROR: Assertion failed: selec
+fv_pdr_pu            inconclusive              inconclusive       0.18s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_pdr_pu] base: ERROR: Assertion failed: sele
+fv_pdr_seq           inconclusive              inconclusive       0.19s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_pdr_seq] base: ERROR: Assertion failed: sel
+fv_pdr_step          inconclusive              inconclusive       0.19s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_pdr_step] base: ERROR: Assertion failed: se
+fv_prove_pu          inconclusive              inconclusive       0.18s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_prove_pu] base: ERROR: Assertion failed: se
+fv_prove_seq         inconclusive              inconclusive       0.19s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_prove_seq] base: ERROR: Assertion failed: s
+fv_prove_step        inconclusive              inconclusive       0.19s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_prove_step] base: ERROR: Assertion failed: 
+fv_sanity_pu         inconclusive              inconclusive       0.16s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_sanity_pu] base: ERROR: Assertion failed: s
+fv_sanity_unsigned   inconclusive              inconclusive       0.16s  tool/infrastructure error: sby_status=ERROR; SBY  6:08:47 [max_reg_sanity_unsigned] base: ERROR: Assertion fai
+TOTAL 1/17 ok, all_ok=False, 6.644 s

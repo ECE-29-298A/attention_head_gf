@@ -1,0 +1,16 @@
+gate_g01_nand2_to_nor2       killed    9/18  102.5s killed_by=vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step
+gate_g02_dswap_b0_b1         killed    9/18  111.9s killed_by=vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step
+gate_g03_dffnq_b0            killed    3/18   99.8s killed_by=lint,vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned
+gate_g04_latq_b4             killed    4/18  117.8s killed_by=lint,vec,sim_ctrl,sim_free,sim_onestep,fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned
+gate_g05_clkbuf              killed    9/18   99.5s killed_by=fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned
+gate_g06_icg_const           killed    7/18  108.9s killed_by=cells_prep,lint,fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned
+gate_g07_icg_en              killed    7/18   93.6s killed_by=cells_prep,lint,fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned
+gate_g08_dffrnq_tied         killed    8/18   99.5s killed_by=lint,fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_pu,fv_sanity_unsigned
+gate_s_m01_ge                survived  18/18   95.4s killed_by=
+gate_s_m03_unsigned          killed    7/18   99.9s killed_by=vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_cover,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step,fv_sanity_unsigned
+gate_s_m09_cmp21             killed    8/18  105.2s killed_by=vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_cover,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step
+gate_s_m10_reset_first       killed    9/18  128.6s killed_by=vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step
+gate_s_m13_negedge           killed    4/18   98.5s killed_by=lint,vec,sim_ctrl,sim_free,sim_onestep,sim_powerup,fv_cover,fv_pdr_pu,fv_pdr_seq,fv_pdr_step,fv_prove_pu,fv_prove_seq,fv_prove_step,fv_sanity_unsigned
+gate_s_m14_rare_pair         killed    14/18  111.5s killed_by=fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step
+gate_s_m15_minneg            killed    10/18  111.4s killed_by=vec,sim_free,sim_onestep,fv_cover,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step
+gate_s_m26_cmp_nolsb         killed    10/18  104.5s killed_by=vec,sim_ctrl,sim_free,sim_onestep,fv_pdr_seq,fv_pdr_step,fv_prove_seq,fv_prove_step

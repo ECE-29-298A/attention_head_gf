@@ -1,0 +1,73 @@
+SBY  6:00:48 [d1_pu_pdr] Removing directory '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/d1_pu_pdr'.
+SBY  6:00:48 [d1_pu_pdr] Copy '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/max_reg_fv.v' to '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/d1_pu_pdr/src/max_reg_fv.v'.
+SBY  6:00:48 [d1_pu_pdr] Copy '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/max_reg_props.sv' to '/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/fc/d1_pu_pdr/src/max_reg_props.sv'.
+SBY  6:00:48 [d1_pu_pdr] engine_0: abc pdr
+SBY  6:00:48 [d1_pu_pdr] base: starting process "cd d1_pu_pdr/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:00:48 [d1_pu_pdr] base: finished (returncode=0)
+SBY  6:00:48 [d1_pu_pdr] prep: starting process "cd d1_pu_pdr/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:00:48 [d1_pu_pdr] prep: finished (returncode=0)
+SBY  6:00:48 [d1_pu_pdr] aig: starting process "cd d1_pu_pdr/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\clk like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\first like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\en like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [0] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [1] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [2] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [3] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [4] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [5] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [6] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [7] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [8] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [9] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [10] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [11] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [12] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [13] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [14] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [15] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [16] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [17] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [18] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [19] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [20] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating undriven bit max_reg_props.\S_in [21] like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: Warning: Treating a total of 25 undriven bits in max_reg_props like $anyseq.
+SBY  6:00:48 [d1_pu_pdr] aig: finished (returncode=0)
+SBY  6:00:48 [d1_pu_pdr] engine_0: starting process "cd d1_pu_pdr; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY  6:00:48 [d1_pu_pdr] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY  6:00:48 [d1_pu_pdr] engine_0: Warning: The last 3 outputs are interpreted as constraints.
+SBY  6:00:48 [d1_pu_pdr] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 119. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY  6:00:48 [d1_pu_pdr] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY  6:00:48 [d1_pu_pdr] engine_0: Block =    1  Oblig =     1  Clause =     0  Call =     1 (sat=100.0%)  Cex =   0  Start =   0
+SBY  6:00:48 [d1_pu_pdr] engine_0: SAT solving =     0.00 sec (  1.60 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: unsat     =     0.00 sec (  0.00 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: sat       =     0.00 sec (  1.60 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Generalize  =     0.00 sec (  0.00 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Push clause =     0.00 sec (  0.00 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Ternary sim =     0.00 sec (  0.17 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Containment =     0.00 sec (  0.00 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: CNF compute =     0.00 sec (  0.00 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Refinement  =     0.00 sec (  0.10 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: TOTAL       =     0.01 sec (100.00 %)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Output 0 of miter "model/design_aiger" was asserted in frame 0.  Time =     0.01 sec
+SBY  6:00:48 [d1_pu_pdr] engine_0: finished (returncode=0)
+SBY  6:00:48 [d1_pu_pdr] engine_0: Status returned by engine: FAIL
+SBY  6:00:48 [d1_pu_pdr] smt2: starting process "cd d1_pu_pdr/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:00:48 [d1_pu_pdr] engine_0: starting process "cd d1_pu_pdr; yosys-witness aiw2yw engine_0/trace.aiw model/design_aiger.ywa engine_0/trace_aiw.yw"
+SBY  6:00:48 [d1_pu_pdr] smt2: finished (returncode=0)
+SBY  6:00:49 [d1_pu_pdr] engine_0: Converting AIGER witness trace 'engine_0/trace.aiw' to Yosys witness trace 'engine_0/trace_aiw.yw'...
+SBY  6:00:49 [d1_pu_pdr] engine_0: Using Yosys witness AIGER map file 'model/design_aiger.ywa'
+SBY  6:00:49 [d1_pu_pdr] engine_0: Converted 1 time steps.
+SBY  6:00:49 [d1_pu_pdr] engine_0: finished (returncode=0)
+SBY  6:00:49 [d1_pu_pdr] engine_0: starting process "cd d1_pu_pdr; yosys-smtbmc -s yices --noprogress --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc --yw engine_0/trace_aiw.yw model/design_smt2.smt2"
+SBY  6:00:49 [d1_pu_pdr] engine_0: ##   0:00:00  Solver: yices
+SBY  6:00:49 [d1_pu_pdr] engine_0: ##   0:00:00  SMT Solver 'yices-smt2' not found in path.
+SBY  6:00:49 [d1_pu_pdr] engine_0: finished (returncode=1)
+SBY  6:00:49 [d1_pu_pdr] ERROR: engine_0: Could not determine aigsmt status.
+SBY  6:00:49 [d1_pu_pdr] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:00:49 [d1_pu_pdr] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:00:49 [d1_pu_pdr] summary: engine_0 (abc pdr) returned FAIL
+SBY  6:00:49 [d1_pu_pdr] summary: engine_0 did not produce any traces
+SBY  6:00:49 [d1_pu_pdr] DONE (ERROR, rc=16)
+SBY  6:00:49 The following tasks failed: ['pu_pdr']

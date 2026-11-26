@@ -1,0 +1,26 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/gate_netlists/golden_gf180.v (gate-level netlist, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog, flop models from /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib)
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/max_reg/review/rerun/gate_golden
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//max_reg_verif.lyR5dc
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass                      pass-static        0.22s  RESULT cells netlist_modules=['max_reg'] cell_types=18 models_copied=37 udps=1 liberty_flop_cells=1 netlist_li
+selftest             pass                      pass-static        0.12s  RESULT selftest conv=8 kat=18 seq_trials=3000 mismatches=0
+lint                 pass-with-waiver          pass-static        0.20s  RESULT lint mode=gate warnings=9 netlist=0 library=9 errors=0; RESULT interface top=max_reg ports=['M', 'S_in'
+build                pass                      pass-static        3.14s  obj/sim
+vec                  pass-sampled              pass-sampled      11.08s  golden_cycles=558544 golden_values=558536 verilator=558544/558536 icarus=558544/558536 (cycles/values checked)
+sim_ctrl             pass-sampled              pass-sampled      24.23s  RESULT_CTRL queries=115709 query_checks=202639; RESULT mode=ctrl cycles=100001466 expected=100001466 seq_check
+sim_free             pass-sampled              pass-sampled      26.36s  RESULT_FREE regimes=98153 (p_first, p_en, value distribution switched per regime); RESULT mode=free cycles=100
+sim_onestep          pass-exhaustive-subspace  pass-sampled      95.12s  RESULT_SPACE values=8192 checks=268435456 (expected 268435456); RESULT mode=onestep cycles=369086465 expected=
+sim_powerup          pass-sampled              pass-sampled       0.28s  RESULT_POWERUP seeds=64 distinct_initial_M=64 preamble_traces_differing=63 initial=3a50ac 31c89d 02a4e6 38b7a8
+fv_cover             covered                   bounded-pass       4.30s  sby_status=PASS asserts=9 covers=23 reached=23 unreached=0 max_step=5 depth=10
+fv_pdr_pu            proven                    proven             0.41s  sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_seq           proven                    proven             1.03s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_pdr_step          proven                    proven             0.45s  sby_status=PASS asserts=5 covers=0 (expected asserts=5 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_prove_pu          proven                    proven             0.62s  sby_status=PASS asserts=1 covers=0 (expected asserts=1 covers=0); summary: successful proof by k-induction
+fv_prove_seq         proven                    proven             0.60s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+fv_prove_step        proven                    proven             0.54s  sby_status=PASS asserts=5 covers=0 (expected asserts=5 covers=0); summary: successful proof by k-induction
+fv_sanity_pu         failed-as-expected        failed             0.47s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_pu
+fv_sanity_unsigned   failed-as-expected        failed             0.47s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion max_reg_props.a_wrong_unsigned
+TOTAL 18/18 ok, all_ok=True, 103.328 s

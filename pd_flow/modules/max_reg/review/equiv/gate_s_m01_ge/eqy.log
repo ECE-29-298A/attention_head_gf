@@ -1,0 +1,18 @@
+EQY  6:27:44 [eq] read_gold: starting process "yosys -ql eq/gold.log eq/gold.ys"
+EQY  6:27:44 [eq] read_gold: finished (returncode=0)
+EQY  6:27:44 [eq] read_gate: starting process "yosys -ql eq/gate.log eq/gate.ys"
+EQY  6:27:44 [eq] read_gate: finished (returncode=0)
+EQY  6:27:44 [eq] combine: starting process "yosys -ql eq/combine.log eq/combine.ys"
+EQY  6:27:44 [eq] combine: finished (returncode=0)
+EQY  6:27:44 [eq] partition: starting process "cd eq; yosys -ql partition.log partition.ys"
+EQY  6:27:44 [eq] partition: finished (returncode=0)
+EQY  6:27:44 [eq] run: starting process "make -C eq -f strategies.mk"
+EQY  6:27:44 [eq] run: Running strategy 'sat' on 'max_reg.M'..
+EQY  6:27:44 [eq] run: Proved equivalence of partition 'max_reg.M' using strategy 'sat'
+EQY  6:27:44 [eq] run: /Applications/Xcode.app/Contents/Developer/usr/bin/make -f strategies.mk summary
+EQY  6:27:44 [eq] run: finished (returncode=0)
+EQY  6:27:44 [eq] Successfully proved equivalence of partition max_reg.M
+EQY  6:27:44 [eq] Successfully proved designs equivalent
+EQY  6:27:44 [eq] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY  6:27:44 [eq] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY  6:27:44 [eq] DONE (PASS, rc=0)
