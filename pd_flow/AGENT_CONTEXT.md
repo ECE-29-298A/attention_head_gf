@@ -57,3 +57,13 @@ These are probably well/tap context rules that clear once the cell sits in a pla
 (unconfirmed). Compare a custom cell standalone against this and in-row context separately.
 `python3 -c 'import klayout.db'` is not installed on the host. Use `$K -b -r` for Python
 scripts (the `klayout.db`/`pya` API is available inside).
+
+## Layout scope (user decision D4, overrides the workflow's transistor-level wording)
+Custom layout means **custom placement of existing GF180 7-track standard cells only**
+(tetrising). Do not design transistor-level cells. Do not hand-draw routing.
+Connections between cell ports are made by automatic routing (OpenROAD global and detailed
+routing) with the placement fixed. Use as little manual routing guidance as possible. Routing
+relief that changes placement, such as spacing or filler, is allowed. The Phase 3 deliverable
+is a scripted, coordinate-level cell placement (row, site, orientation per instance) plus the
+gate-level netlist it places. Phase 4 generates the placement, fixes it, routes it
+automatically, then runs DRC, LVS, extraction and characterization.

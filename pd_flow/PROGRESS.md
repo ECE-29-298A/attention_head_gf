@@ -11,6 +11,11 @@
 - D2: the baseline slew/cap/fanout violations are an accepted pre-existing waiver. A change must not increase them.
 - D3: integrate a custom macro only where it measurably reduces area. Otherwise keep the flat flow and report the macro as evidence.
 
+- D4 (user, 2026-11-26): tetrising custom-places standard cells only. Connections between cell ports
+  are routed automatically by the tool (OpenROAD global and detailed routing, placement fixed)
+  as far as possible. No transistor-level custom cells and no hand-drawn routing. Phase 3 plans a
+  coordinate-level cell placement. Phase 4 generates it from a script, fixes it, and routes it automatically.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
