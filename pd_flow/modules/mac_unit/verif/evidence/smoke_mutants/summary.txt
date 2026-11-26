@@ -1,0 +1,11 @@
+Smoke mutants (self-check of the contract): verif/run_all.sh --rtl <mutant> --out <dir>, --jobs 3.
+A mutant is killed when all_ok = false; the gating items that failed are listed.
+
+m1_no_subtract_sign: all_ok=False gating 12/24 -> KILLED (failed formal gating items: 6); 4.45 s
+   failed gating: edge_2=failed edge_4=failed edge_8=failed fv_cover_2=failed fv_cover_4=failed fv_cover_8=failed fv_spec_2=failed fv_spec_4=failed fv_spec_8=failed equiv_2=failed equiv_4=failed equiv_8=failed
+m2_L_ignores_sel: all_ok=False gating 11/24 -> KILLED (failed formal gating items: 6); 4.281 s
+   failed gating: lint_2=failed lint_4=failed lint_8=failed edge_2=failed edge_4=failed edge_8=failed fv_sanity_lsel_8=failed fv_spec_2=failed fv_spec_4=failed fv_spec_8=failed equiv_2=failed equiv_4=failed equiv_8=failed
+m3_load_ignores_first: all_ok=False gating 15/24 -> KILLED (failed formal gating items: 6); 5.08 s
+   failed gating: edge_2=failed edge_4=failed edge_8=failed fv_spec_2=failed fv_spec_4=failed fv_spec_8=failed equiv_2=failed equiv_4=failed equiv_8=failed
+m4_powerup_init_S: all_ok=False gating 9/24 -> KILLED (failed formal gating items: 3); 2.993 s
+   failed gating: lint_2=failed lint_4=failed lint_8=failed fv_cover_2=inconclusive fv_cover_4=inconclusive fv_cover_8=inconclusive fv_sanity_delay_8=inconclusive fv_sanity_lsel_8=inconclusive fv_sanity_sign_8=inconclusive fv_spec_2=inconclusive fv_spec_4=inconclusive fv_spec_8=inconclusive fv_sanity_seq_2=failed fv_sanity_seq_4=failed fv_sanity_seq_8=failed

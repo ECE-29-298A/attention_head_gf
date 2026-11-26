@@ -1,0 +1,74 @@
+# SymbiYosys contract for mac_unit (SPEC.md section 4). Run one task at a time:
+#   sby -f mac.sby <task>
+# mac_unit_fv.v is the DUT as Yosys reads it (RTL: the RTL file plus ripple_add; gate level:
+# the Yosys view from gate/extract_cells.py). fv_mode.vh defines GATE for a netlist.
+# No assumptions anywhere; the DUT has no initial value, so every property is proven from any
+# DUT start state.
+#   spec_P     prove, smtbmc z3: basecase BMC to depth P+3 from a free DUT state, plus
+#              k-induction at depth P+3. Each assertion compares a value the harness computed
+#              at most P edges earlier inside the same trace, so the induction closes for any
+#              DUT without initial values (SPEC 4.2). PASS = unbounded proof.
+#   cover_P    cover, depth P+3: every c_* reachable (vacuity / reachability).
+#   sanity_*   negative controls at P = 8 (wrong reference), bmc: must FAIL with a trace.
+[tasks]
+spec_8   prove p8
+spec_4   prove p4
+spec_2   prove p2
+cover_8  cover p8
+cover_4  cover p4
+cover_2  cover p2
+sanity_sign_8  sanity p8
+sanity_lsel_8  sanity p8
+sanity_delay_8 sanity p8
+
+[options]
+prove: mode prove
+cover: mode cover
+sanity: mode bmc
+p8: depth 11
+p4: depth 7
+p2: depth 5
+
+[engines]
+smtbmc z3
+
+[script]
+spec_8:         read_verilog -formal -sv -DP_OUTPUTS=8 -DP_SELW=3 -DSPEC mac_props.sv
+spec_4:         read_verilog -formal -sv -DP_OUTPUTS=4 -DP_SELW=2 -DSPEC mac_props.sv
+spec_2:         read_verilog -formal -sv -DP_OUTPUTS=2 -DP_SELW=1 -DSPEC mac_props.sv
+cover_8:        read_verilog -formal -sv -DP_OUTPUTS=8 -DP_SELW=3 -DCOVERS mac_props.sv
+cover_4:        read_verilog -formal -sv -DP_OUTPUTS=4 -DP_SELW=2 -DCOVERS mac_props.sv
+cover_2:        read_verilog -formal -sv -DP_OUTPUTS=2 -DP_SELW=1 -DCOVERS mac_props.sv
+sanity_sign_8:  read_verilog -formal -sv -DP_OUTPUTS=8 -DP_SELW=3 -DSANITY_SIGN mac_props.sv
+sanity_lsel_8:  read_verilog -formal -sv -DP_OUTPUTS=8 -DP_SELW=3 -DSANITY_LSEL mac_props.sv
+sanity_delay_8: read_verilog -formal -sv -DP_OUTPUTS=8 -DP_SELW=3 -DSANITY_DELAY mac_props.sv
+read_verilog -formal ref_mac_next.v
+# the DUT is read WITHOUT -formal: FORMAL is not defined for it, so a candidate cannot
+# switch to other logic under `ifdef FORMAL (and an assert/assume in it is a syntax error).
+read_verilog -sv mac_unit_fv.v
+hierarchy -top mac_props
+proc
+# no formal cell other than this harness's own assert/cover (divider review fix F1, applied
+# here too): a candidate-side assume/restrict would constrain the free inputs.
+select -assert-none t:$assume t:$live t:$fair t:$allconst t:$allseq t:$anyconst t:$anyseq t:$check r:FLAVOR=assert %d r:FLAVOR=cover %d
+select -assert-none mac_unit/t:$assert mac_unit/t:$cover
+# guard: the DUT carries no initial value (power-up state unconstrained); only the harness's
+# own observer registers may have one. Before flatten, so the DUT's wires are separate.
+select -assert-none a:init mac_props/* %d
+# flatten + opt_clean collapse non-inverting buffers (a CTS clkbuf from clk to the flops).
+flatten
+opt_clean
+prep -top mac_props
+# guard: one positive-edge clock; no asynchronous state, latches or memories.
+select -assert-none t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_ALDFF* t:$_DLATCH* t:$_SR_* t:$_SDFF_N* t:$_SDFFE_N* t:$_SDFFCE_N*
+select -assert-none t:$dff r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$dffe r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$sdff r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$sdffe r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$sdffce r:CLK_POLARITY=1'b0 %i
+
+[files]
+mac_props.sv
+ref_mac_next.v
+mac_unit_fv.v
+fv_mode.vh

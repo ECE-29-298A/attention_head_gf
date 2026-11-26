@@ -1,0 +1,35 @@
+Golden RTL (snapshot/mac_unit.v + ripple_add.v), OUTPUTS 8/4/2, two runs from clean (logs/, formal/runs/, results.json removed), --jobs 3.
+run 1: all_ok=True gating 25/25 items 31 total 10.771 s
+run 2: all_ok=True gating 25/25 items 31 total 12.873 s
+identical item statuses: True
+  gen                  pass                pass-static   gating    0.46s /   0.39s
+  selftest             pass                pass-static   gating    0.10s /   0.09s
+  lemma_lint           pass                pass-static   gating    0.04s /   0.04s
+  lint_2               pass-with-waiver    pass-static   gating    0.20s /   0.17s
+  lint_4               pass-with-waiver    pass-static   gating    0.24s /   0.17s
+  lint_8               pass-with-waiver    pass-static   gating    0.28s /   0.24s
+  refcheck             pass                pass-static   gating    0.13s /   0.11s
+  edge_2               pass-edge-spot      pass-sampled  gating    0.50s /   0.47s
+  edge_4               pass-edge-spot      pass-sampled  gating    0.53s /   0.48s
+  edge_8               pass-edge-spot      pass-sampled  gating    0.56s /   0.51s
+  fv_cover_2           covered             bounded-pass  gating    0.62s /   0.67s
+  fv_cover_4           covered             bounded-pass  gating    0.69s /   0.75s
+  fv_cover_8           covered             bounded-pass  gating    1.01s /   0.99s
+  fv_sanity_delay_8    failed-as-expected  failed        gating    0.43s /   1.16s
+  fv_sanity_lsel_8     failed-as-expected  failed        gating    0.40s /   0.71s
+  fv_sanity_sign_8     failed-as-expected  failed        gating    0.43s /   0.77s
+  fv_spec_2            proven              proven        gating    3.14s /   3.00s
+  fv_spec_4            proven              proven        gating    4.06s /   3.94s
+  fv_spec_8            proven              proven        gating    6.80s /   7.33s
+  eqy_rtl_2            proven              proven        constituent    0.64s /   0.88s
+  eqy_rtl_4            proven              proven        constituent    0.68s /   1.07s
+  eqy_rtl_8            proven              proven        constituent    0.74s /   1.36s
+  fv_sanity_seq_2      failed-as-expected  failed        gating    0.43s /   0.73s
+  fv_sanity_seq_4      failed-as-expected  failed        gating    0.51s /   0.79s
+  fv_sanity_seq_8      failed-as-expected  failed        gating    0.59s /   0.81s
+  seq_eq_2             proven              proven        constituent    1.29s /   2.17s
+  seq_eq_4             proven              proven        constituent    1.93s /   2.69s
+  seq_eq_8             proven              proven        constituent    3.05s /   4.29s
+  equiv_2              proven              proven        gating    0.00s /   0.00s
+  equiv_4              proven              proven        gating    0.00s /   0.00s
+  equiv_8              proven              proven        gating    0.00s /   0.00s
