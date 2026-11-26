@@ -299,5 +299,6 @@ module tb_controller #(
         $display("METRICS total_cycles=%0d", total_cycles);
         $finish;
     end
-    initial begin #10000000000; $fatal(1, "Core timeout"); end
+    // 10 s of simulated time; sized because it exceeds 32 bits (older Verilator rejects it unsized).
+    initial begin #(64'd10_000_000_000); $fatal(1, "Core timeout"); end
 endmodule
