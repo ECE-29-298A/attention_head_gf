@@ -1,0 +1,1541 @@
+{
+ "sources": {
+  "cell_lef": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lef/gf180mcu_fd_sc_mcu7t5v0.lef",
+  "cell_lef_sha256": "47dadf84c21b20f558d043c36271632f07b1c2c2a595b118e2e1050ebb74349b",
+  "tech_lef": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/techlef/gf180mcu_fd_sc_mcu7t5v0__nom.tlef",
+  "tech_lef_sha256": "1e15a88b384e015e5609a163fb8ce961309e122d450a69e189e57e528d464d65",
+  "tracks_info": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/openlane/gf180mcu_fd_sc_mcu7t5v0/tracks.info",
+  "tracks_info_sha256": "935c5e4117b760249a971b322cf30ac475cc0fbaa8debddd0382de262ec81a30"
+ },
+ "site": {
+  "name": "GF018hv5v_mcu_sc7",
+  "class": "core",
+  "w": 0.56,
+  "h": 3.92
+ },
+ "manufacturing_grid": 0.005,
+ "layers": {
+  "Metal1": {
+   "dir": "HORIZONTAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.23,
+   "minwidth": 0.23,
+   "area": 0.1444,
+   "spacing": 0.23,
+   "shortest_wire_um": 0.628
+  },
+  "Metal2": {
+   "dir": "VERTICAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.28,
+   "minwidth": 0.28,
+   "area": 0.1444,
+   "spacing": 0.28,
+   "shortest_wire_um": 0.516
+  },
+  "Metal3": {
+   "dir": "HORIZONTAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.28,
+   "minwidth": 0.28,
+   "area": 0.1444,
+   "spacing": 0.28,
+   "shortest_wire_um": 0.516
+  },
+  "Metal4": {
+   "dir": "VERTICAL",
+   "pitch": 0.56,
+   "offset": 0.0,
+   "width": 0.28,
+   "minwidth": 0.28,
+   "area": 0.1444,
+   "spacing": 0.28,
+   "shortest_wire_um": 0.516
+  },
+  "Metal5": {
+   "dir": "HORIZONTAL",
+   "pitch": 0.9,
+   "offset": 0.0,
+   "width": 0.44,
+   "minwidth": 0.44,
+   "area": 0.5625,
+   "spacing": 0.46,
+   "shortest_wire_um": 1.278
+  }
+ },
+ "tracks": [
+  {
+   "layer": "Metal1",
+   "axis": "X",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal1",
+   "axis": "Y",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal2",
+   "axis": "X",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal2",
+   "axis": "Y",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal3",
+   "axis": "X",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal3",
+   "axis": "Y",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal4",
+   "axis": "X",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal4",
+   "axis": "Y",
+   "offset": 0.28,
+   "pitch": 0.56
+  },
+  {
+   "layer": "Metal5",
+   "axis": "X",
+   "offset": 0.45,
+   "pitch": 0.9
+  },
+  {
+   "layer": "Metal5",
+   "axis": "Y",
+   "offset": 0.45,
+   "pitch": 0.9
+  }
+ ],
+ "masters": {
+  "gf180mcu_fd_sc_mcu7t5v0__addf_1": {
+   "width_um": 18.48,
+   "height_um": 3.92,
+   "sites": 33,
+   "area_um2": 72.4416,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "A": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       1.615,
+       1.77,
+       3.47,
+       2.15
+      ]
+     ],
+     "access_x_N": [
+      1.96,
+      2.52,
+      3.08
+     ],
+     "access": {
+      "1.96": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.9,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "2.52": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.9,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "3.08": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.9,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "B": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       14.64,
+       1.795,
+       17.07,
+       2.15
+      ]
+     ],
+     "access_x_N": [
+      14.84,
+      15.4,
+      15.96,
+      16.52
+     ],
+     "access": {
+      "14.84": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.925,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "15.4": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.925,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "15.96": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.925,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "16.52": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.925,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 4
+    },
+    "CI": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       3.89,
+       1.62,
+       13.91,
+       1.85
+      ],
+      [
+       12.34,
+       1.2,
+       13.91,
+       1.62
+      ],
+      [
+       13.54,
+       0.55,
+       13.91,
+       1.2
+      ]
+     ],
+     "access_x_N": [
+      12.6,
+      13.16,
+      13.72
+     ],
+     "access": {
+      "12.6": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.33,
+        1.72
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      },
+      "13.16": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.33,
+        1.72
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      },
+      "13.72": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        0.74,
+        1.72
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "CO": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       17.45,
+       0.79,
+       17.83,
+       3.37
+      ]
+     ],
+     "access_x_N": [
+      17.64
+     ],
+     "access": {
+      "17.64": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        0.92,
+        3.24
+       ],
+       "m1_track_ys": [
+        1.4,
+        1.96,
+        2.52,
+        3.08
+       ]
+      }
+     },
+     "n_access": 1
+    },
+    "S": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       0.14,
+       0.61,
+       0.575,
+       3.37
+      ]
+     ],
+     "access_x_N": [
+      0.28
+     ],
+     "access": {
+      "0.28": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        0.8,
+        3.18
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4,
+        1.96,
+        2.52,
+        3.08
+       ]
+      }
+     },
+     "n_access": 1
+    },
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__addf_2": {
+   "width_um": 20.16,
+   "height_um": 3.92,
+   "sites": 36,
+   "area_um2": 79.0272,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "A": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       2.605,
+       1.76,
+       4.13,
+       2.16
+      ]
+     ],
+     "access_x_N": [
+      3.08,
+      3.64
+     ],
+     "access": {
+      "3.08": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.89,
+        2.03
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "3.64": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.89,
+        2.03
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 2
+    },
+    "B": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       16.34,
+       2.16,
+       16.7,
+       3.37
+      ],
+      [
+       15.58,
+       1.76,
+       17.335,
+       2.16
+      ]
+     ],
+     "access_x_N": [
+      15.96,
+      16.52,
+      17.08
+     ],
+     "access": {
+      "15.96": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.89,
+        2.03
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "16.52": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.89,
+        3.18
+       ],
+       "m1_track_ys": [
+        1.96,
+        2.52,
+        3.08
+       ]
+      },
+      "17.08": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.89,
+        2.03
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "CI": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       4.49,
+       1.835,
+       5.66,
+       2.16
+      ],
+      [
+       4.49,
+       1.605,
+       14.755,
+       1.835
+      ],
+      [
+       14.525,
+       1.345,
+       14.755,
+       1.605
+      ]
+     ],
+     "access_x_N": [
+      4.76,
+      5.32
+     ],
+     "access": {
+      "4.76": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.735,
+        2.03
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "5.32": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.735,
+        2.03
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 2
+    },
+    "CO": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       18.37,
+       0.55,
+       18.96,
+       3.37
+      ]
+     ],
+     "access_x_N": [
+      18.76
+     ],
+     "access": {
+      "18.76": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        0.68,
+        3.24
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4,
+        1.96,
+        2.52,
+        3.08
+       ]
+      }
+     },
+     "n_access": 1
+    },
+    "S": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       1.22,
+       0.55,
+       1.68,
+       3.37
+      ]
+     ],
+     "access_x_N": [
+      1.4
+     ],
+     "access": {
+      "1.4": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        0.74,
+        3.18
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4,
+        1.96,
+        2.52,
+        3.08
+       ]
+      }
+     },
+     "n_access": 1
+    },
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__addh_1": {
+   "width_um": 10.08,
+   "height_um": 3.92,
+   "sites": 18,
+   "area_um2": 39.5136,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "A": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       2.775,
+       2.365,
+       6.095,
+       2.595
+      ],
+      [
+       2.775,
+       2.15,
+       3.27,
+       2.365
+      ],
+      [
+       1.505,
+       1.77,
+       3.27,
+       2.15
+      ],
+      [
+       5.865,
+       1.87,
+       6.095,
+       2.365
+      ]
+     ],
+     "access_x_N": [
+      1.96,
+      2.52,
+      3.08
+     ],
+     "access": {
+      "1.96": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.9,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "2.52": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.9,
+        2.02
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "3.08": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.9,
+        2.465
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "B": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       3.725,
+       1.79,
+       5.51,
+       2.135
+      ]
+     ],
+     "access_x_N": [
+      4.2,
+      4.76,
+      5.32
+     ],
+     "access": {
+      "4.2": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.92,
+        2.005
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "4.76": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.92,
+        2.005
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "5.32": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.92,
+        2.005
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "CO": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       0.14,
+       0.65,
+       0.575,
+       3.37
+      ]
+     ],
+     "access_x_N": [
+      0.28
+     ],
+     "access": {
+      "0.28": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        0.84,
+        3.18
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4,
+        1.96,
+        2.52,
+        3.08
+       ]
+      }
+     },
+     "n_access": 1
+    },
+    "S": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       9.405,
+       1.68,
+       9.735,
+       3.37
+      ],
+      [
+       8.975,
+       0.65,
+       9.735,
+       1.68
+      ]
+     ],
+     "access_x_N": [
+      9.24
+     ],
+     "access": {
+      "9.24": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        0.78,
+        1.55
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4
+       ]
+      }
+     },
+     "n_access": 1
+    },
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__xor3_1": {
+   "width_um": 12.88,
+   "height_um": 3.92,
+   "sites": 23,
+   "area_um2": 50.4896,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "A1": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       1.89,
+       1.265,
+       4.6,
+       1.535
+      ]
+     ],
+     "access_x_N": [
+      2.52,
+      3.08,
+      3.64,
+      4.2
+     ],
+     "access": {
+      "2.52": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.395,
+        1.405
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      },
+      "3.08": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.395,
+        1.405
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      },
+      "3.64": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.395,
+        1.405
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      },
+      "4.2": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.395,
+        1.405
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      }
+     },
+     "n_access": 4
+    },
+    "A2": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       0.865,
+       2.455,
+       2.1,
+       2.71
+      ],
+      [
+       0.865,
+       2.225,
+       4.195,
+       2.455
+      ],
+      [
+       0.865,
+       1.57,
+       1.095,
+       2.225
+      ],
+      [
+       3.915,
+       2.095,
+       4.195,
+       2.225
+      ],
+      [
+       3.915,
+       1.82,
+       5.6,
+       2.095
+      ]
+     ],
+     "access_x_N": [
+      1.4,
+      1.96,
+      4.2,
+      4.76,
+      5.32
+     ],
+     "access": {
+      "1.4": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        2.355,
+        2.58
+       ],
+       "m1_track_ys": [
+        2.52
+       ]
+      },
+      "1.96": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        2.415,
+        2.52
+       ],
+       "m1_track_ys": [
+        2.52
+       ]
+      },
+      "4.2": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.95,
+        1.965
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "4.76": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.95,
+        1.965
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "5.32": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.95,
+        1.965
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 5
+    },
+    "A3": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       8.205,
+       1.825,
+       10.205,
+       2.1
+      ],
+      [
+       8.205,
+       1.455,
+       8.545,
+       1.825
+      ],
+      [
+       9.975,
+       1.56,
+       10.205,
+       1.825
+      ],
+      [
+       9.975,
+       1.265,
+       11.11,
+       1.56
+      ]
+     ],
+     "access_x_N": [
+      8.68,
+      9.24,
+      9.8,
+      10.36,
+      10.92
+     ],
+     "access": {
+      "8.68": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.955,
+        1.97
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "9.24": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.955,
+        1.97
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "9.8": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.955,
+        1.97
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "10.36": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.395,
+        1.43
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      },
+      "10.92": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.395,
+        1.43
+       ],
+       "m1_track_ys": [
+        1.4
+       ]
+      }
+     },
+     "n_access": 5
+    },
+    "Z": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       10.77,
+       2.7,
+       12.2,
+       2.93
+      ],
+      [
+       11.88,
+       1.295,
+       12.2,
+       2.7
+      ],
+      [
+       11.56,
+       1.015,
+       12.2,
+       1.295
+      ],
+      [
+       11.56,
+       1.0,
+       11.83,
+       1.015
+      ],
+      [
+       10.045,
+       0.67,
+       11.83,
+       1.0
+      ]
+     ],
+     "access_x_N": [
+      10.36,
+      10.92,
+      11.48,
+      12.04
+     ],
+     "access": {
+      "10.36": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        0.8,
+        0.87
+       ],
+       "m1_track_ys": [
+        0.84
+       ]
+      },
+      "10.92": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        0.8,
+        0.87
+       ],
+       "m1_track_ys": [
+        0.84
+       ]
+      },
+      "11.48": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        0.8,
+        0.87
+       ],
+       "m1_track_ys": [
+        0.84
+       ]
+      },
+      "12.04": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        1.205,
+        2.74
+       ],
+       "m1_track_ys": [
+        1.4,
+        1.96,
+        2.52
+       ]
+      }
+     },
+     "n_access": 4
+    },
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__filltie": {
+   "width_um": 1.12,
+   "height_um": 3.92,
+   "sites": 2,
+   "area_um2": 4.3904,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1",
+      "Nwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1",
+      "Pwell"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__endcap": {
+   "width_um": 1.12,
+   "height_um": 3.92,
+   "sites": 2,
+   "area_um2": 4.3904,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1",
+      "Nwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1",
+      "Pwell"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__fill_1": {
+   "width_um": 0.56,
+   "height_um": 3.92,
+   "sites": 1,
+   "area_um2": 2.1952,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__fill_2": {
+   "width_um": 1.12,
+   "height_um": 3.92,
+   "sites": 2,
+   "area_um2": 4.3904,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  }
+ }
+}

@@ -42,3 +42,4 @@ pd_flow/**/runs/_noise/*/rtl/
 pd_flow/**/harden/tt_tool_harden.log
 pd_flow/**/contract_*/logs/
 pd_flow/**/contract_*/formal/
+pd_flow/**/harden/steps/

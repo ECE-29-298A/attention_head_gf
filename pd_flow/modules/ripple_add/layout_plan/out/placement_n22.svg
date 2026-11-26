@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="228" height="770" font-family="monospace" font-size="9">
+<rect x="0" y="0" width="228" height="770" fill="white"/>
+<line x1="40.0" y1="729.92" x2="187.84" y2="729.92" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="698.56" x2="187.84" y2="698.56" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="667.1999999999999" x2="187.84" y2="667.1999999999999" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="635.8399999999999" x2="187.84" y2="635.8399999999999" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="604.48" x2="187.84" y2="604.48" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="573.1199999999999" x2="187.84" y2="573.1199999999999" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="541.76" x2="187.84" y2="541.76" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="510.4" x2="187.84" y2="510.4" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="479.03999999999996" x2="187.84" y2="479.03999999999996" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="447.67999999999995" x2="187.84" y2="447.67999999999995" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="416.31999999999994" x2="187.84" y2="416.31999999999994" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="384.96" x2="187.84" y2="384.96" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="353.59999999999997" x2="187.84" y2="353.59999999999997" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="322.23999999999995" x2="187.84" y2="322.23999999999995" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="290.88" x2="187.84" y2="290.88" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="259.52" x2="187.84" y2="259.52" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="228.15999999999997" x2="187.84" y2="228.15999999999997" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="196.79999999999995" x2="187.84" y2="196.79999999999995" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="165.43999999999994" x2="187.84" y2="165.43999999999994" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="134.07999999999993" x2="187.84" y2="134.07999999999993" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="102.71999999999991" x2="187.84" y2="102.71999999999991" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="71.36000000000001" x2="187.84" y2="71.36000000000001" stroke="#bbb" stroke-width="1"/>
+<line x1="40.0" y1="40.0" x2="187.84" y2="40.0" stroke="#bbb" stroke-width="1"/>
+<rect x="40.0" y="698.56" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="708.56">bitslice[0].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="714.24" r="2.5" fill="#c00"/>
+<text x="63.16" y="712.24" fill="#c00">A</text>
+<circle cx="165.44" cy="714.24" r="2.5" fill="#06c"/>
+<text x="168.44" y="712.24" fill="#06c">B</text>
+<circle cx="146.4" cy="708.64" r="2.5" fill="#a0a"/>
+<text x="149.4" y="706.64" fill="#a0a">CI</text>
+<circle cx="42.24" cy="714.24" r="2.5" fill="#090"/>
+<text x="45.24" y="712.24" fill="#090">S</text>
+<circle cx="181.12" cy="716.4799999999999" r="2.5" fill="#a0a"/>
+<text x="184.12" y="714.4799999999999" fill="#a0a">CO</text>
+<rect x="40.0" y="667.1999999999999" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="677.1999999999999">bitslice[1].u_fa addf_1 N</text>
+<circle cx="60.16" cy="682.88" r="2.5" fill="#c00"/>
+<text x="63.16" y="680.88" fill="#c00">A</text>
+<circle cx="165.44" cy="682.88" r="2.5" fill="#06c"/>
+<text x="168.44" y="680.88" fill="#06c">B</text>
+<circle cx="146.4" cy="688.48" r="2.5" fill="#a0a"/>
+<text x="149.4" y="686.48" fill="#a0a">CI</text>
+<circle cx="42.24" cy="682.88" r="2.5" fill="#090"/>
+<text x="45.24" y="680.88" fill="#090">S</text>
+<circle cx="181.12" cy="680.64" r="2.5" fill="#a0a"/>
+<text x="184.12" y="678.64" fill="#a0a">CO</text>
+<rect x="40.0" y="635.8399999999999" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="645.8399999999999">bitslice[2].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="651.52" r="2.5" fill="#c00"/>
+<text x="63.16" y="649.52" fill="#c00">A</text>
+<circle cx="165.44" cy="651.52" r="2.5" fill="#06c"/>
+<text x="168.44" y="649.52" fill="#06c">B</text>
+<circle cx="146.4" cy="645.92" r="2.5" fill="#a0a"/>
+<text x="149.4" y="643.92" fill="#a0a">CI</text>
+<circle cx="42.24" cy="651.52" r="2.5" fill="#090"/>
+<text x="45.24" y="649.52" fill="#090">S</text>
+<circle cx="181.12" cy="653.76" r="2.5" fill="#a0a"/>
+<text x="184.12" y="651.76" fill="#a0a">CO</text>
+<rect x="40.0" y="604.48" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="614.48">bitslice[3].u_fa addf_1 N</text>
+<circle cx="60.16" cy="620.16" r="2.5" fill="#c00"/>
+<text x="63.16" y="618.16" fill="#c00">A</text>
+<circle cx="165.44" cy="620.16" r="2.5" fill="#06c"/>
+<text x="168.44" y="618.16" fill="#06c">B</text>
+<circle cx="146.4" cy="625.76" r="2.5" fill="#a0a"/>
+<text x="149.4" y="623.76" fill="#a0a">CI</text>
+<circle cx="42.24" cy="620.16" r="2.5" fill="#090"/>
+<text x="45.24" y="618.16" fill="#090">S</text>
+<circle cx="181.12" cy="617.92" r="2.5" fill="#a0a"/>
+<text x="184.12" y="615.92" fill="#a0a">CO</text>
+<rect x="40.0" y="573.1199999999999" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="583.1199999999999">bitslice[4].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="588.8" r="2.5" fill="#c00"/>
+<text x="63.16" y="586.8" fill="#c00">A</text>
+<circle cx="165.44" cy="588.8" r="2.5" fill="#06c"/>
+<text x="168.44" y="586.8" fill="#06c">B</text>
+<circle cx="146.4" cy="583.1999999999999" r="2.5" fill="#a0a"/>
+<text x="149.4" y="581.1999999999999" fill="#a0a">CI</text>
+<circle cx="42.24" cy="588.8" r="2.5" fill="#090"/>
+<text x="45.24" y="586.8" fill="#090">S</text>
+<circle cx="181.12" cy="591.04" r="2.5" fill="#a0a"/>
+<text x="184.12" y="589.04" fill="#a0a">CO</text>
+<rect x="40.0" y="541.76" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="551.76">bitslice[5].u_fa addf_1 N</text>
+<circle cx="60.16" cy="557.4399999999999" r="2.5" fill="#c00"/>
+<text x="63.16" y="555.4399999999999" fill="#c00">A</text>
+<circle cx="165.44" cy="557.4399999999999" r="2.5" fill="#06c"/>
+<text x="168.44" y="555.4399999999999" fill="#06c">B</text>
+<circle cx="146.4" cy="563.04" r="2.5" fill="#a0a"/>
+<text x="149.4" y="561.04" fill="#a0a">CI</text>
+<circle cx="42.24" cy="557.4399999999999" r="2.5" fill="#090"/>
+<text x="45.24" y="555.4399999999999" fill="#090">S</text>
+<circle cx="181.12" cy="555.1999999999999" r="2.5" fill="#a0a"/>
+<text x="184.12" y="553.1999999999999" fill="#a0a">CO</text>
+<rect x="40.0" y="510.4" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="520.4">bitslice[6].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="526.0799999999999" r="2.5" fill="#c00"/>
+<text x="63.16" y="524.0799999999999" fill="#c00">A</text>
+<circle cx="165.44" cy="526.0799999999999" r="2.5" fill="#06c"/>
+<text x="168.44" y="524.0799999999999" fill="#06c">B</text>
+<circle cx="146.4" cy="520.48" r="2.5" fill="#a0a"/>
+<text x="149.4" y="518.48" fill="#a0a">CI</text>
+<circle cx="42.24" cy="526.0799999999999" r="2.5" fill="#090"/>
+<text x="45.24" y="524.0799999999999" fill="#090">S</text>
+<circle cx="181.12" cy="528.3199999999999" r="2.5" fill="#a0a"/>
+<text x="184.12" y="526.3199999999999" fill="#a0a">CO</text>
+<rect x="40.0" y="479.03999999999996" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="489.03999999999996">bitslice[7].u_fa addf_1 N</text>
+<circle cx="60.16" cy="494.71999999999997" r="2.5" fill="#c00"/>
+<text x="63.16" y="492.71999999999997" fill="#c00">A</text>
+<circle cx="165.44" cy="494.71999999999997" r="2.5" fill="#06c"/>
+<text x="168.44" y="492.71999999999997" fill="#06c">B</text>
+<circle cx="146.4" cy="500.31999999999994" r="2.5" fill="#a0a"/>
+<text x="149.4" y="498.31999999999994" fill="#a0a">CI</text>
+<circle cx="42.24" cy="494.71999999999997" r="2.5" fill="#090"/>
+<text x="45.24" y="492.71999999999997" fill="#090">S</text>
+<circle cx="181.12" cy="492.47999999999996" r="2.5" fill="#a0a"/>
+<text x="184.12" y="490.47999999999996" fill="#a0a">CO</text>
+<rect x="40.0" y="447.67999999999995" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="457.67999999999995">bitslice[8].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="463.35999999999996" r="2.5" fill="#c00"/>
+<text x="63.16" y="461.35999999999996" fill="#c00">A</text>
+<circle cx="165.44" cy="463.35999999999996" r="2.5" fill="#06c"/>
+<text x="168.44" y="461.35999999999996" fill="#06c">B</text>
+<circle cx="146.4" cy="457.76" r="2.5" fill="#a0a"/>
+<text x="149.4" y="455.76" fill="#a0a">CI</text>
+<circle cx="42.24" cy="463.35999999999996" r="2.5" fill="#090"/>
+<text x="45.24" y="461.35999999999996" fill="#090">S</text>
+<circle cx="181.12" cy="465.59999999999997" r="2.5" fill="#a0a"/>
+<text x="184.12" y="463.59999999999997" fill="#a0a">CO</text>
+<rect x="40.0" y="416.31999999999994" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="426.31999999999994">bitslice[9].u_fa addf_1 N</text>
+<circle cx="60.16" cy="431.99999999999994" r="2.5" fill="#c00"/>
+<text x="63.16" y="429.99999999999994" fill="#c00">A</text>
+<circle cx="165.44" cy="431.99999999999994" r="2.5" fill="#06c"/>
+<text x="168.44" y="429.99999999999994" fill="#06c">B</text>
+<circle cx="146.4" cy="437.59999999999997" r="2.5" fill="#a0a"/>
+<text x="149.4" y="435.59999999999997" fill="#a0a">CI</text>
+<circle cx="42.24" cy="431.99999999999994" r="2.5" fill="#090"/>
+<text x="45.24" y="429.99999999999994" fill="#090">S</text>
+<circle cx="181.12" cy="429.75999999999993" r="2.5" fill="#a0a"/>
+<text x="184.12" y="427.75999999999993" fill="#a0a">CO</text>
+<rect x="40.0" y="384.9599999999999" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="394.9599999999999">bitslice[10].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="400.63999999999993" r="2.5" fill="#c00"/>
+<text x="63.16" y="398.63999999999993" fill="#c00">A</text>
+<circle cx="165.44" cy="400.63999999999993" r="2.5" fill="#06c"/>
+<text x="168.44" y="398.63999999999993" fill="#06c">B</text>
+<circle cx="146.4" cy="395.03999999999996" r="2.5" fill="#a0a"/>
+<text x="149.4" y="393.03999999999996" fill="#a0a">CI</text>
+<circle cx="42.24" cy="400.63999999999993" r="2.5" fill="#090"/>
+<text x="45.24" y="398.63999999999993" fill="#090">S</text>
+<circle cx="181.12" cy="402.87999999999994" r="2.5" fill="#a0a"/>
+<text x="184.12" y="400.87999999999994" fill="#a0a">CO</text>
+<rect x="40.0" y="353.59999999999997" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="363.59999999999997">bitslice[11].u_fa addf_1 N</text>
+<circle cx="60.16" cy="369.28" r="2.5" fill="#c00"/>
+<text x="63.16" y="367.28" fill="#c00">A</text>
+<circle cx="165.44" cy="369.28" r="2.5" fill="#06c"/>
+<text x="168.44" y="367.28" fill="#06c">B</text>
+<circle cx="146.4" cy="374.88" r="2.5" fill="#a0a"/>
+<text x="149.4" y="372.88" fill="#a0a">CI</text>
+<circle cx="42.24" cy="369.28" r="2.5" fill="#090"/>
+<text x="45.24" y="367.28" fill="#090">S</text>
+<circle cx="181.12" cy="367.03999999999996" r="2.5" fill="#a0a"/>
+<text x="184.12" y="365.03999999999996" fill="#a0a">CO</text>
+<rect x="40.0" y="322.23999999999995" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="332.23999999999995">bitslice[12].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="337.91999999999996" r="2.5" fill="#c00"/>
+<text x="63.16" y="335.91999999999996" fill="#c00">A</text>
+<circle cx="165.44" cy="337.91999999999996" r="2.5" fill="#06c"/>
+<text x="168.44" y="335.91999999999996" fill="#06c">B</text>
+<circle cx="146.4" cy="332.31999999999994" r="2.5" fill="#a0a"/>
+<text x="149.4" y="330.31999999999994" fill="#a0a">CI</text>
+<circle cx="42.24" cy="337.91999999999996" r="2.5" fill="#090"/>
+<text x="45.24" y="335.91999999999996" fill="#090">S</text>
+<circle cx="181.12" cy="340.15999999999997" r="2.5" fill="#a0a"/>
+<text x="184.12" y="338.15999999999997" fill="#a0a">CO</text>
+<rect x="40.0" y="290.87999999999994" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="300.87999999999994">bitslice[13].u_fa addf_1 N</text>
+<circle cx="60.16" cy="306.55999999999995" r="2.5" fill="#c00"/>
+<text x="63.16" y="304.55999999999995" fill="#c00">A</text>
+<circle cx="165.44" cy="306.55999999999995" r="2.5" fill="#06c"/>
+<text x="168.44" y="304.55999999999995" fill="#06c">B</text>
+<circle cx="146.4" cy="312.15999999999997" r="2.5" fill="#a0a"/>
+<text x="149.4" y="310.15999999999997" fill="#a0a">CI</text>
+<circle cx="42.24" cy="306.55999999999995" r="2.5" fill="#090"/>
+<text x="45.24" y="304.55999999999995" fill="#090">S</text>
+<circle cx="181.12" cy="304.31999999999994" r="2.5" fill="#a0a"/>
+<text x="184.12" y="302.31999999999994" fill="#a0a">CO</text>
+<rect x="40.0" y="259.52" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="269.52">bitslice[14].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="275.2" r="2.5" fill="#c00"/>
+<text x="63.16" y="273.2" fill="#c00">A</text>
+<circle cx="165.44" cy="275.2" r="2.5" fill="#06c"/>
+<text x="168.44" y="273.2" fill="#06c">B</text>
+<circle cx="146.4" cy="269.6" r="2.5" fill="#a0a"/>
+<text x="149.4" y="267.6" fill="#a0a">CI</text>
+<circle cx="42.24" cy="275.2" r="2.5" fill="#090"/>
+<text x="45.24" y="273.2" fill="#090">S</text>
+<circle cx="181.12" cy="277.44" r="2.5" fill="#a0a"/>
+<text x="184.12" y="275.44" fill="#a0a">CO</text>
+<rect x="40.0" y="228.15999999999997" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="238.15999999999997">bitslice[15].u_fa addf_1 N</text>
+<circle cx="60.16" cy="243.83999999999997" r="2.5" fill="#c00"/>
+<text x="63.16" y="241.83999999999997" fill="#c00">A</text>
+<circle cx="165.44" cy="243.83999999999997" r="2.5" fill="#06c"/>
+<text x="168.44" y="241.83999999999997" fill="#06c">B</text>
+<circle cx="146.4" cy="249.44" r="2.5" fill="#a0a"/>
+<text x="149.4" y="247.44" fill="#a0a">CI</text>
+<circle cx="42.24" cy="243.83999999999997" r="2.5" fill="#090"/>
+<text x="45.24" y="241.83999999999997" fill="#090">S</text>
+<circle cx="181.12" cy="241.59999999999997" r="2.5" fill="#a0a"/>
+<text x="184.12" y="239.59999999999997" fill="#a0a">CO</text>
+<rect x="40.0" y="196.79999999999995" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="206.79999999999995">bitslice[16].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="212.48000000000002" r="2.5" fill="#c00"/>
+<text x="63.16" y="210.48000000000002" fill="#c00">A</text>
+<circle cx="165.44" cy="212.48000000000002" r="2.5" fill="#06c"/>
+<text x="168.44" y="210.48000000000002" fill="#06c">B</text>
+<circle cx="146.4" cy="206.88" r="2.5" fill="#a0a"/>
+<text x="149.4" y="204.88" fill="#a0a">CI</text>
+<circle cx="42.24" cy="212.48000000000002" r="2.5" fill="#090"/>
+<text x="45.24" y="210.48000000000002" fill="#090">S</text>
+<circle cx="181.12" cy="214.7199999999999" r="2.5" fill="#a0a"/>
+<text x="184.12" y="212.7199999999999" fill="#a0a">CO</text>
+<rect x="40.0" y="165.43999999999994" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="175.43999999999994">bitslice[17].u_fa addf_1 N</text>
+<circle cx="60.16" cy="181.12" r="2.5" fill="#c00"/>
+<text x="63.16" y="179.12" fill="#c00">A</text>
+<circle cx="165.44" cy="181.12" r="2.5" fill="#06c"/>
+<text x="168.44" y="179.12" fill="#06c">B</text>
+<circle cx="146.4" cy="186.7199999999999" r="2.5" fill="#a0a"/>
+<text x="149.4" y="184.7199999999999" fill="#a0a">CI</text>
+<circle cx="42.24" cy="181.12" r="2.5" fill="#090"/>
+<text x="45.24" y="179.12" fill="#090">S</text>
+<circle cx="181.12" cy="178.88" r="2.5" fill="#a0a"/>
+<text x="184.12" y="176.88" fill="#a0a">CO</text>
+<rect x="40.0" y="134.07999999999993" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="144.07999999999993">bitslice[18].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="149.76" r="2.5" fill="#c00"/>
+<text x="63.16" y="147.76" fill="#c00">A</text>
+<circle cx="165.44" cy="149.76" r="2.5" fill="#06c"/>
+<text x="168.44" y="147.76" fill="#06c">B</text>
+<circle cx="146.4" cy="144.15999999999997" r="2.5" fill="#a0a"/>
+<text x="149.4" y="142.15999999999997" fill="#a0a">CI</text>
+<circle cx="42.24" cy="149.76" r="2.5" fill="#090"/>
+<text x="45.24" y="147.76" fill="#090">S</text>
+<circle cx="181.12" cy="151.9999999999999" r="2.5" fill="#a0a"/>
+<text x="184.12" y="149.9999999999999" fill="#a0a">CO</text>
+<rect x="40.0" y="102.71999999999991" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="112.71999999999991">bitslice[19].u_fa addf_1 N</text>
+<circle cx="60.16" cy="118.39999999999998" r="2.5" fill="#c00"/>
+<text x="63.16" y="116.39999999999998" fill="#c00">A</text>
+<circle cx="165.44" cy="118.39999999999998" r="2.5" fill="#06c"/>
+<text x="168.44" y="116.39999999999998" fill="#06c">B</text>
+<circle cx="146.4" cy="123.99999999999989" r="2.5" fill="#a0a"/>
+<text x="149.4" y="121.99999999999989" fill="#a0a">CI</text>
+<circle cx="42.24" cy="118.39999999999998" r="2.5" fill="#090"/>
+<text x="45.24" y="116.39999999999998" fill="#090">S</text>
+<circle cx="181.12" cy="116.15999999999997" r="2.5" fill="#a0a"/>
+<text x="184.12" y="114.15999999999997" fill="#a0a">CO</text>
+<rect x="40.0" y="71.3599999999999" width="147.84" height="31.36" fill="#cfe3ff" stroke="#333"/>
+<text x="43.0" y="81.3599999999999">bitslice[20].u_fa addf_1 FS</text>
+<circle cx="60.16" cy="87.03999999999996" r="2.5" fill="#c00"/>
+<text x="63.16" y="85.03999999999996" fill="#c00">A</text>
+<circle cx="165.44" cy="87.03999999999996" r="2.5" fill="#06c"/>
+<text x="168.44" y="85.03999999999996" fill="#06c">B</text>
+<circle cx="146.4" cy="81.43999999999994" r="2.5" fill="#a0a"/>
+<text x="149.4" y="79.43999999999994" fill="#a0a">CI</text>
+<circle cx="42.24" cy="87.03999999999996" r="2.5" fill="#090"/>
+<text x="45.24" y="85.03999999999996" fill="#090">S</text>
+<circle cx="181.12" cy="89.27999999999986" r="2.5" fill="#a0a"/>
+<text x="184.12" y="87.27999999999986" fill="#a0a">CO</text>
+<rect x="84.80000000000001" y="40.0" width="103.04" height="31.36" fill="#ffe0b3" stroke="#333"/>
+<text x="87.80000000000001" y="50.0">u_msb_x3 xor3_1 FN</text>
+<circle cx="159.616" cy="53.888000000000034" r="2.5" fill="#c00"/>
+<text x="162.616" y="51.888000000000034" fill="#c00">A2</text>
+<circle cx="160.96" cy="60.15999999999997" r="2.5" fill="#06c"/>
+<text x="163.96" y="58.15999999999997" fill="#06c">A1</text>
+<circle cx="109.44000000000001" cy="57.47199999999998" r="2.5" fill="#a0a"/>
+<text x="112.44000000000001" y="55.47199999999998" fill="#a0a">A3</text>
+<circle cx="96.00000000000001" cy="60.15999999999997" r="2.5" fill="#090"/>
+<text x="99.00000000000001" y="58.15999999999997" fill="#090">Z</text>
+<polyline points="181.12,716.4799999999999 181.12,688.48 146.4,688.48" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,680.64 181.12,645.92 146.4,645.92" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,653.76 181.12,625.76 146.4,625.76" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,617.92 181.12,583.1999999999999 146.4,583.1999999999999" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,591.04 181.12,563.04 146.4,563.04" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,555.1999999999999 181.12,520.48 146.4,520.48" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,528.3199999999999 181.12,500.31999999999994 146.4,500.31999999999994" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,492.47999999999996 181.12,457.76 146.4,457.76" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,465.59999999999997 181.12,437.59999999999997 146.4,437.59999999999997" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,429.75999999999993 181.12,395.03999999999996 146.4,395.03999999999996" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,402.87999999999994 181.12,374.88 146.4,374.88" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,367.03999999999996 181.12,332.31999999999994 146.4,332.31999999999994" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,340.15999999999997 181.12,312.15999999999997 146.4,312.15999999999997" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,304.31999999999994 181.12,269.6 146.4,269.6" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,277.44 181.12,249.44 146.4,249.44" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,241.59999999999997 181.12,206.88 146.4,206.88" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,214.7199999999999 181.12,186.7199999999999 146.4,186.7199999999999" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,178.88 181.12,144.15999999999997 146.4,144.15999999999997" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,151.9999999999999 181.12,123.99999999999989 146.4,123.99999999999989" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,116.15999999999997 181.12,81.43999999999994 146.4,81.43999999999994" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<polyline points="181.12,89.27999999999986 181.12,57.47199999999998 109.44000000000001,57.47199999999998" fill="none" stroke="#a0a" stroke-width="1.5"/>
+<text x="4" y="384.96">W: a,s</text><text x="187.84" y="384.96">E: b</text>
+<text x="113.92" y="761.92">S: cin (bit 0)   rows: anchor parity 1</text>
+</svg>

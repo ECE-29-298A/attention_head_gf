@@ -1,0 +1,27 @@
+# Evidence for finding B1 (MSB xor3_1 pin assignment). Extracted from max_ss_125C_3v00/max.rpt, worst path.
+== /Users/samuelzhang/ttharden/ra_hyb
+     1    0.007871    0.656190    1.874810   71.530472 v core.mac.adder.bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+                      0.656190    0.000078   71.530556 v core.mac.adder.u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+     1    0.007730    0.755644    1.597144   73.127693 v core.mac.adder.u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+                                             26.119785   slack (MET)
+== /Users/samuelzhang/ttharden/ra_final
+     1    0.005800    0.597087    1.809255   71.733078 v core.mac.adder.bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+                      0.597087    0.000064   71.733139 v core.mac.adder.u_msb_x3/A1 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+     1    0.008657    0.786090    3.544720   75.277863 v core.mac.adder.u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+                                             23.694057   slack (MET)
+== /Users/samuelzhang/ttharden/ra_final_fixed
+     1    0.005412    0.586599    1.783853   72.574379 v core.mac.adder.bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+                      0.586599    0.000057   72.574432 v core.mac.adder.u_msb_x3/A1 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+     1    0.010737    0.854292    3.585406   76.159836 v core.mac.adder.u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+                                             23.156425   slack (MET)
+
+# RTL difference hyb -> final (layout_plan/chip_runs/{hyb,final}/rtl/ripple_add.v)
+> // (bitslice[i].u_fa = addf_1 for bits 0..N-2, u_msb_x3 = xor3_1 for bit N-1); simulators and
+<     wire [N:0] c;
+>     wire [N-1:0] c;
+<         gf180mcu_fd_sc_mcu7t5v0__xor3_1 u_msb_x3 (.A1(a[N-1]), .A2(b[N-1]), .A3(c[N-1]), .Z(s[N-1]));
+<         assign c[N] = 1'b0; // no carry out: the MSB is a 3-input XOR
+>     gf180mcu_fd_sc_mcu7t5v0__xor3_1 u_msb_x3 (.A1(c[N-1]), .A2(b[N-1]), .A3(a[N-1]), .Z(s[N-1]));
+
+# Generator: default pin map c_in->A3 (gen_placement.py:95), search result (out/placement_n22.json msb_search):
+{'rel_site': 10, 'mirror': True, 'pins': {'a': 'A3', 'b': 'A2', 'c_in': 'A1', 's': 'Z'}}

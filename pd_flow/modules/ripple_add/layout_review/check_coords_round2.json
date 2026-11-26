@@ -1,0 +1,609 @@
+{
+ "checks": [
+  {
+   "check": "base rows: 39 rows x 607 sites, x0=3.36, step 0.56",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "base rows alternate N (even) / FS (odd) from y=3.92",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "netlists: N=22 has 21 addf_1 + 1 xor3_1; N=12 has 11 addf_1 + 1 xor3_1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "chip N=22 anchor: grid/row/orientation/overlap/obstacle legality",
+   "ok": true,
+   "detail": "22 cells, 22 rows"
+  },
+  {
+   "check": "chip N=22 anchor: bit i in relative row i, all FA in one column",
+   "ok": true,
+   "detail": "x=[126560]"
+  },
+  {
+   "check": "chip N=12 anchor: grid/row/orientation/overlap/obstacle legality",
+   "ok": true,
+   "detail": "12 cells, 12 rows"
+  },
+  {
+   "check": "chip N=12 anchor: bit i in relative row i, all FA in one column",
+   "ok": true,
+   "detail": "x=[126560]"
+  },
+  {
+   "check": "chip anchors: N=22 and N=12 columns do not overlap each other",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "taps: same-row-only worst distance (info)",
+   "ok": true,
+   "detail": "19.32 um (exceeds 15 um alone)"
+  },
+  {
+   "check": "taps: worst per-well distance to a tap in the same well (same row or well-sharing neighbour) <= 15 um (DF.13_MV/DF.14_MV)",
+   "ok": true,
+   "detail": "10.3 um"
+  },
+  {
+   "check": "PDN: no Metal4 stripe (and so no rail via stack) over any column cell at the default anchors",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "block n22 (core x0 3.36, 37 sites): grid/row/orientation/overlap/obstacle legality",
+   "ok": true,
+   "detail": "22 cells, 22 rows"
+  },
+  {
+   "check": "block n22 (core x0 3.36, 37 sites): bit i in relative row i, all FA in one column",
+   "ok": true,
+   "detail": "x=[8960]"
+  },
+  {
+   "check": "block n12 (core x0 3.36, 37 sites): grid/row/orientation/overlap/obstacle legality",
+   "ok": true,
+   "detail": "12 cells, 12 rows"
+  },
+  {
+   "check": "block n12 (core x0 3.36, 37 sites): bit i in relative row i, all FA in one column",
+   "ok": true,
+   "detail": "x=[8960]"
+  },
+  {
+   "check": "FIRM run final DEF: every adder cell present, same master, FIXED, exact location and orientation",
+   "ok": true,
+   "detail": "34/34 held; []"
+  },
+  {
+   "check": "FIRM run: extra cells inside the adder name space are only tie cells (free-placed, PLACED)",
+   "ok": true,
+   "detail": {
+    "tiel": 5
+   }
+  },
+  {
+   "check": "FIRM run: tap and endcap sets identical to baseline (positions)",
+   "ok": true,
+   "detail": "taps 348 vs 348, endcaps 78 vs 78"
+  },
+  {
+   "check": "FIRM run: PDN stripes identical to baseline",
+   "ok": true,
+   "detail": "18 stripes"
+  },
+  {
+   "check": "FIRM run final DEF: no overlapping instances anywhere, all orientations row-legal",
+   "ok": true,
+   "detail": "overlaps [], bad orient []"
+  },
+  {
+   "check": "FIRM pnl: every carry net is exactly CO(i) -> CI(i+1) (MSB carry pin from netlist), no buffer or extra load",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "check": "FIRM run: exact at every step DEF from ManualMacroPlacement on",
+   "ok": true,
+   "detail": "15 step DEFs, first ('17-odb-manualmacroplacement', 34, 34)"
+  }
+ ],
+ "fail": 0,
+ "base_taps": 348,
+ "base_endcaps": 78,
+ "tap_distance": [
+  [
+   "core.mac.adder.bitslice[0].u_fa",
+   18.76,
+   {
+    "nwell": 10.3,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[1].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[2].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[3].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[4].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[5].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[6].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[7].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[8].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[9].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[10].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[11].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[12].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[13].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[14].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[15].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[16].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[17].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[18].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[19].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.bitslice[20].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.adder.u_msb_x3",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[0].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[1].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[2].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[3].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[4].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[5].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[6].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[7].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[8].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[9].u_fa",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.bitslice[10].u_fa",
+   18.76,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ],
+  [
+   "core.mac.l_adder.u_msb_x3",
+   19.32,
+   {
+    "nwell": 10.17,
+    "pwell": 10.17
+   }
+  ]
+ ],
+ "stripes_x_um": [
+  [
+   "VGND",
+   22.98
+  ],
+  [
+   "VGND",
+   61.85
+  ],
+  [
+   "VGND",
+   100.72
+  ],
+  [
+   "VGND",
+   139.59
+  ],
+  [
+   "VGND",
+   178.46
+  ],
+  [
+   "VGND",
+   217.33
+  ],
+  [
+   "VGND",
+   256.2
+  ],
+  [
+   "VGND",
+   295.07
+  ],
+  [
+   "VGND",
+   333.94
+  ],
+  [
+   "VPWR",
+   19.68
+  ],
+  [
+   "VPWR",
+   58.55
+  ],
+  [
+   "VPWR",
+   97.42
+  ],
+  [
+   "VPWR",
+   136.29
+  ],
+  [
+   "VPWR",
+   175.16
+  ],
+  [
+   "VPWR",
+   214.03
+  ],
+  [
+   "VPWR",
+   252.9
+  ],
+  [
+   "VPWR",
+   291.77
+  ],
+  [
+   "VPWR",
+   330.64
+  ]
+ ],
+ "extra_adder_cells": {
+  "core.mac.l_adder.bitslice[0].u_fa_66": {
+   "master": "gf180mcu_fd_sc_mcu7t5v0__tiel",
+   "status": "PLACED",
+   "x": 163520,
+   "y": 196000,
+   "orient": "FN"
+  },
+  "core.mac.l_adder.bitslice[10].u_fa_67": {
+   "master": "gf180mcu_fd_sc_mcu7t5v0__tiel",
+   "status": "PLACED",
+   "x": 159040,
+   "y": 282240,
+   "orient": "S"
+  },
+  "core.mac.l_adder.bitslice[8].u_fa_68": {
+   "master": "gf180mcu_fd_sc_mcu7t5v0__tiel",
+   "status": "PLACED",
+   "x": 163520,
+   "y": 258720,
+   "orient": "FN"
+  },
+  "core.mac.l_adder.bitslice[9].u_fa_69": {
+   "master": "gf180mcu_fd_sc_mcu7t5v0__tiel",
+   "status": "PLACED",
+   "x": 165760,
+   "y": 297920,
+   "orient": "S"
+  },
+  "core.mac.l_adder.u_msb_x3_70": {
+   "master": "gf180mcu_fd_sc_mcu7t5v0__tiel",
+   "status": "PLACED",
+   "x": 161280,
+   "y": 305760,
+   "orient": "FN"
+  }
+ },
+ "firm_column_abutters": {
+  "filltie": 32,
+  "nand2_1": 1,
+  "fill_2": 8,
+  "fill_1": 11,
+  "xor2_1": 3,
+  "fillcap_4": 1,
+  "and2_1": 1,
+  "clkinv_4": 1,
+  "tiel": 2,
+  "clkbuf_1": 1,
+  "mux2_2": 1,
+  "dffq_1": 1,
+  "aoi21_1": 2,
+  "clkinv_1": 2,
+  "aoi222_1": 1
+ },
+ "msb_carry_pin": "A3",
+ "firm_step_history": [
+  [
+   "13-openroad-floorplan",
+   0,
+   34
+  ],
+  [
+   "16-odb-setpowerconnections",
+   0,
+   34
+  ],
+  [
+   "17-odb-manualmacroplacement",
+   34,
+   34
+  ],
+  [
+   "18-openroad-cutrows",
+   34,
+   34
+  ],
+  [
+   "19-openroad-tapendcapinsertion",
+   34,
+   34
+  ],
+  [
+   "21-openroad-generatepdn",
+   34,
+   34
+  ],
+  [
+   "27-odb-applydeftemplate",
+   34,
+   34
+  ],
+  [
+   "28-openroad-globalplacement",
+   34,
+   34
+  ],
+  [
+   "32-openroad-repairdesignpostgpl",
+   34,
+   34
+  ],
+  [
+   "34-openroad-detailedplacement",
+   34,
+   34
+  ],
+  [
+   "35-openroad-cts",
+   34,
+   34
+  ],
+  [
+   "37-openroad-resizertimingpostcts",
+   34,
+   34
+  ],
+  [
+   "39-openroad-globalrouting",
+   34,
+   34
+  ],
+  [
+   "44-openroad-detailedrouting",
+   34,
+   34
+  ],
+  [
+   "48-odb-reportdisconnectedpins",
+   34,
+   34
+  ],
+  [
+   "52-openroad-fillinsertion",
+   34,
+   34
+  ],
+  [
+   "53-odb-cellfrequencytables",
+   34,
+   34
+  ]
+ ]
+}

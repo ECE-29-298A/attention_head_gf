@@ -1,0 +1,10 @@
+abc_n12        cells= 50 area=  1148.09 pinC=  556.0fF swC/vec zero-delay=  264.6fF unit-delay=  286.0fF glitch=1.081
+abc_n22        cells= 95 area=  2146.91 pinC= 1048.8fF swC/vec zero-delay=  498.4fF unit-delay=  543.3fF glitch=1.090
+addf1_n12      cells= 12 area=   869.30 pinC=  386.6fF swC/vec zero-delay=  194.1fF unit-delay=  215.3fF glitch=1.109
+addf1_n22      cells= 22 area=  1593.72 pinC=  708.8fF swC/vec zero-delay=  356.0fF unit-delay=  400.5fF glitch=1.125
+addf1x3_n12    cells= 12 area=   847.35 pinC=  371.8fF swC/vec zero-delay=  186.7fF unit-delay=  207.5fF glitch=1.111
+addf1x3_n22    cells= 22 area=  1571.76 pinC=  694.0fF swC/vec zero-delay=  348.6fF unit-delay=  392.7fF glitch=1.126
+addf2x3_n12    cells= 12 area=   919.79 pinC=  375.8fF swC/vec zero-delay=  188.8fF unit-delay=  209.5fF glitch=1.110
+addf2x3_n22    cells= 22 area=  1710.06 pinC=  701.6fF swC/vec zero-delay=  352.4fF unit-delay=  396.6fF glitch=1.125
+alt12x3_n12    cells= 12 area=   880.28 pinC=  373.6fF swC/vec zero-delay=  187.7fF unit-delay=  208.4fF glitch=1.110
+alt12x3_n22    cells= 22 area=  1637.62 pinC=  697.6fF swC/vec zero-delay=  350.4fF unit-delay=  394.6fF glitch=1.126

@@ -1,0 +1,98 @@
+{
+ "checks": {
+  "1_stale": {
+   "ok": true,
+   "stale_files": []
+  },
+  "2-8": {
+   "ok": true,
+   "errors": [],
+   "notes": [
+    "N=22: anchor (row 1, site 107) soft warnings: none",
+    "N=22: function random 2^20 (seed 20261126) + 176 carry-chain patterns: 1048752 vectors, outputs + carry bus, mismatching buses 0",
+    "N=12: anchor (row 23, site 107) soft warnings: none",
+    "N=12: function exhaustive 2^25: 33554432 vectors, outputs + carry bus, mismatching buses 0"
+   ]
+  },
+  "9_self_test": {
+   "ok": true,
+   "cases": [
+    {
+     "case": "overlap",
+     "rejected": true,
+     "intended_check": "overlap at row",
+     "first_error": "N=22: overlap at row 0 site 0: bitslice[0].u_fa / bitslice[1].u_fa",
+     "n_errors": 39
+    },
+    {
+     "case": "off-grid",
+     "rejected": true,
+     "intended_check": "not on the site/row grid",
+     "first_error": "N=22: bitslice[2].u_fa: um coordinates not on the site/row grid",
+     "n_errors": 1
+    },
+    {
+     "case": "wrong master width",
+     "rejected": true,
+     "intended_check": "width table",
+     "first_error": "N=12: bitslice[3].u_fa: width table 32 != LEF 33 sites",
+     "n_errors": 2
+    },
+    {
+     "case": "orientation vs row parity",
+     "rejected": true,
+     "intended_check": "illegal in a",
+     "first_error": "N=22: bitslice[4].u_fa: orientation FS illegal in a N row",
+     "n_errors": 3
+    },
+    {
+     "case": "anchor on a FIXED tap (site 35 = row-1 tap at 22.96 um)",
+     "rejected": true,
+     "intended_check": "overlaps FIXED tap",
+     "first_error": "N=22: anchor: bitslice[0].u_fa overlaps FIXED tap/endcap at row 2 sites 35-37",
+     "n_errors": 11
+    },
+    {
+     "case": "anchor outside core (site 590, past the 607-site row)",
+     "rejected": true,
+     "intended_check": "outside core",
+     "first_error": "N=12: anchor: bitslice[0].u_fa outside core (row 1, sites 590-623)",
+     "n_errors": 12
+    },
+    {
+     "case": "broken carry chain (netlist)",
+     "rejected": true,
+     "intended_check": "not CO->CI",
+     "first_error": "N=22: carry 0->1 not CO->CI",
+     "n_errors": 81
+    },
+    {
+     "case": "MSB carry moved off A3 (wrong operand on A3)",
+     "rejected": true,
+     "intended_check": "does not match the placement pin record",
+     "first_error": "N=12: u_msb_x3.A3 does not match the placement pin record",
+     "n_errors": 3
+    }
+   ]
+  }
+ },
+ "library": {
+  "cell_lef_sha256": "47dadf84c21b20f558d043c36271632f07b1c2c2a595b118e2e1050ebb74349b",
+  "tech_lef_sha256": "1e15a88b384e015e5609a163fb8ce961309e122d450a69e189e57e528d464d65",
+  "site": {
+   "name": "GF018hv5v_mcu_sc7",
+   "class": "core",
+   "w": 0.56,
+   "h": 3.92
+  },
+  "widths_sites": {
+   "gf180mcu_fd_sc_mcu7t5v0__addf_1": 33,
+   "gf180mcu_fd_sc_mcu7t5v0__xor3_1": 23,
+   "gf180mcu_fd_sc_mcu7t5v0__filltie": 2,
+   "gf180mcu_fd_sc_mcu7t5v0__endcap": 2,
+   "gf180mcu_fd_sc_mcu7t5v0__fill_1": 1,
+   "gf180mcu_fd_sc_mcu7t5v0__fill_2": 2
+  }
+ },
+ "all_ok": true
+}

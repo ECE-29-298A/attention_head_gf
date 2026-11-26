@@ -1,0 +1,2 @@
+overlay keys: ['MACRO_PLACEMENT_CFG', 'VERILOG_DEFINES']
+harden rc=0 seconds=70

@@ -1,0 +1,4 @@
+{
+ "MACRO_PLACEMENT_CFG": "dir::ra_fixed.cfg",
+ "RSZ_DONT_TOUCH_RX": "^core\\.mac\\.(l_)?adder\\."
+}

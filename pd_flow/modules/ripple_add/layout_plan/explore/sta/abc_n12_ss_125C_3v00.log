@@ -1,0 +1,58 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: b[0] (input port clocked by vclk)
+Endpoint: s[11] (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.000    0.000 ^ input external delay
+   0.016    0.300    0.000    0.000 ^ b[0] (in)
+   0.005    0.339    0.315    0.315 v _44_/ZN (gf180mcu_fd_sc_mcu7t5v0__nor2_1)
+   0.012    1.489    1.062    1.377 ^ _45_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.012    0.823    0.678    2.055 v _47_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+   0.012    1.495    1.139    3.194 ^ _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.012    0.824    0.679    3.872 v _52_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+   0.012    1.495    1.139    5.011 ^ _54_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.012    0.824    0.679    5.690 v _56_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+   0.012    1.495    1.139    6.829 ^ _58_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.012    0.824    0.679    7.508 v _60_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+   0.012    1.495    1.139    8.646 ^ _63_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.012    0.824    0.679    9.325 v _73_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+   0.007    1.091    0.897   10.222 ^ _78_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+   0.020    2.334    2.009   12.231 ^ _79_/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+            2.334    0.000   12.231 ^ s[11] (out)
+                             12.231   data arrival time
+
+            0.000  100.000  100.000   clock vclk (rise edge)
+                     0.000  100.000   clock network delay (ideal)
+                     0.000  100.000   clock reconvergence pessimism
+                     0.000  100.000   output external delay
+                            100.000   data required time
+---------------------------------------------------------------------------
+                            100.000   data required time
+                            -12.231   data arrival time
+---------------------------------------------------------------------------
+                             87.769   slack (MET)
+
+
+RESULT abc_n12 ss_125C_3v00 worst_arrival_ns=12.231 startpoint=b[0] endpoint=s[11]
+RESULT_CIN abc_n12 ss_125C_3v00 cin_arrival_ns=12.122
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Combinational        3.034696e-05 3.069951e-05 2.099245e-08 6.106746e-05 100.0%
+Clock                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                3.034696e-05 3.069951e-05 2.099245e-08 6.106746e-05 100.0%
+                            49.7%        50.3%         0.0%

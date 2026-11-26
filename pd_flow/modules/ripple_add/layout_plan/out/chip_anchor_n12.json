@@ -1,0 +1,89 @@
+{
+ "status": "REFERENCE ONLY. Do not paste into MANUAL_GLOBAL_PLACEMENTS: rejected, measured drift (2/34 cells off target by up to 20.7 um, 21/34 mirrored after detailed placement; chip_runs/placement_effect.json). Integrate with chip_anchor_n12.cfg via MACRO_PLACEMENT_CFG.",
+ "placement": {
+  "core.mac.l_adder.bitslice[0].u_fa": {
+   "location": [
+    63.28,
+    94.08
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[1].u_fa": {
+   "location": [
+    63.28,
+    98.0
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[2].u_fa": {
+   "location": [
+    63.28,
+    101.92
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[3].u_fa": {
+   "location": [
+    63.28,
+    105.84
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[4].u_fa": {
+   "location": [
+    63.28,
+    109.76
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[5].u_fa": {
+   "location": [
+    63.28,
+    113.68
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[6].u_fa": {
+   "location": [
+    63.28,
+    117.6
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[7].u_fa": {
+   "location": [
+    63.28,
+    121.52
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[8].u_fa": {
+   "location": [
+    63.28,
+    125.44
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[9].u_fa": {
+   "location": [
+    63.28,
+    129.36
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[10].u_fa": {
+   "location": [
+    63.28,
+    133.28
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.u_msb_x3": {
+   "location": [
+    68.88,
+    137.2
+   ],
+   "orientation": "FN"
+  }
+ }
+}

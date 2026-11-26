@@ -1,0 +1,67 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: b[0] (input port clocked by vclk)
+Endpoint: s[21] (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+            0.000    0.000    0.000   clock vclk (rise edge)
+                     0.000    0.000   clock network delay (ideal)
+                     0.000    0.000 v input external delay
+   0.011    0.300    0.000    0.000 v b[0] (in)
+   0.009    0.364    0.981    0.981 v u_fa0/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    1.855 v u_fa1/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    2.728 v u_fa2/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    3.602 v u_fa3/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    4.475 v u_fa4/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    5.349 v u_fa5/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    6.223 v u_fa6/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    7.096 v u_fa7/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    7.970 v u_fa8/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    8.843 v u_fa9/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874    9.717 v u_fa10/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   10.590 v u_fa11/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   11.464 v u_fa12/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   12.337 v u_fa13/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   13.211 v u_fa14/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   14.084 v u_fa15/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   14.958 v u_fa16/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   15.832 v u_fa17/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   16.705 v u_fa18/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   17.579 v u_fa19/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.009    0.364    0.874   18.452 v u_fa20/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.020    0.602    1.456   19.908 ^ u_fa21/S (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+            0.602    0.000   19.908 ^ s[21] (out)
+                             19.908   data arrival time
+
+            0.000  100.000  100.000   clock vclk (rise edge)
+                     0.000  100.000   clock network delay (ideal)
+                     0.000  100.000   clock reconvergence pessimism
+                     0.000  100.000   output external delay
+                            100.000   data required time
+---------------------------------------------------------------------------
+                            100.000   data required time
+                            -19.908   data arrival time
+---------------------------------------------------------------------------
+                             80.092   slack (MET)
+
+
+RESULT addf1_n22 tt_025C_3v30 worst_arrival_ns=19.908 startpoint=b[0] endpoint=s[21]
+RESULT_CIN addf1_n22 tt_025C_3v30 cin_arrival_ns=19.781
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Combinational        5.847741e-05 5.733850e-05 2.630888e-09 1.158185e-04 100.0%
+Clock                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                5.847741e-05 5.733850e-05 2.630888e-09 1.158185e-04 100.0%
+                            50.5%        49.5%         0.0%

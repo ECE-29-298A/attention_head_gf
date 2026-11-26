@@ -1,0 +1,19 @@
+{
+ "N": 22,
+ "DIE_AREA": [
+  0,
+  0,
+  27.44,
+  94.08
+ ],
+ "CORE_AREA": [
+  3.36,
+  3.92,
+  24.08,
+  90.16
+ ],
+ "rows": 22,
+ "sites_per_row": 37,
+ "endcap_sites_each_side": 2,
+ "note": "rows alternate N (row 0) / FS; cells keep the relative placement at anchor parity 0"
+}

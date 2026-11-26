@@ -1,0 +1,4 @@
+{
+ "MACRO_PLACEMENT_CFG": "dir::ra_fixed.cfg",
+ "VERILOG_DEFINES": ["RIPPLE_ADD_CELLS"]
+}

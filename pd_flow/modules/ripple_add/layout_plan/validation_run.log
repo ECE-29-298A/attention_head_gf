@@ -1,0 +1,14 @@
+{"1_stale": true, "2-8": true, "9_self_test": true}
+  N=22: anchor (row 1, site 107) soft warnings: none
+  N=22: function random 2^20 (seed 20261126) + 176 carry-chain patterns: 1048752 vectors, outputs + carry bus, mismatching buses 0
+  N=12: anchor (row 23, site 107) soft warnings: none
+  N=12: function exhaustive 2^25: 33554432 vectors, outputs + carry bus, mismatching buses 0
+  self-test overlap rejected | N=22: overlap at row 0 site 0: bitslice[0].u_fa / bitslice[1].u_fa
+  self-test off-grid rejected | N=22: bitslice[2].u_fa: um coordinates not on the site/row grid
+  self-test wrong master width rejected | N=12: bitslice[3].u_fa: width table 32 != LEF 33 sites
+  self-test orientation vs row parity rejected | N=22: bitslice[4].u_fa: orientation FS illegal in a N row
+  self-test anchor on a FIXED tap (site 35 = row-1 tap at 22.96 um) rejected | N=22: anchor: bitslice[0].u_fa overlaps FIXED tap/endcap at row 2 sites 35-37
+  self-test anchor outside core (site 590, past the 607-site row) rejected | N=12: anchor: bitslice[0].u_fa outside core (row 1, sites 590-623)
+  self-test broken carry chain (netlist) rejected | N=22: carry 0->1 not CO->CI
+  self-test MSB carry moved off A3 (wrong operand on A3) rejected | N=12: u_msb_x3.A3 does not match the placement pin record
+ALL_OK

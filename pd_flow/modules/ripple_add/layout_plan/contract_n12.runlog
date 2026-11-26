@@ -1,0 +1,19 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/layout_plan/out/ripple_add_n12.v (gate-level netlist, N=12, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog)
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/layout_plan/contract_n12
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//ripple_add_verif.6UN53h
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass               pass-static         0.17s  RESULT cells netlist_modules=['ripple_add'] cell_types=2 models_copied=4 udps=0; cells=/Users/samuel
+selftest             pass               pass-static         0.05s  RESULT selftest kat=19 mismatches=0
+lint_n12             pass               pass-static         0.16s  RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lin
+build_n12            pass               pass-static         3.22s  obj_12/sim
+exh_n12              pass-exhaustive    pass-exhaustive     1.46s  RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=0 checksum=0x05a0bf138bee72
+vec_n12              pass-sampled       pass-sampled        4.30s  golden_vectors=207064 verilator_checked=207064 icarus_checked=207064; RESULT mode=vectors N=12 vecto
+rand_n12             pass-sampled       pass-sampled        0.27s  RESULT mode=random N=12 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000
+fv_cover_n12         covered            bounded-pass        0.56s  sby_status=PASS asserts=2 covers=16 reached=16 unreached=0
+fv_pdr_n12           proven             proven              0.33s  sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS
+fv_prove_n12         proven             proven              0.36s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_sanity_n12        failed-as-expected failed              0.33s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+TOTAL 11/11 ok, all_ok=True, 8.807 s

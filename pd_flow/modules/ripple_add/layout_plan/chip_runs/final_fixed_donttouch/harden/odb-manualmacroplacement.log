@@ -1,0 +1,39 @@
+[WARNING ORD-0039] .openroad ignored with -python
+Placing the following macros:
+{'core.mac.adder.bitslice\\[0\\].u_fa': ['core.mac.adder.bitslice[0].u_fa', 126560, 15680, 'FS'], 'core.mac.adder.bitslice\\[1\\].u_fa': ['core.mac.adder.bitslice[1].u_fa', 126560, 23520, 'N'], 'core.mac.adder.bitslice\\[2\\].u_fa': ['core.mac.adder.bitslice[2].u_fa', 126560, 31360, 'FS'], 'core.mac.adder.bitslice\\[3\\].u_fa': ['core.mac.adder.bitslice[3].u_fa', 126560, 39200, 'N'], 'core.mac.adder.bitslice\\[4\\].u_fa': ['core.mac.adder.bitslice[4].u_fa', 126560, 47040, 'FS'], 'core.mac.adder.bitslice\\[5\\].u_fa': ['core.mac.adder.bitslice[5].u_fa', 126560, 54880, 'N'], 'core.mac.adder.bitslice\\[6\\].u_fa': ['core.mac.adder.bitslice[6].u_fa', 126560, 62720, 'FS'], 'core.mac.adder.bitslice\\[7\\].u_fa': ['core.mac.adder.bitslice[7].u_fa', 126560, 70560, 'N'], 'core.mac.adder.bitslice\\[8\\].u_fa': ['core.mac.adder.bitslice[8].u_fa', 126560, 78400, 'FS'], 'core.mac.adder.bitslice\\[9\\].u_fa': ['core.mac.adder.bitslice[9].u_fa', 126560, 86240, 'N'], 'core.mac.adder.bitslice\\[10\\].u_fa': ['core.mac.adder.bitslice[10].u_fa', 126560, 94080, 'FS'], 'core.mac.adder.bitslice\\[11\\].u_fa': ['core.mac.adder.bitslice[11].u_fa', 126560, 101920, 'N'], 'core.mac.adder.bitslice\\[12\\].u_fa': ['core.mac.adder.bitslice[12].u_fa', 126560, 109760, 'FS'], 'core.mac.adder.bitslice\\[13\\].u_fa': ['core.mac.adder.bitslice[13].u_fa', 126560, 117600, 'N'], 'core.mac.adder.bitslice\\[14\\].u_fa': ['core.mac.adder.bitslice[14].u_fa', 126560, 125440, 'FS'], 'core.mac.adder.bitslice\\[15\\].u_fa': ['core.mac.adder.bitslice[15].u_fa', 126560, 133280, 'N'], 'core.mac.adder.bitslice\\[16\\].u_fa': ['core.mac.adder.bitslice[16].u_fa', 126560, 141120, 'FS'], 'core.mac.adder.bitslice\\[17\\].u_fa': ['core.mac.adder.bitslice[17].u_fa', 126560, 148960, 'N'], 'core.mac.adder.bitslice\\[18\\].u_fa': ['core.mac.adder.bitslice[18].u_fa', 126560, 156800, 'FS'], 'core.mac.adder.bitslice\\[19\\].u_fa': ['core.mac.adder.bitslice[19].u_fa', 126560, 164640, 'N'], 'core.mac.adder.bitslice\\[20\\].u_fa': ['core.mac.adder.bitslice[20].u_fa', 126560, 172480, 'FS'], 'core.mac.adder.u_msb_x3': ['core.mac.adder.u_msb_x3', 137760, 180320, 'FN'], 'core.mac.l_adder.bitslice\\[0\\].u_fa': ['core.mac.l_adder.bitslice[0].u_fa', 126560, 188160, 'FS'], 'core.mac.l_adder.bitslice\\[1\\].u_fa': ['core.mac.l_adder.bitslice[1].u_fa', 126560, 196000, 'N'], 'core.mac.l_adder.bitslice\\[2\\].u_fa': ['core.mac.l_adder.bitslice[2].u_fa', 126560, 203840, 'FS'], 'core.mac.l_adder.bitslice\\[3\\].u_fa': ['core.mac.l_adder.bitslice[3].u_fa', 126560, 211680, 'N'], 'core.mac.l_adder.bitslice\\[4\\].u_fa': ['core.mac.l_adder.bitslice[4].u_fa', 126560, 219520, 'FS'], 'core.mac.l_adder.bitslice\\[5\\].u_fa': ['core.mac.l_adder.bitslice[5].u_fa', 126560, 227360, 'N'], 'core.mac.l_adder.bitslice\\[6\\].u_fa': ['core.mac.l_adder.bitslice[6].u_fa', 126560, 235200, 'FS'], 'core.mac.l_adder.bitslice\\[7\\].u_fa': ['core.mac.l_adder.bitslice[7].u_fa', 126560, 243040, 'N'], 'core.mac.l_adder.bitslice\\[8\\].u_fa': ['core.mac.l_adder.bitslice[8].u_fa', 126560, 250880, 'FS'], 'core.mac.l_adder.bitslice\\[9\\].u_fa': ['core.mac.l_adder.bitslice[9].u_fa', 126560, 258720, 'N'], 'core.mac.l_adder.bitslice\\[10\\].u_fa': ['core.mac.l_adder.bitslice[10].u_fa', 126560, 266560, 'FS'], 'core.mac.l_adder.u_msb_x3': ['core.mac.l_adder.u_msb_x3', 137760, 274400, 'FN']}
+Design name: tt_um_attention_head_gf
+Placing core.mac.adder.bitslice\[0\].u_fa
+Placing core.mac.adder.bitslice\[10\].u_fa
+Placing core.mac.adder.bitslice\[11\].u_fa
+Placing core.mac.adder.bitslice\[12\].u_fa
+Placing core.mac.adder.bitslice\[13\].u_fa
+Placing core.mac.adder.bitslice\[14\].u_fa
+Placing core.mac.adder.bitslice\[15\].u_fa
+Placing core.mac.adder.bitslice\[16\].u_fa
+Placing core.mac.adder.bitslice\[17\].u_fa
+Placing core.mac.adder.bitslice\[18\].u_fa
+Placing core.mac.adder.bitslice\[19\].u_fa
+Placing core.mac.adder.bitslice\[1\].u_fa
+Placing core.mac.adder.bitslice\[20\].u_fa
+Placing core.mac.adder.bitslice\[2\].u_fa
+Placing core.mac.adder.bitslice\[3\].u_fa
+Placing core.mac.adder.bitslice\[4\].u_fa
+Placing core.mac.adder.bitslice\[5\].u_fa
+Placing core.mac.adder.bitslice\[6\].u_fa
+Placing core.mac.adder.bitslice\[7\].u_fa
+Placing core.mac.adder.bitslice\[8\].u_fa
+Placing core.mac.adder.bitslice\[9\].u_fa
+Placing core.mac.adder.u_msb_x3
+Placing core.mac.l_adder.bitslice\[0\].u_fa
+Placing core.mac.l_adder.bitslice\[10\].u_fa
+Placing core.mac.l_adder.bitslice\[1\].u_fa
+Placing core.mac.l_adder.bitslice\[2\].u_fa
+Placing core.mac.l_adder.bitslice\[3\].u_fa
+Placing core.mac.l_adder.bitslice\[4\].u_fa
+Placing core.mac.l_adder.bitslice\[5\].u_fa
+Placing core.mac.l_adder.bitslice\[6\].u_fa
+Placing core.mac.l_adder.bitslice\[7\].u_fa
+Placing core.mac.l_adder.bitslice\[8\].u_fa
+Placing core.mac.l_adder.bitslice\[9\].u_fa
+Placing core.mac.l_adder.u_msb_x3
+Successfully placed 34 instances.

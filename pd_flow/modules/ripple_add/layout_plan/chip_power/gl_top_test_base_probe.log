@@ -1,0 +1,57 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /usr/local/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795683822
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_top_qspi.end_to_end_flash_and_host (1/4)
+    31.00ns WARNING  cocotb.Task 3.Harness.clock_side   Cannot convert Logic('X') to int
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 112, in clock_side
+                                                            self.flash.observe(int(out[0]), int(out[3]), int(out[1]) if io0_oe else 0, io0_oe)
+                                                                                            ^^^^^^^^^^^
+                                                          File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/types/_logic.py", line 250, in __int__
+                                                            raise ValueError(f"Cannot convert {self!r} to int")
+                                                        ValueError: Cannot convert Logic('X') to int
+    31.00ns WARNING  cocotb.regression                  test_top_qspi.end_to_end_flash_and_host failed
+    31.00ns INFO     cocotb.regression                  running test_top_qspi.hardware_matches_python_model (2/4)
+    62.00ns WARNING  cocotb.Task 6.Harness.clock_side   Cannot convert Logic('X') to int
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 112, in clock_side
+                                                            self.flash.observe(int(out[0]), int(out[3]), int(out[1]) if io0_oe else 0, io0_oe)
+                                                                                            ^^^^^^^^^^^
+                                                          File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/types/_logic.py", line 250, in __int__
+                                                            raise ValueError(f"Cannot convert {self!r} to int")
+                                                        ValueError: Cannot convert Logic('X') to int
+    62.00ns WARNING  cocotb.regression                  test_top_qspi.hardware_matches_python_model failed
+    62.00ns INFO     cocotb.regression                  running test_top_qspi.continue_runs_share_pass_one (3/4)
+                                                            Several chunks of one head: a fresh run, then cont runs that reuse the maximum and the open read.
+    93.00ns WARNING  cocotb.Task 9.Harness.clock_side   Cannot convert Logic('X') to int
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 112, in clock_side
+                                                            self.flash.observe(int(out[0]), int(out[3]), int(out[1]) if io0_oe else 0, io0_oe)
+                                                                                            ^^^^^^^^^^^
+                                                          File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/types/_logic.py", line 250, in __int__
+                                                            raise ValueError(f"Cannot convert {self!r} to int")
+                                                        ValueError: Cannot convert Logic('X') to int
+    93.00ns WARNING  cocotb.regression                  test_top_qspi.continue_runs_share_pass_one failed
+    93.00ns INFO     cocotb.regression                  skipping test_top_qspi.real_smollm_head (4/4)
+                                                            One real SmolLM-135M head (layer 14, head 4, last of 16 tokens) through the pins.
+    93.00ns INFO     cocotb.regression                  *****************************************************************************************************
+                                                        ** TEST                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *****************************************************************************************************
+                                                        ** test_top_qspi.end_to_end_flash_and_host       FAIL          31.00           0.00      13386.54  **
+                                                        ** test_top_qspi.hardware_matches_python_model   FAIL          31.00           0.00      36865.16  **
+                                                        ** test_top_qspi.continue_runs_share_pass_one    FAIL          31.00           0.00      10876.98  **
+                                                        ** test_top_qspi.real_smollm_head                SKIP           0.00           0.00          -.--  **
+                                                        *****************************************************************************************************
+                                                        ** TESTS=4 PASS=0 FAIL=3 SKIP=1                                93.00           0.01      12124.03  **
+                                                        *****************************************************************************************************
+Traceback (most recent call last):
+  File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/run.py", line 48, in <module>
+    main()
+  File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/run.py", line 43, in main
+    subprocess.run([sys.executable, "-m", "cocotb_tools.check_results",
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '-m', 'cocotb_tools.check_results', '/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/attention-top-97st891a/results.xml']' returned non-zero exit status 3.

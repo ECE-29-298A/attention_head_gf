@@ -1,0 +1,13 @@
+inst,master,bit,role,rel_row,rel_site,width_sites,orient_even_anchor,orient_odd_anchor,rel_x_um,rel_y_um
+bitslice[0].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,0,fa,0,0,33,N,FS,0.0,0.0
+bitslice[1].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,1,fa,1,0,33,FS,N,0.0,3.92
+bitslice[2].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,2,fa,2,0,33,N,FS,0.0,7.84
+bitslice[3].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,3,fa,3,0,33,FS,N,0.0,11.76
+bitslice[4].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,4,fa,4,0,33,N,FS,0.0,15.68
+bitslice[5].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,5,fa,5,0,33,FS,N,0.0,19.6
+bitslice[6].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,6,fa,6,0,33,N,FS,0.0,23.52
+bitslice[7].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,7,fa,7,0,33,FS,N,0.0,27.44
+bitslice[8].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,8,fa,8,0,33,N,FS,0.0,31.36
+bitslice[9].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,9,fa,9,0,33,FS,N,0.0,35.28
+bitslice[10].u_fa,gf180mcu_fd_sc_mcu7t5v0__addf_1,10,fa,10,0,33,N,FS,0.0,39.2
+u_msb_x3,gf180mcu_fd_sc_mcu7t5v0__xor3_1,11,msb,11,10,23,S,FN,5.6,43.12

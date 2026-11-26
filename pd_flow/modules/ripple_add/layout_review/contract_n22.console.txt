@@ -1,0 +1,18 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/layout_plan/out/ripple_add_n22.v (gate-level netlist, N=22, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog)
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/layout_review/contract_n22
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//ripple_add_verif.x5nVje
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass               pass-static         0.18s  RESULT cells netlist_modules=['ripple_add'] cell_types=2 models_copied=4 udps=0; cells=/Users/samuel
+selftest             pass               pass-static         0.04s  RESULT selftest kat=19 mismatches=0
+lint_n22             pass               pass-static         0.15s  RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lin
+build_n22            pass               pass-static         2.96s  obj_22/sim
+vec_n22              pass-sampled       pass-sampled        8.04s  golden_vectors=216556 verilator_checked=216556 icarus_checked=216556; RESULT mode=vectors N=22 vecto
+rand_n22             pass-sampled       pass-sampled        2.04s  RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=0 checksum=0x0000000000000000
+fv_cover_n22         covered            bounded-pass        0.69s  sby_status=PASS asserts=2 covers=16 reached=16 unreached=0
+fv_pdr_n22           proven             proven              0.34s  sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS
+fv_prove_n22         proven             proven              0.39s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_sanity_n22        failed-as-expected failed              0.30s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+TOTAL 10/10 ok, all_ok=True, 11.973 s

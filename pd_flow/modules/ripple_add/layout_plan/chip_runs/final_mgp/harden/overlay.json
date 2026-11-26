@@ -1,0 +1,242 @@
+{
+ "MANUAL_GLOBAL_PLACEMENTS": {
+  "core.mac.adder.bitslice[0].u_fa": {
+   "location": [
+    63.28,
+    7.84
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[1].u_fa": {
+   "location": [
+    63.28,
+    11.76
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[2].u_fa": {
+   "location": [
+    63.28,
+    15.68
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[3].u_fa": {
+   "location": [
+    63.28,
+    19.6
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[4].u_fa": {
+   "location": [
+    63.28,
+    23.52
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[5].u_fa": {
+   "location": [
+    63.28,
+    27.44
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[6].u_fa": {
+   "location": [
+    63.28,
+    31.36
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[7].u_fa": {
+   "location": [
+    63.28,
+    35.28
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[8].u_fa": {
+   "location": [
+    63.28,
+    39.2
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[9].u_fa": {
+   "location": [
+    63.28,
+    43.12
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[10].u_fa": {
+   "location": [
+    63.28,
+    47.04
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[11].u_fa": {
+   "location": [
+    63.28,
+    50.96
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[12].u_fa": {
+   "location": [
+    63.28,
+    54.88
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[13].u_fa": {
+   "location": [
+    63.28,
+    58.8
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[14].u_fa": {
+   "location": [
+    63.28,
+    62.72
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[15].u_fa": {
+   "location": [
+    63.28,
+    66.64
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[16].u_fa": {
+   "location": [
+    63.28,
+    70.56
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[17].u_fa": {
+   "location": [
+    63.28,
+    74.48
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[18].u_fa": {
+   "location": [
+    63.28,
+    78.4
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.bitslice[19].u_fa": {
+   "location": [
+    63.28,
+    82.32
+   ],
+   "orientation": "N"
+  },
+  "core.mac.adder.bitslice[20].u_fa": {
+   "location": [
+    63.28,
+    86.24
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.adder.u_msb_x3": {
+   "location": [
+    68.88,
+    90.16
+   ],
+   "orientation": "FN"
+  },
+  "core.mac.l_adder.bitslice[0].u_fa": {
+   "location": [
+    63.28,
+    94.08
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[1].u_fa": {
+   "location": [
+    63.28,
+    98.0
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[2].u_fa": {
+   "location": [
+    63.28,
+    101.92
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[3].u_fa": {
+   "location": [
+    63.28,
+    105.84
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[4].u_fa": {
+   "location": [
+    63.28,
+    109.76
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[5].u_fa": {
+   "location": [
+    63.28,
+    113.68
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[6].u_fa": {
+   "location": [
+    63.28,
+    117.6
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[7].u_fa": {
+   "location": [
+    63.28,
+    121.52
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[8].u_fa": {
+   "location": [
+    63.28,
+    125.44
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.bitslice[9].u_fa": {
+   "location": [
+    63.28,
+    129.36
+   ],
+   "orientation": "N"
+  },
+  "core.mac.l_adder.bitslice[10].u_fa": {
+   "location": [
+    63.28,
+    133.28
+   ],
+   "orientation": "FS"
+  },
+  "core.mac.l_adder.u_msb_x3": {
+   "location": [
+    68.88,
+    137.2
+   ],
+   "orientation": "FN"
+  }
+ }
+}

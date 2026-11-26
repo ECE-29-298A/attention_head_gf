@@ -1,0 +1,372 @@
+{
+ "abc_n12": {
+  "netlist": "netlists/abc_n12.v",
+  "N": 12,
+  "cells": 50,
+  "area_um2": 1148.0896,
+  "total_receiver_pin_cap_fF": 555.97,
+  "switched_pin_cap_fF_per_vector_zero_delay": 264.6,
+  "switched_pin_cap_fF_per_vector_unit_delay": 285.99,
+  "glitch_factor_unit_over_zero": 1.081,
+  "unit_delay_settle_steps_max": 13,
+  "by_class": {
+   "inputs": {
+    "nets": 25,
+    "zd_toggles": 50261,
+    "ud_toggles": 50261,
+    "zd_fC_per_vec": 155.46949712428108,
+    "ud_fC_per_vec": 155.46949712428108
+   },
+   "outputs": {
+    "nets": 12,
+    "zd_toggles": 23913,
+    "ud_toggles": 53563,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   },
+   "internal": {
+    "nets": 38,
+    "zd_toggles": 63206,
+    "ud_toggles": 70760,
+    "zd_fC_per_vec": 109.13275643910976,
+    "ud_fC_per_vec": 130.5217651912978
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^12)"
+ },
+ "abc_n22": {
+  "netlist": "netlists/abc_n22.v",
+  "N": 22,
+  "cells": 95,
+  "area_um2": 2146.9056,
+  "total_receiver_pin_cap_fF": 1048.76,
+  "switched_pin_cap_fF_per_vector_zero_delay": 498.35,
+  "switched_pin_cap_fF_per_vector_unit_delay": 543.28,
+  "glitch_factor_unit_over_zero": 1.09,
+  "unit_delay_settle_steps_max": 18,
+  "by_class": {
+   "inputs": {
+    "nets": 45,
+    "zd_toggles": 90428,
+    "ud_toggles": 90428,
+    "zd_fC_per_vec": 287.9547864466117,
+    "ud_fC_per_vec": 287.9547864466117
+   },
+   "outputs": {
+    "nets": 22,
+    "zd_toggles": 43925,
+    "ud_toggles": 101569,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   },
+   "internal": {
+    "nets": 73,
+    "zd_toggles": 120995,
+    "ud_toggles": 136469,
+    "zd_fC_per_vec": 210.39649037259318,
+    "ud_fC_per_vec": 255.32060640160037
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^22)"
+ },
+ "addf1_n12": {
+  "netlist": "netlists/addf1_n12.v",
+  "N": 12,
+  "cells": 12,
+  "area_um2": 869.2992,
+  "total_receiver_pin_cap_fF": 386.6,
+  "switched_pin_cap_fF_per_vector_zero_delay": 194.14,
+  "switched_pin_cap_fF_per_vector_unit_delay": 215.33,
+  "glitch_factor_unit_over_zero": 1.109,
+  "unit_delay_settle_steps_max": 11,
+  "by_class": {
+   "inputs": {
+    "nets": 24,
+    "zd_toggles": 48155,
+    "ud_toggles": 48155,
+    "zd_fC_per_vec": 137.2786696674168,
+    "ud_fC_per_vec": 137.2786696674168
+   },
+   "internal": {
+    "nets": 13,
+    "zd_toggles": 26159,
+    "ud_toggles": 36141,
+    "zd_fC_per_vec": 56.85993548387097,
+    "ud_fC_per_vec": 78.04877419354838
+   },
+   "outputs": {
+    "nets": 12,
+    "zd_toggles": 23913,
+    "ud_toggles": 55007,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^12)"
+ },
+ "addf1_n22": {
+  "netlist": "netlists/addf1_n22.v",
+  "N": 22,
+  "cells": 22,
+  "area_um2": 1593.7152,
+  "total_receiver_pin_cap_fF": 708.77,
+  "switched_pin_cap_fF_per_vector_zero_delay": 355.98,
+  "switched_pin_cap_fF_per_vector_unit_delay": 400.53,
+  "glitch_factor_unit_over_zero": 1.125,
+  "unit_delay_settle_steps_max": 16,
+  "by_class": {
+   "inputs": {
+    "nets": 44,
+    "zd_toggles": 88322,
+    "ud_toggles": 88322,
+    "zd_fC_per_vec": 251.7787246811703,
+    "ud_fC_per_vec": 251.7787246811703
+   },
+   "internal": {
+    "nets": 23,
+    "zd_toggles": 46262,
+    "ud_toggles": 66168,
+    "zd_fC_per_vec": 104.19925806451612,
+    "ud_fC_per_vec": 148.7528064516129
+   },
+   "outputs": {
+    "nets": 22,
+    "zd_toggles": 43925,
+    "ud_toggles": 105015,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^22)"
+ },
+ "addf1x3_n12": {
+  "netlist": "netlists/addf1x3_n12.v",
+  "N": 12,
+  "cells": 12,
+  "area_um2": 847.3472,
+  "total_receiver_pin_cap_fF": 371.82,
+  "switched_pin_cap_fF_per_vector_zero_delay": 186.74,
+  "switched_pin_cap_fF_per_vector_unit_delay": 207.46,
+  "glitch_factor_unit_over_zero": 1.111,
+  "unit_delay_settle_steps_max": 11,
+  "by_class": {
+   "inputs": {
+    "nets": 24,
+    "zd_toggles": 48155,
+    "ud_toggles": 48155,
+    "zd_fC_per_vec": 130.93358539634906,
+    "ud_fC_per_vec": 130.93358539634906
+   },
+   "internal": {
+    "nets": 12,
+    "zd_toggles": 24146,
+    "ud_toggles": 33144,
+    "zd_fC_per_vec": 55.81114928732184,
+    "ud_fC_per_vec": 76.52198049512377
+   },
+   "outputs": {
+    "nets": 12,
+    "zd_toggles": 23913,
+    "ud_toggles": 55007,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^12)"
+ },
+ "addf1x3_n22": {
+  "netlist": "netlists/addf1x3_n22.v",
+  "N": 22,
+  "cells": 22,
+  "area_um2": 1571.7632,
+  "total_receiver_pin_cap_fF": 693.99,
+  "switched_pin_cap_fF_per_vector_zero_delay": 348.58,
+  "switched_pin_cap_fF_per_vector_unit_delay": 392.66,
+  "glitch_factor_unit_over_zero": 1.126,
+  "unit_delay_settle_steps_max": 16,
+  "by_class": {
+   "inputs": {
+    "nets": 44,
+    "zd_toggles": 88322,
+    "ud_toggles": 88322,
+    "zd_fC_per_vec": 245.43364041010256,
+    "ud_fC_per_vec": 245.43364041010256
+   },
+   "internal": {
+    "nets": 22,
+    "zd_toggles": 44249,
+    "ud_toggles": 63169,
+    "zd_fC_per_vec": 103.15047186796698,
+    "ud_fC_per_vec": 147.2249644911228
+   },
+   "outputs": {
+    "nets": 22,
+    "zd_toggles": 43925,
+    "ud_toggles": 105015,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^22)"
+ },
+ "addf2x3_n12": {
+  "netlist": "netlists/addf2x3_n12.v",
+  "N": 12,
+  "cells": 12,
+  "area_um2": 919.7888,
+  "total_receiver_pin_cap_fF": 375.83,
+  "switched_pin_cap_fF_per_vector_zero_delay": 188.76,
+  "switched_pin_cap_fF_per_vector_unit_delay": 209.52,
+  "glitch_factor_unit_over_zero": 1.11,
+  "unit_delay_settle_steps_max": 11,
+  "by_class": {
+   "inputs": {
+    "nets": 24,
+    "zd_toggles": 48155,
+    "ud_toggles": 48155,
+    "zd_fC_per_vec": 132.80919429857465,
+    "ud_fC_per_vec": 132.80919429857465
+   },
+   "internal": {
+    "nets": 12,
+    "zd_toggles": 24146,
+    "ud_toggles": 33144,
+    "zd_fC_per_vec": 55.94959014753689,
+    "ud_fC_per_vec": 76.71097149287323
+   },
+   "outputs": {
+    "nets": 12,
+    "zd_toggles": 23913,
+    "ud_toggles": 55007,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^12)"
+ },
+ "addf2x3_n22": {
+  "netlist": "netlists/addf2x3_n22.v",
+  "N": 22,
+  "cells": 22,
+  "area_um2": 1710.0608,
+  "total_receiver_pin_cap_fF": 701.65,
+  "switched_pin_cap_fF_per_vector_zero_delay": 352.43,
+  "switched_pin_cap_fF_per_vector_unit_delay": 396.62,
+  "glitch_factor_unit_over_zero": 1.125,
+  "unit_delay_settle_steps_max": 16,
+  "by_class": {
+   "inputs": {
+    "nets": 44,
+    "zd_toggles": 88322,
+    "ud_toggles": 88322,
+    "zd_fC_per_vec": 249.0181865466367,
+    "ud_fC_per_vec": 249.0181865466367
+   },
+   "internal": {
+    "nets": 22,
+    "zd_toggles": 44249,
+    "ud_toggles": 63169,
+    "zd_fC_per_vec": 103.41458789697425,
+    "ud_fC_per_vec": 147.60164616154043
+   },
+   "outputs": {
+    "nets": 22,
+    "zd_toggles": 43925,
+    "ud_toggles": 105015,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^22)"
+ },
+ "alt12x3_n12": {
+  "netlist": "netlists/alt12x3_n12.v",
+  "N": 12,
+  "cells": 12,
+  "area_um2": 880.2752,
+  "total_receiver_pin_cap_fF": 373.64,
+  "switched_pin_cap_fF_per_vector_zero_delay": 187.66,
+  "switched_pin_cap_fF_per_vector_unit_delay": 208.4,
+  "glitch_factor_unit_over_zero": 1.11,
+  "unit_delay_settle_steps_max": 11,
+  "by_class": {
+   "inputs": {
+    "nets": 24,
+    "zd_toggles": 48155,
+    "ud_toggles": 48155,
+    "zd_fC_per_vec": 131.78999449862462,
+    "ud_fC_per_vec": 131.78999449862462
+   },
+   "internal": {
+    "nets": 12,
+    "zd_toggles": 24146,
+    "ud_toggles": 33144,
+    "zd_fC_per_vec": 55.87340860215054,
+    "ud_fC_per_vec": 76.60764566141536
+   },
+   "outputs": {
+    "nets": 12,
+    "zd_toggles": 23913,
+    "ud_toggles": 55007,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^12)"
+ },
+ "alt12x3_n22": {
+  "netlist": "netlists/alt12x3_n22.v",
+  "N": 22,
+  "cells": 22,
+  "area_um2": 1637.6192,
+  "total_receiver_pin_cap_fF": 697.64,
+  "switched_pin_cap_fF_per_vector_zero_delay": 350.42,
+  "switched_pin_cap_fF_per_vector_unit_delay": 394.55,
+  "glitch_factor_unit_over_zero": 1.126,
+  "unit_delay_settle_steps_max": 16,
+  "by_class": {
+   "inputs": {
+    "nets": 44,
+    "zd_toggles": 88322,
+    "ud_toggles": 88322,
+    "zd_fC_per_vec": 247.14185246311584,
+    "ud_fC_per_vec": 247.14185246311584
+   },
+   "internal": {
+    "nets": 22,
+    "zd_toggles": 44249,
+    "ud_toggles": 63169,
+    "zd_fC_per_vec": 103.27577194298573,
+    "ud_fC_per_vec": 147.40450312578147
+   },
+   "outputs": {
+    "nets": 22,
+    "zd_toggles": 43925,
+    "ud_toggles": 105015,
+    "zd_fC_per_vec": 0.0,
+    "ud_fC_per_vec": 0.0
+   }
+  },
+  "vectors": 4000,
+  "seed": 20261126,
+  "function_check": "pass (4000 random vectors vs (a+b+cin) mod 2^22)"
+ }
+}

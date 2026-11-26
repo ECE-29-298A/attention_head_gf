@@ -1,0 +1,3 @@
+# routed length (DEF segment Manhattan sum) of nets touching the adders, final DEFs
+ra_final N=22 carry nets 21 mean 17.09 max 62.16 sum 359.0 um | all adder nets 131 sum 3707.2 um
+ra_final_fixed N=22 carry nets 21 mean 6.67 max 9.52 sum 140.0 um | all adder nets 131 sum 5365.4 um

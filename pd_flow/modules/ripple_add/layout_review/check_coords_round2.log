@@ -1,0 +1,23 @@
+PASS base rows: 39 rows x 607 sites, x0=3.36, step 0.56
+PASS base rows alternate N (even) / FS (odd) from y=3.92
+PASS netlists: N=22 has 21 addf_1 + 1 xor3_1; N=12 has 11 addf_1 + 1 xor3_1
+PASS chip N=22 anchor: grid/row/orientation/overlap/obstacle legality: 22 cells, 22 rows
+PASS chip N=22 anchor: bit i in relative row i, all FA in one column: x=[126560]
+PASS chip N=12 anchor: grid/row/orientation/overlap/obstacle legality: 12 cells, 12 rows
+PASS chip N=12 anchor: bit i in relative row i, all FA in one column: x=[126560]
+PASS chip anchors: N=22 and N=12 columns do not overlap each other
+PASS taps: same-row-only worst distance (info): 19.32 um (exceeds 15 um alone)
+PASS taps: worst per-well distance to a tap in the same well (same row or well-sharing neighbour) <= 15 um (DF.13_MV/DF.14_MV): 10.3 um
+PASS PDN: no Metal4 stripe (and so no rail via stack) over any column cell at the default anchors
+PASS block n22 (core x0 3.36, 37 sites): grid/row/orientation/overlap/obstacle legality: 22 cells, 22 rows
+PASS block n22 (core x0 3.36, 37 sites): bit i in relative row i, all FA in one column: x=[8960]
+PASS block n12 (core x0 3.36, 37 sites): grid/row/orientation/overlap/obstacle legality: 12 cells, 12 rows
+PASS block n12 (core x0 3.36, 37 sites): bit i in relative row i, all FA in one column: x=[8960]
+PASS FIRM run final DEF: every adder cell present, same master, FIXED, exact location and orientation: 34/34 held; []
+PASS FIRM run: extra cells inside the adder name space are only tie cells (free-placed, PLACED): {'tiel': 5}
+PASS FIRM run: tap and endcap sets identical to baseline (positions): taps 348 vs 348, endcaps 78 vs 78
+PASS FIRM run: PDN stripes identical to baseline: 18 stripes
+PASS FIRM run final DEF: no overlapping instances anywhere, all orientations row-legal: overlaps [], bad orient []
+PASS FIRM pnl: every carry net is exactly CO(i) -> CI(i+1) (MSB carry pin from netlist), no buffer or extra load
+PASS FIRM run: exact at every step DEF from ManualMacroPlacement on: 15 step DEFs, first ('17-odb-manualmacroplacement', 34, 34)
+TOTAL fail=0 of 22

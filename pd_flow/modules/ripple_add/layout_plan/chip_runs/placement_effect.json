@@ -1,0 +1,430 @@
+{
+ "chip_runs/final_mgp/harden/def/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 32,
+  "moved": [
+   {
+    "inst": "core.mac.adder.u_msb_x3",
+    "found": true,
+    "status": "PLACED",
+    "master": "xor3_1",
+    "x": 81.76,
+    "y": 82.32,
+    "orient": "N",
+    "want_orient": "FN",
+    "dx": 12.88,
+    "dy": -7.84
+   },
+   {
+    "inst": "core.mac.l_adder.u_msb_x3",
+    "found": true,
+    "status": "PLACED",
+    "master": "xor3_1",
+    "x": 82.88,
+    "y": 141.12,
+    "orient": "FS",
+    "want_orient": "FN",
+    "dx": 14.0,
+    "dy": 3.92
+   }
+  ],
+  "statuses": [
+   "PLACED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 20.72
+ },
+ "chip_runs/final_fixed/harden/def/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "FIXED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ },
+ "chip_runs/fixed_a3/harden/def/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "FIXED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ },
+ "chip_runs/final_mgp/harden/steps/33-odb-manualglobalplacement/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "PLACED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ },
+ "chip_runs/final_mgp/harden/steps/34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 11,
+  "moved": [
+   {
+    "inst": "core.mac.adder.bitslice[0].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 7.84,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[1].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 11.76,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[2].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 15.68,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[3].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 19.6,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[4].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 23.52,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[5].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 27.44,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[6].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 31.36,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[7].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 35.28,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[8].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 39.2,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[9].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 43.12,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.bitslice[17].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 74.48,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.adder.u_msb_x3",
+    "found": true,
+    "status": "PLACED",
+    "master": "xor3_1",
+    "x": 79.52,
+    "y": 90.16,
+    "orient": "N",
+    "want_orient": "FN",
+    "dx": 10.64,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[0].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 94.08,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[1].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 98.0,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[2].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 101.92,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[3].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 105.84,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[4].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 109.76,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[5].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 113.68,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[6].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 117.6,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[7].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 121.52,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[8].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 125.44,
+    "orient": "S",
+    "want_orient": "FS",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.bitslice[9].u_fa",
+    "found": true,
+    "status": "PLACED",
+    "master": "addf_1",
+    "x": 63.28,
+    "y": 129.36,
+    "orient": "FN",
+    "want_orient": "N",
+    "dx": 0.0,
+    "dy": 0.0
+   },
+   {
+    "inst": "core.mac.l_adder.u_msb_x3",
+    "found": true,
+    "status": "PLACED",
+    "master": "xor3_1",
+    "x": 82.88,
+    "y": 141.12,
+    "orient": "FS",
+    "want_orient": "FN",
+    "dx": 14.0,
+    "dy": 3.92
+   }
+  ],
+  "statuses": [
+   "PLACED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 17.92
+ },
+ "chip_runs/final_fixed/harden/steps/17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "FIXED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ },
+ "chip_runs/final_fixed/harden/steps/34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "FIXED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ },
+ "chip_runs/fixed_a3/harden/steps/17-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "FIXED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ },
+ "chip_runs/fixed_a3/harden/steps/34-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+  "instances": 34,
+  "found": 34,
+  "exact": 34,
+  "moved": [],
+  "statuses": [
+   "FIXED"
+  ],
+  "masters": [
+   "addf_1",
+   "xor3_1"
+  ],
+  "max_abs_displacement_um": 0.0
+ }
+}
