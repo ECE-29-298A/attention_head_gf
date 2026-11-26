@@ -216,3 +216,6 @@ Each page contains:
 
 ## Agent effort (user decision D8b, 2026-11-26)
 Placement, tetrising and floorplan agents run at effort **high** (was max). The ~90% packing target (D8) is unchanged.
+
+## Packing density (user decision D8c, 2026-11-26, supersedes D8's target)
+~90% is a **potentially achievable bound** to note, not a target. Do not start from it. Tighten packing only while dry-run std-cell area improves, and **stop when packing density converges**: successive tighter trials give no further area gain, or density stops rising. Report the converged density and the trial sequence that shows convergence. No justification is needed for ending below 90% (or 85%).

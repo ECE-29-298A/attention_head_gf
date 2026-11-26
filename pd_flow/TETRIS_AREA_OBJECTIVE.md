@@ -26,7 +26,7 @@ cluster.
 - **Constraints, not objectives:** energy, delay and wire length.
   - Timing: WNS >= 0 at every corner on the 100 ns clock (D6).
   - Violations: slew/cap/fanout inside the D2 band.
-  - Packing: about 90% per region (D8).
+  - Packing: ~90% is a possible bound only (D8c). Tighten while area improves; stop when density converges.
 - **When a denser outline counts:** only if the dry run or signoff confirms that the flow's added
   area did not grow by more than the whitespace saved.
 
@@ -34,7 +34,7 @@ cluster.
 1. Arithmetic, phase and placement legality.
 2. **Std-cell area after repair and CTS** (dry-run measured): fewer repair buffers, fewer upsizes,
    a smaller clock tree.
-3. **Region footprint and packing:** minimum width or height at about 90%, taps included.
+3. **Region footprint and packing:** smallest footprint that still improves area; stop when density converges (D8c). ~90%, taps included, is a bound, not a goal.
 4. Nets most likely to need repair kept short: high-fanout broadcast and control nets, the clock
    spine, and long datapath nets. Weight a net by how close its driver is to its slew/cap limit,
    not by its activity.

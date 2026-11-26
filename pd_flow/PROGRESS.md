@@ -112,6 +112,11 @@
 - D8b (user, 2026-11-26): "when you restart, please reduce the agents effort from max to high". Tetrising, placement
   and floorplan agents now run at effort=high, not max. The ~90% packing target is unchanged.
 
+- D8c (user, 2026-11-26): "the 90% packing target, dont start as a target, just note as a potentially achievavle bound.
+  stop when packing density seems to converge." ~90% is an upper bound to note, not a goal. Agents pack only while
+  dry-run area keeps improving, and stop once packing density converges (successive tighter trials give no
+  further area gain, or stop compacting). The earlier "below 85% needs a measured reason" rule is withdrawn.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
