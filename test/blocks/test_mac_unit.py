@@ -3,7 +3,7 @@
 Score mode (accum_mode = 0): S starts at 0 (subtract = 0) or M (subtract = 1)
 and adds or subtracts qi * ki one bit of ki per cycle. The O ring keeps
 rotating, bypassing the shared adder. Accumulate mode (accum_mode = 1): the
-two-entry O ring adds W * v one bit of v per cycle, and L sums the weights.
+two-entry O ring adds W * v one bit of v per cycle, MSB first, and L sums the weights.
 """
 
 import random
@@ -57,7 +57,7 @@ async def mac_unit_directed_and_random(dut):
         ring = state["ring"]
         head = ring[0]
         if accum_mode:
-            if accum_en and first and bit == 0:
+            if accum_en and first and bit == 7:
                 head = 0
             if head is not None and accum_en and (value >> bit) & 1:
                 head = wrap(head + weight * (-128 if bit == 7 else 1 << bit), 20)
@@ -92,7 +92,7 @@ async def mac_unit_directed_and_random(dut):
     async def token(weight, values, first):
         while state["phase"] != 0:
             await idle(1)
-        for bit in range(8):
+        for bit in reversed(range(8)):
             for c in range(2):
                 await cycle(accum_en=1, first=first, weight=weight, bit=bit, value=values[c])
 

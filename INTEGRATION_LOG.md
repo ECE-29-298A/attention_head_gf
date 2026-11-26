@@ -113,3 +113,23 @@ Each run now returns two V components instead of four. The accumulator ring keep
 `src/config.json` also sets `DESIGN_REPAIR_MAX_SLEW_PCT` and `DESIGN_REPAIR_MAX_CAP_PCT` to 10 (default 20) and disables input port buffering, which removes 12 `dlyb_1` cells (421.48 µm²). Signoff still fails on any remaining slew or capacitance violation.
 
 The design has 242 flip-flops (−57). The `AREA 2` reproduction of section 7 maps it to 37,926.47 µm², down from 42,279.55 µm² (−10.3%). Yosys default ABC maps it to 39,252.37 µm². The top, controller (seven configurations, 91 cases, and the cocotb tests), block, divider, SPI and Python regressions pass, as does the Yosys gate netlist. The shuttle run is still to be confirmed in CI.
+
+## 9. Read the memory as a tape
+
+Each byte used to be its own flash transaction: 40 SPI bits for 8 bits of data, then 8 MAC cycles. Every chunk run also repeated pass 1, although the maximum is the same for all 32 chunks of a query.
+
+The host now writes the memory in the order the chip consumes it (`tape()` in `python/src/attention_model.py`; layout in `docs/pin-protocol.md`). The controller issues one `0x03` read at address 0 and only clocks after that, so it has no address logic and no byte handshake. K and V bits go to the shift-add MAC as they arrive, MSB first, so neither is stored; only the current Q byte is held. `mac_unit` loads the accumulator on bit 7, the first bit to arrive, instead of bit 0. The config byte is `{cont, 3'b000, shift}`: `cont = 1` keeps the flash read open and the maximum, and computes the next chunk without pass 1. The count byte is `N` alone again; the chunk number is gone from the chip because the tape decides which V bytes a run sees.
+
+`attention_controller.sv` drives the flash pins directly. `qspi_read_adapter`, `qspi_byte` and `spi_multi_io_byte` are no longer in `info.yaml`; their sources and `test/spi_byte` are unchanged. `test/controller/cocotb` tested the removed memory handshake and is deleted.
+
+| | Before | After |
+| --- | ---: | ---: |
+| Flip-flops | 242 | 204 |
+| Generic cells (Yosys `synth`, `abc -g cmos2`) | 2,574 | 2,308 |
+| Clock cycles, one run at N = 16 | 423,407 | 66,222 |
+| Clock cycles, each continue run at N = 16 | – | about 33,400 |
+| Clock cycles, 32 chunks of one head at N = 16 | about 13.5 M | about 1.1 M |
+
+The cycle counts come from the pin-level test, which stalls each result byte for three cycles. The GF180 Liberty area was not measured here because the PDK submodule was not checked out; the cell and flip-flop counts above use the same Yosys 0.69 on both designs. The cost is memory: a 32-chunk head at N = 16 is 68,608 tape bytes instead of 2,112, and the host must reset the chip to release chip select before rewriting it.
+
+The top (four tests, including a real SmolLM head and four-chunk heads), controller (79 cases with a full 32-chunk head, reset in nine phases, three host-ready schedules), block, divider and Python regressions pass. The top test also passes on a Yosys generic gate netlist. The shuttle LibreLane run is still to be confirmed in CI.

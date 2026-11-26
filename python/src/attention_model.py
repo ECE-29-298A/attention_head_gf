@@ -57,6 +57,32 @@ def pack_byte(v: int) -> int:
     return v & 0xFF
 
 
+def tape(Q: list[int], K: list[list[int]], V: list[list[int]], chunks=range(32)) -> list[int]:
+    """Flash image for one query, in the order the chip reads it from address 0.
+
+    A score row is Q and K[t] interleaved (Q[0], K[t][0], Q[1], ...). The tape is
+    pass 1 (every token's score row), then for each chunk c in `chunks` a pass-2
+    block: every token's score row followed by V[t][2c], V[t][2c+1]. The first
+    chunk is read by a fresh run (cont = 0), each later one by a cont = 1 run.
+
+    Args:
+        Q (list[int]): 64 ints
+        K (list[list[int]]): N vectors of 64 ints
+        V (list[list[int]]): N vectors of 64 ints
+        chunks: which 2-wide V chunks (0..31) to put on the tape, in run order
+
+    Returns:
+        list[int]: bytes, 128*N*(1 + len(chunks)) + 2*N*len(chunks) of them
+    """
+    assert len(Q) == 64 and all(len(row) == 64 for row in K + V) and len(K) == len(V)
+    rows = [[pack_byte(x) for pair in zip(Q, k) for x in pair] for k in K]
+    out = [b for row in rows for b in row]
+    for c in chunks:
+        for row, v in zip(rows, V):
+            out += row + [pack_byte(x) for x in v[2 * c:2 * c + 2]]
+    return out
+
+
 def reg_widths(d: int = 64, n_max: int = 16) -> dict[str, int]:
     """Register widths (bits) the chip needs for head size d and up to n_max tokens.
 

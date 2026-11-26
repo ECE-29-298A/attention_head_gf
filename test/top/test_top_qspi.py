@@ -1,4 +1,4 @@
-"""End-to-end Tiny Tapeout top test with a bit-accurate 0x03 flash model."""
+"""End-to-end Tiny Tapeout top test with a bit-accurate 0x03 sequential-read flash model."""
 import random
 import sys
 from pathlib import Path
@@ -8,13 +8,9 @@ from cocotb.clock import Clock
 from cocotb.triggers import FallingEdge, RisingEdge, Timer
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "python/src"))
-from attention_model import chip_attention, pack_byte, quantize, signed8
+from attention_model import chip_attention, quantize, signed8, tape
 
 SMOLLM = Path(__file__).resolve().parents[2] / "build/smollm_attention.npz"  # python/smollm_extract.py
-
-Q_BASE, K_BASE, V_BASE = 0x000, 0x040, 0x440
-MEMORY = V_BASE + 16 * 64
-
 
 def pad(row):
     """A short Q/K/V row, zero-extended to 64 components."""
@@ -22,37 +18,32 @@ def pad(row):
 
 
 class Flash:
+    """Standard 0x03 read: one command and address, then bytes in order until CS rises."""
+
     def __init__(self):
-        self.memory = [0] * MEMORY
+        self.memory = [0]
         self.prev_cs = 1
         self.prev_sck = 0
         self.bits = 0
         self.command_address = 0
-        self.reads = []
 
     def miso(self):
-        if self.prev_cs == 0 and 32 <= self.bits < 40:
-            address = self.command_address & 0xFFFFFF
-            assert address < len(self.memory), f"flash address {address:#x}"
-            return (self.memory[address] >> (39 - self.bits)) & 1
+        index = self.bits - 32
+        if self.prev_cs == 0 and 0 <= index < 8 * len(self.memory):
+            address = (self.command_address & 0xFFFFFF) + index // 8
+            return (self.memory[address] >> (7 - index % 8)) & 1
         return 0
 
-    def observe(self, cs, sck, io, oe, abort=False):
+    def observe(self, cs, sck, mosi):
         if self.prev_cs and not cs:
             self.bits = 0
             self.command_address = 0
         if not cs and not self.prev_sck and sck:
             if self.bits < 32:
-                assert oe & 1, "flash command/address output not driven"
-                self.command_address = ((self.command_address << 1) | (io & 1)) & 0xFFFFFFFF
-            else:
-                assert not (oe & 1), "flash data phase not released"
+                self.command_address = (self.command_address << 1) | mosi
             self.bits += 1
-        if not self.prev_cs and cs:
-            if not abort:
-                assert self.bits == 40, f"short/long flash transaction: {self.bits} bits"
-                assert self.command_address >> 24 == 3, "wrong flash read opcode"
-                self.reads.append(self.command_address & 0xFFFFFF)
+            if self.bits == 32:
+                assert self.command_address == 0x03000000, f"flash command {self.command_address:#010x}"
         self.prev_cs = cs
         self.prev_sck = sck
 
@@ -76,12 +67,10 @@ class Harness:
         out = int(d.uo_out.value) if reset and ena else 0
         await RisingEdge(d.clk)
         await Timer(1, unit="ns")
-        oe = int(d.uio_oe.value)
-        assert (oe & 0xF0) == 0xB0, f"pin directions {oe:#04x}"
+        assert int(d.uio_oe.value) == 0xB1, f"pin directions {int(d.uio_oe.value):#04x}"
         cs = int(d.uio_out.value[5])
-        sck = int(d.uio_out.value[4])
-        io0 = int(d.uio_out.value[0]) if oe & 1 else 0
-        self.flash.observe(cs, sck, io0, oe & 15, abort=not (reset and ena))
+        # MOSI only matters while the flash is selected.
+        self.flash.observe(cs, int(d.uio_out.value[4]), 0 if cs else int(d.uio_out.value[0]))
         self.cycles += 1
         return ready, out
 
@@ -92,24 +81,13 @@ class Harness:
                 return
         assert False, "configuration input did not become ready"
 
-    async def query(self, q, k, v, shift=0, chunk=0, *, name="query"):
-        """q: 64 ints; k, v: N rows of 64. Checks V components 2*chunk and 2*chunk+1."""
-        q, k, v = pad(q), [pad(r) for r in k], [pad(r) for r in v]
-        n = len(k)
-        self.flash.memory = [0] * MEMORY
-        self.flash.memory[Q_BASE:Q_BASE + 64] = [pack_byte(x) for x in q]
-        for t in range(n):
-            for c in range(64):
-                self.flash.memory[K_BASE + 64*t + c] = pack_byte(k[t][c])
-                self.flash.memory[V_BASE + 64*t + c] = pack_byte(v[t][c])
-        first_read = len(self.flash.reads)
-        await self.send((chunk >> 4) << 5 | n)    # {2'b00, chunk[4], N}
-        await self.send((chunk & 15) << 4 | shift)  # {chunk[3:0], shift}
-
-        expected = chip_attention(q, k, [row[2*chunk:2*chunk + 2] for row in v], score_shift=shift)
+    async def run(self, n, shift, cont, expected, name):
+        """One run: count byte N, config byte {cont, 000, shift}, then four result bytes."""
+        await self.send(n)
+        await self.send(cont << 7 | shift)
         received = []
         for index in range(4):  # two 12-bit results, each low byte then sign-extended high byte
-            for _ in range(2000000):
+            for _ in range(200000):
                 valid, data = await self.tick(host=0)
                 if valid:
                     break
@@ -122,18 +100,25 @@ class Harness:
             assert valid and transferred == data, "output transfer mismatch"
             received.append(transferred)
         actual = [(signed8(hi) << 8) | lo for lo, hi in zip(received[::2], received[1::2])]
-
         assert actual == expected, f"{name} (N={n}): hardware={actual}, Python={expected}"
-        self.dut._log.info("%s (N=%d, shift=%d, chunk=%d): hardware=%s, Python=%s",
-                           name, n, shift, chunk, actual, expected)
 
-        # Per token: 64 dimensions of one Q byte then one K byte; pass 2 adds the V chunk.
-        def score_reads(t):
-            return [base + d for d in range(64) for base in (Q_BASE, K_BASE + 64*t)]
-        expected_reads = [a for t in range(n) for a in score_reads(t)]
-        for t in range(n):
-            expected_reads += score_reads(t) + [V_BASE + 64*t + 2*chunk + c for c in range(2)]
-        assert self.flash.reads[first_read:] == expected_reads, "Q/K/V read order or count"
+    async def head(self, q, k, v, shift=0, chunks=(0,), *, name="query"):
+        """q: 64 ints; k, v: N rows of 64. Runs the chunks in order: one fresh run, then cont runs."""
+        q, k, v = pad(q), [pad(r) for r in k], [pad(r) for r in v]
+        self.flash.memory = tape(q, k, v, chunks)
+        start = self.cycles
+        for i, chunk in enumerate(chunks):
+            expected = chip_attention(q, k, [row[2*chunk:2*chunk + 2] for row in v], score_shift=shift)
+            await self.run(len(k), shift, int(i > 0), expected, f"{name} chunk {chunk}")
+            # The chip clocks exactly the bits of the tape so far, and never restarts mid-head.
+            consumed = 128 * len(k) * (2 + i) + 2 * len(k) * (1 + i)
+            assert self.flash.bits == 32 + 8 * consumed, f"{name}: {self.flash.bits - 32} tape bits read"
+        assert consumed == len(self.flash.memory)
+        self.dut._log.info("%s (N=%d, shift=%d, chunks=%s): matches Python, %d cycles",
+                           name, len(k), shift, list(chunks), self.cycles - start)
+
+    async def query(self, q, k, v, shift=0, chunk=0, *, name="query"):
+        await self.head(q, k, v, shift, (chunk,), name=name)
 
 
 async def start_harness(dut):
@@ -151,7 +136,7 @@ async def start_harness(dut):
 @cocotb.test()
 async def end_to_end_flash_and_host(dut):
     h = await start_harness(dut)
-    # Count byte {2'b00, chunk[4], N}: N outside 1..16 or a reserved bit set is refused.
+    # Count byte N: outside 1..16 is refused.
     for invalid in (0, 17, 255, 0x20, 0x31, 0x41, 0x81):
         ready, _ = await h.tick(data=invalid, host=1)
         assert not ready, "invalid token count accepted"
@@ -174,7 +159,7 @@ async def end_to_end_flash_and_host(dut):
         if not h.flash.prev_cs and h.flash.bits >= 12:
             break
     else:
-        assert False, "QSPI transfer never started"
+        assert False, "flash read never started"
     await h.tick(reset=0)
     await h.tick(reset=0)
     assert h.flash.prev_cs == 1, "reset did not release flash CS"
@@ -186,12 +171,12 @@ async def end_to_end_flash_and_host(dut):
         if not h.flash.prev_cs and h.flash.bits >= 12:
             break
     else:
-        assert False, "QSPI transfer never started before ena abort"
+        assert False, "flash read never started before ena abort"
     await h.tick(ena=0)
     await h.tick(ena=0)
     assert h.flash.prev_cs == 1, "ena low did not release flash CS"
     await h.query([0, 0, 0, 0], [[0, 0, 0, 0]], [[-1, 0, 1, 127]])
-    dut._log.info("PASS top: flash reads, 12-bit outputs, backpressure, boundaries, reset/ena abort; %d cycles", h.cycles)
+    dut._log.info("PASS top: tape reads, 12-bit outputs, backpressure, boundaries, reset/ena abort; %d cycles", h.cycles)
 
 
 @cocotb.test()
@@ -248,6 +233,28 @@ async def hardware_matches_python_model(dut):
         shift=15, chunk=30,
         name="sixteen maximum weights with extreme values",
     )
+
+
+@cocotb.test()
+async def continue_runs_share_pass_one(dut):
+    """Several chunks of one head: a fresh run, then cont runs that reuse the maximum and the open read."""
+    h = await start_harness(dut)
+    rng = random.Random(64)
+    vec = lambda lo=-128, hi=127: [rng.randint(lo, hi) for _ in range(64)]
+    for n, shift in ((16, 13), (5, 9), (1, 0)):
+        await h.head(vec(-40, 40) if n == 5 else vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
+                     shift, (0, 31, 17, 5), name="four chunks")
+    # A fresh run after cont runs restarts the read; a reset mid-head releases the flash.
+    await h.head(vec(), [vec() for _ in range(3)], [vec() for _ in range(3)], 12, (9, 10), name="restart")
+    await h.send(3)
+    await h.send(0x80 | 12)
+    for _ in range(50):
+        await h.tick()
+    assert h.flash.prev_cs == 0, "cont run dropped the flash read"
+    await h.tick(reset=0)
+    await h.tick(reset=0)
+    assert h.flash.prev_cs == 1, "reset did not release flash CS"
+    await h.query(vec(), [vec() for _ in range(2)], [vec() for _ in range(2)], 14, 3, name="after abort")
 
 
 @cocotb.test(skip=not SMOLLM.exists())

@@ -1,14 +1,14 @@
 # Integrated two-pass INT4 attention controller (version 2)
 
 > Historical INT4 controller description. The current controller: inputs
-> `token_count`, `score_shift` and `chunk` (latched on start unless
-> `LATCH_CONFIG=0`; `chunk` is 0..31); memory map Q at `Q_BASE` (64 bytes), K at `K_BASE` and V
-> at `V_BASE` (64 bytes per token). Each score reads one Q byte then the matching
-> K byte per dimension, with 8 bit-serial MAC cycles per dimension; pass 2 starts
-> the score at the maximum and subtracts, so the LUT receives D = M - S directly,
-> then reads the token's 2-byte V chunk. Outputs are two 12-bit results, two
-> bytes each. The current instances are `mac` (`mac_unit`: score MAC and V
-> accumulator sharing one adder), `max_unit` (`max_reg`), `exponent_unit`
+> `token_count`, `score_shift` and `cont`, held by the caller until idle. It
+> generates no addresses: it issues one `0x03` read and consumes the tape in
+> order, Q and K interleaved per dimension, feeding each K and V bit to the
+> shift-add MAC as it arrives. Pass 2 starts the score at the maximum and
+> subtracts, so the LUT receives D = M - S directly, then reads the token's two
+> V bytes. `cont = 1` skips pass 1 and reuses the maximum. Outputs are two
+> 12-bit results, two bytes each. The instances are `mac` (`mac_unit`: score MAC
+> and V accumulator sharing one adder), `max_unit` (`max_reg`), `exponent_unit`
 > (`exp_lut`, combinational) and `divider_unit` (`divider`). See
 > [the pin protocol](pin-protocol.md) and the module port comments.
 

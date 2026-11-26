@@ -3,7 +3,7 @@ project:
   title: "Single-tile INT8 attention" # Project title
   author: "Samuel Zhang, Eugene Zhao, Felix Deng" # Project author
   discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description: "64-dim INT8 attention head (2 outputs per run) with external QSPI Q/K/V memory"
+  description: "64-dim INT8 attention head (2 outputs per run) streamed from an external SPI flash tape"
   language: "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz: 10000000 # Target clock frequency in Hz
 
@@ -24,9 +24,6 @@ project:
     - "max_reg.v"
     - "exp_lut.v"
     - "divider.v"
-    - "Memaccess/qspi_read_adapter.v"
-    - "Memaccess/qspi_byte.v"
-    - "Memaccess/spi_multi_io_byte.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -52,12 +49,12 @@ pinout:
   uo[7]: "Result data 7"
 
   # Bidirectional pins
-  uio[0]: "QSPI IO0"
-  uio[1]: "QSPI IO1"
-  uio[2]: "QSPI IO2"
-  uio[3]: "QSPI IO3"
-  uio[4]: "QSPI clock"
-  uio[5]: "QSPI chip select n"
+  uio[0]: "Flash MOSI"
+  uio[1]: "Flash MISO"
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: "Flash SCK"
+  uio[5]: "Flash chip select n"
   uio[6]: "Host valid or ready"
   uio[7]: "Chip ready or valid"
 

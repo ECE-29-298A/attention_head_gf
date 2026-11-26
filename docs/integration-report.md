@@ -7,15 +7,15 @@ Target: Tiny Tapeout `gf180mcuD`, one tile (`info.yaml`). The active top is
 
 ```text
 tt_um_attention_head_gf
-├── attention_controller
-│   ├── mac_unit ── ripple_add (shared score/accumulate adder, plus L adder)
-│   ├── max_reg
-│   ├── exp_lut (combinational)
-│   └── divider (CHECK_INVALID=0)
-└── qspi_read_adapter (LATCH_ADDR=0)
-    └── qspi_byte (X1_ONLY=1)
-        └── spi_multi_io_byte (LANES=4)
+└── attention_controller
+    ├── mac_unit ── ripple_add (shared score/accumulate adder, plus L adder)
+    ├── max_reg
+    ├── exp_lut (combinational)
+    └── divider (CHECK_INVALID=0)
 ```
+
+The controller drives the flash pins itself (see `INTEGRATION_LOG.md` section 9);
+the `Memaccess` byte engines are no longer part of the top.
 
 `ospi_byte`, `full_adder`, and the incomplete `multiplier` and `addr_gen`
 sources are not part of this selected top. The existing `qspi_byte` is reused

@@ -5,7 +5,8 @@
 // cycle adds or subtracts qi * (one bit of ki), so pass 2 ends with D = M - S.
 // Accumulate: the two O registers form a ring that turns every clock, so O0
 // always holds component `sel` (the caller's free-running phase). Each
-// accum_en cycle adds W * (one bit of v) to the head; first-token bit 0 loads.
+// accum_en cycle adds W * (one bit of v) to the head. Bits come MSB first (as
+// they leave the flash), so the first token's bit 7 loads instead of adding.
 // While scoring, the ring bypasses the busy adder and keeps its sums.
 module mac_unit (
     input  wire              clk,
@@ -30,7 +31,7 @@ module mac_unit (
     wire top = bit_sel == 3'd7;
     wire neg = accum_mode ? (accum_en && top) : (top ^ subtract);
     wire [21:0] term = bit_on ? ({{13{x[8]}}, x} << bit_sel) : 22'd0;
-    wire load_o = accum_en && first && bit_sel == 3'd0;
+    wire load_o = accum_en && first && top;
     wire [21:0] a = accum_mode ? (load_o ? 22'd0 : {{2{O0[19]}}, O0}) : S;
     wire [21:0] sum;
     ripple_add #(.N(22)) adder (.a(a), .b(neg ? ~term : term), .cin(neg), .s(sum));
