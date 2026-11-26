@@ -1,0 +1,855 @@
+{
+ "variant": "b_ms",
+ "footprint": {
+  "width_sites": 64,
+  "height_rows": 22,
+  "width_um": 35.84,
+  "height_um": 86.24
+ },
+ "bounds": {
+  "footprint_sites": 64,
+  "rows": 22,
+  "site_rows_box": 1408,
+  "site_rows_cells": 1276,
+  "site_rows_taps_inside_estimate": 22,
+  "utilization_box": 0.9062,
+  "area_box_um2": 3090.84,
+  "cell_area_um2": 2801.0752,
+  "widest_cell_sites": 29,
+  "max_row_sites": 58,
+  "area_floor_sites_at_rows": 58,
+  "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
+ },
+ "anchor_rule": "site = 2 (mod 35): the S column (29 sites) and the M column (rel site 35) each sit in a 33-site tap window; the tap column at rel site 33-34 (alternate rows) falls between them",
+ "chosen_anchor": {
+  "row": 6,
+  "site": 142,
+  "order_up": true,
+  "mirror": false,
+  "ext_hpwl_um": 5055.68,
+  "internal_hpwl_um": 0.0,
+  "m4_soft_hits": 22
+ },
+ "anchor_soft_m4": [
+  "_2255_ under M4 VPWR x=97.42",
+  "_2256_ under M4 VPWR x=97.42",
+  "_2257_ under M4 VPWR x=97.42",
+  "_2258_ under M4 VPWR x=97.42",
+  "_2259_ under M4 VPWR x=97.42",
+  "_2260_ under M4 VPWR x=97.42",
+  "_2261_ under M4 VPWR x=97.42",
+  "_2262_ under M4 VPWR x=97.42",
+  "_2263_ under M4 VPWR x=97.42",
+  "_2264_ under M4 VPWR x=97.42",
+  "_2265_ under M4 VPWR x=97.42",
+  "_2266_ under M4 VPWR x=97.42",
+  "_2267_ under M4 VPWR x=97.42",
+  "_2268_ under M4 VPWR x=97.42",
+  "_2269_ under M4 VPWR x=97.42",
+  "_2270_ under M4 VPWR x=97.42",
+  "_2271_ under M4 VPWR x=97.42",
+  "_2272_ under M4 VPWR x=97.42",
+  "_2273_ under M4 VPWR x=97.42",
+  "_2274_ under M4 VPWR x=97.42",
+  "_2275_ under M4 VPWR x=97.42",
+  "_2276_ under M4 VPWR x=97.42"
+ ],
+ "legal_anchor_count": 256,
+ "top_candidates": [
+  {
+   "row": 6,
+   "site": 142,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5055.68,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 7,
+   "site": 142,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5075.28,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 5,
+   "site": 142,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5087.04,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 6,
+   "site": 177,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5132.12,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 8,
+   "site": 142,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5134.08,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 7,
+   "site": 177,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5151.72,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 5,
+   "site": 177,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5163.48,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  },
+  {
+   "row": 4,
+   "site": 142,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 5165.44,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 22
+  }
+ ],
+ "proxy_note": "ext_hpwl_um: HPWL of boundary nets with free neighbours at their BASELINE positions (estimate; GPL re-places them). Used only to rank anchors.",
+ "ports": {
+  "west": "S flop column (mac_unit S register), Q -> adder a input / exp_lut / compare, D <- mac sum / load mux",
+  "east": "M flop column (max_reg), Q -> compare and mac S load mux, D <- ABC's load mux",
+  "pin_order": "bit i in relative row i: M[i] beside S[i] in the same row"
+ },
+ "taps_inside": [
+  {
+   "rel_row": 0,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 2,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 4,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 6,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 8,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 10,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 12,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 14,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 16,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 18,
+   "rel_site": 33
+  },
+  {
+   "rel_row": 20,
+   "rel_site": 33
+  }
+ ],
+ "cells": [
+  {
+   "inst": "_2255_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 0,
+   "rel_row": 0,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0127_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[0]"
+   }
+  },
+  {
+   "inst": "_2277_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 0,
+   "rel_row": 0,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0149_",
+    "CLK": "clk",
+    "Q": "core.mac.M[0]"
+   }
+  },
+  {
+   "inst": "_2256_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 1,
+   "rel_row": 1,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0128_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[1]"
+   }
+  },
+  {
+   "inst": "_2278_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 1,
+   "rel_row": 1,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0150_",
+    "CLK": "clk",
+    "Q": "core.mac.M[1]"
+   }
+  },
+  {
+   "inst": "_2257_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 2,
+   "rel_row": 2,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0129_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[2]"
+   }
+  },
+  {
+   "inst": "_2279_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 2,
+   "rel_row": 2,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0151_",
+    "CLK": "clk",
+    "Q": "core.mac.M[2]"
+   }
+  },
+  {
+   "inst": "_2258_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 3,
+   "rel_row": 3,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0130_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[3]"
+   }
+  },
+  {
+   "inst": "_2280_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 3,
+   "rel_row": 3,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0152_",
+    "CLK": "clk",
+    "Q": "core.mac.M[3]"
+   }
+  },
+  {
+   "inst": "_2259_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 4,
+   "rel_row": 4,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0131_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[4]"
+   }
+  },
+  {
+   "inst": "_2281_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 4,
+   "rel_row": 4,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0153_",
+    "CLK": "clk",
+    "Q": "core.mac.M[4]"
+   }
+  },
+  {
+   "inst": "_2260_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 5,
+   "rel_row": 5,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0132_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[5]"
+   }
+  },
+  {
+   "inst": "_2282_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 5,
+   "rel_row": 5,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0154_",
+    "CLK": "clk",
+    "Q": "core.mac.M[5]"
+   }
+  },
+  {
+   "inst": "_2261_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 6,
+   "rel_row": 6,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0133_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[6]"
+   }
+  },
+  {
+   "inst": "_2283_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 6,
+   "rel_row": 6,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0155_",
+    "CLK": "clk",
+    "Q": "core.mac.M[6]"
+   }
+  },
+  {
+   "inst": "_2262_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 7,
+   "rel_row": 7,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0134_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[7]"
+   }
+  },
+  {
+   "inst": "_2284_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 7,
+   "rel_row": 7,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0156_",
+    "CLK": "clk",
+    "Q": "core.mac.M[7]"
+   }
+  },
+  {
+   "inst": "_2263_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 8,
+   "rel_row": 8,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0135_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[8]"
+   }
+  },
+  {
+   "inst": "_2285_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 8,
+   "rel_row": 8,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0157_",
+    "CLK": "clk",
+    "Q": "core.mac.M[8]"
+   }
+  },
+  {
+   "inst": "_2264_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 9,
+   "rel_row": 9,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0136_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[9]"
+   }
+  },
+  {
+   "inst": "_2286_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 9,
+   "rel_row": 9,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0158_",
+    "CLK": "clk",
+    "Q": "core.mac.M[9]"
+   }
+  },
+  {
+   "inst": "_2265_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 10,
+   "rel_row": 10,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0137_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[10]"
+   }
+  },
+  {
+   "inst": "_2287_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 10,
+   "rel_row": 10,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0159_",
+    "CLK": "clk",
+    "Q": "core.mac.M[10]"
+   }
+  },
+  {
+   "inst": "_2266_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 11,
+   "rel_row": 11,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0138_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[11]"
+   }
+  },
+  {
+   "inst": "_2288_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 11,
+   "rel_row": 11,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0160_",
+    "CLK": "clk",
+    "Q": "core.mac.M[11]"
+   }
+  },
+  {
+   "inst": "_2267_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 12,
+   "rel_row": 12,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0139_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[12]"
+   }
+  },
+  {
+   "inst": "_2289_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 12,
+   "rel_row": 12,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0161_",
+    "CLK": "clk",
+    "Q": "core.mac.M[12]"
+   }
+  },
+  {
+   "inst": "_2268_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 13,
+   "rel_row": 13,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0140_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[13]"
+   }
+  },
+  {
+   "inst": "_2290_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 13,
+   "rel_row": 13,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0162_",
+    "CLK": "clk",
+    "Q": "core.mac.M[13]"
+   }
+  },
+  {
+   "inst": "_2269_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 14,
+   "rel_row": 14,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0141_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[14]"
+   }
+  },
+  {
+   "inst": "_2291_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 14,
+   "rel_row": 14,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0163_",
+    "CLK": "clk",
+    "Q": "core.mac.M[14]"
+   }
+  },
+  {
+   "inst": "_2270_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 15,
+   "rel_row": 15,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0142_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[15]"
+   }
+  },
+  {
+   "inst": "_2292_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 15,
+   "rel_row": 15,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0164_",
+    "CLK": "clk",
+    "Q": "core.mac.M[15]"
+   }
+  },
+  {
+   "inst": "_2271_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 16,
+   "rel_row": 16,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0143_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[16]"
+   }
+  },
+  {
+   "inst": "_2293_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 16,
+   "rel_row": 16,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0165_",
+    "CLK": "clk",
+    "Q": "core.mac.M[16]"
+   }
+  },
+  {
+   "inst": "_2272_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 17,
+   "rel_row": 17,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0144_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[17]"
+   }
+  },
+  {
+   "inst": "_2294_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 17,
+   "rel_row": 17,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0166_",
+    "CLK": "clk",
+    "Q": "core.mac.M[17]"
+   }
+  },
+  {
+   "inst": "_2273_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 18,
+   "rel_row": 18,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0145_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[18]"
+   }
+  },
+  {
+   "inst": "_2295_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 18,
+   "rel_row": 18,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0167_",
+    "CLK": "clk",
+    "Q": "core.mac.M[18]"
+   }
+  },
+  {
+   "inst": "_2274_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 19,
+   "rel_row": 19,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0146_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[19]"
+   }
+  },
+  {
+   "inst": "_2296_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 19,
+   "rel_row": 19,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0168_",
+    "CLK": "clk",
+    "Q": "core.mac.M[19]"
+   }
+  },
+  {
+   "inst": "_2275_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 20,
+   "rel_row": 20,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0147_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[20]"
+   }
+  },
+  {
+   "inst": "_2297_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 20,
+   "rel_row": 20,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0169_",
+    "CLK": "clk",
+    "Q": "core.mac.M[20]"
+   }
+  },
+  {
+   "inst": "_2276_",
+   "master": "dffq_1",
+   "role": "S",
+   "bit": 21,
+   "rel_row": 21,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0148_",
+    "CLK": "clk",
+    "Q": "core.exponent_unit.D[21]"
+   }
+  },
+  {
+   "inst": "_2298_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 21,
+   "rel_row": 21,
+   "rel_site": 35,
+   "mirror": false,
+   "pins": {
+    "D": "_0170_",
+    "CLK": "clk",
+    "Q": "core.mac.M[21]"
+   }
+  }
+ ],
+ "names": {
+  "netlist": "../../../baseline/harden/nl/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256": "a8286e1b9a4d73f2780bcf78951b7fdd4c67bb2715fccdfea777cf6a2d83e293",
+  "M": {
+   "core.mac.M[0]": "_2277_",
+   "core.mac.M[1]": "_2278_",
+   "core.mac.M[2]": "_2279_",
+   "core.mac.M[3]": "_2280_",
+   "core.mac.M[4]": "_2281_",
+   "core.mac.M[5]": "_2282_",
+   "core.mac.M[6]": "_2283_",
+   "core.mac.M[7]": "_2284_",
+   "core.mac.M[8]": "_2285_",
+   "core.mac.M[9]": "_2286_",
+   "core.mac.M[10]": "_2287_",
+   "core.mac.M[11]": "_2288_",
+   "core.mac.M[12]": "_2289_",
+   "core.mac.M[13]": "_2290_",
+   "core.mac.M[14]": "_2291_",
+   "core.mac.M[15]": "_2292_",
+   "core.mac.M[16]": "_2293_",
+   "core.mac.M[17]": "_2294_",
+   "core.mac.M[18]": "_2295_",
+   "core.mac.M[19]": "_2296_",
+   "core.mac.M[20]": "_2297_",
+   "core.mac.M[21]": "_2298_"
+  },
+  "S": {
+   "core.exponent_unit.D[0]": "_2255_",
+   "core.exponent_unit.D[1]": "_2256_",
+   "core.exponent_unit.D[2]": "_2257_",
+   "core.exponent_unit.D[3]": "_2258_",
+   "core.exponent_unit.D[4]": "_2259_",
+   "core.exponent_unit.D[5]": "_2260_",
+   "core.exponent_unit.D[6]": "_2261_",
+   "core.exponent_unit.D[7]": "_2262_",
+   "core.exponent_unit.D[8]": "_2263_",
+   "core.exponent_unit.D[9]": "_2264_",
+   "core.exponent_unit.D[10]": "_2265_",
+   "core.exponent_unit.D[11]": "_2266_",
+   "core.exponent_unit.D[12]": "_2267_",
+   "core.exponent_unit.D[13]": "_2268_",
+   "core.exponent_unit.D[14]": "_2269_",
+   "core.exponent_unit.D[15]": "_2270_",
+   "core.exponent_unit.D[16]": "_2271_",
+   "core.exponent_unit.D[17]": "_2272_",
+   "core.exponent_unit.D[18]": "_2273_",
+   "core.exponent_unit.D[19]": "_2274_",
+   "core.exponent_unit.D[20]": "_2275_",
+   "core.exponent_unit.D[21]": "_2276_"
+  },
+  "rule": "instance names are the shipped-flow synthesis names of exactly this RTL+config (deterministic flow); regenerate from the run's own synthesized netlist after any change, and post-check by Q net (tools/check_placed.py)"
+ }
+}

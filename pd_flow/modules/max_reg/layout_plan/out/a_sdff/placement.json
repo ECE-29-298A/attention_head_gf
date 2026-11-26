@@ -1,173 +1,175 @@
 {
  "variant": "a_sdff",
  "footprint": {
-  "width_sites": 70,
-  "height_rows": 23,
-  "width_um": 39.2,
-  "height_um": 90.16
+  "width_sites": 63,
+  "height_rows": 22,
+  "width_um": 35.28,
+  "height_um": 86.24
  },
  "bounds": {
-  "footprint_sites": 70,
-  "rows": 23,
-  "site_rows_box": 1610,
-  "site_rows_cells": 1345,
-  "site_rows_taps_inside_estimate": 46,
-  "utilization_box": 0.8354,
-  "area_box_um2": 3534.27,
-  "cell_area_um2": 2952.544,
+  "footprint_sites": 63,
+  "rows": 22,
+  "site_rows_box": 1386,
+  "site_rows_cells": 1339,
+  "site_rows_taps_inside_estimate": 44,
+  "utilization_box": 0.9661,
+  "area_box_um2": 3042.55,
+  "cell_area_um2": 2939.3728,
   "widest_cell_sites": 38,
   "max_row_sites": 61,
-  "area_floor_sites_at_rows": 59,
+  "area_floor_sites_at_rows": 61,
+  "packing": "a_sdff: minimum box from tools/pack_search.py (evidence/pack_search.log)",
   "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
  },
- "anchor_rule": "site = 17 (mod 70) and row even: the tap falls at rel site 18-19 in even rows and 53-54 in odd rows, the gaps the two row templates leave",
+ "anchor_rule": "site = 17 (mod 70) and row even: the tap falls at rel site 18-19 in even rows and 53-54 in odd rows, exactly the gaps the two row templates leave (every bit row is 63/63 sites full)",
  "chosen_anchor": {
   "row": 6,
   "site": 157,
   "order_up": true,
   "mirror": false,
-  "ext_hpwl_um": 3136.84,
-  "internal_hpwl_um": 1271.76,
-  "m4_soft_hits": 54
+  "ext_hpwl_um": 3080.28,
+  "internal_hpwl_um": 1150.8,
+  "m4_soft_hits": 55
  },
  "anchor_soft_m4": [
-  "b01_ff under M4 VGND x=100.72",
+  "b00_ff under M4 VPWR x=97.42",
+  "b00_ff under M4 VGND x=100.72",
+  "b01_nor under M4 VPWR x=97.42",
   "b01_cmp under M4 VPWR x=97.42",
   "b01_cmp under M4 VGND x=100.72",
-  "b02_nor under M4 VPWR x=97.42",
-  "b02_nor under M4 VGND x=100.72",
-  "b03_ff under M4 VGND x=100.72",
+  "b02_ff under M4 VPWR x=97.42",
+  "b02_ff under M4 VGND x=100.72",
+  "b03_nor under M4 VPWR x=97.42",
   "b03_cmp under M4 VPWR x=97.42",
   "b03_cmp under M4 VGND x=100.72",
-  "b04_nor under M4 VPWR x=97.42",
-  "b04_nor under M4 VGND x=100.72",
-  "b05_ff under M4 VGND x=100.72",
+  "b04_ff under M4 VPWR x=97.42",
+  "b04_ff under M4 VGND x=100.72",
+  "b05_nor under M4 VPWR x=97.42",
   "b05_cmp under M4 VPWR x=97.42",
   "b05_cmp under M4 VGND x=100.72",
-  "b06_nor under M4 VPWR x=97.42",
-  "b06_nor under M4 VGND x=100.72",
-  "b07_ff under M4 VGND x=100.72",
+  "b06_ff under M4 VPWR x=97.42",
+  "b06_ff under M4 VGND x=100.72",
+  "b07_nor under M4 VPWR x=97.42",
   "b07_cmp under M4 VPWR x=97.42",
   "b07_cmp under M4 VGND x=100.72",
-  "b08_nor under M4 VPWR x=97.42",
-  "b08_nor under M4 VGND x=100.72",
-  "b09_ff under M4 VGND x=100.72",
+  "b08_ff under M4 VPWR x=97.42",
+  "b08_ff under M4 VGND x=100.72",
+  "b09_nor under M4 VPWR x=97.42",
   "b09_cmp under M4 VPWR x=97.42",
   "b09_cmp under M4 VGND x=100.72",
-  "b10_nor under M4 VPWR x=97.42",
-  "b10_nor under M4 VGND x=100.72",
-  "b11_ff under M4 VGND x=100.72",
+  "b10_ff under M4 VPWR x=97.42",
+  "b10_ff under M4 VGND x=100.72",
+  "b11_nor under M4 VPWR x=97.42",
   "b11_cmp under M4 VPWR x=97.42",
   "b11_cmp under M4 VGND x=100.72",
   "b12_nor under M4 VPWR x=97.42",
-  "b12_nor under M4 VGND x=100.72",
+  "b12_cmp under M4 VPWR x=97.42",
+  "b12_cmp under M4 VGND x=100.72",
+  "b13_ff under M4 VPWR x=97.42",
   "b13_ff under M4 VGND x=100.72",
-  "b13_cmp under M4 VPWR x=97.42",
-  "b13_cmp under M4 VGND x=100.72",
   "b14_nor under M4 VPWR x=97.42",
-  "b14_nor under M4 VGND x=100.72",
+  "b14_cmp under M4 VPWR x=97.42",
+  "b14_cmp under M4 VGND x=100.72",
+  "b15_ff under M4 VPWR x=97.42",
   "b15_ff under M4 VGND x=100.72",
-  "b15_cmp under M4 VPWR x=97.42",
-  "b15_cmp under M4 VGND x=100.72",
   "b16_nor under M4 VPWR x=97.42",
-  "b16_nor under M4 VGND x=100.72",
+  "b16_cmp under M4 VPWR x=97.42",
+  "b16_cmp under M4 VGND x=100.72",
+  "b17_ff under M4 VPWR x=97.42",
   "b17_ff under M4 VGND x=100.72",
-  "b17_cmp under M4 VPWR x=97.42",
-  "b17_cmp under M4 VGND x=100.72",
   "b18_nor under M4 VPWR x=97.42",
-  "b18_nor under M4 VGND x=100.72",
+  "b18_cmp under M4 VPWR x=97.42",
+  "b18_cmp under M4 VGND x=100.72",
+  "b19_ff under M4 VPWR x=97.42",
   "b19_ff under M4 VGND x=100.72",
-  "b19_cmp under M4 VPWR x=97.42",
-  "b19_cmp under M4 VGND x=100.72",
   "b20_nor under M4 VPWR x=97.42",
-  "b20_nor under M4 VGND x=100.72",
-  "b21_ff under M4 VGND x=100.72",
-  "b21_cmp under M4 VPWR x=97.42",
-  "b21_cmp under M4 VGND x=100.72",
-  "u_ld under M4 VPWR x=97.42"
+  "b20_cmp under M4 VPWR x=97.42",
+  "b20_cmp under M4 VGND x=100.72",
+  "b21_ff under M4 VPWR x=97.42",
+  "b21_ff under M4 VGND x=100.72"
  ],
- "legal_anchor_count": 56,
+ "legal_anchor_count": 64,
  "top_candidates": [
   {
    "row": 6,
    "site": 157,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3136.84,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
+   "ext_hpwl_um": 3080.28,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   },
   {
    "row": 8,
    "site": 157,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3160.36,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
+   "ext_hpwl_um": 3092.04,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   },
   {
    "row": 4,
    "site": 157,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3187.8,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
+   "ext_hpwl_um": 3135.16,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   },
   {
    "row": 10,
    "site": 157,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3281.88,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
+   "ext_hpwl_um": 3217.48,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   },
   {
    "row": 2,
    "site": 157,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3289.72,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
+   "ext_hpwl_um": 3260.6,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   },
   {
    "row": 12,
    "site": 157,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3470.04,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
-  },
-  {
-   "row": 14,
-   "site": 157,
-   "order_up": true,
-   "mirror": false,
-   "ext_hpwl_um": 3732.68,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 54
+   "ext_hpwl_um": 3425.24,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   },
   {
    "row": 6,
    "site": 227,
    "order_up": true,
    "mirror": false,
-   "ext_hpwl_um": 3777.76,
-   "internal_hpwl_um": 1271.76,
-   "m4_soft_hits": 64
+   "ext_hpwl_um": 3497.48,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
+  },
+  {
+   "row": 8,
+   "site": 227,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 3509.24,
+   "internal_hpwl_um": 1150.8,
+   "m4_soft_hits": 55
   }
  ],
  "proxy_note": "ext_hpwl_um: HPWL of boundary nets with free neighbours at their BASELINE positions (estimate; GPL re-places them). Used only to rank anchors.",
  "ports": {
   "west": "S_in[i] and M[i] in relative row i (S_in from mac_unit's S flop, M to mac_unit's S load mux; both on the mac side)",
-  "north": "first, en into the decode row (row 22); controller decode lives above",
+  "middle": "first, en into the decode oai21 u_ld in row 11 (rel sites 38-45)",
   "clock": "clk to every flop CLK (sdffq_1 CLK at x 5.88-6.44 um in the cell; dffq_1 CLK at 0.84-1.4)",
-  "south": "none (the chain starts at bit 0 inside: c[1] = S_in[0])",
-  "east": "none"
+  "chain": "internal, bit 1 (row 0) to bit 21 (row 21), skipping row 11; gt back to u_ld in row 11 (starts from M[0], tie don't-care)",
+  "east_west": "S_in[i]/M[i] pins sit in bit i's row (bit i in row i-1 for i 1..11, row 11 for bit 0, row i above): flop at rel 25-62 (even rows) or 0-37 (odd rows), stage cells beside it; no dedicated port side (the block is 63 x 22 sites, full rows)"
  },
  "taps_inside": [
   {
@@ -257,10 +259,6 @@
   {
    "rel_row": 21,
    "rel_site": 53
-  },
-  {
-   "rel_row": 22,
-   "rel_site": 18
   }
  ],
  "cells": [
@@ -269,13 +267,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 0,
-   "rel_row": 0,
-   "rel_site": 28,
+   "rel_row": 11,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[0]",
-    "SI": "M[0]",
-    "SE": "nld_b",
+    "D": "M[0]",
+    "SI": "S_in[0]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[0]"
    }
@@ -285,13 +283,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 1,
-   "rel_row": 1,
-   "rel_site": 15,
+   "rel_row": 0,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[1]",
-    "SI": "M[1]",
-    "SE": "nld_b",
+    "D": "M[1]",
+    "SI": "S_in[1]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[1]"
    }
@@ -301,11 +299,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 1,
-   "rel_row": 1,
-   "rel_site": 55,
+   "rel_row": 0,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "S_in[1]",
+    "I": "M[1]",
     "ZN": "xi[1]"
    }
   },
@@ -314,12 +312,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 1,
-   "rel_row": 1,
-   "rel_site": 59,
+   "rel_row": 0,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "xi[1]",
-    "A2": "M[1]",
+    "A1": "S_in[1]",
+    "A2": "xi[1]",
     "ZN": "na[1]"
    }
   },
@@ -328,27 +326,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 1,
-   "rel_row": 1,
-   "rel_site": 64,
+   "rel_row": 0,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "xi[1]",
-    "A2": "M[1]",
+    "A1": "S_in[1]",
+    "A2": "xi[1]",
     "ZN": "no[1]"
    }
   },
   {
    "inst": "b01_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 1,
-   "rel_row": 1,
-   "rel_site": 7,
+   "rel_row": 0,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
-    "A1": "S_in[0]",
-    "A2": "na[1]",
-    "B": "no[1]",
+    "A1": "M[0]",
+    "A2": "no[1]",
+    "B": "na[1]",
     "ZN": "c[2]"
    }
   },
@@ -357,13 +355,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 2,
-   "rel_row": 2,
-   "rel_site": 28,
+   "rel_row": 1,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[2]",
-    "SI": "M[2]",
-    "SE": "nld_b",
+    "D": "M[2]",
+    "SI": "S_in[2]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[2]"
    }
@@ -373,11 +371,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 2,
-   "rel_row": 2,
-   "rel_site": 0,
+   "rel_row": 1,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "M[2]",
+    "I": "S_in[2]",
     "ZN": "xi[2]"
    }
   },
@@ -386,12 +384,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 2,
-   "rel_row": 2,
-   "rel_site": 4,
+   "rel_row": 1,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "S_in[2]",
-    "A2": "xi[2]",
+    "A1": "xi[2]",
+    "A2": "M[2]",
     "ZN": "na[2]"
    }
   },
@@ -400,27 +398,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 2,
-   "rel_row": 2,
-   "rel_site": 9,
+   "rel_row": 1,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "S_in[2]",
-    "A2": "xi[2]",
+    "A1": "xi[2]",
+    "A2": "M[2]",
     "ZN": "no[2]"
    }
   },
   {
    "inst": "b02_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 2,
-   "rel_row": 2,
-   "rel_site": 20,
+   "rel_row": 1,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[2]",
-    "A2": "no[2]",
-    "B": "na[2]",
+    "A2": "na[2]",
+    "B": "no[2]",
     "ZN": "c[3]"
    }
   },
@@ -429,13 +427,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 3,
-   "rel_row": 3,
-   "rel_site": 15,
+   "rel_row": 2,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[3]",
-    "SI": "M[3]",
-    "SE": "nld_b",
+    "D": "M[3]",
+    "SI": "S_in[3]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[3]"
    }
@@ -445,11 +443,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 3,
-   "rel_row": 3,
-   "rel_site": 55,
+   "rel_row": 2,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "S_in[3]",
+    "I": "M[3]",
     "ZN": "xi[3]"
    }
   },
@@ -458,12 +456,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 3,
-   "rel_row": 3,
-   "rel_site": 59,
+   "rel_row": 2,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "xi[3]",
-    "A2": "M[3]",
+    "A1": "S_in[3]",
+    "A2": "xi[3]",
     "ZN": "na[3]"
    }
   },
@@ -472,27 +470,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 3,
-   "rel_row": 3,
-   "rel_site": 64,
+   "rel_row": 2,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "xi[3]",
-    "A2": "M[3]",
+    "A1": "S_in[3]",
+    "A2": "xi[3]",
     "ZN": "no[3]"
    }
   },
   {
    "inst": "b03_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 3,
-   "rel_row": 3,
-   "rel_site": 7,
+   "rel_row": 2,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[3]",
-    "A2": "na[3]",
-    "B": "no[3]",
+    "A2": "no[3]",
+    "B": "na[3]",
     "ZN": "c[4]"
    }
   },
@@ -501,13 +499,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 4,
-   "rel_row": 4,
-   "rel_site": 28,
+   "rel_row": 3,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[4]",
-    "SI": "M[4]",
-    "SE": "nld_b",
+    "D": "M[4]",
+    "SI": "S_in[4]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[4]"
    }
@@ -517,11 +515,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 4,
-   "rel_row": 4,
-   "rel_site": 0,
+   "rel_row": 3,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "M[4]",
+    "I": "S_in[4]",
     "ZN": "xi[4]"
    }
   },
@@ -530,12 +528,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 4,
-   "rel_row": 4,
-   "rel_site": 4,
+   "rel_row": 3,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "S_in[4]",
-    "A2": "xi[4]",
+    "A1": "xi[4]",
+    "A2": "M[4]",
     "ZN": "na[4]"
    }
   },
@@ -544,27 +542,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 4,
-   "rel_row": 4,
-   "rel_site": 9,
+   "rel_row": 3,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "S_in[4]",
-    "A2": "xi[4]",
+    "A1": "xi[4]",
+    "A2": "M[4]",
     "ZN": "no[4]"
    }
   },
   {
    "inst": "b04_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 4,
-   "rel_row": 4,
-   "rel_site": 20,
+   "rel_row": 3,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[4]",
-    "A2": "no[4]",
-    "B": "na[4]",
+    "A2": "na[4]",
+    "B": "no[4]",
     "ZN": "c[5]"
    }
   },
@@ -573,13 +571,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 5,
-   "rel_row": 5,
-   "rel_site": 15,
+   "rel_row": 4,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[5]",
-    "SI": "M[5]",
-    "SE": "nld_b",
+    "D": "M[5]",
+    "SI": "S_in[5]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[5]"
    }
@@ -589,11 +587,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 5,
-   "rel_row": 5,
-   "rel_site": 55,
+   "rel_row": 4,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "S_in[5]",
+    "I": "M[5]",
     "ZN": "xi[5]"
    }
   },
@@ -602,12 +600,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 5,
-   "rel_row": 5,
-   "rel_site": 59,
+   "rel_row": 4,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "xi[5]",
-    "A2": "M[5]",
+    "A1": "S_in[5]",
+    "A2": "xi[5]",
     "ZN": "na[5]"
    }
   },
@@ -616,27 +614,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 5,
-   "rel_row": 5,
-   "rel_site": 64,
+   "rel_row": 4,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "xi[5]",
-    "A2": "M[5]",
+    "A1": "S_in[5]",
+    "A2": "xi[5]",
     "ZN": "no[5]"
    }
   },
   {
    "inst": "b05_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 5,
-   "rel_row": 5,
-   "rel_site": 7,
+   "rel_row": 4,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[5]",
-    "A2": "na[5]",
-    "B": "no[5]",
+    "A2": "no[5]",
+    "B": "na[5]",
     "ZN": "c[6]"
    }
   },
@@ -645,13 +643,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 6,
-   "rel_row": 6,
-   "rel_site": 28,
+   "rel_row": 5,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[6]",
-    "SI": "M[6]",
-    "SE": "nld_b",
+    "D": "M[6]",
+    "SI": "S_in[6]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[6]"
    }
@@ -661,11 +659,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 6,
-   "rel_row": 6,
-   "rel_site": 0,
+   "rel_row": 5,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "M[6]",
+    "I": "S_in[6]",
     "ZN": "xi[6]"
    }
   },
@@ -674,12 +672,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 6,
-   "rel_row": 6,
-   "rel_site": 4,
+   "rel_row": 5,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "S_in[6]",
-    "A2": "xi[6]",
+    "A1": "xi[6]",
+    "A2": "M[6]",
     "ZN": "na[6]"
    }
   },
@@ -688,27 +686,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 6,
-   "rel_row": 6,
-   "rel_site": 9,
+   "rel_row": 5,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "S_in[6]",
-    "A2": "xi[6]",
+    "A1": "xi[6]",
+    "A2": "M[6]",
     "ZN": "no[6]"
    }
   },
   {
    "inst": "b06_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 6,
-   "rel_row": 6,
-   "rel_site": 20,
+   "rel_row": 5,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[6]",
-    "A2": "no[6]",
-    "B": "na[6]",
+    "A2": "na[6]",
+    "B": "no[6]",
     "ZN": "c[7]"
    }
   },
@@ -717,13 +715,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 7,
-   "rel_row": 7,
-   "rel_site": 15,
+   "rel_row": 6,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[7]",
-    "SI": "M[7]",
-    "SE": "nld_b",
+    "D": "M[7]",
+    "SI": "S_in[7]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[7]"
    }
@@ -733,11 +731,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 7,
-   "rel_row": 7,
-   "rel_site": 55,
+   "rel_row": 6,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "S_in[7]",
+    "I": "M[7]",
     "ZN": "xi[7]"
    }
   },
@@ -746,12 +744,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 7,
-   "rel_row": 7,
-   "rel_site": 59,
+   "rel_row": 6,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "xi[7]",
-    "A2": "M[7]",
+    "A1": "S_in[7]",
+    "A2": "xi[7]",
     "ZN": "na[7]"
    }
   },
@@ -760,27 +758,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 7,
-   "rel_row": 7,
-   "rel_site": 64,
+   "rel_row": 6,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "xi[7]",
-    "A2": "M[7]",
+    "A1": "S_in[7]",
+    "A2": "xi[7]",
     "ZN": "no[7]"
    }
   },
   {
    "inst": "b07_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 7,
-   "rel_row": 7,
-   "rel_site": 7,
+   "rel_row": 6,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[7]",
-    "A2": "na[7]",
-    "B": "no[7]",
+    "A2": "no[7]",
+    "B": "na[7]",
     "ZN": "c[8]"
    }
   },
@@ -789,13 +787,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 8,
-   "rel_row": 8,
-   "rel_site": 28,
+   "rel_row": 7,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[8]",
-    "SI": "M[8]",
-    "SE": "nld_b",
+    "D": "M[8]",
+    "SI": "S_in[8]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[8]"
    }
@@ -805,11 +803,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 8,
-   "rel_row": 8,
-   "rel_site": 0,
+   "rel_row": 7,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "M[8]",
+    "I": "S_in[8]",
     "ZN": "xi[8]"
    }
   },
@@ -818,12 +816,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 8,
-   "rel_row": 8,
-   "rel_site": 4,
+   "rel_row": 7,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "S_in[8]",
-    "A2": "xi[8]",
+    "A1": "xi[8]",
+    "A2": "M[8]",
     "ZN": "na[8]"
    }
   },
@@ -832,27 +830,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 8,
-   "rel_row": 8,
-   "rel_site": 9,
+   "rel_row": 7,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "S_in[8]",
-    "A2": "xi[8]",
+    "A1": "xi[8]",
+    "A2": "M[8]",
     "ZN": "no[8]"
    }
   },
   {
    "inst": "b08_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 8,
-   "rel_row": 8,
-   "rel_site": 20,
+   "rel_row": 7,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[8]",
-    "A2": "no[8]",
-    "B": "na[8]",
+    "A2": "na[8]",
+    "B": "no[8]",
     "ZN": "c[9]"
    }
   },
@@ -861,13 +859,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 9,
-   "rel_row": 9,
-   "rel_site": 15,
+   "rel_row": 8,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[9]",
-    "SI": "M[9]",
-    "SE": "nld_b",
+    "D": "M[9]",
+    "SI": "S_in[9]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[9]"
    }
@@ -877,11 +875,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 9,
-   "rel_row": 9,
-   "rel_site": 55,
+   "rel_row": 8,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "S_in[9]",
+    "I": "M[9]",
     "ZN": "xi[9]"
    }
   },
@@ -890,12 +888,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 9,
-   "rel_row": 9,
-   "rel_site": 59,
+   "rel_row": 8,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "xi[9]",
-    "A2": "M[9]",
+    "A1": "S_in[9]",
+    "A2": "xi[9]",
     "ZN": "na[9]"
    }
   },
@@ -904,27 +902,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 9,
-   "rel_row": 9,
-   "rel_site": 64,
+   "rel_row": 8,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "xi[9]",
-    "A2": "M[9]",
+    "A1": "S_in[9]",
+    "A2": "xi[9]",
     "ZN": "no[9]"
    }
   },
   {
    "inst": "b09_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 9,
-   "rel_row": 9,
-   "rel_site": 7,
+   "rel_row": 8,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[9]",
-    "A2": "na[9]",
-    "B": "no[9]",
+    "A2": "no[9]",
+    "B": "na[9]",
     "ZN": "c[10]"
    }
   },
@@ -933,13 +931,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 10,
-   "rel_row": 10,
-   "rel_site": 28,
+   "rel_row": 9,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[10]",
-    "SI": "M[10]",
-    "SE": "nld_b",
+    "D": "M[10]",
+    "SI": "S_in[10]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[10]"
    }
@@ -949,11 +947,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 10,
-   "rel_row": 10,
-   "rel_site": 0,
+   "rel_row": 9,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "M[10]",
+    "I": "S_in[10]",
     "ZN": "xi[10]"
    }
   },
@@ -962,12 +960,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 10,
-   "rel_row": 10,
-   "rel_site": 4,
+   "rel_row": 9,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "S_in[10]",
-    "A2": "xi[10]",
+    "A1": "xi[10]",
+    "A2": "M[10]",
     "ZN": "na[10]"
    }
   },
@@ -976,27 +974,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 10,
-   "rel_row": 10,
-   "rel_site": 9,
+   "rel_row": 9,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "S_in[10]",
-    "A2": "xi[10]",
+    "A1": "xi[10]",
+    "A2": "M[10]",
     "ZN": "no[10]"
    }
   },
   {
    "inst": "b10_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 10,
-   "rel_row": 10,
-   "rel_site": 20,
+   "rel_row": 9,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[10]",
-    "A2": "no[10]",
-    "B": "na[10]",
+    "A2": "na[10]",
+    "B": "no[10]",
     "ZN": "c[11]"
    }
   },
@@ -1005,13 +1003,13 @@
    "master": "sdffq_1",
    "role": "ff",
    "bit": 11,
-   "rel_row": 11,
-   "rel_site": 15,
+   "rel_row": 10,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[11]",
-    "SI": "M[11]",
-    "SE": "nld_b",
+    "D": "M[11]",
+    "SI": "S_in[11]",
+    "SE": "ld_lo",
     "CLK": "clk",
     "Q": "M[11]"
    }
@@ -1021,11 +1019,11 @@
    "master": "inv_1",
    "role": "inv",
    "bit": 11,
-   "rel_row": 11,
-   "rel_site": 55,
+   "rel_row": 10,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "S_in[11]",
+    "I": "M[11]",
     "ZN": "xi[11]"
    }
   },
@@ -1034,12 +1032,12 @@
    "master": "nand2_1",
    "role": "pg",
    "bit": 11,
-   "rel_row": 11,
-   "rel_site": 59,
+   "rel_row": 10,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "xi[11]",
-    "A2": "M[11]",
+    "A1": "S_in[11]",
+    "A2": "xi[11]",
     "ZN": "na[11]"
    }
   },
@@ -1048,27 +1046,27 @@
    "master": "nor2_1",
    "role": "pg",
    "bit": 11,
-   "rel_row": 11,
-   "rel_site": 64,
+   "rel_row": 10,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "xi[11]",
-    "A2": "M[11]",
+    "A1": "S_in[11]",
+    "A2": "xi[11]",
     "ZN": "no[11]"
    }
   },
   {
    "inst": "b11_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 11,
-   "rel_row": 11,
-   "rel_site": 7,
+   "rel_row": 10,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[11]",
-    "A2": "na[11]",
-    "B": "no[11]",
+    "A2": "no[11]",
+    "B": "na[11]",
     "ZN": "c[12]"
    }
   },
@@ -1078,12 +1076,12 @@
    "role": "ff",
    "bit": 12,
    "rel_row": 12,
-   "rel_site": 28,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[12]",
-    "SI": "M[12]",
-    "SE": "nld_b",
+    "D": "M[12]",
+    "SI": "S_in[12]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[12]"
    }
@@ -1097,7 +1095,7 @@
    "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "M[12]",
+    "I": "S_in[12]",
     "ZN": "xi[12]"
    }
   },
@@ -1107,11 +1105,11 @@
    "role": "pg",
    "bit": 12,
    "rel_row": 12,
-   "rel_site": 4,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "S_in[12]",
-    "A2": "xi[12]",
+    "A1": "xi[12]",
+    "A2": "M[12]",
     "ZN": "na[12]"
    }
   },
@@ -1121,26 +1119,26 @@
    "role": "pg",
    "bit": 12,
    "rel_row": 12,
-   "rel_site": 9,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "S_in[12]",
-    "A2": "xi[12]",
+    "A1": "xi[12]",
+    "A2": "M[12]",
     "ZN": "no[12]"
    }
   },
   {
    "inst": "b12_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 12,
    "rel_row": 12,
-   "rel_site": 20,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[12]",
-    "A2": "no[12]",
-    "B": "na[12]",
+    "A2": "na[12]",
+    "B": "no[12]",
     "ZN": "c[13]"
    }
   },
@@ -1150,12 +1148,12 @@
    "role": "ff",
    "bit": 13,
    "rel_row": 13,
-   "rel_site": 15,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[13]",
-    "SI": "M[13]",
-    "SE": "nld_b",
+    "D": "M[13]",
+    "SI": "S_in[13]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[13]"
    }
@@ -1166,10 +1164,10 @@
    "role": "inv",
    "bit": 13,
    "rel_row": 13,
-   "rel_site": 55,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "S_in[13]",
+    "I": "M[13]",
     "ZN": "xi[13]"
    }
   },
@@ -1179,11 +1177,11 @@
    "role": "pg",
    "bit": 13,
    "rel_row": 13,
-   "rel_site": 59,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "xi[13]",
-    "A2": "M[13]",
+    "A1": "S_in[13]",
+    "A2": "xi[13]",
     "ZN": "na[13]"
    }
   },
@@ -1193,26 +1191,26 @@
    "role": "pg",
    "bit": 13,
    "rel_row": 13,
-   "rel_site": 64,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "xi[13]",
-    "A2": "M[13]",
+    "A1": "S_in[13]",
+    "A2": "xi[13]",
     "ZN": "no[13]"
    }
   },
   {
    "inst": "b13_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 13,
    "rel_row": 13,
-   "rel_site": 7,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[13]",
-    "A2": "na[13]",
-    "B": "no[13]",
+    "A2": "no[13]",
+    "B": "na[13]",
     "ZN": "c[14]"
    }
   },
@@ -1222,12 +1220,12 @@
    "role": "ff",
    "bit": 14,
    "rel_row": 14,
-   "rel_site": 28,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[14]",
-    "SI": "M[14]",
-    "SE": "nld_b",
+    "D": "M[14]",
+    "SI": "S_in[14]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[14]"
    }
@@ -1241,7 +1239,7 @@
    "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "M[14]",
+    "I": "S_in[14]",
     "ZN": "xi[14]"
    }
   },
@@ -1251,11 +1249,11 @@
    "role": "pg",
    "bit": 14,
    "rel_row": 14,
-   "rel_site": 4,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "S_in[14]",
-    "A2": "xi[14]",
+    "A1": "xi[14]",
+    "A2": "M[14]",
     "ZN": "na[14]"
    }
   },
@@ -1265,26 +1263,26 @@
    "role": "pg",
    "bit": 14,
    "rel_row": 14,
-   "rel_site": 9,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "S_in[14]",
-    "A2": "xi[14]",
+    "A1": "xi[14]",
+    "A2": "M[14]",
     "ZN": "no[14]"
    }
   },
   {
    "inst": "b14_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 14,
    "rel_row": 14,
-   "rel_site": 20,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[14]",
-    "A2": "no[14]",
-    "B": "na[14]",
+    "A2": "na[14]",
+    "B": "no[14]",
     "ZN": "c[15]"
    }
   },
@@ -1294,12 +1292,12 @@
    "role": "ff",
    "bit": 15,
    "rel_row": 15,
-   "rel_site": 15,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[15]",
-    "SI": "M[15]",
-    "SE": "nld_b",
+    "D": "M[15]",
+    "SI": "S_in[15]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[15]"
    }
@@ -1310,10 +1308,10 @@
    "role": "inv",
    "bit": 15,
    "rel_row": 15,
-   "rel_site": 55,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "S_in[15]",
+    "I": "M[15]",
     "ZN": "xi[15]"
    }
   },
@@ -1323,11 +1321,11 @@
    "role": "pg",
    "bit": 15,
    "rel_row": 15,
-   "rel_site": 59,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "xi[15]",
-    "A2": "M[15]",
+    "A1": "S_in[15]",
+    "A2": "xi[15]",
     "ZN": "na[15]"
    }
   },
@@ -1337,26 +1335,26 @@
    "role": "pg",
    "bit": 15,
    "rel_row": 15,
-   "rel_site": 64,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "xi[15]",
-    "A2": "M[15]",
+    "A1": "S_in[15]",
+    "A2": "xi[15]",
     "ZN": "no[15]"
    }
   },
   {
    "inst": "b15_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 15,
    "rel_row": 15,
-   "rel_site": 7,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[15]",
-    "A2": "na[15]",
-    "B": "no[15]",
+    "A2": "no[15]",
+    "B": "na[15]",
     "ZN": "c[16]"
    }
   },
@@ -1366,12 +1364,12 @@
    "role": "ff",
    "bit": 16,
    "rel_row": 16,
-   "rel_site": 28,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[16]",
-    "SI": "M[16]",
-    "SE": "nld_b",
+    "D": "M[16]",
+    "SI": "S_in[16]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[16]"
    }
@@ -1385,7 +1383,7 @@
    "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "M[16]",
+    "I": "S_in[16]",
     "ZN": "xi[16]"
    }
   },
@@ -1395,11 +1393,11 @@
    "role": "pg",
    "bit": 16,
    "rel_row": 16,
-   "rel_site": 4,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "S_in[16]",
-    "A2": "xi[16]",
+    "A1": "xi[16]",
+    "A2": "M[16]",
     "ZN": "na[16]"
    }
   },
@@ -1409,26 +1407,26 @@
    "role": "pg",
    "bit": 16,
    "rel_row": 16,
-   "rel_site": 9,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "S_in[16]",
-    "A2": "xi[16]",
+    "A1": "xi[16]",
+    "A2": "M[16]",
     "ZN": "no[16]"
    }
   },
   {
    "inst": "b16_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 16,
    "rel_row": 16,
-   "rel_site": 20,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[16]",
-    "A2": "no[16]",
-    "B": "na[16]",
+    "A2": "na[16]",
+    "B": "no[16]",
     "ZN": "c[17]"
    }
   },
@@ -1438,12 +1436,12 @@
    "role": "ff",
    "bit": 17,
    "rel_row": 17,
-   "rel_site": 15,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[17]",
-    "SI": "M[17]",
-    "SE": "nld_b",
+    "D": "M[17]",
+    "SI": "S_in[17]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[17]"
    }
@@ -1454,10 +1452,10 @@
    "role": "inv",
    "bit": 17,
    "rel_row": 17,
-   "rel_site": 55,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "S_in[17]",
+    "I": "M[17]",
     "ZN": "xi[17]"
    }
   },
@@ -1467,11 +1465,11 @@
    "role": "pg",
    "bit": 17,
    "rel_row": 17,
-   "rel_site": 59,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "xi[17]",
-    "A2": "M[17]",
+    "A1": "S_in[17]",
+    "A2": "xi[17]",
     "ZN": "na[17]"
    }
   },
@@ -1481,26 +1479,26 @@
    "role": "pg",
    "bit": 17,
    "rel_row": 17,
-   "rel_site": 64,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "xi[17]",
-    "A2": "M[17]",
+    "A1": "S_in[17]",
+    "A2": "xi[17]",
     "ZN": "no[17]"
    }
   },
   {
    "inst": "b17_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 17,
    "rel_row": 17,
-   "rel_site": 7,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[17]",
-    "A2": "na[17]",
-    "B": "no[17]",
+    "A2": "no[17]",
+    "B": "na[17]",
     "ZN": "c[18]"
    }
   },
@@ -1510,12 +1508,12 @@
    "role": "ff",
    "bit": 18,
    "rel_row": 18,
-   "rel_site": 28,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[18]",
-    "SI": "M[18]",
-    "SE": "nld_b",
+    "D": "M[18]",
+    "SI": "S_in[18]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[18]"
    }
@@ -1529,7 +1527,7 @@
    "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "M[18]",
+    "I": "S_in[18]",
     "ZN": "xi[18]"
    }
   },
@@ -1539,11 +1537,11 @@
    "role": "pg",
    "bit": 18,
    "rel_row": 18,
-   "rel_site": 4,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "S_in[18]",
-    "A2": "xi[18]",
+    "A1": "xi[18]",
+    "A2": "M[18]",
     "ZN": "na[18]"
    }
   },
@@ -1553,26 +1551,26 @@
    "role": "pg",
    "bit": 18,
    "rel_row": 18,
-   "rel_site": 9,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "S_in[18]",
-    "A2": "xi[18]",
+    "A1": "xi[18]",
+    "A2": "M[18]",
     "ZN": "no[18]"
    }
   },
   {
    "inst": "b18_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 18,
    "rel_row": 18,
-   "rel_site": 20,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[18]",
-    "A2": "no[18]",
-    "B": "na[18]",
+    "A2": "na[18]",
+    "B": "no[18]",
     "ZN": "c[19]"
    }
   },
@@ -1582,12 +1580,12 @@
    "role": "ff",
    "bit": 19,
    "rel_row": 19,
-   "rel_site": 15,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[19]",
-    "SI": "M[19]",
-    "SE": "nld_b",
+    "D": "M[19]",
+    "SI": "S_in[19]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[19]"
    }
@@ -1598,10 +1596,10 @@
    "role": "inv",
    "bit": 19,
    "rel_row": 19,
-   "rel_site": 55,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "S_in[19]",
+    "I": "M[19]",
     "ZN": "xi[19]"
    }
   },
@@ -1611,11 +1609,11 @@
    "role": "pg",
    "bit": 19,
    "rel_row": 19,
-   "rel_site": 59,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "xi[19]",
-    "A2": "M[19]",
+    "A1": "S_in[19]",
+    "A2": "xi[19]",
     "ZN": "na[19]"
    }
   },
@@ -1625,26 +1623,26 @@
    "role": "pg",
    "bit": 19,
    "rel_row": 19,
-   "rel_site": 64,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "xi[19]",
-    "A2": "M[19]",
+    "A1": "S_in[19]",
+    "A2": "xi[19]",
     "ZN": "no[19]"
    }
   },
   {
    "inst": "b19_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 19,
    "rel_row": 19,
-   "rel_site": 7,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[19]",
-    "A2": "na[19]",
-    "B": "no[19]",
+    "A2": "no[19]",
+    "B": "na[19]",
     "ZN": "c[20]"
    }
   },
@@ -1654,12 +1652,12 @@
    "role": "ff",
    "bit": 20,
    "rel_row": 20,
-   "rel_site": 28,
+   "rel_site": 25,
    "mirror": false,
    "pins": {
-    "D": "S_in[20]",
-    "SI": "M[20]",
-    "SE": "nld_b",
+    "D": "M[20]",
+    "SI": "S_in[20]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[20]"
    }
@@ -1673,7 +1671,7 @@
    "rel_site": 0,
    "mirror": false,
    "pins": {
-    "I": "M[20]",
+    "I": "S_in[20]",
     "ZN": "xi[20]"
    }
   },
@@ -1683,11 +1681,11 @@
    "role": "pg",
    "bit": 20,
    "rel_row": 20,
-   "rel_site": 4,
+   "rel_site": 20,
    "mirror": false,
    "pins": {
-    "A1": "S_in[20]",
-    "A2": "xi[20]",
+    "A1": "xi[20]",
+    "A2": "M[20]",
     "ZN": "na[20]"
    }
   },
@@ -1697,26 +1695,26 @@
    "role": "pg",
    "bit": 20,
    "rel_row": 20,
-   "rel_site": 9,
+   "rel_site": 4,
    "mirror": false,
    "pins": {
-    "A1": "S_in[20]",
-    "A2": "xi[20]",
+    "A1": "xi[20]",
+    "A2": "M[20]",
     "ZN": "no[20]"
    }
   },
   {
    "inst": "b20_cmp",
-   "master": "oai21_1",
+   "master": "aoi21_1",
    "role": "cmp",
    "bit": 20,
    "rel_row": 20,
-   "rel_site": 20,
+   "rel_site": 10,
    "mirror": false,
    "pins": {
     "A1": "c[20]",
-    "A2": "no[20]",
-    "B": "na[20]",
+    "A2": "na[20]",
+    "B": "no[20]",
     "ZN": "c[21]"
    }
   },
@@ -1726,12 +1724,12 @@
    "role": "ff",
    "bit": 21,
    "rel_row": 21,
-   "rel_site": 15,
+   "rel_site": 0,
    "mirror": false,
    "pins": {
-    "D": "S_in[21]",
-    "SI": "M[21]",
-    "SE": "nld_b",
+    "D": "M[21]",
+    "SI": "S_in[21]",
+    "SE": "ld_hi",
     "CLK": "clk",
     "Q": "M[21]"
    }
@@ -1742,10 +1740,10 @@
    "role": "inv",
    "bit": 21,
    "rel_row": 21,
-   "rel_site": 55,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
-    "I": "M[21]",
+    "I": "S_in[21]",
     "ZN": "xi[21]"
    }
   },
@@ -1755,11 +1753,11 @@
    "role": "pg",
    "bit": 21,
    "rel_row": 21,
-   "rel_site": 59,
+   "rel_site": 42,
    "mirror": false,
    "pins": {
-    "A1": "S_in[21]",
-    "A2": "xi[21]",
+    "A1": "xi[21]",
+    "A2": "M[21]",
     "ZN": "na[21]"
    }
   },
@@ -1769,39 +1767,26 @@
    "role": "pg",
    "bit": 21,
    "rel_row": 21,
-   "rel_site": 64,
+   "rel_site": 47,
    "mirror": false,
    "pins": {
-    "A1": "S_in[21]",
-    "A2": "xi[21]",
+    "A1": "xi[21]",
+    "A2": "M[21]",
     "ZN": "no[21]"
    }
   },
   {
    "inst": "b21_cmp",
-   "master": "aoi21_1",
+   "master": "oai21_1",
    "role": "cmp",
    "bit": 21,
    "rel_row": 21,
-   "rel_site": 7,
+   "rel_site": 55,
    "mirror": false,
    "pins": {
     "A1": "c[21]",
-    "A2": "na[21]",
-    "B": "no[21]",
-    "ZN": "c[22]"
-   }
-  },
-  {
-   "inst": "u_gt_inv",
-   "master": "inv_1",
-   "role": "dec",
-   "bit": null,
-   "rel_row": 22,
-   "rel_site": 0,
-   "mirror": false,
-   "pins": {
-    "I": "c[22]",
+    "A2": "no[21]",
+    "B": "na[21]",
     "ZN": "gt"
    }
   },
@@ -1810,8 +1795,8 @@
    "master": "oai21_1",
    "role": "dec",
    "bit": null,
-   "rel_row": 22,
-   "rel_site": 4,
+   "rel_row": 11,
+   "rel_site": 38,
    "mirror": false,
    "pins": {
     "A1": "gt",
@@ -1821,16 +1806,29 @@
    }
   },
   {
-   "inst": "u_ld_buf",
-   "master": "buf_4",
+   "inst": "u_se_lo",
+   "master": "inv_2",
    "role": "dec",
    "bit": null,
-   "rel_row": 22,
-   "rel_site": 20,
+   "rel_row": 11,
+   "rel_site": 46,
    "mirror": false,
    "pins": {
     "I": "nld",
-    "Z": "nld_b"
+    "ZN": "ld_lo"
+   }
+  },
+  {
+   "inst": "u_se_hi",
+   "master": "inv_2",
+   "role": "dec",
+   "bit": null,
+   "rel_row": 11,
+   "rel_site": 55,
+   "mirror": false,
+   "pins": {
+    "I": "nld",
+    "ZN": "ld_hi"
    }
   }
  ]

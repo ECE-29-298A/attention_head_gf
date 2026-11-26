@@ -8,9 +8,16 @@ generator's internal state wherever possible (it re-reads the emitted files).
   3 geometry   on the site/row grid; inside the footprint; no overlap; orientation legal for the row
                parity at both anchor parities; chip anchor inside rows 1..37 and clear of FIXED taps
                and endcaps (hard); M4 stripes reported (soft)
-  4 intent     bit i in relative row i; compare chain hops exactly one row; aoi222 pin rule (chain on
-               A1/B1) and oai21 gt on A1 (review finding B1); b_*: every instance in chip_anchor.cfg is a
-               dffq_1 whose Q is the intended net in the names netlist
+  4 intent     bit i in relative row i; compare chain hops exactly one row; chain input on A1, stage 1
+               from M[0], stage 21 drives gt, every decode oai21 takes gt on A1; slew rule (master
+               transition at the [3][3] table point); b_*: every instance in chip_anchor.cfg is a dffq_1
+               whose Q is the intended net in the names netlist
+  4b drive     (a_*, review round 1 B1) every block-driven net: fanout <= MAX_FANOUT_CONSTRAINT, load
+               <= min(driver max_capacitance, MAX_CAPACITANCE_CONSTRAINT) and estimated ss transition
+               < (1 - DESIGN_REPAIR_MAX_SLEW_PCT) x MAX_TRANSITION_CONSTRAINT, limits read from the shipped
+               resolved config; load = Liberty pin caps + wire (estimate: 1.25 x rectilinear MST of the pin
+               access points x 0.20 fF/um, calibrated on the chip a_sdff v1 SPEF); transition = bilinear
+               Liberty lookup at the worst legal input slew
   5 connect    (a_*) one driver per net, every internal net has a sink, ports as golden
   6 function   (a_*) next state evaluated cell by cell from Liberty functions (flops from the Liberty
                ff next_state) on 2^18 random + directed vectors against the golden next state
@@ -88,13 +95,23 @@ def check_geometry(v, info, rows, cfg, cen, ctx, E, notes):
         c = jc.get(r["inst"])
         if not c or c["master"] != r["master"] or c["rel_row"] != int(r["rel_row"]) or c["rel_site"] != int(r["rel_site"]):
             E("views", f"JSON/CSV disagree {r['inst']}")
-    if v == "a_sdff" and not (int(rows[0]["abs_site"]) - int(rows[0]["rel_site"])) % 70 == 17: E("geometry", "a_sdff anchor rule")
+    if v == "a_sdff" and not (int(rows[0]["abs_site"]) - int(rows[0]["rel_site"])) % 70 == G.A_ANCHOR_MOD: E("geometry", "a_sdff anchor rule")
 
 
 def check_intent(v, info, rows, E, nl_names=None):
     jc = info["cells"]
-    for c in jc:
-        if c["bit"] is not None and c["rel_row"] != c["bit"]: E("intent", f"{c['inst']} bit {c['bit']} not in row {c['bit']}")
+    if v.startswith("a_"):
+        brow = {}
+        for c in jc:
+            if c["bit"] is None: continue
+            if brow.setdefault(c["bit"], c["rel_row"]) != c["rel_row"]:
+                E("intent", f"{c['inst']}: bit {c['bit']} cells not in one row")
+        if len(set(brow.values())) != N: E("intent", "bits do not occupy distinct rows")
+        if [brow[i] for i in range(1, N)] != sorted(brow[i] for i in range(1, N)):
+            E("intent", "compare bits 1..21 not in ascending row order")
+    else:
+        for c in jc:
+            if c["bit"] is not None and c["rel_row"] != c["bit"]: E("intent", f"{c['inst']} bit {c['bit']} not in row {c['bit']}")
     if v.startswith("a_"):
         cmp = {c["bit"]: c for c in jc if c["role"] == "cmp"}
         if sorted(cmp) != list(range(1, N)): E("intent", "compare stages != 1..21")
@@ -102,13 +119,20 @@ def check_intent(v, info, rows, E, nl_names=None):
         for i in range(2, N):
             z = cmp[i]["pins"]["A1"]
             if z != f"c[{i}]": E("intent", f"stage {i} chain input not on A1 ({z})")
-            elif drv.get(z, {}).get("rel_row") != i - 1: E("intent", f"chain hop into stage {i} is not one row")
-        if cmp[1]["pins"]["A1"] != "S_in[0]": E("intent", "stage 1 chain input must be S_in[0] on A1")
+            else:                        # one row up, or two over a row that holds no compare stage (decode row)
+                r0, r1 = drv.get(z, {}).get("rel_row"), cmp[i]["rel_row"]
+                skip = r0 is not None and r1 - r0 == 2 and all(c["rel_row"] != r0 + 1 for c in cmp.values())
+                if r0 is None or not (r1 - r0 == 1 or skip):
+                    E("intent", f"chain hop into stage {i} is not one row (row {r0} -> {r1})")
+        if cmp[1]["pins"]["A1"] != "M[0]": E("intent", "stage 1 chain input must be M[0] on A1 (tie don't-care)")
+        if cmp[N - 1]["pins"]["ZN"] != "gt": E("intent", "stage 21 must drive gt")
         for c in cmp.values():
             if c["master"] not in ("aoi21_1", "oai21_1"): E("intent", f"{c['inst']} chain cell {c['master']} not a 2-stack aoi21/oai21")
         slew_rule(jc, E)
-        ld = [c for c in jc if c["inst"] == "u_ld"][0]
-        if ld["pins"]["A1"] != "gt": E("intent", "oai21 gt not on A1 (fastest pin)")
+        lds = [c for c in jc if c["role"] == "dec" and c["master"] == "oai21_1"]
+        if not lds: E("intent", "no decode oai21")
+        for ld in lds:
+            if ld["pins"]["A1"] != "gt": E("intent", f"{ld['inst']} gt not on A1 (fastest pin)")
     else:
         want = {"b_m": ["M"], "b_ms": ["M", "S"]}[v]
         roles = [c["role"] for c in jc]
@@ -124,6 +148,124 @@ def check_intent(v, info, rows, E, nl_names=None):
             for i in range(N):
                 rs = [c for c in jc if c["bit"] == i]
                 if len({c["rel_row"] for c in rs}) != 1: E("intent", f"bit {i} M and S not in one row")
+
+
+# ----------------------------------------------------------------------------- drive rule (review round 1 B1)
+RESOLVED = os.path.join(G.BASE, "resolved.json")
+WIRE_FF_PER_UM, ROUTE_FACTOR = 0.20, 1.25   # estimate; calibration in drive_calibration()
+_LIBT = {}
+
+
+def chip_limits():
+    r = json.load(open(RESOLVED))
+    return {"fanout": r["MAX_FANOUT_CONSTRAINT"], "transition_ns": r["MAX_TRANSITION_CONSTRAINT"],
+            "cap_pf": r["MAX_CAPACITANCE_CONSTRAINT"], "slew_pct": r["DESIGN_REPAIR_MAX_SLEW_PCT"],
+            "source": os.path.relpath(RESOLVED, HERE)}
+
+
+def lib_tables():
+    """ss_125C_3v00: per cell, input pin caps, per output pin max_capacitance and transition tables."""
+    from cellfun import _blocks
+    if _LIBT: return _LIBT
+    t = open(G_LIB().replace("tt_025C_3v30", "ss_125C_3v00")).read()
+    num = lambda s_: [float(x) for x in s_.replace('"', "").replace("\\", "").split(",")]
+    for name, body, s0, e0 in _blocks(t, "cell"):
+        if not name.startswith(G.P): continue
+        d = {"cap": {}, "out": {}}
+        for pn, pb, _, _ in _blocks(body, "pin"):
+            if re.search(r"direction\s*:\s*\"?output", pb):
+                mc = re.search(r"max_capacitance\s*:\s*([\d.]+)", pb)
+                tabs = []
+                for kind in ("rise_transition", "fall_transition"):
+                    for m in re.finditer(kind + r"\s*\(\s*\"?\w+\"?\s*\)\s*\{(.*?)\}", pb, re.S):
+                        b = m.group(1)
+                        if "index_2" not in b or "index_1" not in b: continue   # scalar / 1-D tables
+                        i1 = num(re.search(r"index_1\s*\((.*?)\)", b, re.S).group(1))
+                        i2 = num(re.search(r"index_2\s*\((.*?)\)", b, re.S).group(1))
+                        vals = [num(r_) for r_ in re.findall(r'"[^"]*"', re.search(r"values\s*\((.*?)\)\s*;", b, re.S).group(1))]
+                        tabs.append((i1, i2, vals))
+                if tabs or pn not in d["out"]:           # sdff test_cell repeats pins without timing
+                    d["out"][pn] = {"max_cap": float(mc.group(1)) if mc else None, "tabs": tabs}
+            else:
+                mc = re.search(r"\bcapacitance\s*:\s*([\d.]+)", pb)
+                if mc and pn not in d["cap"]: d["cap"][pn] = float(mc.group(1))
+        _LIBT[name[len(G.P):]] = d
+    return _LIBT
+
+
+def interp(i1, i2, vals, x, y):
+    def br(ix, v):
+        k = max(0, min(len(ix) - 2, max(j for j in range(len(ix)) if ix[j] <= v) if v >= ix[0] else 0))
+        return k, (v - ix[k]) / (ix[k + 1] - ix[k])
+    a, fa = br(i1, x); b, fb = br(i2, y)
+    v00, v01, v10, v11 = vals[a][b], vals[a][b + 1], vals[a + 1][b], vals[a + 1][b + 1]
+    return (v00 * (1 - fa) * (1 - fb) + v01 * (1 - fa) * fb + v10 * fa * (1 - fb) + v11 * fa * fb)
+
+
+def rmst(pts):
+    if len(pts) < 2: return 0.0
+    inn = {0}; d = {j: abs(pts[j][0] - pts[0][0]) + abs(pts[j][1] - pts[0][1]) for j in range(1, len(pts))}
+    tot = 0.0
+    while d:
+        j = min(d, key=d.get); tot += d.pop(j); inn.add(j)
+        for k in d: d[k] = min(d[k], abs(pts[k][0] - pts[j][0]) + abs(pts[k][1] - pts[j][1]))
+    return tot
+
+
+def net_table(cells, cen):
+    nets = {}
+    for c in cells:
+        for pin, net in c["pins"].items():
+            mp = cen["masters"][G.P + c["master"]]
+            px = G.pin_x(cen, c["master"], pin, "N") if pin in mp["pins"] else mp["width_um"] / 2   # mutated cells
+            x = c["rel_site"] * G.SITE_W + px
+            y = (c["rel_row"] + 0.5) * G.ROW_H
+            role = "drv" if pin in ("Z", "ZN", "Q") else "load"
+            nets.setdefault(net, []).append((role, c, pin, (x, y)))
+    return nets
+
+
+def drive_rule(cells, cen, E, notes=None, lim=None):
+    lim = lim or chip_limits(); L = lib_tables()
+    tmax = lim["transition_ns"] * (1 - lim["slew_pct"] / 100.0)
+    worst = []
+    for net, ends in net_table(cells, cen).items():
+        drv = [e for e in ends if e[0] == "drv"]
+        if not drv: continue                       # driven outside the block (S_in, first, en, clk)
+        if len(drv) > 1: E("drive", f"net {net} has {len(drv)} drivers"); continue
+        _, dc, dp, _ = drv[0]
+        loads = [e for e in ends if e[0] == "load"]
+        fo = len(loads)
+        wire_um = ROUTE_FACTOR * rmst([e[3] for e in ends])
+        cap = sum(L[e[1]["master"]]["cap"].get(e[2], 0.0) for e in loads) + wire_um * WIRE_FF_PER_UM * 1e-3
+        if dp not in L[dc["master"]]["out"]: E("drive", f"{dc['inst']} {dc['master']} has no output pin {dp}"); continue
+        o = L[dc["master"]]["out"][dp]
+        tr = max(interp(i1, i2, v, lim["transition_ns"], cap) for i1, i2, v in o["tabs"])
+        worst.append((tr, net, dc["inst"], dc["master"], fo, round(cap * 1e3, 1), round(wire_um, 1)))
+        if fo > lim["fanout"]:
+            E("drive", f"fanout {fo} > {lim['fanout']} on net {net} ({dc['inst']} {dc['master']})")
+        cmax = min(x for x in (o["max_cap"], lim["cap_pf"]) if x)
+        if cap > cmax:
+            E("drive", f"load {cap * 1e3:.1f} fF > {cmax * 1e3:.1f} fF on net {net} ({dc['inst']})")
+        if tr >= tmax:
+            E("drive", f"est. ss transition {tr:.2f} ns >= {tmax:.2f} ns on net {net} ({dc['inst']} {dc['master']}, "
+                       f"fanout {fo}, {cap * 1e3:.1f} fF)")
+    worst.sort(reverse=True)
+    if notes is not None:
+        notes.append(f"drive rule ({lim['source']}: fanout <= {lim['fanout']}, transition < {tmax:.2f} ns, cap <= "
+                     f"{lim['cap_pf']} pF; input slew {lim['transition_ns']} ns; wire {ROUTE_FACTOR} x RMST x "
+                     f"{WIRE_FF_PER_UM} fF/um, estimate). Worst nets (ns, net, driver, master, fanout, fF, wire um): "
+                     + "; ".join(f"{t:.2f} {n} {i} {m} fo{f} {c}fF {w}um" for t, n, i, m, f, c, w in worst[:5])
+                     + ". Internal loads only on Q (M[i]) nets: their external loads are chip context")
+    return worst
+
+
+def drive_calibration(notes):
+    """Wire model check against the measured chip run of v1 (SPEF nom: net1 = fanout1 dlyb_1 -> 20 SE,
+    34.14 fF wire over 188.2 um routed = 0.181 fF/um; nld_b 7.94 fF over 47.6 um = 0.167 fF/um;
+    chip_runs/a_sdff, tools/netlen.py). The model uses 0.20 fF/um and 1.25 x RMST."""
+    notes.append("drive calibration: chip v1 SPEF 0.167-0.181 fF/um routed (net1, nld_b); model 0.20 fF/um x "
+                 "1.25 x RMST (estimate, conservative)")
 
 
 _SLEW = {}
@@ -309,6 +451,7 @@ def run_all(out, selftest=True):
         check_intent(v, info, rows, E, nl_names)
         res[v] = {"well_worst_um": round(well_check(rows, ctx, E, notes, v), 2)}
         if v.startswith("a_"):
+            res[v]["drive_worst"] = [list(w) for w in drive_rule(info["cells"], cen, E, notes)[:5]]
             path = os.path.join(out, f"max_reg_{v}.v")
             nl = load_netlist(path, top="max_reg")
             ni = {k.lstrip("\\"): x["master"].split("__")[-1] for k, x in nl["insts"].items()}
@@ -325,6 +468,7 @@ def run_all(out, selftest=True):
     gm = re.search(r"module max_reg.*?endmodule", gold, re.S).group(0)
     if gm not in chip: E("views", "chip RTL golden branch != golden module")
     check_pins_lib(cen, E, notes)
+    drive_calibration(notes)
     st = selftests(out, cen, ctx, nl_names) if selftest else None
     if st is not None:
         for name, ok, fired in st:
@@ -346,7 +490,10 @@ def selftests(out, cen, ctx, nl_names):
         Ee = lambda k, m: errs.append(f"[{k}] {m}")
         check_geometry(v, info, rows, cfg, cen, ctx, Ee, [])
         check_intent(v, info, rows, Ee, nl_names)
-        return any(e.startswith(f"[{want}]") for e in errs), sorted({e.split("]")[0] + "]" for e in errs})
+        if v.startswith("a_"): drive_rule(info["cells"], cen, Ee)
+        cat, _, msg = want.partition(":")
+        hit = [e for e in errs if e.startswith(f"[{cat}]") and msg in e]
+        return bool(hit), (hit[:1] or sorted({e.split("]")[0] + "]" for e in errs}))
     def overlap(rows):
         rows[1]["rel_site"] = rows[0]["rel_site"]; rows[1]["rel_row"] = rows[0]["rel_row"]
         rows[1]["rel_x_um"] = rows[0]["rel_x_um"]; rows[1]["rel_y_um"] = rows[0]["rel_y_um"]
@@ -372,19 +519,28 @@ def selftests(out, cen, ctx, nl_names):
     def slow_cell(info):
         for c in info["cells"]:
             if c["inst"] == "b06_cmp": c["master"] = "aoi222_1"
+    def se22(info):                 # v1 netlist: one driver on all 22 SE pins
+        for c in info["cells"]:
+            if c["master"] == "sdffq_1": c["pins"]["SE"] = "ld_lo"
+        info["cells"] = [c for c in info["cells"] if c["inst"] != "u_se_hi"]
+    def se_far(info):               # fanout-legal (20 = the limit): inv_2 u_se_lo on 20 SE pins; the
+        for c in info["cells"]:     # estimated transition, not the fanout, must fire
+            if c["master"] == "sdffq_1": c["pins"]["SE"] = "ld_lo" if c["bit"] >= 2 else "ld_hi"
     def wrong_name(info):
         info["cells"][3]["inst"], info["cells"][4]["inst"] = info["cells"][4]["inst"], info["cells"][3]["inst"]
     # b_m column shifted 4 sites west of its window hits a tap; shifted to rows 17..38 leaves rows 1..37
-    cases.append(("overlap", *run("a_sdff", overlap, want="geometry")))
-    cases.append(("off-grid", *run("a_sdff", offgrid, want="geometry")))
-    cases.append(("orientation vs row parity", *run("a_sdff", badorient, want="geometry")))
-    cases.append(("tap overlap (b_m shifted -4 sites)", *run("b_m", shift_abs(-4), want="tap")))
-    cases.append(("outside rows 1..37 (b_m shifted +16 rows)", *run("b_m", shift_abs(0, 16), want="outside_core")))
-    cases.append(("compare chain broken", *run("a_sdff", mut_info=chain_break, want="intent")))
-    cases.append(("chain input moved off A1", *run("a_sdff", mut_info=pin_rule, want="intent")))
-    cases.append(("oai21 gt moved off A1", *run("a_sdff", mut_info=gt_pin, want="intent")))
-    cases.append(("slow chain cell (aoi222_1) substituted", *run("a_sdff", mut_info=slow_cell, want="slew")))
-    cases.append(("b_m instance names swapped", *run("b_m", mut_info=wrong_name, want="names")))
+    cases.append(("overlap", *run("a_sdff", overlap, want="geometry:overlap row")))
+    cases.append(("off-grid", *run("a_sdff", offgrid, want="geometry:off the site/row grid")))
+    cases.append(("orientation vs row parity", *run("a_sdff", badorient, want="geometry:illegal")))
+    cases.append(("tap overlap (b_m shifted -4 sites)", *run("b_m", shift_abs(-4), want="tap:overlaps FIXED tap")))
+    cases.append(("outside rows 1..37 (b_m shifted +16 rows)", *run("b_m", shift_abs(0, 16), want="outside_core:outside rows 1..37")))
+    cases.append(("compare chain broken", *run("a_sdff", mut_info=chain_break, want="intent:is not one row")))
+    cases.append(("chain input moved off A1", *run("a_sdff", mut_info=pin_rule, want="intent:chain input not on A1")))
+    cases.append(("oai21 gt moved off A1", *run("a_sdff", mut_info=gt_pin, want="intent:gt not on A1")))
+    cases.append(("slow chain cell (aoi222_1) substituted", *run("a_sdff", mut_info=slow_cell, want="slew:ss transition")))
+    cases.append(("b_m instance names swapped", *run("b_m", mut_info=wrong_name, want="names:is not the dffq_1")))
+    cases.append(("v1 SE: one driver on 22 SE pins", *run("a_sdff", mut_info=se22, want="drive:fanout 22 > 20")))
+    cases.append(("SE driver too weak for its load (fanout legal)", *run("a_sdff", mut_info=se_far, want="drive:est. ss transition")))
     return cases
 
 

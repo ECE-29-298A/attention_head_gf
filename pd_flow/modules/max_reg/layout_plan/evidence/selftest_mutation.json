@@ -1,0 +1,81 @@
+{
+ "overlap": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[geometry]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "off-grid": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [],
+  "others_changed": []
+ },
+ "orientation vs row parity": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [],
+  "others_changed": []
+ },
+ "tap overlap (b_m shifted -4 sites)": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [],
+  "others_changed": []
+ },
+ "outside rows 1..37 (b_m shifted +16 rows)": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[geometry]"
+  ],
+  "others_changed": []
+ },
+ "compare chain broken": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[intent]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "chain input moved off A1": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[intent]"
+  ],
+  "others_changed": []
+ },
+ "oai21 gt moved off A1": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [],
+  "others_changed": []
+ },
+ "slow chain cell (aoi222_1) substituted": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[drive]",
+   "[intent]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "b_m instance names swapped": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "v1 SE: one driver on 22 SE pins": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [
+   "[drive]",
+   "[views]"
+  ],
+  "others_changed": []
+ },
+ "SE driver too weak for its load (fanout legal)": {
+  "target_now": "BAD (depends on its check)",
+  "fired": [],
+  "others_changed": []
+ }
+}

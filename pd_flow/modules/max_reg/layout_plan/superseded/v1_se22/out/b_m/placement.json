@@ -1,0 +1,455 @@
+{
+ "variant": "b_m",
+ "footprint": {
+  "width_sites": 29,
+  "height_rows": 22,
+  "width_um": 16.24,
+  "height_um": 86.24
+ },
+ "bounds": {
+  "footprint_sites": 29,
+  "rows": 22,
+  "site_rows_box": 638,
+  "site_rows_cells": 638,
+  "site_rows_taps_inside_estimate": 0,
+  "utilization_box": 1.0,
+  "area_box_um2": 1400.54,
+  "cell_area_um2": 1400.5376,
+  "widest_cell_sites": 29,
+  "max_row_sites": 29,
+  "area_floor_sites_at_rows": 29,
+  "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
+ },
+ "anchor_rule": "any site where the 29-site flop column clears every tap (inside a 33-site window)",
+ "chosen_anchor": {
+  "row": 6,
+  "site": 177,
+  "order_up": true,
+  "mirror": false,
+  "ext_hpwl_um": 2212.84,
+  "internal_hpwl_um": 0.0,
+  "m4_soft_hits": 0
+ },
+ "anchor_soft_m4": [],
+ "legal_anchor_count": 1360,
+ "top_candidates": [
+  {
+   "row": 6,
+   "site": 177,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2212.84,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 6,
+   "site": 178,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2216.2,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 6,
+   "site": 179,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2219.56,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 5,
+   "site": 177,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2220.68,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 6,
+   "site": 180,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2223.48,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 5,
+   "site": 178,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2224.04,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 5,
+   "site": 179,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2227.4,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  },
+  {
+   "row": 6,
+   "site": 181,
+   "order_up": true,
+   "mirror": false,
+   "ext_hpwl_um": 2227.4,
+   "internal_hpwl_um": 0.0,
+   "m4_soft_hits": 0
+  }
+ ],
+ "proxy_note": "ext_hpwl_um: HPWL of boundary nets with free neighbours at their BASELINE positions (estimate; GPL re-places them). Used only to rank anchors.",
+ "ports": {
+  "west_or_east": "Q (M[i]) faces the side picked by the mirror search; D from ABC's free mux/compare",
+  "pin_order": "bit i in relative row i (order_up) or row 21-i"
+ },
+ "taps_inside": [],
+ "cells": [
+  {
+   "inst": "_2277_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 0,
+   "rel_row": 0,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0149_",
+    "CLK": "clk",
+    "Q": "core.mac.M[0]"
+   }
+  },
+  {
+   "inst": "_2278_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 1,
+   "rel_row": 1,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0150_",
+    "CLK": "clk",
+    "Q": "core.mac.M[1]"
+   }
+  },
+  {
+   "inst": "_2279_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 2,
+   "rel_row": 2,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0151_",
+    "CLK": "clk",
+    "Q": "core.mac.M[2]"
+   }
+  },
+  {
+   "inst": "_2280_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 3,
+   "rel_row": 3,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0152_",
+    "CLK": "clk",
+    "Q": "core.mac.M[3]"
+   }
+  },
+  {
+   "inst": "_2281_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 4,
+   "rel_row": 4,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0153_",
+    "CLK": "clk",
+    "Q": "core.mac.M[4]"
+   }
+  },
+  {
+   "inst": "_2282_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 5,
+   "rel_row": 5,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0154_",
+    "CLK": "clk",
+    "Q": "core.mac.M[5]"
+   }
+  },
+  {
+   "inst": "_2283_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 6,
+   "rel_row": 6,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0155_",
+    "CLK": "clk",
+    "Q": "core.mac.M[6]"
+   }
+  },
+  {
+   "inst": "_2284_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 7,
+   "rel_row": 7,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0156_",
+    "CLK": "clk",
+    "Q": "core.mac.M[7]"
+   }
+  },
+  {
+   "inst": "_2285_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 8,
+   "rel_row": 8,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0157_",
+    "CLK": "clk",
+    "Q": "core.mac.M[8]"
+   }
+  },
+  {
+   "inst": "_2286_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 9,
+   "rel_row": 9,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0158_",
+    "CLK": "clk",
+    "Q": "core.mac.M[9]"
+   }
+  },
+  {
+   "inst": "_2287_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 10,
+   "rel_row": 10,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0159_",
+    "CLK": "clk",
+    "Q": "core.mac.M[10]"
+   }
+  },
+  {
+   "inst": "_2288_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 11,
+   "rel_row": 11,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0160_",
+    "CLK": "clk",
+    "Q": "core.mac.M[11]"
+   }
+  },
+  {
+   "inst": "_2289_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 12,
+   "rel_row": 12,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0161_",
+    "CLK": "clk",
+    "Q": "core.mac.M[12]"
+   }
+  },
+  {
+   "inst": "_2290_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 13,
+   "rel_row": 13,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0162_",
+    "CLK": "clk",
+    "Q": "core.mac.M[13]"
+   }
+  },
+  {
+   "inst": "_2291_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 14,
+   "rel_row": 14,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0163_",
+    "CLK": "clk",
+    "Q": "core.mac.M[14]"
+   }
+  },
+  {
+   "inst": "_2292_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 15,
+   "rel_row": 15,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0164_",
+    "CLK": "clk",
+    "Q": "core.mac.M[15]"
+   }
+  },
+  {
+   "inst": "_2293_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 16,
+   "rel_row": 16,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0165_",
+    "CLK": "clk",
+    "Q": "core.mac.M[16]"
+   }
+  },
+  {
+   "inst": "_2294_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 17,
+   "rel_row": 17,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0166_",
+    "CLK": "clk",
+    "Q": "core.mac.M[17]"
+   }
+  },
+  {
+   "inst": "_2295_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 18,
+   "rel_row": 18,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0167_",
+    "CLK": "clk",
+    "Q": "core.mac.M[18]"
+   }
+  },
+  {
+   "inst": "_2296_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 19,
+   "rel_row": 19,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0168_",
+    "CLK": "clk",
+    "Q": "core.mac.M[19]"
+   }
+  },
+  {
+   "inst": "_2297_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 20,
+   "rel_row": 20,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0169_",
+    "CLK": "clk",
+    "Q": "core.mac.M[20]"
+   }
+  },
+  {
+   "inst": "_2298_",
+   "master": "dffq_1",
+   "role": "M",
+   "bit": 21,
+   "rel_row": 21,
+   "rel_site": 0,
+   "mirror": false,
+   "pins": {
+    "D": "_0170_",
+    "CLK": "clk",
+    "Q": "core.mac.M[21]"
+   }
+  }
+ ],
+ "names": {
+  "netlist": "../../../baseline/harden/nl/tt_um_attention_head_gf.nl.v",
+  "netlist_sha256": "a8286e1b9a4d73f2780bcf78951b7fdd4c67bb2715fccdfea777cf6a2d83e293",
+  "M": {
+   "core.mac.M[0]": "_2277_",
+   "core.mac.M[1]": "_2278_",
+   "core.mac.M[2]": "_2279_",
+   "core.mac.M[3]": "_2280_",
+   "core.mac.M[4]": "_2281_",
+   "core.mac.M[5]": "_2282_",
+   "core.mac.M[6]": "_2283_",
+   "core.mac.M[7]": "_2284_",
+   "core.mac.M[8]": "_2285_",
+   "core.mac.M[9]": "_2286_",
+   "core.mac.M[10]": "_2287_",
+   "core.mac.M[11]": "_2288_",
+   "core.mac.M[12]": "_2289_",
+   "core.mac.M[13]": "_2290_",
+   "core.mac.M[14]": "_2291_",
+   "core.mac.M[15]": "_2292_",
+   "core.mac.M[16]": "_2293_",
+   "core.mac.M[17]": "_2294_",
+   "core.mac.M[18]": "_2295_",
+   "core.mac.M[19]": "_2296_",
+   "core.mac.M[20]": "_2297_",
+   "core.mac.M[21]": "_2298_"
+  },
+  "S": null,
+  "rule": "instance names are the shipped-flow synthesis names of exactly this RTL+config (deterministic flow); regenerate from the run's own synthesized netlist after any change, and post-check by Q net (tools/check_placed.py)"
+ }
+}

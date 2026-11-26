@@ -1,0 +1,141 @@
+{
+ "cell_sites": 1339,
+ "best_site_rows": 1386,
+ "n_best": 44,
+ "first": {
+  "W": 63,
+  "H": 22,
+  "k": 1,
+  "a": 17,
+  "anchor_row_parity": 0,
+  "site_rows": 1386,
+  "taps_inside_sites": 44,
+  "bit0_rows": [
+   1,
+   3,
+   5,
+   7,
+   9,
+   11,
+   13,
+   15,
+   17,
+   19,
+   21
+  ],
+  "decode_rows_possible": [
+   1,
+   3,
+   5,
+   7,
+   9,
+   11,
+   13,
+   15,
+   17,
+   19,
+   21
+  ]
+ },
+ "smallest_per_k": {
+  "1": {
+   "W": 63,
+   "H": 22,
+   "k": 1,
+   "a": 17,
+   "anchor_row_parity": 0,
+   "site_rows": 1386,
+   "taps_inside_sites": 44,
+   "bit0_rows": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21
+   ],
+   "decode_rows_possible": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21
+   ]
+  },
+  "2": {
+   "W": 126,
+   "H": 11,
+   "k": 2,
+   "a": 24,
+   "anchor_row_parity": 0,
+   "site_rows": 1386,
+   "taps_inside_sites": 44,
+   "bit0_rows": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "decode_rows_possible": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  "3": {
+   "W": 190,
+   "H": 8,
+   "k": 3,
+   "a": 26,
+   "anchor_row_parity": 0,
+   "site_rows": 1520,
+   "taps_inside_sites": 48,
+   "bit0_rows": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "decode_rows_possible": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  }
+ }
+}

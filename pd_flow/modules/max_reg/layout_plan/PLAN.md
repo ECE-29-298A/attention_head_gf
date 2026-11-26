@@ -1,376 +1,446 @@
-# max_reg: Phase 3 layout plan (Agent 4, layout architect)
+# max_reg: Phase 3 layout plan (Agent 4, layout architect), revision 2
 
-Date: 2026-11-26. Scope (D4/D5): placement of existing GF180 7-track cells only, automatic routing,
-a relative sub-placement that composes into the whole-chip tetris. Nothing in `src/`, the reference
-project or the PDK was edited. Nothing was committed. Every number comes from a run in this
-directory, with its source named; estimates are marked **(estimate)**. Tables with every metric are
-generated from the raw outputs into `tables.md` (`tools/make_tables.py`).
+Date: 2026-11-26.
+
+**What revision 2 adds** over revision 1:
+- review round 1 (`../layout_review/REVIEW.md`: B1, B2, N1–N4);
+- user decision D6 (`pd_flow/AGENT_CONTEXT.md`, "Area-first ranking"): rank by area; timing is only a
+  legality check (WNS ≥ 0 and hold met at every corner on the 100 ns clock).
+
+**Scope** (D4/D5): placement of existing GF180 7-track cells only, automatic routing, and a relative
+sub-placement that composes into the whole-chip tetris.
+
+**Ground rules:**
+- Nothing in `src/`, the reference project or the PDK was edited. Nothing was committed.
+- No chip harden was run in revision 2; the 4-harden budget was spent in revision 1.
+- Every number comes from a run in this directory, and its source is named. Estimates are marked **(estimate)**.
+- `tables.md` is generated from the raw outputs by `tools/make_tables.py`.
 
 ## 0. Verdict
 
-1. **Shipped chip: keep (c), free placement of the golden RTL.** Both constrained options were measured
-   on the chip with full hardens, and each one is worse than the baseline, mostly outside the noise band:
+### 0.1 Shipped chip: keep (c), free placement of the golden RTL
+Ranked by chip std-cell area, with timing and the D2 band as legality checks
+(`tables.md`, "D6 ranking"; raw `metrics.json` of each run):
 
-   | Run (full harden) | Std-cell µm² | ss WNS ns | Slew/Cap/Fanout | Power mW | Routed wire µm |
-   |---|---:|---:|---|---:|---:|
-   | **baseline (c) free** | 46,819.2 | 41.79 | 381/1/11 | 3.050 | 53,890 |
-   | noise band (golden rewrites base, n03, n04) | 46,819–47,221 | 38.21–42.90 | 260–381 / 1–2 / 11–13 | 2.971–3.220 | 51,958–53,890 |
-   | (b) `b_m`: 22 M flops fixed in one column | 46,784.1 (−35) | 39.14 | 365/**4**/12 | 3.064 | **56,605** |
-   | (b) `b_ms`: M flops + mac S flops fixed, bit-aligned pair | 46,909.2 (+90) | **36.14** | **388/3**/11 | 3.129 | **62,682** |
-   | (a) `a_sdff`: whole bit-sliced block fixed | **48,151.7 (+1,332)** | **34.44** | **418**/2/11 | **3.545** | **66,123** |
+| Rank | Run (full harden) | Std-cell µm² | Δ | Setup/hold at all corners | Slew/cap/fanout against the D2 band | Legal under D6 |
+|---:|---|---:|---:|---|---|---|
+| 1 | (b) `b_m`: 22 M flops fixed | 46,784.1 | −35.1 | pass | **cap 4 > 2** | no |
+| 2 | **(c) baseline, free** | **46,819.2** | 0 | pass | inside (381/1/11) | **yes** |
+| 3 | (b) `b_ms`: M + S flops fixed | 46,909.2 | +90.0 | pass | **slew 388 > 381, cap 3 > 2** | no |
+| 4 | (a) `a_sdff` v1: fixed block | 48,151.7 | **+1,332.5** | pass | **slew 418 > 381** | no |
 
-   Bold = outside the band. Sources: `chip_runs/{b_m,b_ms,a_sdff}/harden/metrics.json`,
-   `../../../baseline/harden/metrics.json`, `../../ripple_add/layout_plan/chip_runs/{n03,n04}/harden/metrics.json`.
-   All runs: 0 setup/hold violations, route DRC 0, Magic DRC 0, LVS 0, antenna 0.
-2. **(b) placement-only is the right shape, but this context has nothing to gain from it.** The
-   `b_*` runs synthesize a netlist byte-identical to the baseline's (`cmp` of the step-6 netlists),
-   so every delta is placement alone. The free placer already arranges the 22 M and 22 S flops as a
-   ring around their shared logic (mean M–S distance 17.9 µm, `ctx/base_ctx.json`). A straight column
-   raises max_reg wire by +0.9 to +3.8 mm and rest-of-chip wire by +1.9 to +5.0 mm (`chip_runs/netlen.log`).
-   It also moves the ss critical path to mac_unit's adder → S[21] (§2.4).
-3. **(a) the fixed block loses on every axis.**
-   - Synthesis: +548.8 µm² in context (`chip_runs/synth_stat/statdiff_blocks.txt`), outside the synthesis
-     band (−52.7 / +234.9). The block's own cells (2,952.5 µm²) equal ABC's in-context max_reg (2,954.7 µm²,
-     Phase 2 `cone.py`). ABC's rest-of-chip mapping grows by ~550 µm² **(estimate:** chip delta minus block
-     delta). That is the same context loss ripple_add measured.
-   - Harden: +1,332 µm², with +439 µm² of repair buffers.
-   - Rest-of-chip wire +11.1 mm: a 39 × 90 µm FIXED block in a 90%-utilized die displaces its neighbours.
-   - Power +16%, mostly combinational (internal 0.46 → 0.58 mW, switching 0.51 → 0.69 mW, nom_tt `power.rpt`).
-4. **Integration findings (measured, new since ripple_add):**
-   - `MACRO_PLACEMENT_CFG` keeps location and status but **not the master**: RepairDesignPostGPL resized
-     FIXED `aoi222_1` cells in place (log: 28 to `aoi222_4`, 2 to `aoi222_2`). Detailed placement then failed on 30 overlaps
-     (`chip_runs/a_sdff_aoi222_FAILED/harden_failed/openroad-repairdesignpostgpl.log`). Cause: `aoi222_1` has
-     an ss rise transition of about 3.5 ns, above `MAX_TRANSITION_CONSTRAINT` 3 ns. A fixed block may
-     contain only cells that repair has no reason to touch; the validator now enforces this (slew rule).
-   - With slew-legal cells the block held: 109/109 FIXED at their exact coordinates, masters unchanged,
-     in every step DEF (`chip_runs/a_sdff/placement_check.json`). b_m held 22/22 and b_ms 44/44, with the Q nets intact.
-   - `sdffq_1` is in the PDK's `no_synth.cells`, so Yosys reports its area as unknown and under-reports
-     the chip area by 1,835 µm². `tools/statdiff.py` adds it back from the Liberty. `mux2_1` is in
-     `drc_exclude.cells`, so a hand netlist must use `mux2_2`.
-5. **Tetris track for max_reg:** max_reg must not be a frozen block or a stand-alone register column.
-   Its registers are only worth placing jointly with mac_unit's S register and adder bit-slice, which drive the
-   new critical path. The deliverables below (netlist, generator, validator, sub-placements, stable-name
-   mechanism) are the inputs for that joint step and for Phase 4 evidence.
+- **Noise band** (3 golden hardens: base, n03, n04): std-cell area 46,819.2–47,220.9 µm².
+- **`b_m`**:
+  - **Area:** 35 µm² below the baseline. That is under 10% of the band's width (402 µm²), from a single run,
+    so it is not a measurable gain.
+  - **Same netlist:** its synthesized netlist is byte-identical to the baseline's.
+  - **Where the area moved:** logic +35.2 and clock buffers +35.1; clock inverters −57.1 and repair −48.3.
+    That is resizer and CTS reshuffling, not a placement saving.
+  - **Not legal:** it adds 2 cap violations beyond the D2 band.
+- **`b_ms` and `a_sdff` v1** are larger and outside the D2 band.
 
-**Budget:** 4 full harden launches, one at a time, mirrors `/Users/samuelzhang/ttharden/mr3_<tag>`:
-- `b_m`, 69 s;
-- `a_sdff` with aoi222, failed at step 32 after 19 s, counted against the budget;
-- `a_sdff`, 77 s;
-- `b_ms`, 74 s.
+The free baseline is therefore both the smallest legal result and the recommendation. Every run is clean at
+signoff (route DRC, Magic DRC, LVS and antenna all 0). The baseline's absolute ss WNS (41.79 ns) and power
+(3.050 mW) now matter only as legality and context.
 
-(`chip_runs/logs/harden_*.txt`.)
+### 0.2 Why the (b) column variants do not save area
+- **No synthesis change.** `b_m` and `b_ms` only move flops. The area classes that can change are
+  repair, clock tree and resizer upsizing, which total about 3,800 µm² per D6.
+- **The free placer already does well here.** It already puts the 22 M and 22 S flops in a ring around
+  their shared logic (mean M–S distance 17.9 µm, `ctx/base_ctx.json`).
+- **A straight column adds wire** (`chip_runs/netlen.log`):
+
+  | Variant | max_reg nets | Rest of chip |
+  |---|---:|---:|
+  | `b_m` | +0.9 mm | +1.9 mm |
+  | `b_ms` | +3.8 mm | +5.0 mm |
+
+- **The extra wire did not buy area.**
+  - Repair: `b_m` −48 µm², `b_ms` +18 µm². Both are inside the golden spread, which is +242 to +277 µm²
+    in n03/n04.
+  - DRV: the extra wire raised cap counts above the band.
+
+### 0.3 Timing (B2; legality only under D6)
+Corrected from revision 1. The claim "fixing M/S moves the critical path onto mac_unit's adder" was wrong.
+
+- The `config_chain` → mac_unit adder → S[21] (`core.exponent_unit.D[21]`) path is **co-critical in every
+  golden harden**: second in base (41.95 against 41.79 ns), second in n03 (39.69 against 38.21 ns), and the
+  worst path in n04 (42.90 ns). Source: `../layout_review/pathclass.log`.
+- **`b_m`:**
+  - WNS is 39.14 ns, inside the golden WNS band (38.21–42.90).
+  - The −2.81 ns change on that path is diffuse displacement of mac_unit's datapath
+    (`../layout_review/s21_path_evidence.txt`):
+    - clk→Q +0.5 ns;
+    - front end +1.0 ns, through a repair `dlyb_1` (`wire11`, 3.47 ns);
+    - carry chain +1.7 ns;
+    - the tail through the M-fed load mux −0.38 ns (faster).
+  - None of it runs through a pin of the fixed M flops.
+  - It is comparable to golden n03 (−2.27 ns on the same path with no constraint, partly through a 7.27 ns
+    `dlyb_1`).
+- **`b_ms`:** −5.82 ns on that path (carry chain +3.6 ns). This is the only timing delta outside the band,
+  and it is one sample.
+- Reports: `chip_runs/{b_m,b_ms}/harden/sta_postpnr/max_ss_125C_3v00/max.rpt.gz`, and n03 under ripple_add.
+- Under D6 all four runs are timing-legal (setup and hold met at every corner).
+
+### 0.4 Coupling argument (restated from facts that hold)
+- M feeds mac_unit's S load mux, and S feeds max_reg's compare.
+- The 22 S flops are the mac adder's own register.
+- Any joint M/S placement therefore has to be done together with the mac_unit bit-slice. The orchestrator
+  ruling to tetris at mac_unit bit-slice level stands on its own and does not need a critical-path claim.
+
+### 0.5 The a_sdff block
+- **v1 (hardened):** +548.8 µm² in synthesis and +1,332.5 µm² in the chip. By class against the baseline:
+
+  | Class | Δ µm² | Cause |
+  |---|---:|---|
+  | seq | +428 | sdffq_1 replaces dffq_1 |
+  | logic | +228 | |
+  | inv | +180 | |
+  | repair | +439 | |
+  | buf | +31 | |
+
+  The block's own cells (2,952.5 µm²) equal ABC's in-context max_reg (2,954.7 µm²). The loss is in how the rest
+  of the chip is mapped and repaired. Rest-of-chip wire grew by 11.1 mm.
+- **v2 (§5, this revision):**
+  - Rebuilt for the minimum footprint: **3,042.6 µm² box, against 3,534.3 (−13.9%)**.
+  - Cell area **2,939.4, against 2,952.5 µm²**.
+  - Cells plus chip taps fill 99.8% of the box.
+  - Fanout-legal and slew-legal by the new validator rule.
+  - Shipped-flow synthesis +535.6 µm², still outside the synthesis band (−52.7 / +234.9;
+    `chip_runs/synth_stat/statdiff_v2.txt`).
+  - Not hardened.
+  - It does not change the chip decision. It is the Phase 4 standalone object.
+
+### 0.6 Power (N2, corrected)
+- Revision 1 put a_sdff v1's +0.30 mW combinational increase down to "the chain toggling every SCORE clock".
+  Vectorless activity cannot show that.
+- The reviewer's OpenSTA run (nom_tt, nom SPEF, vectorless; `../layout_review/sta_power/`) gives:
+
+  | Cells | Count | Power µW |
+  |---|---:|---:|
+  | a_sdff block cells | 109 | 76.9 |
+  | golden cone + M flops, in base | 134 | 77.7 |
+
+- The chip increase is therefore **outside** max_reg: displaced wiring, ABC's remapping and repair buffers.
+- Under D6, power is context only.
 
 ## 1. Method and evidence
 
 | What | How | Evidence |
 |---|---|---|
-| Library | LEF census (`tools/lefcensus.py`, reused from ripple_add): site 0.56 × 3.92, M1/M3 horizontal, M2/M4 vertical, pitch 0.56; pin access per master; Liberty arcs and transitions per pin (`tools/arcs.py`) | `census.json` (LEF sha256 `47dadf84…`), `evidence/lefcensus.log`, `evidence/arcs_ss_summary.txt` |
-| Chip context | Baseline DEF: 39 rows × 607 sites; FIXED fillties every 70 sites, at site 0 mod 70 in odd rows and 35 mod 70 in even rows; rows 0 and 38 dense; endcaps at sites 0 and 605 (asserted in `gen_placement.chip_context`). 33-site windows free in every row: [37, 70) and [72, 105) mod 70 | `gen_placement.py`, `validation_run.log` |
-| Where max_reg sits today | `tools/ctxmap.py` on the final DEF and pnl: M flops, S flops, max_reg exclusive cone (the `cone.py` definition), consumers of M | `ctx/*_ctx.json` |
-| Flop names | `tools/flopnames.py` over 26 shipped-flow netlists | `names/flopnames_all.json`, `names/stability.json` |
-| Synthesis | `pd_flow/scripts/ll_synth.sh` (cell netlist as `max_reg.v`), `tools/statdiff.py` | `chip_runs/logs/llsynth_*.txt`, `chip_runs/synth_stat/` |
-| Harden | `tools/harden.sh` (from ripple_add): mirror without `runs/`, 7 RTL files, overlay merged into the mirror's `src/config.json`, `tt_tool.py --harden`. Step DEFs of ManualMacroPlacement, GPL, DPL and CTS are kept | `chip_runs/<tag>/harden/` (metrics, resolved config, DEF/nl/pnl, 9-corner STA reports, SHA256SUMS) |
-| Placement held? | `tools/check_placed.py`: every cfg line in each step DEF, with status, master, exact xy and orientation, plus the Q net in the final pnl | `chip_runs/<tag>/placement_check.json` |
-| Wire attribution | `tools/netlen.py`: routed DEF segments summed per class (max_reg / clock / rest) | `chip_runs/netlen.{log,json}` |
+| Library | LEF census (`tools/lefcensus.py`): site 0.56 × 3.92; M1/M3 horizontal, M2/M4 vertical; pitch 0.56; pin access per master. Now also inv_2 and inv_3. Liberty arcs per pin (`tools/arcs.py`) | `census.json`, `evidence/lefcensus.log`, `evidence/arcs_ss_summary.txt` |
+| Chip context | Baseline DEF: 39 rows × 607 sites; FIXED fillties at site 0 mod 70 in odd rows and 35 mod 70 in even rows (asserted) | `gen_placement.chip_context` |
+| Chip limits | `MAX_FANOUT_CONSTRAINT` 20, `MAX_TRANSITION_CONSTRAINT` 3 ns, `DESIGN_REPAIR_MAX_SLEW_PCT` 10, `MAX_CAPACITANCE_CONSTRAINT` 0.2 pF | `pd_flow/baseline/harden/resolved.json`, read by the validator |
+| Minimum footprint | `tools/pack_search.py`: exhaustive search over width, tap phase, row parity, 1/2/3 bits per row, and any row for bit 0 + decode | `evidence/pack_search.{log,json}` |
+| Context maps | `tools/ctxmap.py` (M/S flops, exclusive cone, M–S distance, Q/D HPWL) | `ctx/*_ctx.json` |
+| Flop names | `tools/flopnames.py` over 26 shipped-flow netlists | `names/stability.json` |
+| Synthesis | `pd_flow/scripts/ll_synth.sh`, `tools/statdiff.py` (adds the unknown sdffq area back from the Liberty) | `chip_runs/synth_stat/`, `chip_runs/logs/llsynth_*.txt` |
+| Harden (revision 1) | `tools/harden.sh` → `tt_tool.py --harden` in `/Users/samuelzhang/ttharden/mr3_<tag>`, one at a time | `chip_runs/<tag>/harden/` |
+| Placement held | `tools/check_placed.py` (step 17, GPL, DPL, final; plus CTS for b_ms and a_sdff). The reviewer's `check_fixed.py` covers all 16 DEFs per run (N4) | `chip_runs/<tag>/placement_check.json`, `../layout_review/check_fixed.log` |
+| Wire attribution | `tools/netlen.py` (routed DEF segments by net class) | `chip_runs/netlen.{log,json}` |
+| Tables | `tools/make_tables.py` | `tables.md` |
 
-## 2. Options and chip-level judgement
+## 2. Options
 
-### 2.1 (a) Fixed bit-sliced block, `a_sdff`
-- **Row grammar (bit i in relative row i):**
-  - one `sdffq_1`: flop and load mux in one cell, Q+ = SE ? SI : D, with D = S_in[i], SI = M[i] and
-    SE = nld (hold when 1);
-  - compare stage i: `inv_1`, `nand2_1`, `nor2_1` and the chain cell, an `aoi21_1` or `oai21_1` in
-    alternating polarity, so every chain cell is one 2-stack gate. Full equations are in
-    `gen_placement.build_block`;
-  - bit 0 has no stage (c[1] = S_in[0], the Phase 2 tie don't-care), and bit 21 compares in offset binary;
-  - decode row 22: `inv_1` (gt), `oai21_1` (nld = ~(en & (first | gt))), and a `buf_4` driving the 22 SE pins.
-- **Why `sdffq_1`:** its 83.4 µm² replaces `dffq_1` + `mux2_2` at 96.6 µm². A literal flop + mux + compare
-  row is 29 + 15 + 23 = 67 sites, which cannot fit one 70-site tap period with the compare stage on the
-  correct side. Yosys never infers `sdffq_1` (no_synth), so a cell netlist is the only way to use it.
-- **First version, rejected:**
-  - per-stage `aoi222_1` majority, 30.7 µm² per stage, 2,722 µm² block;
-  - the harden failed (§0.4);
-  - the dffq + mux2_2 version of it was 3,011.8 µm², synth +608 (`superseded/`, its contract 19/19).
-- **Shipped-flow synthesis:** 41,664.9 µm² (+548.8). The cell-family diff outside the block is identical
-  for all three frozen variants (`statdiff_blocks.txt`), so it is a deterministic consequence of freezing
-  the boundary, not ABC run-to-run chaos.
-- **Harden:** see §0. The repair-buffer class rose by 439 µm². The ss critical path is
-  `config_chain[7]` → mac adder → S[21] (§2.4).
+### 2.1 (a) Fixed bit-sliced block
+- **v1** (hardened, `superseded/v1_se22/out/`, `chip_runs/a_sdff/`):
+  - 109 cells, 70 × 23 sites (39.20 × 90.16 µm), 83.5% cell utilization;
+  - one `buf_4` drove all 22 SE pins.
+- **B1, measured** (review; `../layout_review/a_sdff_se_fanout_evidence.txt`):
+  - Fanout 22 is above `MAX_FANOUT_CONSTRAINT` 20.
+  - RepairDesignPostGPL therefore inserted a free `dlyb_1` (`fanout1`, at (128.24, 98.0)) **inside** the frozen
+    block. It drives 20 SE pins at 6.74 ns ss transition against the 3 ns limit.
+  - That accounts for 20 of the 37 slew violations a_sdff v1 adds over the baseline, plus one repair cell's area.
+- **The netlist did not hold.**
+  - What held: 109/109 FIXED cells at exact coordinates with masters unchanged.
+  - What did not: a 110th cell was inserted on a block net.
+  - Revision 1 wrongly called this "held", and wrongly called the `buf_4` a mitigation.
+- **v2** (`out/`) fixes it (§5): the SE is split, two inverters drive 11 loads each, and a drive rule is enforced.
 
-### 2.2 (b) Placement-only, ABC's in-context logic free
-- `b_m`: the 22 shipped-flow M flops (`dffq_1`) in one 29-site column inside a 33-site tap window, at
-  anchor row 6, site 177 (x 102.48, y 27.44–109.76). Bit 0 is at the bottom and Q faces east.
-- `b_ms`: S flop i (mac_unit S register, Q net `core.exponent_unit.D[i]`) at rel site 0 and M flop i
-  at rel site 35, in the same row, from anchor row 6, site 142. The tap column falls between them.
-- The anchor, bit order and mirror were chosen by an HPWL proxy over all legal anchors, with free
-  neighbours at their baseline positions **(estimate)**:
-  - `b_m`: column 2,213 µm against 951 µm for the free baseline positions;
-  - `b_ms`: 5,056 against 2,820.
+### 2.2 (b) Placement-only (ABC's in-context logic free)
+- `b_m`: 22 M flops in one 29-site column at anchor row 6, site 177.
+- `b_ms`: S flop i at rel site 0 and M flop i at rel site 35, from row 6, site 142.
+- Both are measured in §0. The anchor proxy already ranked the column below the free ring (estimate):
 
-  The proxy already predicted that a column cannot beat the free ring. The hardens confirmed it.
-- **Results:**
-  - **`b_m`:**
-    - inside the band: area, WNS, slew and power;
-    - outside the band: cap 4 (on non-max_reg nets: `_2344_` divider, fanout buffers, `checks.rpt`)
-      and wire +5%.
-  - **`b_ms`:** WNS −5.66 ns, cap 3 and wire +16%, all outside the band.
-  - **Mean M–S distance:**
-    - baseline 17.9 µm;
-    - `b_m` 43.5 µm, because the free S flops did not follow the column;
-    - `b_ms` 19.6 µm by construction. Its S Q-net HPWL still rose from 1,576 to 2,574 µm, because S also
-      feeds the mac adder and exp_lut (`ctx/`).
+  | Variant | Proxy HPWL at chosen anchor | Free baseline positions |
+  |---|---:|---:|
+  | `b_m` | 2,213 µm | 951 µm |
+  | `b_ms` | 5,056 µm | 2,820 µm |
 
-### 2.3 (c) Free placement (baseline)
-The shipped result, unchanged. The flow is deterministic: the `b_*` synthesis netlists are byte-identical
-to `ll_synth base`, and the flop names and baseline numbers reproduce.
-
-### 2.4 Attribution (why the constrained runs lose)
-- **Wire** (`chip_runs/netlen.log`):
-
-  | Run | max_reg nets | rest of chip | clock |
-  |---|---:|---:|---:|
-  | `b_m` | +891 µm | +1,895 µm | −75 µm |
-  | `b_ms` | +3,790 µm | +5,039 µm | |
-  | `a_sdff` | +960 µm | **+11,058 µm** | +213 µm |
-
-  Fixed objects in a 90%-utilized die push the rest of the placement around. As in ripple_add, the
-  isolated block is a diagnostic.
-- **Timing:** the ss worst path moved from the divider (`divider_unit.state[0]` → `result[11]`,
-  baseline) to `config_chain[7]` → mac_unit's 22-bit ripple adder → S[21] (`core.exponent_unit.D[21]`)
-  in all three constrained runs (`chip_runs/<tag>/harden/sta_postpnr/max_ss_125C_3v00/max.rpt.gz`).
-  Fixing M or S lengthens the adder's path to S, because S is the adder's register. Any S or M alignment
-  belongs to the mac_unit bit-slice.
-- **Power** (nom_tt `power.rpt`, vectorless): seq / comb / clock in mW.
-
-  | Run | seq | comb | clock |
-  |---|---:|---:|---:|
-  | base | 1.114 | 0.967 | 0.389 |
-  | `b_m` | 1.124 | 0.970 | 0.386 |
-  | `b_ms` | 1.136 | 0.991 | 0.398 |
-  | `a_sdff` | 1.172 | 1.268 | 0.404 |
-
-  The block's loss is combinational: a 21-stage chain that toggles with S every SCORE clock, plus the extra
-  wire. Activity is vectorless, not a workload.
+### 2.3 (c) Free placement
+The shipped result. The flow is deterministic: the `b_*` step-6 netlists are byte-identical to the baseline's
+(`a339bf99…`, reviewer sha256).
 
 ## 3. Flop instance names (option b)
-
-### 3.1 Stability (`names/stability.json`)
-- Yosys names the 22 M flops `_NNNN_` in netlist order, for example `_2277_` to `_2298_` in the baseline.
-  The 22 S flops sit just before them (`_2255_` to `_2276_`).
-- **The names are deterministic for identical input:**
-  - baseline nl and pnl, `ll_synth base`, and the `b_m`/`b_ms` harden synthesis all give the same names;
-  - cosmetic edits that leave the cell count before them unchanged also keep the names (n01, n02,
-    n04, g_v1, g_v3, g_v6, g_v7, g_v8).
-- **They are not stable under perturbation:** 11 of 26 netlists differ (n03, n05, n06, g_v2, g_v4,
-  g_v5, c01, c10, and the three ripple_add hardens).
-- In every netlist the blocks stay contiguous and in bit order. The Q nets (`core.mac.M[k]`,
-  `core.exponent_unit.D[k]`) are public wire names and never change.
-
-### 3.2 How to fix only them (used in `b_m`, `b_ms`)
-1. Generate the cfg from the run's own synthesized netlist (`gen_placement.py --names-netlist`,
-   `out/b_*/names.json`): map Q net to instance, then write `MACRO_PLACEMENT_CFG` lines with the instance names.
-2. The flow is deterministic, so the harden re-synthesizes exactly those names. This was verified: the harden's
-   step-6 netlist equals the netlist the names came from.
-3. After the run, `tools/check_placed.py` asserts per instance: FIXED, exact coordinates, master unchanged,
-   and the Q net still on the intended bit. Results: `b_m` 22/22, `b_ms` 44/44, in the step-17, DPL, CTS and
-   final DEFs.
-
-### 3.3 Stable-name alternative (measured, not adopted)
-- `out/max_reg_b_flopcells.v` instantiates the 22 flops as `dffq_1 bNN_ff` and keeps the golden next-state
-  expression behavioural, so ABC still maps the compare and load mux in context. The chip names become
-  `core.max_unit.bNN_ff`, independent of numbering.
-- Contract (gate mode) 19/19, `eqy_rtl` proven (`contract_b_flopcells/`).
-- Shipped-flow synthesis 41,048.0 µm² (−68.1, at the lower edge of the synthesis band).
-- Use it if whole-chip tetris needs names that survive edits elsewhere. It would need the same
-  `ifdef` guard as §4. S flops would need the same treatment in mac_unit.
+- **Stability** (`names/stability.json`):
+  - Yosys numbers the M flops `_2277_`…`_2298_` in the baseline.
+  - The names are identical for identical input, and in 15 of 26 netlists.
+  - They are renumbered in 11 of 26 (n03, n05, n06, g_v2, g_v4, g_v5, c01, c10, and three ripple_add hardens).
+  - The names are always contiguous and in bit order. The Q nets (`core.mac.M[k]`, `core.exponent_unit.D[k]`)
+    never change.
+- **How to fix only the flops:**
+  1. Map Q net → instance in a synthesized netlist of exactly this RTL and config (`gen_placement.py --names-netlist`).
+  2. Write `MACRO_PLACEMENT_CFG` lines from that map.
+  3. Post-check every step DEF by Q net (`tools/check_placed.py`).
+  - Wording fix (N4): `out/b_*/names.json` binds the **baseline final netlist**
+    (`pd_flow/baseline/harden/nl/…nl.v`, sha256 `a8286e1b…`), not the step-6 synthesis netlist (`a339bf99…`).
+    The M/S flop names are identical in both, and in the harden's own step 6.
+  - Results: b_m 22/22 and b_ms 44/44 held at every step DEF (the reviewer's 16-DEF check). The CTS DEF is
+    missing from `chip_runs/b_m/placement_check.json` but is covered there.
+- **Stable-name alternative:** `out/max_reg_b_flopcells.v`, the flops as explicit `dffq_1 bNN_ff` cells with the
+  next state left behavioural.
+  - Contract (gate mode) 19/19 (`contract_b_flopcells/`).
+  - Synthesis 41,048.0 µm². That is −68.1 against base, **15.4 µm² below the lowest golden synthesis sample**
+    (41,063.4), which is not a confirmed gain (N4).
+  - Not adopted. Use it only if the whole-chip tetris needs names that survive edits.
 
 ## 4. Netlist (deliverable 2)
 
-| File | Content | Contract (`verif/run_all.sh`, hash `6d7f5b5ff9a94fc9`, 16/16 files OK) |
+| File | Content | Contract (`verif/run_all.sh`, frozen hash `6d7f5b5ff9a94fc9`, 16/16 files OK) |
 |---|---|---|
-| `out/max_reg_a_sdff.v` | 109 cells: 22 `sdffq_1`, 21 × (`inv_1`, `nand2_1`, `nor2_1`), 11 `aoi21_1` + 10 `oai21_1` chain, decode (`inv_1`, `oai21_1`, `buf_4`). 2,952.5 µm² | `--gate`: **19/19**, all proven/pass: k-induction and abc pdr (step, seq, power-up), 23/23 covers, vectors 4-state Icarus, `eqy_rtl` proven, both sanity controls fail as required (`contract_a_sdff/results.json`, `contract_a_sdff.runlog`) |
-| `out/max_reg_chip.v` | golden module under `` `else ``, the a_sdff body under `` `ifdef MAX_REG_CELLS `` (set only through `VERILOG_DEFINES`) | RTL mode, define off: **17/17** (`contract_chip_rtl/`) |
-| `out/max_reg_b_flopcells.v` | §3.3 | `--gate`: **19/19** (`contract_b_flopcells/`) |
-| `superseded/max_reg_a_{sdff,dff}_aoi222.v` | rejected first version | `--gate` 19/19 each (`superseded/contract_*`) |
+| `out/max_reg_a_sdff.v` (v2, sha256 `8acb5872…`) | 109 cells: 22 `sdffq_1`; 21 × (`inv_1`, `nand2_1`, `nor2_1`); 11 `oai21_1` + 10 `aoi21_1` chain; decode `oai21_1` + 2 × `inv_2`. 2,939.4 µm² | `--gate`: **19/19**, including `eqy_rtl` proven, k-induction/pdr, covers and vectors (`contract_a_sdff/`, `contract_a_sdff.runlog`, 96.7 s) |
+| `out/max_reg_chip.v` (sha256 `efdd9a53…`) | golden module under `` `else ``, the v2 body under `` `ifdef MAX_REG_CELLS `` | RTL mode, define off: **17/17** (`contract_chip_rtl/`) |
+| `out/max_reg_b_flopcells.v` | §3 | `--gate`: 19/19 (`contract_b_flopcells/`) |
+| `superseded/v1_se22/out/max_reg_a_sdff.v` (v1, `78a8967f…`, hardened) | buf_4 SE spine (B1) | `--gate` 19/19 (`superseded/v1_se22/contract_a_sdff/`; rerun by the reviewer) |
 
-The validator independently evaluates the next state of the netlist cell by cell from Liberty functions
-(flops from the Liberty `ff` next_state). It runs 262,208 vectors with 25% near-ties and 5% exact ties,
-and gets 0 mismatches against the golden signed rule (`validation_run.log`).
+The validator's own function check evaluates the v2 netlist cell by cell from the Liberty functions. Over
+262,208 vectors it finds 0 mismatches against the golden signed rule, with ties allowed to load.
 
-## 5. Coordinate-level placement (deliverable 3)
+## 5. Coordinate-level placement (deliverable 3): a_sdff v2
 
-### 5.1 `a_sdff` sub-placement (`out/a_sdff/placement.{csv,json,svg}`, `chip_anchor.cfg`)
-- **Footprint:** 70 sites × 23 rows = 39.20 × 90.16 µm (3,534.3 µm² box).
-  - Cells use 1,345 of 1,610 site-rows (**83.5%**). 46 site-rows are the chip's own taps inside the
-    footprint (rel site 18 in even rows, 53 in odd rows); without them, utilization is 86.0%.
-  - The widest row is 61 sites. The free sites are ragged capacity for neighbours (D5), not a halo.
-- **Bound:** a row cannot be narrower than sdffq (38 sites) plus the compare stage (23), all inside one
-  tap period. 70 sites is one period, so the footprint sits at the bound for one bit per row. Two bits
-  per row would need 122 sites, about two periods: no gain.
-- **Row templates** (anchor site ≡ 17 mod 70, anchor row even):
+### 5.1 Minimum footprint (D6)
+**Cell sites to place:** 1,339 = 22 × 38 (sdffq_1) + 21 × 23 (stage) + 20 (decode).
 
-  | Row | West → east (rel sites) |
-  |---|---|
-  | even | inv 0, nand2 4, nor2 9, (tap 18), oai21 chain 20, sdffq 28 |
-  | odd | aoi21 chain 7, sdffq 15, (tap 53), inv 55, nand2 59, nor2 64 |
-  | decode | inv 0, oai21 4, (tap 18), buf_4 20 |
+**Search** (`tools/pack_search.py`, `evidence/pack_search.log`):
+- **What it searches:** every footprint width; every chip tap phase (anchor site mod 70) and row parity; 1, 2 or 3
+  bits per row; and any row for bit 0 together with the decode.
+- **Feasibility test:** exact packing of each row's cells into its tap-free segments.
 
-  - The chain cells sit at rel sites 20 and 7: every hop is 13 sites plus one row (7.3 µm + 3.92 µm).
-  - In odd rows the p/t gates sit east of the tap, about 25 µm from the chain cell. That is the cost of a
-    38-site flop on a 70-site tap grid.
-- **Orientation:** row-native N in even rows and FS in odd rows. Every master has `SYMMETRY X Y`.
-- **Pin access** (on-grid Via1 points 0.28 µm or more inside the outline, `census.json`, validator check 8):
+**Result:**
+- The minimum box is **1,386 site-rows**, the same for 1 bit per row (63 × 22) and 2 bits per row (126 × 11).
+  3 bits per row needs 1,520 (190 × 8).
+- Fewer than 22 rows is impossible below 76 sites of width, because two 38-site flops cannot share a row.
+- With 22 rows, the 22 chip taps leave 1,342 site-rows at width 62, but no packing exists there that keeps
+  each bit's cells in one row. 63 is the smallest width that does.
+- **Chosen: 63 sites × 22 rows (35.28 × 86.24 µm), one bit per row.** This keeps the bit-sliced intent.
 
-  | Master | Access points per pin |
-  |---|---|
-  | sdffq_1 | D 3, SE 1, SI 1, CLK 2, Q 1 |
-  | aoi21_1 | 2 / 2 / 2 / 2 |
-  | oai21_1 | A1 1, A2 1, B 3, ZN 2 |
-  | nand2_1 | 1 / 1 / 1 |
-  | nor2_1 | 2 / 1 / 3 |
-  | inv_1 | 1 / 1 |
-  | buf_4 | I 3, Z 4 |
+| Version | Box | Cell area | Cell sites / box | (cells + taps) / box |
+|---|---:|---:|---:|---:|
+| v1 | 70 × 23 = 1,610 site-rows, 3,534.3 µm² | 2,952.5 µm² | 83.5% | 86.4% |
+| **v2** | **63 × 22 = 1,386 site-rows, 3,042.6 µm²** | **2,939.4 µm²** | **96.6%** | **99.8%** (3 free sites) |
 
-  No pin can be blocked by an abutting neighbour.
-- **Power and taps:**
-  - VDD and VSS are Metal1 abutment rails, and no cell has Metal2 or higher shapes.
-  - The chip's FIXED fillties fall inside the footprint at the template gaps (validator checks that none
-    overlaps).
-  - M4 stripes cross the footprint (54 soft hits at the chosen anchor). This is soft, because all pins
-    are on M1.
-  - DF.13/14 estimate: worst cell point to well tie 9.52 µm, within the 15 µm limit, using the same-row or
-    well-sharing-neighbour tap, 3.92 µm vertical (`validation_run.log`). The TT flow does not check
-    DF.13/14 (§7).
-- **Legal chip anchors:** 56 (rows 1..37, clear of taps and endcaps, site ≡ 17 mod 70, row even).
-  Chosen: row 6, site 157 (x 91.28–130.48, y 27.44–117.60).
-- **Ports** (composition contract, `placement.json: ports`):
-  - West: S_in[i] and M[i] in relative row i, facing mac_unit's S flop (source) and its S load mux (M consumer).
-  - North: first and en into the decode row (controller above).
-  - Clock: CLK at sdffq x 5.88–6.44 in each row.
-  - The chain is internal, running south to north; nothing on the east side.
+Changes from v1:
+- **No gt inverter.** The chain polarity is flipped so that it ends in true gt. Stage 1 starts from M[0], which
+  is the tie don't-care, valid because S_in == M loads an equal value.
+- **No decode row.** The decode sits in bit 0's row, since bit 0 has no compare stage.
+- **D and SI swapped.** D = M (hold), SI = S_in (load), so SE is active-high ld. That lets two `inv_2` drive SE.
+- **SE split for B1.** Two nets of 11 loads each (`ld_lo`: rows 0–10, `ld_hi`: rows 11–21), against v1's
+  `inv_1` + `buf_4` on 22 pins.
+- **Smallest legal cells.** Every function uses its `_1` size. The `inv_2` drivers are the smallest drivers
+  that meet the drive rule: `oai21_1` driving an 11-load SE net directly was estimated at 7.9–8.9 ns and failed.
 
-### 5.2 `b_m` / `b_ms` sub-placements (`out/b_m/`, `out/b_ms/`)
-- `b_m`: 29 × 22 = 16.24 × 86.24 µm, 100% inside a 33-site window (4 spare sites per row). 1,360 legal
-  anchors; 0 taps inside.
-- `b_ms`: 64 × 22 = 35.84 × 86.24 µm, 90.6% (11 taps at rel site 33–34 in alternate rows). 256 legal
-  anchors (site ≡ 2 mod 35).
-- Ports:
-  - `b_ms`: S column west (Q → adder a, exp_lut, compare; D ← mac sum and load mux), M column east
-    (Q → compare and S load mux).
-  - `b_m`: the side Q faces is chosen by the mirror search.
-- Names are bound to one synthesized netlist (`names.json`: path and sha256), per §3.2.
+### 5.2 Row templates (anchor site ≡ 17 mod 70, anchor row even)
+In the chip, the tap sits at rel site 18–19 in even rows and 53–54 in odd rows, and every bit row is exactly full.
 
-### 5.3 Generator and validator
-- **`gen_placement.py`** is the single source: netlists, chip RTL, placement CSV/JSON/SVG,
-  `MACRO_PLACEMENT_CFG` lines, `names.json`, Phase 4 block inputs and `MANIFEST.json` (input and output
-  hashes). `--check` is the stale check. `--anchor V=ROW,SITE` and `--names-netlist` re-target the output.
-- **`validate_placement.py` → ALL_OK** (`validation.json`, `validation_run.log`). Its checks:
-  - stale outputs;
-  - every view (netlist, CSV, JSON, cfg) agrees with the others, and the chip-RTL bodies equal the netlists;
-  - geometry and row parity, taps and endcaps, inside rows 1..37;
-  - intent: bit per row, one-row chain hops, chain input on A1, gt on oai21 A1, flop names bound to their Q nets;
-  - connectivity and Liberty function;
-  - LEF widths and pin access;
-  - DF.13/14 estimate;
-  - **slew rule:** no combinational master with an ss transition of 2.7 ns or more at [3][3].
-- **Self-test:** 10 deliberately illegal inputs, each of which must fire its intended check:
-  overlap, off-grid, orientation, tap overlap, outside rows 1..37, chain broken, chain moved off A1,
-  gt moved off A1, slow `aoi222_1` substituted, names swapped. All 10 pass.
+| Row | West → east (rel sites) |
+|---|---|
+| even | inv 0, nor2 4, chain 10, (tap 18), nand2 20, sdffq 25 (63/63) |
+| odd | sdffq 0, inv 38, nand2 42, nor2 47, (tap 53), chain 55 (63/63) |
+| row 11 (bit 0) | sdffq 0, `u_ld` oai21_1 38, `u_se_lo` inv_2 46, (52 free), (tap 53), `u_se_hi` inv_2 55, (61–62 free) |
 
-## 6. LibreLane mechanisms (measured here)
-- `MACRO_PLACEMENT_CFG` on std cells: FIXED from step 17 to the final DEF (b_m, b_ms, a_sdff).
-- Fixed cells are still visible to repair_design, which upsizes them in place
-  (`aoi222_1` → `aoi222_4`/`_2`, 30 log entries) and then fails DPL-0033 on the overlaps. Mitigation in this plan:
-  slew-legal masters (validator) and explicit drivers (`buf_4` on SE).
-- `RSZ_DONT_TOUCH_RX` was not used: ripple_add measured that it breaks repair (RSZ-3006).
-- `MANUAL_GLOBAL_PLACEMENTS` is rejected (drift, ripple_add).
-- The define route (`VERILOG_DEFINES` with `ifdef`) and the direct netlist route give the same synthesis
-  (a_sdff harden synth 39,829.7 = `ll_synth`).
+Bit placement:
+- Bits 1–11 are in rows 0–10, bit 0 is in row 11, and bits 12–21 are in rows 12–21.
+- Placing bit 0 in the middle keeps gt (row 20 → 11) and both SE spines short.
+- The chain hops one row, except from bit 11 to bit 12, where it hops over the decode row. The validator
+  accepts that skip only over a row that holds no compare stage.
 
-## 7. Phase 4 plan
+Chain cells sit on opposite sides in alternate rows (rel 10 / 55), so each hop is about 25 µm. Under D6,
+area outranks this wire.
 
-### 7.1 Standalone block (evidence and characterization; a_sdff is not adopted in the chip)
-1. **Inputs** (generated, untested): `out/max_reg_a_sdff.v`, `out/a_sdff/block.cfg` (FIRM lines in block
-   coordinates), `block_pins.cfg` (W: S_in/M interleaved bottom to top; N: first, en; S: clk) and
-   `block_librelane.json`:
-   - die 57.12 × 113.68 µm;
-   - core 90 sites × 27 rows from (3.36, 3.92);
-   - footprint at block site 17 and block row 2;
-   - `FP_TAPCELL_DIST` 20 (chip value), so the tool's taps should land at the chip phase (0 / 35 mod 70),
-     that is rel sites 53 and 18. Rows 0–1 and 25–26 stay free for the dense boundary taps;
-   - `SYNTH_ELABORATE_ONLY`, repair off, `PL_OPTIMIZE_MIRRORING` off, M2–M4 routing, KLayout DRC on.
+### 5.3 Drive rule (B1)
+**What the validator checks** on every block-driven net:
+- fanout ≤ 20;
+- load ≤ min(the driver's max_capacitance, 0.2 pF);
+- estimated ss transition < 2.7 ns, at the worst legal input slew (3 ns).
 
-   Stated deviations: PDN stripe phase and die-edge ports.
-2. **Asserts after each step:**
-   - ManualMacroPlacement: 109 FIXED exact (`check_placed.py` with the block cfg);
-   - TapEndcap: taps exactly at the chip phase, no overlap with a FIXED cell, and endcaps on all rows.
-     If the phase differs, place fillties FIXED from `placement.json: taps_inside`;
-   - after CTS and any repair: masters unchanged (the §6 failure mode);
-   - after routing: only M2–M4, every net routed, 0 DRT violations.
-3. **DRC:**
-   - Magic, plus the KLayout full deck (`gf180mcu.drc`, `feol=true beol=true offgrid=true run_mode=deep`);
-   - **DF.13_MV and DF.14_MV reported explicitly**, on the block and once in chip context on a window of the
-     `a_sdff` chip GDS (`/Users/samuelzhang/ttharden/mr3_a_sdff/runs/wokwi/final/gds`) around x 91–131,
-     y 27–118, because neither Magic nor the TT flow checks them;
-   - any finding inside a cell is compared with the PDK cell's standalone reference (addf_1 gives 4 DF.13/14
-     items standalone) before it is attributed to placement.
-4. **LVS:** Netgen against `max_reg_a_sdff.v`, and also the KLayout LVS deck.
-5. **Extraction:** OpenRCX SPEF at nom, min and max. Magic extraction to SPICE.
-6. **Characterization:**
-   - OpenSTA with SPEF at tt, ss and ff: clk→M; S_in[0] → chain → gt → nld → SE setup (the block's
-     critical arc); SI hold (Q→SI self-loop); the buf_4 SE spine slew; transitions against 3 ns;
-   - ngspice-47 (host) on the extracted critical path with the PDK models (`libs.tech/ngspice`),
-     compared against STA;
-   - switched capacitance per net class (chain, S_in, SE spine, clock), with annotated activity: random
-     first, then the controller pattern from the contract's `sim_ctrl` mode.
-7. **Views:** GDS, pin-only LEF, Liberty timing model (OpenSTA `write_timing_model`), DEF, SPEF, the netlist.
+**Model inputs (estimate):**
+- Load = Liberty pin caps + wire. Wire is 1.25 × the rectilinear MST of the pin access points × 0.20 fF/µm.
+- That is calibrated against the v1 chip SPEF, which gives 0.167–0.181 fF/µm on the measured SE nets.
 
-### 7.2 In-chip integration
-- **Decision:** keep (c). If the orchestrator wants max_reg in the whole-chip tetris anyway:
-  1. Co-place it with mac_unit: S register, adder bit-slice, S load mux and exp_lut taps. Never as a stand-alone
-     column (§2.4).
-  2. Name mechanism: harvest names by Q net from the run's own synthesized netlist (§3.2), or
-     `max_reg_b_flopcells.v` behind an `ifdef` for stable names (§3.3).
-  3. Integrate with `MACRO_PLACEMENT_CFG` (FIRM), only for slew-legal cells, with `check_placed.py` on every
-     step DEF.
-  4. Accept only on shipped-flow metrics against the noise band: area, 9-corner WNS/hold,
-     slew/cap/fanout, power, wire, DRC/LVS. Add a KLayout DF.13/14 window check.
-- **For `a_sdff`, if ever revived:**
-  1. Regenerate at a new anchor with `gen_placement.py --anchor a_sdff=R,S`. There are 56 legal anchors,
-     with the site ≡ 17 mod 70 and even-row rule.
-  2. Set `VERILOG_DEFINES: ["MAX_REG_CELLS"]` and `MACRO_PLACEMENT_CFG` to `out/a_sdff/chip_anchor.cfg`.
-  3. Rerun `contract_chip_rtl`. The measured run is `chip_runs/a_sdff`.
+**Worst v2 nets:**
+
+| Net | Driver | Fanout | Load | Est. transition |
+|---|---|---:|---:|---:|
+| `nld` | `u_ld` oai21_1 | 2 | 20.7 fF | 2.41 ns |
+| `ld_hi` | `u_se_hi` inv_2 | 11 | 91.6 fF | 2.33 ns |
+| `ld_lo` | `u_se_lo` inv_2 | 11 | 90.4 fF | 2.31 ns |
+| `gt` | `b21_cmp` oai21_1 | 1 | 17.0 fF | 2.14 ns |
+
+The v1 netlist fails the rule with "fanout 22 > 20 on net nld_b". Source: `validation_run.log`.
+
+### 5.4 Chip anchors, pins, power and wells
+- **Legal chip anchors:** 64. Rows 1..37, clear of taps and endcaps, site ≡ 17 mod 70, even row.
+- **Chosen anchor:** row 6, site 157. The HPWL proxy (estimate) gives 3,080 µm external and 1,151 µm internal.
+- **Pin access:** every signal pin has an on-grid Via1 point at least 0.28 µm inside the cell (`census.json`).
+  For example, `inv_2` I and ZN have 3 each.
+- **Power:** VDD/VSS are M1 abutment rails, and no cell has M2+ shapes.
+- **PDN:** 55 soft M4-stripe hits at the chosen anchor. They are soft because all pins are on M1.
+- **DF.13/14 estimate:** 9.52 µm, within the 15 µm limit, using the well-sharing neighbour row's tap. Measured
+  on the same-row tap alone, it is up to 18.5 µm (reviewer, `../layout_review/welltie.log`). In the
+  whole-chip tetris, keep the rule that a block sits where its neighbour row has the staggered tap.
+- **Ports:** see `out/a_sdff/placement.json: ports`.
+  - S_in[i] and M[i] are in bit i's row.
+  - first and en go into `u_ld` in row 11.
+  - The chain is internal.
+
+### 5.5 Generator and validator
+- **`gen_placement.py`** is the single source of every view. `--check` reports FRESH.
+- **`validate_placement.py`** reports **ALL_OK** (`validation.json`, `validation_run.log`). Its checks:
+  - views agree;
+  - geometry and taps;
+  - intent: one row per bit, ascending; chain on A1; stage 1 from M[0]; stage 21 drives gt; gt on A1;
+  - slew rule and the new drive rule;
+  - function: 262,208 vectors;
+  - LEF and pin access;
+  - DF.13/14.
+- **Self-tests:** 12, now matched on the **specific message** (N1). Two are new:
+  - "v1 SE: one driver on 22 SE pins" must fire "fanout 22 > 20";
+  - a fanout-legal 20-load SE must fire "est. ss transition".
+- **Mutation check** (`tools/selftest_mutation.py`, adapted from the reviewer's; `evidence/selftest_mutation.log`):
+  - with each targeted check disabled, its self-test turns BAD and no other self-test changes;
+  - result: **12/12** (`ALL_SELFTESTS_DEPEND_ON_THEIR_CHECK`).
+
+## 6. LibreLane mechanisms (measured)
+- `MACRO_PLACEMENT_CFG` on std cells keeps them FIXED, at their location, from step 17 to the final DEF.
+- It does **not** freeze the netlist:
+  - **Resizing:** repair_design resizes FIXED cells in place. In v0, `aoi222_1` was resized to `aoi222_4`/`_2`,
+    30 log entries, followed by DPL-0033 (`chip_runs/a_sdff_aoi222_FAILED/`).
+  - **Buffer insertion:** it also inserts buffers on block nets. In v1, a `dlyb_1` fanout buffer went onto SE
+    (B1).
+- Both are prevented only by a netlist the repair has no reason to touch:
+  - slew rule: master transition;
+  - drive rule: fanout, load and net transition.
+- `RSZ_DONT_TOUCH_RX` is not used: it breaks repair (RSZ-3006, ripple_add).
+- `MANUAL_GLOBAL_PLACEMENTS` is rejected: its placements drift.
+
+## 7. Phase 4 plan: implement a_sdff v2 standalone, plus one golden control
+
+### 7.1 Block run
+Inputs are generated but untested: `out/max_reg_a_sdff.v`, `out/a_sdff/block.cfg`, `block_pins.cfg` and
+`block_librelane.json`.
+
+**Die and core:**
+- die 53.20 × 109.76 µm;
+- core 83 sites × 26 rows from (3.36, 3.92);
+- footprint at block site 17 and row 2;
+- `FP_TAPCELL_DIST` 20, so the tool's taps should land at the chip phase.
+
+**Chip limits:**
+- `MAX_FANOUT_CONSTRAINT` 20;
+- `MAX_TRANSITION_CONSTRAINT` 3;
+- `MAX_CAPACITANCE_CONSTRAINT` 0.2.
+
+**Repair:** design repair (post-GPL and post-GRT) is **on**, as a detector. Timing repair is off (deviation).
+
+**Stated deviations:**
+- PDN stripe phase;
+- die-edge ports: W carries S_in/M in row order, with first/en at the decode row; S carries clk.
+
+**Asserts after each step:**
+1. ManualMacroPlacement: 109 FIXED at exact coordinates (`check_placed.py` with the block cfg).
+2. TapEndcap: taps at the chip phase (0 / 35 mod 70), none on a FIXED cell; endcaps on all rows.
+   If the phase differs, place fillties FIXED from `placement.json: taps_inside`.
+3. **After every repair step: exactly 109 cells, masters unchanged, and no inserted buffer on any block
+   net (B1).**
+4. Routing: M2–M4 only, 0 DRT violations.
+
+**Signoff and characterization:**
+- **DRC:** Magic, plus the KLayout full deck (`feol beol offgrid`, deep). Report **DF.13_MV/DF.14_MV**
+  explicitly, on the block and on a window of the v1 chip GDS (`/Users/samuelzhang/ttharden/mr3_a_sdff`).
+  Compare cell-internal findings against a standalone reference cell first.
+- **LVS:** Netgen and KLayout.
+- **Extraction:** OpenRCX SPEF at min, nom and max; Magic extraction to SPICE.
+- **Timing:** OpenSTA at tt, ss and ff with SPEF.
+  - Report the SE transitions on `ld_lo`/`ld_hi` against the 2.7/3 ns limits, and compare them with §5.3.
+    That comparison is the drive-rule calibration check.
+  - Report the arcs S_in → chain → gt → nld → inv_2 → SE (setup), and SI/D hold.
+  - Timing is legality only.
+- **SPICE:** ngspice on the extracted gt → SE path, compared against STA.
+- **Views:** GDS, pin-only LEF, Liberty timing model, DEF, SPEF, and the netlist.
+
+### 7.2 Golden control (review round 1, §4.2)
+- Config: `out/a_sdff/block_golden_control.json`, untested.
+- Same die, core, pins, PDN, taps and limits, with the golden RTL (copied as `max_reg_golden.v`) synthesized and
+  placed free. Design and timing repair are on.
+- It gives the fixed block's std-cell area **by class**, plus its wire and power, a like-for-like reference.
+  The standalone golden mapping is not the in-chip ABC mapping, so state this caveat.
+- Report block against control power with the same `sim_ctrl` activity (vectorless shows them equal, N2).
+
+### 7.3 In-chip integration (not recommended for this chip)
+- The chip decision stays (c).
+- For the whole-chip tetris: co-place max_reg with mac_unit's S register, adder bit-slice and S load mux (§0.4).
+- **Name mechanism:** §3.
+- **Integration route:** `MACRO_PLACEMENT_CFG` with slew- and drive-legal cells only, and `check_placed.py`
+  plus a cell-count assertion on every step DEF.
+- **To revive a_sdff v2 in the chip:**
+  - `VERILOG_DEFINES: ["MAX_REG_CELLS"]`;
+  - `MACRO_PLACEMENT_CFG: out/a_sdff/chip_anchor.cfg`, or another of the 64 anchors via
+    `gen_placement.py --anchor a_sdff=R,S`;
+  - accept on the D6 table only.
 
 ## 8. Risks
-1. **Context loss and obstruction (measured):** a frozen max_reg loses ABC's folding, about +550 µm² in
-   synthesis **(estimate of the mechanism)**, and displaces its neighbours (+11 mm wire).
-2. **Fixed cells are resizable:** a FIXED cell that repair wants to upsize breaks DPL. Every fixed
-   netlist needs the slew rule. A future rule change, such as a tighter `MAX_TRANSITION_CONSTRAINT`,
-   invalidates the check.
-3. **Name fragility:** 11 of 26 netlists renumber the flops. A cfg made for one netlist silently
-   targets the wrong cells on another, unless the Q-net check runs (§3.2).
-4. **Critical-path coupling:** constraining M or S moves the ss worst path onto the mac adder → S[21]
-   (−2.7 to −7.4 ns). This must be solved in the mac_unit phase.
-5. **Noise samples:** the band has only 3 golden hardens. The `b_*` deltas are pure placement effects
-   on an identical netlist, which is the cleanest comparison available, but one placement perturbation
-   is still a single sample.
-6. **Power is vectorless.** The block's +0.30 mW combinational increase is not a workload measurement.
-   Phase 4 needs VCD power (ripple_add notes X propagation from unreset flops in gate-level simulation).
-7. **`sdffq_1` is in `no_synth.cells`.** The PDK's reason is not stated. Synthesis area reports miss it,
-   so always use `statdiff.py`. DRC and LVS were clean in the chip run, but KLayout DF.13/14 was not checked.
-8. **DF.13/14** compliance is a geometric estimate (9.52 µm) until Phase 4 KLayout.
+1. **Context loss and obstruction (measured on v1).** A frozen max_reg loses ABC's folding: about +536 to
+   +549 µm² in synthesis (the mechanism is an estimate). It also displaces its neighbours (+11 mm of wire,
+   +439 µm² of repair).
+2. **FIXED is not frozen (measured).** The resizer resizes FIXED cells and buffers their nets. Every fixed
+   netlist needs the slew and drive rules.
+   - The drive rule is an estimate, at 0.3–0.4 ns margin on the SE nets.
+   - A tighter `MAX_TRANSITION_CONSTRAINT`, or a calibration miss, invalidates it.
+   - Phase 4 STA is the check.
+3. **Name fragility.** 11 of 26 netlists renumber the flops. Only a Q-net check makes a cfg safe.
+4. **Critical-path coupling (corrected, B2).** The mac adder → S[21] path is co-critical in all golden runs
+   and moves by a few ns with any placement perturbation. Only `b_ms` measured outside the band. Under D6 this
+   is legality only: all runs keep ≥ 34 ns of ss slack.
+5. **Noise samples.** The band is 3 golden hardens. A −35 µm² result (`b_m`) is not resolvable.
+6. **Power is vectorless.** It is context only under D6. The block's own share equals the golden cone's (N2).
+7. **`sdffq_1` is in `no_synth.cells`.** The PDK gives no reason. Its area is missing from Yosys stat, so use
+   `statdiff.py`. DRC/LVS were clean in the chip run; DF.13/14 is still a geometric estimate.
+8. **v2 is not hardened.** Its chip-level class breakdown is unknown. On synthesis alone it would cost
+   +535.6 µm², so no chip gain is expected.
+
+### Chip-level item for the orchestrator (N3; observation, not acted on)
+- Repair uses `dlyb_1` as a buffer: 12–17 per harden, about 25% of repair buffers
+  (`../layout_review/repair_buffer_masters.txt`).
+- Each one costs 3.5–7.3 ns at ss when it lands on a path.
+- It is a mechanism behind harden slack noise, and it is area as well:
+  - repair buffers are 1,154.7 µm², one of D6's three physical-design-actionable classes;
+  - `dlyb_1` is not the smallest buffer for a pure fanout or slew fix.
+- Excluding delay cells from repair buffering is a shipped-config experiment that costs one harden. It is the
+  orchestrator's call, not a max_reg change.
 
 ## 9. File index (`pd_flow/modules/max_reg/layout_plan/`)
-- `PLAN.md`, `tables.md` (generated), `validation.json`, `validation_run.log`, `census.json`.
-- `gen_placement.py`, `validate_placement.py`.
-- `out/`: netlists, chip RTL, `a_sdff/`, `b_m/`, `b_ms/`, `MANIFEST.json`.
-- `contract_a_sdff/`, `contract_chip_rtl/`, `contract_b_flopcells/`, and their `*.runlog` files.
-- `chip_runs/`:
-  - `{b_m,b_ms,a_sdff}/` (overlay, cfg, `harden/`, `placement_check.json`);
-  - `a_sdff_aoi222_FAILED/`;
-  - `syn_*/rtl`, `synth_stat/`, `logs/`;
-  - `harden_table.{json,txt}`, `netlen.{json,log}`.
-- `ctx/`, `names/`, `evidence/` (arcs, LEF census log), `superseded/`.
-- `tools/`:
+- **Top level:**
+  - documents: `PLAN.md`, `tables.md`;
+  - validator output: `validation.json`, `validation_run.log`;
+  - `census.json`;
+  - the generator and validator: `gen_placement.py`, `validate_placement.py`.
+- **`out/` (v2):**
+  - `max_reg_a_sdff.v`, `max_reg_chip.v`, `max_reg_b_flopcells.v`;
+  - `a_sdff/`: placement, `chip_anchor.cfg`, and the block, pins, librelane and golden-control configs;
+  - `b_m/`, `b_ms/`;
+  - `MANIFEST.json`.
+- **Contracts:** `contract_a_sdff/` (v2, 19/19), `contract_chip_rtl/` (17/17), `contract_b_flopcells/` (19/19),
+  and their `*.runlog` files.
+- **`superseded/`:**
+  - `v1_se22/`: v1 outputs as hardened, its contracts and validation, and the v1 census;
+  - the aoi222 v0 artifacts.
+- **`chip_runs/`:**
+  - `{b_m,b_ms,a_sdff}/` (revision-1 hardens) and `a_sdff_aoi222_FAILED/`;
+  - `syn_*`, `synth_stat/` (including `mr3s_a_sdff_v2.*` and `statdiff_v2.txt`), `logs/`;
+  - `harden_table.*`, `netlen.*`.
+- **`evidence/`:** `pack_search.{log,json}`, `selftest_mutation.{log,json}`, `lefcensus.log`, arcs.
+- **`ctx/`, `names/`.**
+- **`tools/`:**
   - from ripple_add: `harden.sh`, `scrape_harden.py`, `defparse.py`, `lefcensus.py`, `cellfun.py`;
-  - new: `check_placed.py`, `ctxmap.py`, `flopnames.py`, `netlen.py`, `statdiff.py`, `arcs.py`, `make_tables.py`.
+  - new: `check_placed.py`, `ctxmap.py`, `flopnames.py`, `netlen.py`, `statdiff.py`, `arcs.py`, `make_tables.py`,
+    `pack_search.py`, `selftest_mutation.py`.

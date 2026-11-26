@@ -10,7 +10,28 @@ noise rows: `../../ripple_add/layout_plan/chip_runs/{n03,n04}/harden/metrics.jso
 | noise n04 (golden cosmetic) | 47,220.9 | +401.7 | 42.90 | 71.72 / 75.29 | 1.241 / 0.469 / 0.142 | 260/1/11 | 3.220 | 51,958 | 1,396.2 | 0/0/0 |
 | (b) b_m: M flops fixed | 46,784.1 | -35.1 | 39.14 | 70.01 / 76.06 | 1.211 / 0.454 / 0.134 | 365/4/12 | 3.064 | 56,605 | 1,106.4 | 0/0/0 |
 | (b) b_ms: M + S flops fixed | 46,909.2 | +90.0 | 36.14 | 68.48 / 75.93 | 1.167 / 0.431 / 0.121 | 388/3/11 | 3.129 | 62,682 | 1,172.2 | 0/0/0 |
-| (a) a_sdff: block fixed | 48,151.7 | +1,332.5 | 34.44 | 67.56 / 75.41 | 1.221 / 0.459 / 0.137 | 418/2/11 | 3.545 | 66,123 | 1,593.7 | 0/0/0 |
+| (a) a_sdff v1: block fixed (as hardened) | 48,151.7 | +1,332.5 | 34.44 | 67.56 / 75.41 | 1.221 / 0.459 / 0.137 | 418/2/11 | 3.545 | 66,123 | 1,593.7 | 0/0/0 |
+
+## D6 ranking: chip std-cell area by class (µm², `design__instance__area__class:*`), timing as legality
+
+| Rank | Run | Std-cell | Δ | seq | logic | inv | buf | clkbuf | clkinv | repair | tap | endcap | tie | antenna | Setup/hold (all corners) | Slew/cap/fanout vs D2 band | Signoff |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|
+| 1 | (b) b_m | 46,784.1 | -35.1 | 21,001.5 | 20,272.7 | 763.9 | 105.4 | 1,387.4 | 118.5 | 1,106.4 | 1,527.9 | 342.5 | 158.1 | 0.0 | pass (WNS 39.14, hold 0.134) | OUT: cap 4 > 2 | clean |
+| 2 | baseline (c) free | 46,819.2 | +0.0 | 21,001.5 | 20,237.5 | 763.9 | 105.4 | 1,352.2 | 175.6 | 1,154.7 | 1,527.9 | 342.5 | 158.1 | 0.0 | pass (WNS 41.79, hold 0.109) | inside | clean |
+| 3 | (b) b_ms | 46,909.2 | +90.0 | 21,001.5 | 20,279.3 | 763.9 | 105.4 | 1,369.8 | 188.8 | 1,172.2 | 1,527.9 | 342.5 | 158.1 | 0.0 | pass (WNS 36.14, hold 0.121) | OUT: slew 388 > 381, cap 3 > 2 | clean |
+| 4 | noise n03 (golden cosmetic) | 46,990.5 | +171.3 | 20,994.9 | 20,191.4 | 715.6 | 105.4 | 1,400.5 | 122.9 | 1,431.3 | 1,527.9 | 342.5 | 158.1 | 0.0 | pass (WNS 38.21, hold 0.119) | inside | clean |
+| 5 | noise n04 (golden cosmetic) | 47,220.9 | +401.7 | 20,994.9 | 20,373.7 | 799.1 | 105.4 | 1,365.4 | 158.1 | 1,396.2 | 1,527.9 | 342.5 | 158.1 | 0.0 | pass (WNS 42.90, hold 0.142) | inside | clean |
+| 6 | (a) a_sdff v1 | 48,151.7 | +1,332.5 | 21,429.5 | 20,465.8 | 943.9 | 136.1 | 1,387.4 | 162.4 | 1,593.7 | 1,527.9 | 342.5 | 158.1 | 4.4 | pass (WNS 34.44, hold 0.137) | OUT: slew 418 > 381 | clean |
+
+Δ by class against the baseline:
+
+| Run | seq | logic | inv | buf | clkbuf | clkinv | repair | tap | endcap | tie | antenna |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| (b) b_m | +0.0 | +35.2 | +0.0 | +0.0 | +35.1 | -57.1 | -48.3 | +0.0 | +0.0 | +0.0 | +0.0 |
+| (b) b_ms | +0.0 | +41.8 | +0.0 | +0.0 | +17.6 | +13.2 | +17.6 | +0.0 | +0.0 | +0.0 | +0.0 |
+| noise n03 (golden cosmetic) | -6.6 | -46.1 | -48.3 | +0.0 | +48.3 | -52.7 | +276.6 | +0.0 | +0.0 | +0.0 | +0.0 |
+| noise n04 (golden cosmetic) | -6.6 | +136.2 | +35.1 | +0.0 | +13.2 | -17.6 | +241.5 | +0.0 | +0.0 | +0.0 | +0.0 |
+| (a) a_sdff v1 | +428.0 | +228.3 | +180.0 | +30.7 | +35.1 | -13.2 | +439.0 | +0.0 | +0.0 | +0.0 | +4.4 |
 
 Noise band (golden rewrites base, n03, n04): std-cell 46,819.2–47,220.9 µm²; ss WNS 38.21–42.90 ns; slew/cap/fanout 260–381 / 1–2 / 11–13; power 2.971–3.220 mW; wire 51,958–53,890 µm. b_m and b_ms have a synthesized netlist byte-identical to the baseline's (only the 22/44 fixed flops differ), so their deltas are placement effects.
 
@@ -27,17 +48,28 @@ max_reg nets = nets touching an M flop, an S flop (mac_unit S register), a max_r
 
 ## Shipped-flow synthesis (`ll_synth.sh`; areas with cells of unknown Yosys area added from the Liberty)
 
+(mr3s_a_sdff = v1 as hardened; mr3s_a_sdff_v2 = the minimum-footprint, fanout-legal v2, synthesis only, not hardened)
+
 ```
 run                                       yosys_area liberty_area    delta cells
 base.stat.json                               41116.1      41116.1     +0.0 1434
 mr3s_a_sdff.stat.json                        39829.7      41664.9   +548.8 1438
    by family (count, um2): dffq -22/-1401, oai21 -17/-299, nand2 -20/-220, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, aoi222 -2/-61, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, clkinv -2/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, mux2 +5/+165, aoi21 +10/+176, inv +22/+193, nor2 +26/+342, sdffq +22/+1835
+mr3s_a_sdff_v2.stat.json                     39816.5      41651.7   +535.6 1438
+   by family (count, um2): dffq -22/-1401, oai21 -16/-281, nand2 -20/-220, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, aoi222 -2/-61, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, clkinv -2/-18, nand3 +1/+15, and3 +1/+22, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, aoi21 +9/+158, mux2 +5/+165, inv +23/+211, nor2 +26/+342, sdffq +22/+1835
 mr3s_b_flopcells.stat.json                   41048.0      41048.0    -68.1 1436
-   by family (count, um2): oai21 -16/-281, nand2 -21/-230, xor2 -7/-184, xor3 -3/-151, xnor2 -4/-114, mux4 -1/-70, or4 -2/-53, nor4 -2/-44, and3 -2/-44, aoi222 -1/-31, oai221 -1/-26, and4 -1/-24, nand4 -1/-20, aoi22 +1/+20, or3 +1/+22, oai31 +1/+24, oai32 +1/+26, mux2 +1/+33, or2 +2/+35, nor3 +2/+35, clkinv +5/+44, aoi211 +2/+44, oai211 +2/+44, and2 +3/+53, oai22 +7/+154, aoi21 +9/+158, xnor3 +4/+211, nor2 +23/+303
+   by family (count, um2): oai21 -16/-281, nand2 -21/-230, xor2 -7/-184, xor3 -3/-151, xnor2 -4/-114, mux4 -1/-70, or4 -2/-53, and3 -2/-44, nor4 -2/-44, aoi222 -1/-31, oai221 -1/-26, and4 -1/-24, nand4 -1/-20, aoi22 +1/+20, or3 +1/+22, oai31 +1/+24, oai32 +1/+26, mux2 +1/+33, or2 +2/+35, nor3 +2/+35, clkinv +5/+44, oai211 +2/+44, aoi211 +2/+44, and2 +3/+53, oai22 +7/+154, aoi21 +9/+158, xnor3 +4/+211, nor2 +23/+303
 mr3s_a_sdff_aoi222.stat.json                 39599.2      41434.4   +318.3 1396
-   by family (count, um2): dffq -22/-1401, oai21 -27/-474, nand2 -41/-450, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, clkinv -2/-18, aoi21 -1/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, nor2 +5/+66, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, mux2 +5/+165, inv +22/+193, aoi222 +19/+584, sdffq +22/+1835
+   by family (count, um2): dffq -22/-1401, oai21 -27/-474, nand2 -41/-450, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, aoi21 -1/-18, clkinv -2/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, nor2 +5/+66, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, mux2 +5/+165, inv +22/+193, aoi222 +19/+584, sdffq +22/+1835
 mr3s_a_dff_aoi222.stat.json                  41724.2      41724.2   +608.1 1418
-   by family (count, um2): oai21 -27/-474, nand2 -41/-450, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, clkinv -2/-18, aoi21 -1/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, nor2 +5/+66, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, inv +22/+193, aoi222 +19/+584, mux2 +27/+889
+   by family (count, um2): oai21 -27/-474, nand2 -41/-450, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, oai221 -2/-53, or4 -2/-53, or2 -3/-53, nor3 -2/-35, xnor2 -1/-29, or3 -1/-22, nand4 -1/-20, aoi21 -1/-18, clkinv -2/-18, nand3 +1/+15, and3 +1/+22, buf +1/+31, oai33 +1/+33, aoi211 +2/+44, xor3 +1/+50, nor2 +5/+66, aoi221 +3/+72, oai211 +4/+88, xnor3 +2/+105, oai22 +5/+110, oai31 +5/+121, mux4 +2/+140, inv +22/+193, aoi222 +19/+584, mux2 +27/+889
 ```
 
 Synthesis noise band (Phase 2, golden rewrites): 41,063.4–41,351.0 µm² (−52.7 / +234.9).
+
+## a_sdff block, v1 (as hardened) vs v2 (D6 minimum footprint + B1 fix): generator output
+
+| Version | Cells | Footprint sites x rows | Box µm² | Cell area µm² | Cell sites / box | (cells + chip taps) / box | Legal anchors |
+|---|---:|---|---:|---:|---:|---:|---:|
+| v1 (out as hardened, superseded/v1_se22) | 109 | 70 x 23 (39.2 x 90.16 µm) | 3,534.3 | 2,952.5 | 0.8354 | 0.8640 | 56 |
+| v2 (out/) | 109 | 63 x 22 (35.28 x 86.24 µm) | 3,042.6 | 2,939.4 | 0.9661 | 0.9978 | 64 |

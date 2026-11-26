@@ -18,6 +18,7 @@
   "widest_cell_sites": 29,
   "max_row_sites": 29,
   "area_floor_sites_at_rows": 29,
+  "packing": "",
   "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
  },
  "anchor_rule": "any site where the 29-site flop column clears every tap (inside a 33-site window)",

@@ -1,0 +1,35 @@
+{
+ "DESIGN_NAME": "max_reg",
+ "CLOCK_PORT": "clk",
+ "CLOCK_PERIOD": 100,
+ "FP_SIZING": "absolute",
+ "DIE_AREA": [
+  0,
+  0,
+  53.2,
+  109.76
+ ],
+ "CORE_AREA": [
+  3.36,
+  3.92,
+  49.84,
+  105.84
+ ],
+ "FP_PIN_ORDER_CFG": "dir::block_pins.cfg",
+ "FP_TAPCELL_DIST": 20,
+ "RUN_KLAYOUT_DRC": true,
+ "RT_MAX_LAYER": "Metal4",
+ "MAX_TRANSITION_CONSTRAINT": 3,
+ "MAX_CAPACITANCE_CONSTRAINT": 0.2,
+ "MAX_FANOUT_CONSTRAINT": 20,
+ "FP_PDN_VPITCH": 38.87,
+ "RUN_CTS": true,
+ "RUN_POST_GPL_DESIGN_REPAIR": true,
+ "RUN_POST_GRT_DESIGN_REPAIR": true,
+ "RUN_POST_CTS_RESIZER_TIMING": true,
+ "RUN_POST_GRT_RESIZER_TIMING": true,
+ "//": "UNTESTED Phase 4 control (review round 1 section 4): the golden max_reg RTL synthesized and placed FREE in the same die, core, pins, PDN, taps and limits as block_librelane.json; gives the fixed block's area, wire and power a like-for-like reference",
+ "VERILOG_FILES": "dir::max_reg_golden.v (copy of pd_flow/baseline/original_rtl/max_reg.v)",
+ "SYNTH_ELABORATE_ONLY": false,
+ "PL_TARGET_DENSITY_PCT": 85
+}

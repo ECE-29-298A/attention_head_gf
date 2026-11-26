@@ -1,8 +1,8 @@
 {
  "generator": "gen_placement.py",
- "generator_sha256": "d1c3e52ad771a9fbe15fb0c8979bad3e2408ac4fa6abccd0d60e8a520d1bee64",
+ "generator_sha256": "5eef38b629d2b686270cb5d2681e5cae1446a31fb30afd4d9ddadcbe8e75c9db",
  "inputs": {
-  "census.json": "4df1f281321af1406656ccbe39cf21b8e0a397d6f7d727e4e3a80e22ea1317e6",
+  "census.json": "645ec1501444a643f734786a0b1c49cf53cca4feae0cf091e6989e80d5e78f4e",
   "baseline_def": "62b6a9c4701953e8e58353dd7fc95d0d8f434d66d955f6065ac91c5305ba2919",
   "baseline_pnl": "18497563c6141a826629cadffcba50cce9632f004ebbf660a938da373bfd6e90",
   "names_netlist": [
@@ -15,26 +15,27 @@
   "anchor": {}
  },
  "outputs": {
-  "a_sdff/block.cfg": "32e8d72c759405455a78330f207b64530dc9bd61cbbd52a36557ab7b69a82c10",
-  "a_sdff/block_librelane.json": "e89dc19a6e2cb76e6f6fc2ec8ef8c3d8fe52544e45664bb9358c4579664c3bd9",
-  "a_sdff/block_pins.cfg": "b7c9df9792b8d330ad21622fb69e12506a45e3916253bf703a156f940535f2b1",
-  "a_sdff/chip_anchor.cfg": "34b0f94d6e1944b1fe2576e9f8f3fa8f6b75fd2c0319e17f5d3cc8291c65cdca",
-  "a_sdff/placement.csv": "f53e99a8a4905b7999b85b2a976ec020076d648d37d4a0ce6745f8e24b8c3459",
-  "a_sdff/placement.json": "a96502e13058342164bbd448d395feaa6c295b2f549ab8eb12d46c706b23315d",
-  "a_sdff/placement.svg": "eb80ff5e0905106f01d7458c7e81099479b63c11f2880498c9061e6d6e4430c1",
+  "a_sdff/block.cfg": "1dbad49bda4cbc9f910eefda2cb0ffb99f5914b19c527560d8eb56a4b09f000d",
+  "a_sdff/block_golden_control.json": "ee415ec40693ee9c42f39ad618cc8f6e9024e351cd1f9343074fcb9f5a686cbd",
+  "a_sdff/block_librelane.json": "f34965aa705a18b415063244160395e322b8a917f5d99a18e6c66ed79749628c",
+  "a_sdff/block_pins.cfg": "9f3231d22d5ea6f7b622ae5cd982cc1a2f18ac0f8c72fc7614f52c8a6a721d49",
+  "a_sdff/chip_anchor.cfg": "3958031383df35f54d9958c58896b468c8a6109269b4210bdc046aa590b4be38",
+  "a_sdff/placement.csv": "b0c3816546d2bb2a698dab86c7a2954bb4eca247e382ae005145fed7bb7c5ae0",
+  "a_sdff/placement.json": "5ca53d1caeeb7545e6d1531ad7ce72163a934bdd1ff5a91afe01782c0632c51a",
+  "a_sdff/placement.svg": "6ca7931b34d20434061c6d2a8d84b6af1984fe03dfbbbe5a53ddf13053725444",
   "b_m/chip_anchor.cfg": "4732e22ea865d0daf0424806bba54a0a266d62a014801af4f29590ba859bcd78",
   "b_m/names.json": "470f6fb768840057af53236a0e14308df5bf360661196533f66c0f8d4c2ea255",
   "b_m/placement.csv": "622255a69ec486ca7e5873d02fce1bf42c8495d3d59a6fdc3faec16b7766de62",
-  "b_m/placement.json": "90992e2798a7ce77f82c2aa8635c39dbe023180144d59ac7a1066bab4b5ead9a",
+  "b_m/placement.json": "2535721f4958ecb9b0ae27f91ce047d093026d3e9db432b9148ba17478fd2773",
   "b_m/placement.svg": "0a9517a28d8c24cd807a62746123b8757b56f40f4ec1f5c5b5e4d20d8b9e7e83",
   "b_ms/chip_anchor.cfg": "ac48b1e41407fdfc559eafe70692fa205e3eef0b3d859402f3a0691ce0773083",
   "b_ms/names.json": "80a2edb42a45df1843f9a43d99f59f55d204a3eaf6eeddac4ac09b0d475c5b02",
   "b_ms/placement.csv": "8ce033f75d041b11f7e481dcf070b13bb68e171628aee03a81bd88e668526164",
-  "b_ms/placement.json": "26e0a23b3c25712e805ccfc39dc845c6e1695eca6d82b16155aeee1ccfe95362",
+  "b_ms/placement.json": "3101045d128eced69a432dc0a705917d5f2b91eb39ccb181bc5a180897f292d5",
   "b_ms/placement.svg": "4cfe2242196e763f1ed131f48b8acc4bac2c9aaf3c1cb43ec69804b2e708e6c8",
-  "max_reg_a_sdff.v": "78a8967f076e685b513fbe5b1eca75a11f1db097a98ea0b2f382b539c380f942",
+  "max_reg_a_sdff.v": "8acb58726359123ae6caf92bda88cf4a49624b5250b66e6b1337f599cdb3106e",
   "max_reg_b_flopcells.v": "fab556b7d73c1732f742fa685d1bf434b24e5ae60220917df26185d9b4f362e3",
-  "max_reg_chip.v": "998cb42ae75c81a85e7911bc466cbd48947e6a8ac803417db6c65bce47b99597"
+  "max_reg_chip.v": "efdd9a53d4e88cdb346405d2b8b8d0c2d33581f1123029638b0c4a9db4a1aca9"
  },
  "summary": {
   "a_sdff": {
@@ -43,31 +44,32 @@
     "site": 157,
     "order_up": true,
     "mirror": false,
-    "ext_hpwl_um": 3136.84,
-    "internal_hpwl_um": 1271.76,
-    "m4_soft_hits": 54
+    "ext_hpwl_um": 3080.28,
+    "internal_hpwl_um": 1150.8,
+    "m4_soft_hits": 55
    },
    "footprint": {
-    "width_sites": 70,
-    "height_rows": 23,
-    "width_um": 39.2,
-    "height_um": 90.16
+    "width_sites": 63,
+    "height_rows": 22,
+    "width_um": 35.28,
+    "height_um": 86.24
    },
    "bounds": {
-    "footprint_sites": 70,
-    "rows": 23,
-    "site_rows_box": 1610,
-    "site_rows_cells": 1345,
-    "site_rows_taps_inside_estimate": 46,
-    "utilization_box": 0.8354,
-    "area_box_um2": 3534.27,
-    "cell_area_um2": 2952.544,
+    "footprint_sites": 63,
+    "rows": 22,
+    "site_rows_box": 1386,
+    "site_rows_cells": 1339,
+    "site_rows_taps_inside_estimate": 44,
+    "utilization_box": 0.9661,
+    "area_box_um2": 3042.55,
+    "cell_area_um2": 2939.3728,
     "widest_cell_sites": 38,
     "max_row_sites": 61,
-    "area_floor_sites_at_rows": 59,
+    "area_floor_sites_at_rows": 61,
+    "packing": "a_sdff: minimum box from tools/pack_search.py (evidence/pack_search.log)",
     "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
    },
-   "legal": 56
+   "legal": 64
   },
   "b_m": {
    "anchor": {
@@ -97,6 +99,7 @@
     "widest_cell_sites": 29,
     "max_row_sites": 29,
     "area_floor_sites_at_rows": 29,
+    "packing": "",
     "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
    },
    "legal": 1360
@@ -129,6 +132,7 @@
     "widest_cell_sites": 29,
     "max_row_sites": 58,
     "area_floor_sites_at_rows": 58,
+    "packing": "",
     "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); the free sites are ragged capacity for neighbours (D5), not a halo"
    },
    "legal": 256

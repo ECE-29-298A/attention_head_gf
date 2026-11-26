@@ -3,15 +3,64 @@
  "errors": [],
  "notes": [
   "stale check: FRESH []",
-  "a_sdff: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('b00_ff', 6, 'N') (limit 15 um)",
+  "a_sdff: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('b00_ff', 17, 'N') (limit 15 um)",
+  "drive rule (../../../baseline/harden/resolved.json: fanout <= 20, transition < 2.70 ns, cap <= 0.2 pF; input slew 3 ns; wire 1.25 x RMST x 0.2 fF/um, estimate). Worst nets (ns, net, driver, master, fanout, fF, wire um): 2.41 nld u_ld oai21_1 fo2 20.7fF 11.6um; 2.33 ld_hi u_se_hi inv_2 fo11 91.6fF 137.9um; 2.31 ld_lo u_se_lo inv_2 fo11 90.4fF 131.6um; 2.14 gt b21_cmp oai21_1 fo1 17.0fF 60.6um; 1.85 c[21] b20_cmp aoi21_1 fo1 12.3fF 36.8um. Internal loads only on Q (M[i]) nets: their external loads are chip context",
   "a_sdff: function 262208 vectors, 0 mismatches (golden next state, signed; ties may load)",
   "b_m: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('_2277_', 6, 'N') (limit 15 um)",
   "b_ms: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('_2255_', 6, 'N') (limit 15 um)",
-  "LEF sha256 47dadf84c21b20f558d043c36271632f07b1c2c2a595b118e2e1050ebb74349b"
+  "LEF sha256 47dadf84c21b20f558d043c36271632f07b1c2c2a595b118e2e1050ebb74349b",
+  "drive calibration: chip v1 SPEF 0.167-0.181 fF/um routed (net1, nld_b); model 0.20 fF/um x 1.25 x RMST (estimate, conservative)"
  ],
  "per_variant": {
   "a_sdff": {
-   "well_worst_um": 9.52
+   "well_worst_um": 9.52,
+   "drive_worst": [
+    [
+     2.4054248933304554,
+     "nld",
+     "u_ld",
+     "oai21_1",
+     2,
+     20.7,
+     11.6
+    ],
+    [
+     2.327274201303463,
+     "ld_hi",
+     "u_se_hi",
+     "inv_2",
+     11,
+     91.6,
+     137.9
+    ],
+    [
+     2.3053348551504382,
+     "ld_lo",
+     "u_se_lo",
+     "inv_2",
+     11,
+     90.4,
+     131.6
+    ],
+    [
+     2.1356566638373646,
+     "gt",
+     "b21_cmp",
+     "oai21_1",
+     1,
+     17.0,
+     60.6
+    ],
+    [
+     1.8538157626957057,
+     "c[21]",
+     "b20_cmp",
+     "aoi21_1",
+     1,
+     12.3,
+     36.8
+    ]
+   ]
   },
   "b_m": {
    "well_worst_um": 9.52
@@ -25,75 +74,84 @@
    "case": "overlap",
    "ok": true,
    "fired": [
-    "[geometry]",
-    "[views]"
+    "[geometry] overlap row 11 site 0: b00_ff / b01_ff"
    ]
   },
   {
    "case": "off-grid",
    "ok": true,
    "fired": [
-    "[geometry]"
+    "[geometry] b00_ff off the site/row grid"
    ]
   },
   {
    "case": "orientation vs row parity",
    "ok": true,
    "fired": [
-    "[geometry]"
+    "[geometry] b00_ff orient_even_anchor N illegal"
    ]
   },
   {
    "case": "tap overlap (b_m shifted -4 sites)",
    "ok": true,
    "fired": [
-    "[tap]"
+    "[tap] _2277_ overlaps FIXED tap/endcap row 6 sites 175-177"
    ]
   },
   {
    "case": "outside rows 1..37 (b_m shifted +16 rows)",
    "ok": true,
    "fired": [
-    "[outside_core]"
+    "[outside_core] _2293_ outside rows 1..37 / core: row 38 sites 177-206"
    ]
   },
   {
    "case": "compare chain broken",
    "ok": true,
    "fired": [
-    "[intent]",
-    "[views]"
+    "[intent] chain hop into stage 5 is not one row (row 3 -> 7)"
    ]
   },
   {
    "case": "chain input moved off A1",
    "ok": true,
    "fired": [
-    "[intent]"
+    "[intent] stage 7 chain input not on A1 (no[7])"
    ]
   },
   {
    "case": "oai21 gt moved off A1",
    "ok": true,
    "fired": [
-    "[intent]"
+    "[intent] u_ld gt not on A1 (fastest pin)"
    ]
   },
   {
    "case": "slow chain cell (aoi222_1) substituted",
    "ok": true,
    "fired": [
-    "[intent]",
-    "[slew]",
-    "[views]"
+    "[slew] b06_cmp aoi222_1 ss transition 3.547 ns >= 2.7 ns"
    ]
   },
   {
    "case": "b_m instance names swapped",
    "ok": true,
    "fired": [
-    "[names]",
-    "[views]"
+    "[names] _2281_ is not the dffq_1 of M[3] in the names netlist (dffq_1, core.mac.M[4])"
+   ]
+  },
+  {
+   "case": "v1 SE: one driver on 22 SE pins",
+   "ok": true,
+   "fired": [
+    "[drive] fanout 22 > 20 on net ld_lo (u_se_lo inv_2)"
+   ]
+  },
+  {
+   "case": "SE driver too weak for its load (fanout legal)",
+   "ok": true,
+   "fired": [
+    "[drive] est. ss transition 3.71 ns >= 2.70 ns on net ld_lo (u_se_lo inv_2, fanout 20, 162.4 fF)"
    ]
   }
  ]

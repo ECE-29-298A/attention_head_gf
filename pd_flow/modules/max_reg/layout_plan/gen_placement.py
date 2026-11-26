@@ -3,7 +3,7 @@
 
 Variants (PLAN.md section 2):
   a_sdff  fixed bit-sliced block: per bit row  sdffq_1 (flop + load mux in one cell) + compare slice
-          (inv_1, nand2_1, nor2_1, aoi21_1/oai21_1 chain cell); one decode row (inv_1, oai21_1, buf_4).
+          (inv_1, nand2_1, nor2_1, aoi21_1/oai21_1 chain cell); one decode row (inv_1, oai21_1, two buf_4 SE drivers).
           Gate-level netlist, all cells FIXED. (A dffq_1 + mux2_2 row does not fit one tap period with a
           slew-legal compare slice; mux2_1 is in the PDK's PnR exclusion list. See PLAN.md section 2.)
   b_m     placement-only: the 22 M flops of the shipped-flow netlist (ABC's in-context mapping kept)
@@ -139,58 +139,80 @@ def cell(inst, master, role, bit, row, site, pins, mir=False):
             "mirror": mir, "pins": pins}
 
 
+A_W, A_ANCHOR_MOD = 63, 17   # a_sdff footprint width (sites) and anchor site mod 70 (tools/pack_search.py)
+BIT0_ROW = 11                # bit 0 (no compare stage; holds the decode) sits in the middle row (odd)
+SE_DRV = {"lo": "inv_2", "hi": "inv_2"}   # SE drivers (validator drive rule: fanout, load, ss transition)
+
+
+def bit_row(i):
+    """Rows 0..10 hold bits 1..11, row 11 bit 0 + decode, rows 12..21 bits 12..21."""
+    if i == 0: return BIT0_ROW
+    return i - 1 if i <= BIT0_ROW else i
+
+
+def se_net(i):
+    return "ld_lo" if bit_row(i) < BIT0_ROW else "ld_hi" if i else "ld_hi"
+
+
 def build_block(v="a_sdff"):
-    """Bit-sliced block. Row i = bit i: sdffq_1 (flop + load mux: Q+ = SE ? SI : D with D = S_in[i], SI = M[i],
-    SE = nld) plus compare stage i (i >= 1); row 22 = decode. Chain c[i] (i = 2..22) is stage i-1's output.
-    Stage i computes g_{i+1} = maj(s, ~m, g_i), g = (S_in[i:0] > M[i:0]) unsigned, as p + t*g with
-    p = s & ~m, t = s | ~m, in alternating polarity so that every chain cell is a single 2-stack gate:
-      odd  i (1..19): z = c[i] = g_i (true)  -> c[i+1] = ~g_{i+1} = aoi21(A1 = z, A2 = t, B = p);
-                      sb = inv(S_in[i]), t = nand2(sb, M[i]), p = nor2(sb, M[i])
-      even i (2..20): z = c[i] = ~g_i        -> c[i+1] =  g_{i+1} = oai21(A1 = z, A2 = ~t, B = ~p);
-                      mb = inv(M[i]), ~t = nor2(S_in[i], mb), ~p = nand2(S_in[i], mb)
-      i = 21 (sign, offset binary s' = ~s, m' = ~m): z = c[21] true -> c[22] = ~gt = aoi21(z, t', p') with
-                      t' = ~s | m = nand2(S_in[21], mb), p' = ~s & m = nor2(S_in[21], mb), mb = inv(M[21])
-    Stage 1 takes z = S_in[0] (tie don't-care, Phase 2 c10: loading S_in == M keeps M).
-    Decode: gt = inv(c[22]); nld = oai21(A1 = gt, A2 = first, B = en) = ~(en & (first | gt)); nld_b = buf_4.
-    Cell choice: aoi222_1 (one-cell majority) was tried first and rejected: its ss rise transition (about
-    3.5 ns at 1.2 ns input, 6-13 fF) exceeds MAX_TRANSITION_CONSTRAINT 3 ns, so RepairDesignPostGPL upsized
-    20 FIXED aoi222 in place and detailed placement failed on overlaps (chip_runs/a_sdff_aoi222_FAILED).
-    aoi21_1 / oai21_1 / nand2_1 / nor2_1 stay below 1.8 ns there (evidence/arcs_ss_summary.txt).
-    Pin rule (review B1): the late, glitching chain input z takes A1, the faster of the A pair
-    (aoi21_1 rise 0.698 vs 0.803 ns, oai21_1 0.740 vs 0.792 ns at ss [2][2]); gt takes oai21 A1.
-    Row templates (anchor site = 17 mod 70, anchor row even; chip taps then sit at rel site 18-19 in even
-    rows and 53-54 in odd rows):
-      even row: inv 0 | nand2 4 | nor2 9 | (tap 18) | chain oai21 20 | sdffq 28
-      odd  row: chain aoi21 7 | sdffq 15 | (tap 53) | inv 55 | nand2 59 | nor2 64
-      decode  : inv 0 | oai21 4 | (tap 18) | buf_4 20"""
+    """Bit-sliced block, version 2 (D6 area first; review round 1 B1). One bit per row: sdffq_1 (flop + load
+    mux: Q+ = SE ? SI : D with D = M[i] (hold), SI = S_in[i] (load), SE = ld) plus compare stage i (i >= 1).
+    No decode row: bit 0 has no compare stage, and its row (the middle row, 11) holds the decode.
+    Compare: g_{i+1} = maj(a_i, b_i, g_i), g = (S_in[i:0] > M[i:0]), with a = s, b = ~m (bits 0..20) and the
+    offset-binary sign a = ~s, b = m (bit 21). p = a & b, t = a | b. Polarity alternates so every chain cell is
+    one 2-stack gate, and the chain ENDS in true polarity (gt, no gt inverter):
+      odd  i (input ~g_i, output g_{i+1}):  oai21(A1 = z, A2 = ~t, B = ~p); ~t = nor2(a, b), ~p = nand2(a, b)
+           with a, b true: bits 1..19: inv(M[i]) = b; bit 21: inv(S_in[i]) = a.
+      even i (input g_i, output ~g_{i+1}): aoi21(A1 = z, A2 = t, B = p); t = nand2(~a, ~b), p = nor2(~a, ~b)
+           with ~a = inv(S_in[i]), ~b = M[i].
+    Stage 1 input ~g_1 = M[0] (tie don't-care: g_1 = s0 & ~m0 may read ~m0 because s0 == m0 at bit 0 only
+    matters when S_in == M, where loading S_in keeps M; Phase 2 c10). Stage 21 output is the net gt.
+    Decode: nld = oai21_1(A1 = gt, A2 = first, B = en) = ~(en & (first | gt)); ld = ~nld from two inv_2 SE
+    drivers, u_se_lo (rows 0..10, 11 SE) and u_se_hi (rows 11..21, 11 SE). v1 drove 22 SE from one buf_4
+    (fanout 22 > MAX_FANOUT_CONSTRAINT 20; the chip flow inserted a free dlyb_1 inside the block, 6.74 ns SE
+    transition at ss; chip_runs/a_sdff, review round 1 B1). Driving SE active-high (D/SI swapped) lets two
+    inverters (smallest legal drive, validator drive rule) replace inv(gt) + buf_4.
+    Cell choice: smallest drive of each function (_1, inv_2 for the 11-load SE nets); aoi222_1 (one-cell
+    majority) was rejected in v0: its ss rise transition (about 3.5 ns) exceeds MAX_TRANSITION_CONSTRAINT 3 ns,
+    so RepairDesignPostGPL resized the FIXED aoi222 in place (log: 28 to aoi222_4, 2 to aoi222_2) and
+    detailed placement failed on 30 overlaps (chip_runs/a_sdff_aoi222_FAILED).
+    Pin rule: the late chain input takes A1 (aoi21_1/oai21_1 A1 is the faster or equal A pin at ss); gt takes
+    oai21 A1.
+    Footprint (tools/pack_search.py, evidence/pack_search.log): 63 sites x 22 rows is the minimum box for one
+    or two bits per row (1386 site-rows; 3 per row needs 1520). Anchor site = 17 mod 70, anchor row even: the
+    chip tap sits at rel site 18-19 in even rows and 53-54 in odd rows, and every bit row is packed exactly:
+      even row: inv 0 | nor2 4 | chain 10 | (tap 18) | nand2 20 | sdffq 25                = 63 sites, full
+      odd  row: sdffq 0 | inv 38 | nand2 42 | nor2 47 | (tap 53) | chain 55                = 63 sites, full
+      row 11  : sdffq b00 0 | u_ld oai21 38 | u_se_lo inv_2 46 | (52) | (tap 53) | u_se_hi inv_2 55 | (61-62)
+    The chain hops one row, except bit 11 (row 10) -> bit 12 (row 12) over the decode row."""
     cells = []
     for i in range(N):
-        even = i % 2 == 0
-        cells.append(cell("b%02d_ff" % i, "sdffq_1", "ff", i, i, 28 if even else 15,
-                          {"D": "S_in[%d]" % i, "SI": "M[%d]" % i, "SE": "nld_b", "CLK": "clk", "Q": "M[%d]" % i}))
+        r = bit_row(i); even = r % 2 == 0
+        cells.append(cell("b%02d_ff" % i, "sdffq_1", "ff", i, r, 25 if even else 0,
+                          {"D": "M[%d]" % i, "SI": "S_in[%d]" % i, "SE": se_net(i), "CLK": "clk", "Q": "M[%d]" % i}))
         if i == 0:
             continue
-        z = "S_in[0]" if i == 1 else "c[%d]" % i
-        s, m = "S_in[%d]" % i, "M[%d]" % i
-        if i % 2 == 1 and i != 21:      # invert S_in, aoi21 chain
-            inv = (s, "xi[%d]" % i); g1 = ("xi[%d]" % i, m); chain = "aoi21_1"
-        else:                            # invert M, oai21 chain (even) / aoi21 (bit 21)
-            inv = (m, "xi[%d]" % i); g1 = (s, "xi[%d]" % i); chain = "aoi21_1" if i == 21 else "oai21_1"
-        sites = {"inv": 0, "nand": 4, "nor": 9, "chain": 20} if even else {"inv": 55, "nand": 59, "nor": 64, "chain": 7}
-        cells.append(cell("b%02d_inv" % i, "inv_1", "inv", i, i, sites["inv"], {"I": inv[0], "ZN": inv[1]}))
-        cells.append(cell("b%02d_nand" % i, "nand2_1", "pg", i, i, sites["nand"],
-                          {"A1": g1[0], "A2": g1[1], "ZN": "na[%d]" % i}))
-        cells.append(cell("b%02d_nor" % i, "nor2_1", "pg", i, i, sites["nor"],
-                          {"A1": g1[0], "A2": g1[1], "ZN": "no[%d]" % i}))
-        if chain == "aoi21_1":           # odd / 21: nand -> t, nor -> p (true polarity)
-            cp = {"A1": z, "A2": "na[%d]" % i, "B": "no[%d]" % i, "ZN": "c[%d]" % (i + 1)}
-        else:                            # even: nor -> ~t, nand -> ~p
-            cp = {"A1": z, "A2": "no[%d]" % i, "B": "na[%d]" % i, "ZN": "c[%d]" % (i + 1)}
-        cells.append(cell("b%02d_cmp" % i, chain, "cmp", i, i, sites["chain"], cp))
-    dr = N
-    cells.append(cell("u_gt_inv", "inv_1", "dec", None, dr, 0, {"I": "c[22]", "ZN": "gt"}))
-    cells.append(cell("u_ld", "oai21_1", "dec", None, dr, 4, {"A1": "gt", "A2": "first", "B": "en", "ZN": "nld"}))
-    cells.append(cell("u_ld_buf", "buf_4", "dec", None, dr, 20, {"I": "nld", "Z": "nld_b"}))
+        z = "M[0]" if i == 1 else "c[%d]" % i
+        zn = "gt" if i == 21 else "c[%d]" % (i + 1)
+        s, m, xi = "S_in[%d]" % i, "M[%d]" % i, "xi[%d]" % i
+        if i % 2 == 1:                   # oai21 stage, true a, b
+            if i == 21: inv, ab = (s, xi), (xi, m)       # a = ~s (inverted here), b = m
+            else:       inv, ab = (m, xi), (s, xi)       # a = s, b = ~m
+            chain = "oai21_1"
+            cp = {"A1": z, "A2": "no[%d]" % i, "B": "na[%d]" % i, "ZN": zn}
+        else:                            # aoi21 stage, complemented a, b: ~a = ~s, ~b = m
+            inv, ab = (s, xi), (xi, m)
+            chain = "aoi21_1"
+            cp = {"A1": z, "A2": "na[%d]" % i, "B": "no[%d]" % i, "ZN": zn}
+        st = {"inv": 0, "nor": 4, "chain": 10, "nand": 20} if even else {"inv": 38, "nand": 42, "nor": 47, "chain": 55}
+        cells.append(cell("b%02d_inv" % i, "inv_1", "inv", i, r, st["inv"], {"I": inv[0], "ZN": inv[1]}))
+        cells.append(cell("b%02d_nand" % i, "nand2_1", "pg", i, r, st["nand"], {"A1": ab[0], "A2": ab[1], "ZN": "na[%d]" % i}))
+        cells.append(cell("b%02d_nor" % i, "nor2_1", "pg", i, r, st["nor"], {"A1": ab[0], "A2": ab[1], "ZN": "no[%d]" % i}))
+        cells.append(cell("b%02d_cmp" % i, chain, "cmp", i, r, st["chain"], cp))
+    assert BIT0_ROW % 2 == 1
+    cells.append(cell("u_ld", "oai21_1", "dec", None, BIT0_ROW, 38, {"A1": "gt", "A2": "first", "B": "en", "ZN": "nld"}))
+    cells.append(cell("u_se_lo", SE_DRV["lo"], "dec", None, BIT0_ROW, 46, {"I": "nld", "ZN": "ld_lo"}))
+    cells.append(cell("u_se_hi", SE_DRV["hi"], "dec", None, BIT0_ROW, 55, {"I": "nld", "ZN": "ld_hi"}))
     return cells
 
 
@@ -212,14 +234,14 @@ def build_flops(v, nlcells):
 
 def footprint(cells, cen, v):
     w = max(c["rel_site"] + wsites(cen, c["master"]) for c in cells)
-    w = {"a_sdff": 70}.get(v, w)
+    w = {"a_sdff": A_W}.get(v, w)
     return w, max(c["rel_row"] for c in cells) + 1
 
 
 # anchor rules (hard, beyond "inside core and clear of FIXED taps/endcaps", which is checked per anchor)
 ANCHOR_RULE = {
     "a_sdff": "site = 17 (mod 70) and row even: the tap falls at rel site 18-19 in even rows and 53-54 in odd "
-              "rows, the gaps the two row templates leave",
+              "rows, exactly the gaps the two row templates leave (every bit row is 63/63 sites full)",
     "b_m": "any site where the 29-site flop column clears every tap (inside a 33-site window)",
     "b_ms": "site = 2 (mod 35): the S column (29 sites) and the M column (rel site 35) each sit in a 33-site "
             "tap window; the tap column at rel site 33-34 (alternate rows) falls between them",
@@ -227,7 +249,7 @@ ANCHOR_RULE = {
 
 
 def anchor_ok_rule(v, r0, s0):
-    if v == "a_sdff": return s0 % 70 == 17 and r0 % 2 == 0
+    if v == "a_sdff": return s0 % 70 == A_ANCHOR_MOD and r0 % 2 == 0
     if v == "b_ms": return s0 % 35 == 2
     return True
 
@@ -375,10 +397,11 @@ HDR = "// Generated by pd_flow/modules/max_reg/layout_plan/gen_placement.py. Do 
 
 
 def netlist_body(cells):
-    lines = ["    wire [22:2] c;      // compare chain, polarity alternates per stage (gen_placement.build_block)",
+    lines = ["    wire [21:2] c;      // compare chain, polarity alternates per stage (gen_placement.build_block)",
              "    wire [21:1] xi;     // per-stage inverter output (~S_in[i] or ~M[i])",
              "    wire [21:1] na, no; // per-stage nand2 / nor2 outputs (t, p or their complements)",
-             "    wire gt, nld, nld_b;"]
+             "    wire gt, nld;       // chain output (stage 21, true polarity); ~load",
+             "    wire ld_lo, ld_hi;  // SE (active-high load) of rows 0..10 / 11..21, one inv_2 each (11 loads)"]
     for c in cells:
         conn = ", ".join(f".{p}({n})" for p, n in c["pins"].items())
         lines.append(f"    {P}{c['master']} {c['inst']} ({conn});")
@@ -442,10 +465,11 @@ def ports(v, cells, cen):
     if v.startswith("a_"):
         return {"west": "S_in[i] and M[i] in relative row i (S_in from mac_unit's S flop, M to mac_unit's S load mux; "
                         "both on the mac side)",
-                "north": "first, en into the decode row (row 22); controller decode lives above",
+                "middle": "first, en into the decode oai21 u_ld in row 11 (rel sites 38-45)",
                 "clock": "clk to every flop CLK (sdffq_1 CLK at x 5.88-6.44 um in the cell; dffq_1 CLK at 0.84-1.4)",
-                "south": "none (the chain starts at bit 0 inside: c[1] = S_in[0])",
-                "east": "none"}
+                "chain": "internal, bit 1 (row 0) to bit 21 (row 21), skipping row 11; gt back to u_ld in row 11 (starts from M[0], tie don't-care)",
+                "east_west": "S_in[i]/M[i] pins sit in bit i's row (bit i in row i-1 for i 1..11, row 11 for bit 0, row i above): flop at rel 25-62 (even rows) or 0-37 (odd rows), "
+                             "stage cells beside it; no dedicated port side (the block is 63 x 22 sites, full rows)"}
     if v == "b_m":
         return {"west_or_east": "Q (M[i]) faces the side picked by the mirror search; D from ABC's free mux/compare",
                 "pin_order": "bit i in relative row i (order_up) or row 21-i"}
@@ -484,6 +508,7 @@ def bounds(cells, cen, v):
             "cell_area_um2": round(sum(cen["masters"][P + c["master"]]["area_um2"] for c in cells), 4),
             "widest_cell_sites": widest, "max_row_sites": max(per_row.values()),
             "area_floor_sites_at_rows": -(-used // H),
+            "packing": "a_sdff: minimum box from tools/pack_search.py (evidence/pack_search.log)" if v == "a_sdff" else "",
             "note": "bit rows cannot be narrower than the widest row template (flop + compare + inverter [+ mux]); "
                     "the free sites are ragged capacity for neighbours (D5), not a halo"}
 
@@ -510,15 +535,14 @@ def block_files(v, cells, cen):
         o = row_orient(r)
         if c["mirror"]: o = mirror(o)
         lines.append(f"{c['inst']} {CORE_X0 + s * SITE_W:.2f} {CORE_Y0 + r * ROW_H:.2f} {o}")
-    pins = ["#N", "first", "en", "#W"]
-    for i in range(N):
-        pins += [f"S_in\\[{i}\\]", f"M\\[{i}\\]"]
-    pins += ["#S", "clk"]
+    pins = ["#S", "clk", "#W"]
+    for i in sorted(range(N), key=bit_row):          # bottom to top in row order; first/en at the decode row
+        pins += [f"S_in\\[{i}\\]", f"M\\[{i}\\]"] + (["first", "en"] if i == 0 else [])
     lib = {
         "//": "UNTESTED Phase 4 starting point generated by gen_placement.py (see PLAN.md section 7).",
         "//deviation_pdn": "block die %.2f um wide vs the 38.87 um stripe pitch: the Metal4 VPWR/VGND pairs fall at "
                            "different x than at the chip anchor; rail via stacks may land over block cells" % die_w,
-        "//deviation_io": "ports on the die edge (W: S_in/M interleaved bottom to top; N: first, en; S: clk) instead of "
+        "//deviation_io": "ports on the die edge (W: S_in/M interleaved in row order, first/en at the decode row; S: clk) instead of "
                           "chip neighbours; boundary wire is not chip-representative",
         "//assert_after_tapendcap": "taps exactly at the chip phase (block sites 0 mod 70 odd rows, 35 mod 70 even "
                                     "rows); none overlapping a FIXED block cell; endcaps at both row ends",
@@ -527,11 +551,23 @@ def block_files(v, cells, cen):
         "CORE_AREA": [CORE_X0, CORE_Y0, round(CORE_X0 + core_sites * SITE_W, 2), round(CORE_Y0 + rows * ROW_H, 2)],
         "SYNTH_ELABORATE_ONLY": True, "MACRO_PLACEMENT_CFG": "dir::block.cfg", "FP_PIN_ORDER_CFG": "dir::block_pins.cfg",
         "FP_TAPCELL_DIST": 20, "PL_OPTIMIZE_MIRRORING": False, "RUN_KLAYOUT_DRC": True, "RT_MAX_LAYER": "Metal4",
-        "MAX_TRANSITION_CONSTRAINT": 3, "MAX_CAPACITANCE_CONSTRAINT": 0.2, "FP_PDN_VPITCH": 38.87,
-        "RUN_CTS": True, "RUN_POST_GPL_DESIGN_REPAIR": False, "RUN_POST_CTS_RESIZER_TIMING": False,
-        "RUN_POST_GRT_RESIZER_TIMING": False, "RUN_POST_GRT_DESIGN_REPAIR": False}
+        "MAX_TRANSITION_CONSTRAINT": 3, "MAX_CAPACITANCE_CONSTRAINT": 0.2, "MAX_FANOUT_CONSTRAINT": 20, "FP_PDN_VPITCH": 38.87,
+        "RUN_CTS": True, "RUN_POST_GPL_DESIGN_REPAIR": True, "RUN_POST_GRT_DESIGN_REPAIR": True,
+        "RUN_POST_CTS_RESIZER_TIMING": False, "RUN_POST_GRT_RESIZER_TIMING": False}
+    lib["//design_repair_on"] = ("design repair runs with the chip limits (fanout 20, transition 3 ns, cap 0.2 pF) as a "
+                                 "detector: assert after every repair step that the block has exactly %d cells, the "
+                                 "netlist masters, and no inserted buffer on any block net (review round 1 B1)" % len(cells))
+    lib["//deviation_timing_repair"] = "timing repair off: the block has no chip I/O timing context (100 ns clock)"
+    ctl = {k: v_ for k, v_ in lib.items() if not k.startswith("//") and k not in (
+        "VERILOG_FILES", "SYNTH_ELABORATE_ONLY", "MACRO_PLACEMENT_CFG", "PL_OPTIMIZE_MIRRORING")}
+    ctl.update({"//": "UNTESTED Phase 4 control (review round 1 section 4): the golden max_reg RTL synthesized and "
+                      "placed FREE in the same die, core, pins, PDN, taps and limits as block_librelane.json; gives "
+                      "the fixed block's area, wire and power a like-for-like reference",
+                "VERILOG_FILES": "dir::max_reg_golden.v (copy of pd_flow/baseline/original_rtl/max_reg.v)",
+                "SYNTH_ELABORATE_ONLY": False, "PL_TARGET_DENSITY_PCT": 85,
+                "RUN_POST_CTS_RESIZER_TIMING": True, "RUN_POST_GRT_RESIZER_TIMING": True})
     return "\n".join(lines) + "\n", "\n".join(pins) + "\n", json.dumps(lib, indent=1) + "\n", {
-        "die_um": [die_w, die_h], "core_sites": core_sites, "rows": rows}
+        "die_um": [die_w, die_h], "core_sites": core_sites, "rows": rows, "control": json.dumps(ctl, indent=1) + "\n"}
 
 
 def taps_inside(v, cells, cen, best, ctx):
@@ -590,6 +626,7 @@ def generate(args):
         if v.startswith("a_"):
             bc, bp, bl, binfo = block_files(v, cells, cen)
             files[d + "block.cfg"] = bc; files[d + "block_pins.cfg"] = bp; files[d + "block_librelane.json"] = bl
+            files[d + "block_golden_control.json"] = binfo["control"]
         else:
             files[d + "names.json"] = json.dumps(extra["names"], indent=1) + "\n"
         summary[v] = {"anchor": best, "footprint": info["footprint"], "bounds": info["bounds"], "legal": len(la)}

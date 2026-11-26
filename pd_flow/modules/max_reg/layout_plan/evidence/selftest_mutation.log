@@ -1,0 +1,14 @@
+unmutated: {'overlap': True, 'off-grid': True, 'orientation vs row parity': True, 'tap overlap (b_m shifted -4 sites)': True, 'outside rows 1..37 (b_m shifted +16 rows)': True, 'compare chain broken': True, 'chain input moved off A1': True, 'oai21 gt moved off A1': True, 'slow chain cell (aoi222_1) substituted': True, 'b_m instance names swapped': True, 'v1 SE: one driver on 22 SE pins': True, 'SE driver too weak for its load (fanout legal)': True}
+overlap                                            -> BAD (depends on its check)  others_changed=[]
+off-grid                                           -> BAD (depends on its check)  others_changed=[]
+orientation vs row parity                          -> BAD (depends on its check)  others_changed=[]
+tap overlap (b_m shifted -4 sites)                 -> BAD (depends on its check)  others_changed=[]
+outside rows 1..37 (b_m shifted +16 rows)          -> BAD (depends on its check)  others_changed=[]
+compare chain broken                               -> BAD (depends on its check)  others_changed=[]
+chain input moved off A1                           -> BAD (depends on its check)  others_changed=[]
+oai21 gt moved off A1                              -> BAD (depends on its check)  others_changed=[]
+slow chain cell (aoi222_1) substituted             -> BAD (depends on its check)  others_changed=[]
+b_m instance names swapped                         -> BAD (depends on its check)  others_changed=[]
+v1 SE: one driver on 22 SE pins                    -> BAD (depends on its check)  others_changed=[]
+SE driver too weak for its load (fanout legal)     -> BAD (depends on its check)  others_changed=[]
+ALL_SELFTESTS_DEPEND_ON_THEIR_CHECK

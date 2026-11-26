@@ -1458,6 +1458,412 @@
     }
    }
   },
+  "gf180mcu_fd_sc_mcu7t5v0__inv_2": {
+   "width_um": 3.36,
+   "height_um": 3.92,
+   "sites": 6,
+   "area_um2": 13.1712,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "I": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       0.63,
+       1.705,
+       2.15,
+       2.12
+      ]
+     ],
+     "access_x_N": [
+      0.84,
+      1.4,
+      1.96
+     ],
+     "access": {
+      "0.84": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.835,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "1.4": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.835,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "1.96": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        1.835,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "ZN": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       1.22,
+       2.68,
+       1.67,
+       3.39
+      ],
+      [
+       1.22,
+       2.36,
+       2.68,
+       2.68
+      ],
+      [
+       2.38,
+       1.475,
+       2.68,
+       2.36
+      ],
+      [
+       1.395,
+       1.22,
+       2.68,
+       1.475
+      ],
+      [
+       1.395,
+       0.53,
+       1.625,
+       1.22
+      ]
+     ],
+     "access_x_N": [
+      1.4,
+      1.96,
+      2.52
+     ],
+     "access": {
+      "1.4": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        2.55,
+        3.2
+       ],
+       "m1_track_ys": [
+        3.08
+       ]
+      },
+      "1.96": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        2.49,
+        2.55
+       ],
+       "m1_track_ys": [
+        2.52
+       ]
+      },
+      "2.52": {
+       "via": [
+        "VV"
+       ],
+       "y_range": [
+        1.41,
+        2.49
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 3
+    },
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
+  "gf180mcu_fd_sc_mcu7t5v0__inv_3": {
+   "width_um": 4.48,
+   "height_um": 3.92,
+   "sites": 8,
+   "area_um2": 17.5616,
+   "symmetry": [
+    "X",
+    "Y"
+   ],
+   "layers_used": [
+    "Metal1",
+    "Nwell",
+    "Pwell"
+   ],
+   "metal2_or_above_shapes": false,
+   "pins": {
+    "I": {
+     "dir": "INPUT",
+     "rects_m1": [
+      [
+       0.41,
+       1.76,
+       3.015,
+       2.12
+      ]
+     ],
+     "access_x_N": [
+      0.84,
+      1.4,
+      1.96,
+      2.52
+     ],
+     "access": {
+      "0.84": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.89,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "1.4": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.89,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "1.96": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.89,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      },
+      "2.52": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        1.89,
+        1.99
+       ],
+       "m1_track_ys": [
+        1.96
+       ]
+      }
+     },
+     "n_access": 4
+    },
+    "ZN": {
+     "dir": "OUTPUT",
+     "rects_m1": [
+      [
+       1.365,
+       2.68,
+       1.595,
+       3.39
+      ],
+      [
+       3.41,
+       2.68,
+       3.835,
+       3.39
+      ],
+      [
+       1.365,
+       2.36,
+       3.835,
+       2.68
+      ],
+      [
+       3.41,
+       1.525,
+       3.835,
+       2.36
+      ],
+      [
+       1.365,
+       1.29,
+       3.835,
+       1.525
+      ],
+      [
+       1.365,
+       0.53,
+       1.595,
+       1.29
+      ],
+      [
+       3.41,
+       0.53,
+       3.835,
+       1.29
+      ]
+     ],
+     "access_x_N": [
+      1.96,
+      2.52,
+      3.08,
+      3.64
+     ],
+     "access": {
+      "1.96": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        2.49,
+        2.55
+       ],
+       "m1_track_ys": [
+        2.52
+       ]
+      },
+      "2.52": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        2.49,
+        2.55
+       ],
+       "m1_track_ys": [
+        2.52
+       ]
+      },
+      "3.08": {
+       "via": [
+        "HH"
+       ],
+       "y_range": [
+        2.49,
+        2.55
+       ],
+       "m1_track_ys": [
+        2.52
+       ]
+      },
+      "3.64": {
+       "via": [
+        "HH",
+        "VV"
+       ],
+       "y_range": [
+        0.66,
+        3.26
+       ],
+       "m1_track_ys": [
+        0.84,
+        1.4,
+        1.96,
+        2.52,
+        3.08
+       ]
+      }
+     },
+     "n_access": 4
+    },
+    "VDD": {
+     "use": "POWER",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    },
+    "VNW": {
+     "use": "POWER",
+     "shape": null,
+     "layers": [
+      "Nwell"
+     ]
+    },
+    "VPW": {
+     "use": "GROUND",
+     "shape": null,
+     "layers": [
+      "Pwell"
+     ]
+    },
+    "VSS": {
+     "use": "GROUND",
+     "shape": "ABUTMENT",
+     "layers": [
+      "Metal1"
+     ]
+    }
+   }
+  },
   "gf180mcu_fd_sc_mcu7t5v0__buf_4": {
    "width_um": 7.84,
    "height_um": 3.92,

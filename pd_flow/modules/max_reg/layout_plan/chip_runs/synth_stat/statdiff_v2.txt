@@ -1,0 +1,6 @@
+run                                       yosys_area liberty_area    delta cells
+base.stat.json                               41116.1      41116.1     +0.0 1434
+mr3s_a_sdff.stat.json                        39829.7      41664.9   +548.8 1438
+   by family (count, um2): dffq -22/-1401, oai21 -17/-299, nand2 -20/-220, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, aoi222 -2/-61, or4 -2/-53, oai221 -2/-53,
+mr3s_a_sdff_v2.stat.json                     39816.5      41651.7   +535.6 1438
+   by family (count, um2): dffq -22/-1401, oai21 -16/-281, nand2 -20/-220, aoi22 -11/-217, oai32 -6/-158, and2 -8/-140, xor2 -3/-79, and4 -3/-72, nor4 -3/-66, aoi222 -2/-61, or4 -2/-53, oai221 -2/-53,

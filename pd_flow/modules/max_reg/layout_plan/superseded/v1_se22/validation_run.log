@@ -1,0 +1,17 @@
+NOTE stale check: FRESH []
+NOTE a_sdff: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('b00_ff', 6, 'N') (limit 15 um)
+NOTE a_sdff: function 262208 vectors, 0 mismatches (golden next state, signed; ties may load)
+NOTE b_m: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('_2277_', 6, 'N') (limit 15 um)
+NOTE b_ms: DF.13/14 estimate worst cell-to-tie distance 9.52 um at ('_2255_', 6, 'N') (limit 15 um)
+NOTE LEF sha256 47dadf84c21b20f558d043c36271632f07b1c2c2a595b118e2e1050ebb74349b
+SELFTEST ok  overlap ['[geometry]', '[views]']
+SELFTEST ok  off-grid ['[geometry]']
+SELFTEST ok  orientation vs row parity ['[geometry]']
+SELFTEST ok  tap overlap (b_m shifted -4 sites) ['[tap]']
+SELFTEST ok  outside rows 1..37 (b_m shifted +16 rows) ['[outside_core]']
+SELFTEST ok  compare chain broken ['[intent]', '[views]']
+SELFTEST ok  chain input moved off A1 ['[intent]']
+SELFTEST ok  oai21 gt moved off A1 ['[intent]']
+SELFTEST ok  slow chain cell (aoi222_1) substituted ['[intent]', '[slew]', '[views]']
+SELFTEST ok  b_m instance names swapped ['[names]', '[views]']
+ALL_OK
