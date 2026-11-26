@@ -1,0 +1,2 @@
+# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)
+gf180mcu_fd_sc_mcu7t5v0__oai33_2

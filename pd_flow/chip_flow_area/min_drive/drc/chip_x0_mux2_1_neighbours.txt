@@ -1,0 +1,3 @@
+2926 components; mux2_1 117 orientations {'FS': 33, 'N': 51, 'FN': 15, 'S': 18}
+abutting neighbour families: {'fill': 67, 'filltie': 33, 'fillcap': 26, 'dffq': 18, 'mux2': 16, 'nand2': 12, 'xor2': 11, 'clkinv': 11, 'aoi22': 7, 'mux4': 6, 'nand3': 4, 'oai21': 4, 'aoi21': 3, 'and2': 2, 'nor2': 2, 'buf': 2, 'or2': 2, 'clkbuf': 2, 'oai22': 2, 'xor3': 1, 'oai221': 1, 'nor4': 1, 'and3': 1}
+orientation pairs (self, neighbour): {('N', 'N'): 83, ('FS', 'FS'): 52, ('S', 'FS'): 28, ('FN', 'N'): 26, ('N', 'FN'): 19, ('FS', 'S'): 14, ('S', 'S'): 8, ('FN', 'FN'): 4}

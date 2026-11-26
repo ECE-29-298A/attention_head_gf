@@ -1,0 +1,29 @@
+--- a/src/config.json
++++ b/src/config.json
+@@ -44,10 +44,18 @@
+     "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+ 
++  "//": "mux2_1 allowed (chip_flow_area/min_drive x0). The PDK file this replaces (drc_exclude.cells) bans mux2_1",
++  "//": "and oai33_2 in synthesis and PnR. mux2_1 was banned in 2022 for a Magic CO.6 false positive, fixed in the",
++  "//": "Magic tech file on 2022-11-30. It is DRC-clean in Magic, the PDK KLayout deck and the TT precheck deck.",
++  "//": "This file keeps only oai33_2. -564 um2 (synthesis -312, repair buffers -184, CTS -92, sizing +24).",
++  "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
++
+   "//": "Clock tree (chip_flow_area h2): clkbuf_4 sink buffers in 17 clusters of <= 20 sinks, clkbuf_8 root,",
+   "//": "instead of clkbuf_8 sinks and clkbuf_16 root/trunk. -676 um2; ff hold WNS +0.109 -> +0.058 ns.",
+   "CTS_CLK_BUFFERS": ["gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"],
+-  "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
++  "//": "Hold-safer alternative (chip_flow_area/min_drive x3): clkbuf_16 root/trunk instead of clkbuf_8.",
++  "//": "+158 um2 against x0; ff -40C hold WNS +0.007 -> +0.036 ns. Screened to STAPostPNR only.",
++  "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_16",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+ 
+diff --git a/src/pnr_exclude_md.cells b/src/pnr_exclude_md.cells
+new file mode 100644
+--- /dev/null
++++ b/src/pnr_exclude_md.cells
+@@ -0,0 +1,2 @@
++# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)
++gf180mcu_fd_sc_mcu7t5v0__oai33_2

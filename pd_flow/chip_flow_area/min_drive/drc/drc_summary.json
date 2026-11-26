@@ -1,0 +1,349 @@
+{
+ "cells": {
+  "alone_addf_1": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 4,
+    "by_rule": {
+     "DF.13_MV": 2,
+     "DF.14_MV": 2
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 4,
+    "by_rule": {
+     "DF.13_MV": 2,
+     "DF.14_MV": 2
+    }
+   },
+   "gds_sha256": "c43851661b6217cc9950c69eb768eb09335ee0103c4241293fc6b01d6bbadeee"
+  },
+  "alone_mux2_1": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "klayout_b_conn": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "gds_sha256": "d2889a8853753051173c7e42fea63085457510c703d338f7b6e65b86b6e023fa"
+  },
+  "alone_mux2_2": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "klayout_b_conn": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "gds_sha256": "58713c7447abaa735f2771cbea73ac2678294c4fcf8cf5094342cfdecd23230b"
+  },
+  "alone_oai33_1": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "gds_sha256": "8279fea1d8c003803a9e5b0c725dcbf6518c2b68e8a3ae13fdecb927bedb53eb"
+  },
+  "alone_oai33_2": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 2,
+    "by_rule": {
+     "DF.13_MV": 1,
+     "DF.14_MV": 1
+    }
+   },
+   "gds_sha256": "4c77fbd46a509d3a3545f5802448d15948ea2334ae6caafd9beffd3d641b0553"
+  },
+  "pairs_mux2_1": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "d1752799bc2f11691f99354858163335b17e331742e1ef88da023d0b06429fe3"
+  },
+  "pairs_mux2_2": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "8c96193d4532e57a27d11a81d8cbcd4a87ec3eaec1ce27633182c02a9c1d2de5"
+  },
+  "pos_co6": {
+   "magic": {
+    "total": 9,
+    "by_rule": {
+     "== Metal1 overlap of contact < 0.055um in one direction (CO.6)": 1,
+     "== Metal1 minimum area < 0.1444um^2 (M1.3)": 1
+    }
+   },
+   "klayout_a": {
+    "total": 2,
+    "by_rule": {
+     "CO.6b": 1,
+     "M1.3": 1
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 2,
+    "by_rule": {
+     "CO.6b": 1,
+     "M1.3": 1
+    }
+   },
+   "gds_sha256": "74fc46ac552586ffb7178449da12d90a94ac33fbf56db5784f47ff74d1272cad"
+  },
+  "pos_m1sp": {
+   "magic": {
+    "total": 1,
+    "by_rule": {
+     "== Metal1 spacing < 0.23um (M1.2a)": 1
+    }
+   },
+   "klayout_a": {
+    "total": 1,
+    "by_rule": {
+     "M1.2a": 1
+    }
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 1,
+    "by_rule": {
+     "M1.2a": 1
+    }
+   },
+   "gds_sha256": "8153c44b512723a070b7da02e0470de6e5e84089b8e18b87de6d02a4d0e80758"
+  },
+  "rows_mux2_1": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "018bfd59d0149c61de11439ca554d38e51ef631b43284aafc00ef46220d4be1e"
+  },
+  "rows_mux2_2": {
+   "magic": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "932ae83cf3edd56f75911ddf31b0c85c0adae21a4f174e08030dbab9dd746e96"
+  }
+ },
+ "tblock": {
+  "mux2_drc_block": {
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "4d687cc70437f2312916243ff0f9696aa5fed857080ee46af00281d38613a2e1"
+  }
+ },
+ "chip": {
+  "h2": {
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "9bcd1382bf93c6cd25e26c182cdbf4a4290563abf7e3dcd5915b6e8fb715db49"
+  },
+  "x0_full": {
+   "klayout_a": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "klayout_b_conn": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_antenna": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "ttdeck_drc": {
+    "total": 0,
+    "by_rule": {}
+   },
+   "gds_sha256": "2046442cc5c04af042892e337077898d2b3c17dd75a14b2c7d8d8cbb02ef4eff"
+  }
+ }
+}

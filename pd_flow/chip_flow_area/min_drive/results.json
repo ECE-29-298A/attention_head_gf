@@ -1,0 +1,4487 @@
+{
+ "_meta": {
+  "reference": "h2 = chip_flow_area h2_k6 full harden (/Users/samuelzhang/ttharden/fx_h2_k6)",
+  "tools": {
+   "librelane": "3.0.14 (ghcr.io/librelane/librelane:3.0.14)",
+   "openroad": "dcf36133",
+   "yosys": "0.62",
+   "magic": "8.3.623",
+   "klayout_docker": "0.30.7",
+   "klayout_host": "0.30.14"
+  },
+  "pdk_harden": "gf180mcuD open_pdks 54435919abffb937387ec956209f9cf5fd2dfbee",
+  "pdk_tt_precheck": "gf180mcuD e8daeda73ca8f5814dbc0b11d1d05802251a3750 (tt-gds-action@ttgf26c)",
+  "partial_vs_full": "x0_mux21 (--to OpenROAD.STAPostPNR) and x0_full (tt_tool --harden) are bit-identical: synthesis, post-CTS, routed netlist, DEF, SPEF (apart from *DATE)",
+  "full_hardens_used": [
+   "x0_full"
+  ],
+  "d2_band": {
+   "slew": 381,
+   "cap": 2,
+   "fanout": 13
+  }
+ },
+ "h2": {
+  "run": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi",
+  "kind": "full",
+  "netlist": "/Users/samuelzhang/ttharden/fx_h2_k6/runs/wokwi/final/nl/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45475.8,
+  "count_stdcell": 1924,
+  "utilization": 0.87509,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 75.97297228583491,
+   "max_ss_125C_3v00": 41.791936427739635,
+   "max_tt_025C_3v30": 71.1975494268529,
+   "min_ff_n40C_3v60": 76.10719381241604,
+   "min_ss_125C_3v00": 44.09279111075485,
+   "min_tt_025C_3v30": 72.35792969601316,
+   "nom_ff_n40C_3v60": 76.04624345481875,
+   "nom_ss_125C_3v00": 43.057352679784245,
+   "nom_tt_025C_3v30": 71.82787190557242
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.05762379625452929,
+   "max_ss_125C_3v00": 0.9742891214016699,
+   "max_tt_025C_3v30": 0.3251305983136378,
+   "min_ff_n40C_3v60": 0.07754475059338647,
+   "min_ss_125C_3v00": 1.0322671898333766,
+   "min_tt_025C_3v30": 0.35819082047593265,
+   "nom_ff_n40C_3v60": 0.06812750556527063,
+   "nom_ss_125C_3v00": 1.0038183901565847,
+   "nom_tt_025C_3v30": 0.3422775493247124
+  },
+  "setup_ws_min": 41.791936427739635,
+  "hold_ws_min": 0.05762379625452929,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 281,
+  "cap_vio": 2,
+  "fanout_vio": 6,
+  "power_total_W": 0.0029335184954106808,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 50554,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 851.738,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "last_step": "72-misc-reportmanufacturability",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "da990729f2b0af31671cc0724215045c7da2d5f29ffdc61b8aa5fd61238caa01",
+  "post_cts_netlist_sha256": "be11968fa96398516d19fb054a2dba427735c0bc8b21b6188aa71c8b16d857ec",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 47,
+  "resized_um2": 781.486,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 2,
+    "delta_um2": 100.98
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 2,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_4",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 851.738,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 53,
+   "fanout_violations_found": 7,
+   "resized": 47,
+   "buffers_inserted": 33
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": [
+    "gf180mcu_fd_sc_mcu7t5v0__dly*",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_1",
+    "gf180mcu_fd_sc_mcu7t5v0__buf_2",
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_2"
+   ],
+   "CTS_CLK_BUFFERS": [
+    "gf180mcu_fd_sc_mcu7t5v0__clkbuf_4"
+   ],
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_8",
+   "CTS_SINK_CLUSTERING_SIZE": 20,
+   "CTS_SINK_CLUSTERING_MAX_DIAMETER": 80,
+   "DESIGN_REPAIR_MAX_SLEW_PCT": 0
+  },
+  "delta_vs_h2_um2": 0.0,
+  "delta_census_vs_h2_um2": {
+   "cts": 0.0,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": 0.0,
+   "multi_input_combinational_cell": 0.0,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": 0.0,
+   "timing_repair_buffer": 0.0,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m0_ctrl": {
+  "run": "/Users/samuelzhang/ttharden/md_m0_ctrl/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/md_m0_ctrl/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45475.8,
+  "count_stdcell": 1924,
+  "utilization": 0.87509,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.1631
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.428992
+  },
+  "setup_ws_min": 73.1631,
+  "hold_ws_min": 0.428992,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00226199,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 851.738,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "last_step": "43-openroad-stamidpnr-3",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "da990729f2b0af31671cc0724215045c7da2d5f29ffdc61b8aa5fd61238caa01",
+  "post_cts_netlist_sha256": "be11968fa96398516d19fb054a2dba427735c0bc8b21b6188aa71c8b16d857ec",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 47,
+  "resized_um2": 781.486,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 2,
+    "delta_um2": 100.98
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 2,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_4",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 851.738,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 53,
+   "fanout_violations_found": 7,
+   "resized": 47,
+   "buffers_inserted": 33
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6091,
+    "hold_ws": 1.1669,
+    "slew": 38,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 45.6091,
+    "hold_ws": 1.1669,
+    "slew": 38,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.1631,
+    "hold_ws": 0.428992,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2227,
+    "hold_ws": 0.11948,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2227,
+    "hold_ws": 0.11948,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "overrides": {},
+  "delta_vs_h2_um2": 0.0,
+  "delta_census_vs_h2_um2": {
+   "cts": 0.0,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": 0.0,
+   "multi_input_combinational_cell": 0.0,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": 0.0,
+   "timing_repair_buffer": 0.0,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m0_ctrl_s55": {
+  "run": "/Users/samuelzhang/ttharden/md_m0_ctrl_s55/runs/wokwi",
+  "kind": "partial:55-openroad-stapostpnr",
+  "netlist": "/Users/samuelzhang/ttharden/md_m0_ctrl_s55/runs/wokwi/52-openroad-fillinsertion/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45475.8,
+  "count_stdcell": 1924,
+  "utilization": 0.87509,
+  "class_um2": {
+   "sequential_cell": 20986.1,
+   "multi_input_combinational_cell": 19857.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 856.128,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 75.97297228583491,
+   "max_ss_125C_3v00": 41.791936427739635,
+   "max_tt_025C_3v30": 71.1975494268529,
+   "min_ff_n40C_3v60": 76.10719381241604,
+   "min_ss_125C_3v00": 44.09279111075485,
+   "min_tt_025C_3v30": 72.35792969601316,
+   "nom_ff_n40C_3v60": 76.04624345481875,
+   "nom_ss_125C_3v00": 43.057352679784245,
+   "nom_tt_025C_3v30": 71.82787190557242
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.05762379625452929,
+   "max_ss_125C_3v00": 0.9742891214016699,
+   "max_tt_025C_3v30": 0.3251305983136378,
+   "min_ff_n40C_3v60": 0.07754475059338647,
+   "min_ss_125C_3v00": 1.0322671898333766,
+   "min_tt_025C_3v30": 0.35819082047593265,
+   "nom_ff_n40C_3v60": 0.06812750556527063,
+   "nom_ss_125C_3v00": 1.0038183901565847,
+   "nom_tt_025C_3v30": 0.3422775493247124
+  },
+  "setup_ws_min": 41.791936427739635,
+  "hold_ws_min": 0.05762379625452929,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 281,
+  "cap_vio": 2,
+  "fanout_vio": 6,
+  "power_total_W": 0.0029335184954106808,
+  "route_drc": 0,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 50554,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 851.738,
+   "logic": 41739.533,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 7,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "last_step": "55-openroad-stapostpnr",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "da990729f2b0af31671cc0724215045c7da2d5f29ffdc61b8aa5fd61238caa01",
+  "post_cts_netlist_sha256": "be11968fa96398516d19fb054a2dba427735c0bc8b21b6188aa71c8b16d857ec",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 47,
+  "resized_um2": 781.486,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 2,
+    "delta_um2": 100.98
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 2,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_4",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 851.738,
+   "repair": 856.128,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 53,
+   "fanout_violations_found": 7,
+   "resized": 47,
+   "buffers_inserted": 33
+  },
+  "overrides": {},
+  "delta_vs_h2_um2": 0.0,
+  "delta_census_vs_h2_um2": {
+   "cts": 0.0,
+   "logic": 0.0,
+   "repair": 0.0,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": 0.0,
+   "multi_input_combinational_cell": 0.0,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": 0.0,
+   "timing_repair_buffer": 0.0,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m1_minall": {
+  "run": "/Users/samuelzhang/ttharden/md_m1_minall/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/md_m1_minall/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 47284.6,
+  "count_stdcell": 2042,
+  "utilization": 0.909897,
+  "class_um2": {
+   "sequential_cell": 20944.4,
+   "multi_input_combinational_cell": 19170.7,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 43.904,
+   "timing_repair_buffer": 3446.46,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 71.0231
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.394646
+  },
+  "setup_ws_min": 71.0231,
+  "hold_ws_min": 0.394646,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 0,
+  "power_total_W": 0.00234197,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 799.053,
+   "logic": 41010.726,
+   "repair": 3446.464,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 1,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 157
+  },
+  "last_step": "43-openroad-stamidpnr-3",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "fd71f006275a7a27bbfaa7e22ceeef2fc57751f4870b4b14f3c26463664f206c",
+  "post_cts_netlist_sha256": "20e08b6691b720039fbb1496e0798bb0b734a4bc6a16092907b80556c91529b4",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 6,
+  "resized_um2": 52.686,
+  "resized_by_pair": [
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 799.053,
+   "repair": 3446.464,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 50,
+   "fanout_violations_found": 7,
+   "resized": 6,
+   "buffers_inserted": 157
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 41.6337,
+    "hold_ws": 1.09899,
+    "slew": 41,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 41.6337,
+    "hold_ws": 1.09899,
+    "slew": 41,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 71.0231,
+    "hold_ws": 0.394646,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2328,
+    "hold_ws": 0.0993592,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2328,
+    "hold_ws": 0.0993592,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   }
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": "105 cells (see overrides/m1_minall.json)"
+  },
+  "delta_vs_h2_um2": 1808.8,
+  "delta_census_vs_h2_um2": {
+   "cts": -52.7,
+   "logic": -728.8,
+   "repair": 2590.3,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -41.7,
+   "multi_input_combinational_cell": -687.1,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": -52.7,
+   "timing_repair_buffer": 2590.3,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m2_no4": {
+  "run": "/Users/samuelzhang/ttharden/md_m2_no4/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/md_m2_no4/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45403.3,
+  "count_stdcell": 1933,
+  "utilization": 0.873696,
+  "class_um2": {
+   "sequential_cell": 20970.7,
+   "multi_input_combinational_cell": 19572.4,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 39.5136,
+   "timing_repair_buffer": 1141.5,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 72.1343
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.411027
+  },
+  "setup_ws_min": 72.1343,
+  "hold_ws_min": 0.411027,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 0,
+  "power_total_W": 0.00224973,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 794.662,
+   "logic": 41438.79,
+   "repair": 1141.504,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 38,
+   "buf_4": 5,
+   "clkbuf_3": 2,
+   "clkbuf_4": 3
+  },
+  "last_step": "43-openroad-stamidpnr-3",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "75c0051cef4ed0beae2cab4143111e366076decc32623ad8750a9c0fc080046f",
+  "post_cts_netlist_sha256": "4ae8629661750c470ac5055fef2a6fe37d4b8090e001b5f64fdd911b123879f5",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 45,
+  "resized_um2": 480.747,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 5,
+    "delta_um2": 87.81
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 5,
+    "delta_um2": 43.905
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 2,
+    "delta_um2": 21.952
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 794.662,
+   "repair": 1141.504,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 51,
+   "fanout_violations_found": 7,
+   "resized": 45,
+   "buffers_inserted": 48
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 43.6563,
+    "hold_ws": 1.13138,
+    "slew": 39,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 43.6563,
+    "hold_ws": 1.13138,
+    "slew": 39,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 72.1343,
+    "hold_ws": 0.411027,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2195,
+    "hold_ws": 0.109006,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2195,
+    "hold_ws": 0.109006,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0,
+    "power": null
+   }
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": "56 cells (see overrides/m2_no4.json)"
+  },
+  "delta_vs_h2_um2": -72.5,
+  "delta_census_vs_h2_um2": {
+   "cts": -57.1,
+   "logic": -300.7,
+   "repair": 285.4,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -15.4,
+   "multi_input_combinational_cell": -285.4,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": -57.1,
+   "timing_repair_buffer": 285.4,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m2_no4_s55": {
+  "run": "/Users/samuelzhang/ttharden/md_m2_no4_s55/runs/wokwi",
+  "kind": "partial:55-openroad-stapostpnr",
+  "netlist": "/Users/samuelzhang/ttharden/md_m2_no4_s55/runs/wokwi/52-openroad-fillinsertion/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45403.3,
+  "count_stdcell": 1933,
+  "utilization": 0.873696,
+  "class_um2": {
+   "sequential_cell": 20970.7,
+   "multi_input_combinational_cell": 19572.4,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 39.5136,
+   "timing_repair_buffer": 1141.5,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 75.95926591607446,
+   "max_ss_125C_3v00": 39.50539562854112,
+   "max_tt_025C_3v30": 70.04216427326631,
+   "min_ff_n40C_3v60": 76.09746648208838,
+   "min_ss_125C_3v00": 41.9370221530578,
+   "min_tt_025C_3v30": 71.2576755548534,
+   "nom_ff_n40C_3v60": 76.03503819555891,
+   "nom_ss_125C_3v00": 40.83371267804786,
+   "nom_tt_025C_3v30": 70.70123531188774
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.034490189458454286,
+   "max_ss_125C_3v00": 0.9006213807422263,
+   "max_tt_025C_3v30": 0.28667580232212037,
+   "min_ff_n40C_3v60": 0.0574423858071749,
+   "min_ss_125C_3v00": 0.9672298791222443,
+   "min_tt_025C_3v30": 0.3244222760038942,
+   "nom_ff_n40C_3v60": 0.046351923611324675,
+   "nom_ss_125C_3v00": 0.9357799244804073,
+   "nom_tt_025C_3v30": 0.3057187922682734
+  },
+  "setup_ws_min": 39.50539562854112,
+  "hold_ws_min": 0.034490189458454286,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 258,
+  "cap_vio": 2,
+  "fanout_vio": 0,
+  "power_total_W": 0.0029153735376894474,
+  "route_drc": 0,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 50601,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 794.662,
+   "logic": 41438.79,
+   "repair": 1141.504,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 38,
+   "buf_4": 5,
+   "clkbuf_3": 2,
+   "clkbuf_4": 3
+  },
+  "last_step": "55-openroad-stapostpnr",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "75c0051cef4ed0beae2cab4143111e366076decc32623ad8750a9c0fc080046f",
+  "post_cts_netlist_sha256": "4ae8629661750c470ac5055fef2a6fe37d4b8090e001b5f64fdd911b123879f5",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 45,
+  "resized_um2": 480.747,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 5,
+    "delta_um2": 87.81
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 5,
+    "delta_um2": 43.905
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 2,
+    "delta_um2": 21.952
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 794.662,
+   "repair": 1141.504,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 51,
+   "fanout_violations_found": 7,
+   "resized": 45,
+   "buffers_inserted": 48
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": "56 cells (see overrides/m2_no4_s55.json)"
+  },
+  "delta_vs_h2_um2": -72.5,
+  "delta_census_vs_h2_um2": {
+   "cts": -57.1,
+   "logic": -300.7,
+   "repair": 285.4,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -15.4,
+   "multi_input_combinational_cell": -285.4,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": -57.1,
+   "timing_repair_buffer": 285.4,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m3_cost": {
+  "run": "/Users/samuelzhang/ttharden/md_m3_cost/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/md_m3_cost/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45493.3,
+  "count_stdcell": 1942,
+  "utilization": 0.875428,
+  "class_um2": {
+   "sequential_cell": 20981.7,
+   "multi_input_combinational_cell": 19506.5,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 755.149,
+   "clock_inverter": 92.1984,
+   "timing_repair_buffer": 1233.7,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3214
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.425093
+  },
+  "setup_ws_min": 73.3214,
+  "hold_ws_min": 0.425093,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.00225775,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 847.347,
+   "logic": 41383.91,
+   "repair": 1233.702,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 8,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 41,
+   "buf_4": 5,
+   "buf_8": 1,
+   "clkbuf_3": 2,
+   "clkbuf_4": 2
+  },
+  "last_step": "43-openroad-stamidpnr-3",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "5217eff7049fe887a4a6d9d75cf0c1ff935866cbd32d53a88ac3d87e4fcc42e3",
+  "post_cts_netlist_sha256": "e846e4f4d32dc451b319b1c6beb715047d83b108d86a7b44e3e11e660c669116",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 42,
+  "resized_um2": 425.867,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 4,
+    "delta_um2": 70.248
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 5,
+    "delta_um2": 43.905
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 2,
+    "delta_um2": 21.952
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 5,
+    "delta_um2": 21.95
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_4",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 847.347,
+   "repair": 1233.702,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 50,
+   "fanout_violations_found": 7,
+   "resized": 42,
+   "buffers_inserted": 51
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.005,
+    "hold_ws": 1.15889,
+    "slew": 40,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 46.005,
+    "hold_ws": 1.15889,
+    "slew": 40,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3214,
+    "hold_ws": 0.425093,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2082,
+    "hold_ws": 0.117332,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2082,
+    "hold_ws": 0.117332,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "overrides": {
+   "EXTRA_EXCLUDED_CELLS": "34 cells (see overrides/m3_cost.json)"
+  },
+  "delta_vs_h2_um2": 17.5,
+  "delta_census_vs_h2_um2": {
+   "cts": -4.4,
+   "logic": -355.6,
+   "repair": 377.6,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -4.4,
+   "multi_input_combinational_cell": -351.3,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": 0.0,
+   "clock_inverter": -4.4,
+   "timing_repair_buffer": 377.6,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m4_dtrx": {
+  "run": "/Users/samuelzhang/ttharden/md_m4_dtrx/runs/wokwi",
+  "error": "flow stopped at 32-openroad-repairdesignpostgpl: [RSZ-3006] Failed to insert buffer before loads for net core.divider_unit.sum_in\\[19\\]",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "overrides": {
+   "RSZ_DONT_TOUCH_RX": "^_[0-9]+_$"
+  }
+ },
+ "m5_dtlist": {
+  "run": "/Users/samuelzhang/ttharden/md_m5_dtlist/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/md_m5_dtlist/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 46509.7,
+  "count_stdcell": 1995,
+  "utilization": 0.894986,
+  "class_um2": {
+   "sequential_cell": 20981.7,
+   "multi_input_combinational_cell": 19385.8,
+   "inverter": 763.93,
+   "buffer": 131.712,
+   "clock_buffer": 724.416,
+   "clock_inverter": 105.37,
+   "timing_repair_buffer": 2388.38,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.3661
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.410815
+  },
+  "setup_ws_min": 73.3661,
+  "hold_ws_min": 0.410815,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 5,
+  "power_total_W": 0.00228648,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 829.786,
+   "logic": 41263.174,
+   "repair": 2388.378,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 18,
+   "clkbuf_8": 3,
+   "clkinv_1": 8,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 95,
+   "buf_4": 5,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 2
+  },
+  "last_step": "43-openroad-stamidpnr-3",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "417012db5015274b8d3a629c2a68ae4028a8346f8f52f1c4c61bf93204427eb0",
+  "post_cts_netlist_sha256": "b7b12efe604cdd254ce6fe7c0cf4102fc6efd71fb6bbcaf2637ce9a6f1898a60",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 33,
+  "resized_um2": 305.13,
+  "resized_by_pair": [
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 5,
+    "delta_um2": 21.95
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_4",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 829.786,
+   "repair": 2388.378,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 50,
+   "fanout_violations_found": 7,
+   "resized": 33,
+   "buffers_inserted": 104
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 46.0703,
+    "hold_ws": 1.13066,
+    "slew": 46,
+    "cap": 0,
+    "fanout": 5,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 46.0703,
+    "hold_ws": 1.13066,
+    "slew": 46,
+    "cap": 0,
+    "fanout": 5,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.3661,
+    "hold_ws": 0.410815,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 5,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2274,
+    "hold_ws": 0.108907,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 5,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2274,
+    "hold_ws": 0.108907,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 5,
+    "power": null
+   }
+  },
+  "overrides": {
+   "RSZ_DONT_TOUCH_LIST": [
+    "_1162_",
+    "_1381_",
+    "_1785_",
+    "_1905_",
+    "_2137_",
+    "_1617_",
+    "_1742_",
+    "_1778_",
+    "_1988_",
+    "_1417_",
+    "_1925_"
+   ]
+  },
+  "delta_vs_h2_um2": 1033.9,
+  "delta_census_vs_h2_um2": {
+   "cts": -22.0,
+   "logic": -476.4,
+   "repair": 1532.2,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -4.4,
+   "multi_input_combinational_cell": -472.0,
+   "inverter": 0.0,
+   "buffer": 0.0,
+   "clock_buffer": -30.7,
+   "clock_inverter": 8.8,
+   "timing_repair_buffer": 1532.3,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "m6_rmbuf": {
+  "run": "/Users/samuelzhang/ttharden/md_m6_rmbuf/runs/wokwi",
+  "kind": "partial:43-openroad-stamidpnr-3",
+  "netlist": "/Users/samuelzhang/ttharden/md_m6_rmbuf/runs/wokwi/37-openroad-resizertimingpostcts/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45550.4,
+  "count_stdcell": 1922,
+  "utilization": 0.876526,
+  "class_um2": {
+   "sequential_cell": 20999.3,
+   "multi_input_combinational_cell": 19923.6,
+   "inverter": 768.32,
+   "buffer": 79.0272,
+   "clock_buffer": 755.149,
+   "clock_inverter": 96.5888,
+   "timing_repair_buffer": 979.059,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "nom_ff_n40C_3v60": 76.81345199545386,
+   "nom_ss_125C_3v00": 47.64302509581503,
+   "nom_tt_025C_3v30": 73.1675
+  },
+  "hold_ws": {
+   "nom_ff_n40C_3v60": 0.18081558984097054,
+   "nom_ss_125C_3v00": 1.358955320072311,
+   "nom_tt_025C_3v30": 0.428319
+  },
+  "setup_ws_min": 73.1675,
+  "hold_ws_min": 0.428319,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 0,
+  "cap_vio": 0,
+  "fanout_vio": 6,
+  "power_total_W": 0.002263,
+  "route_drc": null,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": null,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 851.738,
+   "logic": 41691.238,
+   "repair": 979.059,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 19,
+   "clkbuf_8": 3,
+   "clkinv_1": 7,
+   "clkinv_4": 1,
+   "inv_2": 1
+  },
+  "census_repair": {
+   "buf_3": 21,
+   "buf_4": 11,
+   "buf_8": 1,
+   "clkbuf_3": 1,
+   "clkbuf_4": 3
+  },
+  "last_step": "43-openroad-stamidpnr-3",
+  "synth_netlist_sha256": "a339bf991497fc194d610cc72c7cf63c2e03d474ec43bf170ea190b0a3432232",
+  "post_repair_netlist_sha256": "73586811fe87a8b0d7f176c3f70ae8cc7359b485df4b8c1993ac825daf37c3e1",
+  "post_cts_netlist_sha256": "eb9aefbe9c77241fec2a492932ddc2c26919a637a56e2f9650e411e6e53c1fa3",
+  "synth_um2": 41116.096,
+  "synth_cells": 1434,
+  "synth_mux2": {
+   "mux2_2": 67
+  },
+  "synth_by_master": {
+   "and2_1": 34,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 11,
+   "aoi21_1": 94,
+   "aoi221_1": 6,
+   "aoi222_1": 2,
+   "aoi22_1": 53,
+   "buf_1": 6,
+   "clkinv_1": 87,
+   "dffq_1": 329,
+   "mux2_2": 67,
+   "mux4_1": 7,
+   "nand2_1": 210,
+   "nand3_1": 26,
+   "nand4_1": 7,
+   "nor2_1": 91,
+   "nor3_1": 26,
+   "nor4_1": 9,
+   "oai211_1": 7,
+   "oai21_1": 122,
+   "oai221_1": 3,
+   "oai22_1": 11,
+   "oai31_1": 9,
+   "oai32_1": 11,
+   "or2_1": 23,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 21,
+   "xnor3_1": 1,
+   "xor2_1": 105,
+   "xor3_1": 8
+  },
+  "resized_count": 47,
+  "resized_um2": 812.216,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 4,
+    "delta_um2": 105.368
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 2,
+    "delta_um2": 100.98
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_4",
+    "count": 1,
+    "delta_um2": 39.514
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 9,
+    "delta_um2": 39.51
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 2,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 3,
+    "delta_um2": 26.343
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 2,
+    "delta_um2": 26.342
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_4",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "nand2_1",
+    "to": "nand2_2",
+    "count": 1,
+    "delta_um2": 8.781
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "clkinv_1",
+    "to": "inv_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or4_1",
+    "to": "or4_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 851.738,
+   "repair": 979.059,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 53,
+   "fanout_violations_found": 7,
+   "resized": 47,
+   "buffers_inserted": 37
+  },
+  "grt_sta_proxy": {
+   "max_ss_125C_3v00": {
+    "setup_ws": 45.6175,
+    "hold_ws": 1.16562,
+    "slew": 47,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "nom_ss_125C_3v00": {
+    "setup_ws": 45.6175,
+    "hold_ws": 1.16562,
+    "slew": 47,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_tt_025C_3v30": {
+    "setup_ws": 73.1675,
+    "hold_ws": 0.428319,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "max_ff_n40C_3v60": {
+    "setup_ws": 76.2952,
+    "hold_ws": 0.119059,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   },
+   "min_ff_n40C_3v60": {
+    "setup_ws": 76.2952,
+    "hold_ws": 0.119059,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 6,
+    "power": null
+   }
+  },
+  "overrides": {
+   "DESIGN_REPAIR_REMOVE_BUFFERS": true
+  },
+  "delta_vs_h2_um2": 74.6,
+  "delta_census_vs_h2_um2": {
+   "cts": 0.0,
+   "logic": -48.3,
+   "repair": 122.9,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": 13.2,
+   "multi_input_combinational_cell": 65.8,
+   "inverter": 4.4,
+   "buffer": -52.7,
+   "clock_buffer": 0.0,
+   "clock_inverter": 0.0,
+   "timing_repair_buffer": 122.9,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": 0.0
+ },
+ "x0_full": {
+  "run": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi",
+  "kind": "full",
+  "netlist": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi/final/nl/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 44911.6,
+  "count_stdcell": 1856,
+  "utilization": 0.864234,
+  "class_um2": {
+   "sequential_cell": 20970.7,
+   "multi_input_combinational_cell": 19625.1,
+   "inverter": 724.416,
+   "buffer": 131.712,
+   "clock_buffer": 693.683,
+   "clock_inverter": 65.856,
+   "timing_repair_buffer": 671.731,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 76.00130162551088,
+   "max_ss_125C_3v00": 43.15573442976002,
+   "max_tt_025C_3v30": 71.87841281179644,
+   "min_ff_n40C_3v60": 76.12856693851218,
+   "min_ss_125C_3v00": 45.19903512734647,
+   "min_tt_025C_3v30": 72.90510446144245,
+   "nom_ff_n40C_3v60": 76.07057243877925,
+   "nom_ss_125C_3v00": 44.267478047281955,
+   "nom_tt_025C_3v30": 72.44091398446953
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.006947220773072739,
+   "max_ss_125C_3v00": 0.8051262107121204,
+   "max_tt_025C_3v30": 0.23854763284346223,
+   "min_ff_n40C_3v60": 0.033703374378649786,
+   "min_ss_125C_3v00": 0.8857324013824942,
+   "min_tt_025C_3v30": 0.2831259751227879,
+   "nom_ff_n40C_3v60": 0.021134872228314262,
+   "nom_ss_125C_3v00": 0.8485701270728003,
+   "nom_tt_025C_3v30": 0.26164182672104835
+  },
+  "setup_ws_min": 43.15573442976002,
+  "hold_ws_min": 0.006947220773072739,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 242,
+  "cap_vio": 1,
+  "fanout_vio": 0,
+  "power_total_W": 0.0027827024459838867,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 49125,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 759.539,
+   "logic": 41451.962,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 17,
+   "clkbuf_8": 3,
+   "clkinv_4": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 18,
+   "buf_4": 8,
+   "clkbuf_4": 1
+  },
+  "last_step": "72-misc-reportmanufacturability",
+  "synth_netlist_sha256": "99daa702b88da8c9f458e3b766b72f95c0648e491dc6dbf71460c3d1e3d7f1a7",
+  "post_repair_netlist_sha256": "f2d4463101eecab99500ee68a4bab7170422a7636ad74f65660ef755beb3fad8",
+  "post_cts_netlist_sha256": "291a0d8a91c0e4755efcdf952349db6c563a1fcb1a94f429dfd4672234f86e3f",
+  "synth_um2": 40804.378,
+  "synth_cells": 1380,
+  "synth_mux2": {
+   "mux2_1": 119
+  },
+  "synth_by_master": {
+   "and2_1": 32,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 14,
+   "aoi21_1": 81,
+   "aoi221_1": 5,
+   "aoi222_1": 3,
+   "aoi22_1": 50,
+   "buf_1": 6,
+   "clkinv_1": 82,
+   "dffq_1": 329,
+   "mux2_1": 119,
+   "mux4_1": 7,
+   "nand2_1": 179,
+   "nand3_1": 27,
+   "nand4_1": 8,
+   "nor2_1": 87,
+   "nor3_1": 21,
+   "nor4_1": 8,
+   "oai211_1": 10,
+   "oai21_1": 73,
+   "oai221_1": 4,
+   "oai22_1": 10,
+   "oai31_1": 10,
+   "oai32_1": 13,
+   "or2_1": 22,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 18,
+   "xnor3_1": 3,
+   "xor2_1": 102,
+   "xor3_1": 9
+  },
+  "resized_count": 49,
+  "resized_um2": 805.631,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 4,
+    "delta_um2": 61.464
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_4",
+    "count": 1,
+    "delta_um2": 57.075
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 1,
+    "delta_um2": 50.49
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 4,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai221_1",
+    "to": "oai221_2",
+    "count": 1,
+    "delta_um2": 24.147
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "mux2_1",
+    "to": "mux2_2",
+    "count": 2,
+    "delta_um2": 8.78
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "clkinv_1",
+    "to": "inv_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 759.539,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 55,
+   "fanout_violations_found": 6,
+   "resized": 49,
+   "buffers_inserted": 27
+  },
+  "overrides": {
+   "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
+   "__src_files__": {
+    "pnr_exclude_md.cells": "# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)\ngf180mcu_fd_sc_mcu7t5v0__oai33_2\n"
+   }
+  },
+  "delta_vs_h2_um2": -564.2,
+  "delta_census_vs_h2_um2": {
+   "cts": -92.2,
+   "logic": -287.6,
+   "repair": -184.4,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -15.4,
+   "multi_input_combinational_cell": -232.7,
+   "inverter": -39.5,
+   "buffer": 0.0,
+   "clock_buffer": -61.5,
+   "clock_inverter": -30.7,
+   "timing_repair_buffer": -184.4,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": -311.718
+ },
+ "x0_mux21": {
+  "run": "/Users/samuelzhang/ttharden/md_x0_mux21/runs/wokwi",
+  "kind": "partial:55-openroad-stapostpnr",
+  "netlist": "/Users/samuelzhang/ttharden/md_x0_mux21/runs/wokwi/52-openroad-fillinsertion/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 44911.6,
+  "count_stdcell": 1856,
+  "utilization": 0.864234,
+  "class_um2": {
+   "sequential_cell": 20970.7,
+   "multi_input_combinational_cell": 19625.1,
+   "inverter": 724.416,
+   "buffer": 131.712,
+   "clock_buffer": 693.683,
+   "clock_inverter": 65.856,
+   "timing_repair_buffer": 671.731,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 76.00130162551088,
+   "max_ss_125C_3v00": 43.15573442976002,
+   "max_tt_025C_3v30": 71.87841281179644,
+   "min_ff_n40C_3v60": 76.12856693851218,
+   "min_ss_125C_3v00": 45.19903512734647,
+   "min_tt_025C_3v30": 72.90510446144245,
+   "nom_ff_n40C_3v60": 76.07057243877925,
+   "nom_ss_125C_3v00": 44.267478047281955,
+   "nom_tt_025C_3v30": 72.44091398446953
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.006947220773072739,
+   "max_ss_125C_3v00": 0.8051262107121204,
+   "max_tt_025C_3v30": 0.23854763284346223,
+   "min_ff_n40C_3v60": 0.033703374378649786,
+   "min_ss_125C_3v00": 0.8857324013824942,
+   "min_tt_025C_3v30": 0.2831259751227879,
+   "nom_ff_n40C_3v60": 0.021134872228314262,
+   "nom_ss_125C_3v00": 0.8485701270728003,
+   "nom_tt_025C_3v30": 0.26164182672104835
+  },
+  "setup_ws_min": 43.15573442976002,
+  "hold_ws_min": 0.006947220773072739,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 242,
+  "cap_vio": 1,
+  "fanout_vio": 0,
+  "power_total_W": 0.0027827024459838867,
+  "route_drc": 0,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 49125,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 759.539,
+   "logic": 41451.962,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 17,
+   "clkbuf_8": 3,
+   "clkinv_4": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 18,
+   "buf_4": 8,
+   "clkbuf_4": 1
+  },
+  "last_step": "55-openroad-stapostpnr",
+  "synth_netlist_sha256": "99daa702b88da8c9f458e3b766b72f95c0648e491dc6dbf71460c3d1e3d7f1a7",
+  "post_repair_netlist_sha256": "f2d4463101eecab99500ee68a4bab7170422a7636ad74f65660ef755beb3fad8",
+  "post_cts_netlist_sha256": "291a0d8a91c0e4755efcdf952349db6c563a1fcb1a94f429dfd4672234f86e3f",
+  "synth_um2": 40804.378,
+  "synth_cells": 1380,
+  "synth_mux2": {
+   "mux2_1": 119
+  },
+  "synth_by_master": {
+   "and2_1": 32,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 14,
+   "aoi21_1": 81,
+   "aoi221_1": 5,
+   "aoi222_1": 3,
+   "aoi22_1": 50,
+   "buf_1": 6,
+   "clkinv_1": 82,
+   "dffq_1": 329,
+   "mux2_1": 119,
+   "mux4_1": 7,
+   "nand2_1": 179,
+   "nand3_1": 27,
+   "nand4_1": 8,
+   "nor2_1": 87,
+   "nor3_1": 21,
+   "nor4_1": 8,
+   "oai211_1": 10,
+   "oai21_1": 73,
+   "oai221_1": 4,
+   "oai22_1": 10,
+   "oai31_1": 10,
+   "oai32_1": 13,
+   "or2_1": 22,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 18,
+   "xnor3_1": 3,
+   "xor2_1": 102,
+   "xor3_1": 9
+  },
+  "resized_count": 49,
+  "resized_um2": 805.631,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 4,
+    "delta_um2": 61.464
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_4",
+    "count": 1,
+    "delta_um2": 57.075
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 1,
+    "delta_um2": 50.49
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 4,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai221_1",
+    "to": "oai221_2",
+    "count": 1,
+    "delta_um2": 24.147
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "mux2_1",
+    "to": "mux2_2",
+    "count": 2,
+    "delta_um2": 8.78
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "clkinv_1",
+    "to": "inv_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 759.539,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 55,
+   "fanout_violations_found": 6,
+   "resized": 49,
+   "buffers_inserted": 27
+  },
+  "overrides": {
+   "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
+   "__src_files__": {
+    "pnr_exclude_md.cells": "# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)\ngf180mcu_fd_sc_mcu7t5v0__oai33_2\n"
+   }
+  },
+  "delta_vs_h2_um2": -564.2,
+  "delta_census_vs_h2_um2": {
+   "cts": -92.2,
+   "logic": -287.6,
+   "repair": -184.4,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -15.4,
+   "multi_input_combinational_cell": -232.7,
+   "inverter": -39.5,
+   "buffer": 0.0,
+   "clock_buffer": -61.5,
+   "clock_inverter": -30.7,
+   "timing_repair_buffer": -184.4,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": -311.718
+ },
+ "x2_mux21_no4": {
+  "run": "/Users/samuelzhang/ttharden/md_x2_mux21_no4/runs/wokwi",
+  "kind": "partial:55-openroad-stapostpnr",
+  "netlist": "/Users/samuelzhang/ttharden/md_x2_mux21_no4/runs/wokwi/52-openroad-fillinsertion/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 44924.8,
+  "count_stdcell": 1872,
+  "utilization": 0.864487,
+  "class_um2": {
+   "sequential_cell": 20966.4,
+   "multi_input_combinational_cell": 19309,
+   "inverter": 724.416,
+   "buffer": 131.712,
+   "clock_buffer": 693.683,
+   "clock_inverter": 65.856,
+   "timing_repair_buffer": 1005.4,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 75.95667243501559,
+   "max_ss_125C_3v00": 42.47756755457496,
+   "max_tt_025C_3v30": 71.54358374895459,
+   "min_ff_n40C_3v60": 76.0959885531562,
+   "min_ss_125C_3v00": 44.70935037629345,
+   "min_tt_025C_3v30": 72.6450102856615,
+   "nom_ff_n40C_3v60": 76.03265077189923,
+   "nom_ss_125C_3v00": 43.711336232273766,
+   "nom_tt_025C_3v30": 72.14466739327065
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.0014063195450661188,
+   "max_ss_125C_3v00": 0.7905760714290869,
+   "max_tt_025C_3v30": 0.2302467170981789,
+   "min_ff_n40C_3v60": 0.030216274781982723,
+   "min_ss_125C_3v00": 0.8766041474158615,
+   "min_tt_025C_3v30": 0.27793124144364967,
+   "nom_ff_n40C_3v60": 0.016635804316080947,
+   "nom_ss_125C_3v00": 0.8371010788148457,
+   "nom_tt_025C_3v30": 0.25509639567195086
+  },
+  "setup_ws_min": 42.47756755457496,
+  "hold_ws_min": 0.0014063195450661188,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 223,
+  "cap_vio": 1,
+  "fanout_vio": 0,
+  "power_total_W": 0.0027794623747467995,
+  "route_drc": 0,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 48974,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 759.539,
+   "logic": 41131.462,
+   "repair": 1005.402,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_4": 17,
+   "clkbuf_8": 3,
+   "clkinv_4": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 36,
+   "buf_4": 7
+  },
+  "last_step": "55-openroad-stapostpnr",
+  "synth_netlist_sha256": "99daa702b88da8c9f458e3b766b72f95c0648e491dc6dbf71460c3d1e3d7f1a7",
+  "post_repair_netlist_sha256": "3da82b0c09cfffdb426dcc783912c4a5804c3ef0e46e11741e18579492afccd1",
+  "post_cts_netlist_sha256": "07d016cadf16c5db304178cdaf13174e0ab4db60af4aadb026c270ee4f7dadcf",
+  "synth_um2": 40804.378,
+  "synth_cells": 1380,
+  "synth_mux2": {
+   "mux2_1": 119
+  },
+  "synth_by_master": {
+   "and2_1": 32,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 14,
+   "aoi21_1": 81,
+   "aoi221_1": 5,
+   "aoi222_1": 3,
+   "aoi22_1": 50,
+   "buf_1": 6,
+   "clkinv_1": 82,
+   "dffq_1": 329,
+   "mux2_1": 119,
+   "mux4_1": 7,
+   "nand2_1": 179,
+   "nand3_1": 27,
+   "nand4_1": 8,
+   "nor2_1": 87,
+   "nor3_1": 21,
+   "nor4_1": 8,
+   "oai211_1": 10,
+   "oai21_1": 73,
+   "oai221_1": 4,
+   "oai22_1": 10,
+   "oai31_1": 10,
+   "oai32_1": 13,
+   "or2_1": 22,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 18,
+   "xnor3_1": 3,
+   "xor2_1": 102,
+   "xor3_1": 9
+  },
+  "resized_count": 46,
+  "resized_um2": 485.136,
+  "resized_by_pair": [
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 5,
+    "delta_um2": 76.83
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 4,
+    "delta_um2": 70.248
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 5,
+    "delta_um2": 43.905
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 4,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 2,
+    "delta_um2": 30.732
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 2,
+    "delta_um2": 21.952
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 5,
+    "delta_um2": 21.95
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "mux2_1",
+    "to": "mux2_2",
+    "count": 2,
+    "delta_um2": 8.78
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "clkinv_1",
+    "to": "inv_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 759.539,
+   "repair": 1005.402,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 52,
+   "fanout_violations_found": 6,
+   "resized": 46,
+   "buffers_inserted": 43
+  },
+  "overrides": {
+   "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
+   "__src_files__": {
+    "pnr_exclude_md.cells": "# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)\ngf180mcu_fd_sc_mcu7t5v0__oai33_2\n"
+   },
+   "EXTRA_EXCLUDED_CELLS": "56 cells (see overrides/x2_mux21_no4.json)"
+  },
+  "delta_vs_h2_um2": -551.0,
+  "delta_census_vs_h2_um2": {
+   "cts": -92.2,
+   "logic": -608.1,
+   "repair": 149.3,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -19.7,
+   "multi_input_combinational_cell": -548.8,
+   "inverter": -39.5,
+   "buffer": 0.0,
+   "clock_buffer": -61.5,
+   "clock_inverter": -30.7,
+   "timing_repair_buffer": 149.3,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": -311.718
+ },
+ "x3_mux21_root16": {
+  "run": "/Users/samuelzhang/ttharden/md_x3_mux21_root16/runs/wokwi",
+  "kind": "partial:55-openroad-stapostpnr",
+  "netlist": "/Users/samuelzhang/ttharden/md_x3_mux21_root16/runs/wokwi/52-openroad-fillinsertion/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 45069.7,
+  "count_stdcell": 1856,
+  "utilization": 0.867275,
+  "class_um2": {
+   "sequential_cell": 20970.7,
+   "multi_input_combinational_cell": 19625.1,
+   "inverter": 724.416,
+   "buffer": 131.712,
+   "clock_buffer": 851.738,
+   "clock_inverter": 65.856,
+   "timing_repair_buffer": 671.731,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 76.03414291168653,
+   "max_ss_125C_3v00": 42.90148802085976,
+   "max_tt_025C_3v30": 71.71645880145427,
+   "min_ff_n40C_3v60": 76.1574007635448,
+   "min_ss_125C_3v00": 45.038956949879754,
+   "min_tt_025C_3v30": 72.77955155648276,
+   "nom_ff_n40C_3v60": 76.10136736181803,
+   "nom_ss_125C_3v00": 44.06363043605454,
+   "nom_tt_025C_3v30": 72.3105862321905
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.03626288261200846,
+   "max_ss_125C_3v00": 0.8919971680430286,
+   "max_tt_025C_3v30": 0.2852067551743888,
+   "min_ff_n40C_3v60": 0.05822331670478247,
+   "min_ss_125C_3v00": 0.9575940311743972,
+   "min_tt_025C_3v30": 0.3217506352418771,
+   "nom_ff_n40C_3v60": 0.047831184811171594,
+   "nom_ss_125C_3v00": 0.9272489705179158,
+   "nom_tt_025C_3v30": 0.3041909032985726
+  },
+  "setup_ws_min": 42.90148802085976,
+  "hold_ws_min": 0.03626288261200846,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 222,
+  "cap_vio": 1,
+  "fanout_vio": 0,
+  "power_total_W": 0.002815509680658579,
+  "route_drc": 0,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 49222,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 917.594,
+   "logic": 41451.962,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_16": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 18,
+   "buf_4": 8,
+   "clkbuf_4": 1
+  },
+  "last_step": "55-openroad-stapostpnr",
+  "synth_netlist_sha256": "99daa702b88da8c9f458e3b766b72f95c0648e491dc6dbf71460c3d1e3d7f1a7",
+  "post_repair_netlist_sha256": "f2d4463101eecab99500ee68a4bab7170422a7636ad74f65660ef755beb3fad8",
+  "post_cts_netlist_sha256": "ee81bbf1184cfe6bbe5cc014742027d818cbdeac63f716cbfabaf36b0ebe433e",
+  "synth_um2": 40804.378,
+  "synth_cells": 1380,
+  "synth_mux2": {
+   "mux2_1": 119
+  },
+  "synth_by_master": {
+   "and2_1": 32,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 14,
+   "aoi21_1": 81,
+   "aoi221_1": 5,
+   "aoi222_1": 3,
+   "aoi22_1": 50,
+   "buf_1": 6,
+   "clkinv_1": 82,
+   "dffq_1": 329,
+   "mux2_1": 119,
+   "mux4_1": 7,
+   "nand2_1": 179,
+   "nand3_1": 27,
+   "nand4_1": 8,
+   "nor2_1": 87,
+   "nor3_1": 21,
+   "nor4_1": 8,
+   "oai211_1": 10,
+   "oai21_1": 73,
+   "oai221_1": 4,
+   "oai22_1": 10,
+   "oai31_1": 10,
+   "oai32_1": 13,
+   "or2_1": 22,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 18,
+   "xnor3_1": 3,
+   "xor2_1": 102,
+   "xor3_1": 9
+  },
+  "resized_count": 49,
+  "resized_um2": 805.631,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 4,
+    "delta_um2": 61.464
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_4",
+    "count": 1,
+    "delta_um2": 57.075
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 1,
+    "delta_um2": 50.49
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 4,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai221_1",
+    "to": "oai221_2",
+    "count": 1,
+    "delta_um2": 24.147
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "mux2_1",
+    "to": "mux2_2",
+    "count": 2,
+    "delta_um2": 8.78
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "clkinv_1",
+    "to": "inv_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 917.594,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 55,
+   "fanout_violations_found": 6,
+   "resized": 49,
+   "buffers_inserted": 27
+  },
+  "overrides": {
+   "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
+   "__src_files__": {
+    "pnr_exclude_md.cells": "# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)\ngf180mcu_fd_sc_mcu7t5v0__oai33_2\n"
+   },
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_16"
+  },
+  "delta_vs_h2_um2": -406.1,
+  "delta_census_vs_h2_um2": {
+   "cts": 65.9,
+   "logic": -287.6,
+   "repair": -184.4,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -15.4,
+   "multi_input_combinational_cell": -232.7,
+   "inverter": -39.5,
+   "buffer": 0.0,
+   "clock_buffer": 96.6,
+   "clock_inverter": -30.7,
+   "timing_repair_buffer": -184.4,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": -311.718
+ },
+ "x4_mux21_root12": {
+  "run": "/Users/samuelzhang/ttharden/md_x4_mux21_root12/runs/wokwi",
+  "kind": "partial:55-openroad-stapostpnr",
+  "netlist": "/Users/samuelzhang/ttharden/md_x4_mux21_root12/runs/wokwi/52-openroad-fillinsertion/tt_um_attention_head_gf.nl.v",
+  "stdcell_um2": 44990.6,
+  "count_stdcell": 1856,
+  "utilization": 0.865754,
+  "class_um2": {
+   "sequential_cell": 20970.7,
+   "multi_input_combinational_cell": 19625.1,
+   "inverter": 724.416,
+   "buffer": 131.712,
+   "clock_buffer": 772.71,
+   "clock_inverter": 65.856,
+   "timing_repair_buffer": 671.731,
+   "tap_cell": 1527.86,
+   "endcap_cell": 342.451,
+   "tie_cell": 158.054
+  },
+  "setup_ws": {
+   "max_ff_n40C_3v60": 76.03072520103086,
+   "max_ss_125C_3v00": 42.58575479458153,
+   "max_tt_025C_3v30": 71.6004342748506,
+   "min_ff_n40C_3v60": 76.15778445663297,
+   "min_ss_125C_3v00": 44.831592152010856,
+   "min_tt_025C_3v30": 72.67632390491205,
+   "nom_ff_n40C_3v60": 76.09991074916853,
+   "nom_ss_125C_3v00": 43.823125924052526,
+   "nom_tt_025C_3v30": 72.20681856812534
+  },
+  "hold_ws": {
+   "max_ff_n40C_3v60": 0.015128121405999801,
+   "max_ss_125C_3v00": 0.8290115495394296,
+   "max_tt_025C_3v30": 0.251374927988157,
+   "min_ff_n40C_3v60": 0.04206024536595672,
+   "min_ss_125C_3v00": 0.9106595735255766,
+   "min_tt_025C_3v30": 0.29598191402232815,
+   "nom_ff_n40C_3v60": 0.02924005564882046,
+   "nom_ss_125C_3v00": 0.8723635394310706,
+   "nom_tt_025C_3v30": 0.2744184956943885
+  },
+  "setup_ws_min": 42.58575479458153,
+  "hold_ws_min": 0.015128121405999801,
+  "setup_vio": 0,
+  "hold_vio": 0,
+  "slew_vio": 214,
+  "cap_vio": 1,
+  "fanout_vio": 0,
+  "power_total_W": 0.002795881126075983,
+  "route_drc": 0,
+  "magic_drc": null,
+  "lvs_errors": null,
+  "antenna_nets": 0,
+  "route_antenna": 0,
+  "wirelength_um": 49016,
+  "hold_buffers": 0,
+  "census_group_um2": {
+   "cts": 838.566,
+   "logic": 41451.962,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "census_cts": {
+   "clkbuf_12": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 2,
+   "inv_4": 1
+  },
+  "census_repair": {
+   "buf_3": 18,
+   "buf_4": 8,
+   "clkbuf_4": 1
+  },
+  "last_step": "55-openroad-stapostpnr",
+  "synth_netlist_sha256": "99daa702b88da8c9f458e3b766b72f95c0648e491dc6dbf71460c3d1e3d7f1a7",
+  "post_repair_netlist_sha256": "f2d4463101eecab99500ee68a4bab7170422a7636ad74f65660ef755beb3fad8",
+  "post_cts_netlist_sha256": "8fa86e75dcff32d60b9f0c143f257e73be86a86e547fd66ae90eda8ab19e4830",
+  "synth_um2": 40804.378,
+  "synth_cells": 1380,
+  "synth_mux2": {
+   "mux2_1": 119
+  },
+  "synth_by_master": {
+   "and2_1": 32,
+   "and3_1": 15,
+   "and4_1": 6,
+   "aoi211_1": 14,
+   "aoi21_1": 81,
+   "aoi221_1": 5,
+   "aoi222_1": 3,
+   "aoi22_1": 50,
+   "buf_1": 6,
+   "clkinv_1": 82,
+   "dffq_1": 329,
+   "mux2_1": 119,
+   "mux4_1": 7,
+   "nand2_1": 179,
+   "nand3_1": 27,
+   "nand4_1": 8,
+   "nor2_1": 87,
+   "nor3_1": 21,
+   "nor4_1": 8,
+   "oai211_1": 10,
+   "oai21_1": 73,
+   "oai221_1": 4,
+   "oai22_1": 10,
+   "oai31_1": 10,
+   "oai32_1": 13,
+   "or2_1": 22,
+   "or3_1": 6,
+   "or4_1": 3,
+   "tieh": 6,
+   "tiel": 12,
+   "xnor2_1": 18,
+   "xnor3_1": 3,
+   "xor2_1": 102,
+   "xor3_1": 9
+  },
+  "resized_count": 49,
+  "resized_um2": 805.631,
+  "resized_by_pair": [
+   {
+    "from": "nor4_1",
+    "to": "nor4_4",
+    "count": 3,
+    "delta_um2": 177.81
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_4",
+    "count": 3,
+    "delta_um2": 79.026
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_2",
+    "count": 4,
+    "delta_um2": 61.464
+   },
+   {
+    "from": "aoi211_1",
+    "to": "aoi211_4",
+    "count": 1,
+    "delta_um2": 57.075
+   },
+   {
+    "from": "buf_1",
+    "to": "buf_3",
+    "count": 6,
+    "delta_um2": 52.686
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_4",
+    "count": 1,
+    "delta_um2": 50.49
+   },
+   {
+    "from": "oai32_1",
+    "to": "oai32_2",
+    "count": 2,
+    "delta_um2": 48.294
+   },
+   {
+    "from": "xnor2_1",
+    "to": "xnor2_2",
+    "count": 4,
+    "delta_um2": 35.124
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_4",
+    "count": 1,
+    "delta_um2": 35.123
+   },
+   {
+    "from": "dffq_1",
+    "to": "dffq_2",
+    "count": 6,
+    "delta_um2": 26.34
+   },
+   {
+    "from": "oai221_1",
+    "to": "oai221_2",
+    "count": 1,
+    "delta_um2": 24.147
+   },
+   {
+    "from": "oai31_1",
+    "to": "oai31_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor4_1",
+    "to": "nor4_2",
+    "count": 1,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "nor2_1",
+    "to": "nor2_2",
+    "count": 2,
+    "delta_um2": 17.562
+   },
+   {
+    "from": "oai21_1",
+    "to": "oai21_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "nand4_1",
+    "to": "nand4_2",
+    "count": 1,
+    "delta_um2": 15.366
+   },
+   {
+    "from": "xor2_1",
+    "to": "xor2_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nand3_1",
+    "to": "nand3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "nor3_1",
+    "to": "nor3_2",
+    "count": 1,
+    "delta_um2": 13.171
+   },
+   {
+    "from": "aoi21_1",
+    "to": "aoi21_2",
+    "count": 1,
+    "delta_um2": 10.976
+   },
+   {
+    "from": "mux2_1",
+    "to": "mux2_2",
+    "count": 2,
+    "delta_um2": 8.78
+   },
+   {
+    "from": "and2_1",
+    "to": "and2_2",
+    "count": 3,
+    "delta_um2": 6.585
+   },
+   {
+    "from": "clkinv_1",
+    "to": "inv_2",
+    "count": 1,
+    "delta_um2": 4.39
+   },
+   {
+    "from": "or2_1",
+    "to": "or2_2",
+    "count": 1,
+    "delta_um2": 4.39
+   }
+  ],
+  "inserted_by_group_um2": {
+   "cts": 838.566,
+   "repair": 671.731,
+   "tap_endcap": 1870.31,
+   "tie": 158.054
+  },
+  "rsz_log": {
+   "slew_violations_found": 55,
+   "fanout_violations_found": 6,
+   "resized": 49,
+   "buffers_inserted": 27
+  },
+  "overrides": {
+   "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
+   "__src_files__": {
+    "pnr_exclude_md.cells": "# PDK drc_exclude.cells without mux2_1 (chip_flow_area/min_drive)\ngf180mcu_fd_sc_mcu7t5v0__oai33_2\n"
+   },
+   "CTS_ROOT_BUFFER": "gf180mcu_fd_sc_mcu7t5v0__clkbuf_12"
+  },
+  "delta_vs_h2_um2": -485.2,
+  "delta_census_vs_h2_um2": {
+   "cts": -13.2,
+   "logic": -287.6,
+   "repair": -184.4,
+   "tap_endcap": 0.0,
+   "tie": 0.0
+  },
+  "delta_class_vs_h2_um2": {
+   "sequential_cell": -15.4,
+   "multi_input_combinational_cell": -232.7,
+   "inverter": -39.5,
+   "buffer": 0.0,
+   "clock_buffer": 17.6,
+   "clock_inverter": -30.7,
+   "timing_repair_buffer": -184.4,
+   "tap_cell": 0.0,
+   "endcap_cell": 0.0,
+   "tie_cell": 0.0
+  },
+  "delta_synth_vs_h2_um2": -311.718
+ },
+ "_mux2_1_drc": {
+  "cells": {
+   "alone_addf_1": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 4,
+     "by_rule": {
+      "DF.13_MV": 2,
+      "DF.14_MV": 2
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 4,
+     "by_rule": {
+      "DF.13_MV": 2,
+      "DF.14_MV": 2
+     }
+    },
+    "gds_sha256": "c43851661b6217cc9950c69eb768eb09335ee0103c4241293fc6b01d6bbadeee"
+   },
+   "alone_mux2_1": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "klayout_b_conn": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "gds_sha256": "d2889a8853753051173c7e42fea63085457510c703d338f7b6e65b86b6e023fa"
+   },
+   "alone_mux2_2": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "klayout_b_conn": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "gds_sha256": "58713c7447abaa735f2771cbea73ac2678294c4fcf8cf5094342cfdecd23230b"
+   },
+   "alone_oai33_1": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "gds_sha256": "8279fea1d8c003803a9e5b0c725dcbf6518c2b68e8a3ae13fdecb927bedb53eb"
+   },
+   "alone_oai33_2": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 2,
+     "by_rule": {
+      "DF.13_MV": 1,
+      "DF.14_MV": 1
+     }
+    },
+    "gds_sha256": "4c77fbd46a509d3a3545f5802448d15948ea2334ae6caafd9beffd3d641b0553"
+   },
+   "pairs_mux2_1": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "d1752799bc2f11691f99354858163335b17e331742e1ef88da023d0b06429fe3"
+   },
+   "pairs_mux2_2": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "8c96193d4532e57a27d11a81d8cbcd4a87ec3eaec1ce27633182c02a9c1d2de5"
+   },
+   "pos_co6": {
+    "magic": {
+     "total": 9,
+     "by_rule": {
+      "== Metal1 overlap of contact < 0.055um in one direction (CO.6)": 1,
+      "== Metal1 minimum area < 0.1444um^2 (M1.3)": 1
+     }
+    },
+    "klayout_a": {
+     "total": 2,
+     "by_rule": {
+      "CO.6b": 1,
+      "M1.3": 1
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 2,
+     "by_rule": {
+      "CO.6b": 1,
+      "M1.3": 1
+     }
+    },
+    "gds_sha256": "74fc46ac552586ffb7178449da12d90a94ac33fbf56db5784f47ff74d1272cad"
+   },
+   "pos_m1sp": {
+    "magic": {
+     "total": 1,
+     "by_rule": {
+      "== Metal1 spacing < 0.23um (M1.2a)": 1
+     }
+    },
+    "klayout_a": {
+     "total": 1,
+     "by_rule": {
+      "M1.2a": 1
+     }
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 1,
+     "by_rule": {
+      "M1.2a": 1
+     }
+    },
+    "gds_sha256": "8153c44b512723a070b7da02e0470de6e5e84089b8e18b87de6d02a4d0e80758"
+   },
+   "rows_mux2_1": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "018bfd59d0149c61de11439ca554d38e51ef631b43284aafc00ef46220d4be1e"
+   },
+   "rows_mux2_2": {
+    "magic": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "932ae83cf3edd56f75911ddf31b0c85c0adae21a4f174e08030dbab9dd746e96"
+   }
+  },
+  "tblock": {
+   "mux2_drc_block": {
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "4d687cc70437f2312916243ff0f9696aa5fed857080ee46af00281d38613a2e1"
+   }
+  },
+  "chip": {
+   "h2": {
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "9bcd1382bf93c6cd25e26c182cdbf4a4290563abf7e3dcd5915b6e8fb715db49"
+   },
+   "x0_full": {
+    "klayout_a": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "klayout_b_conn": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_antenna": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "ttdeck_drc": {
+     "total": 0,
+     "by_rule": {}
+    },
+    "gds_sha256": "2046442cc5c04af042892e337077898d2b3c17dd75a14b2c7d8d8cbb02ef4eff"
+   }
+  }
+ },
+ "_mux2_1_test_block": {
+  "design": "mux2_drc_block (drc/tblock/src), 80 mux2_1 (64 instantiated + 16 mapped)",
+  "magic__drc_error__count": 0,
+  "design__lvs_error__count": 0,
+  "antenna__violating__nets": 0,
+  "route__drc_errors": 0,
+  "design__instance__count__stdcell": 921,
+  "timing__hold__ws": 0.29846681526632196,
+  "timing__setup__ws": 19.728169878338427
+ }
+}

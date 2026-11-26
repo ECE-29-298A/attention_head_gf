@@ -91,6 +91,17 @@
     gate (it costs about 1 s).
   - Exhaustive simulation stays banned (D9).
 
+- F2 (orchestrator, 2026-11-26): accepted `pd_flow/chip_flow_area/min_drive/recommended_config.patch` (x0) on top of F1:
+  a project-level `PNR_EXCLUDED_CELL_FILE` that allows `mux2_1`. The PDK has excluded it since 2022 because of a Magic
+  CO.6 false positive (gf180mcu std-cell issue #23; Magic tech fixed 2022-11-30). It is DRC-clean on Magic, the PDK
+  KLayout deck and the TT precheck KLayout and antenna decks, alone, abutted in every orientation, in a routed
+  block and in the chip.
+  - Result (orchestrator-checked metrics): 45,475.8 -> 44,911.6 µm² (-564.2); slew/cap/fanout 242/1/0; setup >= +43.16 ns.
+  - **Hold margin is only +0.007 ns at ff, -40 °C.** The final choice between x0 and the hold-safer x3 (clkbuf_16 root,
+    -406.1 µm², +0.036 ns, screened only to step 55) is made at chip assembly with a signoff harden.
+  - Forcing minimum drive on logic does not save area: banning upsizes adds buffers (+17 to +1,809 µm²).
+  - Cumulative against the original baseline: 46,819.2 -> 44,911.6 µm² (-1,907.6, -4.07%).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

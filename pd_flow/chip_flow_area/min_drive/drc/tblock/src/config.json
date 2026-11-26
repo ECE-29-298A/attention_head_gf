@@ -1,0 +1,14 @@
+{
+  "DESIGN_NAME": "mux2_drc_block",
+  "VERILOG_FILES": ["dir::mux2_drc_block.v"],
+  "CLOCK_PORT": "clk",
+  "CLOCK_PERIOD": 50,
+  "FP_SIZING": "absolute",
+  "DIE_AREA": [0, 0, 200, 200],
+  "PL_TARGET_DENSITY_PCT": 80,
+  "SYNTH_STRATEGY": "AREA 2",
+  "PNR_EXCLUDED_CELL_FILE": "dir::pnr_exclude_md.cells",
+  "RUN_KLAYOUT_DRC": true,
+  "RUN_KLAYOUT_XOR": false,
+  "RUN_LINTER": false
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+# macOS stand-in for Linux pmap, only so that the TT-precheck deck's log formatter
+# (`pmap <pid> | tail -1`[10, 40]) gets a string; it reports resident size from ps.
+rss=$(ps -o rss= -p "$1" 2>/dev/null | tr -d ' ')
+printf ' total    %12sK\n' "${rss:-0}"
