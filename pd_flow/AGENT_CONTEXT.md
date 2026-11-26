@@ -44,3 +44,16 @@ is 7.65 GiB. Mount space-free host paths only, such as `/Users/samuelzhang/tthar
 copy results back into `pd_flow/`. GF180 PDK (gf180mcuD): `$PDKV/gf180mcuD/libs.tech/{klayout,magic,netgen,ngspice}`,
 `libs.ref/gf180mcu_fd_sc_mcu7t5v0` (7-track cells used by the chip). Hardware tetrising
 method: `/Users/samuelzhang/Desktop/HW_tetrising_ai/*.md`.
+
+## Host KLayout (works natively, preferred for layout scripting and DRC)
+```bash
+K=/Applications/klayout.app/Contents/MacOS/klayout    # KLayout 0.30.14; batch: $K -b -r script.py|.drc -rd var=value
+DRC=$PDKV/gf180mcuD/libs.tech/klayout/tech/drc/gf180mcu.drc
+$K -b -r $DRC -rd input=x.gds -rd topcell=X -rd report=x.lyrdb -rd feol=true -rd beol=true -rd offgrid=true -rd run_mode=deep
+```
+LVS deck: `$PDKV/gf180mcuD/libs.tech/klayout/tech/lvs/`. Reference point: the PDK's own
+`gf180mcu_fd_sc_mcu7t5v0__addf_1`, checked standalone, reports 4 items (DF.13_MV, DF.14_MV).
+These are probably well/tap context rules that clear once the cell sits in a placed row
+(unconfirmed). Compare a custom cell standalone against this and in-row context separately.
+`python3 -c 'import klayout.db'` is not installed on the host. Use `$K -b -r` for Python
+scripts (the `klayout.db`/`pya` API is available inside).
