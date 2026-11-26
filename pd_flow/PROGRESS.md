@@ -1,7 +1,7 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
 - Current module: 2 max_reg (module 1 ripple_add COMPLETE, `modules/ripple_add/REPORT.md`)
-- Phase: module 2 max_reg: Phase 1 PASSED (contract 6d7f5b5ff9a94fc9, `modules/max_reg/PHASE1_GATE.md`); Phase 2 (Agent 3) in progress
+- Phase: module 2 max_reg: Phase 1 PASSED (contract 6d7f5b5ff9a94fc9); Phase 2 done, original retained (`modules/max_reg/PHASE2_GATE.md`); Phase 3 (Agent 4 layout plan) in progress
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -36,7 +36,7 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-Wait for Agent 3 (`modules/max_reg/opt/`). Acceptance: frozen contract all ok, EQY against the golden, and a lower **shipped-flow** chip area (`ll_synth.sh`, baseline 41,116.096 µm²), with timing not worse.
+Wait for Agent 4 (`modules/max_reg/layout_plan/`), then launch Agent 5 (independent layout review). Options: (a) fixed bit-sliced block, (b) only the 22 flops fixed, (c) free placement. At most 4 chip hardens in `/Users/samuelzhang/ttharden/mr3_*`.
 
 ## Completed modules
 - ripple_add: golden retained; standalone tetris block signed off (DRC/LVS clean, SPICE characterized); not integrated (D3).
