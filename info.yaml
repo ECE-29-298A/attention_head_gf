@@ -3,7 +3,7 @@ project:
   title: "Single-tile INT8 attention" # Project title
   author: "Samuel Zhang, Eugene Zhao, Felix Deng" # Project author
   discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description: "64-dim INT8 attention head (2 outputs per run) streamed from an external SPI flash tape"
+  description: "64-dim INT8 attention head (8 outputs per run), SPI target host interface, Q/K/V streamed from a quad SPI flash tape (TT QSPI Pmod)"
   language: "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz: 10000000 # Target clock frequency in Hz
 
@@ -29,34 +29,34 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "Host data 0"
-  ui[1]: "Host data 1"
-  ui[2]: "Host data 2"
-  ui[3]: "Host data 3"
-  ui[4]: "Host data 4"
-  ui[5]: "Host data 5"
-  ui[6]: "Host data 6"
-  ui[7]: "Host data 7"
+  ui[0]: "SPI SCK"
+  ui[1]: "SPI MOSI"
+  ui[2]: "SPI CS#"
+  ui[3]: ""
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
 
   # Outputs
-  uo[0]: "Result data 0"
-  uo[1]: "Result data 1"
-  uo[2]: "Result data 2"
-  uo[3]: "Result data 3"
-  uo[4]: "Result data 4"
-  uo[5]: "Result data 5"
-  uo[6]: "Result data 6"
-  uo[7]: "Result data 7"
+  uo[0]: "SPI MISO"
+  uo[1]: "DRDY (result ready)"
+  uo[2]: ""
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: "Flash MOSI"
-  uio[1]: "Flash MISO"
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: "Flash SCK"
-  uio[5]: "Flash chip select n"
-  uio[6]: "Host valid or ready"
-  uio[7]: "Chip ready or valid"
+  uio[0]: "Flash CS0#"
+  uio[1]: "Flash IO0"
+  uio[2]: "Flash IO1"
+  uio[3]: "Flash SCK"
+  uio[4]: "Flash IO2"
+  uio[5]: "Flash IO3"
+  uio[6]: "CS1# (Pmod RAM A, held high)"
+  uio[7]: "CS2# (Pmod RAM B, held high)"
 
 # Do not change!
 yaml_version: 6

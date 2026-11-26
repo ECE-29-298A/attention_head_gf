@@ -2,7 +2,7 @@
 module tb_divider;
     logic clk = 0;
     always #5 clk = ~clk;
-    logic rst_n = 0, start = 0;
+    logic rst_n = 0, start = 0, shift = 0;
     logic signed [19:0] sum_in = 0;
     logic [11:0] denominator = 1;
     wire busy, done;
@@ -29,6 +29,7 @@ module tb_divider;
         for (int cycle = 1; cycle <= 24; cycle++) begin
             sum_in = 20'h01234; denominator = 12'd3;
             start = disturb && (cycle == 3 || cycle == 23 || cycle == 24);
+            shift = disturb && cycle == 24; // the completing division wins over a shift
             @(negedge clk);
             if (cycle < 24) begin
                 assert (busy && !done && result == previous_result)
@@ -38,7 +39,7 @@ module tb_divider;
                     else $fatal(1, "O=%0d L=%0d: got %0d expected %0d", value, divisor, result, expected);
             end
         end
-        start = 0;
+        start = 0; shift = 0;
     endtask
 
     string path;
@@ -71,11 +72,19 @@ module tb_divider;
                         else $fatal(1, "Result not held or done not a pulse");
                 end
             end
+            // Serial output: each shift moves the result left by one, taking in 0.
+            if (checked % 103 == 0) begin
+                for (int k = 1; k <= 13; k++) begin
+                    shift = 1; @(negedge clk); shift = 0;
+                    assert (!busy && !done && result == 12'(expected << k))
+                        else $fatal(1, "Shift %0d of result %0d", k, expected);
+                end
+            end
             checked++;
             status = $fscanf(fd, "%d %d %d", value, divisor, expected);
         end
         assert (status == -1 && checked > 100000) else $fatal(1, "Incomplete vector file");
-        $display("PASS: divider %0d vectors; 24-cycle latency, 12-bit signed rounding, invalid inputs, input latching, busy starts, resets and consecutive operations", checked);
+        $display("PASS: divider %0d vectors; 24-cycle latency, 12-bit signed rounding, result shift, invalid inputs, input latching, busy starts, resets and consecutive operations", checked);
         $finish;
     end
     initial begin #1000000000; $fatal(1, "Divider timeout"); end

@@ -133,3 +133,82 @@ The host now writes the memory in the order the chip consumes it (`tape()` in `p
 The cycle counts come from the pin-level test, which stalls each result byte for three cycles. The GF180 Liberty area was not measured here because the PDK submodule was not checked out; the cell and flip-flop counts above use the same Yosys 0.69 on both designs. The cost is memory: a 32-chunk head at N = 16 is 68,608 tape bytes instead of 2,112, and the host must reset the chip to release chip select before rewriting it.
 
 The top (four tests, including a real SmolLM head and four-chunk heads), controller (79 cases with a full 32-chunk head, reset in nine phases, three host-ready schedules), block, divider and Python regressions pass. The top test also passes on a Yosys generic gate netlist. The shuttle LibreLane run is still to be confirmed in CI.
+
+## 10. SPI target host interface
+
+The 8-bit parallel host bus (`ui_in`, `uo_out` and the `uio[6]`/`uio[7]` handshake) is replaced by an SPI target in mode 0: SCK, MOSI and CS# on `ui_in[2:0]`, MISO on `uo_out[0]` and DRDY on `uo_out[1]`. `uio[7:6]` are now unused; the flash pins are unchanged. A 16-bit config frame `0000000, cont, shift[3:0], N-1[3:0]` starts a run on its CS# rise. Each component is then read as a 16-bit frame, the signed 12-bit result followed by 4 zeros, while DRDY is high. Frames, timing rules and reset length are in `docs/pin-protocol.md`; `config_frame()` and `decode_result_frame()` are in `python/src/attention_model.py`.
+
+- `project.v`: SCK and CS# go through 2 synchronizer flops and 1 edge flop each. MOSI has no synchronizer: the chain takes `ui_in[1]` directly, 2 to 3 clk after the SCK pin rises (including late metastability resolution). The host holds MOSI from 4 clk before the rise to 4 clk after it, so no flop samples MOSI while it changes. The config registers are one 9-bit chain `{cont, shift, last}` that shifts only while the core is idle, which ignores a config write while busy. One synchronized CS# rise drives both `start` and `out_ready`. The `stage` FSM, the LAUNCH cycle, the 1 to 16 range check, `cfg_ready`/`cfg_accept` and the `uo_out` gating are removed. None of the new flops is reset.
+- `attention_controller.sv`: takes `last = N-1`, so the decrementer is gone. `high_byte` and the byte mux are also removed. OUTPUT ends on one `out_ready` per component. `out_bit` is the divider's `result[11]`, and `out_shift` (a synchronized SCK fall with CS# low) shifts it while `out_valid` is high. The gate is needed: the divider writes `result` one clk before OUTPUT, and an ungated shift in that cycle loses the MSB. The controller test found this.
+- `divider.v`: a `shift` input moves `result` left and takes in 0. A completing division overrides it. A port was used instead of the planned `SHIFT_OUT` parameter: `test/divider` changes by one declaration either way, and the parameter would add a generate branch. The `result` reset stays, because removing it saves at most 31 µm².
+
+| | Before | After |
+| --- | ---: | ---: |
+| Flip-flops | 204 | 204 |
+| Cell area (§6 recipe: Yosys 0.71 `synth`, default ABC, GF180 7-track TT) | 35,040 µm² | 34,522 µm² |
+| top / controller / divider | 1,646 / 5,639 / 8,460 µm² | 1,297 / 5,084 / 8,765 µm² |
+
+`max_reg` RTL is unchanged but maps 81 µm² larger, which is ABC variation. The LibreLane harden is still to be run.
+
+Timing: the chip acts on an SCK or CS# edge within 3 clk, and every host rule is 4 clk, leaving 1 clk for metastability and pad delays. In zero-delay RTL simulation, host phases of 3 clk still pass and 2 clk fail.
+
+Tests:
+- The top test drives SPI frames on timers unrelated to clk: exactly 4-clk phases (SCK = clk/8), the same with every edge on a clk edge, jittered non-integer 4 to 7 clk phases, and fixed 10.37-clk phases.
+- It reads DRDY exactly `t_CSW` = 4 clk after each read and asserts it is low.
+- In random runs it sends a config frame while busy and checks that the frame is ignored. It also puts junk on the unused `ui_in` bits, sends 0 to 2 SCK pulses with CS# high before each read, and holds reset for exactly 3 clk.
+- `tb_controller.sv` reads results bit by bit at a random pace. Outside OUTPUT it sends random shifts and CS# rises.
+
+All regressions pass: Python, divider (now with shift checks), controller (79 cases, 3 seeds), the top test (runner and TT Makefile), blocks and spi_byte. The top test also passes on a flattened Yosys generic gate netlist; with a 2-clk reset that netlist goes to X, so the 3-clk minimum is real. Verilator lint shows the same 3 warnings as before.
+
+## 11. Quad SPI read of the tape
+
+The tape is now read with Fast Read Quad Output (`0x6B`) on the Tiny Tapeout QSPI Pmod pins: `uio[0]` CS0#, `uio[1]` IO0, `uio[2]` IO1, `uio[3]` SCK, `uio[4]` IO2, `uio[5]` IO3. `uio[6]` and `uio[7]` (the Pmod RAMs' CS1#/CS2#, which have no pull-ups) are driven high. IO0 is an output only for the command and address; IO1 to IO3 are always inputs. The W25Q128JV-IQ has QE set at the factory, so the chip sends no setup command. Host-side behaviour is unchanged.
+
+- `attention_controller.sv`:
+  - `rx_bit` becomes a 4-bit `nibble`, loaded from IO3..IO0 on each SCK rise and shifted up one bit per clock; the MAC takes `nibble[3]`, so the 4 bits are used on the 4 clocks after the rise (1 bit per clock, the adder's rate). SCK runs at `clk`/4 and is high for 1 clock (`spi_sck <= rise`). The next rise comes with the nibble's last bit.
+  - `pos` now increments every clock (no enable). The command, address and 8 dummy clocks reuse CMD with `pos` as a clock count: RESTART is pos 0, CMD runs pos 1 to 161, SCK rises from phase 1 and IO0 changes in phase 0, and the 41st rise takes the first data nibble on the edge into SCORE. `spi_mosi` decodes `0x6B` from `pos`; `spi_mosi_oe = CMD && !pos[7]` drops after the last address bit, 8 SCK cycles before the flash drives IO0.
+  - No stalls: RESTART + CMD (162 clk), a score row (1024) and a V block (16) are all even, and `pos` is cleared only at start and where its parity is kept, so `pos[0]` always equals the ring phase. The `component` flop is removed and `pos[0]` drives the MAC's `sel` and the divider phase wait.
+  - The last nibble of a run has no rise after it, so the flash keeps the next nibble on IO3..IO0. A continue run's start edge samples it. The flash therefore sees exactly `40 + 2·bytes` rises, with nothing read ahead.
+- `tape()`: each token's two V values are stored by bit plane (`v_pair()`: `a7 b7 a6 b6 … a0 b0`), so at 1 bit per clock each bit reaches the ring head when its component is there. Q and K bytes are unchanged.
+- `project.v`: pin map and output enables only.
+
+| | Before (§10) | After |
+| --- | ---: | ---: |
+| Flip-flops | 204 | 206 (+4 nibble, −1 `rx_bit`, −1 `component`) |
+| Cell area, §10 recipe | 34,522 µm² | 34,904 µm² |
+| controller | 5,084 µm², 37 flops | 5,466 µm², 39 flops |
+| Clock cycles, start to first division, fresh run at N = 16 | 66,144 to 66,145 | 33,186 |
+| Same, continue run at N = 16 | 33,311 to 33,312 | 16,640 |
+| Clock cycles, 32-chunk head at N = 16 (plus about 51 per run for the divisions) | about 1.10 M | about 0.55 M |
+| Top test, 4-chunk head at N = 16 (with host frames) | 168,759 | 85,785 |
+| Controller test, total cycles (seed 298) | 5,112,363 | 2,582,246 |
+
+The run counts were probed in the controller test. A fresh run is exactly 162 + 2064·N clocks to the first division, and a continue run 1040·N. Because the nibble shifts every clock, the capture register needs only 3 mux2s, against a 4:1 lane mux, 4 load enables and the stall rule in a first version (35,112 µm², 207 flops). With this recipe, ABC moves the controller's area by about ±100 µm² for single-gate edits, so variants inside that range were chosen on gate count. `spi_mosi_oe` has a sub-ns static hazard at the CMD→SCORE edge. It is harmless: IO0 is 0 on both sides, and the flash does not drive until 8 SCK cycles later. Registering the output enable would cost a flop.
+
+Tests: both flash models are now `0x6B` quad flashes. They check the command and address, start driving after the 8th dummy clock, change data after each SCK falling edge (the top model used to change after the rising edge), and put junk on undriven lines. They fail if IO0 is driven while the flash drives it, if IO0 is driven outside the command and address (including while deselected), or if IO0 is not driven during the command. The top test also checks that IO1 to IO3 are inputs and that CS1#/CS2# are driven high, and adds resets during the dummy clocks and just after the first data nibble. The controller test adds a reset during the dummy clocks. The bit-count assertions are now `40 + 2·bytes`. Both models also check IO0 setup and hold around each command rise (IO0 must equal its value from the previous clk) and mode 0 (SCK low while CS# is high and when CS# falls). Mutations caught: 7 dummy clocks, IO0 released late, IO0 output enable on IO1, CS2# low, IO2/IO3 swapped, a different V bit order, a read-ahead at the end of a run, IO0 decoded from `pos - 2` (changing on the edge that raises SCK), and the continue-run start rise also firing in fresh runs (an SCK pulse in RESTART). All regressions pass (Python 10, divider, controller 79 cases × 3 seeds, top runner and TT Makefile 3 pass + 1 skip, blocks, spi_byte), and Verilator lint shows the same 3 warnings.
+
+## 12. Eight outputs per run
+
+The output ring depth is now the parameter `OUTPUTS` (2, 4 or 8) on `tt_um_attention_head_gf`, `attention_controller` and `mac_unit`; the chip uses 8. A run computes 8 output sums on the one shared adder, so a head is 8 runs instead of 32. Each run ends with 8 divisions and 8 result frames (same frame and DRDY rules as §10); after the eighth CS# rise the chip is idle.
+
+- `mac_unit.v`: the ring is one `20·OUTPUTS`-bit register that shifts by 20 every clock; the head `O0 = ring[19:0]` is the only output, and only the tail entry has a mux (sum, or the head while scoring). No enables, no reset. `sel` is `log2(OUTPUTS)` bits; L updates at `sel == 0`.
+- `attention_controller.sv`: the ring phase is `pos[P-1:0]` (P = log2 OUTPUTS). VALUE is `8·OUTPUTS` clocks with `pos = {bit[2:0], component[P-1:0]}`, `bit_sel = ~pos[P+2:P]` and end at `&pos[P+2:0]`; there is still no stall logic. `output_index` is P bits; OUTPUT increments it and goes idle after index `OUTPUTS-1`. `o1` is gone.
+- Ring phase: from the first V bit of a run to its last division, `pos` only counts up or wraps at multiples of OUTPUTS (score row 1024, V block 8·OUTPUTS). The clears at start and at the end of CMD (162 clk, not a multiple of 4 or 8) all come before the run's first V bit, which loads every ring entry afresh (`first`, bit 7), so no alignment is needed there and nothing was added for it.
+- `tape(Q, K, V, chunks, outputs=8)`: each token's V values for a chunk are `v_planes()` bytes in bit-plane order `c0b7 c1b7 … c(n-1)b7 c0b6 … c(n-1)b0`; a head has `64/OUTPUTS` chunks. `v_pair()` is replaced by `v_planes()`.
+
+Area (§6 recipe, Yosys 0.71, default ABC; `chparam -set OUTPUTS n tt_um_attention_head_gf`):
+
+| | Before (§11) | OUTPUTS = 2 | 4 | 8 |
+| --- | ---: | ---: | ---: | ---: |
+| Cell area | 34,904 µm² | 34,912 | 37,867 | 42,899 |
+| Flip-flops | 206 | 206 | 247 | 328 |
+| mac_unit (local) | 10,260 / 74 | 10,238 / 74 | 12,906 / 114 | 18,009 / 194 |
+| controller | 5,466 / 39 | 5,501 / 39 | 5,789 / 40 | 5,672 / 41 |
+| Final cell area estimate (× 38,493 / 35,040) | 38,343 | 38,352 | 41,598 | 47,125 |
+| Core utilization estimate (51,967 µm²) | 73.8% | 73.8% | 80.0% | 90.7% |
+
+At 8 the change is +122 flops: +120 ring (6 × 20) and +2 `output_index`; mac logic grows only 132 µm² beyond the flops. Other modules are unchanged RTL (divider moves 40 µm² by ABC). The estimate scales our synthesis number by the baseline's LibreLane final / our-recipe ratio (38,493 / 35,040 = 1.099), not by LibreLane's own synthesis ratio (38,493 / 33,121 = 1.162), since the two synthesis flows differ. 90.7% is close to the 96 to 99% at which placement failed before; 4 outputs (80%) is the standard-cell fallback.
+
+Cycles per head at N = 16 (tape clocks `162 + 1024·N + (64/OUTPUTS)·N·(1024 + 8·OUTPUTS)`, plus 64 divisions of about 25 clk and at most OUTPUTS−1 phase wait each; host frame time not included): OUTPUTS = 2 about 0.551 M, 4 about 0.289 M, 8 about 0.158 M. A continue run at 8 is 17,408 clk and a fresh run 33,954 to the first division. The top test's 4-chunk N = 16 head took 85,938 / 88,862 / 94,888 cycles at 2 / 4 / 8 including host frames (4 runs each, so 8, 16 or 32 reads).
+
+Tests: `test/controller/run.py` now runs OUTPUTS = 8, 4, 2 (`--outputs` to pick; Verilator `-GOUTPUTS`); `test/top/run.py --outputs 2|4|8` (default 8; the TT Makefile flow uses the top's default 8); `OUTPUTS=n make mac_unit` in `test/blocks` (default 8). Directed controller cases run the chunk(s) that hold their 4 values, so at 8 they are single fresh runs; random cases and a whole head still cover continue runs. Top tests take chunk numbers modulo `64/OUTPUTS`, and after each run's last read check that DRDY stays low for 40 clk. The mac block test checks the ring head every cycle. At OUTPUTS = 2 the controller test's cycle count (seed 298) equals §11's 2,582,246. Mutations caught at 8: V bits read byte-wise (`bit_sel = ~pos[2:0]`), the division phase off by one, and 7 reads per run instead of 8.

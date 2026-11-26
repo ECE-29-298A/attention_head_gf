@@ -1,4 +1,8 @@
-"""Verify the integrated RTL controller; only memory/host behavior is modeled."""
+"""Verify the integrated RTL controller; only memory/host behavior is modeled.
+
+Runs at OUTPUTS = 8 (the chip), 4 and 2 unless --outputs picks some.
+"""
+import argparse
 from pathlib import Path
 import random
 import sys
@@ -13,23 +17,23 @@ sys.path.insert(0, str(ROOT / "python/src"))
 from attention_model import chip_attention, dot, exp_weight, tape
 
 
-def encode_case(q, k, v, shift=0, chunks=(0,)):
+def encode_case(outputs, q, k, v, shift=0, chunks=(0,)):
     """Encode the tape and the Python model's intermediate results for RTL assertions.
 
     q: 64 ints, k and v: N rows of 64 ints. The chunks run in order: one fresh run, then continue runs.
     """
     scores = [dot(q, row) for row in k]
     weights = [exp_weight(max(scores), s, score_shift=shift) for s in scores]
-    image = tape(q, k, v, chunks)
+    image = tape(q, k, v, chunks, outputs)
     fields = [len(k), shift, len(chunks), len(image)] + image + scores + weights
     for chunk in chunks:
-        chunk_v = [row[2 * chunk:2 * chunk + 2] for row in v]
-        fields.extend(sum(w * row[c] for w, row in zip(weights, chunk_v)) for c in range(2))
+        chunk_v = [row[outputs * chunk:outputs * (chunk + 1)] for row in v]
+        fields.extend(sum(w * row[c] for w, row in zip(weights, chunk_v)) for c in range(outputs))
         fields.extend(chip_attention(q, k, chunk_v, score_shift=shift))  # signed 12-bit results
     return " ".join(str(x) for x in fields)
 
 
-def vectors():
+def vectors(outputs):
     rng = random.Random(298)
     vec = lambda lo=-128, hi=127: [rng.randint(lo, hi) for _ in range(64)]
     pad = lambda row: row + [0] * (64 - len(row))
@@ -37,7 +41,7 @@ def vectors():
     def at_chunk(rows, group):
         """4-wide V rows at components 4*group.., random bytes elsewhere (a wrong chunk shows up).
 
-        Each directed case runs chunk 2*group, then 2*group+1 as a continue run, covering all four values.
+        Each directed case runs the chunks that hold them (2 runs at OUTPUTS=2, a continue run second).
         """
         out = []
         for row in rows:
@@ -76,36 +80,42 @@ def vectors():
     cases += [(q, k, at_chunk([[0, 0, 0, 0], [8, -8, 7, -9]], 6), 0, 6),
               (q, k, at_chunk([[1, -1, 1, -1], [9, -9, 10, -10]], 14), 0, 14)]
     for q, k, v, shift, group in cases:
-        yield encode_case(q, k, v, shift, (2 * group, 2 * group + 1))
+        yield encode_case(outputs, q, k, v, shift, sorted({(4 * group + i) // outputs for i in range(4)}))
 
     for n in range(1, 17):
         for _ in range(2):
             # Full-range INT8: score gaps up to ~10^5, so shifts 10..15 keep several weights alive.
-            yield encode_case(vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
-                              rng.randint(10, 15), rng.sample(range(32), 3))
+            yield encode_case(outputs, vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
+                              rng.randint(10, 15), rng.sample(range(64 // outputs), 3))
         for _ in range(2):
             # SmolLM-like small activations with mid-range shifts.
-            yield encode_case(vec(-40, 40), [vec(-40, 40) for _ in range(n)], [vec() for _ in range(n)],
-                              rng.randint(4, 12), [rng.randrange(32)])
-    yield encode_case([0] * 64, [[0] * 64] * 16, [[0] * 64] * 16, 0)
-    # A whole head: all 32 chunks from one pass 1.
-    yield encode_case(vec(), [vec() for _ in range(16)], [vec() for _ in range(16)], 13, range(32))
+            yield encode_case(outputs, vec(-40, 40), [vec(-40, 40) for _ in range(n)], [vec() for _ in range(n)],
+                              rng.randint(4, 12), [rng.randrange(64 // outputs)])
+    yield encode_case(outputs, [0] * 64, [[0] * 64] * 16, [[0] * 64] * 16, 0)
+    # A whole head: all 64 / OUTPUTS chunks from one pass 1.
+    yield encode_case(outputs, vec(), [vec() for _ in range(16)], [vec() for _ in range(16)], 13,
+                      range(64 // outputs))
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--outputs", type=int, nargs="+", choices=(2, 4, 8), default=[8, 4, 2])
     sources = ["test/controller/tb_controller.sv", "src/attention_controller.sv",
                "src/mac_unit.v", "src/ripple_add.v", "src/max_reg.v",
                "src/exp_lut.v", "src/divider.v"]
     with tempfile.TemporaryDirectory(prefix="attention-controller-") as temporary:
         work = Path(temporary)
-        data = work / "vectors.txt"
-        lines = list(vectors())
-        data.write_text("\n".join(lines) + "\n")
-        args = (f"+VECTORS={data}", f"+CASES={len(lines)}")
-        current = build(work, "tb_controller", sources)
-        # Different host-ready schedules supplement the deterministic Python input seed.
-        for seed in (298, 2026, 16):
-            simulate(current, *args, f"+verilator+seed+{seed}")
+        for outputs in parser.parse_args().outputs:
+            build_dir = work / f"outputs{outputs}"
+            build_dir.mkdir()
+            data = build_dir / "vectors.txt"
+            lines = list(vectors(outputs))
+            data.write_text("\n".join(lines) + "\n")
+            args = (f"+VECTORS={data}", f"+CASES={len(lines)}")
+            current = build(build_dir, "tb_controller", sources, f"-GOUTPUTS={outputs}")
+            # Different host-ready schedules supplement the deterministic Python input seed.
+            for seed in (298, 2026, 16):
+                simulate(current, *args, f"+verilator+seed+{seed}")
 
 if __name__ == "__main__":
     main()

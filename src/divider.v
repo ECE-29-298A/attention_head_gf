@@ -5,7 +5,9 @@
 // Matches Python divide_round (out_frac = 4) on its domain.
 // 23 restoring-division steps + 1 round/sign step after the accepted start.
 // Inputs are latched when start && !busy. Starts while busy are ignored.
-// done pulses for one cycle; result holds until completion of the next request.
+// done pulses for one cycle; result holds until completion of the next request,
+// except that shift moves it left by one bit, taking in 0 (a serial output, MSB
+// first, on result[11]). A completing division overrides a shift in the same cycle.
 // Invalid requests (zero denominator, sum=-524288, or rounded result outside
 // signed 12-bit range) complete with result=0 at the normal latency. Valid INT8
 // attention cannot produce these requests. This is not saturating arithmetic.
@@ -18,6 +20,7 @@ module divider #(parameter LATCH_DENOMINATOR = 1, parameter CHECK_INVALID = 1) (
     input  wire              start,
     input  wire signed [19:0] sum_in,      // Weighted sum O_i.
     input  wire        [11:0] denominator, // Weight sum L; must be positive.
+    input  wire              shift,
     output wire              busy,
     output reg               done,
     output reg signed [11:0] result       // Weighted average of V, in 1/16 V steps.
@@ -72,6 +75,7 @@ module divider #(parameter LATCH_DENOMINATOR = 1, parameter CHECK_INVALID = 1) (
             result <= 12'sd0;
         end else begin
             done <= 1'b0;
+            if (shift) result <= {result[10:0], 1'b0};
             case (state)
                 IDLE: if (start) state <= DIVIDE;
                 DIVIDE: if (step == 5'd22) state <= ROUND;

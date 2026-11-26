@@ -1,12 +1,17 @@
-// Tiny Tapeout wrapper. The host sends N (1..16), then {cont, 3'b000, shift[3:0]}
-// on ui_in; the chip reads its Q/K/V tape from external SPI flash and streams four
-// result bytes on uo_out: two V components of the attention output as signed
-// 12-bit results (1/16 V steps), each low byte first, sign-extended.
+// Tiny Tapeout wrapper: an SPI target (mode 0) for the host, and the quad SPI
+// flash controller for the Q/K/V tape on the TT QSPI Pmod pins.
+// docs/pin-protocol.md has the host timing rules.
+// Config frame (16 bits, MSB first): 7 zeros, cont, shift[3:0], N-1[3:0]; the run
+// starts when CS# rises. Each result frame (16 bits, sent while DRDY is high) is a
+// signed 12-bit result, then 4 zeros; its CS# rise moves on to the next of the
+// OUTPUTS components (8), and after the last one the chip is idle.
 // cont = 0 restarts the tape (pass 1, then the first chunk); cont = 1 computes the
 // next chunk on the tape. See attention_controller.sv for the tape layout.
 `default_nettype none
 
-module tt_um_attention_head_gf (
+module tt_um_attention_head_gf #(
+    parameter OUTPUTS = 8 // outputs per run: 2, 4 or 8
+) (
     input  wire [7:0] ui_in,
     output wire [7:0] uo_out,
     input  wire [7:0] uio_in,
@@ -16,54 +21,44 @@ module tt_um_attention_head_gf (
     input  wire       clk,
     input  wire       rst_n
 );
-    localparam [1:0] COUNT = 2'd0, CONFIG = 2'd1, LAUNCH = 2'd2, RUN = 2'd3;
-    reg [1:0] stage;
-    reg [4:0] count;
-    reg cont;
-    reg [3:0] shift;
+    // SCK and CS# pass through two synchronizer flops, then one more for edge
+    // detection. None of these are reset: the host holds CS# high during reset
+    // (>= 3 clk). MOSI needs no synchronizer: the chain takes it 2-3 clk after
+    // the SCK pin rises, and the host holds it from 4 clk before to 4 clk after.
+    reg [2:0] sck_sync, cs_sync;
+    // Config shift chain {cont, shift[3:0], last[3:0]}, last = N - 1. It shifts
+    // only while the core is idle, so it is held for the whole run.
+    reg [8:0] config_chain;
 
-    // uio[6] is host valid during configuration and host ready during output.
-    // uio[7] is chip ready during configuration and chip valid during output.
-    wire active = rst_n && ena;
-    wire count_valid = ui_in >= 8'd1 && ui_in <= 8'd16;
-    wire cfg_ready = active && ((stage == COUNT && count_valid) || stage == CONFIG);
-    wire cfg_accept = cfg_ready && uio_in[6];
+    wire sck_rise = sck_sync[1] && !sck_sync[2];
+    wire sck_fall = !sck_sync[1] && sck_sync[2];
+    wire cs_low = !cs_sync[1];
+    wire cs_rise = cs_sync[1] && !cs_sync[2];
 
-    wire core_idle, core_out_valid, spi_cs_n, spi_sck, spi_mosi;
-    wire [7:0] core_out_data;
+    wire core_idle, drdy, miso, spi_cs_n, spi_sck, spi_mosi, spi_mosi_oe;
 
-    attention_controller core (
-        .clk(clk), .rst_n(active), .start(stage == LAUNCH),
-        .token_count(count), .score_shift(shift), .cont(cont), .idle(core_idle),
-        .spi_cs_n(spi_cs_n), .spi_sck(spi_sck), .spi_mosi(spi_mosi), .spi_miso(uio_in[1]),
-        .out_valid(core_out_valid), .out_ready(uio_in[6]), .out_data(core_out_data)
+    // A CS# rise starts a run when idle and finishes a result read when DRDY is
+    // high; the controller ignores it in every other state.
+    attention_controller #(.OUTPUTS(OUTPUTS)) core (
+        .clk(clk), .rst_n(rst_n && ena), .start(cs_rise),
+        .last(config_chain[3:0]), .score_shift(config_chain[7:4]), .cont(config_chain[8]),
+        .idle(core_idle),
+        .spi_cs_n(spi_cs_n), .spi_sck(spi_sck), .spi_mosi(spi_mosi), .spi_mosi_oe(spi_mosi_oe),
+        .spi_io({uio_in[5:4], uio_in[2:1]}),
+        .out_valid(drdy), .out_ready(cs_rise), .out_shift(sck_fall && cs_low), .out_bit(miso)
     );
 
-    // uio[0] MOSI; [1] MISO; [3:2] unused (the board holds flash WP#/HOLD# high);
-    // [4] SCK; [5] CS_n; [6] host valid/ready; [7] chip ready/valid.
-    assign uio_out = {cfg_ready || core_out_valid, 1'b0, spi_cs_n, spi_sck, 3'b000, spi_mosi};
-    assign uio_oe = 8'b1011_0001;
-    assign uo_out = core_out_valid ? core_out_data : 8'd0;
-    wire _unused = &{uio_in[7], uio_in[5:2], uio_in[0], 1'b0};
-
-    // Both bytes are replaced before launch and stay stable throughout RUN.
-    always @(posedge clk) begin
-        if (cfg_accept && stage == COUNT) count <= ui_in[4:0];
-        if (cfg_accept && stage == CONFIG) {cont, shift} <= {ui_in[7], ui_in[3:0]};
-    end
+    // TT QSPI Pmod: uio[0] flash CS#; [1] IO0, driven only for command and
+    // address; [2] IO1; [3] SCK; [4] IO2; [5] IO3; [7:6] the RAMs' CS#, held high.
+    assign uio_out = {2'b11, 2'b00, spi_sck, 1'b0, spi_mosi, spi_cs_n};
+    assign uio_oe = {2'b11, 2'b00, 1'b1, 1'b0, spi_mosi_oe, 1'b1};
+    assign uo_out = {6'd0, drdy, miso};
+    wire _unused = &{ui_in[7:3], uio_in[7:6], uio_in[3], uio_in[0], 1'b0};
 
     always @(posedge clk) begin
-        if (!active) begin
-            stage <= COUNT;
-        end else begin
-            case (stage)
-                COUNT: if (cfg_accept) stage <= CONFIG;
-                CONFIG: if (cfg_accept) stage <= LAUNCH;
-                LAUNCH: stage <= RUN; // the controller is idle here and accepts start
-                RUN: if (core_idle) stage <= COUNT;
-                default: stage <= COUNT;
-            endcase
-        end
+        sck_sync <= {sck_sync[1:0], ui_in[0]};
+        cs_sync <= {cs_sync[1:0], ui_in[2]};
+        if (sck_rise && cs_low && core_idle) config_chain <= {config_chain[7:0], ui_in[1]};
     end
 endmodule
 

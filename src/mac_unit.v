@@ -3,12 +3,12 @@
 //
 // Score: load sets S to 0 (subtract = 0) or M (subtract = 1); each score_en
 // cycle adds or subtracts qi * (one bit of ki), so pass 2 ends with D = M - S.
-// Accumulate: the two O registers form a ring that turns every clock, so O0
-// always holds component `sel` (the caller's free-running phase). Each
+// Accumulate: OUTPUTS 20-bit sums form a ring that turns every clock, so the
+// head O0 always holds component `sel` (the caller's free-running phase). Each
 // accum_en cycle adds W * (one bit of v) to the head. Bits come MSB first (as
 // they leave the flash), so the first token's bit 7 loads instead of adding.
 // While scoring, the ring bypasses the busy adder and keeps its sums.
-module mac_unit (
+module mac_unit #(parameter OUTPUTS = 8) ( // 2, 4 or 8
     input  wire              clk,
     input  wire              accum_mode,
     // score side
@@ -19,13 +19,17 @@ module mac_unit (
     // accumulate side
     input  wire              first, accum_en,
     input  wire        [7:0] W,
-    input  wire              sel,
+    input  wire [$clog2(OUTPUTS)-1:0] sel,
     input  wire signed [7:0] v,
     input  wire        [2:0] bit_sel,
     output reg  signed [21:0] S,
     output reg        [11:0] L,
-    output reg  signed [19:0] O0, O1 // |O| <= 16 * 255 * 128 = 522240
+    output wire signed [19:0] O0 // |O| <= 16 * 255 * 128 = 522240
 );
+    // ring[19:0] is the head O0; the tail takes the head's new sum (or the head
+    // unchanged while scoring). No enable and no reset: plain flops.
+    reg [20*OUTPUTS-1:0] ring;
+    assign O0 = ring[19:0];
     wire [8:0] x = accum_mode ? {1'b0, W} : {qi[7], qi};
     wire bit_on = accum_mode ? (accum_en && v[bit_sel]) : ki[bit_sel];
     wire top = bit_sel == 3'd7;
@@ -39,9 +43,8 @@ module mac_unit (
     ripple_add #(.N(12)) l_adder (.a(first ? 12'd0 : L), .b({4'b0, W}), .cin(1'b0), .s(L_next));
     wire _unused = &{sum[21:20], 1'b0};
     always @(posedge clk) begin
-        O0 <= O1;
-        O1 <= accum_mode ? $signed(sum[19:0]) : O0;
-        if (accum_en && !sel && bit_sel == 3'd0) L <= L_next;
+        ring <= {accum_mode ? sum[19:0] : O0, ring[20*OUTPUTS-1:20]};
+        if (accum_en && ~|sel && bit_sel == 3'd0) L <= L_next;
         if (load) S <= subtract ? M : 22'sd0;
         else if (score_en) S <= $signed(sum);
     end

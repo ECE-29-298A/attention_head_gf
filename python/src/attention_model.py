@@ -5,8 +5,8 @@ This is a model of our chip: INT8 in, two-pass softmax, 8-bit weights from a
 LUT, 12-bit outputs (INT8 plus 4 fractional bits).
 
 The chip: scores are d = 64 dot products (one SmolLM head), up to 16 tokens,
-and each run outputs 4 of V's components (the host picks which 4, so V passed
-here is N x 4). Everything here also takes other sizes d and token limits n_max,
+and each run outputs 8 of V's components (OUTPUTS; the tape picks which 8, so V
+passed here is N x 8). Everything here also takes other sizes d and token limits n_max,
 and V may be any width: reg_widths() gives the register widths.
 
 score_shift = k (0..15, sent by the host) looks up round(D / 2^k): raw INT8
@@ -57,30 +57,59 @@ def pack_byte(v: int) -> int:
     return v & 0xFF
 
 
-def tape(Q: list[int], K: list[list[int]], V: list[list[int]], chunks=range(32)) -> list[int]:
+def v_planes(values: list[int]) -> list[int]:
+    """One token's V values for a run (OUTPUTS of them) as the tape bytes the chip reads them
+    from: bit planes MSB first, each plane in component order (c0 b7, c1 b7, ... c0 b6, ...),
+    so at one bit per clock each bit reaches the accumulator ring head with its component."""
+    word = 0
+    for bit in range(7, -1, -1):
+        for v in values:
+            word = word << 1 | (pack_byte(v) >> bit & 1)
+    return list(word.to_bytes(len(values), "big"))
+
+
+def tape(Q: list[int], K: list[list[int]], V: list[list[int]], chunks=None, outputs: int = 8) -> list[int]:
     """Flash image for one query, in the order the chip reads it from address 0.
 
-    A score row is Q and K[t] interleaved (Q[0], K[t][0], Q[1], ...). The tape is
+    Bytes are read MSB first (a 0x6B quad read: high nibble, then low nibble). A
+    score row is Q and K[t] interleaved (Q[0], K[t][0], Q[1], ...). The tape is
     pass 1 (every token's score row), then for each chunk c in `chunks` a pass-2
-    block: every token's score row followed by V[t][2c], V[t][2c+1]. The first
-    chunk is read by a fresh run (cont = 0), each later one by a cont = 1 run.
+    block: every token's score row followed by v_planes(V[t][outputs*c : outputs*(c+1)]).
+    The first chunk is read by a fresh run (cont = 0), each later one by a cont = 1 run.
 
     Args:
         Q (list[int]): 64 ints
         K (list[list[int]]): N vectors of 64 ints
         V (list[list[int]]): N vectors of 64 ints
-        chunks: which 2-wide V chunks (0..31) to put on the tape, in run order
+        chunks: which outputs-wide V chunks (0..64/outputs - 1) to put on the tape, in run
+            order; all of them by default
+        outputs (int): the chip's OUTPUTS (2, 4 or 8; 8 on the chip)
 
     Returns:
-        list[int]: bytes, 128*N*(1 + len(chunks)) + 2*N*len(chunks) of them
+        list[int]: bytes, 128*N*(1 + len(chunks)) + outputs*N*len(chunks) of them
     """
+    assert outputs in (2, 4, 8)
     assert len(Q) == 64 and all(len(row) == 64 for row in K + V) and len(K) == len(V)
+    chunks = range(64 // outputs) if chunks is None else chunks
+    assert all(0 <= c < 64 // outputs for c in chunks)
     rows = [[pack_byte(x) for pair in zip(Q, k) for x in pair] for k in K]
     out = [b for row in rows for b in row]
     for c in chunks:
         for row, v in zip(rows, V):
-            out += row + [pack_byte(x) for x in v[2 * c:2 * c + 2]]
+            out += row + v_planes(v[outputs * c:outputs * (c + 1)])
     return out
+
+
+def config_frame(n: int, score_shift: int, cont: int) -> int:
+    """16-bit SPI config frame for one run, clocked MSB first: 7 zeros, cont, shift[3:0], N-1[3:0]."""
+    assert 1 <= n <= 16 and 0 <= score_shift <= 15 and cont in (0, 1)
+    return cont << 8 | score_shift << 4 | (n - 1)
+
+
+def decode_result_frame(frame: int) -> int:
+    """Signed 12-bit result (1/16 V steps) from a 16-bit SPI result frame: the result MSB first, then 4 zeros."""
+    assert 0 <= frame < 1 << 16 and frame & 0xF == 0, f"bad result frame {frame:#06x}"
+    return (frame >> 4) - (frame >> 15 << 12)
 
 
 def reg_widths(d: int = 64, n_max: int = 16) -> dict[str, int]:

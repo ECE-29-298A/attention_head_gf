@@ -21,6 +21,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--netlist", type=Path, help="Mapped or routed top to simulate")
     parser.add_argument("--cell-models", type=Path, help="Verilog models for netlist cells")
+    parser.add_argument("--outputs", type=int, choices=(2, 4, 8), default=8,
+                        help="the top's OUTPUTS parameter (RTL only; a netlist is built with 8)")
     args = parser.parse_args()
     if bool(args.netlist) != bool(args.cell_models):
         parser.error("--netlist and --cell-models must be supplied together")
@@ -32,10 +34,12 @@ def main():
         runner.build(sources=sources,
                      hdl_toplevel="tt_um_attention_head_gf", build_dir=build,
                      always=True, timescale=("1ns", "1ps"),
-                     build_args=["-g2012"])
+                     build_args=["-g2012"],
+                     parameters={} if args.netlist else {"OUTPUTS": args.outputs})
         runner.test(test_module="test_top_qspi", hdl_toplevel="tt_um_attention_head_gf",
                     build_dir=build, test_dir=build,
-                    extra_env={"PYTHONPATH": os.pathsep.join([str(HERE), str(ROOT / "python/src")])})
+                    extra_env={"PYTHONPATH": os.pathsep.join([str(HERE), str(ROOT / "python/src")]),
+                               "OUTPUTS": str(8 if args.netlist else args.outputs)})
         subprocess.run([sys.executable, "-m", "cocotb_tools.check_results",
                         str(build / "results.xml")], check=True)
 
