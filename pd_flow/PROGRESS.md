@@ -1,7 +1,7 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
 - Current module: 2 max_reg (module 1 ripple_add COMPLETE, `modules/ripple_add/REPORT.md`)
-- Phase: module 2 max_reg: Phase 1 PASSED (contract 6d7f5b5ff9a94fc9); Phase 2 done, original retained (`modules/max_reg/PHASE2_GATE.md`); Phase 3 (Agent 4 layout plan) in progress
+- Phase: re-plan under D7. max_reg Phases 1-2 done; its standalone Phase 3 was stopped (plan rev 2 kept as a building block). Chip partition and floorplan (architect agent) in progress; chip-flow area experiment running.
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -30,6 +30,25 @@
   reason to reject an option. Still required: signoff (DRC, LVS, antenna), hold, the verification
   contracts, no new slew/cap/fanout beyond the D2 noise band, and the TT tile and pins.
 
+- D7 (user, 2026-11-26): "Placement always should generate area savings, since automatic place and
+  route sucks. The physical design of a module should account for the physical design of its
+  dependencies. Without shared stuff, things like the SPI modules should be their own fully custom
+  designed layouts in their own isolated blocks, but shared items like max-reg should be physically
+  designed in mind with other modules. ... Physical design will work BEST when all modules have
+  physical design and then can be grouped/placed as one."
+
+  Consequences:
+  - Do not run a per-module chip harden as an accept/reject gate.
+  - Partition the chip into **isolated blocks** (no shared logic, e.g. the SPI/config interface)
+    and **coupled clusters** (e.g. mac_unit + max_reg + ripple_add). Each cluster is synthesized
+    and placed together, with its neighbours' port locations as constraints.
+  - Assemble the whole chip with every cell custom placed (routing stays automatic, D4), and
+    evaluate it at chip level.
+  - Per-module Phase 1 (verification contract) and Phase 2 (RTL optimization) continue, because
+    every netlist still needs a verified contract.
+  - Per-module Phase 3/4 are replaced by cluster- and chip-level physical design.
+  - ripple_add's and max_reg's standalone blocks are kept as building blocks and references only.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
@@ -42,7 +61,7 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-Wait for Agent 4 (`modules/max_reg/layout_plan/`), then launch Agent 5 (independent layout review). Options: (a) fixed bit-sliced block, (b) only the 22 flops fixed, (c) free placement. At most 4 chip hardens in `/Users/samuelzhang/ttharden/mr3_*`.
+Wait for the chip partition report (`pd_flow/chip_partition/`) and the chip-flow area experiment (`pd_flow/chip_flow_area/`). Then run Phase 1+2 for the remaining modules (exp_lut, divider, mac_unit, attention_controller, top), and do physical design per cluster in the partition order.
 
 ## Completed modules
 - ripple_add: golden retained; standalone tetris block signed off (DRC/LVS clean, SPICE characterized); not integrated (D3).

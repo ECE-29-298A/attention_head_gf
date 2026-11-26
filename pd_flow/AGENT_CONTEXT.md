@@ -137,3 +137,13 @@ The overhead physical design can act on is about 3,800 µm² (8%):
 
 Flops (45%) and logic (45%) are reduced only by architecture and synthesis. Always report the
 std-cell area breakdown by class next to totals.
+
+## Physical-design method (user decision D7, 2026-11-26; supersedes per-module Phase 3/4)
+- Physical design is done per **cluster**, then the whole chip is assembled with all cells custom
+  placed. Routing stays automatic (D4).
+- **Isolated blocks** (no shared logic) are custom-placed on their own.
+- **Coupled modules** are synthesized and placed together, so cross-module optimization is kept
+  inside the cluster. Each cluster is placed against its neighbours' port locations.
+- A frozen block must be compared with its **in-context** cone (the cells synthesis gives it in
+  the full chip), never with the module synthesized alone.
+- Never accept or reject one module by a single chip harden; the chip is evaluated when assembled.
