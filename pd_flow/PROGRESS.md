@@ -133,6 +133,12 @@
   clock-gating proposals g1 (-204 um2) and g2 (-795 um2) are dropped, and no gated-clock contract extension will be
   built. Power is never an objective, not even a tiebreak; it stays a diagnostic only.
 
+- D12b (user, 2026-11-26): "ok you can implement g2 since it saves area, but id really prefer no behaviour changes".
+  g2 (clock-gated S, L and ring; mac_unit's O0 freezes during SCORE) is allowed for area only if (1) its signoff
+  harden wc_ref3 is smaller than wc_ref2, and (2) a chip-level reset-anchored formal proof (BMC plus unbounded
+  induction, ICG modelled faithfully, no assumes) shows identical chip pins for every input sequence. Otherwise
+  fall back to g1 (port-identical at mac_unit), measured the same way. Power is still not an objective.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
