@@ -204,3 +204,12 @@ Each page contains:
 - **Candidate vs golden:** EQY equivalence remains mandatory before any optimized netlist or RTL
   is accepted.
 - **Mutation:** a must-kill mutant may be killed by an edge-case/spot-check item or by a formal item.
+
+## Tetris method, area objective (user decision D10, 2026-11-26)
+- **Reference files:** `/Users/samuelzhang/Desktop/HW_tetrising_ai/tetris_layout_SKILL.md`,
+  `tetris_layout_method.md`, `tetris_layout_routing-closure.md`, `tetris_layout_experiments.md`,
+  `tetris_layout_energy-measurement.md`. Earlier briefs said `SKILL.md`/`method.md`; those names
+  are wrong.
+- **Objective:** area, not energy. `pd_flow/TETRIS_AREA_OBJECTIVE.md` replaces method §1, the §4
+  cost function and gate G3, and wins where it conflicts with the reference.
+- **Documentation:** every placement PLAN.md documents method steps 1–12 and gates G0–G4.

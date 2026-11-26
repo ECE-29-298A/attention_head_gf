@@ -102,6 +102,13 @@
   - Forcing minimum drive on logic does not save area: banning upsizes adds buffers (+17 to +1,809 µm²).
   - Cumulative against the original baseline: 46,819.2 -> 44,911.6 µm² (-1,907.6, -4.07%).
 
+- D10 (user, 2026-11-26): the Tetris method's objective is swapped from energy to **area**. The project override is
+  `pd_flow/TETRIS_AREA_OBJECTIVE.md`; it wins over the reference where the two conflict. Every placement agent must
+  read the reference files by their real names (`tetris_layout_*.md`) and document each method step and gate in
+  its PLAN.md. Audit of earlier work: only the ripple_add plan cited the method explicitly. The max_reg and
+  architect plans used parts of it (generator plus validator, bounds, fixed-placement routing) without following
+  its 12 steps. The orchestrator's briefs had also given the wrong file names (`SKILL.md`/`method.md`).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
