@@ -89,3 +89,18 @@ acceptance uses the **shipped flow**: `pd_flow/scripts/ll_synth.sh <rtl_dir> <ta
 (LibreLane 3.0.14 in Docker, project config, stops after Yosys.Synthesis, about 30 s; prints
 `tag area cells`; baseline 41,116.096 µm², 1,434 cells). `<rtl_dir>` must hold all 7 shipped
 files. Run at most 2 at once (Docker memory). Use `synth_area.py` for module-level exploration only.
+
+## Rulings after ripple_add Phase 3 (orchestrator)
+- **Violation-count noise (D2 applied):** cosmetic rewrites of the unchanged RTL move the harden
+  slew/cap/fanout counts to 260–381 / 1–2 / 11–13 (two samples; widen the band as more noise
+  runs come in). "No increase" means staying inside that band. Report exact counts every time.
+- **Harden noise:** near-identical netlists vary by about 75 µm² std-cell area and a few ns of
+  setup slack. The flow itself is deterministic (identical inputs give bit-identical runs).
+  Before calling a difference "noise", diff the netlists. A pin swap is not noise.
+- **Integration mechanism for fixed std-cell placement:** `MACRO_PLACEMENT_CFG`, which keeps the
+  cells FIXED at exact coordinates through the flow. `MANUAL_GLOBAL_PLACEMENTS` is only a hint
+  (the detailed placer moves and mirrors cells). `RSZ_DONT_TOUCH_RX` breaks the resizer
+  (RSZ-3006). The chip's fixed tap cells leave windows exactly 33 sites wide.
+- **Unit of tetrising:** a frozen leaf block cannot absorb the surrounding logic that ABC folds
+  into it (operand inversion, muxes, constants). Evaluate tetris gains at mac_unit bit-slice
+  level, and compare a placement-only approach that keeps ABC's in-context mapping.
