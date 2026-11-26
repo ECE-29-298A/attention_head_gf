@@ -16,6 +16,15 @@
   as far as possible. No transistor-level custom cells and no hand-drawn routing. Phase 3 plans a
   coordinate-level cell placement. Phase 4 generates it from a script, fixes it, and routes it automatically.
 
+- D5 (user, 2026-11-26): stick with standard cells as far as possible. Tetris module by module,
+  then tetris the entire chip together as one placement (the final integration step). Each
+  module's placement is a reusable placement recipe or sub-placement that composes into the
+  whole-chip placement, not necessarily a hard macro. Benchmark from the user's earlier work:
+  about 80% power, 20 to 50% area, about 20% timing-closure improvement. Measure against the
+  Phase 0 baseline: 3.05 mW (tt), 46,819.2 µm² std-cell area at 90.09% utilization, setup WNS
+  +41.79 ns at ss_125C_3v00 on 100 ns (critical path about 58.2 ns). Report the measured
+  improvement per metric honestly, whether or not the targets are met.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

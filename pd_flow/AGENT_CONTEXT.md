@@ -67,3 +67,13 @@ relief that changes placement, such as spacing or filler, is allowed. The Phase 
 is a scripted, coordinate-level cell placement (row, site, orientation per instance) plus the
 gate-level netlist it places. Phase 4 generates the placement, fixes it, routes it
 automatically, then runs DRC, LVS, extraction and characterization.
+
+## End goal (user decision D5)
+Tetris module by module, then tetris the **whole chip together as one standard-cell placement**.
+Design each module's placement as a reusable sub-placement (relative coordinates, a
+row-aligned footprint, port side and pin order) that composes into the full 1×1 tile
+(die 346.64 × 160.72 µm, core 51,967 µm²), rather than as a hard macro with halos. Benchmark
+from the user's earlier work: about 80% power, 20 to 50% area, about 20% timing improvement.
+Baseline: 3.05 mW tt, 46,819.2 µm² std-cell area, 90.09% utilization, ss setup WNS +41.79 ns
+on 100 ns. Power is dominated by switched capacitance (wires and clock). Report it per
+module with stated activity.
