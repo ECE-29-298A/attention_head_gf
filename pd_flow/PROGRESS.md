@@ -109,6 +109,9 @@
   architect plans used parts of it (generator plus validator, bounds, fixed-placement routing) without following
   its 12 steps. The orchestrator's briefs had also given the wrong file names (`SKILL.md`/`method.md`).
 
+- D8b (user, 2026-11-26): "when you restart, please reduce the agents effort from max to high". Tetrising, placement
+  and floorplan agents now run at effort=high, not max. The ~90% packing target is unchanged.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

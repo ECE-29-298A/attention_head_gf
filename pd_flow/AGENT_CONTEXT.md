@@ -213,3 +213,6 @@ Each page contains:
 - **Objective:** area, not energy. `pd_flow/TETRIS_AREA_OBJECTIVE.md` replaces method §1, the §4
   cost function and gate G3, and wins where it conflicts with the reference.
 - **Documentation:** every placement PLAN.md documents method steps 1–12 and gates G0–G4.
+
+## Agent effort (user decision D8b, 2026-11-26)
+Placement, tetrising and floorplan agents run at effort **high** (was max). The ~90% packing target (D8) is unchanged.
