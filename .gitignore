@@ -17,3 +17,15 @@ __pycache__/
 .venv/
 .docs/
 /build/
+# Workflow: Tiny Tapeout support tools copied from the reference project
+/tt/
+# Workflow: large physical-flow outputs (hashed in SHA256SUMS; kept on disk)
+pd_flow/**/harden/gds/
+pd_flow/**/harden/lef/
+pd_flow/**/harden/nl/
+pd_flow/**/harden/pnl/
+pd_flow/**/harden/def/
+pd_flow/**/harden/spice/
+pd_flow/**/harden/sta_postpnr/
+pd_flow/**/obj_dir/
+pd_flow/**/sim_build/

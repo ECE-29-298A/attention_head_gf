@@ -1,0 +1,62 @@
+# Tiny Tapeout project information
+project:
+  title: "Single-tile INT8 attention" # Project title
+  author: "Samuel Zhang, Eugene Zhao, Felix Deng" # Project author
+  discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "64-dim INT8 attention head (8 outputs per run), SPI target host interface, Q/K/V streamed from a quad SPI flash tape (TT QSPI Pmod)"
+  language: "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz: 10000000 # Target clock frequency in Hz
+
+  # How many tiles your design occupies? A single tile is about 340x160 uM.
+  tiles: "1x1" # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module: "tt_um_attention_head_gf"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "project.v"
+    - "attention_controller.sv"
+    - "mac_unit.v"
+    - "ripple_add.v"
+    - "max_reg.v"
+    - "exp_lut.v"
+    - "divider.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "SPI SCK"
+  ui[1]: "SPI MOSI"
+  ui[2]: "SPI CS#"
+  ui[3]: ""
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
+
+  # Outputs
+  uo[0]: "SPI MISO"
+  uo[1]: "DRDY (result ready)"
+  uo[2]: ""
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
+
+  # Bidirectional pins
+  uio[0]: "Flash CS0#"
+  uio[1]: "Flash IO0"
+  uio[2]: "Flash IO1"
+  uio[3]: "Flash SCK"
+  uio[4]: "Flash IO2"
+  uio[5]: "Flash IO3"
+  uio[6]: "CS1# (Pmod RAM A, held high)"
+  uio[7]: "CS2# (Pmod RAM B, held high)"
+
+# Do not change!
+yaml_version: 6

@@ -1,0 +1,57 @@
+%Warning-WIDTHTRUNC: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:29:21: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits.
+PASS: integrated RTL controller, OUTPUTS=8, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2239397
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 23ms; walltime 0.741 s; speed 30.632 ms/s
+- Verilator: cpu 0.736 s on 1 threads; allocated 2 MB
+PASS: integrated RTL controller, OUTPUTS=8, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2238419
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 23ms; walltime 0.721 s; speed 31.281 ms/s
+- Verilator: cpu 0.721 s on 1 threads; allocated 2 MB
+PASS: integrated RTL controller, OUTPUTS=8, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2239449
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 23ms; walltime 0.726 s; speed 31.136 ms/s
+- Verilator: cpu 0.724 s on 1 threads; allocated 2 MB
+%Warning-WIDTHTRUNC: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:29:21: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits.
+PASS: integrated RTL controller, OUTPUTS=4, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2275902
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 23ms; walltime 0.749 s; speed 30.650 ms/s
+- Verilator: cpu 0.747 s on 1 threads; allocated 2 MB
+PASS: integrated RTL controller, OUTPUTS=4, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2275491
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 23ms; walltime 0.729 s; speed 31.556 ms/s
+- Verilator: cpu 0.726 s on 1 threads; allocated 2 MB
+PASS: integrated RTL controller, OUTPUTS=4, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2276241
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 23ms; walltime 0.774 s; speed 29.650 ms/s
+- Verilator: cpu 0.773 s on 1 threads; allocated 2 MB
+%Warning-WIDTHTRUNC: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:29:21: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits.
+PASS: integrated RTL controller, OUTPUTS=2, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2582246
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 26ms; walltime 0.837 s; speed 31.123 ms/s
+- Verilator: cpu 0.834 s on 1 threads; allocated 2 MB
+PASS: integrated RTL controller, OUTPUTS=2, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2582133
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 26ms; walltime 0.825 s; speed 31.487 ms/s
+- Verilator: cpu 0.825 s on 1 threads; allocated 2 MB
+PASS: integrated RTL controller, OUTPUTS=2, 79 Python cases; reset in every phase, serial output reads at random pace, ignored shifts and CS# rises while busy, continue runs, intermediate results and outputs
+METRICS total_cycles=2581984
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/controller/tb_controller.sv:222: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 26ms; walltime 0.835 s; speed 31.170 ms/s
+- Verilator: cpu 0.833 s on 1 threads; allocated 2 MB

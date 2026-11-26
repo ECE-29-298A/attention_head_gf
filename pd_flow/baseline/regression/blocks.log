@@ -1,0 +1,69 @@
+/Applications/Xcode.app/Contents/Developer/usr/bin/make MODULE_UNDER_TEST=mac_unit sim
+rm -f results.xml
+"/Applications/Xcode.app/Contents/Developer/usr/bin/make" -f Makefile results.xml
+mkdir -p sim_build/mac_unit_8
+/opt/homebrew/bin/iverilog -o sim_build/mac_unit_8/sim.vvp -s mac_unit -g2012 -Pmac_unit.OUTPUTS=8 -f sim_build/mac_unit_8/cmds.f  ../../src/mac_unit.v ../../src/ripple_add.v
+rm -f results.xml
+COCOTB_TEST_MODULES=test_mac_unit COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=mac_unit TOPLEVEL_LANG=verilog \
+         /opt/homebrew/bin/vvp -M /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/mac_unit_8/sim.vvp  -none 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795677308
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_mac_unit.mac_unit_directed_and_random (1/1)
+1673491.00ns INFO     cocotb.regression                  test_mac_unit.mac_unit_directed_and_random passed
+1673491.00ns INFO     cocotb.regression                  ****************************************************************************************************
+                                                         ** TEST                                        STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ****************************************************************************************************
+                                                         ** test_mac_unit.mac_unit_directed_and_random   PASS     1673491.00          14.36     116555.60  **
+                                                         ****************************************************************************************************
+                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                          1673491.00          14.36     116539.15  **
+                                                         ****************************************************************************************************
+/Applications/Xcode.app/Contents/Developer/usr/bin/make MODULE_UNDER_TEST=max_reg sim
+rm -f results.xml
+"/Applications/Xcode.app/Contents/Developer/usr/bin/make" -f Makefile results.xml
+mkdir -p sim_build/max_reg
+/opt/homebrew/bin/iverilog -o sim_build/max_reg/sim.vvp -s max_reg -g2012 -f sim_build/max_reg/cmds.f  ../../src/max_reg.v ../../src/ripple_add.v
+rm -f results.xml
+COCOTB_TEST_MODULES=test_max_reg COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=max_reg TOPLEVEL_LANG=verilog \
+         /opt/homebrew/bin/vvp -M /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/max_reg/sim.vvp  -none 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795677324
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_max_reg.max_reg_directed_and_random (1/1)
+ 86091.00ns INFO     cocotb.regression                  test_max_reg.max_reg_directed_and_random passed
+ 86091.00ns INFO     cocotb.regression                  **************************************************************************************************
+                                                        ** TEST                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************************
+                                                        ** test_max_reg.max_reg_directed_and_random   PASS       86091.00           0.34     250787.30  **
+                                                        **************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                          86091.00           0.34     250023.25  **
+                                                        **************************************************************************************************
+/Applications/Xcode.app/Contents/Developer/usr/bin/make MODULE_UNDER_TEST=exp_lut sim
+rm -f results.xml
+"/Applications/Xcode.app/Contents/Developer/usr/bin/make" -f Makefile results.xml
+mkdir -p sim_build/exp_lut
+/opt/homebrew/bin/iverilog -o sim_build/exp_lut/sim.vvp -s exp_lut -g2012 -f sim_build/exp_lut/cmds.f  ../../src/exp_lut.v ../../src/ripple_add.v
+rm -f results.xml
+COCOTB_TEST_MODULES=test_exp_lut COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=exp_lut TOPLEVEL_LANG=verilog \
+         /opt/homebrew/bin/vvp -M /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/exp_lut/sim.vvp  -none 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795677326
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_exp_lut.exp_lut_exhaustive_and_handshake (1/1)
+130401.00ns INFO     cocotb.regression                  test_exp_lut.exp_lut_exhaustive_and_handshake passed
+130401.00ns INFO     cocotb.regression                  *******************************************************************************************************
+                                                        ** TEST                                           STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************
+                                                        ** test_exp_lut.exp_lut_exhaustive_and_handshake   PASS      130401.00           0.59     220083.87  **
+                                                        *******************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              130401.00           0.59     219589.14  **
+                                                        *******************************************************************************************************

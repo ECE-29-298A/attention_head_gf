@@ -1,0 +1,5 @@
+PASS: divider 1099545 vectors; 24-cycle latency, 12-bit signed rounding, result shift, invalid inputs, input latching, busy starts, resets and consecutive operations
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/divider/tb_divider.sv:88: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 277ms; walltime 7.100 s; speed 39.087 ms/s
+- Verilator: cpu 7.080 s on 1 threads; allocated 2 MB
