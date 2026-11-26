@@ -1,0 +1,1 @@
+leak ss {"test": "leakage", "corner": "ss", "pvt": ["ss", 125, 3.0], "N": 22, "options": "gmin=1e-15 abstol=1e-18 (default gmin 1e-12 dominates the result; see header comment)", "mean_P_nW": 0.93474, "max_P_nW": 1.41966, "pex_netlist": "n22/pex/ripple_add_n22_pex.spice"}

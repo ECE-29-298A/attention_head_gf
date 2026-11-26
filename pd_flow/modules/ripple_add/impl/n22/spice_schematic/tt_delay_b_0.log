@@ -1,0 +1,691 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * ripple_add n=22 carry-chain delay from b[0], corner tt
+
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vpwr                                       3.3
+x1.xfiller_21_2.net_3                        0
+x1.xfiller_21_2.net_2                      3.3
+x1.xfiller_21_2.net_4                        0
+x1.xfiller_21_2.net_5                      3.3
+x1.xbitslice_0__u_fa.net9          8.52075e-08
+s_0                                        3.3
+cin                                        3.3
+x1.xbitslice_0__u_fa.net47         8.52075e-08
+x1.xbitslice_0__u_fa.net42         4.26038e-08
+x1.c[1]                            1.04605e-08
+x1.xbitslice_0__u_fa.net7                  3.3
+x1.xbitslice_0__u_fa.net29                 3.3
+x1.xbitslice_0__u_fa.net3                  3.3
+a_0                                          0
+b_0                                          0
+x1.xbitslice_0__u_fa.net1                  3.3
+x1.xbitslice_0__u_fa.net19                 3.3
+x1.xbitslice_0__u_fa.net49         2.02835e-08
+x1.xbitslice_0__u_fa.net5              2.51851
+x1.xbitslice_0__u_fa.net36           0.0263536
+x1.xbitslice_0__u_fa.net31                 3.3
+x1.xbitslice_10__u_fa.net9         1.92805e-07
+s_10                                       3.3
+x1.c[10]                           1.04605e-08
+x1.xbitslice_10__u_fa.net47        4.58967e-08
+x1.xbitslice_10__u_fa.net42        9.64023e-08
+x1.c[11]                           1.04605e-08
+x1.xbitslice_10__u_fa.net7                 3.3
+x1.xbitslice_10__u_fa.net29            1.09697
+x1.xbitslice_10__u_fa.net3                 3.3
+a_10                                       3.3
+b_10                                         0
+x1.xbitslice_10__u_fa.net1                 3.3
+x1.xbitslice_10__u_fa.net19                3.3
+x1.xbitslice_10__u_fa.net49        3.48798e-16
+x1.xbitslice_10__u_fa.net5         1.41554e-09
+x1.xbitslice_10__u_fa.net36        1.41554e-09
+x1.xbitslice_10__u_fa.net31            1.11907
+x1.xbitslice_11__u_fa.net9         1.92805e-07
+s_11                                       3.3
+x1.xbitslice_11__u_fa.net47        4.58967e-08
+x1.xbitslice_11__u_fa.net42        9.64023e-08
+x1.c[12]                           1.04605e-08
+x1.xbitslice_11__u_fa.net7                 3.3
+x1.xbitslice_11__u_fa.net29            1.09697
+x1.xbitslice_11__u_fa.net3                 3.3
+a_11                                       3.3
+b_11                                         0
+x1.xbitslice_11__u_fa.net1                 3.3
+x1.xbitslice_11__u_fa.net19                3.3
+x1.xbitslice_11__u_fa.net49        3.48798e-16
+x1.xbitslice_11__u_fa.net5         1.41554e-09
+x1.xbitslice_11__u_fa.net36        1.41554e-09
+x1.xbitslice_11__u_fa.net31            1.11907
+x1.xbitslice_12__u_fa.net9         1.92805e-07
+s_12                                       3.3
+x1.xbitslice_12__u_fa.net47        4.58967e-08
+x1.xbitslice_12__u_fa.net42        9.64023e-08
+x1.c[13]                           1.04605e-08
+x1.xbitslice_12__u_fa.net7                 3.3
+x1.xbitslice_12__u_fa.net29            1.09697
+x1.xbitslice_12__u_fa.net3                 3.3
+a_12                                       3.3
+b_12                                         0
+x1.xbitslice_12__u_fa.net1                 3.3
+x1.xbitslice_12__u_fa.net19                3.3
+x1.xbitslice_12__u_fa.net49        3.48798e-16
+x1.xbitslice_12__u_fa.net5         1.41554e-09
+x1.xbitslice_12__u_fa.net36        1.41554e-09
+x1.xbitslice_12__u_fa.net31            1.11907
+x1.xbitslice_13__u_fa.net9         1.92805e-07
+s_13                                       3.3
+x1.xbitslice_13__u_fa.net47        4.58967e-08
+x1.xbitslice_13__u_fa.net42        9.64023e-08
+x1.c[14]                           1.04605e-08
+x1.xbitslice_13__u_fa.net7                 3.3
+x1.xbitslice_13__u_fa.net29            1.09697
+x1.xbitslice_13__u_fa.net3                 3.3
+a_13                                       3.3
+b_13                                         0
+x1.xbitslice_13__u_fa.net1                 3.3
+x1.xbitslice_13__u_fa.net19                3.3
+x1.xbitslice_13__u_fa.net49        3.48798e-16
+x1.xbitslice_13__u_fa.net5         1.41554e-09
+x1.xbitslice_13__u_fa.net36        1.41554e-09
+x1.xbitslice_13__u_fa.net31            1.11907
+x1.xbitslice_14__u_fa.net9         1.92805e-07
+s_14                                       3.3
+x1.xbitslice_14__u_fa.net47        4.58967e-08
+x1.xbitslice_14__u_fa.net42        9.64023e-08
+x1.c[15]                           1.04605e-08
+x1.xbitslice_14__u_fa.net7                 3.3
+x1.xbitslice_14__u_fa.net29            1.09697
+x1.xbitslice_14__u_fa.net3                 3.3
+a_14                                       3.3
+b_14                                         0
+x1.xbitslice_14__u_fa.net1                 3.3
+x1.xbitslice_14__u_fa.net19                3.3
+x1.xbitslice_14__u_fa.net49        3.48798e-16
+x1.xbitslice_14__u_fa.net5         1.41554e-09
+x1.xbitslice_14__u_fa.net36        1.41554e-09
+x1.xbitslice_14__u_fa.net31            1.11907
+x1.xbitslice_15__u_fa.net9         1.92805e-07
+s_15                                       3.3
+x1.xbitslice_15__u_fa.net47        4.58967e-08
+x1.xbitslice_15__u_fa.net42        9.64023e-08
+x1.c[16]                           1.04605e-08
+x1.xbitslice_15__u_fa.net7                 3.3
+x1.xbitslice_15__u_fa.net29            1.09697
+x1.xbitslice_15__u_fa.net3                 3.3
+a_15                                       3.3
+b_15                                         0
+x1.xbitslice_15__u_fa.net1                 3.3
+x1.xbitslice_15__u_fa.net19                3.3
+x1.xbitslice_15__u_fa.net49        3.48798e-16
+x1.xbitslice_15__u_fa.net5         1.41554e-09
+x1.xbitslice_15__u_fa.net36        1.41554e-09
+x1.xbitslice_15__u_fa.net31            1.11907
+x1.xbitslice_16__u_fa.net9         1.92805e-07
+s_16                                       3.3
+x1.xbitslice_16__u_fa.net47        4.58967e-08
+x1.xbitslice_16__u_fa.net42        9.64023e-08
+x1.c[17]                           1.04605e-08
+x1.xbitslice_16__u_fa.net7                 3.3
+x1.xbitslice_16__u_fa.net29            1.09697
+x1.xbitslice_16__u_fa.net3                 3.3
+a_16                                       3.3
+b_16                                         0
+x1.xbitslice_16__u_fa.net1                 3.3
+x1.xbitslice_16__u_fa.net19                3.3
+x1.xbitslice_16__u_fa.net49        3.48798e-16
+x1.xbitslice_16__u_fa.net5         1.41554e-09
+x1.xbitslice_16__u_fa.net36        1.41554e-09
+x1.xbitslice_16__u_fa.net31            1.11907
+x1.xbitslice_17__u_fa.net9         1.92805e-07
+s_17                                       3.3
+x1.xbitslice_17__u_fa.net47        4.58967e-08
+x1.xbitslice_17__u_fa.net42        9.64023e-08
+x1.c[18]                           1.04605e-08
+x1.xbitslice_17__u_fa.net7                 3.3
+x1.xbitslice_17__u_fa.net29            1.09697
+x1.xbitslice_17__u_fa.net3                 3.3
+a_17                                       3.3
+b_17                                         0
+x1.xbitslice_17__u_fa.net1                 3.3
+x1.xbitslice_17__u_fa.net19                3.3
+x1.xbitslice_17__u_fa.net49        3.48798e-16
+x1.xbitslice_17__u_fa.net5         1.41554e-09
+x1.xbitslice_17__u_fa.net36        1.41554e-09
+x1.xbitslice_17__u_fa.net31            1.11907
+x1.xbitslice_18__u_fa.net9         1.92805e-07
+s_18                                       3.3
+x1.xbitslice_18__u_fa.net47        4.58967e-08
+x1.xbitslice_18__u_fa.net42        9.64023e-08
+x1.c[19]                           1.04605e-08
+x1.xbitslice_18__u_fa.net7                 3.3
+x1.xbitslice_18__u_fa.net29            1.09697
+x1.xbitslice_18__u_fa.net3                 3.3
+a_18                                       3.3
+b_18                                         0
+x1.xbitslice_18__u_fa.net1                 3.3
+x1.xbitslice_18__u_fa.net19                3.3
+x1.xbitslice_18__u_fa.net49        3.48798e-16
+x1.xbitslice_18__u_fa.net5         1.41554e-09
+x1.xbitslice_18__u_fa.net36        1.41554e-09
+x1.xbitslice_18__u_fa.net31            1.11907
+x1.xbitslice_19__u_fa.net9         1.92805e-07
+s_19                                       3.3
+x1.xbitslice_19__u_fa.net47        4.58967e-08
+x1.xbitslice_19__u_fa.net42        9.64023e-08
+x1.c[20]                           1.04605e-08
+x1.xbitslice_19__u_fa.net7                 3.3
+x1.xbitslice_19__u_fa.net29            1.09697
+x1.xbitslice_19__u_fa.net3                 3.3
+a_19                                       3.3
+b_19                                         0
+x1.xbitslice_19__u_fa.net1                 3.3
+x1.xbitslice_19__u_fa.net19                3.3
+x1.xbitslice_19__u_fa.net49        3.48798e-16
+x1.xbitslice_19__u_fa.net5         1.41554e-09
+x1.xbitslice_19__u_fa.net36        1.41554e-09
+x1.xbitslice_19__u_fa.net31            1.11907
+x1.xbitslice_1__u_fa.net9          1.92805e-07
+s_1                                        3.3
+x1.xbitslice_1__u_fa.net47         4.58967e-08
+x1.xbitslice_1__u_fa.net42         9.64023e-08
+x1.c[2]                            1.04605e-08
+x1.xbitslice_1__u_fa.net7                  3.3
+x1.xbitslice_1__u_fa.net29             1.09697
+x1.xbitslice_1__u_fa.net3                  3.3
+a_1                                        3.3
+b_1                                          0
+x1.xbitslice_1__u_fa.net1                  3.3
+x1.xbitslice_1__u_fa.net19                 3.3
+x1.xbitslice_1__u_fa.net49         3.48798e-16
+x1.xbitslice_1__u_fa.net5          1.41554e-09
+x1.xbitslice_1__u_fa.net36         1.41554e-09
+x1.xbitslice_1__u_fa.net31             1.11907
+x1.xbitslice_20__u_fa.net9         1.92805e-07
+s_20                                       3.3
+x1.xbitslice_20__u_fa.net47        4.58967e-08
+x1.xbitslice_20__u_fa.net42        9.64023e-08
+x1.c[21]                           1.04605e-08
+x1.xbitslice_20__u_fa.net7                 3.3
+x1.xbitslice_20__u_fa.net29            1.09697
+x1.xbitslice_20__u_fa.net3                 3.3
+a_20                                       3.3
+b_20                                         0
+x1.xbitslice_20__u_fa.net1                 3.3
+x1.xbitslice_20__u_fa.net19                3.3
+x1.xbitslice_20__u_fa.net49        3.48798e-16
+x1.xbitslice_20__u_fa.net5         1.41554e-09
+x1.xbitslice_20__u_fa.net36        1.41554e-09
+x1.xbitslice_20__u_fa.net31            1.11907
+x1.xbitslice_2__u_fa.net9          1.92805e-07
+s_2                                        3.3
+x1.xbitslice_2__u_fa.net47         4.58967e-08
+x1.xbitslice_2__u_fa.net42         9.64023e-08
+x1.c[3]                            1.04605e-08
+x1.xbitslice_2__u_fa.net7                  3.3
+x1.xbitslice_2__u_fa.net29             1.09697
+x1.xbitslice_2__u_fa.net3                  3.3
+a_2                                        3.3
+b_2                                          0
+x1.xbitslice_2__u_fa.net1                  3.3
+x1.xbitslice_2__u_fa.net19                 3.3
+x1.xbitslice_2__u_fa.net49         3.48798e-16
+x1.xbitslice_2__u_fa.net5          1.41554e-09
+x1.xbitslice_2__u_fa.net36         1.41554e-09
+x1.xbitslice_2__u_fa.net31             1.11907
+x1.xbitslice_3__u_fa.net9          1.92805e-07
+s_3                                        3.3
+x1.xbitslice_3__u_fa.net47         4.58967e-08
+x1.xbitslice_3__u_fa.net42         9.64023e-08
+x1.c[4]                            1.04605e-08
+x1.xbitslice_3__u_fa.net7                  3.3
+x1.xbitslice_3__u_fa.net29             1.09697
+x1.xbitslice_3__u_fa.net3                  3.3
+a_3                                        3.3
+b_3                                          0
+x1.xbitslice_3__u_fa.net1                  3.3
+x1.xbitslice_3__u_fa.net19                 3.3
+x1.xbitslice_3__u_fa.net49         3.48798e-16
+x1.xbitslice_3__u_fa.net5          1.41554e-09
+x1.xbitslice_3__u_fa.net36         1.41554e-09
+x1.xbitslice_3__u_fa.net31             1.11907
+x1.xbitslice_4__u_fa.net9          1.92805e-07
+s_4                                        3.3
+x1.xbitslice_4__u_fa.net47         4.58967e-08
+x1.xbitslice_4__u_fa.net42         9.64023e-08
+x1.c[5]                            1.04605e-08
+x1.xbitslice_4__u_fa.net7                  3.3
+x1.xbitslice_4__u_fa.net29             1.09697
+x1.xbitslice_4__u_fa.net3                  3.3
+a_4                                        3.3
+b_4                                          0
+x1.xbitslice_4__u_fa.net1                  3.3
+x1.xbitslice_4__u_fa.net19                 3.3
+x1.xbitslice_4__u_fa.net49         3.48798e-16
+x1.xbitslice_4__u_fa.net5          1.41554e-09
+x1.xbitslice_4__u_fa.net36         1.41554e-09
+x1.xbitslice_4__u_fa.net31             1.11907
+x1.xbitslice_5__u_fa.net9          1.92805e-07
+s_5                                        3.3
+x1.xbitslice_5__u_fa.net47         4.58967e-08
+x1.xbitslice_5__u_fa.net42         9.64023e-08
+x1.c[6]                            1.04605e-08
+x1.xbitslice_5__u_fa.net7                  3.3
+x1.xbitslice_5__u_fa.net29             1.09697
+x1.xbitslice_5__u_fa.net3                  3.3
+a_5                                        3.3
+b_5                                          0
+x1.xbitslice_5__u_fa.net1                  3.3
+x1.xbitslice_5__u_fa.net19                 3.3
+x1.xbitslice_5__u_fa.net49         3.48798e-16
+x1.xbitslice_5__u_fa.net5          1.41554e-09
+x1.xbitslice_5__u_fa.net36         1.41554e-09
+x1.xbitslice_5__u_fa.net31             1.11907
+x1.xbitslice_6__u_fa.net9          1.92805e-07
+s_6                                        3.3
+x1.xbitslice_6__u_fa.net47         4.58967e-08
+x1.xbitslice_6__u_fa.net42         9.64023e-08
+x1.c[7]                            1.04605e-08
+x1.xbitslice_6__u_fa.net7                  3.3
+x1.xbitslice_6__u_fa.net29             1.09697
+x1.xbitslice_6__u_fa.net3                  3.3
+a_6                                        3.3
+b_6                                          0
+x1.xbitslice_6__u_fa.net1                  3.3
+x1.xbitslice_6__u_fa.net19                 3.3
+x1.xbitslice_6__u_fa.net49         3.48798e-16
+x1.xbitslice_6__u_fa.net5          1.41554e-09
+x1.xbitslice_6__u_fa.net36         1.41554e-09
+x1.xbitslice_6__u_fa.net31             1.11907
+x1.xbitslice_7__u_fa.net9          1.92805e-07
+s_7                                        3.3
+x1.xbitslice_7__u_fa.net47         4.58967e-08
+x1.xbitslice_7__u_fa.net42         9.64023e-08
+x1.c[8]                            1.04605e-08
+x1.xbitslice_7__u_fa.net7                  3.3
+x1.xbitslice_7__u_fa.net29             1.09697
+x1.xbitslice_7__u_fa.net3                  3.3
+a_7                                        3.3
+b_7                                          0
+x1.xbitslice_7__u_fa.net1                  3.3
+x1.xbitslice_7__u_fa.net19                 3.3
+x1.xbitslice_7__u_fa.net49         3.48798e-16
+x1.xbitslice_7__u_fa.net5          1.41554e-09
+x1.xbitslice_7__u_fa.net36         1.41554e-09
+x1.xbitslice_7__u_fa.net31             1.11907
+x1.xbitslice_8__u_fa.net9          1.92805e-07
+s_8                                        3.3
+x1.xbitslice_8__u_fa.net47         4.58967e-08
+x1.xbitslice_8__u_fa.net42         9.64023e-08
+x1.c[9]                            1.04605e-08
+x1.xbitslice_8__u_fa.net7                  3.3
+x1.xbitslice_8__u_fa.net29             1.09697
+x1.xbitslice_8__u_fa.net3                  3.3
+a_8                                        3.3
+b_8                                          0
+x1.xbitslice_8__u_fa.net1                  3.3
+x1.xbitslice_8__u_fa.net19                 3.3
+x1.xbitslice_8__u_fa.net49         3.48798e-16
+x1.xbitslice_8__u_fa.net5          1.41554e-09
+x1.xbitslice_8__u_fa.net36         1.41554e-09
+x1.xbitslice_8__u_fa.net31             1.11907
+x1.xbitslice_9__u_fa.net9          1.92805e-07
+s_9                                        3.3
+x1.xbitslice_9__u_fa.net47         4.58967e-08
+x1.xbitslice_9__u_fa.net42         9.64023e-08
+x1.xbitslice_9__u_fa.net7                  3.3
+x1.xbitslice_9__u_fa.net29             1.09697
+x1.xbitslice_9__u_fa.net3                  3.3
+a_9                                        3.3
+b_9                                          0
+x1.xbitslice_9__u_fa.net1                  3.3
+x1.xbitslice_9__u_fa.net19                 3.3
+x1.xbitslice_9__u_fa.net49         3.48798e-16
+x1.xbitslice_9__u_fa.net5          1.41554e-09
+x1.xbitslice_9__u_fa.net36         1.41554e-09
+x1.xbitslice_9__u_fa.net31             1.11907
+x1.xu_msb_x3.i                     2.21376e-08
+a_21                                       3.3
+b_21                                         0
+x1.xu_msb_x3.i2                            3.3
+x1.xu_msb_x3.net_0                 2.11353e-09
+x1.xu_msb_x3.i3                    2.22545e-08
+s_21                                       3.3
+x1.xu_msb_x3.net_2                  1.6868e-10
+x1.xu_msb_x3.net_4                         3.3
+x1.xu_msb_x3.net_1                         3.3
+x1.xu_msb_x3.net_5                         3.3
+x1.xu_msb_x3.net_3                         3.3
+v_cin#branch                                 0
+v_b_21#branch                                0
+v_b_20#branch                                0
+v_b_19#branch                                0
+v_b_18#branch                                0
+v_b_17#branch                                0
+v_b_16#branch                                0
+v_b_15#branch                                0
+v_b_14#branch                                0
+v_b_13#branch                                0
+v_b_12#branch                                0
+v_b_11#branch                                0
+v_b_10#branch                                0
+v_b_9#branch                                 0
+v_b_8#branch                                 0
+v_b_7#branch                                 0
+v_b_6#branch                                 0
+v_b_5#branch                                 0
+v_b_4#branch                                 0
+v_b_3#branch                                 0
+v_b_2#branch                                 0
+v_b_1#branch                                 0
+v_b_0#branch                                 0
+v_a_21#branch                                0
+v_a_20#branch                                0
+v_a_19#branch                                0
+v_a_18#branch                                0
+v_a_17#branch                                0
+v_a_16#branch                                0
+v_a_15#branch                                0
+v_a_14#branch                                0
+v_a_13#branch                                0
+v_a_12#branch                                0
+v_a_11#branch                                0
+v_a_10#branch                                0
+v_a_9#branch                                 0
+v_a_8#branch                                 0
+v_a_7#branch                                 0
+v_a_6#branch                                 0
+v_a_5#branch                                 0
+v_a_4#branch                                 0
+v_a_3#branch                                 0
+v_a_2#branch                                 0
+v_a_1#branch                                 0
+v_a_0#branch                                 0
+vdd#branch                        -6.40339e-10
+
+ Reference value :  1.20280e-09
+ Reference value :  4.45280e-09
+ Reference value :  7.65280e-09
+ Reference value :  1.08528e-08
+ Reference value :  1.40728e-08
+ Reference value :  1.73028e-08
+ Reference value :  2.05428e-08
+ Reference value :  2.37328e-08
+ Reference value :  2.69828e-08
+ Reference value :  3.02428e-08
+ Reference value :  3.35028e-08
+ Reference value :  3.67328e-08
+ Reference value :  3.99628e-08
+ Reference value :  4.27600e-08
+ Reference value :  4.49700e-08
+ Reference value :  4.71500e-08
+ Reference value :  4.93400e-08
+ Reference value :  5.24100e-08
+ Reference value :  5.56400e-08
+ Reference value :  5.88500e-08
+ Reference value :  6.20100e-08
+ Reference value :  6.52600e-08
+ Reference value :  6.85100e-08
+ Reference value :  7.17600e-08
+ Reference value :  7.50200e-08
+ Reference value :  7.82000e-08
+ Reference value :  8.14800e-08
+ Reference value :  8.37900e-08
+ Reference value :  8.59600e-08
+ Reference value :  8.81300e-08
+ Reference value :  9.02900e-08
+ Reference value :  9.32300e-08
+ Reference value :  9.64700e-08
+ Reference value :  9.97100e-08
+ Reference value :  1.02950e-07
+ Reference value :  1.06130e-07
+ Reference value :  1.09370e-07
+ Reference value :  1.12620e-07
+ Reference value :  1.15870e-07
+ Reference value :  1.19120e-07
+No. of Data Rows : 12222
+
+  Measurements for Transient Analysis
+
+d_rise_s0           =  8.28876e-10 targ=  4.30164e-08 trig=  4.21875e-08
+tl1090_rise_s0      =   4.32260e-08
+th1090_rise_s0      =   4.27977e-08
+tl3070_rise_s0      =   4.31058e-08
+th3070_rise_s0      =   4.29221e-08
+d_rise_s1           =  1.12689e-09 targ=  4.33144e-08 trig=  4.21875e-08
+tl1090_rise_s1      =   4.35221e-08
+th1090_rise_s1      =   4.31042e-08
+tl3070_rise_s1      =   4.34026e-08
+th3070_rise_s1      =   4.32224e-08
+d_rise_s2           =  1.46914e-09 targ=  4.36566e-08 trig=  4.21875e-08
+tl1090_rise_s2      =   4.38644e-08
+th1090_rise_s2      =   4.34464e-08
+tl3070_rise_s2      =   4.37449e-08
+th3070_rise_s2      =   4.35647e-08
+d_rise_s3           =  1.81132e-09 targ=  4.39988e-08 trig=  4.21875e-08
+tl1090_rise_s3      =   4.42065e-08
+th1090_rise_s3      =   4.37886e-08
+tl3070_rise_s3      =   4.40871e-08
+th3070_rise_s3      =   4.39068e-08
+d_rise_s4           =  2.15349e-09 targ=  4.43410e-08 trig=  4.21875e-08
+tl1090_rise_s4      =   4.45487e-08
+th1090_rise_s4      =   4.41308e-08
+tl3070_rise_s4      =   4.44292e-08
+th3070_rise_s4      =   4.42490e-08
+d_rise_s5           =  2.49566e-09 targ=  4.46832e-08 trig=  4.21875e-08
+tl1090_rise_s5      =   4.48908e-08
+th1090_rise_s5      =   4.44730e-08
+tl3070_rise_s5      =   4.47714e-08
+th3070_rise_s5      =   4.45912e-08
+d_rise_s6           =  2.83783e-09 targ=  4.50253e-08 trig=  4.21875e-08
+tl1090_rise_s6      =   4.52330e-08
+th1090_rise_s6      =   4.48151e-08
+tl3070_rise_s6      =   4.51136e-08
+th3070_rise_s6      =   4.49334e-08
+d_rise_s7           =  3.18000e-09 targ=  4.53675e-08 trig=  4.21875e-08
+tl1090_rise_s7      =   4.55752e-08
+th1090_rise_s7      =   4.51573e-08
+tl3070_rise_s7      =   4.54558e-08
+th3070_rise_s7      =   4.52755e-08
+d_rise_s8           =  3.52218e-09 targ=  4.57097e-08 trig=  4.21875e-08
+tl1090_rise_s8      =   4.59174e-08
+th1090_rise_s8      =   4.54995e-08
+tl3070_rise_s8      =   4.57979e-08
+th3070_rise_s8      =   4.56177e-08
+d_rise_s9           =  3.86434e-09 targ=  4.60518e-08 trig=  4.21875e-08
+tl1090_rise_s9      =   4.62595e-08
+th1090_rise_s9      =   4.58417e-08
+tl3070_rise_s9      =   4.61401e-08
+th3070_rise_s9      =   4.59599e-08
+d_rise_s10          =  4.20651e-09 targ=  4.63940e-08 trig=  4.21875e-08
+tl1090_rise_s10     =   4.66017e-08
+th1090_rise_s10     =   4.61838e-08
+tl3070_rise_s10     =   4.64823e-08
+th3070_rise_s10     =   4.63020e-08
+d_rise_s11          =  4.54868e-09 targ=  4.67362e-08 trig=  4.21875e-08
+tl1090_rise_s11     =   4.69439e-08
+th1090_rise_s11     =   4.65260e-08
+tl3070_rise_s11     =   4.68244e-08
+th3070_rise_s11     =   4.66442e-08
+d_rise_s12          =  4.89086e-09 targ=  4.70784e-08 trig=  4.21875e-08
+tl1090_rise_s12     =   4.72861e-08
+th1090_rise_s12     =   4.68682e-08
+tl3070_rise_s12     =   4.71666e-08
+th3070_rise_s12     =   4.69864e-08
+d_rise_s13          =  5.23303e-09 targ=  4.74205e-08 trig=  4.21875e-08
+tl1090_rise_s13     =   4.76282e-08
+th1090_rise_s13     =   4.72104e-08
+tl3070_rise_s13     =   4.75088e-08
+th3070_rise_s13     =   4.73286e-08
+d_rise_s14          =  5.57520e-09 targ=  4.77627e-08 trig=  4.21875e-08
+tl1090_rise_s14     =   4.79703e-08
+th1090_rise_s14     =   4.75525e-08
+tl3070_rise_s14     =   4.78509e-08
+th3070_rise_s14     =   4.76707e-08
+d_rise_s15          =  5.91737e-09 targ=  4.81049e-08 trig=  4.21875e-08
+tl1090_rise_s15     =   4.83126e-08
+th1090_rise_s15     =   4.78946e-08
+tl3070_rise_s15     =   4.81931e-08
+th3070_rise_s15     =   4.80129e-08
+d_rise_s16          =  6.25954e-09 targ=  4.84470e-08 trig=  4.21875e-08
+tl1090_rise_s16     =   4.86548e-08
+th1090_rise_s16     =   4.82368e-08
+tl3070_rise_s16     =   4.85353e-08
+th3070_rise_s16     =   4.83551e-08
+d_rise_s17          =  6.60171e-09 targ=  4.87892e-08 trig=  4.21875e-08
+tl1090_rise_s17     =   4.89969e-08
+th1090_rise_s17     =   4.85790e-08
+tl3070_rise_s17     =   4.88775e-08
+th3070_rise_s17     =   4.86972e-08
+d_rise_s18          =  6.94388e-09 targ=  4.91314e-08 trig=  4.21875e-08
+tl1090_rise_s18     =   4.93390e-08
+th1090_rise_s18     =   4.89212e-08
+tl3070_rise_s18     =   4.92196e-08
+th3070_rise_s18     =   4.90394e-08
+d_rise_s19          =  7.28605e-09 targ=  4.94736e-08 trig=  4.21875e-08
+tl1090_rise_s19     =   4.96812e-08
+th1090_rise_s19     =   4.92633e-08
+tl3070_rise_s19     =   4.95618e-08
+th3070_rise_s19     =   4.93816e-08
+d_rise_s20          =  7.62816e-09 targ=  4.98157e-08 trig=  4.21875e-08
+tl1090_rise_s20     =   5.00233e-08
+th1090_rise_s20     =   4.96054e-08
+tl3070_rise_s20     =   4.99039e-08
+th3070_rise_s20     =   4.97237e-08
+d_rise_s21          =  7.49294e-09 targ=  4.96804e-08 trig=  4.21875e-08
+tl1090_rise_s21     =   4.99874e-08
+th1090_rise_s21     =   4.94669e-08
+tl3070_rise_s21     =   4.97977e-08
+th3070_rise_s21     =   4.95750e-08
+d_fall_s0           =  9.56850e-10 targ=  8.31444e-08 trig=  8.21875e-08
+tl1090_fall_s0      =   8.28930e-08
+th1090_fall_s0      =   8.35115e-08
+tl3070_fall_s0      =   8.30238e-08
+th3070_fall_s0      =   8.32805e-08
+d_fall_s1           =  1.36939e-09 targ=  8.35569e-08 trig=  8.21875e-08
+tl1090_fall_s1      =   8.33061e-08
+th1090_fall_s1      =   8.39255e-08
+tl3070_fall_s1      =   8.34357e-08
+th3070_fall_s1      =   8.36938e-08
+d_fall_s2           =  1.76334e-09 targ=  8.39508e-08 trig=  8.21875e-08
+tl1090_fall_s2      =   8.37001e-08
+th1090_fall_s2      =   8.43194e-08
+tl3070_fall_s2      =   8.38297e-08
+th3070_fall_s2      =   8.40878e-08
+d_fall_s3           =  2.15726e-09 targ=  8.43448e-08 trig=  8.21875e-08
+tl1090_fall_s3      =   8.40940e-08
+th1090_fall_s3      =   8.47133e-08
+tl3070_fall_s3      =   8.42236e-08
+th3070_fall_s3      =   8.44817e-08
+d_fall_s4           =  2.55117e-09 targ=  8.47387e-08 trig=  8.21875e-08
+tl1090_fall_s4      =   8.44879e-08
+th1090_fall_s4      =   8.51072e-08
+tl3070_fall_s4      =   8.46175e-08
+th3070_fall_s4      =   8.48756e-08
+d_fall_s5           =  2.94509e-09 targ=  8.51326e-08 trig=  8.21875e-08
+tl1090_fall_s5      =   8.48818e-08
+th1090_fall_s5      =   8.55011e-08
+tl3070_fall_s5      =   8.50114e-08
+th3070_fall_s5      =   8.52695e-08
+d_fall_s6           =  3.33900e-09 targ=  8.55265e-08 trig=  8.21875e-08
+tl1090_fall_s6      =   8.52757e-08
+th1090_fall_s6      =   8.58951e-08
+tl3070_fall_s6      =   8.54054e-08
+th3070_fall_s6      =   8.56634e-08
+d_fall_s7           =  3.73291e-09 targ=  8.59204e-08 trig=  8.21875e-08
+tl1090_fall_s7      =   8.56697e-08
+th1090_fall_s7      =   8.62890e-08
+tl3070_fall_s7      =   8.57993e-08
+th3070_fall_s7      =   8.60573e-08
+d_fall_s8           =  4.12683e-09 targ=  8.63143e-08 trig=  8.21875e-08
+tl1090_fall_s8      =   8.60635e-08
+th1090_fall_s8      =   8.66829e-08
+tl3070_fall_s8      =   8.61932e-08
+th3070_fall_s8      =   8.64512e-08
+d_fall_s9           =  4.52074e-09 targ=  8.67082e-08 trig=  8.21875e-08
+tl1090_fall_s9      =   8.64575e-08
+th1090_fall_s9      =   8.70768e-08
+tl3070_fall_s9      =   8.65871e-08
+th3070_fall_s9      =   8.68452e-08
+d_fall_s10          =  4.91466e-09 targ=  8.71022e-08 trig=  8.21875e-08
+tl1090_fall_s10     =   8.68514e-08
+th1090_fall_s10     =   8.74707e-08
+tl3070_fall_s10     =   8.69810e-08
+th3070_fall_s10     =   8.72391e-08
+d_fall_s11          =  5.30858e-09 targ=  8.74961e-08 trig=  8.21875e-08
+tl1090_fall_s11     =   8.72453e-08
+th1090_fall_s11     =   8.78646e-08
+tl3070_fall_s11     =   8.73749e-08
+th3070_fall_s11     =   8.76330e-08
+d_fall_s12          =  5.70249e-09 targ=  8.78900e-08 trig=  8.21875e-08
+tl1090_fall_s12     =   8.76392e-08
+th1090_fall_s12     =   8.82585e-08
+tl3070_fall_s12     =   8.77689e-08
+th3070_fall_s12     =   8.80269e-08
+d_fall_s13          =  6.09641e-09 targ=  8.82839e-08 trig=  8.21875e-08
+tl1090_fall_s13     =   8.80331e-08
+th1090_fall_s13     =   8.86525e-08
+tl3070_fall_s13     =   8.81628e-08
+th3070_fall_s13     =   8.84208e-08
+d_fall_s14          =  6.49032e-09 targ=  8.86778e-08 trig=  8.21875e-08
+tl1090_fall_s14     =   8.84270e-08
+th1090_fall_s14     =   8.90464e-08
+tl3070_fall_s14     =   8.85567e-08
+th3070_fall_s14     =   8.88148e-08
+d_fall_s15          =  6.88424e-09 targ=  8.90717e-08 trig=  8.21875e-08
+tl1090_fall_s15     =   8.88210e-08
+th1090_fall_s15     =   8.94403e-08
+tl3070_fall_s15     =   8.89506e-08
+th3070_fall_s15     =   8.92086e-08
+d_fall_s16          =  7.27815e-09 targ=  8.94657e-08 trig=  8.21875e-08
+tl1090_fall_s16     =   8.92148e-08
+th1090_fall_s16     =   8.98342e-08
+tl3070_fall_s16     =   8.93445e-08
+th3070_fall_s16     =   8.96026e-08
+d_fall_s17          =  7.67207e-09 targ=  8.98596e-08 trig=  8.21875e-08
+tl1090_fall_s17     =   8.96088e-08
+th1090_fall_s17     =   9.02281e-08
+tl3070_fall_s17     =   8.97384e-08
+th3070_fall_s17     =   8.99965e-08
+d_fall_s18          =  8.06599e-09 targ=  9.02535e-08 trig=  8.21875e-08
+tl1090_fall_s18     =   9.00027e-08
+th1090_fall_s18     =   9.06220e-08
+tl3070_fall_s18     =   9.01323e-08
+th3070_fall_s18     =   9.03904e-08
+d_fall_s19          =  8.45990e-09 targ=  9.06474e-08 trig=  8.21875e-08
+tl1090_fall_s19     =   9.03966e-08
+th1090_fall_s19     =   9.10160e-08
+tl3070_fall_s19     =   9.05263e-08
+th3070_fall_s19     =   9.07843e-08
+d_fall_s20          =  8.85345e-09 targ=  9.10409e-08 trig=  8.21875e-08
+tl1090_fall_s20     =   9.07902e-08
+th1090_fall_s20     =   9.14095e-08
+tl3070_fall_s20     =   9.09198e-08
+th3070_fall_s20     =   9.11779e-08
+d_fall_s21          =  8.99014e-09 targ=  9.11776e-08 trig=  8.21875e-08
+tl1090_fall_s21     =   9.07298e-08
+th1090_fall_s21     =   9.19201e-08
+tl3070_fall_s21     =   9.09500e-08
+th3070_fall_s21     =   9.14475e-08
+
+
+Total analysis time (seconds) = 10.139
+
+Total elapsed time (seconds) = 10.265 
+
+Total DRAM available = 65536.000 MB.
+DRAM currently available = 32417.781 MB.
+Maximum ngspice program size =   27.406 MB.
+Current ngspice program size =   27.406 MB.
+

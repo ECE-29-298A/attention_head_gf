@@ -1,0 +1,15 @@
+* addf_1 CI->CO calibration (pex) tt 25C 3.3V, CI ramp 0.375ns 0-100%, CO 10fF, S 10fF
+.include /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.include addf_1_magic_pex.spice
+.temp 25
+.options method=gear reltol=1e-4
+VDD vdd 0 3.3
+VCI ci 0 PWL(0 0 2n 0 2.375n 3.3 12n 3.3 12.375n 0)
+X1 0 ci co s vdd 0 vdd vdd 0 addf_pex
+CCO co 0 10f
+CS s 0 10f
+.meas tran tr TRIG v(ci) VAL=1.65 RISE=1 TARG v(co) VAL=1.65 RISE=1
+.meas tran tf TRIG v(ci) VAL=1.65 FALL=1 TARG v(co) VAL=1.65 FALL=1
+.tran 5p 22n
+.end

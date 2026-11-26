@@ -1,0 +1,162 @@
+{
+ "test": "delay",
+ "corner": "tt",
+ "pvt": [
+  "typical",
+  25,
+  3.3
+ ],
+ "N": 12,
+ "boundary": {
+  "input_ramp_0_100_ns": 0.375,
+  "input_slew_10_90_ns": 0.3,
+  "liberty_equiv_input_slew_ns": 0.3,
+  "cload_fF": 20.0
+ },
+ "arcs": {
+  "cin->s[11]": {
+   "rise": {
+    "to_s_msb_ns": 9.8457,
+    "per_bit_delay_ns": [
+     1.4087,
+     2.2738,
+     3.1393,
+     4.0084,
+     4.8741,
+     5.7432,
+     6.6088,
+     7.463,
+     8.3377,
+     9.2072,
+     10.0756,
+     9.8457
+    ],
+    "s_msb_slew_10_90_ns": 0.6237,
+    "s_msb_slew_30_70_ns": 0.2627,
+    "s_msb_slew_liberty_equiv_ns": 0.5254,
+    "max_output_slew_10_90_ns": 0.6237,
+    "max_output_slew_liberty_equiv_ns": 0.5254
+   },
+   "fall": {
+    "to_s_msb_ns": 11.8611,
+    "per_bit_delay_ns": [
+     1.6341,
+     2.6534,
+     3.667,
+     4.6855,
+     5.6992,
+     6.7177,
+     7.7313,
+     8.7357,
+     9.7582,
+     10.7764,
+     11.7958,
+     11.8611
+    ],
+    "s_msb_slew_10_90_ns": 1.3799,
+    "s_msb_slew_30_70_ns": 0.5758,
+    "s_msb_slew_liberty_equiv_ns": 1.1516,
+    "max_output_slew_10_90_ns": 1.3799,
+    "max_output_slew_liberty_equiv_ns": 1.1516
+   }
+  },
+  "a[0]->s[11]": {
+   "rise": {
+    "to_s_msb_ns": 9.799,
+    "per_bit_delay_ns": [
+     1.3622,
+     2.2271,
+     3.0927,
+     3.9618,
+     4.8275,
+     5.6966,
+     6.5621,
+     7.4164,
+     8.291,
+     9.1606,
+     10.0289,
+     9.799
+    ],
+    "s_msb_slew_10_90_ns": 0.6237,
+    "s_msb_slew_30_70_ns": 0.2626,
+    "s_msb_slew_liberty_equiv_ns": 0.5252,
+    "max_output_slew_10_90_ns": 0.6237,
+    "max_output_slew_liberty_equiv_ns": 0.5252
+   },
+   "fall": {
+    "to_s_msb_ns": 11.9104,
+    "per_bit_delay_ns": [
+     1.6298,
+     2.7026,
+     3.7162,
+     4.7348,
+     5.7485,
+     6.7669,
+     7.7805,
+     8.785,
+     9.8075,
+     10.8257,
+     11.845,
+     11.9104
+    ],
+    "s_msb_slew_10_90_ns": 1.3799,
+    "s_msb_slew_30_70_ns": 0.5759,
+    "s_msb_slew_liberty_equiv_ns": 1.1518,
+    "max_output_slew_10_90_ns": 1.3799,
+    "max_output_slew_liberty_equiv_ns": 1.1518
+   }
+  },
+  "b[0]->s[11]": {
+   "rise": {
+    "to_s_msb_ns": 9.7938,
+    "per_bit_delay_ns": [
+     1.4151,
+     2.2218,
+     3.0875,
+     3.9566,
+     4.8223,
+     5.6914,
+     6.5569,
+     7.4112,
+     8.2858,
+     9.1554,
+     10.0237,
+     9.7938
+    ],
+    "s_msb_slew_10_90_ns": 0.6237,
+    "s_msb_slew_30_70_ns": 0.2626,
+    "s_msb_slew_liberty_equiv_ns": 0.5252,
+    "max_output_slew_10_90_ns": 0.6237,
+    "max_output_slew_liberty_equiv_ns": 0.5252
+   },
+   "fall": {
+    "to_s_msb_ns": 11.954,
+    "per_bit_delay_ns": [
+     1.6725,
+     2.7462,
+     3.7598,
+     4.7783,
+     5.792,
+     6.8105,
+     7.8241,
+     8.8286,
+     9.851,
+     10.8693,
+     11.8886,
+     11.954
+    ],
+    "s_msb_slew_10_90_ns": 1.3799,
+    "s_msb_slew_30_70_ns": 0.5759,
+    "s_msb_slew_liberty_equiv_ns": 1.1518,
+    "max_output_slew_10_90_ns": 1.3799,
+    "max_output_slew_liberty_equiv_ns": 1.1518
+   }
+  }
+ },
+ "worst": {
+  "delay_ns": 11.954,
+  "arc": "b[0]->s[11]",
+  "input_edge": "fall"
+ },
+ "pex_netlist": "n12/pex/ripple_add_n12_pex.spice"
+}

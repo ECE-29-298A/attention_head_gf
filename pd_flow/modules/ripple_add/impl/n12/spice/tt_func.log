@@ -1,0 +1,415 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * ripple_add n=12 functional, corner tt
+
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vpwr                                       3.3
+b_7                                          0
+a_7                                          0
+x1.bitslice\[7\].u_fa/ci           1.04605e-08
+s_7                                1.19902e-08
+x1.bitslice\[8\].u_fa/ci           1.04605e-08
+b_2                                          0
+a_2                                          0
+x1.bitslice\[2\].u_fa/ci           1.04605e-08
+s_2                                1.19902e-08
+x1.bitslice\[3\].u_fa/ci           1.04605e-08
+b_11                                         0
+a_11                                         0
+x1.u_msb_x3/a3                     1.04605e-08
+s_11                               3.98188e-08
+b_8                                          0
+a_8                                          0
+s_8                                1.19902e-08
+x1.bitslice\[9\].u_fa/ci           1.04605e-08
+b_3                                          0
+a_3                                          0
+s_3                                1.19902e-08
+x1.bitslice\[4\].u_fa/ci           1.04605e-08
+b_9                                          0
+a_9                                          0
+s_9                                1.19902e-08
+x1.bitslice\[9\].u_fa/co           1.04605e-08
+b_4                                          0
+a_4                                          0
+s_4                                1.19902e-08
+x1.bitslice\[5\].u_fa/ci           1.04605e-08
+b_10                                         0
+a_10                                         0
+s_10                               1.19902e-08
+b_5                                          0
+a_5                                          0
+s_5                                1.19902e-08
+x1.bitslice\[6\].u_fa/ci           1.04605e-08
+b_0                                          0
+a_0                                          0
+cin                                          0
+s_0                                1.19902e-08
+x1.bitslice\[1\].u_fa/ci           1.04605e-08
+b_6                                          0
+a_6                                          0
+s_6                                1.19902e-08
+b_1                                          0
+a_1                                          0
+s_1                                1.19902e-08
+v_cin#branch                                 0
+v_b_11#branch                                0
+v_b_10#branch                                0
+v_b_9#branch                                 0
+v_b_8#branch                                 0
+v_b_7#branch                                 0
+v_b_6#branch                                 0
+v_b_5#branch                                 0
+v_b_4#branch                                 0
+v_b_3#branch                                 0
+v_b_2#branch                                 0
+v_b_1#branch                                 0
+v_b_0#branch                                 0
+v_a_11#branch                                0
+v_a_10#branch                                0
+v_a_9#branch                                 0
+v_a_8#branch                                 0
+v_a_7#branch                                 0
+v_a_6#branch                                 0
+v_a_5#branch                                 0
+v_a_4#branch                                 0
+v_a_3#branch                                 0
+v_a_2#branch                                 0
+v_a_1#branch                                 0
+v_a_0#branch                                 0
+vdd#branch                        -3.83159e-10
+
+ Reference value :  5.26560e-09
+ Reference value :  1.48256e-08
+ Reference value :  2.48856e-08
+ Reference value :  3.50056e-08
+ Reference value :  4.41050e-08
+ Reference value :  5.40250e-08
+ Reference value :  6.41450e-08
+ Reference value :  7.43850e-08
+ Reference value :  8.35250e-08
+ Reference value :  9.03650e-08
+ Reference value :  9.93850e-08
+ Reference value :  1.09525e-07
+ Reference value :  1.19785e-07
+ Reference value :  1.27105e-07
+ Reference value :  1.34245e-07
+ Reference value :  1.44125e-07
+ Reference value :  1.54145e-07
+ Reference value :  1.63445e-07
+ Reference value :  1.70565e-07
+ Reference value :  1.79845e-07
+ Reference value :  1.89885e-07
+ Reference value :  1.99925e-07
+ Reference value :  2.09305e-07
+ Reference value :  2.19545e-07
+ Reference value :  2.29805e-07
+ Reference value :  2.39945e-07
+ Reference value :  2.49205e-07
+ Reference value :  2.59425e-07
+ Reference value :  2.69765e-07
+ Reference value :  2.79885e-07
+ Reference value :  2.88045e-07
+ Reference value :  2.98025e-07
+ Reference value :  3.07865e-07
+ Reference value :  3.17725e-07
+ Reference value :  3.26085e-07
+ Reference value :  3.36145e-07
+ Reference value :  3.46265e-07
+ Reference value :  3.56105e-07
+ Reference value :  3.64785e-07
+ Reference value :  3.74885e-07
+ Reference value :  3.84985e-07
+ Reference value :  3.95105e-07
+ Reference value :  4.04005e-07
+ Reference value :  4.10765e-07
+ Reference value :  4.19485e-07
+ Reference value :  4.29525e-07
+ Reference value :  4.39605e-07
+ Reference value :  4.48545e-07
+ Reference value :  4.58605e-07
+ Reference value :  4.68665e-07
+ Reference value :  4.78725e-07
+ Reference value :  4.86924e-07
+ Reference value :  4.97044e-07
+ Reference value :  5.07164e-07
+ Reference value :  5.16924e-07
+ Reference value :  5.25185e-07
+ Reference value :  5.33225e-07
+ Reference value :  5.43065e-07
+ Reference value :  5.53145e-07
+ Reference value :  5.62625e-07
+ Reference value :  5.70985e-07
+ Reference value :  5.80925e-07
+ Reference value :  5.90985e-07
+ Reference value :  6.01065e-07
+ Reference value :  6.08785e-07
+ Reference value :  6.18625e-07
+ Reference value :  6.28665e-07
+ Reference value :  6.38625e-07
+ Reference value :  6.46345e-07
+ Reference value :  6.56345e-07
+ Reference value :  6.66585e-07
+ Reference value :  6.76305e-07
+ Reference value :  6.84545e-07
+ Reference value :  6.94445e-07
+ Reference value :  7.04545e-07
+ Reference value :  7.14205e-07
+ Reference value :  7.23245e-07
+ Reference value :  7.32085e-07
+ Reference value :  7.42085e-07
+ Reference value :  7.51685e-07
+ Reference value :  7.61645e-07
+No. of Data Rows : 38216
+
+  Measurements for Transient Analysis
+
+v0_s0               =  1.19902e-08
+v0_s1               =  1.19902e-08
+v0_s2               =  1.19902e-08
+v0_s3               =  1.19902e-08
+v0_s4               =  1.19902e-08
+v0_s5               =  1.19902e-08
+v0_s6               =  1.19902e-08
+v0_s7               =  1.19902e-08
+v0_s8               =  1.19902e-08
+v0_s9               =  1.19902e-08
+v0_s10              =  1.19902e-08
+v0_s11              =  3.98188e-08
+v1_s0               =  3.30000e+00
+v1_s1               =  3.30000e+00
+v1_s2               =  3.30000e+00
+v1_s3               =  3.30000e+00
+v1_s4               =  3.30000e+00
+v1_s5               =  3.30000e+00
+v1_s6               =  3.30000e+00
+v1_s7               =  3.30000e+00
+v1_s8               =  3.30000e+00
+v1_s9               =  3.30000e+00
+v1_s10              =  3.30000e+00
+v1_s11              =  3.30000e+00
+v2_s0               =  1.31795e-08
+v2_s1               =  1.32186e-08
+v2_s2               =  1.32968e-08
+v2_s3               =  1.33472e-08
+v2_s4               =  1.34356e-08
+v2_s5               =  1.34970e-08
+v2_s6               =  1.35979e-08
+v2_s7               =  1.35231e-08
+v2_s8               =  1.37879e-08
+v2_s9               =  1.38929e-08
+v2_s10              =  1.40173e-08
+v2_s11              =  4.16133e-08
+v3_s0               =  3.30000e+00
+v3_s1               =  3.30000e+00
+v3_s2               =  3.30000e+00
+v3_s3               =  3.30000e+00
+v3_s4               =  3.30000e+00
+v3_s5               =  3.30000e+00
+v3_s6               =  3.30000e+00
+v3_s7               =  3.30000e+00
+v3_s8               =  3.30000e+00
+v3_s9               =  3.30000e+00
+v3_s10              =  3.30000e+00
+v3_s11              =  3.30000e+00
+v4_s0               =  1.46346e-08
+v4_s1               =  1.79117e-08
+v4_s2               =  1.48935e-08
+v4_s3               =  1.83553e-08
+v4_s4               =  1.51992e-08
+v4_s5               =  1.88615e-08
+v4_s6               =  1.55554e-08
+v4_s7               =  1.90993e-08
+v4_s8               =  1.59716e-08
+v4_s9               =  2.01445e-08
+v4_s10              =  1.64705e-08
+v4_s11              =  4.35183e-08
+v5_s0               =  3.30000e+00
+v5_s1               =  3.30000e+00
+v5_s2               =  3.30000e+00
+v5_s3               =  3.30000e+00
+v5_s4               =  3.30000e+00
+v5_s5               =  3.30000e+00
+v5_s6               =  3.30000e+00
+v5_s7               =  3.30000e+00
+v5_s8               =  3.30000e+00
+v5_s9               =  3.30000e+00
+v5_s10              =  3.30000e+00
+v5_s11              =  3.29999e+00
+v6_s0               =  1.14563e-08
+v6_s1               =  1.76088e-08
+v6_s2               =  1.45658e-08
+v6_s3               =  1.76084e-08
+v6_s4               =  1.45658e-08
+v6_s5               =  1.76084e-08
+v6_s6               =  1.45658e-08
+v6_s7               =  1.73728e-08
+v6_s8               =  1.45658e-08
+v6_s9               =  1.76279e-08
+v6_s10              =  1.45664e-08
+v6_s11              =  4.36253e-08
+v7_s0               =  1.44729e-08
+v7_s1               =  3.30000e+00
+v7_s2               =  3.30000e+00
+v7_s3               =  1.19606e-08
+v7_s4               =  3.30000e+00
+v7_s5               =  1.19601e-08
+v7_s6               =  1.30949e-08
+v7_s7               =  1.29904e-08
+v7_s8               =  3.30000e+00
+v7_s9               =  3.30000e+00
+v7_s10              =  3.30000e+00
+v7_s11              =  3.30000e+00
+v8_s0               =  3.30000e+00
+v8_s1               =  1.06499e-08
+v8_s2               =  3.30000e+00
+v8_s3               =  1.19649e-08
+v8_s4               =  3.30000e+00
+v8_s5               =  1.19650e-08
+v8_s6               =  3.30000e+00
+v8_s7               =  1.19958e-08
+v8_s8               =  3.30000e+00
+v8_s9               =  1.19663e-08
+v8_s10              =  3.30000e+00
+v8_s11              =  7.86477e-06
+v9_s0               =  1.31596e-08
+v9_s1               =  1.77173e-08
+v9_s2               =  1.31705e-08
+v9_s3               =  1.77207e-08
+v9_s4               =  1.46539e-08
+v9_s5               =  1.77187e-08
+v9_s6               =  1.46517e-08
+v9_s7               =  1.74819e-08
+v9_s8               =  1.46538e-08
+v9_s9               =  1.77382e-08
+v9_s10              =  1.46518e-08
+v9_s11              =  4.36096e-08
+v10_s0              =  3.30000e+00
+v10_s1              =  3.30000e+00
+v10_s2              =  3.30000e+00
+v10_s3              =  3.30000e+00
+v10_s4              =  3.30000e+00
+v10_s5              =  3.30000e+00
+v10_s6              =  3.30000e+00
+v10_s7              =  3.30000e+00
+v10_s8              =  3.30000e+00
+v10_s9              =  3.30000e+00
+v10_s10             =  3.30000e+00
+v10_s11             =  3.30000e+00
+v11_s0              =  2.21749e-08
+v11_s1              =  3.30000e+00
+v11_s2              =  3.30000e+00
+v11_s3              =  1.18981e-08
+v11_s4              =  3.30000e+00
+v11_s5              =  3.30000e+00
+v11_s6              =  2.05511e-08
+v11_s7              =  3.30000e+00
+v11_s8              =  1.10634e-08
+v11_s9              =  3.30000e+00
+v11_s10             =  3.30000e+00
+v11_s11             =  3.29999e+00
+v12_s0              =  3.30000e+00
+v12_s1              =  1.31970e-08
+v12_s2              =  1.48504e-08
+v12_s3              =  3.30000e+00
+v12_s4              =  3.30000e+00
+v12_s5              =  3.30000e+00
+v12_s6              =  1.32019e-08
+v12_s7              =  3.30000e+00
+v12_s8              =  1.31660e-08
+v12_s9              =  1.77595e-08
+v12_s10             =  3.30000e+00
+v12_s11             =  8.12063e-06
+v13_s0              =  8.82149e-09
+v13_s1              =  1.22599e-08
+v13_s2              =  3.30000e+00
+v13_s3              =  3.30000e+00
+v13_s4              =  3.30000e+00
+v13_s5              =  3.30000e+00
+v13_s6              =  3.30000e+00
+v13_s7              =  3.30000e+00
+v13_s8              =  6.32855e-09
+v13_s9              =  3.30000e+00
+v13_s10             =  3.30000e+00
+v13_s11             =  3.30000e+00
+v14_s0              =  2.30814e-08
+v14_s1              =  1.19963e-08
+v14_s2              =  3.30000e+00
+v14_s3              =  3.30000e+00
+v14_s4              =  1.10633e-08
+v14_s5              =  3.30000e+00
+v14_s6              =  3.30000e+00
+v14_s7              =  2.33989e-08
+v14_s8              =  3.30000e+00
+v14_s9              =  3.30000e+00
+v14_s10             =  3.30000e+00
+v14_s11             =  3.30000e+00
+v15_s0              =  3.30000e+00
+v15_s1              =  3.30000e+00
+v15_s2              =  6.93839e-09
+v15_s3              =  1.31937e-08
+v15_s4              =  1.32492e-08
+v15_s5              =  3.30000e+00
+v15_s6              =  2.21978e-08
+v15_s7              =  1.53386e-08
+v15_s8              =  2.11399e-08
+v15_s9              =  1.18956e-08
+v15_s10             =  3.30000e+00
+v15_s11             =  7.86339e-06
+v16_s0              =  3.30000e+00
+v16_s1              =  1.18978e-08
+v16_s2              =  1.46287e-08
+v16_s3              =  1.22652e-08
+v16_s4              =  3.30000e+00
+v16_s5              =  3.30000e+00
+v16_s6              =  2.22752e-08
+v16_s7              =  1.07903e-08
+v16_s8              =  1.32275e-08
+v16_s9              =  1.81412e-08
+v16_s10             =  1.50226e-08
+v16_s11             =  3.29999e+00
+v17_s0              =  3.30000e+00
+v17_s1              =  1.76128e-08
+v17_s2              =  3.30000e+00
+v17_s3              =  2.24929e-08
+v17_s4              =  6.93179e-09
+v17_s5              =  3.30000e+00
+v17_s6              =  1.32274e-08
+v17_s7              =  3.30000e+00
+v17_s8              =  1.22719e-08
+v17_s9              =  1.30939e-08
+v17_s10             =  3.30000e+00
+v17_s11             =  3.30000e+00
+v18_s0              =  3.30000e+00
+v18_s1              =  1.39917e-08
+v18_s2              =  1.31583e-08
+v18_s3              =  1.32161e-08
+v18_s4              =  1.48888e-08
+v18_s5              =  3.30000e+00
+v18_s6              =  2.08507e-08
+v18_s7              =  3.30000e+00
+v18_s8              =  2.25576e-08
+v18_s9              =  3.30000e+00
+v18_s10             =  2.25534e-08
+v18_s11             =  3.30000e+00
+
+
+Total analysis time (seconds) = 20.1834
+
+Total elapsed time (seconds) = 20.286 
+
+Total DRAM available = 65536.000 MB.
+DRAM currently available = 32591.234 MB.
+Maximum ngspice program size =   26.781 MB.
+Current ngspice program size =   26.781 MB.
+

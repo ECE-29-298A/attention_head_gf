@@ -1,0 +1,1720 @@
+* NGSPICE file created from ripple_add.ext - technology: gf180mcuD
+
+.subckt ripple_add VGND VPWR a[0] a[10] a[11] a[1] a[2] a[3] a[4] a[5] a[6] a[7] a[8]
++ a[9] b[0] b[10] b[11] b[1] b[2] b[3] b[4] b[5] b[6] b[7] b[8] b[9] cin s[0] s[10]
++ s[11] s[1] s[2] s[3] s[4] s[5] s[6] s[7] s[8] s[9]
+X0 bitslice\[7\].u_fa/a_1072_496# b[7] VPWR VPWR pfet_05v0 ad=0.1716p pd=1.18u as=0.3456p ps=1.78u w=0.66u l=0.5u
+X1 bitslice\[7\].u_fa/a_512_156# a[7] VGND VGND nfet_05v0 ad=45.6f pd=0.62u as=0.2132p ps=1.45u w=0.38u l=0.6u
+X2 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.2046p pd=1.28u as=0.1122p ps=1u w=0.66u l=0.5u
+X3 bitslice\[7\].u_fa/a_3028_472# b[7] bitslice\[7\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.119p pd=1.04u as=0.217p ps=1.32u w=0.7u l=0.5u
+X4 VPWR bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0.2904p pd=2.2u as=0.1716p ps=1.18u w=0.66u l=0.5u
+X5 bitslice\[7\].u_fa/a_1072_156# b[7] VGND VGND nfet_05v0 ad=98.8f pd=0.9u as=0.2112p ps=1.5u w=0.38u l=0.6u
+X6 bitslice\[7\].u_fa/a_680_496# b[7] bitslice\[7\].u_fa/a_512_496# VPWR pfet_05v0 ad=0.1122p pd=1u as=0.1122p ps=1u w=0.66u l=0.5u
+X7 bitslice\[7\].u_fa/a_1072_156# bitslice\[7\].u_fa/a_952_112# bitslice\[7\].u_fa/a_124_46# VGND nfet_05v0 ad=98.8f pd=0.9u as=98.8f ps=0.9u w=0.38u l=0.6u
+X8 VGND a[7] bitslice\[7\].u_fa/a_3048_156# VGND nfet_05v0 ad=0.2363p pd=1.555u as=45.6f ps=0.62u w=0.38u l=0.6u
+X9 VPWR a[7] bitslice\[7\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0.3456p pd=1.78u as=0.2046p ps=1.28u w=0.66u l=0.5u
+X10 bitslice\[7\].u_fa/a_952_112# bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_1992_156# VGND nfet_05v0 ad=98.8f pd=0.9u as=0.2112p ps=1.5u w=0.38u l=0.6u
+X11 VPWR bitslice\[7\].u_fa/a_124_46# s[7] VPWR pfet_05v0 ad=0.3969p pd=2.055u as=0.5346p ps=3.31u w=1.215u l=0.5u
+X12 VPWR a[7] bitslice\[7\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0.4073p pd=2.055u as=0.119p ps=1.04u w=0.7u l=0.5u
+X13 bitslice\[7\].u_fa/a_952_112# bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0.217p pd=1.32u as=0.371p ps=1.76u w=0.7u l=0.5u
+X14 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0.2363p ps=1.555u w=0.815u l=0.6u
+X15 VPWR b[7] bitslice\[7\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0.3792p pd=1.9u as=0.308p ps=2.28u w=0.7u l=0.5u
+X16 VGND bitslice\[7\].u_fa/a_124_46# s[7] VGND nfet_05v0 ad=0.2132p pd=1.45u as=0.3124p ps=2.3u w=0.71u l=0.6u
+X17 bitslice\[7\].u_fa/a_1072_496# bitslice\[7\].u_fa/a_952_112# bitslice\[7\].u_fa/a_124_46# VPWR pfet_05v0 ad=0.2046p pd=1.28u as=0.2046p ps=1.28u w=0.66u l=0.5u
+X18 bitslice\[7\].u_fa/a_512_496# a[7] VPWR VPWR pfet_05v0 ad=0.1122p pd=1u as=0.3969p ps=2.055u w=0.66u l=0.5u
+X19 VGND b[7] bitslice\[7\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.2112p pd=1.5u as=0.1672p ps=1.64u w=0.38u l=0.6u
+X20 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_680_156# VGND nfet_05v0 ad=98.8f pd=0.9u as=45.6f ps=0.62u w=0.38u l=0.6u
+X21 bitslice\[7\].u_fa/a_680_156# b[7] bitslice\[7\].u_fa/a_512_156# VGND nfet_05v0 ad=45.6f pd=0.62u as=45.6f ps=0.62u w=0.38u l=0.6u
+X22 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0.4073p ps=2.055u w=1.215u l=0.5u
+X23 bitslice\[7\].u_fa/a_1992_156# a[7] VGND VGND nfet_05v0 ad=0.2112p pd=1.5u as=0.2112p ps=1.5u w=0.38u l=0.6u
+X24 VGND a[7] bitslice\[7\].u_fa/a_1072_156# VGND nfet_05v0 ad=0.2112p pd=1.5u as=98.8f ps=0.9u w=0.38u l=0.6u
+X25 bitslice\[7\].u_fa/a_3048_156# b[7] bitslice\[7\].u_fa/a_952_112# VGND nfet_05v0 ad=45.6f pd=0.62u as=98.8f ps=0.9u w=0.38u l=0.6u
+X26 VGND bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_1072_156# VGND nfet_05v0 ad=0.1672p pd=1.64u as=98.8f ps=0.9u w=0.38u l=0.6u
+X27 bitslice\[7\].u_fa/a_2012_472# a[7] VPWR VPWR pfet_05v0 ad=0.371p pd=1.76u as=0.3792p ps=1.9u w=0.7u l=0.5u
+X28 VPWR FILLER_11_2/a_572_375# FILLER_11_2/a_484_472# VPWR pfet_05v0 ad=0.5368p pd=3.32u as=0.5368p ps=3.32u w=1.22u l=1u
+X29 FILLER_11_2/a_572_375# FILLER_11_2/a_484_472# VGND VGND nfet_05v0 ad=0.3608p pd=2.52u as=0.3608p ps=2.52u w=0.82u l=1u
+X30 FILLER_11_2/a_124_375# FILLER_11_2/a_36_472# VGND VGND nfet_05v0 ad=0.3608p pd=2.52u as=0.3608p ps=2.52u w=0.82u l=1u
+X31 VPWR FILLER_11_2/a_124_375# FILLER_11_2/a_36_472# VPWR pfet_05v0 ad=0.5368p pd=3.32u as=0.5368p ps=3.32u w=1.22u l=1u
+X32 bitslice\[2\].u_fa/a_1072_496# b[2] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=39.0003p ps=0.20897m w=0.66u l=0.5u
+X33 bitslice\[2\].u_fa/a_512_156# a[2] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=23.2666p ps=0.16767m w=0.38u l=0.6u
+X34 bitslice\[2\].u_fa/a_124_46# bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X35 bitslice\[2\].u_fa/a_3028_472# b[2] bitslice\[2\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X36 VPWR bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X37 bitslice\[2\].u_fa/a_1072_156# b[2] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X38 bitslice\[2\].u_fa/a_680_496# b[2] bitslice\[2\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X39 bitslice\[2\].u_fa/a_1072_156# bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X40 VGND a[2] bitslice\[2\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X41 VPWR a[2] bitslice\[2\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X42 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X43 VPWR bitslice\[2\].u_fa/a_124_46# s[2] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X44 VPWR a[2] bitslice\[2\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X45 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X46 bitslice\[3\].u_fa/CI bitslice\[2\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X47 VPWR b[2] bitslice\[2\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X48 VGND bitslice\[2\].u_fa/a_124_46# s[2] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X49 bitslice\[2\].u_fa/a_1072_496# bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X50 bitslice\[2\].u_fa/a_512_496# a[2] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X51 VGND b[2] bitslice\[2\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X52 bitslice\[2\].u_fa/a_124_46# bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X53 bitslice\[2\].u_fa/a_680_156# b[2] bitslice\[2\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X54 bitslice\[3\].u_fa/CI bitslice\[2\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X55 bitslice\[2\].u_fa/a_1992_156# a[2] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X56 VGND a[2] bitslice\[2\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X57 bitslice\[2\].u_fa/a_3048_156# b[2] bitslice\[2\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X58 VGND bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X59 bitslice\[2\].u_fa/a_2012_472# a[2] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X60 u_msb_x3/a_952_93# b[11] u_msb_x3/a_728_93# VGND nfet_05v0 ad=57.59999f pd=0.68u as=93.59999f ps=0.88u w=0.36u l=0.6u
+X61 u_msb_x3/a_728_93# b[11] u_msb_x3/a_718_524# VPWR pfet_05v0 ad=0.1469p pd=1.085u as=0.16102p ps=1.135u w=0.565u l=0.5u
+X62 u_msb_x3/a_1524_472# u_msb_x3/a_728_93# u_msb_x3/a_1336_472# VPWR pfet_05v0 ad=90.4f pd=0.885u as=0.2486p ps=2.01u w=0.565u l=0.5u
+X63 u_msb_x3/a_244_524# a[11] u_msb_x3/a_56_524# VPWR pfet_05v0 ad=93.59999f pd=0.88u as=0.1584p ps=1.6u w=0.36u l=0.5u
+X64 u_msb_x3/a_718_524# u_msb_x3/a_56_524# VPWR VPWR pfet_05v0 ad=0.16102p pd=1.135u as=0.194p ps=1.415u w=0.565u l=0.5u
+X65 u_msb_x3/a_718_524# a[11] u_msb_x3/a_728_93# VPWR pfet_05v0 ad=0.2486p pd=2.01u as=0.1469p ps=1.085u w=0.565u l=0.5u
+X66 VGND b[11] u_msb_x3/a_56_524# VGND nfet_05v0 ad=0.126p pd=1.06u as=93.59999f ps=0.88u w=0.36u l=0.6u
+X67 u_msb_x3/a_1336_472# u_msb_x3/a_728_93# VGND VGND nfet_05v0 ad=93.59999f pd=0.88u as=0.1584p ps=1.6u w=0.36u l=0.6u
+X68 VPWR b[11] u_msb_x3/a_244_524# VPWR pfet_05v0 ad=0.194p pd=1.415u as=93.59999f ps=0.88u w=0.36u l=0.5u
+X69 u_msb_x3/a_56_524# a[11] VGND VGND nfet_05v0 ad=93.59999f pd=0.88u as=0.1584p ps=1.6u w=0.36u l=0.6u
+X70 VGND u_msb_x3/A3 u_msb_x3/a_1336_472# VGND nfet_05v0 ad=0.218p pd=1.52u as=93.59999f ps=0.88u w=0.36u l=0.6u
+X71 u_msb_x3/a_2215_68# u_msb_x3/A3 s[11] VGND nfet_05v0 ad=0.1312p pd=1.14u as=0.2132p ps=1.34u w=0.82u l=0.6u
+X72 VGND u_msb_x3/a_728_93# u_msb_x3/a_2215_68# VGND nfet_05v0 ad=0.3608p pd=2.52u as=0.1312p ps=1.14u w=0.82u l=0.6u
+X73 s[11] u_msb_x3/a_1336_472# VGND VGND nfet_05v0 ad=0.2132p pd=1.34u as=0.218p ps=1.52u w=0.82u l=0.6u
+X74 s[11] u_msb_x3/A3 u_msb_x3/a_1936_472# VPWR pfet_05v0 ad=0.3172p pd=1.74u as=0.3172p ps=1.74u w=1.22u l=0.5u
+X75 u_msb_x3/a_728_93# u_msb_x3/a_56_524# VGND VGND nfet_05v0 ad=93.59999f pd=0.88u as=0.126p ps=1.06u w=0.36u l=0.6u
+X76 u_msb_x3/a_1936_472# u_msb_x3/a_728_93# s[11] VPWR pfet_05v0 ad=0.5368p pd=3.32u as=0.3172p ps=1.74u w=1.22u l=0.5u
+X77 VGND a[11] u_msb_x3/a_952_93# VGND nfet_05v0 ad=0.1584p pd=1.6u as=57.59999f ps=0.68u w=0.36u l=0.6u
+X78 VPWR u_msb_x3/A3 u_msb_x3/a_1524_472# VPWR pfet_05v0 ad=0.35315p pd=1.96u as=90.4f ps=0.885u w=0.565u l=0.5u
+X79 u_msb_x3/a_1936_472# u_msb_x3/a_1336_472# VPWR VPWR pfet_05v0 ad=0.3172p pd=1.74u as=0.35315p ps=1.96u w=1.22u l=0.5u
+X80 bitslice\[8\].u_fa/a_1072_496# b[8] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X81 bitslice\[8\].u_fa/a_512_156# a[8] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X82 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X83 bitslice\[8\].u_fa/a_3028_472# b[8] bitslice\[8\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X84 VPWR bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X85 bitslice\[8\].u_fa/a_1072_156# b[8] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X86 bitslice\[8\].u_fa/a_680_496# b[8] bitslice\[8\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X87 bitslice\[8\].u_fa/a_1072_156# bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X88 VGND a[8] bitslice\[8\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X89 VPWR a[8] bitslice\[8\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X90 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X91 VPWR bitslice\[8\].u_fa/a_124_46# s[8] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X92 VPWR a[8] bitslice\[8\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X93 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X94 bitslice\[9\].u_fa/CI bitslice\[8\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X95 VPWR b[8] bitslice\[8\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X96 VGND bitslice\[8\].u_fa/a_124_46# s[8] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X97 bitslice\[8\].u_fa/a_1072_496# bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X98 bitslice\[8\].u_fa/a_512_496# a[8] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X99 VGND b[8] bitslice\[8\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X100 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X101 bitslice\[8\].u_fa/a_680_156# b[8] bitslice\[8\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X102 bitslice\[9\].u_fa/CI bitslice\[8\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X103 bitslice\[8\].u_fa/a_1992_156# a[8] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X104 VGND a[8] bitslice\[8\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X105 bitslice\[8\].u_fa/a_3048_156# b[8] bitslice\[8\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X106 VGND bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X107 bitslice\[8\].u_fa/a_2012_472# a[8] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X108 bitslice\[3\].u_fa/a_1072_496# b[3] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X109 bitslice\[3\].u_fa/a_512_156# a[3] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X110 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/CI bitslice\[3\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X111 bitslice\[3\].u_fa/a_3028_472# b[3] bitslice\[3\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X112 VPWR bitslice\[3\].u_fa/CI bitslice\[3\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X113 bitslice\[3\].u_fa/a_1072_156# b[3] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X114 bitslice\[3\].u_fa/a_680_496# b[3] bitslice\[3\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X115 bitslice\[3\].u_fa/a_1072_156# bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X116 VGND a[3] bitslice\[3\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X117 VPWR a[3] bitslice\[3\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X118 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/CI bitslice\[3\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X119 VPWR bitslice\[3\].u_fa/a_124_46# s[3] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X120 VPWR a[3] bitslice\[3\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X121 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/CI bitslice\[3\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X122 bitslice\[4\].u_fa/CI bitslice\[3\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X123 VPWR b[3] bitslice\[3\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X124 VGND bitslice\[3\].u_fa/a_124_46# s[3] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X125 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X126 bitslice\[3\].u_fa/a_512_496# a[3] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X127 VGND b[3] bitslice\[3\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X128 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/CI bitslice\[3\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X129 bitslice\[3\].u_fa/a_680_156# b[3] bitslice\[3\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X130 bitslice\[4\].u_fa/CI bitslice\[3\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X131 bitslice\[3\].u_fa/a_1992_156# a[3] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X132 VGND a[3] bitslice\[3\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X133 bitslice\[3\].u_fa/a_3048_156# b[3] bitslice\[3\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X134 VGND bitslice\[3\].u_fa/CI bitslice\[3\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X135 bitslice\[3\].u_fa/a_2012_472# a[3] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X136 bitslice\[9\].u_fa/a_1072_496# b[9] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X137 bitslice\[9\].u_fa/a_512_156# a[9] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X138 bitslice\[9\].u_fa/a_124_46# bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X139 bitslice\[9\].u_fa/a_3028_472# b[9] bitslice\[9\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X140 VPWR bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X141 bitslice\[9\].u_fa/a_1072_156# b[9] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X142 bitslice\[9\].u_fa/a_680_496# b[9] bitslice\[9\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X143 bitslice\[9\].u_fa/a_1072_156# bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X144 VGND a[9] bitslice\[9\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X145 VPWR a[9] bitslice\[9\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X146 bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X147 VPWR bitslice\[9\].u_fa/a_124_46# s[9] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X148 VPWR a[9] bitslice\[9\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X149 bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X150 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X151 VPWR b[9] bitslice\[9\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X152 VGND bitslice\[9\].u_fa/a_124_46# s[9] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X153 bitslice\[9\].u_fa/a_1072_496# bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X154 bitslice\[9\].u_fa/a_512_496# a[9] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X155 VGND b[9] bitslice\[9\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X156 bitslice\[9\].u_fa/a_124_46# bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X157 bitslice\[9\].u_fa/a_680_156# b[9] bitslice\[9\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X158 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X159 bitslice\[9\].u_fa/a_1992_156# a[9] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X160 VGND a[9] bitslice\[9\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X161 bitslice\[9\].u_fa/a_3048_156# b[9] bitslice\[9\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X162 VGND bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X163 bitslice\[9\].u_fa/a_2012_472# a[9] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X164 bitslice\[4\].u_fa/a_1072_496# b[4] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X165 bitslice\[4\].u_fa/a_512_156# a[4] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X166 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X167 bitslice\[4\].u_fa/a_3028_472# b[4] bitslice\[4\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X168 VPWR bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X169 bitslice\[4\].u_fa/a_1072_156# b[4] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X170 bitslice\[4\].u_fa/a_680_496# b[4] bitslice\[4\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X171 bitslice\[4\].u_fa/a_1072_156# bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X172 VGND a[4] bitslice\[4\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X173 VPWR a[4] bitslice\[4\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X174 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X175 VPWR bitslice\[4\].u_fa/a_124_46# s[4] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X176 VPWR a[4] bitslice\[4\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X177 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X178 bitslice\[5\].u_fa/CI bitslice\[4\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X179 VPWR b[4] bitslice\[4\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X180 VGND bitslice\[4\].u_fa/a_124_46# s[4] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X181 bitslice\[4\].u_fa/a_1072_496# bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X182 bitslice\[4\].u_fa/a_512_496# a[4] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X183 VGND b[4] bitslice\[4\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X184 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X185 bitslice\[4\].u_fa/a_680_156# b[4] bitslice\[4\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X186 bitslice\[5\].u_fa/CI bitslice\[4\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X187 bitslice\[4\].u_fa/a_1992_156# a[4] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X188 VGND a[4] bitslice\[4\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X189 bitslice\[4\].u_fa/a_3048_156# b[4] bitslice\[4\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X190 VGND bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X191 bitslice\[4\].u_fa/a_2012_472# a[4] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X192 bitslice\[10\].u_fa/a_1072_496# b[10] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X193 bitslice\[10\].u_fa/a_512_156# a[10] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X194 bitslice\[10\].u_fa/a_124_46# bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X195 bitslice\[10\].u_fa/a_3028_472# b[10] bitslice\[10\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X196 VPWR bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X197 bitslice\[10\].u_fa/a_1072_156# b[10] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X198 bitslice\[10\].u_fa/a_680_496# b[10] bitslice\[10\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X199 bitslice\[10\].u_fa/a_1072_156# bitslice\[10\].u_fa/a_952_112# bitslice\[10\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X200 VGND a[10] bitslice\[10\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X201 VPWR a[10] bitslice\[10\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X202 bitslice\[10\].u_fa/a_952_112# bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X203 VPWR bitslice\[10\].u_fa/a_124_46# s[10] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X204 VPWR a[10] bitslice\[10\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X205 bitslice\[10\].u_fa/a_952_112# bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X206 u_msb_x3/A3 bitslice\[10\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X207 VPWR b[10] bitslice\[10\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X208 VGND bitslice\[10\].u_fa/a_124_46# s[10] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X209 bitslice\[10\].u_fa/a_1072_496# bitslice\[10\].u_fa/a_952_112# bitslice\[10\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X210 bitslice\[10\].u_fa/a_512_496# a[10] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X211 VGND b[10] bitslice\[10\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X212 bitslice\[10\].u_fa/a_124_46# bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X213 bitslice\[10\].u_fa/a_680_156# b[10] bitslice\[10\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X214 u_msb_x3/A3 bitslice\[10\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X215 bitslice\[10\].u_fa/a_1992_156# a[10] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X216 VGND a[10] bitslice\[10\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X217 bitslice\[10\].u_fa/a_3048_156# b[10] bitslice\[10\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X218 VGND bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X219 bitslice\[10\].u_fa/a_2012_472# a[10] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X220 bitslice\[5\].u_fa/a_1072_496# b[5] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X221 bitslice\[5\].u_fa/a_512_156# a[5] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X222 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X223 bitslice\[5\].u_fa/a_3028_472# b[5] bitslice\[5\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X224 VPWR bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X225 bitslice\[5\].u_fa/a_1072_156# b[5] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X226 bitslice\[5\].u_fa/a_680_496# b[5] bitslice\[5\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X227 bitslice\[5\].u_fa/a_1072_156# bitslice\[5\].u_fa/a_952_112# bitslice\[5\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X228 VGND a[5] bitslice\[5\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X229 VPWR a[5] bitslice\[5\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X230 bitslice\[5\].u_fa/a_952_112# bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X231 VPWR bitslice\[5\].u_fa/a_124_46# s[5] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X232 VPWR a[5] bitslice\[5\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X233 bitslice\[5\].u_fa/a_952_112# bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X234 bitslice\[6\].u_fa/CI bitslice\[5\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X235 VPWR b[5] bitslice\[5\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X236 VGND bitslice\[5\].u_fa/a_124_46# s[5] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X237 bitslice\[5\].u_fa/a_1072_496# bitslice\[5\].u_fa/a_952_112# bitslice\[5\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X238 bitslice\[5\].u_fa/a_512_496# a[5] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X239 VGND b[5] bitslice\[5\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X240 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X241 bitslice\[5\].u_fa/a_680_156# b[5] bitslice\[5\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X242 bitslice\[6\].u_fa/CI bitslice\[5\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X243 bitslice\[5\].u_fa/a_1992_156# a[5] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X244 VGND a[5] bitslice\[5\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X245 bitslice\[5\].u_fa/a_3048_156# b[5] bitslice\[5\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X246 VGND bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X247 bitslice\[5\].u_fa/a_2012_472# a[5] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X248 bitslice\[0\].u_fa/a_1072_496# b[0] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X249 bitslice\[0\].u_fa/a_512_156# a[0] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X250 bitslice\[0\].u_fa/a_124_46# cin bitslice\[0\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X251 bitslice\[0\].u_fa/a_3028_472# b[0] bitslice\[0\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X252 VPWR cin bitslice\[0\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X253 bitslice\[0\].u_fa/a_1072_156# b[0] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X254 bitslice\[0\].u_fa/a_680_496# b[0] bitslice\[0\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X255 bitslice\[0\].u_fa/a_1072_156# bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X256 VGND a[0] bitslice\[0\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X257 VPWR a[0] bitslice\[0\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X258 bitslice\[0\].u_fa/a_952_112# cin bitslice\[0\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X259 VPWR bitslice\[0\].u_fa/a_124_46# s[0] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X260 VPWR a[0] bitslice\[0\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X261 bitslice\[0\].u_fa/a_952_112# cin bitslice\[0\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X262 bitslice\[1\].u_fa/CI bitslice\[0\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X263 VPWR b[0] bitslice\[0\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X264 VGND bitslice\[0\].u_fa/a_124_46# s[0] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X265 bitslice\[0\].u_fa/a_1072_496# bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X266 bitslice\[0\].u_fa/a_512_496# a[0] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X267 VGND b[0] bitslice\[0\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X268 bitslice\[0\].u_fa/a_124_46# cin bitslice\[0\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X269 bitslice\[0\].u_fa/a_680_156# b[0] bitslice\[0\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X270 bitslice\[1\].u_fa/CI bitslice\[0\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X271 bitslice\[0\].u_fa/a_1992_156# a[0] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X272 VGND a[0] bitslice\[0\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X273 bitslice\[0\].u_fa/a_3048_156# b[0] bitslice\[0\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X274 VGND cin bitslice\[0\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X275 bitslice\[0\].u_fa/a_2012_472# a[0] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X276 bitslice\[6\].u_fa/a_1072_496# b[6] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X277 bitslice\[6\].u_fa/a_512_156# a[6] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X278 bitslice\[6\].u_fa/a_124_46# bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X279 bitslice\[6\].u_fa/a_3028_472# b[6] bitslice\[6\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X280 VPWR bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X281 bitslice\[6\].u_fa/a_1072_156# b[6] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X282 bitslice\[6\].u_fa/a_680_496# b[6] bitslice\[6\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X283 bitslice\[6\].u_fa/a_1072_156# bitslice\[6\].u_fa/a_952_112# bitslice\[6\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X284 VGND a[6] bitslice\[6\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X285 VPWR a[6] bitslice\[6\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X286 bitslice\[6\].u_fa/a_952_112# bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X287 VPWR bitslice\[6\].u_fa/a_124_46# s[6] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X288 VPWR a[6] bitslice\[6\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X289 bitslice\[6\].u_fa/a_952_112# bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X290 bitslice\[7\].u_fa/CI bitslice\[6\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X291 VPWR b[6] bitslice\[6\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X292 VGND bitslice\[6\].u_fa/a_124_46# s[6] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X293 bitslice\[6\].u_fa/a_1072_496# bitslice\[6\].u_fa/a_952_112# bitslice\[6\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X294 bitslice\[6\].u_fa/a_512_496# a[6] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X295 VGND b[6] bitslice\[6\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X296 bitslice\[6\].u_fa/a_124_46# bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X297 bitslice\[6\].u_fa/a_680_156# b[6] bitslice\[6\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X298 bitslice\[7\].u_fa/CI bitslice\[6\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X299 bitslice\[6\].u_fa/a_1992_156# a[6] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X300 VGND a[6] bitslice\[6\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X301 bitslice\[6\].u_fa/a_3048_156# b[6] bitslice\[6\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X302 VGND bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X303 bitslice\[6\].u_fa/a_2012_472# a[6] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X304 bitslice\[1\].u_fa/a_1072_496# b[1] VPWR VPWR pfet_05v0 ad=0.7524p pd=4.92u as=0 ps=0 w=0.66u l=0.5u
+X305 bitslice\[1\].u_fa/a_512_156# a[1] VGND VGND nfet_05v0 ad=91.2f pd=1.24u as=0 ps=0 w=0.38u l=0.6u
+X306 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_680_496# VPWR pfet_05v0 ad=0.4092p pd=2.56u as=0.2244p ps=2u w=0.66u l=0.5u
+X307 bitslice\[1\].u_fa/a_3028_472# b[1] bitslice\[1\].u_fa/a_952_112# VPWR pfet_05v0 ad=0.238p pd=2.08u as=0.434p ps=2.64u w=0.7u l=0.5u
+X308 VPWR bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X309 bitslice\[1\].u_fa/a_1072_156# b[1] VGND VGND nfet_05v0 ad=0.3952p pd=3.6u as=0 ps=0 w=0.38u l=0.6u
+X310 bitslice\[1\].u_fa/a_680_496# b[1] bitslice\[1\].u_fa/a_512_496# VPWR pfet_05v0 ad=0 pd=0 as=0.2244p ps=2u w=0.66u l=0.5u
+X311 bitslice\[1\].u_fa/a_1072_156# bitslice\[1\].u_fa/a_952_112# bitslice\[1\].u_fa/a_124_46# VGND nfet_05v0 ad=0 pd=0 as=0.1976p ps=1.8u w=0.38u l=0.6u
+X312 VGND a[1] bitslice\[1\].u_fa/a_3048_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X313 VPWR a[1] bitslice\[1\].u_fa/a_1072_496# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X314 bitslice\[1\].u_fa/a_952_112# bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_1992_156# VGND nfet_05v0 ad=0.1976p pd=1.8u as=0.5896p ps=4.64u w=0.38u l=0.6u
+X315 VPWR bitslice\[1\].u_fa/a_124_46# s[1] VPWR pfet_05v0 ad=0 pd=0 as=0.5346p ps=3.31u w=1.215u l=0.5u
+X316 VPWR a[1] bitslice\[1\].u_fa/a_3028_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X317 bitslice\[1\].u_fa/a_952_112# bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=1.05p ps=5.8u w=0.7u l=0.5u
+X318 bitslice\[2\].u_fa/CI bitslice\[1\].u_fa/a_952_112# VGND VGND nfet_05v0 ad=0.3586p pd=2.51u as=0 ps=0 w=0.815u l=0.6u
+X319 VPWR b[1] bitslice\[1\].u_fa/a_2012_472# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+X320 VGND bitslice\[1\].u_fa/a_124_46# s[1] VGND nfet_05v0 ad=0 pd=0 as=0.3124p ps=2.3u w=0.71u l=0.6u
+X321 bitslice\[1\].u_fa/a_1072_496# bitslice\[1\].u_fa/a_952_112# bitslice\[1\].u_fa/a_124_46# VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X322 bitslice\[1\].u_fa/a_512_496# a[1] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.66u l=0.5u
+X323 VGND b[1] bitslice\[1\].u_fa/a_1992_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X324 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_680_156# VGND nfet_05v0 ad=0 pd=0 as=91.2f ps=1.24u w=0.38u l=0.6u
+X325 bitslice\[1\].u_fa/a_680_156# b[1] bitslice\[1\].u_fa/a_512_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X326 bitslice\[2\].u_fa/CI bitslice\[1\].u_fa/a_952_112# VPWR VPWR pfet_05v0 ad=0.5346p pd=3.31u as=0 ps=0 w=1.215u l=0.5u
+X327 bitslice\[1\].u_fa/a_1992_156# a[1] VGND VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X328 VGND a[1] bitslice\[1\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X329 bitslice\[1\].u_fa/a_3048_156# b[1] bitslice\[1\].u_fa/a_952_112# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X330 VGND bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_1072_156# VGND nfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.38u l=0.6u
+X331 bitslice\[1\].u_fa/a_2012_472# a[1] VPWR VPWR pfet_05v0 ad=0 pd=0 as=0 ps=0 w=0.7u l=0.5u
+C0 b[7] bitslice\[7\].u_fa/a_2012_472# 0.02435f
+C1 bitslice\[9\].u_fa/a_3048_156# bitslice\[8\].u_fa/CI 0
+C2 bitslice\[3\].u_fa/a_1072_496# VPWR 0.28074f
+C3 b[10] bitslice\[10\].u_fa/a_952_112# 0.77863f
+C4 bitslice\[7\].u_fa/CI bitslice\[6\].u_fa/a_2012_472# 0
+C5 b[9] bitslice\[9\].u_fa/a_3028_472# 0.00428f
+C6 b[3] bitslice\[4\].u_fa/CI 0.08552f
+C7 bitslice\[9\].u_fa/CO u_msb_x3/a_728_93# 0
+C8 VPWR a[3] 0.76087f
+C9 bitslice\[3\].u_fa/a_2012_472# bitslice\[3\].u_fa/CI 0.00772f
+C10 a[6] b[6] 0.46601f
+C11 bitslice\[4\].u_fa/a_124_46# b[4] 0.05484f
+C12 a[11] bitslice\[9\].u_fa/a_2012_472# 0
+C13 bitslice\[6\].u_fa/a_1072_496# bitslice\[6\].u_fa/a_2012_472# 0.00406f
+C14 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_124_46# 0.27486f
+C15 VPWR s[3] 0.29039f
+C16 a[2] bitslice\[2\].u_fa/a_2012_472# 0.01748f
+C17 a[2] bitslice\[2\].u_fa/a_952_112# 0.17729f
+C18 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_680_496# 0.00655f
+C19 bitslice\[7\].u_fa/CI b[8] 0
+C20 bitslice\[10\].u_fa/a_124_46# bitslice\[10\].u_fa/a_512_496# 0.00639f
+C21 bitslice\[9\].u_fa/a_3028_472# u_msb_x3/A3 0
+C22 VPWR s[1] 0.29039f
+C23 bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_1072_156# 0.61603f
+C24 s[5] a[6] 0.19959f
+C25 bitslice\[3\].u_fa/a_952_112# bitslice\[4\].u_fa/CI 0.1229f
+C26 bitslice\[9\].u_fa/CO u_msb_x3/a_56_524# 0.00337f
+C27 b[1] bitslice\[1\].u_fa/a_1992_156# 0.03179f
+C28 bitslice\[4\].u_fa/a_1992_156# a[4] 0.03766f
+C29 bitslice\[6\].u_fa/CI b[7] 0.00269f
+C30 s[2] bitslice\[2\].u_fa/a_512_156# 0
+C31 a[5] bitslice\[6\].u_fa/a_124_46# 0
+C32 b[9] bitslice\[8\].u_fa/CI 0.00387f
+C33 bitslice\[9\].u_fa/a_3048_156# u_msb_x3/A3 0
+C34 bitslice\[4\].u_fa/CI a[4] 0.22343f
+C35 bitslice\[4\].u_fa/a_1072_496# bitslice\[4\].u_fa/a_2012_472# 0.00406f
+C36 bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_3048_156# 0.00316f
+C37 s[10] a[10] 0.17692f
+C38 VPWR bitslice\[4\].u_fa/a_1072_496# 0.28074f
+C39 bitslice\[10\].u_fa/a_3048_156# bitslice\[9\].u_fa/CI 0
+C40 s[9] bitslice\[9\].u_fa/a_680_496# 0
+C41 u_msb_x3/a_1336_472# u_msb_x3/a_1936_472# 0.00462f
+C42 bitslice\[2\].u_fa/CI bitslice\[1\].u_fa/a_1992_156# 0.001f
+C43 bitslice\[9\].u_fa/a_952_112# b[11] 0
+C44 a[7] bitslice\[7\].u_fa/a_680_496# 0.00136f
+C45 bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_1072_496# 0.00434f
+C46 a[1] cin 0
+C47 s[9] bitslice\[9\].u_fa/a_124_46# 0.26993f
+C48 a[6] bitslice\[6\].u_fa/a_512_156# 0
+C49 a[9] bitslice\[9\].u_fa/a_512_496# 0.002f
+C50 bitslice\[3\].u_fa/a_1072_156# b[3] 0.0302f
+C51 bitslice\[8\].u_fa/a_3028_472# bitslice\[9\].u_fa/CI 0.00242f
+C52 bitslice\[8\].u_fa/CI a[10] 0
+C53 bitslice\[8\].u_fa/CI u_msb_x3/A3 0
+C54 s[2] bitslice\[2\].u_fa/a_1072_496# 0.00165f
+C55 cin bitslice\[2\].u_fa/a_1992_156# 0
+C56 bitslice\[0\].u_fa/a_124_46# bitslice\[1\].u_fa/a_124_46# 0.02943f
+C57 b[2] bitslice\[4\].u_fa/CI 0.00259f
+C58 VPWR bitslice\[0\].u_fa/a_3028_472# 0.00593f
+C59 b[4] bitslice\[4\].u_fa/a_1072_156# 0.0302f
+C60 bitslice\[7\].u_fa/a_2012_472# a[7] 0.01751f
+C61 VPWR bitslice\[0\].u_fa/a_1072_496# 0.28016f
+C62 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_1992_156# 0.70111f
+C63 bitslice\[10\].u_fa/a_1072_156# bitslice\[10\].u_fa/a_952_112# 0.00934f
+C64 u_msb_x3/a_244_524# b[11] 0
+C65 bitslice\[3\].u_fa/a_3028_472# bitslice\[4\].u_fa/CI 0
+C66 bitslice\[5\].u_fa/a_124_46# b[4] 0
+C67 s[1] bitslice\[1\].u_fa/CI 0.00239f
+C68 VPWR bitslice\[2\].u_fa/a_512_496# 0.00292f
+C69 b[7] b[8] 0.1159f
+C70 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/a_1072_156# 0.0288f
+C71 bitslice\[4\].u_fa/a_952_112# s[4] 0.00117f
+C72 bitslice\[10\].u_fa/a_124_46# bitslice\[9\].u_fa/a_124_46# 0.01624f
+C73 b[10] u_msb_x3/a_1936_472# 0.00247f
+C74 bitslice\[6\].u_fa/a_3028_472# VPWR 0.00593f
+C75 s[0] bitslice\[0\].u_fa/a_512_156# 0
+C76 VPWR bitslice\[5\].u_fa/a_952_112# 0.59588f
+C77 b[9] u_msb_x3/A3 0.00696f
+C78 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_124_46# 0.27486f
+C79 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_1072_156# 0.00934f
+C80 s[2] a[3] 0.20011f
+C81 a[10] bitslice\[10\].u_fa/a_2012_472# 0.01748f
+C82 bitslice\[10\].u_fa/a_2012_472# u_msb_x3/A3 0.01771f
+C83 a[11] bitslice\[10\].u_fa/a_952_112# 0.01016f
+C84 bitslice\[4\].u_fa/a_680_496# bitslice\[4\].u_fa/a_124_46# 0.00655f
+C85 bitslice\[4\].u_fa/a_124_46# bitslice\[5\].u_fa/a_124_46# 0.02943f
+C86 bitslice\[9\].u_fa/a_3028_472# bitslice\[9\].u_fa/a_2012_472# 0
+C87 VPWR a[0] 0.67121f
+C88 u_msb_x3/a_1336_472# VPWR 0.17918f
+C89 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_1072_496# 0.64312f
+C90 s[2] s[3] 0.00769f
+C91 bitslice\[2\].u_fa/a_1072_496# bitslice\[2\].u_fa/a_2012_472# 0.00406f
+C92 a[1] b[1] 0.46296f
+C93 bitslice\[3\].u_fa/a_3048_156# bitslice\[3\].u_fa/CI 0
+C94 b[4] bitslice\[3\].u_fa/CI 0
+C95 s[7] bitslice\[7\].u_fa/a_680_156# 0
+C96 VPWR bitslice\[9\].u_fa/a_512_496# 0.00292f
+C97 b[10] FILLER_11_2/a_484_472# 0
+C98 s[4] bitslice\[4\].u_fa/a_680_156# 0
+C99 s[1] s[2] 0.00743f
+C100 a[10] u_msb_x3/A3 0.02259f
+C101 bitslice\[2\].u_fa/a_124_46# bitslice\[2\].u_fa/a_680_156# 0.00316f
+C102 a[1] bitslice\[2\].u_fa/CI 0.01364f
+C103 VPWR bitslice\[5\].u_fa/a_512_496# 0.00292f
+C104 a[1] bitslice\[1\].u_fa/a_2012_472# 0.01751f
+C105 u_msb_x3/a_1336_472# s[11] 0.0257f
+C106 bitslice\[6\].u_fa/CI a[7] 0.00113f
+C107 bitslice\[9\].u_fa/a_1072_496# bitslice\[9\].u_fa/a_512_496# 0
+C108 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_512_156# 0.00257f
+C109 VPWR bitslice\[7\].u_fa/a_680_156# 0
+C110 a[5] bitslice\[5\].u_fa/a_2012_472# 0.01751f
+C111 bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_3048_156# 0.00123f
+C112 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_3048_156# 0.00123f
+C113 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_1992_156# 0.70111f
+C114 u_msb_x3/a_1336_472# u_msb_x3/a_728_93# 0.63017f
+C115 bitslice\[2\].u_fa/a_1992_156# bitslice\[2\].u_fa/CI 0.70111f
+C116 bitslice\[2\].u_fa/a_952_112# a[3] 0
+C117 s[8] a[7] 0
+C118 bitslice\[1\].u_fa/CI bitslice\[0\].u_fa/a_3028_472# 0.00124f
+C119 bitslice\[5\].u_fa/CI bitslice\[4\].u_fa/a_2012_472# 0
+C120 VPWR bitslice\[5\].u_fa/CI 0.9263f
+C121 b[5] b[4] 0.83145f
+C122 u_msb_x3/A3 u_msb_x3/a_952_93# 0
+C123 a[1] bitslice\[1\].u_fa/a_952_112# 0.17786f
+C124 bitslice\[0\].u_fa/a_2012_472# bitslice\[0\].u_fa/a_3028_472# 0
+C125 bitslice\[0\].u_fa/a_2012_472# bitslice\[0\].u_fa/a_1072_496# 0.00406f
+C126 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_1072_496# 0.64312f
+C127 a[5] s[4] 0.20011f
+C128 b[10] VPWR 2.16919f
+C129 b[9] bitslice\[9\].u_fa/a_1072_156# 0.0302f
+C130 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_512_496# 0.00639f
+C131 a[11] bitslice\[9\].u_fa/a_680_156# 0
+C132 s[7] bitslice\[7\].u_fa/a_1072_496# 0
+C133 a[0] bitslice\[0\].u_fa/a_1072_156# 0.03894f
+C134 bitslice\[8\].u_fa/a_680_496# a[8] 0
+C135 bitslice\[5\].u_fa/a_2012_472# bitslice\[5\].u_fa/a_3028_472# 0
+C136 bitslice\[0\].u_fa/a_952_112# a[1] 0
+C137 b[5] bitslice\[4\].u_fa/a_124_46# 0
+C138 b[8] bitslice\[9\].u_fa/a_124_46# 0
+C139 bitslice\[6\].u_fa/CI bitslice\[5\].u_fa/a_3048_156# 0.00141f
+C140 bitslice\[9\].u_fa/CO b[8] 0.00215f
+C141 s[0] b[0] 0.00338f
+C142 VPWR bitslice\[10\].u_fa/a_680_496# 0.00283f
+C143 a[0] bitslice\[1\].u_fa/CI 0.01153f
+C144 VPWR bitslice\[7\].u_fa/a_1072_496# 0.28074f
+C145 b[10] s[11] 0.00256f
+C146 bitslice\[6\].u_fa/a_952_112# bitslice\[6\].u_fa/a_1072_156# 0.00934f
+C147 bitslice\[5\].u_fa/a_512_156# VPWR 0
+C148 bitslice\[1\].u_fa/a_512_496# s[1] 0
+C149 bitslice\[0\].u_fa/a_1992_156# b[0] 0.03179f
+C150 bitslice\[0\].u_fa/a_1072_496# bitslice\[0\].u_fa/a_680_496# 0
+C151 b[10] u_msb_x3/a_728_93# 0.04568f
+C152 b[9] bitslice\[9\].u_fa/a_2012_472# 0.02435f
+C153 a[0] bitslice\[0\].u_fa/a_2012_472# 0.01748f
+C154 bitslice\[10\].u_fa/a_3028_472# bitslice\[10\].u_fa/a_2012_472# 0
+C155 VPWR u_msb_x3/a_1524_472# 0
+C156 s[2] bitslice\[2\].u_fa/a_512_496# 0.00137f
+C157 s[4] bitslice\[4\].u_fa/a_512_156# 0
+C158 u_msb_x3/a_1336_472# FILLER_11_2/a_572_375# 0
+C159 a[7] bitslice\[7\].u_fa/a_512_496# 0.002f
+C160 bitslice\[1\].u_fa/a_124_46# bitslice\[2\].u_fa/a_124_46# 0.01624f
+C161 VPWR bitslice\[8\].u_fa/a_512_156# 0
+C162 bitslice\[0\].u_fa/a_124_46# VPWR 0.46952f
+C163 cin b[1] 0
+C164 bitslice\[4\].u_fa/a_952_112# bitslice\[5\].u_fa/a_952_112# 0.02943f
+C165 bitslice\[10\].u_fa/a_512_156# VPWR 0
+C166 s[9] bitslice\[9\].u_fa/a_512_496# 0
+C167 u_msb_x3/a_1524_472# s[11] 0
+C168 a[11] u_msb_x3/a_1936_472# 0.0148f
+C169 u_msb_x3/A3 bitslice\[9\].u_fa/a_2012_472# 0.00182f
+C170 bitslice\[10\].u_fa/a_3028_472# u_msb_x3/A3 0.00217f
+C171 VPWR b[3] 1.90176f
+C172 a[9] a[11] 0.00266f
+C173 VPWR bitslice\[5\].u_fa/a_1072_496# 0.28074f
+C174 a[0] bitslice\[0\].u_fa/a_680_496# 0
+C175 cin bitslice\[2\].u_fa/CI 0
+C176 u_msb_x3/a_1524_472# u_msb_x3/a_728_93# 0.00714f
+C177 cin bitslice\[1\].u_fa/a_2012_472# 0
+C178 b[10] u_msb_x3/a_56_524# 0.00644f
+C179 bitslice\[9\].u_fa/CI bitslice\[6\].u_fa/a_952_112# 0
+C180 s[10] bitslice\[10\].u_fa/a_952_112# 0.00117f
+C181 FILLER_11_2/a_484_472# a[11] 0.01259f
+C182 bitslice\[5\].u_fa/a_1072_156# VPWR 0.01572f
+C183 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/a_512_156# 0.00257f
+C184 bitslice\[8\].u_fa/a_2012_472# a[8] 0.01748f
+C185 b[10] FILLER_11_2/a_572_375# 0.05689f
+C186 bitslice\[9\].u_fa/CO b[11] 0.00663f
+C187 VPWR b[6] 1.90357f
+C188 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_3028_472# 0.00135f
+C189 bitslice\[6\].u_fa/CI bitslice\[5\].u_fa/a_952_112# 0.1229f
+C190 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/a_1072_156# 0.0288f
+C191 bitslice\[7\].u_fa/a_1072_496# bitslice\[7\].u_fa/a_680_496# 0
+C192 a[1] a[2] 0.86295f
+C193 bitslice\[8\].u_fa/CI bitslice\[10\].u_fa/a_952_112# 0
+C194 bitslice\[3\].u_fa/a_952_112# VPWR 0.59588f
+C195 cin bitslice\[1\].u_fa/a_952_112# 0
+C196 b[5] bitslice\[5\].u_fa/a_124_46# 0.05484f
+C197 b[1] bitslice\[3\].u_fa/CI 0.00218f
+C198 VPWR bitslice\[10\].u_fa/a_1072_156# 0.01572f
+C199 bitslice\[4\].u_fa/a_952_112# bitslice\[5\].u_fa/CI 0.11743f
+C200 b[4] bitslice\[4\].u_fa/a_3028_472# 0.00428f
+C201 s[6] bitslice\[6\].u_fa/a_952_112# 0.00117f
+C202 bitslice\[0\].u_fa/a_124_46# bitslice\[0\].u_fa/a_1072_156# 0.0288f
+C203 bitslice\[4\].u_fa/a_2012_472# a[4] 0.01748f
+C204 VPWR a[4] 0.67821f
+C205 a[2] bitslice\[2\].u_fa/a_1992_156# 0.03766f
+C206 a[9] a[8] 0.04751f
+C207 bitslice\[0\].u_fa/a_952_112# cin 2.36749f
+C208 bitslice\[2\].u_fa/CI bitslice\[3\].u_fa/CI 0.06088f
+C209 VPWR s[5] 0.29039f
+C210 bitslice\[10\].u_fa/a_680_156# a[11] 0
+C211 b[10] bitslice\[10\].u_fa/a_1992_156# 0.03179f
+C212 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/a_2012_472# 0.00406f
+C213 bitslice\[7\].u_fa/a_2012_472# bitslice\[7\].u_fa/a_1072_496# 0.00406f
+C214 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_952_112# 2.41442f
+C215 VPWR a[11] 1.05455f
+C216 bitslice\[9\].u_fa/CI bitslice\[7\].u_fa/a_952_112# 0.00219f
+C217 bitslice\[6\].u_fa/a_3028_472# bitslice\[6\].u_fa/a_2012_472# 0
+C218 a[5] bitslice\[5\].u_fa/a_952_112# 0.17786f
+C219 b[9] bitslice\[10\].u_fa/a_952_112# 0.0025f
+C220 b[1] bitslice\[2\].u_fa/CI 0.08552f
+C221 bitslice\[9\].u_fa/a_1072_496# a[11] 0
+C222 bitslice\[1\].u_fa/a_2012_472# b[1] 0.02435f
+C223 bitslice\[10\].u_fa/a_952_112# bitslice\[10\].u_fa/a_2012_472# 0.7796f
+C224 bitslice\[3\].u_fa/a_2012_472# a[3] 0.01751f
+C225 bitslice\[7\].u_fa/a_1072_156# bitslice\[7\].u_fa/a_952_112# 0.00934f
+C226 b[10] bitslice\[10\].u_fa/a_124_46# 0.05484f
+C227 bitslice\[8\].u_fa/a_952_112# a[8] 0.17729f
+C228 b[5] bitslice\[6\].u_fa/a_952_112# 0.0025f
+C229 a[11] s[11] 0.35874f
+C230 VPWR b[2] 1.90361f
+C231 bitslice\[6\].u_fa/CI bitslice\[5\].u_fa/CI 0.08597f
+C232 bitslice\[5\].u_fa/a_1992_156# bitslice\[5\].u_fa/CI 0.69584f
+C233 bitslice\[3\].u_fa/a_1992_156# bitslice\[3\].u_fa/CI 0.69584f
+C234 bitslice\[1\].u_fa/a_952_112# bitslice\[3\].u_fa/CI 0
+C235 VPWR bitslice\[6\].u_fa/a_512_156# 0
+C236 a[11] u_msb_x3/a_728_93# 0.50545f
+C237 a[5] bitslice\[5\].u_fa/a_512_496# 0.002f
+C238 bitslice\[10\].u_fa/a_124_46# bitslice\[10\].u_fa/a_680_496# 0.00655f
+C239 s[7] a[8] 0.19959f
+C240 a[10] bitslice\[10\].u_fa/a_952_112# 0.17729f
+C241 bitslice\[7\].u_fa/a_952_112# bitslice\[6\].u_fa/a_952_112# 0.02943f
+C242 bitslice\[5\].u_fa/a_3028_472# bitslice\[5\].u_fa/a_952_112# 0.00197f
+C243 bitslice\[10\].u_fa/a_952_112# u_msb_x3/A3 0.13084f
+C244 bitslice\[0\].u_fa/a_512_496# bitslice\[0\].u_fa/a_1072_496# 0
+C245 VPWR bitslice\[3\].u_fa/a_3028_472# 0.00593f
+C246 bitslice\[8\].u_fa/a_680_496# bitslice\[8\].u_fa/a_1072_496# 0
+C247 b[1] bitslice\[1\].u_fa/a_952_112# 0.77779f
+C248 a[8] bitslice\[8\].u_fa/a_1992_156# 0.03766f
+C249 bitslice\[6\].u_fa/a_124_46# bitslice\[6\].u_fa/a_1072_156# 0.0288f
+C250 VPWR bitslice\[0\].u_fa/a_680_156# 0
+C251 bitslice\[9\].u_fa/CI bitslice\[7\].u_fa/CI 0.00536f
+C252 bitslice\[0\].u_fa/a_124_46# bitslice\[0\].u_fa/a_680_496# 0.00655f
+C253 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_3048_156# 0.00316f
+C254 VPWR a[8] 0.67821f
+C255 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_3048_156# 0.00123f
+C256 bitslice\[0\].u_fa/a_952_112# b[1] 0.00226f
+C257 bitslice\[1\].u_fa/a_952_112# bitslice\[2\].u_fa/CI 0.1229f
+C258 bitslice\[1\].u_fa/a_2012_472# bitslice\[1\].u_fa/a_952_112# 0.7796f
+C259 bitslice\[7\].u_fa/a_1072_156# bitslice\[7\].u_fa/CI 0.61608f
+C260 a[5] bitslice\[5\].u_fa/CI 0.2268f
+C261 bitslice\[4\].u_fa/a_952_112# b[3] 0.0025f
+C262 VPWR bitslice\[2\].u_fa/a_124_46# 0.46952f
+C263 bitslice\[8\].u_fa/a_680_156# VPWR 0
+C264 a[1] bitslice\[1\].u_fa/a_680_496# 0.00136f
+C265 bitslice\[10\].u_fa/a_124_46# bitslice\[10\].u_fa/a_512_156# 0.00257f
+C266 a[11] u_msb_x3/a_56_524# 0.91739f
+C267 bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_2012_472# 0.00394f
+C268 bitslice\[9\].u_fa/CO bitslice\[8\].u_fa/a_3028_472# 0
+C269 bitslice\[0\].u_fa/a_512_496# a[0] 0
+C270 a[9] s[10] 0
+C271 a[2] cin 0
+C272 bitslice\[7\].u_fa/CI bitslice\[6\].u_fa/a_952_112# 0.11504f
+C273 bitslice\[6\].u_fa/a_124_46# bitslice\[5\].u_fa/a_124_46# 0.01624f
+C274 b[2] bitslice\[1\].u_fa/CI 0
+C275 bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_3028_472# 0.00336f
+C276 FILLER_11_2/a_572_375# a[11] 0.01514f
+C277 b[3] bitslice\[2\].u_fa/a_952_112# 0.00226f
+C278 bitslice\[4\].u_fa/a_952_112# bitslice\[3\].u_fa/a_952_112# 0.03505f
+C279 bitslice\[9\].u_fa/CI bitslice\[7\].u_fa/a_3048_156# 0
+C280 a[9] bitslice\[8\].u_fa/CI 0.00255f
+C281 bitslice\[6\].u_fa/a_1072_496# bitslice\[6\].u_fa/a_952_112# 0.64312f
+C282 bitslice\[0\].u_fa/a_952_112# bitslice\[1\].u_fa/a_952_112# 0.02943f
+C283 s[6] bitslice\[6\].u_fa/a_1072_496# 0.00165f
+C284 bitslice\[10\].u_fa/a_1992_156# bitslice\[10\].u_fa/a_1072_156# 0.00753f
+C285 bitslice\[5\].u_fa/a_680_156# s[5] 0
+C286 s[8] bitslice\[8\].u_fa/a_512_156# 0
+C287 VPWR bitslice\[9\].u_fa/a_3028_472# 0.00593f
+C288 b[5] bitslice\[7\].u_fa/CI 0.00218f
+C289 bitslice\[4\].u_fa/a_952_112# a[4] 0.17729f
+C290 b[4] s[4] 0.00338f
+C291 VPWR bitslice\[7\].u_fa/a_3028_472# 0.00593f
+C292 bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_1992_156# 0.70111f
+C293 bitslice\[8\].u_fa/a_2012_472# bitslice\[8\].u_fa/a_1072_496# 0.00406f
+C294 bitslice\[10\].u_fa/a_1992_156# a[11] 0
+C295 bitslice\[10\].u_fa/a_124_46# bitslice\[10\].u_fa/a_1072_156# 0.0288f
+C296 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/CI 2.43003f
+C297 u_msb_x3/a_1336_472# b[11] 0
+C298 bitslice\[9\].u_fa/CI b[7] 0.00582f
+C299 bitslice\[5\].u_fa/a_1992_156# bitslice\[5\].u_fa/a_1072_156# 0.00753f
+C300 bitslice\[7\].u_fa/a_1072_496# bitslice\[7\].u_fa/a_512_496# 0
+C301 bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_952_112# 2.44171f
+C302 bitslice\[1\].u_fa/a_124_46# b[0] 0
+C303 bitslice\[3\].u_fa/a_952_112# bitslice\[2\].u_fa/a_952_112# 0.02943f
+C304 a[6] bitslice\[6\].u_fa/a_680_496# 0
+C305 bitslice\[6\].u_fa/a_124_46# bitslice\[6\].u_fa/a_952_112# 0.01486f
+C306 a[2] bitslice\[3\].u_fa/CI 0.01041f
+C307 s[2] b[2] 0.00338f
+C308 s[6] bitslice\[6\].u_fa/a_124_46# 0.26234f
+C309 bitslice\[6\].u_fa/CI b[6] 0.34555f
+C310 bitslice\[4\].u_fa/a_124_46# s[4] 0.26234f
+C311 a[9] b[9] 0.46488f
+C312 bitslice\[9\].u_fa/a_124_46# FILLER_11_2/a_124_375# 0
+C313 bitslice\[8\].u_fa/a_2012_472# u_msb_x3/A3 0
+C314 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/a_680_156# 0.00316f
+C315 a[5] bitslice\[5\].u_fa/a_1072_496# 0.02208f
+C316 b[2] bitslice\[2\].u_fa/a_3028_472# 0.00428f
+C317 bitslice\[10\].u_fa/a_3028_472# bitslice\[10\].u_fa/a_952_112# 0.00197f
+C318 s[10] bitslice\[10\].u_fa/a_680_156# 0
+C319 bitslice\[10\].u_fa/a_124_46# a[11] 0.01419f
+C320 s[10] VPWR 0.34859f
+C321 bitslice\[3\].u_fa/a_124_46# VPWR 0.46957f
+C322 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_1072_156# 0.00934f
+C323 b[7] bitslice\[7\].u_fa/a_1072_156# 0.0302f
+C324 a[4] bitslice\[4\].u_fa/a_680_156# 0
+C325 bitslice\[9\].u_fa/a_512_156# VPWR 0
+C326 a[1] s[1] 0.1788f
+C327 bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_1992_156# 0.70111f
+C328 s[9] a[8] 0
+C329 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/a_1072_496# 0.0139f
+C330 bitslice\[4\].u_fa/a_124_46# a[3] 0
+C331 u_msb_x3/a_1936_472# u_msb_x3/A3 0.02562f
+C332 bitslice\[8\].u_fa/a_952_112# b[9] 0
+C333 bitslice\[9\].u_fa/CO u_msb_x3/a_718_524# 0.00119f
+C334 a[2] bitslice\[2\].u_fa/CI 0.22372f
+C335 s[10] s[11] 0
+C336 bitslice\[5\].u_fa/a_1072_156# a[5] 0.03679f
+C337 VPWR bitslice\[8\].u_fa/CI 0.72747f
+C338 a[9] a[10] 0.86295f
+C339 bitslice\[2\].u_fa/a_1072_156# VPWR 0.01572f
+C340 b[7] bitslice\[6\].u_fa/a_952_112# 0.00226f
+C341 a[9] u_msb_x3/A3 0.00528f
+C342 bitslice\[6\].u_fa/a_2012_472# b[6] 0.02435f
+C343 bitslice\[8\].u_fa/a_1072_156# bitslice\[8\].u_fa/a_1992_156# 0.00753f
+C344 bitslice\[8\].u_fa/a_124_46# bitslice\[7\].u_fa/a_124_46# 0.01624f
+C345 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_1072_496# 0.64312f
+C346 VPWR bitslice\[8\].u_fa/a_1072_156# 0.01572f
+C347 b[10] b[11] 0.10231f
+C348 bitslice\[4\].u_fa/a_512_496# VPWR 0.00292f
+C349 b[2] bitslice\[2\].u_fa/a_2012_472# 0.02435f
+C350 bitslice\[2\].u_fa/a_952_112# b[2] 0.77989f
+C351 s[2] bitslice\[2\].u_fa/a_124_46# 0.26234f
+C352 bitslice\[0\].u_fa/a_124_46# bitslice\[0\].u_fa/a_512_496# 0.00639f
+C353 FILLER_11_2/a_484_472# a[10] 0
+C354 FILLER_11_2/a_484_472# u_msb_x3/A3 0
+C355 bitslice\[6\].u_fa/a_1992_156# bitslice\[6\].u_fa/a_1072_156# 0.00753f
+C356 a[5] a[4] 0.04751f
+C357 b[4] bitslice\[4\].u_fa/a_1072_496# 0.02505f
+C358 bitslice\[7\].u_fa/a_952_112# bitslice\[7\].u_fa/a_3048_156# 0.00316f
+C359 a[5] s[5] 0.1788f
+C360 VPWR bitslice\[0\].u_fa/a_512_156# 0
+C361 bitslice\[8\].u_fa/a_124_46# bitslice\[9\].u_fa/a_124_46# 0.02943f
+C362 b[9] VPWR 1.90592f
+C363 VPWR bitslice\[10\].u_fa/a_2012_472# 0.29058f
+C364 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_1072_156# 0.0288f
+C365 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/a_1072_496# 0.0139f
+C366 b[9] bitslice\[9\].u_fa/a_1072_496# 0.02505f
+C367 a[2] bitslice\[2\].u_fa/a_680_496# 0
+C368 VPWR bitslice\[8\].u_fa/a_1072_496# 0.28074f
+C369 bitslice\[8\].u_fa/a_124_46# a[7] 0
+C370 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_124_46# 0.27486f
+C371 b[7] bitslice\[7\].u_fa/a_952_112# 0.77779f
+C372 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/CI 0.02938f
+C373 bitslice\[6\].u_fa/a_512_496# a[6] 0
+C374 s[0] VPWR 0.34826f
+C375 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_3048_156# 0.00316f
+C376 bitslice\[7\].u_fa/a_2012_472# bitslice\[7\].u_fa/a_3028_472# 0
+C377 a[4] bitslice\[4\].u_fa/a_512_156# 0
+C378 bitslice\[10\].u_fa/a_680_156# a[10] 0
+C379 VPWR a[10] 0.68641f
+C380 bitslice\[4\].u_fa/a_680_496# s[4] 0
+C381 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/a_680_496# 0
+C382 VPWR u_msb_x3/A3 0.87107f
+C383 bitslice\[9\].u_fa/CI a[7] 0.00267f
+C384 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_124_46# 0.01486f
+C385 a[9] bitslice\[9\].u_fa/a_1072_156# 0.03679f
+C386 bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_3048_156# 0
+C387 bitslice\[10\].u_fa/a_1072_496# bitslice\[10\].u_fa/a_512_496# 0
+C388 s[8] a[8] 0.17692f
+C389 s[10] s[9] 0.00743f
+C390 a[1] a[0] 0.04751f
+C391 bitslice\[3\].u_fa/a_680_496# a[3] 0.00136f
+C392 bitslice\[7\].u_fa/a_1072_156# a[7] 0.03679f
+C393 b[4] bitslice\[5\].u_fa/a_952_112# 0.00248f
+C394 a[10] s[11] 0
+C395 bitslice\[9\].u_fa/a_512_156# s[9] 0.00108f
+C396 u_msb_x3/A3 s[11] 0.26675f
+C397 bitslice\[6\].u_fa/a_1072_496# bitslice\[6\].u_fa/a_124_46# 0.0139f
+C398 bitslice\[8\].u_fa/a_680_156# s[8] 0
+C399 bitslice\[3\].u_fa/a_680_496# s[3] 0
+C400 bitslice\[3\].u_fa/a_2012_472# b[3] 0.02435f
+C401 u_msb_x3/a_728_93# u_msb_x3/A3 0.7716f
+C402 b[7] bitslice\[7\].u_fa/CI 0.41328f
+C403 a[9] bitslice\[9\].u_fa/a_2012_472# 0.01751f
+C404 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/CI 0.00463f
+C405 a[7] bitslice\[6\].u_fa/a_952_112# 0
+C406 a[8] bitslice\[8\].u_fa/a_512_496# 0
+C407 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_1992_156# 0.69584f
+C408 bitslice\[2\].u_fa/a_1072_496# bitslice\[2\].u_fa/CI 0.00434f
+C409 s[6] a[7] 0.20011f
+C410 b[5] bitslice\[5\].u_fa/a_2012_472# 0.02435f
+C411 bitslice\[7\].u_fa/a_1072_156# bitslice\[7\].u_fa/a_1992_156# 0.00753f
+C412 bitslice\[6\].u_fa/a_3048_156# bitslice\[6\].u_fa/a_952_112# 0.00316f
+C413 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_952_112# 0.01486f
+C414 s[11] u_msb_x3/a_952_93# 0
+C415 a[3] bitslice\[3\].u_fa/CI 0.22669f
+C416 b[8] a[8] 0.46601f
+C417 bitslice\[6\].u_fa/CI bitslice\[7\].u_fa/a_3028_472# 0
+C418 VPWR b[0] 1.90263f
+C419 s[10] bitslice\[10\].u_fa/a_124_46# 0.26234f
+C420 VPWR bitslice\[5\].u_fa/a_680_496# 0.00283f
+C421 VPWR bitslice\[1\].u_fa/a_680_156# 0
+C422 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_2012_472# 0.7796f
+C423 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/a_512_496# 0
+C424 s[3] bitslice\[3\].u_fa/CI 0.00239f
+C425 u_msb_x3/a_728_93# u_msb_x3/a_952_93# 0.00421f
+C426 VPWR bitslice\[9\].u_fa/a_1072_156# 0.01572f
+C427 bitslice\[0\].u_fa/a_1992_156# bitslice\[0\].u_fa/a_1072_156# 0.00753f
+C428 FILLER_11_2/a_36_472# a[11] 0.01301f
+C429 u_msb_x3/a_56_524# u_msb_x3/A3 0.00551f
+C430 a[10] u_msb_x3/a_56_524# 0
+C431 bitslice\[4\].u_fa/a_680_496# bitslice\[4\].u_fa/a_1072_496# 0
+C432 b[9] s[9] 0.00448f
+C433 b[4] bitslice\[5\].u_fa/CI 0.10396f
+C434 bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/a_124_46# 0.01486f
+C435 VPWR bitslice\[1\].u_fa/a_1072_496# 0.28074f
+C436 a[3] bitslice\[2\].u_fa/CI 0.00113f
+C437 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/a_952_112# 0.12729f
+C438 bitslice\[3\].u_fa/a_512_496# a[3] 0.002f
+C439 a[11] b[11] 0.36965f
+C440 bitslice\[9\].u_fa/CO bitslice\[7\].u_fa/a_952_112# 0
+C441 b[7] bitslice\[6\].u_fa/a_124_46# 0
+C442 cin bitslice\[0\].u_fa/a_1072_496# 0.00434f
+C443 bitslice\[2\].u_fa/a_680_496# bitslice\[2\].u_fa/a_1072_496# 0
+C444 s[1] b[1] 0.00392f
+C445 bitslice\[3\].u_fa/a_512_496# s[3] 0
+C446 bitslice\[7\].u_fa/a_952_112# a[7] 0.17786f
+C447 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/CI 0.27486f
+C448 FILLER_11_2/a_572_375# a[10] 0
+C449 FILLER_11_2/a_572_375# u_msb_x3/A3 0.0023f
+C450 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_1072_496# 0.00434f
+C451 s[9] a[10] 0.19959f
+C452 VPWR bitslice\[9\].u_fa/a_2012_472# 0.29058f
+C453 bitslice\[2\].u_fa/a_1072_156# bitslice\[2\].u_fa/a_952_112# 0.00934f
+C454 VPWR bitslice\[10\].u_fa/a_3028_472# 0.00593f
+C455 u_msb_x3/a_56_524# u_msb_x3/a_952_93# 0
+C456 s[7] a[6] 0
+C457 bitslice\[9\].u_fa/a_1072_496# bitslice\[9\].u_fa/a_2012_472# 0.00406f
+C458 bitslice\[3\].u_fa/a_1992_156# a[3] 0.03757f
+C459 bitslice\[8\].u_fa/CI s[8] 0.00205f
+C460 b[0] bitslice\[0\].u_fa/a_1072_156# 0.0302f
+C461 s[0] bitslice\[0\].u_fa/a_680_496# 0
+C462 bitslice\[10\].u_fa/a_1992_156# a[10] 0.03766f
+C463 bitslice\[10\].u_fa/a_1992_156# u_msb_x3/A3 0.00699f
+C464 bitslice\[9\].u_fa/CO u_msb_x3/a_244_524# 0
+C465 cin a[0] 0.21845f
+C466 a[1] bitslice\[0\].u_fa/a_124_46# 0.00783f
+C467 VPWR a[6] 0.67821f
+C468 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/a_952_112# 0.01486f
+C469 bitslice\[3\].u_fa/a_2012_472# bitslice\[3\].u_fa/a_3028_472# 0
+C470 bitslice\[1\].u_fa/CI b[0] 0.09066f
+C471 bitslice\[6\].u_fa/a_3028_472# bitslice\[9\].u_fa/CI 0
+C472 bitslice\[3\].u_fa/a_680_156# s[3] 0
+C473 bitslice\[7\].u_fa/CI a[7] 0.22669f
+C474 s[1] bitslice\[1\].u_fa/a_952_112# 0.00139f
+C475 u_msb_x3/a_718_524# b[10] 0.00337f
+C476 bitslice\[10\].u_fa/a_124_46# a[10] 0.60698f
+C477 u_msb_x3/a_1336_472# u_msb_x3/a_2215_68# 0
+C478 bitslice\[10\].u_fa/a_124_46# u_msb_x3/A3 0
+C479 bitslice\[7\].u_fa/a_124_46# bitslice\[6\].u_fa/a_124_46# 0.02943f
+C480 bitslice\[7\].u_fa/CI bitslice\[6\].u_fa/a_3048_156# 0
+C481 bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_2012_472# 0.00394f
+C482 bitslice\[0\].u_fa/a_2012_472# b[0] 0.02435f
+C483 VPWR bitslice\[4\].u_fa/CI 0.72208f
+C484 a[2] bitslice\[2\].u_fa/a_512_156# 0
+C485 b[3] b[4] 0.1159f
+C486 a[6] bitslice\[6\].u_fa/a_680_156# 0
+C487 bitslice\[1\].u_fa/a_1072_496# bitslice\[1\].u_fa/CI 0.00463f
+C488 VPWR bitslice\[2\].u_fa/a_680_156# 0
+C489 bitslice\[8\].u_fa/CI b[8] 0.34553f
+C490 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/a_512_496# 0.00639f
+C491 s[8] bitslice\[8\].u_fa/a_1072_496# 0.00165f
+C492 s[9] bitslice\[9\].u_fa/a_1072_156# 0.0012f
+C493 bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_1992_156# 0.69584f
+C494 bitslice\[5\].u_fa/a_952_112# bitslice\[6\].u_fa/a_952_112# 0.03505f
+C495 bitslice\[6\].u_fa/a_3028_472# bitslice\[6\].u_fa/a_952_112# 0.00197f
+C496 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/a_1072_156# 0.0288f
+C497 VPWR bitslice\[6\].u_fa/a_680_496# 0.00283f
+C498 bitslice\[7\].u_fa/a_124_46# b[7] 0.05484f
+C499 b[8] bitslice\[8\].u_fa/a_1072_156# 0.0302f
+C500 a[2] bitslice\[2\].u_fa/a_1072_496# 0.01952f
+C501 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_3048_156# 0.00316f
+C502 a[0] b[1] 0
+C503 a[7] bitslice\[6\].u_fa/a_124_46# 0.00783f
+C504 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/CI 0.27486f
+C505 bitslice\[3\].u_fa/a_952_112# b[4] 0.00242f
+C506 b[9] b[8] 0.80907f
+C507 bitslice\[8\].u_fa/a_1072_496# bitslice\[8\].u_fa/a_512_496# 0
+C508 b[5] bitslice\[5\].u_fa/a_952_112# 0.77779f
+C509 b[10] bitslice\[9\].u_fa/CI 0.00188f
+C510 VPWR bitslice\[10\].u_fa/a_952_112# 0.61042f
+C511 b[4] a[4] 0.46601f
+C512 VPWR bitslice\[3\].u_fa/a_512_156# 0
+C513 b[8] bitslice\[8\].u_fa/a_1072_496# 0.02505f
+C514 s[10] FILLER_11_2/a_36_472# 0.00332f
+C515 bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_3028_472# 0.00197f
+C516 bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_1072_496# 0.64312f
+C517 a[2] a[3] 0.04751f
+C518 VPWR bitslice\[8\].u_fa/a_680_496# 0.00283f
+C519 b[7] a[7] 0.46296f
+C520 VPWR bitslice\[3\].u_fa/a_1072_156# 0.01572f
+C521 bitslice\[5\].u_fa/a_512_156# bitslice\[5\].u_fa/a_124_46# 0.00257f
+C522 bitslice\[4\].u_fa/a_124_46# a[4] 0.60698f
+C523 bitslice\[5\].u_fa/CI bitslice\[6\].u_fa/a_952_112# 0
+C524 b[8] u_msb_x3/A3 0
+C525 a[2] s[3] 0
+C526 bitslice\[0\].u_fa/a_124_46# cin 0.27486f
+C527 a[0] bitslice\[1\].u_fa/a_952_112# 0
+C528 bitslice\[2\].u_fa/a_1992_156# b[2] 0.03179f
+C529 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/a_512_156# 0.00257f
+C530 VPWR bitslice\[1\].u_fa/a_124_46# 0.46957f
+C531 b[6] bitslice\[6\].u_fa/a_1072_156# 0.0302f
+C532 a[2] s[1] 0.19959f
+C533 a[11] FILLER_11_2/a_124_375# 0.01546f
+C534 bitslice\[0\].u_fa/a_952_112# a[0] 0.17729f
+C535 b[7] bitslice\[7\].u_fa/a_1992_156# 0.03179f
+C536 bitslice\[1\].u_fa/a_512_496# bitslice\[1\].u_fa/a_1072_496# 0
+C537 s[0] bitslice\[0\].u_fa/a_512_496# 0.00137f
+C538 b[5] bitslice\[5\].u_fa/CI 0.40995f
+C539 bitslice\[6\].u_fa/a_512_496# VPWR 0.00292f
+C540 a[5] bitslice\[5\].u_fa/a_680_496# 0.00136f
+C541 bitslice\[7\].u_fa/CI bitslice\[5\].u_fa/a_952_112# 0
+C542 bitslice\[6\].u_fa/a_3028_472# bitslice\[7\].u_fa/CI 0.00124f
+C543 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_2012_472# 0.7796f
+C544 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/a_1072_496# 0.0139f
+C545 a[1] bitslice\[2\].u_fa/a_124_46# 0
+C546 u_msb_x3/a_718_524# a[11] 0.13995f
+C547 VPWR bitslice\[9\].u_fa/a_680_156# 0
+C548 s[2] bitslice\[2\].u_fa/a_680_156# 0
+C549 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/CI 2.42849f
+C550 b[9] b[11] 0
+C551 bitslice\[10\].u_fa/a_952_112# u_msb_x3/a_56_524# 0
+C552 bitslice\[9\].u_fa/a_124_46# bitslice\[9\].u_fa/a_680_496# 0.00655f
+C553 bitslice\[7\].u_fa/a_124_46# a[7] 0.60604f
+C554 b[10] bitslice\[9\].u_fa/a_952_112# 0.00242f
+C555 bitslice\[5\].u_fa/a_1072_156# bitslice\[5\].u_fa/a_124_46# 0.0288f
+C556 bitslice\[8\].u_fa/a_952_112# a[9] 0
+C557 bitslice\[6\].u_fa/CI a[6] 0.22372f
+C558 b[3] bitslice\[3\].u_fa/CI 0.41328f
+C559 bitslice\[0\].u_fa/a_124_46# b[1] 0
+C560 bitslice\[9\].u_fa/CI b[6] 0
+C561 FILLER_11_2/a_36_472# a[10] 0
+C562 bitslice\[4\].u_fa/a_1072_156# a[4] 0.03894f
+C563 VPWR bitslice\[8\].u_fa/a_2012_472# 0.29058f
+C564 a[10] b[11] 0.00129f
+C565 u_msb_x3/A3 b[11] 0.05787f
+C566 b[10] bitslice\[10\].u_fa/a_1072_496# 0.02505f
+C567 bitslice\[7\].u_fa/a_1072_496# bitslice\[7\].u_fa/a_952_112# 0.64312f
+C568 bitslice\[4\].u_fa/a_680_496# a[4] 0
+C569 bitslice\[5\].u_fa/a_124_46# a[4] 0
+C570 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/CI 0.27486f
+C571 a[2] bitslice\[2\].u_fa/a_512_496# 0
+C572 b[3] bitslice\[2\].u_fa/CI 0.00269f
+C573 s[5] bitslice\[5\].u_fa/a_124_46# 0.26222f
+C574 VPWR bitslice\[1\].u_fa/a_1072_156# 0.01572f
+C575 u_msb_x3/a_2215_68# a[11] 0
+C576 a[6] bitslice\[6\].u_fa/a_2012_472# 0.01748f
+C577 VPWR u_msb_x3/a_1936_472# 0.62899f
+C578 a[5] a[6] 0.86295f
+C579 bitslice\[10\].u_fa/a_680_496# bitslice\[10\].u_fa/a_1072_496# 0
+C580 bitslice\[9\].u_fa/CI a[11] 0.00479f
+C581 bitslice\[1\].u_fa/a_512_156# s[1] 0.00108f
+C582 a[9] VPWR 0.76087f
+C583 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/CI 2.44171f
+C584 bitslice\[6\].u_fa/a_952_112# b[6] 0.77989f
+C585 b[5] bitslice\[5\].u_fa/a_1072_496# 0.02505f
+C586 s[6] b[6] 0.00338f
+C587 bitslice\[1\].u_fa/a_680_496# s[1] 0
+C588 a[9] bitslice\[9\].u_fa/a_1072_496# 0.02208f
+C589 s[4] a[3] 0
+C590 u_msb_x3/a_1936_472# s[11] 0.33845f
+C591 a[5] bitslice\[4\].u_fa/CI 0.00113f
+C592 bitslice\[10\].u_fa/a_124_46# bitslice\[10\].u_fa/a_952_112# 0.01486f
+C593 a[4] bitslice\[3\].u_fa/CI 0.00171f
+C594 bitslice\[8\].u_fa/a_3028_472# bitslice\[8\].u_fa/CI 0.00135f
+C595 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/a_1992_156# 0.001f
+C596 bitslice\[3\].u_fa/a_1072_496# a[3] 0.02208f
+C597 FILLER_11_2/a_484_472# VPWR 0.23287f
+C598 bitslice\[3\].u_fa/a_1992_156# b[3] 0.03179f
+C599 bitslice\[8\].u_fa/a_952_112# VPWR 0.59588f
+C600 bitslice\[7\].u_fa/a_1072_496# bitslice\[7\].u_fa/CI 0.00463f
+C601 s[3] s[4] 0.00743f
+C602 a[7] bitslice\[7\].u_fa/a_1992_156# 0.03757f
+C603 u_msb_x3/a_1936_472# u_msb_x3/a_728_93# 0.106f
+C604 bitslice\[3\].u_fa/a_952_112# bitslice\[2\].u_fa/CI 0.00139f
+C605 bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_124_46# 0.01486f
+C606 bitslice\[5\].u_fa/a_1072_156# b[5] 0.0302f
+C607 bitslice\[3\].u_fa/a_1072_496# s[3] 0
+C608 bitslice\[1\].u_fa/a_3048_156# bitslice\[1\].u_fa/CI 0
+C609 s[6] s[5] 0.00743f
+C610 bitslice\[8\].u_fa/a_124_46# a[8] 0.60698f
+C611 b[5] b[6] 0.1159f
+C612 s[9] bitslice\[9\].u_fa/a_680_156# 0
+C613 FILLER_11_2/a_484_472# s[11] 0.01994f
+C614 bitslice\[3\].u_fa/a_124_46# bitslice\[4\].u_fa/a_124_46# 0.01624f
+C615 bitslice\[5\].u_fa/CI bitslice\[4\].u_fa/a_3028_472# 0.00135f
+C616 s[3] a[3] 0.1788f
+C617 s[7] VPWR 0.29812f
+C618 b[2] bitslice\[3\].u_fa/CI 0.09026f
+C619 bitslice\[2\].u_fa/a_1072_156# bitslice\[2\].u_fa/a_1992_156# 0.00753f
+C620 bitslice\[4\].u_fa/CI bitslice\[5\].u_fa/a_3028_472# 0
+C621 bitslice\[8\].u_fa/a_680_156# bitslice\[8\].u_fa/a_124_46# 0.00316f
+C622 bitslice\[9\].u_fa/CI a[8] 0.01671f
+C623 FILLER_11_2/a_484_472# u_msb_x3/a_728_93# 0.00287f
+C624 b[5] a[4] 0
+C625 bitslice\[7\].u_fa/a_952_112# b[6] 0.00248f
+C626 bitslice\[10\].u_fa/a_680_156# VPWR 0
+C627 VPWR bitslice\[4\].u_fa/a_2012_472# 0.29058f
+C628 b[2] b[1] 0.1159f
+C629 b[5] s[5] 0.00392f
+C630 bitslice\[10\].u_fa/a_3048_156# u_msb_x3/A3 0
+C631 bitslice\[4\].u_fa/a_1072_496# s[4] 0.00165f
+C632 bitslice\[3\].u_fa/a_3028_472# bitslice\[3\].u_fa/CI 0.00336f
+C633 bitslice\[1\].u_fa/a_1072_156# bitslice\[1\].u_fa/CI 0.61608f
+C634 s[6] bitslice\[6\].u_fa/a_512_156# 0
+C635 bitslice\[8\].u_fa/a_680_496# s[8] 0
+C636 VPWR bitslice\[9\].u_fa/a_1072_496# 0.28074f
+C637 b[2] bitslice\[2\].u_fa/CI 0.34555f
+C638 bitslice\[4\].u_fa/a_512_496# bitslice\[4\].u_fa/a_124_46# 0.00639f
+C639 VPWR s[11] 0.23299f
+C640 a[11] bitslice\[9\].u_fa/a_952_112# 0.00267f
+C641 bitslice\[1\].u_fa/a_512_496# bitslice\[1\].u_fa/a_124_46# 0.00639f
+C642 VPWR bitslice\[6\].u_fa/a_680_156# 0
+C643 bitslice\[9\].u_fa/CI bitslice\[8\].u_fa/a_3048_156# 0
+C644 a[1] s[0] 0.20011f
+C645 bitslice\[3\].u_fa/a_3028_472# bitslice\[2\].u_fa/CI 0
+C646 bitslice\[5\].u_fa/a_2012_472# bitslice\[5\].u_fa/a_952_112# 0.7796f
+C647 VPWR u_msb_x3/a_728_93# 0.94629f
+C648 VPWR bitslice\[1\].u_fa/a_3028_472# 0.00593f
+C649 bitslice\[2\].u_fa/a_1072_496# bitslice\[2\].u_fa/a_512_496# 0
+C650 bitslice\[7\].u_fa/CI b[6] 0.09026f
+C651 a[9] s[9] 0.17996f
+C652 a[11] bitslice\[10\].u_fa/a_1072_496# 0.0041f
+C653 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_3028_472# 0.00236f
+C654 b[7] bitslice\[7\].u_fa/a_1072_496# 0.02505f
+C655 b[2] bitslice\[1\].u_fa/a_952_112# 0.00242f
+C656 u_msb_x3/a_728_93# s[11] 0.41912f
+C657 bitslice\[9\].u_fa/CI bitslice\[7\].u_fa/a_3028_472# 0
+C658 FILLER_11_2/a_484_472# FILLER_11_2/a_572_375# 0.30831f
+C659 bitslice\[6\].u_fa/a_1072_496# b[6] 0.02505f
+C660 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_680_156# 0.00316f
+C661 VPWR bitslice\[0\].u_fa/a_1072_156# 0.01482f
+C662 bitslice\[2\].u_fa/a_124_46# bitslice\[2\].u_fa/CI 0.27486f
+C663 s[7] bitslice\[7\].u_fa/a_680_496# 0
+C664 a[2] b[3] 0
+C665 u_msb_x3/a_244_524# a[11] 0.00529f
+C666 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/a_680_496# 0.00655f
+C667 bitslice\[9\].u_fa/a_512_496# bitslice\[9\].u_fa/a_124_46# 0.00639f
+C668 bitslice\[9\].u_fa/a_3048_156# bitslice\[9\].u_fa/CI 0
+C669 VPWR u_msb_x3/a_56_524# 0.30967f
+C670 VPWR bitslice\[1\].u_fa/CI 0.93267f
+C671 bitslice\[9\].u_fa/a_952_112# a[8] 0
+C672 VPWR bitslice\[7\].u_fa/a_680_496# 0.00283f
+C673 a[9] bitslice\[10\].u_fa/a_124_46# 0
+C674 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/CI 0.27486f
+C675 a[10] FILLER_11_2/a_124_375# 0.00179f
+C676 u_msb_x3/A3 FILLER_11_2/a_124_375# 0
+C677 VPWR bitslice\[0\].u_fa/a_2012_472# 0.29058f
+C678 a[1] b[0] 0
+C679 bitslice\[6\].u_fa/a_124_46# b[6] 0.05484f
+C680 bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_2012_472# 0.00772f
+C681 u_msb_x3/a_56_524# s[11] 0
+C682 VPWR FILLER_11_2/a_572_375# 0.34606f
+C683 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/a_1072_156# 0.0288f
+C684 bitslice\[9\].u_fa/CI bitslice\[8\].u_fa/CI 0.04745f
+C685 VPWR s[9] 0.2911f
+C686 bitslice\[5\].u_fa/a_3048_156# bitslice\[5\].u_fa/a_952_112# 0.00316f
+C687 bitslice\[3\].u_fa/a_952_112# a[2] 0
+C688 u_msb_x3/a_718_524# u_msb_x3/A3 0.00666f
+C689 u_msb_x3/a_728_93# u_msb_x3/a_56_524# 0.01674f
+C690 bitslice\[7\].u_fa/a_124_46# bitslice\[7\].u_fa/a_1072_496# 0.0139f
+C691 bitslice\[7\].u_fa/a_2012_472# VPWR 0.29058f
+C692 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/CI 0.27486f
+C693 bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_3028_472# 0.00336f
+C694 a[1] bitslice\[1\].u_fa/a_1072_496# 0.02208f
+C695 bitslice\[2\].u_fa/a_680_496# bitslice\[2\].u_fa/a_124_46# 0.00655f
+C696 bitslice\[5\].u_fa/a_680_156# VPWR 0
+C697 s[9] bitslice\[9\].u_fa/a_1072_496# 0
+C698 VPWR s[2] 0.34826f
+C699 bitslice\[9\].u_fa/CO b[10] 0.34555f
+C700 b[9] bitslice\[8\].u_fa/a_124_46# 0
+C701 FILLER_11_2/a_572_375# s[11] 0.04742f
+C702 bitslice\[10\].u_fa/a_952_112# b[11] 0.00101f
+C703 VPWR bitslice\[2\].u_fa/a_3028_472# 0.00593f
+C704 a[9] s[8] 0.20011f
+C705 s[1] a[0] 0
+C706 bitslice\[7\].u_fa/CI a[8] 0.00171f
+C707 b[7] b[6] 0.83145f
+C708 VPWR bitslice\[0\].u_fa/a_680_496# 0.00283f
+C709 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_2012_472# 0.7796f
+C710 bitslice\[4\].u_fa/a_952_112# VPWR 0.59588f
+C711 FILLER_11_2/a_572_375# u_msb_x3/a_728_93# 0.00347f
+C712 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/a_1072_496# 0.0139f
+C713 bitslice\[9\].u_fa/a_3028_472# bitslice\[9\].u_fa/a_952_112# 0.00197f
+C714 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/a_512_496# 0.00639f
+C715 b[9] bitslice\[9\].u_fa/CI 0.36292f
+C716 s[0] cin 0.00205f
+C717 bitslice\[8\].u_fa/a_2012_472# b[8] 0.02435f
+C718 bitslice\[10\].u_fa/a_680_156# bitslice\[10\].u_fa/a_124_46# 0.00316f
+C719 bitslice\[10\].u_fa/a_124_46# VPWR 0.46925f
+C720 bitslice\[8\].u_fa/a_952_112# s[8] 0.00117f
+C721 bitslice\[7\].u_fa/a_952_112# bitslice\[7\].u_fa/a_3028_472# 0.00197f
+C722 bitslice\[7\].u_fa/a_1072_496# a[7] 0.02208f
+C723 bitslice\[9\].u_fa/CI bitslice\[8\].u_fa/a_1072_496# 0
+C724 bitslice\[0\].u_fa/a_1992_156# cin 0.71612f
+C725 bitslice\[6\].u_fa/a_124_46# bitslice\[6\].u_fa/a_512_156# 0.00257f
+C726 a[2] b[2] 0.46601f
+C727 a[11] bitslice\[10\].u_fa/a_512_496# 0
+C728 VPWR bitslice\[4\].u_fa/a_680_156# 0
+C729 u_msb_x3/a_2215_68# u_msb_x3/A3 0
+C730 bitslice\[2\].u_fa/a_1072_156# bitslice\[2\].u_fa/CI 0.61603f
+C731 bitslice\[5\].u_fa/a_3048_156# bitslice\[5\].u_fa/CI 0
+C732 bitslice\[9\].u_fa/a_3048_156# bitslice\[9\].u_fa/a_952_112# 0.00316f
+C733 VPWR bitslice\[2\].u_fa/a_2012_472# 0.29058f
+C734 VPWR bitslice\[2\].u_fa/a_952_112# 0.59588f
+C735 bitslice\[0\].u_fa/a_2012_472# bitslice\[1\].u_fa/CI 0
+C736 bitslice\[9\].u_fa/CI a[10] 0.00171f
+C737 s[7] s[8] 0.00743f
+C738 a[9] b[8] 0
+C739 bitslice\[9\].u_fa/CI u_msb_x3/A3 0.02968f
+C740 bitslice\[6\].u_fa/CI VPWR 0.7245f
+C741 bitslice\[5\].u_fa/a_1072_496# bitslice\[5\].u_fa/a_2012_472# 0.00406f
+C742 bitslice\[3\].u_fa/a_124_46# bitslice\[3\].u_fa/a_680_156# 0.00316f
+C743 bitslice\[1\].u_fa/a_512_496# VPWR 0.00292f
+C744 bitslice\[7\].u_fa/a_124_46# b[6] 0
+C745 a[0] bitslice\[0\].u_fa/a_1072_496# 0.01952f
+C746 VPWR s[8] 0.34826f
+C747 s[10] bitslice\[10\].u_fa/a_1072_496# 0.00165f
+C748 bitslice\[7\].u_fa/CI bitslice\[7\].u_fa/a_3028_472# 0.00336f
+C749 bitslice\[8\].u_fa/CI bitslice\[9\].u_fa/a_952_112# 0.00465f
+C750 bitslice\[4\].u_fa/a_1072_496# bitslice\[5\].u_fa/CI 0
+C751 b[4] bitslice\[4\].u_fa/a_1992_156# 0.03179f
+C752 bitslice\[8\].u_fa/a_952_112# b[8] 0.77863f
+C753 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/a_952_112# 0.1229f
+C754 s[7] bitslice\[7\].u_fa/a_512_156# 0.00108f
+C755 bitslice\[3\].u_fa/a_3048_156# bitslice\[4\].u_fa/CI 0.00141f
+C756 VPWR bitslice\[6\].u_fa/a_2012_472# 0.29058f
+C757 cin b[0] 0.30044f
+C758 bitslice\[4\].u_fa/CI b[4] 0.34555f
+C759 VPWR a[5] 0.76087f
+C760 bitslice\[3\].u_fa/a_1072_496# b[3] 0.02505f
+C761 a[2] bitslice\[2\].u_fa/a_124_46# 0.60698f
+C762 bitslice\[10\].u_fa/a_3048_156# bitslice\[10\].u_fa/a_952_112# 0.00316f
+C763 VPWR bitslice\[7\].u_fa/a_512_156# 0
+C764 b[3] a[3] 0.46296f
+C765 b[8] bitslice\[8\].u_fa/a_1992_156# 0.03179f
+C766 VPWR bitslice\[8\].u_fa/a_512_496# 0.00292f
+C767 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/CI 0.27486f
+C768 bitslice\[5\].u_fa/a_124_46# bitslice\[5\].u_fa/a_680_496# 0.00655f
+C769 b[9] bitslice\[9\].u_fa/a_952_112# 0.77859f
+C770 a[7] b[6] 0
+C771 s[7] bitslice\[7\].u_fa/a_512_496# 0
+C772 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_1072_156# 0.61603f
+C773 b[3] s[3] 0.00392f
+C774 VPWR b[8] 1.89383f
+C775 a[11] bitslice\[9\].u_fa/a_680_496# 0
+C776 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/CI 0.0903f
+C777 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_1072_156# 0.61608f
+C778 bitslice\[2\].u_fa/a_952_112# bitslice\[1\].u_fa/CI 0
+C779 VPWR bitslice\[4\].u_fa/a_512_156# 0
+C780 VPWR bitslice\[5\].u_fa/a_3028_472# 0.00593f
+C781 bitslice\[6\].u_fa/a_1992_156# b[6] 0.03179f
+C782 a[6] bitslice\[6\].u_fa/a_1072_156# 0.03894f
+C783 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/a_952_112# 0.64312f
+C784 bitslice\[10\].u_fa/a_124_46# FILLER_11_2/a_572_375# 0
+C785 u_msb_x3/a_1936_472# b[11] 0
+C786 a[11] bitslice\[9\].u_fa/a_124_46# 0.00206f
+C787 VPWR bitslice\[7\].u_fa/a_512_496# 0.00292f
+C788 bitslice\[9\].u_fa/CO a[11] 0.01474f
+C789 bitslice\[10\].u_fa/a_1072_496# bitslice\[10\].u_fa/a_2012_472# 0.00406f
+C790 bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_952_112# 2.44024f
+C791 s[4] a[4] 0.17692f
+C792 s[5] s[4] 0.00769f
+C793 bitslice\[9\].u_fa/a_952_112# u_msb_x3/A3 0.00418f
+C794 bitslice\[3\].u_fa/a_952_112# a[3] 0.17786f
+C795 VPWR bitslice\[0\].u_fa/a_512_496# 0.00292f
+C796 FILLER_11_2/a_484_472# FILLER_11_2/a_36_472# 0.01328f
+C797 b[1] b[0] 0.83145f
+C798 b[2] bitslice\[2\].u_fa/a_1072_496# 0.02505f
+C799 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_2012_472# 0.01791f
+C800 bitslice\[3\].u_fa/a_952_112# s[3] 0.00139f
+C801 bitslice\[9\].u_fa/CI bitslice\[10\].u_fa/a_3028_472# 0
+C802 bitslice\[0\].u_fa/a_952_112# s[0] 0.00117f
+C803 a[4] a[3] 0.86295f
+C804 bitslice\[7\].u_fa/a_124_46# a[8] 0.00806f
+C805 a[10] bitslice\[10\].u_fa/a_1072_496# 0.01952f
+C806 bitslice\[10\].u_fa/a_1072_496# u_msb_x3/A3 0.00194f
+C807 bitslice\[1\].u_fa/a_1072_156# bitslice\[1\].u_fa/a_1992_156# 0.00753f
+C808 b[7] bitslice\[7\].u_fa/a_3028_472# 0.00428f
+C809 bitslice\[3\].u_fa/a_124_46# a[2] 0
+C810 u_msb_x3/a_1336_472# b[10] 0.03208f
+C811 s[2] bitslice\[2\].u_fa/a_952_112# 0.00117f
+C812 a[1] bitslice\[1\].u_fa/a_124_46# 0.60604f
+C813 b[0] bitslice\[2\].u_fa/CI 0.00259f
+C814 bitslice\[2\].u_fa/a_3028_472# bitslice\[2\].u_fa/a_2012_472# 0
+C815 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_3028_472# 0.00197f
+C816 bitslice\[2\].u_fa/a_512_156# bitslice\[2\].u_fa/a_124_46# 0.00257f
+C817 s[3] a[4] 0.19959f
+C818 s[9] s[8] 0.00791f
+C819 bitslice\[1\].u_fa/a_1072_496# b[1] 0.02505f
+C820 bitslice\[4\].u_fa/a_1072_156# bitslice\[4\].u_fa/a_1992_156# 0.00753f
+C821 a[6] bitslice\[5\].u_fa/a_124_46# 0.00806f
+C822 bitslice\[9\].u_fa/CI a[6] 0
+C823 bitslice\[0\].u_fa/a_124_46# bitslice\[0\].u_fa/a_1072_496# 0.0139f
+C824 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/a_3048_156# 0.00141f
+C825 bitslice\[4\].u_fa/a_952_112# bitslice\[6\].u_fa/CI 0
+C826 bitslice\[9\].u_fa/a_124_46# a[8] 0
+C827 a[11] bitslice\[9\].u_fa/a_1992_156# 0
+C828 bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_1072_156# 0.61603f
+C829 s[10] bitslice\[10\].u_fa/a_512_496# 0.00137f
+C830 bitslice\[9\].u_fa/CO a[8] 0.00117f
+C831 u_msb_x3/a_244_524# u_msb_x3/A3 0
+C832 bitslice\[2\].u_fa/a_1072_156# a[2] 0.03894f
+C833 b[2] a[3] 0
+C834 bitslice\[1\].u_fa/a_2012_472# bitslice\[1\].u_fa/a_1072_496# 0.00406f
+C835 FILLER_11_2/a_36_472# VPWR 0.24716f
+C836 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_3048_156# 0.00316f
+C837 VPWR b[11] 0.39922f
+C838 bitslice\[1\].u_fa/a_952_112# b[0] 0.00248f
+C839 a[7] a[8] 0.86295f
+C840 u_msb_x3/a_1336_472# u_msb_x3/a_1524_472# 0.00134f
+C841 bitslice\[2\].u_fa/a_124_46# bitslice\[2\].u_fa/a_1072_496# 0.0139f
+C842 bitslice\[3\].u_fa/a_2012_472# VPWR 0.29058f
+C843 b[7] bitslice\[8\].u_fa/CI 0.08552f
+C844 bitslice\[4\].u_fa/a_1072_496# a[4] 0.01952f
+C845 bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/a_1072_156# 0.00934f
+C846 FILLER_11_2/a_36_472# s[11] 0.01571f
+C847 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/a_2012_472# 0.7796f
+C848 bitslice\[4\].u_fa/a_952_112# a[5] 0
+C849 bitslice\[5\].u_fa/a_1072_496# bitslice\[5\].u_fa/a_952_112# 0.64312f
+C850 bitslice\[8\].u_fa/a_3028_472# bitslice\[8\].u_fa/a_2012_472# 0
+C851 bitslice\[0\].u_fa/a_952_112# b[0] 0.78089f
+C852 s[11] b[11] 0
+C853 a[6] bitslice\[6\].u_fa/a_952_112# 0.17729f
+C854 bitslice\[0\].u_fa/a_124_46# a[0] 0.60698f
+C855 s[6] a[6] 0.17692f
+C856 bitslice\[1\].u_fa/a_1072_496# bitslice\[1\].u_fa/a_952_112# 0.64312f
+C857 FILLER_11_2/a_36_472# u_msb_x3/a_728_93# 0
+C858 bitslice\[5\].u_fa/a_1992_156# bitslice\[6\].u_fa/CI 0.001f
+C859 bitslice\[9\].u_fa/CO bitslice\[8\].u_fa/a_3048_156# 0
+C860 bitslice\[4\].u_fa/CI bitslice\[3\].u_fa/CI 0.0903f
+C861 u_msb_x3/a_728_93# b[11] 0.13154f
+C862 bitslice\[2\].u_fa/a_124_46# a[3] 0.00783f
+C863 bitslice\[5\].u_fa/a_1072_156# bitslice\[5\].u_fa/a_952_112# 0.00934f
+C864 bitslice\[9\].u_fa/a_952_112# bitslice\[9\].u_fa/a_2012_472# 0.7796f
+C865 bitslice\[5\].u_fa/a_952_112# b[6] 0.00242f
+C866 bitslice\[6\].u_fa/a_3028_472# b[6] 0.00428f
+C867 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/a_3028_472# 0.001f
+C868 a[1] bitslice\[1\].u_fa/a_1072_156# 0.03679f
+C869 bitslice\[5\].u_fa/a_512_496# bitslice\[5\].u_fa/a_1072_496# 0
+C870 bitslice\[0\].u_fa/a_3048_156# bitslice\[1\].u_fa/CI 0
+C871 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_2012_472# 0.00394f
+C872 bitslice\[6\].u_fa/CI a[5] 0.01364f
+C873 bitslice\[5\].u_fa/a_1992_156# a[5] 0.03757f
+C874 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/a_680_496# 0.00655f
+C875 bitslice\[9\].u_fa/CI bitslice\[10\].u_fa/a_952_112# 0.00169f
+C876 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_3028_472# 0.00197f
+C877 a[4] bitslice\[5\].u_fa/a_952_112# 0
+C878 s[6] bitslice\[6\].u_fa/a_680_496# 0
+C879 b[5] bitslice\[4\].u_fa/CI 0.00269f
+C880 bitslice\[7\].u_fa/a_952_112# a[6] 0
+C881 b[3] bitslice\[5\].u_fa/CI 0.00218f
+C882 bitslice\[10\].u_fa/a_512_496# u_msb_x3/A3 0
+C883 s[5] bitslice\[5\].u_fa/a_952_112# 0.00139f
+C884 a[10] bitslice\[10\].u_fa/a_512_496# 0
+C885 bitslice\[9\].u_fa/CO bitslice\[9\].u_fa/a_3048_156# 0.00141f
+C886 u_msb_x3/a_56_524# b[11] 0.61737f
+C887 bitslice\[5\].u_fa/CI bitslice\[5\].u_fa/a_1072_496# 0.00463f
+C888 bitslice\[9\].u_fa/CO s[10] 0.00205f
+C889 bitslice\[9\].u_fa/a_512_156# bitslice\[9\].u_fa/a_124_46# 0.00257f
+C890 s[8] bitslice\[8\].u_fa/a_512_496# 0.00137f
+C891 bitslice\[3\].u_fa/a_1992_156# bitslice\[4\].u_fa/CI 0.001f
+C892 u_msb_x3/a_1336_472# a[11] 0.02319f
+C893 bitslice\[6\].u_fa/CI bitslice\[5\].u_fa/a_3028_472# 0
+C894 bitslice\[3\].u_fa/a_1072_496# bitslice\[3\].u_fa/a_124_46# 0.0139f
+C895 bitslice\[5\].u_fa/a_1072_156# bitslice\[5\].u_fa/CI 0.61608f
+C896 bitslice\[9\].u_fa/CO bitslice\[8\].u_fa/CI 0.02143f
+C897 s[8] b[8] 0.00338f
+C898 bitslice\[5\].u_fa/CI b[6] 0
+C899 a[11] bitslice\[9\].u_fa/a_512_496# 0
+C900 s[5] bitslice\[5\].u_fa/a_512_496# 0
+C901 bitslice\[8\].u_fa/a_3028_472# VPWR 0.00593f
+C902 bitslice\[1\].u_fa/CI bitslice\[1\].u_fa/a_1992_156# 0.69584f
+C903 bitslice\[3\].u_fa/a_1072_156# bitslice\[3\].u_fa/CI 0.61608f
+C904 bitslice\[3\].u_fa/a_952_112# bitslice\[5\].u_fa/CI 0
+C905 a[9] FILLER_11_2/a_124_375# 0
+C906 bitslice\[3\].u_fa/a_124_46# a[3] 0.60604f
+C907 bitslice\[8\].u_fa/CI a[7] 0.01364f
+C908 bitslice\[7\].u_fa/CI a[6] 0.01041f
+C909 a[1] VPWR 0.76087f
+C910 bitslice\[3\].u_fa/a_124_46# s[3] 0.26222f
+C911 bitslice\[5\].u_fa/CI a[4] 0.01201f
+C912 b[10] bitslice\[10\].u_fa/a_1072_156# 0.0302f
+C913 bitslice\[4\].u_fa/a_512_496# s[4] 0.00137f
+C914 s[5] bitslice\[5\].u_fa/CI 0.00239f
+C915 b[9] bitslice\[9\].u_fa/a_124_46# 0.05484f
+C916 FILLER_11_2/a_484_472# FILLER_11_2/a_124_375# 0.08674f
+C917 b[4] bitslice\[4\].u_fa/a_2012_472# 0.02435f
+C918 bitslice\[9\].u_fa/CO b[9] 0.09033f
+C919 bitslice\[6\].u_fa/a_1072_496# a[6] 0.01952f
+C920 VPWR b[4] 1.90284f
+C921 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_2012_472# 0.00394f
+C922 a[0] bitslice\[0\].u_fa/a_680_156# 0
+C923 bitslice\[1\].u_fa/a_124_46# b[1] 0.05484f
+C924 bitslice\[2\].u_fa/a_124_46# bitslice\[2\].u_fa/a_512_496# 0.00639f
+C925 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/a_1992_156# 0.001f
+C926 b[10] a[11] 0.02169f
+C927 bitslice\[10\].u_fa/a_952_112# bitslice\[9\].u_fa/a_952_112# 0.03505f
+C928 VPWR bitslice\[4\].u_fa/a_124_46# 0.46952f
+C929 bitslice\[6\].u_fa/a_512_496# s[6] 0.00137f
+C930 bitslice\[9\].u_fa/CI bitslice\[8\].u_fa/a_2012_472# 0.00269f
+C931 a[10] bitslice\[9\].u_fa/a_124_46# 0.00806f
+C932 bitslice\[9\].u_fa/CO a[10] 0.22372f
+C933 bitslice\[9\].u_fa/CO u_msb_x3/A3 0.04682f
+C934 bitslice\[10\].u_fa/a_680_496# a[11] 0
+C935 bitslice\[10\].u_fa/a_952_112# bitslice\[10\].u_fa/a_1072_496# 0.64312f
+C936 bitslice\[3\].u_fa/a_1992_156# bitslice\[3\].u_fa/a_1072_156# 0.00753f
+C937 a[6] bitslice\[6\].u_fa/a_124_46# 0.60698f
+C938 bitslice\[5\].u_fa/a_512_156# s[5] 0.00108f
+C939 a[9] bitslice\[8\].u_fa/a_124_46# 0.00783f
+C940 VPWR FILLER_11_2/a_124_375# 0.35066f
+C941 a[11] u_msb_x3/a_1524_472# 0
+C942 bitslice\[6\].u_fa/a_1072_496# bitslice\[6\].u_fa/a_680_496# 0
+C943 b[9] bitslice\[9\].u_fa/a_1992_156# 0.03179f
+C944 bitslice\[1\].u_fa/a_124_46# bitslice\[1\].u_fa/a_952_112# 0.01486f
+C945 bitslice\[3\].u_fa/a_952_112# b[3] 0.77779f
+C946 a[9] bitslice\[9\].u_fa/CI 0.21934f
+C947 u_msb_x3/a_718_524# VPWR 0.57977f
+C948 bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_3028_472# 0.00135f
+C949 s[11] FILLER_11_2/a_124_375# 0.01392f
+C950 a[1] bitslice\[1\].u_fa/CI 0.22669f
+C951 bitslice\[8\].u_fa/a_952_112# bitslice\[8\].u_fa/a_124_46# 0.01486f
+C952 VPWR bitslice\[6\].u_fa/a_1072_156# 0.01572f
+C953 bitslice\[9\].u_fa/CO u_msb_x3/a_952_93# 0
+C954 b[7] a[6] 0
+C955 bitslice\[1\].u_fa/a_3048_156# bitslice\[2\].u_fa/CI 0.00141f
+C956 bitslice\[4\].u_fa/a_512_496# bitslice\[4\].u_fa/a_1072_496# 0
+C957 bitslice\[10\].u_fa/a_512_156# a[11] 0
+C958 u_msb_x3/a_728_93# FILLER_11_2/a_124_375# 0
+C959 a[2] bitslice\[2\].u_fa/a_680_156# 0
+C960 s[5] bitslice\[5\].u_fa/a_1072_496# 0
+C961 bitslice\[8\].u_fa/a_952_112# bitslice\[9\].u_fa/CI 0.12282f
+C962 bitslice\[9\].u_fa/a_1992_156# u_msb_x3/A3 0.00252f
+C963 bitslice\[6\].u_fa/a_680_496# bitslice\[6\].u_fa/a_124_46# 0.00655f
+C964 s[0] s[1] 0.00769f
+C965 b[1] bitslice\[1\].u_fa/a_1072_156# 0.0302f
+C966 u_msb_x3/a_718_524# u_msb_x3/a_728_93# 0.33141f
+C967 bitslice\[1\].u_fa/a_680_496# bitslice\[1\].u_fa/a_1072_496# 0
+C968 VPWR cin 0.47383f
+C969 bitslice\[9\].u_fa/a_1072_156# bitslice\[9\].u_fa/a_124_46# 0.0288f
+C970 a[1] s[2] 0
+C971 bitslice\[5\].u_fa/a_1072_156# s[5] 0
+C972 VPWR bitslice\[4\].u_fa/a_1072_156# 0.01572f
+C973 bitslice\[8\].u_fa/a_124_46# VPWR 0.46952f
+C974 b[3] b[2] 0.83145f
+C975 bitslice\[4\].u_fa/a_3048_156# bitslice\[5\].u_fa/CI 0
+C976 bitslice\[1\].u_fa/a_3048_156# bitslice\[1\].u_fa/a_952_112# 0.00316f
+C977 bitslice\[3\].u_fa/a_680_496# VPWR 0.00283f
+C978 u_msb_x3/a_2215_68# VPWR 0.00168f
+C979 VPWR bitslice\[4\].u_fa/a_680_496# 0.00283f
+C980 s[7] bitslice\[7\].u_fa/a_1072_156# 0.0012f
+C981 VPWR bitslice\[5\].u_fa/a_124_46# 0.46957f
+C982 bitslice\[0\].u_fa/a_124_46# bitslice\[0\].u_fa/a_680_156# 0.00316f
+C983 bitslice\[9\].u_fa/CI VPWR 0.9498f
+C984 b[3] bitslice\[3\].u_fa/a_3028_472# 0.00428f
+C985 bitslice\[8\].u_fa/a_512_156# a[8] 0
+C986 bitslice\[10\].u_fa/a_1072_156# a[11] 0.00221f
+C987 bitslice\[7\].u_fa/a_124_46# a[6] 0
+C988 s[5] a[4] 0
+C989 bitslice\[4\].u_fa/a_952_112# b[4] 0.7795f
+C990 bitslice\[9\].u_fa/CI bitslice\[9\].u_fa/a_1072_496# 0.00529f
+C991 VPWR bitslice\[7\].u_fa/a_1072_156# 0.01572f
+C992 u_msb_x3/a_718_524# u_msb_x3/a_56_524# 0.0092f
+C993 u_msb_x3/a_2215_68# s[11] 0.00999f
+C994 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_3028_472# 0.00135f
+C995 FILLER_11_2/a_572_375# FILLER_11_2/a_124_375# 0.01222f
+C996 bitslice\[1\].u_fa/a_1072_156# bitslice\[1\].u_fa/a_952_112# 0.00934f
+C997 bitslice\[6\].u_fa/a_512_496# bitslice\[6\].u_fa/a_1072_496# 0
+C998 bitslice\[3\].u_fa/a_952_112# b[2] 0.00248f
+C999 s[7] s[6] 0.00831f
+C1000 a[9] bitslice\[9\].u_fa/a_952_112# 0.17786f
+C1001 u_msb_x3/a_2215_68# u_msb_x3/a_728_93# 0
+C1002 VPWR bitslice\[3\].u_fa/CI 0.93267f
+C1003 s[0] bitslice\[0\].u_fa/a_1072_496# 0.00165f
+C1004 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_124_46# 0.01486f
+C1005 b[3] bitslice\[2\].u_fa/a_124_46# 0
+C1006 bitslice\[9\].u_fa/a_1992_156# bitslice\[9\].u_fa/a_1072_156# 0.00753f
+C1007 s[1] bitslice\[1\].u_fa/a_680_156# 0
+C1008 VPWR bitslice\[6\].u_fa/a_952_112# 0.59588f
+C1009 cin bitslice\[0\].u_fa/a_1072_156# 0.61676f
+C1010 b[10] s[10] 0.00338f
+C1011 s[6] VPWR 0.34826f
+C1012 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_3028_472# 0.00197f
+C1013 bitslice\[0\].u_fa/a_512_156# a[0] 0
+C1014 VPWR b[1] 1.90176f
+C1015 bitslice\[1\].u_fa/a_124_46# a[2] 0.00806f
+C1016 a[1] bitslice\[1\].u_fa/a_512_496# 0.002f
+C1017 bitslice\[8\].u_fa/a_952_112# bitslice\[9\].u_fa/a_952_112# 0.02943f
+C1018 cin bitslice\[1\].u_fa/CI 0.00414f
+C1019 a[7] a[6] 0.04751f
+C1020 bitslice\[8\].u_fa/a_952_112# bitslice\[7\].u_fa/a_952_112# 0.03505f
+C1021 s[1] bitslice\[1\].u_fa/a_1072_496# 0
+C1022 bitslice\[6\].u_fa/a_512_496# bitslice\[6\].u_fa/a_124_46# 0.00639f
+C1023 bitslice\[6\].u_fa/CI b[4] 0.00259f
+C1024 VPWR bitslice\[2\].u_fa/CI 0.72367f
+C1025 bitslice\[3\].u_fa/a_512_496# VPWR 0.00292f
+C1026 VPWR bitslice\[1\].u_fa/a_2012_472# 0.29058f
+C1027 s[10] bitslice\[10\].u_fa/a_680_496# 0
+C1028 b[10] bitslice\[8\].u_fa/CI 0
+C1029 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/a_680_156# 0.00316f
+C1030 a[6] bitslice\[6\].u_fa/a_1992_156# 0.03766f
+C1031 bitslice\[10\].u_fa/a_124_46# FILLER_11_2/a_124_375# 0.03012f
+C1032 s[6] bitslice\[6\].u_fa/a_680_156# 0
+C1033 cin bitslice\[0\].u_fa/a_2012_472# 0.00607f
+C1034 s[0] a[0] 0.17692f
+C1035 b[5] VPWR 1.90362f
+C1036 u_msb_x3/a_1336_472# u_msb_x3/A3 0.50074f
+C1037 bitslice\[4\].u_fa/CI s[4] 0.00205f
+C1038 s[7] bitslice\[7\].u_fa/a_952_112# 0.00192f
+C1039 b[1] bitslice\[1\].u_fa/a_3028_472# 0.00428f
+C1040 bitslice\[0\].u_fa/a_1992_156# a[0] 0.03766f
+C1041 bitslice\[8\].u_fa/a_3028_472# b[8] 0.00428f
+C1042 a[5] b[4] 0
+C1043 VPWR bitslice\[9\].u_fa/a_952_112# 0.59588f
+C1044 bitslice\[1\].u_fa/a_3028_472# bitslice\[2\].u_fa/CI 0
+C1045 VPWR bitslice\[1\].u_fa/a_952_112# 0.59588f
+C1046 VPWR bitslice\[7\].u_fa/a_952_112# 0.59588f
+C1047 u_msb_x3/a_2215_68# FILLER_11_2/a_572_375# 0
+C1048 bitslice\[1\].u_fa/a_2012_472# bitslice\[1\].u_fa/a_3028_472# 0
+C1049 bitslice\[0\].u_fa/a_3028_472# b[0] 0.00428f
+C1050 bitslice\[0\].u_fa/a_1072_496# b[0] 0.02505f
+C1051 bitslice\[8\].u_fa/a_952_112# bitslice\[7\].u_fa/CI 0
+C1052 s[10] bitslice\[10\].u_fa/a_512_156# 0
+C1053 bitslice\[4\].u_fa/CI a[3] 0.01364f
+C1054 bitslice\[3\].u_fa/a_680_156# VPWR 0
+C1055 b[10] b[9] 0.1159f
+C1056 b[10] bitslice\[10\].u_fa/a_2012_472# 0.02435f
+C1057 bitslice\[9\].u_fa/a_1072_496# bitslice\[9\].u_fa/a_952_112# 0.64312f
+C1058 bitslice\[9\].u_fa/CI s[9] 0.00272f
+C1059 a[5] bitslice\[4\].u_fa/a_124_46# 0.00783f
+C1060 bitslice\[0\].u_fa/a_952_112# VPWR 0.59519f
+C1061 VPWR bitslice\[2\].u_fa/a_680_496# 0.00283f
+C1062 VPWR bitslice\[10\].u_fa/a_1072_496# 0.28074f
+C1063 bitslice\[3\].u_fa/a_124_46# b[3] 0.05484f
+C1064 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_1072_156# 0.00934f
+C1065 bitslice\[5\].u_fa/a_680_156# bitslice\[5\].u_fa/a_124_46# 0.00316f
+C1066 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_1072_156# 0.61603f
+C1067 b[1] bitslice\[1\].u_fa/CI 0.41328f
+C1068 b[2] bitslice\[2\].u_fa/a_124_46# 0.05484f
+C1069 s[7] bitslice\[7\].u_fa/CI 0.00345f
+C1070 bitslice\[9\].u_fa/CO bitslice\[10\].u_fa/a_952_112# 2.43003f
+C1071 b[10] a[10] 0.46601f
+C1072 bitslice\[1\].u_fa/a_952_112# bitslice\[1\].u_fa/a_3028_472# 0.00197f
+C1073 b[10] u_msb_x3/A3 0.2171f
+C1074 bitslice\[1\].u_fa/a_512_156# bitslice\[1\].u_fa/a_124_46# 0.00257f
+C1075 bitslice\[1\].u_fa/CI bitslice\[2\].u_fa/CI 0.0903f
+C1076 a[0] b[0] 0.46601f
+C1077 bitslice\[1\].u_fa/a_2012_472# bitslice\[1\].u_fa/CI 0.00772f
+C1078 u_msb_x3/a_244_524# VPWR 0.00432f
+C1079 VPWR bitslice\[7\].u_fa/CI 0.93267f
+C1080 bitslice\[1\].u_fa/a_680_496# bitslice\[1\].u_fa/a_124_46# 0.00655f
+C1081 bitslice\[4\].u_fa/a_124_46# bitslice\[4\].u_fa/a_512_156# 0.00257f
+C1082 bitslice\[3\].u_fa/a_952_112# bitslice\[3\].u_fa/a_124_46# 0.01486f
+C1083 bitslice\[10\].u_fa/a_680_496# a[10] 0
+C1084 bitslice\[10\].u_fa/a_680_496# u_msb_x3/A3 0
+C1085 bitslice\[4\].u_fa/CI bitslice\[4\].u_fa/a_1072_496# 0.00434f
+C1086 bitslice\[2\].u_fa/a_3028_472# bitslice\[3\].u_fa/CI 0.00124f
+C1087 bitslice\[8\].u_fa/a_680_156# a[8] 0
+C1088 bitslice\[0\].u_fa/a_124_46# bitslice\[0\].u_fa/a_512_156# 0.00257f
+C1089 bitslice\[4\].u_fa/a_952_112# bitslice\[3\].u_fa/CI 0
+C1090 VPWR bitslice\[6\].u_fa/a_1072_496# 0.28074f
+C1091 bitslice\[3\].u_fa/a_124_46# a[4] 0.00806f
+C1092 bitslice\[8\].u_fa/CI b[6] 0.00259f
+C1093 u_msb_x3/a_1524_472# u_msb_x3/A3 0
+C1094 bitslice\[1\].u_fa/a_952_112# bitslice\[1\].u_fa/CI 2.44171f
+C1095 bitslice\[8\].u_fa/a_124_46# s[8] 0.26234f
+C1096 s[10] a[11] 0.20011f
+C1097 bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_1072_156# 0.00934f
+C1098 bitslice\[6\].u_fa/CI bitslice\[9\].u_fa/CI 0
+C1099 s[2] bitslice\[2\].u_fa/CI 0.00205f
+C1100 bitslice\[2\].u_fa/a_3028_472# bitslice\[2\].u_fa/CI 0.00135f
+C1101 bitslice\[3\].u_fa/a_512_156# s[3] 0.00108f
+C1102 bitslice\[3\].u_fa/a_1072_156# a[3] 0.03679f
+C1103 bitslice\[9\].u_fa/a_512_156# a[11] 0
+C1104 bitslice\[2\].u_fa/a_3048_156# bitslice\[3\].u_fa/CI 0
+C1105 bitslice\[0\].u_fa/a_124_46# s[0] 0.26234f
+C1106 bitslice\[8\].u_fa/a_952_112# b[7] 0.0025f
+C1107 bitslice\[0\].u_fa/a_952_112# bitslice\[1\].u_fa/CI 0.11627f
+C1108 bitslice\[10\].u_fa/a_512_156# a[10] 0
+C1109 bitslice\[3\].u_fa/a_1072_156# s[3] 0
+C1110 bitslice\[9\].u_fa/a_680_156# bitslice\[9\].u_fa/a_124_46# 0.00316f
+C1111 VPWR bitslice\[6\].u_fa/a_124_46# 0.46952f
+C1112 bitslice\[4\].u_fa/a_2012_472# bitslice\[4\].u_fa/a_3028_472# 0
+C1113 VPWR bitslice\[4\].u_fa/a_3028_472# 0.00593f
+C1114 bitslice\[3\].u_fa/a_124_46# b[2] 0
+C1115 s[9] bitslice\[9\].u_fa/a_952_112# 0.00189f
+C1116 bitslice\[2\].u_fa/a_952_112# bitslice\[3\].u_fa/CI 0.11504f
+C1117 bitslice\[3\].u_fa/CI bitslice\[2\].u_fa/a_2012_472# 0
+C1118 bitslice\[4\].u_fa/a_952_112# b[5] 0.002f
+C1119 VPWR a[2] 0.67821f
+C1120 bitslice\[0\].u_fa/a_952_112# bitslice\[0\].u_fa/a_2012_472# 0.7796f
+C1121 a[5] bitslice\[5\].u_fa/a_124_46# 0.60604f
+C1122 bitslice\[4\].u_fa/a_512_496# a[4] 0
+C1123 bitslice\[7\].u_fa/a_2012_472# bitslice\[7\].u_fa/a_952_112# 0.7796f
+C1124 bitslice\[8\].u_fa/a_124_46# bitslice\[8\].u_fa/a_512_496# 0.00639f
+C1125 bitslice\[2\].u_fa/a_3048_156# bitslice\[2\].u_fa/CI 0.00123f
+C1126 bitslice\[2\].u_fa/a_952_112# b[1] 0.0025f
+C1127 s[7] b[7] 0.00487f
+C1128 bitslice\[4\].u_fa/CI bitslice\[5\].u_fa/a_952_112# 0.00139f
+C1129 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_952_112# 2.42979f
+C1130 u_msb_x3/a_244_524# u_msb_x3/a_56_524# 0.00202f
+C1131 bitslice\[6\].u_fa/CI s[6] 0.00205f
+C1132 bitslice\[8\].u_fa/a_124_46# b[8] 0.05484f
+C1133 a[1] bitslice\[1\].u_fa/a_1992_156# 0.03757f
+C1134 bitslice\[6\].u_fa/a_680_156# bitslice\[6\].u_fa/a_124_46# 0.00316f
+C1135 bitslice\[2\].u_fa/a_1072_156# b[2] 0.0302f
+C1136 bitslice\[1\].u_fa/a_124_46# s[1] 0.26222f
+C1137 bitslice\[2\].u_fa/CI bitslice\[2\].u_fa/a_2012_472# 0.00394f
+C1138 bitslice\[2\].u_fa/a_952_112# bitslice\[2\].u_fa/CI 2.42979f
+C1139 bitslice\[2\].u_fa/a_680_496# s[2] 0
+C1140 VPWR bitslice\[10\].u_fa/a_512_496# 0.00292f
+C1141 b[7] VPWR 1.90176f
+C1142 b[9] a[11] 0.00285f
+C1143 FILLER_11_2/a_36_472# FILLER_11_2/a_124_375# 0.30831f
+C1144 a[11] bitslice\[10\].u_fa/a_2012_472# 0.0011f
+C1145 b[10] bitslice\[10\].u_fa/a_3028_472# 0.00428f
+C1146 bitslice\[9\].u_fa/CI b[8] 0.16737f
+C1147 a[9] bitslice\[9\].u_fa/a_680_496# 0.00136f
+C1148 bitslice\[10\].u_fa/a_1072_156# a[10] 0.03894f
+C1149 bitslice\[6\].u_fa/a_2012_472# bitslice\[6\].u_fa/a_952_112# 0.7796f
+C1150 bitslice\[6\].u_fa/CI b[5] 0.08552f
+C1151 bitslice\[5\].u_fa/a_1992_156# b[5] 0.03179f
+C1152 bitslice\[3\].u_fa/a_124_46# bitslice\[2\].u_fa/a_124_46# 0.02943f
+C1153 bitslice\[0\].u_fa/a_124_46# b[0] 0.05484f
+C1154 s[6] a[5] 0
+C1155 a[6] bitslice\[5\].u_fa/CI 0.00171f
+C1156 bitslice\[7\].u_fa/a_2012_472# bitslice\[7\].u_fa/CI 0.00772f
+C1157 bitslice\[8\].u_fa/CI a[8] 0.22372f
+C1158 a[9] bitslice\[9\].u_fa/a_124_46# 0.60604f
+C1159 bitslice\[9\].u_fa/CO a[9] 0.01629f
+C1160 bitslice\[10\].u_fa/a_124_46# bitslice\[10\].u_fa/a_1072_496# 0.0139f
+C1161 u_msb_x3/a_718_524# b[11] 0.02744f
+C1162 bitslice\[2\].u_fa/a_952_112# bitslice\[1\].u_fa/a_952_112# 0.03505f
+C1163 a[11] a[10] 0.03756f
+C1164 a[11] u_msb_x3/A3 0.23823f
+C1165 bitslice\[5\].u_fa/a_680_496# bitslice\[5\].u_fa/a_1072_496# 0
+C1166 bitslice\[6\].u_fa/CI bitslice\[7\].u_fa/a_952_112# 0.00139f
+C1167 bitslice\[8\].u_fa/a_1072_156# a[8] 0.03894f
+C1168 bitslice\[4\].u_fa/CI bitslice\[5\].u_fa/CI 0.06652f
+C1169 bitslice\[2\].u_fa/a_1072_156# bitslice\[2\].u_fa/a_124_46# 0.0288f
+C1170 s[7] bitslice\[7\].u_fa/a_124_46# 0.27423f
+C1171 bitslice\[0\].u_fa/a_3048_156# cin 0
+C1172 a[2] bitslice\[1\].u_fa/CI 0.00171f
+C1173 b[5] a[5] 0.46296f
+C1174 bitslice\[9\].u_fa/CO bitslice\[8\].u_fa/a_952_112# 0.00385f
+C1175 VPWR bitslice\[2\].u_fa/a_512_156# 0
+C1176 b[9] a[8] 0
+C1177 bitslice\[7\].u_fa/a_124_46# VPWR 0.46957f
+C1178 bitslice\[1\].u_fa/a_512_156# VPWR 0
+C1179 bitslice\[8\].u_fa/CI bitslice\[8\].u_fa/a_3048_156# 0.00123f
+C1180 a[11] u_msb_x3/a_952_93# 0
+C1181 bitslice\[1\].u_fa/a_680_496# VPWR 0.00283f
+C1182 bitslice\[8\].u_fa/a_1072_496# a[8] 0.01952f
+C1183 VPWR bitslice\[5\].u_fa/a_2012_472# 0.29058f
+C1184 VPWR bitslice\[9\].u_fa/a_680_496# 0.00283f
+C1185 s[0] bitslice\[0\].u_fa/a_680_156# 0
+C1186 s[1] bitslice\[1\].u_fa/a_1072_156# 0
+C1187 bitslice\[8\].u_fa/CI bitslice\[9\].u_fa/a_3028_472# 0
+C1188 a[9] bitslice\[9\].u_fa/a_1992_156# 0.03757f
+C1189 bitslice\[6\].u_fa/CI bitslice\[7\].u_fa/CI 0.06088f
+C1190 b[5] bitslice\[5\].u_fa/a_3028_472# 0.00428f
+C1191 bitslice\[9\].u_fa/a_1072_496# bitslice\[9\].u_fa/a_680_496# 0
+C1192 VPWR bitslice\[2\].u_fa/a_1072_496# 0.28074f
+C1193 s[7] a[7] 0.19269f
+C1194 VPWR bitslice\[9\].u_fa/a_124_46# 0.46957f
+C1195 u_msb_x3/A3 a[8] 0
+C1196 a[2] s[2] 0.17692f
+C1197 bitslice\[8\].u_fa/CI bitslice\[7\].u_fa/a_3028_472# 0
+C1198 s[5] bitslice\[5\].u_fa/a_680_496# 0
+C1199 bitslice\[9\].u_fa/CO VPWR 0.73862f
+C1200 bitslice\[1\].u_fa/a_124_46# a[0] 0
+C1201 bitslice\[4\].u_fa/a_952_112# bitslice\[4\].u_fa/a_3028_472# 0.00197f
+C1202 bitslice\[9\].u_fa/a_952_112# b[8] 0
+C1203 bitslice\[9\].u_fa/a_1072_496# bitslice\[9\].u_fa/a_124_46# 0.0139f
+C1204 cin bitslice\[1\].u_fa/a_1992_156# 0
+C1205 bitslice\[7\].u_fa/a_952_112# b[8] 0.00242f
+C1206 a[11] bitslice\[9\].u_fa/a_1072_156# 0.00113f
+C1207 bitslice\[6\].u_fa/CI bitslice\[6\].u_fa/a_1072_496# 0.00434f
+C1208 VPWR s[4] 0.34826f
+C1209 VPWR a[7] 0.75828f
+C1210 bitslice\[2\].u_fa/CI VGND 1.079f
+C1211 a[1] VGND 1.89078f
+C1212 s[1] VGND 0.31753f
+C1213 b[1] VGND 0.70474f
+C1214 bitslice\[1\].u_fa/a_3048_156# VGND 0.00172f $ **FLOATING
+C1215 bitslice\[1\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1216 bitslice\[1\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1217 bitslice\[1\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1218 bitslice\[1\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1219 bitslice\[1\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1220 bitslice\[1\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1221 bitslice\[1\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1222 bitslice\[1\].u_fa/a_952_112# VGND 0.56133f $ **FLOATING
+C1223 bitslice\[1\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1224 bitslice\[7\].u_fa/CI VGND 0.92898f
+C1225 a[6] VGND 1.96389f
+C1226 s[6] VGND 0.26733f
+C1227 b[6] VGND 0.70608f
+C1228 bitslice\[6\].u_fa/a_3048_156# VGND 0.00163f $ **FLOATING
+C1229 bitslice\[6\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1230 bitslice\[6\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1231 bitslice\[6\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1232 bitslice\[6\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1233 bitslice\[6\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1234 bitslice\[6\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1235 bitslice\[6\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1236 bitslice\[6\].u_fa/a_952_112# VGND 0.56259f $ **FLOATING
+C1237 bitslice\[6\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1238 bitslice\[1\].u_fa/CI VGND 0.98163f
+C1239 cin VGND 1.12714f
+C1240 a[0] VGND 2.6551f
+C1241 s[0] VGND 0.27209f
+C1242 b[0] VGND 0.84146f
+C1243 bitslice\[0\].u_fa/a_3048_156# VGND 0.00173f $ **FLOATING
+C1244 bitslice\[0\].u_fa/a_1992_156# VGND 0.49098f $ **FLOATING
+C1245 bitslice\[0\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1246 bitslice\[0\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1247 bitslice\[0\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1248 bitslice\[0\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1249 bitslice\[0\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1250 bitslice\[0\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1251 bitslice\[0\].u_fa/a_952_112# VGND 0.56437f $ **FLOATING
+C1252 bitslice\[0\].u_fa/a_124_46# VGND 0.48522f $ **FLOATING
+C1253 bitslice\[6\].u_fa/CI VGND 1.079f
+C1254 a[5] VGND 1.89078f
+C1255 s[5] VGND 0.31753f
+C1256 b[5] VGND 0.70474f
+C1257 bitslice\[5\].u_fa/a_3048_156# VGND 0.00172f $ **FLOATING
+C1258 bitslice\[5\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1259 bitslice\[5\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1260 bitslice\[5\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1261 bitslice\[5\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1262 bitslice\[5\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1263 bitslice\[5\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1264 bitslice\[5\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1265 bitslice\[5\].u_fa/a_952_112# VGND 0.56133f $ **FLOATING
+C1266 bitslice\[5\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1267 a[10] VGND 1.97289f
+C1268 s[10] VGND 0.27192f
+C1269 b[10] VGND 0.74652f
+C1270 bitslice\[10\].u_fa/a_3048_156# VGND 0.00163f $ **FLOATING
+C1271 bitslice\[10\].u_fa/a_1992_156# VGND 0.49086f $ **FLOATING
+C1272 bitslice\[10\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1273 bitslice\[10\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1274 bitslice\[10\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1275 bitslice\[10\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1276 bitslice\[10\].u_fa/a_2012_472# VGND 0.01276f $ **FLOATING
+C1277 bitslice\[10\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1278 bitslice\[10\].u_fa/a_952_112# VGND 0.56139f $ **FLOATING
+C1279 bitslice\[10\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1280 bitslice\[5\].u_fa/CI VGND 0.92637f
+C1281 a[4] VGND 1.96379f
+C1282 s[4] VGND 0.26733f
+C1283 b[4] VGND 0.70619f
+C1284 bitslice\[4\].u_fa/a_3048_156# VGND 0.00163f $ **FLOATING
+C1285 bitslice\[4\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1286 bitslice\[4\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1287 bitslice\[4\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1288 bitslice\[4\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1289 bitslice\[4\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1290 bitslice\[4\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1291 bitslice\[4\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1292 bitslice\[4\].u_fa/a_952_112# VGND 0.56247f $ **FLOATING
+C1293 bitslice\[4\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1294 bitslice\[9\].u_fa/CO VGND 1.11364f
+C1295 a[9] VGND 1.89126f
+C1296 s[9] VGND 0.33727f
+C1297 b[9] VGND 0.70225f
+C1298 bitslice\[9\].u_fa/a_3048_156# VGND 0.00172f $ **FLOATING
+C1299 bitslice\[9\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1300 bitslice\[9\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1301 bitslice\[9\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1302 bitslice\[9\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1303 bitslice\[9\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1304 bitslice\[9\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1305 bitslice\[9\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1306 bitslice\[9\].u_fa/a_952_112# VGND 0.56215f $ **FLOATING
+C1307 bitslice\[9\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1308 bitslice\[4\].u_fa/CI VGND 1.079f
+C1309 a[3] VGND 1.89078f
+C1310 s[3] VGND 0.31753f
+C1311 b[3] VGND 0.70474f
+C1312 bitslice\[3\].u_fa/a_3048_156# VGND 0.00172f $ **FLOATING
+C1313 bitslice\[3\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1314 bitslice\[3\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1315 bitslice\[3\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1316 bitslice\[3\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1317 bitslice\[3\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1318 bitslice\[3\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1319 bitslice\[3\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1320 bitslice\[3\].u_fa/a_952_112# VGND 0.56133f $ **FLOATING
+C1321 bitslice\[3\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1322 bitslice\[9\].u_fa/CI VGND 0.94259f
+C1323 a[8] VGND 1.96363f
+C1324 s[8] VGND 0.26733f
+C1325 b[8] VGND 0.70587f
+C1326 bitslice\[8\].u_fa/a_3048_156# VGND 0.00163f $ **FLOATING
+C1327 bitslice\[8\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1328 bitslice\[8\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1329 bitslice\[8\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1330 bitslice\[8\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1331 bitslice\[8\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1332 bitslice\[8\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1333 bitslice\[8\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1334 bitslice\[8\].u_fa/a_952_112# VGND 0.5623f $ **FLOATING
+C1335 bitslice\[8\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1336 s[11] VGND 0.83449f
+C1337 b[11] VGND 0.8399f
+C1338 a[11] VGND 0.84737f
+C1339 u_msb_x3/A3 VGND 0.90799f
+C1340 u_msb_x3/a_2215_68# VGND 0.00431f $ **FLOATING
+C1341 u_msb_x3/a_952_93# VGND 0 $ **FLOATING
+C1342 u_msb_x3/a_1936_472# VGND 0.00754f $ **FLOATING
+C1343 u_msb_x3/a_1524_472# VGND 0 $ **FLOATING
+C1344 u_msb_x3/a_718_524# VGND 0.00279f $ **FLOATING
+C1345 u_msb_x3/a_244_524# VGND 0 $ **FLOATING
+C1346 u_msb_x3/a_56_524# VGND 0.52567f $ **FLOATING
+C1347 u_msb_x3/a_728_93# VGND 1.16559f $ **FLOATING
+C1348 u_msb_x3/a_1336_472# VGND 0.56662f $ **FLOATING
+C1349 bitslice\[3\].u_fa/CI VGND 0.92898f
+C1350 a[2] VGND 1.96389f
+C1351 s[2] VGND 0.26733f
+C1352 b[2] VGND 0.70619f
+C1353 bitslice\[2\].u_fa/a_3048_156# VGND 0.00163f $ **FLOATING
+C1354 bitslice\[2\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1355 bitslice\[2\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1356 bitslice\[2\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1357 bitslice\[2\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1358 bitslice\[2\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1359 bitslice\[2\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1360 bitslice\[2\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1361 bitslice\[2\].u_fa/a_952_112# VGND 0.56259f $ **FLOATING
+C1362 bitslice\[2\].u_fa/a_124_46# VGND 0.48482f $ **FLOATING
+C1363 FILLER_11_2/a_484_472# VGND 0.37097f $ **FLOATING
+C1364 FILLER_11_2/a_36_472# VGND 0.43137f $ **FLOATING
+C1365 FILLER_11_2/a_572_375# VGND 0.20051f $ **FLOATING
+C1366 FILLER_11_2/a_124_375# VGND 0.20507f $ **FLOATING
+C1367 bitslice\[8\].u_fa/CI VGND 1.08207f
+C1368 a[7] VGND 1.8845f
+C1369 s[7] VGND 0.35441f
+C1370 b[7] VGND 0.70474f
+C1371 bitslice\[7\].u_fa/a_3048_156# VGND 0.00172f $ **FLOATING
+C1372 bitslice\[7\].u_fa/a_1992_156# VGND 0.4914f $ **FLOATING
+C1373 bitslice\[7\].u_fa/a_1072_156# VGND 0.29997f $ **FLOATING
+C1374 bitslice\[7\].u_fa/a_680_156# VGND 0.00171f $ **FLOATING
+C1375 bitslice\[7\].u_fa/a_512_156# VGND 0.00183f $ **FLOATING
+C1376 bitslice\[7\].u_fa/a_3028_472# VGND 0 $ **FLOATING
+C1377 bitslice\[7\].u_fa/a_2012_472# VGND 0.01495f $ **FLOATING
+C1378 bitslice\[7\].u_fa/a_1072_496# VGND 0.0018f $ **FLOATING
+C1379 bitslice\[7\].u_fa/a_952_112# VGND 0.56133f $ **FLOATING
+C1380 bitslice\[7\].u_fa/a_124_46# VGND 0.48483f $ **FLOATING
+C1381 VPWR VGND 70.34462f
+.ends

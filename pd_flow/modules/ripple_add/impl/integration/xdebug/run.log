@@ -1,0 +1,26 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /usr/local/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795688055
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns WARNING  py.warnings                        /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/_init.py:102: DeprecationWarning: COCOTB_TESTCASE is deprecated in favor of COCOTB_TEST_FILTER
+                                                          _setup_regression_manager()
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_top_qspi.end_to_end_flash_and_host (1/1)
+  1351.00ns WARNING  cocotb.Task 3.Harness.clock_side   Cannot convert Logic('X') to int
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 112, in clock_side
+                                                            self.flash.observe(int(out[0]), int(out[3]), int(out[1]) if io0_oe else 0, io0_oe)
+                                                                                            ^^^^^^^^^^^
+                                                          File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb/types/_logic.py", line 250, in __int__
+                                                            raise ValueError(f"Cannot convert {self!r} to int")
+                                                        ValueError: Cannot convert Logic('X') to int
+  1351.00ns WARNING  cocotb.regression                  test_top_qspi.end_to_end_flash_and_host failed
+  1351.00ns INFO     cocotb.regression                  *************************************************************************************************
+                                                        ** TEST                                     STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *************************************************************************************************
+                                                        ** test_top_qspi.end_to_end_flash_and_host   FAIL        1351.00           0.03      43930.82  **
+                                                        *************************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0                          1351.00           0.03      41883.83  **
+                                                        *************************************************************************************************
+VCD info: dumpfile /Users/samuelzhang/ttharden/ra_impl_gldebug/dump.vcd opened for output.

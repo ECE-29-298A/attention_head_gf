@@ -1,0 +1,72 @@
+2026-11-26 04:51:52 -0500: Memory Usage (349904K) : Starting running GF180MCU Klayout DRC runset on /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/impl/n12/run/final/gds/ripple_add.gds
+2026-11-26 04:51:52 -0500: Memory Usage (349904K) : Ruby Version for klayout: 2.6.10
+2026-11-26 04:51:52 -0500: Memory Usage (350480K) : Loading database to memory is complete.
+2026-11-26 04:51:52 -0500: Memory Usage (350480K) : GF180MCU Klayout antenna DRC runset output at: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/impl/n12/drc/n12_antenna.lyrdb
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : Evaluate switches.
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : Number of threads to use 4
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : Verbose mode: false
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : deep mode is enabled.
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : METAL_TOP Selected is 11K
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : METAL_STACK Selected is 5LM
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : MIM Option selected: B
+2026-11-26 04:51:52 -0500: Memory Usage (350528K) : Read in polygons from layers.
+2026-11-26 04:51:52 -0500: Memory Usage (351088K) : nwell has 38 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351200K) : comp has 100 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351280K) : dualgate has 38 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351424K) : poly2 has 289 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351504K) : nplus has 38 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351584K) : pplus has 62 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351648K) : contact has 601 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351728K) : metal1 has 378 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351808K) : metal1_label has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351856K) : metal1_slot has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351920K) : metal1_blk has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (351984K) : via1 has 98 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352048K) : metal2 has 77 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352112K) : metal2_label has 1 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352160K) : metal2_slot has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352208K) : metal2_blk has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352288K) : via2 has 79 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352336K) : metal3 has 51 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352416K) : metal3_label has 36 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352480K) : metal3_slot has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352544K) : metal3_blk has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352608K) : via3 has 39 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352656K) : metal4 has 2 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352736K) : metal4_label has 2 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352784K) : metal4_slot has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352848K) : metal4_blk has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352912K) : via4 has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (352976K) : metal5 has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (353056K) : metal5_label has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (353104K) : metal5_slot has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (353184K) : metal5_blk has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (353232K) : res_mk has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (353296K) : fusetop has 0 polygons
+2026-11-26 04:51:52 -0500: Memory Usage (353296K) : No polygons on fusetop layer, MIM antenna checks will be skipped.
+2026-11-26 04:51:52 -0500: Memory Usage (353296K) : Starting GF180MCU ANTENNA layer derivations.
+2026-11-26 04:51:52 -0500: Memory Usage (354368K) : No polygons on thin_gate derived layer, thin gates antenna checks will be skipped.
+2026-11-26 04:51:52 -0500: Memory Usage (354720K) : Starting GF180MCU ANTENNA DRC rules.
+2026-11-26 04:51:52 -0500: Memory Usage (354720K) : Construct connectivity for POLY
+2026-11-26 04:51:52 -0500: Memory Usage (354800K) : Executing rule ANT.1
+2026-11-26 04:51:52 -0500: Memory Usage (355072K) : Construct connectivity for CONTACT
+2026-11-26 04:51:52 -0500: Memory Usage (355088K) : Executing rule ANT.8
+2026-11-26 04:51:52 -0500: Memory Usage (355168K) : Construct connectivity for METAL1
+2026-11-26 04:51:52 -0500: Memory Usage (355168K) : Executing rule ANT.16_ii_ANT.2
+2026-11-26 04:51:52 -0500: Memory Usage (355232K) : Construct connectivity for VIA1
+2026-11-26 04:51:52 -0500: Memory Usage (355232K) : Executing rule ANT.16_ii_ANT.9
+2026-11-26 04:51:52 -0500: Memory Usage (355232K) : Construct connectivity for METAL2
+2026-11-26 04:51:52 -0500: Memory Usage (355232K) : Executing rule ANT.16_ii_ANT.3
+2026-11-26 04:51:52 -0500: Memory Usage (355248K) : Construct connectivity for VIA2
+2026-11-26 04:51:52 -0500: Memory Usage (355248K) : Executing rule ANT.16_ii_ANT.10
+2026-11-26 04:51:52 -0500: Memory Usage (355248K) : Construct connectivity for METAL3
+2026-11-26 04:51:52 -0500: Memory Usage (355248K) : Executing rule ANT.16_ii_ANT.4
+2026-11-26 04:51:52 -0500: Memory Usage (355264K) : Construct connectivity for VIA3
+2026-11-26 04:51:52 -0500: Memory Usage (355264K) : Executing rule ANT.16_ii_ANT.11
+2026-11-26 04:51:52 -0500: Memory Usage (355264K) : Construct connectivity for METAL4
+2026-11-26 04:51:52 -0500: Memory Usage (355264K) : Executing rule ANT.16_ii_ANT.5
+2026-11-26 04:51:52 -0500: Memory Usage (355264K) : Construct connectivity for VIA4
+2026-11-26 04:51:52 -0500: Memory Usage (355264K) : Executing rule ANT.16_ii_ANT.12
+2026-11-26 04:51:52 -0500: Memory Usage (355392K) : Construct connectivity for METAL5
+2026-11-26 04:51:52 -0500: Memory Usage (355392K) : Executing rule ANT.16_ii_ANT.7
+2026-11-26 04:51:52 -0500: Memory Usage (355584K) : Antenna DRC total Run time: 0.060693 seconds

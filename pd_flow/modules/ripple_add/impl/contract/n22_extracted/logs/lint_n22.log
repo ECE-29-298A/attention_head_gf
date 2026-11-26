@@ -1,0 +1,97 @@
+== verilator --lint-only -Wall -Wno-DECLFILENAME
+- V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228
+- Verilator: Built from 0.039 MB sources in 6 modules, into 0.063 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.013 s (elab=0.001, cvt=0.009, bld=0.000); cpu 0.013 s on 1 threads; allocated 11.812 MB
+verilator_rc=0
+RESULT lint N=22 warnings=0 waived=0 other=0 errors=0
+== yosys structural check
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+
+-- Running command `read_verilog ripple_add.v; hierarchy -check -top ripple_add ; proc -noopt; flatten; check -assert; scc -all_cell_types -select; select -assert-none %; select -clear; select -assert-none t:$ff t:$dff* t:$adff* t:$sdff* t:$aldff* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$anyinit t:$_FF_ t:$_DFF* t:$_SDFF* t:$_ALDFF* t:$_DLATCH* t:$_SR_*; select -assert-none t:* t:$* %d; write_json lint_22.json' --
+
+1. Executing Verilog-2005 frontend: ripple_add.v
+Parsing Verilog input from `ripple_add.v' to AST representation.
+Generating RTLIL representation for module `\ripple_add'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__addf_func'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_1'.
+Generating RTLIL representation for module `\gf180mcu_fd_sc_mcu7t5v0__xor3_func'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ripple_add
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__addf_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__addf_func
+
+2.2. Analyzing design hierarchy..
+Top module:  \ripple_add
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__xor3_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__xor3_func
+Used module:     \gf180mcu_fd_sc_mcu7t5v0__addf_1
+Used module:         \gf180mcu_fd_sc_mcu7t5v0__addf_func
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xor3_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__xor3_1.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__addf_func.
+Deleting now unused module gf180mcu_fd_sc_mcu7t5v0__addf_1.
+<suppressed ~24 debug messages>
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module ripple_add...
+Found and reported 0 problems.
+
+6. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module ripple_add.
+Found 0 SCCs.
+
+7. Executing JSON backend.
+
+End of script. Logfile hash: ebe99edec5, time: 0.01s, user: 0.02s, system: 0.00s, MEM: 16.52 MB peak
+Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+Time spent: 51% 2x write_json (0 sec), 19% 2x read_verilog (0 sec), ...
+yosys_rc=0
+== interface check
+RESULT interface N=22 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0
+interface_rc=0

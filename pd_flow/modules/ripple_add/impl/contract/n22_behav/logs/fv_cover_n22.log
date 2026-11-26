@@ -1,0 +1,110 @@
+SBY  5:16:46 [ripple_add_cover_n22] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ripple_add_verif.t2GyWK/fv_cover_n22/ripple_add_cover_n22'.
+SBY  5:16:46 [ripple_add_cover_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ripple_add_verif.t2GyWK/fv_cover_n22/ripple_add.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ripple_add_verif.t2GyWK/fv_cover_n22/ripple_add_cover_n22/src/ripple_add.v'.
+SBY  5:16:46 [ripple_add_cover_n22] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ripple_add_verif.t2GyWK/fv_cover_n22/ripple_add_props.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ripple_add_verif.t2GyWK/fv_cover_n22/ripple_add_cover_n22/src/ripple_add_props.sv'.
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: smtbmc z3
+SBY  5:16:46 [ripple_add_cover_n22] base: starting process "cd ripple_add_cover_n22/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  5:16:46 [ripple_add_cover_n22] base: finished (returncode=0)
+SBY  5:16:46 [ripple_add_cover_n22] prep: starting process "cd ripple_add_cover_n22/model; yosys -ql design_prep.log design_prep.ys"
+SBY  5:16:46 [ripple_add_cover_n22] prep: finished (returncode=0)
+SBY  5:16:46 [ripple_add_cover_n22] smt2: starting process "cd ripple_add_cover_n22/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  5:16:46 [ripple_add_cover_n22] smt2: finished (returncode=0)
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: starting process "cd ripple_add_cover_n22; yosys-smtbmc -s z3 --presat -c --noprogress -t 1  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Solver: z3
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_all_zero
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_sub_borrow
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_no_overflow
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_propagate_nocin
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_s_sub_minus1
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_s_msb_by_carry
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_overflow_wrap
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace4.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace4_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace4.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace4.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_s_zero_wrap
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace5.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace5_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace5.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace5.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_full_propagate
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_s_chain_n
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace6.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace6_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace6.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace6.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_sub_zero
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace7.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace7_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace7.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace7.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_msb_generate
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace8.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace8_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace8.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace8.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_cin_only
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace9.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace9_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace9.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace9.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_max_inputs
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_s_ones_wrap
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace10.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace10_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace10.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace10.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Reached cover statement in step 0 at ripple_add_props: c_cin_a_ones
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace11.vcd
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace11_tb.v
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace11.smtc
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace11.yw
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: ##   0:00:00  Status: passed
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: finished (returncode=0)
+SBY  5:16:46 [ripple_add_cover_n22] engine_0: Status returned by engine: pass
+SBY  5:16:46 [ripple_add_cover_n22] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:16:46 [ripple_add_cover_n22] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  5:16:46 [ripple_add_cover_n22] summary: engine_0 (smtbmc z3) returned pass
+SBY  5:16:46 [ripple_add_cover_n22] summary: cover trace: ripple_add_cover_n22/engine_0/trace0.vcd
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_all_zero at ripple_add_props.sv:43.9-43.60
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_sub_borrow at ripple_add_props.sv:46.9-46.41
+SBY  5:16:46 [ripple_add_cover_n22] summary: cover trace: ripple_add_cover_n22/engine_0/trace1.vcd
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_no_overflow at ripple_add_props.sv:38.9-38.57
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_propagate_nocin at ripple_add_props.sv:40.9-40.61
+SBY  5:16:46 [ripple_add_cover_n22] summary: cover trace: ripple_add_cover_n22/engine_0/trace10.vcd
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_max_inputs at ripple_add_props.sv:42.9-42.65
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_s_ones_wrap at ripple_add_props.sv:50.9-50.56
+SBY  5:16:46 [ripple_add_cover_n22] summary: cover trace: ripple_add_cover_n22/engine_0/trace11.vcd
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_cin_a_ones at ripple_add_props.sv:41.9-41.62
+SBY  5:16:46 [ripple_add_cover_n22] summary: cover trace: ripple_add_cover_n22/engine_0/trace2.vcd
+SBY  5:16:46 [ripple_add_cover_n22] summary:   reached cover statement ripple_add_props.c_s_sub_minus1 at ripple_add_props.sv:53.9-53.49
+SBY  5:16:46 [ripple_add_cover_n22] summary: and 7 further traces
+SBY  5:16:46 [ripple_add_cover_n22] summary: see ripple_add_cover_n22/PASS for a complete summary
+SBY  5:16:46 [ripple_add_cover_n22] DONE (PASS, rc=0)

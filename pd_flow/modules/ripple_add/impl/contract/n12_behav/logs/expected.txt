@@ -1,0 +1,11 @@
+cells_prep prep
+selftest selftest
+lint_n12 lint 12
+build_n12 build 12
+exh_n12 exh 12
+vec_n12 vec 12 200000 12 ivl
+rand_n12 rand 12 10000000 0x1212
+fv_prove_n12 sby prove_n12
+fv_pdr_n12 sby pdr_n12
+fv_cover_n12 sby cover_n12
+fv_sanity_n12 sby sanity_n12

@@ -1,0 +1,10 @@
+cells_prep prep
+selftest selftest
+lint_n22 lint 22
+build_n22 build 22
+vec_n22 vec 22 200000 22 ivl
+rand_n22 rand 22 50000000 0x2222
+fv_prove_n22 sby prove_n22
+fv_pdr_n22 sby pdr_n22
+fv_cover_n22 sby cover_n22
+fv_sanity_n22 sby sanity_n22

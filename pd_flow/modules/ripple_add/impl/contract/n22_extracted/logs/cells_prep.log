@@ -1,0 +1,2 @@
+RESULT cells netlist_modules=['ripple_add'] cell_types=2 models_copied=4 udps=0
+cells: gf180mcu_fd_sc_mcu7t5v0__addf_1 gf180mcu_fd_sc_mcu7t5v0__xor3_1

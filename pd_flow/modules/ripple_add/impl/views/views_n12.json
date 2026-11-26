@@ -1,0 +1,244 @@
+{
+ "N": 12,
+ "views": {
+  "gds": {
+   "path": "n12/run/final/gds/ripple_add.gds",
+   "sha256": "b8665a56f557362d99fd91cd00f408bb269f28cc3e1611ec7eea53f291194fa2",
+   "bytes": 56084
+  },
+  "gds_klayout_stream": {
+   "path": "n12/run/final/klayout_gds/ripple_add.klayout.gds",
+   "sha256": "f97016073fcab628c3072b9fd554fc72e3cd425fb6c4ea66fc88138523be1470",
+   "bytes": 43760
+  },
+  "lef": {
+   "path": "n12/run/final/lef/ripple_add.lef",
+   "sha256": "b7d8c4525f002220545a032cd23cc6a002fe97119b6072b782b3cba4bc6977bf",
+   "bytes": 10207
+  },
+  "def": {
+   "path": "n12/run/final/def/ripple_add.def",
+   "sha256": "0b83b509ce42fbabc2f27516fd1939f8056bd1fd1bcd1731aad5aefe2508d092",
+   "bytes": 28893
+  },
+  "verilog_gate_nl": {
+   "path": "n12/run/final/nl/ripple_add.nl.v",
+   "sha256": "27b89393035063346924e8cd668b594d4264905729ad1bcd9f48f9343bcb4dab",
+   "bytes": 3321
+  },
+  "verilog_gate_pnl": {
+   "path": "n12/run/final/pnl/ripple_add.pnl.v",
+   "sha256": "1b2e3b16e79dd2fce743576a3765792ac27f40840f45357bb0cb15ae3d848c3f",
+   "bytes": 4875
+  },
+  "verilog_layout_extracted": {
+   "path": "contract/ripple_add_n12_extracted.v",
+   "sha256": "342941333fff8df923d14a1c8aab334adeeec76ef5bfd79a2fa7c216ed0d98dc",
+   "bytes": 2367
+  },
+  "verilog_behavioural": {
+   "path": "views/ripple_add_n12_behav.v",
+   "sha256": "690403bf58e675a27bb2d9c7a011e632b4c13e0e1ca503f6691e168b2663aa7c",
+   "bytes": 441
+  },
+  "spice_cell_level_extracted": {
+   "path": "n12/run/final/spice/ripple_add.spice",
+   "sha256": "0a735101ac2938d6465913063edafacc4052125eedf260a67180fcf12d13f63c",
+   "bytes": 4282
+  },
+  "cdl_schematic": {
+   "path": "n12/lvs/ripple_add_n12.cdl",
+   "sha256": "dbceb93214b8f7c9ffe715731495dd03b794bfc22992ee4c9585f1866664eca9",
+   "bytes": 6453
+  },
+  "spice_schematic": {
+   "path": "n12/lvs/ripple_add_n12.spice",
+   "sha256": "e834da5dc8040fa8a6538722fcecd682e0888262d63351c81421a42e3b2b2cde",
+   "bytes": 6455
+  },
+  "spice_pex_magic": {
+   "path": "n12/pex/ripple_add_n12_pex.spice",
+   "sha256": "2b48632092c86f87723320d4e3671adbcdf91017b53828903ae408396678e596",
+   "bytes": 108909
+  },
+  "spef_nom": {
+   "path": "n12/run/final/spef/nom/ripple_add.nom.spef",
+   "sha256": "bb38fbec65f6ccd657da732dec0e58dde81aec448fad69eb46da86f52d01f419",
+   "bytes": 12806
+  },
+  "spef_min": {
+   "path": "n12/run/final/spef/min/ripple_add.min.spef",
+   "sha256": "608ee68da8046a554224bad884fef56d0c42d54ba7bf289c2f704f61a8a3bbb6",
+   "bytes": 12817
+  },
+  "spef_max": {
+   "path": "n12/run/final/spef/max/ripple_add.max.spef",
+   "sha256": "32069b201f37a31fe40dc14d0794106bd54f252d3699d38e92425800c02ef1e9",
+   "bytes": 12784
+  },
+  "sdc": {
+   "path": "n12/run/final/sdc/ripple_add.sdc",
+   "sha256": "728fbe28354f3f4f53554698ce0631d3ea2d2a1e420c189c7a800647da5e9e87",
+   "bytes": 8668
+  },
+  "liberty_flow_max_ff_n40C_3v60": {
+   "path": "n12/run/final/lib/max_ff_n40C_3v60/ripple_add__max_ff_n40C_3v60.lib",
+   "sha256": "7f4918a6c3a95d2f75db6e4574db0c36cbf2bf206a0259c67adf5e7278e7c75c",
+   "bytes": 189459
+  },
+  "liberty_flow_max_ss_125C_3v00": {
+   "path": "n12/run/final/lib/max_ss_125C_3v00/ripple_add__max_ss_125C_3v00.lib",
+   "sha256": "f1a022e3bf46cebd101c2b3ba4ab6663bc150f6be10edc00af755ef649716bca",
+   "bytes": 192034
+  },
+  "liberty_flow_max_tt_025C_3v30": {
+   "path": "n12/run/final/lib/max_tt_025C_3v30/ripple_add__max_tt_025C_3v30.lib",
+   "sha256": "2a41eae6f8ec7e13f335b78d0d7343e30666de698c2c96092f43510a1f54e25d",
+   "bytes": 189982
+  },
+  "liberty_flow_min_ff_n40C_3v60": {
+   "path": "n12/run/final/lib/min_ff_n40C_3v60/ripple_add__min_ff_n40C_3v60.lib",
+   "sha256": "fc116ced9a1ca8e6efb45ca5a36082d92336e78aaf4a51c5d84bc142232f3047",
+   "bytes": 189459
+  },
+  "liberty_flow_min_ss_125C_3v00": {
+   "path": "n12/run/final/lib/min_ss_125C_3v00/ripple_add__min_ss_125C_3v00.lib",
+   "sha256": "d8624f0b416cf0f81dcd2cd988aef348d40b580742b33ea46b846752438a2fbf",
+   "bytes": 192033
+  },
+  "liberty_flow_min_tt_025C_3v30": {
+   "path": "n12/run/final/lib/min_tt_025C_3v30/ripple_add__min_tt_025C_3v30.lib",
+   "sha256": "b4bd64f06950d6afff8c234a20ab5cc79255af41dac019f914548ed674018c0d",
+   "bytes": 189982
+  },
+  "liberty_flow_nom_ff_n40C_3v60": {
+   "path": "n12/run/final/lib/nom_ff_n40C_3v60/ripple_add__nom_ff_n40C_3v60.lib",
+   "sha256": "dc079ade283a43c466ef925f45be75a7bd958773e326cf183024559cbadba2c0",
+   "bytes": 189459
+  },
+  "liberty_flow_nom_ss_125C_3v00": {
+   "path": "n12/run/final/lib/nom_ss_125C_3v00/ripple_add__nom_ss_125C_3v00.lib",
+   "sha256": "6fec63f68e7f4cbcfd8c5b8faf4df6cce12238b835f51995d56a23e964780d8c",
+   "bytes": 192034
+  },
+  "liberty_flow_nom_tt_025C_3v30": {
+   "path": "n12/run/final/lib/nom_tt_025C_3v30/ripple_add__nom_tt_025C_3v30.lib",
+   "sha256": "28d3d0013a9827616fbe2055792f3f9c093da4e014ad370a600cea58c8d41589",
+   "bytes": 189982
+  },
+  "liberty_block_model_ff_n40C_3v60": {
+   "path": "n12/sta/ripple_add__ff_n40C_3v60.lib",
+   "sha256": "e30fe8eda61c440c764306d327889ddd83f3178a1c3538ae6a0d8b0f5594b06a",
+   "bytes": 189472
+  },
+  "liberty_block_model_ss_125C_3v00": {
+   "path": "n12/sta/ripple_add__ss_125C_3v00.lib",
+   "sha256": "5d3f4093dcbf2d41fd1f21353bfe91a987085969dcd8f57e71e1a23074649181",
+   "bytes": 191784
+  },
+  "liberty_block_model_tt_025C_3v30": {
+   "path": "n12/sta/ripple_add__tt_025C_3v30.lib",
+   "sha256": "ff8f71305cb419f7d3d27502ace13ab61e572b0714f068a4277c548ac3d70853",
+   "bytes": 189825
+  }
+ },
+ "checks": {
+  "V3_pin_rects_lef_eq_def": {
+   "compared": 37,
+   "mismatch": {}
+  },
+  "V1_pins": {
+   "errors": {},
+   "views_checked": [
+    "cdl_schematic",
+    "def",
+    "gds_labels",
+    "lef",
+    "liberty_block_model_ff_n40C_3v60",
+    "liberty_block_model_ss_125C_3v00",
+    "liberty_block_model_tt_025C_3v30",
+    "liberty_flow_max_ff_n40C_3v60",
+    "liberty_flow_max_ss_125C_3v00",
+    "liberty_flow_max_tt_025C_3v30",
+    "liberty_flow_min_ff_n40C_3v60",
+    "liberty_flow_min_ss_125C_3v00",
+    "liberty_flow_min_tt_025C_3v30",
+    "liberty_flow_nom_ff_n40C_3v60",
+    "liberty_flow_nom_ss_125C_3v00",
+    "liberty_flow_nom_tt_025C_3v30",
+    "spice_cell_level_extracted",
+    "spice_pex_magic",
+    "verilog_behavioural",
+    "verilog_gate_nl",
+    "verilog_gate_pnl",
+    "verilog_layout_extracted"
+   ]
+  },
+  "V2_size": {
+   "lef_size_um": [
+    27.44,
+    54.88
+   ],
+   "def_diearea_um": [
+    0.0,
+    0.0,
+    27.44,
+    54.88
+   ],
+   "gds_bbox_um": [
+    0.0,
+    0.0,
+    27.44,
+    54.88
+   ],
+   "liberty_area_um2": {
+    "liberty_flow_max_ff_n40C_3v60": 974.669,
+    "liberty_flow_max_ss_125C_3v00": 974.669,
+    "liberty_flow_max_tt_025C_3v30": 974.669,
+    "liberty_flow_min_ff_n40C_3v60": 974.669,
+    "liberty_flow_min_ss_125C_3v00": 974.669,
+    "liberty_flow_min_tt_025C_3v30": 974.669,
+    "liberty_flow_nom_ff_n40C_3v60": 974.669,
+    "liberty_flow_nom_ss_125C_3v00": 974.669,
+    "liberty_flow_nom_tt_025C_3v30": 974.669,
+    "liberty_block_model_ff_n40C_3v60": 974.669,
+    "liberty_block_model_ss_125C_3v00": 974.669,
+    "liberty_block_model_tt_025C_3v30": 974.669
+   },
+   "check_block_die": [
+    0.0,
+    0.0,
+    27.44,
+    54.88
+   ],
+   "pass": true
+  },
+  "V4_delay": {
+   "tt": {
+    "block_liberty_worst_ns": 11.0982,
+    "sta_spef_worst_ns": 10.702,
+    "sta_spef_sensitized_worst_ns": 10.2432,
+    "liberty_only_worst_ns": 10.5446,
+    "spice_pex_worst_ns": 11.954,
+    "ratio_spice_over_block_liberty": 1.077,
+    "ratio_spice_over_sta_sensitized": 1.167,
+    "ratio_block_liberty_over_sta_spef": 1.037
+   },
+   "ss": {
+    "block_liberty_worst_ns": 22.9751,
+    "sta_spef_worst_ns": 22.2319,
+    "sta_spef_sensitized_worst_ns": 21.2481,
+    "liberty_only_worst_ns": 21.8932,
+    "ratio_block_liberty_over_sta_spef": 1.033
+   },
+   "ff": {
+    "block_liberty_worst_ns": 6.1624,
+    "sta_spef_worst_ns": 5.933,
+    "sta_spef_sensitized_worst_ns": 5.6957,
+    "liberty_only_worst_ns": 5.848,
+    "ratio_block_liberty_over_sta_spef": 1.039
+   }
+  }
+ },
+ "all_structural_pass": true
+}

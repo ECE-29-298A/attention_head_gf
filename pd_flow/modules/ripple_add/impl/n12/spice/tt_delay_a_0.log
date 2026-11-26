@@ -1,0 +1,251 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * ripple_add n=12 carry-chain delay from a[0], corner tt
+
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vpwr                                       3.3
+b_7                                          0
+a_7                                        3.3
+x1.bitslice\[7\].u_fa/ci           1.04605e-08
+s_7                                        3.3
+x1.bitslice\[8\].u_fa/ci           1.04605e-08
+b_2                                          0
+a_2                                        3.3
+x1.bitslice\[2\].u_fa/ci           1.04605e-08
+s_2                                        3.3
+x1.bitslice\[3\].u_fa/ci           1.04605e-08
+b_11                                         0
+a_11                                       3.3
+x1.u_msb_x3/a3                     1.04605e-08
+s_11                                       3.3
+b_8                                          0
+a_8                                        3.3
+s_8                                        3.3
+x1.bitslice\[9\].u_fa/ci           1.04605e-08
+b_3                                          0
+a_3                                        3.3
+s_3                                        3.3
+x1.bitslice\[4\].u_fa/ci           1.04605e-08
+b_9                                          0
+a_9                                        3.3
+s_9                                        3.3
+x1.bitslice\[9\].u_fa/co           1.04605e-08
+b_4                                          0
+a_4                                        3.3
+s_4                                        3.3
+x1.bitslice\[5\].u_fa/ci           1.04605e-08
+b_10                                         0
+a_10                                       3.3
+s_10                                       3.3
+b_5                                          0
+a_5                                        3.3
+s_5                                        3.3
+x1.bitslice\[6\].u_fa/ci           1.04605e-08
+b_0                                          0
+a_0                                          0
+cin                                        3.3
+s_0                                        3.3
+x1.bitslice\[1\].u_fa/ci           1.04605e-08
+b_6                                          0
+a_6                                        3.3
+s_6                                        3.3
+b_1                                          0
+a_1                                        3.3
+s_1                                        3.3
+v_cin#branch                                 0
+v_b_11#branch                                0
+v_b_10#branch                                0
+v_b_9#branch                                 0
+v_b_8#branch                                 0
+v_b_7#branch                                 0
+v_b_6#branch                                 0
+v_b_5#branch                                 0
+v_b_4#branch                                 0
+v_b_3#branch                                 0
+v_b_2#branch                                 0
+v_b_1#branch                                 0
+v_b_0#branch                                 0
+v_a_11#branch                                0
+v_a_10#branch                                0
+v_a_9#branch                                 0
+v_a_8#branch                                 0
+v_a_7#branch                                 0
+v_a_6#branch                                 0
+v_a_5#branch                                 0
+v_a_4#branch                                 0
+v_a_3#branch                                 0
+v_a_2#branch                                 0
+v_a_1#branch                                 0
+v_a_0#branch                                 0
+vdd#branch                        -3.44528e-10
+
+ Reference value :  2.41280e-09
+ Reference value :  7.40280e-09
+ Reference value :  1.25028e-08
+ Reference value :  1.76128e-08
+ Reference value :  2.25228e-08
+ Reference value :  2.75028e-08
+ Reference value :  3.25328e-08
+ Reference value :  3.75428e-08
+ Reference value :  4.22750e-08
+ Reference value :  4.64400e-08
+ Reference value :  5.07400e-08
+ Reference value :  5.55900e-08
+ Reference value :  6.04600e-08
+ Reference value :  6.54600e-08
+ Reference value :  7.04800e-08
+ Reference value :  7.55000e-08
+ Reference value :  8.04900e-08
+ Reference value :  8.48500e-08
+ Reference value :  8.90400e-08
+ Reference value :  9.32800e-08
+ Reference value :  9.81500e-08
+ Reference value :  1.02990e-07
+ Reference value :  1.08020e-07
+ Reference value :  1.13050e-07
+ Reference value :  1.18090e-07
+No. of Data Rows : 12222
+
+  Measurements for Transient Analysis
+
+d_rise_s0           =  1.36218e-09 targ=  4.35497e-08 trig=  4.21875e-08
+tl1090_rise_s0      =   4.38046e-08
+th1090_rise_s0      =   4.32599e-08
+tl3070_rise_s0      =   4.36618e-08
+th3070_rise_s0      =   4.34270e-08
+d_rise_s1           =  2.22711e-09 targ=  4.44146e-08 trig=  4.21875e-08
+tl1090_rise_s1      =   4.46697e-08
+th1090_rise_s1      =   4.41241e-08
+tl3070_rise_s1      =   4.45269e-08
+th3070_rise_s1      =   4.42917e-08
+d_rise_s2           =  3.09270e-09 targ=  4.52802e-08 trig=  4.21875e-08
+tl1090_rise_s2      =   4.55354e-08
+th1090_rise_s2      =   4.49896e-08
+tl3070_rise_s2      =   4.53925e-08
+th3070_rise_s2      =   4.51572e-08
+d_rise_s3           =  3.96178e-09 targ=  4.61493e-08 trig=  4.21875e-08
+tl1090_rise_s3      =   4.64045e-08
+th1090_rise_s3      =   4.58588e-08
+tl3070_rise_s3      =   4.62615e-08
+th3070_rise_s3      =   4.60264e-08
+d_rise_s4           =  4.82745e-09 targ=  4.70149e-08 trig=  4.21875e-08
+tl1090_rise_s4      =   4.72701e-08
+th1090_rise_s4      =   4.67243e-08
+tl3070_rise_s4      =   4.71272e-08
+th3070_rise_s4      =   4.68920e-08
+d_rise_s5           =  5.69656e-09 targ=  4.78841e-08 trig=  4.21875e-08
+tl1090_rise_s5      =   4.81392e-08
+th1090_rise_s5      =   4.75935e-08
+tl3070_rise_s5      =   4.79963e-08
+th3070_rise_s5      =   4.77612e-08
+d_rise_s6           =  6.56212e-09 targ=  4.87496e-08 trig=  4.21875e-08
+tl1090_rise_s6      =   4.90049e-08
+th1090_rise_s6      =   4.84590e-08
+tl3070_rise_s6      =   4.88619e-08
+th3070_rise_s6      =   4.86267e-08
+d_rise_s7           =  7.41638e-09 targ=  4.96039e-08 trig=  4.21875e-08
+tl1090_rise_s7      =   4.98586e-08
+th1090_rise_s7      =   4.93155e-08
+tl3070_rise_s7      =   4.97158e-08
+th3070_rise_s7      =   4.94816e-08
+d_rise_s8           =  8.29103e-09 targ=  5.04785e-08 trig=  4.21875e-08
+tl1090_rise_s8      =   5.07338e-08
+th1090_rise_s8      =   5.01879e-08
+tl3070_rise_s8      =   5.05908e-08
+th3070_rise_s8      =   5.03556e-08
+d_rise_s9           =  9.16055e-09 targ=  5.13480e-08 trig=  4.21875e-08
+tl1090_rise_s9      =   5.16037e-08
+th1090_rise_s9      =   5.10571e-08
+tl3070_rise_s9      =   5.14605e-08
+th3070_rise_s9      =   5.12249e-08
+d_rise_s10          =  1.00289e-08 targ=  5.22164e-08 trig=  4.21875e-08
+tl1090_rise_s10     =   5.24718e-08
+th1090_rise_s10     =   5.19255e-08
+tl3070_rise_s10     =   5.23288e-08
+th3070_rise_s10     =   5.20934e-08
+d_rise_s11          =  9.79903e-09 targ=  5.19865e-08 trig=  4.21875e-08
+tl1090_rise_s11     =   5.23428e-08
+th1090_rise_s11     =   5.17191e-08
+tl3070_rise_s11     =   5.21230e-08
+th3070_rise_s11     =   5.18604e-08
+d_fall_s0           =  1.62982e-09 targ=  8.38173e-08 trig=  8.21875e-08
+tl1090_fall_s0      =   8.35052e-08
+th1090_fall_s0      =   8.42296e-08
+tl3070_fall_s0      =   8.36746e-08
+th3070_fall_s0      =   8.39720e-08
+d_fall_s1           =  2.70259e-09 targ=  8.48901e-08 trig=  8.21875e-08
+tl1090_fall_s1      =   8.45828e-08
+th1090_fall_s1      =   8.53028e-08
+tl3070_fall_s1      =   8.47484e-08
+th3070_fall_s1      =   8.50447e-08
+d_fall_s2           =  3.71623e-09 targ=  8.59037e-08 trig=  8.21875e-08
+tl1090_fall_s2      =   8.55964e-08
+th1090_fall_s2      =   8.63165e-08
+tl3070_fall_s2      =   8.57620e-08
+th3070_fall_s2      =   8.60584e-08
+d_fall_s3           =  4.73475e-09 targ=  8.69223e-08 trig=  8.21875e-08
+tl1090_fall_s3      =   8.66150e-08
+th1090_fall_s3      =   8.73349e-08
+tl3070_fall_s3      =   8.67806e-08
+th3070_fall_s3      =   8.70769e-08
+d_fall_s4           =  5.74845e-09 targ=  8.79360e-08 trig=  8.21875e-08
+tl1090_fall_s4      =   8.76286e-08
+th1090_fall_s4      =   8.83487e-08
+tl3070_fall_s4      =   8.77942e-08
+th3070_fall_s4      =   8.80906e-08
+d_fall_s5           =  6.76693e-09 targ=  8.89544e-08 trig=  8.21875e-08
+tl1090_fall_s5      =   8.86472e-08
+th1090_fall_s5      =   8.93671e-08
+tl3070_fall_s5      =   8.88128e-08
+th3070_fall_s5      =   8.91090e-08
+d_fall_s6           =  7.78050e-09 targ=  8.99680e-08 trig=  8.21875e-08
+tl1090_fall_s6      =   8.96607e-08
+th1090_fall_s6      =   9.03807e-08
+tl3070_fall_s6      =   8.98263e-08
+th3070_fall_s6      =   9.01226e-08
+d_fall_s7           =  8.78497e-09 targ=  9.09725e-08 trig=  8.21875e-08
+tl1090_fall_s7      =   9.06662e-08
+th1090_fall_s7      =   9.13861e-08
+tl3070_fall_s7      =   9.08309e-08
+th3070_fall_s7      =   9.11274e-08
+d_fall_s8           =  9.80746e-09 targ=  9.19950e-08 trig=  8.21875e-08
+tl1090_fall_s8      =   9.16876e-08
+th1090_fall_s8      =   9.24077e-08
+tl3070_fall_s8      =   9.18532e-08
+th3070_fall_s8      =   9.21496e-08
+d_fall_s9           =  1.08257e-08 targ=  9.30132e-08 trig=  8.21875e-08
+tl1090_fall_s9      =   9.27054e-08
+th1090_fall_s9      =   9.34265e-08
+tl3070_fall_s9      =   9.28713e-08
+th3070_fall_s9      =   9.31680e-08
+d_fall_s10          =  1.18450e-08 targ=  9.40325e-08 trig=  8.21875e-08
+tl1090_fall_s10     =   9.37252e-08
+th1090_fall_s10     =   9.44453e-08
+tl3070_fall_s10     =   9.38908e-08
+th3070_fall_s10     =   9.41872e-08
+d_fall_s11          =  1.19104e-08 targ=  9.40979e-08 trig=  8.21875e-08
+tl1090_fall_s11     =   9.35804e-08
+th1090_fall_s11     =   9.49603e-08
+tl3070_fall_s11     =   9.38345e-08
+th3070_fall_s11     =   9.44104e-08
+
+
+Total analysis time (seconds) = 6.34575
+
+Total elapsed time (seconds) = 6.449 
+
+Total DRAM available = 65536.000 MB.
+DRAM currently available = 32731.750 MB.
+Maximum ngspice program size =   23.969 MB.
+Current ngspice program size =   23.969 MB.
+

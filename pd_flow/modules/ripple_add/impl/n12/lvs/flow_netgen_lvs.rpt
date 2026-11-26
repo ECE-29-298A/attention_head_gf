@@ -1,0 +1,126 @@
+
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: A
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: B
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: CI
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: CO
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: S
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: VDD
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: VNW
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: VPW
+Cell gf180mcu_fd_sc_mcu7t5v0__addf_1 (0) disconnected node: VSS
+
+Subcircuit pins:
+Circuit 1: gf180mcu_fd_sc_mcu7t5v0__addf_1 |Circuit 2: gf180mcu_fd_sc_mcu7t5v0__addf_1 
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+B                                          |B                                          
+CI                                         |CI                                         
+CO                                         |CO                                         
+S                                          |S                                          
+VDD                                        |VDD                                        
+VNW                                        |VNW                                        
+VPW                                        |VPW                                        
+VSS                                        |VSS                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes gf180mcu_fd_sc_mcu7t5v0__addf_1 and gf180mcu_fd_sc_mcu7t5v0__addf_1 are equivalent.
+
+Cell gf180mcu_fd_sc_mcu7t5v0__fillcap_8 (0) disconnected node: VDD
+Cell gf180mcu_fd_sc_mcu7t5v0__fillcap_8 (0) disconnected node: VNW
+Cell gf180mcu_fd_sc_mcu7t5v0__fillcap_8 (0) disconnected node: VPW
+Cell gf180mcu_fd_sc_mcu7t5v0__fillcap_8 (0) disconnected node: VSS
+
+Subcircuit pins:
+Circuit 1: gf180mcu_fd_sc_mcu7t5v0__fillca |Circuit 2: gf180mcu_fd_sc_mcu7t5v0__fillca 
+-------------------------------------------|-------------------------------------------
+VDD                                        |VDD                                        
+VNW                                        |VNW                                        
+VPW                                        |VPW                                        
+VSS                                        |VSS                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes gf180mcu_fd_sc_mcu7t5v0__fillcap_8 and gf180mcu_fd_sc_mcu7t5v0__fillcap_8 are equivalent.
+
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: A1
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: A2
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: A3
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: Z
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: VDD
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: VNW
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: VPW
+Cell gf180mcu_fd_sc_mcu7t5v0__xor3_1 (0) disconnected node: VSS
+
+Subcircuit pins:
+Circuit 1: gf180mcu_fd_sc_mcu7t5v0__xor3_1 |Circuit 2: gf180mcu_fd_sc_mcu7t5v0__xor3_1 
+-------------------------------------------|-------------------------------------------
+A1                                         |A1                                         
+A2                                         |A2                                         
+A3                                         |A3                                         
+Z                                          |Z                                          
+VDD                                        |VDD                                        
+VNW                                        |VNW                                        
+VPW                                        |VPW                                        
+VSS                                        |VSS                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes gf180mcu_fd_sc_mcu7t5v0__xor3_1 and gf180mcu_fd_sc_mcu7t5v0__xor3_1 are equivalent.
+
+Subcircuit summary:
+Circuit 1: ripple_add                      |Circuit 2: ripple_add                      
+-------------------------------------------|-------------------------------------------
+gf180mcu_fd_sc_mcu7t5v0__addf_1 (11)       |gf180mcu_fd_sc_mcu7t5v0__addf_1 (11)       
+gf180mcu_fd_sc_mcu7t5v0__fillcap_8 (1)     |gf180mcu_fd_sc_mcu7t5v0__fillcap_8 (1)     
+gf180mcu_fd_sc_mcu7t5v0__xor3_1 (1)        |gf180mcu_fd_sc_mcu7t5v0__xor3_1 (1)        
+Number of devices: 13                      |Number of devices: 13                      
+Number of nets: 50                         |Number of nets: 50                         
+---------------------------------------------------------------------------------------
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: ripple_add                      |Circuit 2: ripple_add                      
+-------------------------------------------|-------------------------------------------
+a[0]                                       |a[0]                                       
+b[0]                                       |b[0]                                       
+cin                                        |cin                                        
+s[0]                                       |s[0]                                       
+a[1]                                       |a[1]                                       
+a[10]                                      |a[10]                                      
+a[2]                                       |a[2]                                       
+a[3]                                       |a[3]                                       
+a[8]                                       |a[8]                                       
+a[4]                                       |a[4]                                       
+a[6]                                       |a[6]                                       
+a[5]                                       |a[5]                                       
+a[7]                                       |a[7]                                       
+a[9]                                       |a[9]                                       
+b[1]                                       |b[1]                                       
+b[10]                                      |b[10]                                      
+b[2]                                       |b[2]                                       
+b[3]                                       |b[3]                                       
+b[8]                                       |b[8]                                       
+b[4]                                       |b[4]                                       
+b[6]                                       |b[6]                                       
+b[5]                                       |b[5]                                       
+b[7]                                       |b[7]                                       
+b[9]                                       |b[9]                                       
+s[1]                                       |s[1]                                       
+s[10]                                      |s[10]                                      
+s[2]                                       |s[2]                                       
+s[3]                                       |s[3]                                       
+s[8]                                       |s[8]                                       
+s[4]                                       |s[4]                                       
+s[6]                                       |s[6]                                       
+s[5]                                       |s[5]                                       
+s[7]                                       |s[7]                                       
+s[9]                                       |s[9]                                       
+b[11]                                      |b[11]                                      
+a[11]                                      |a[11]                                      
+s[11]                                      |s[11]                                      
+VPWR                                       |VPWR                                       
+VGND                                       |VGND                                       
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes ripple_add and ripple_add are equivalent.
+
+Final result: Circuits match uniquely.
+.

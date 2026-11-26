@@ -1,0 +1,73 @@
+2026-11-26 04:50:55 -0500: Memory Usage (348192K) : Starting running GF180MCU Klayout DRC runset on /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/impl/n22/run/final/gds/ripple_add.gds
+2026-11-26 04:50:55 -0500: Memory Usage (348192K) : Ruby Version for klayout: 2.6.10
+2026-11-26 04:50:55 -0500: Memory Usage (348800K) : Loading database to memory is complete.
+2026-11-26 04:50:55 -0500: Memory Usage (348800K) : GF180MCU Klayout density DRC runset output at: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/impl/n22/drc/n22_density.lyrdb
+2026-11-26 04:50:55 -0500: Memory Usage (348848K) : Evaluate switches.
+2026-11-26 04:50:55 -0500: Memory Usage (348848K) : Number of threads to use 4
+2026-11-26 04:50:55 -0500: Memory Usage (348848K) : Verbose mode: 
+2026-11-26 04:50:55 -0500: Memory Usage (349280K) : deep  mode is enabled.
+2026-11-26 04:50:55 -0500: Memory Usage (349296K) : METAL_TOP Selected is 11K
+2026-11-26 04:50:55 -0500: Memory Usage (349296K) : METAL_STACK Selected is 5LM
+2026-11-26 04:50:55 -0500: Memory Usage (349296K) : Read in polygons from layers.
+2026-11-26 04:50:55 -0500: Memory Usage (349696K) : comp_drawn has 180 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (349760K) : comp_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (349888K) : dualgate has 68 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350048K) : poly2_drawn has 539 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350096K) : poly2_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350208K) : contact has 1091 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350272K) : metal1_drawn has 678 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350336K) : metal1_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350464K) : metal1_label has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350528K) : metal1_slot has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350592K) : metal1_blk has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350640K) : via1 has 178 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350704K) : metal2_drawn has 143 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350768K) : metal2_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350896K) : metal2_label has 1 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (350944K) : metal2_slot has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351040K) : metal2_blk has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351136K) : via2 has 141 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351184K) : metal3_drawn has 92 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351248K) : metal3_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351376K) : metal3_label has 66 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351440K) : metal3_slot has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351488K) : metal3_blk has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351568K) : via3 has 69 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351616K) : metal4_drawn has 2 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351664K) : metal4_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351824K) : metal4_label has 2 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351872K) : metal4_slot has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351936K) : metal4_blk has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (351984K) : via4 has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (352048K) : metal5_drawn has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (352112K) : metal5_dummy has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (352224K) : metal5_label has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (352272K) : metal5_slot has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (352336K) : metal5_blk has 0 polygons
+2026-11-26 04:50:55 -0500: Memory Usage (352336K) : Starting GF180MCU DENSITY layer derivations.
+2026-11-26 04:50:55 -0500: Memory Usage (352336K) : Starting GF180MCU DENSITY DRC rules.
+2026-11-26 04:50:55 -0500: Memory Usage (352336K) : Executing rule DCF.1b
+2026-11-26 04:50:55 -0500: Memory Usage (352832K) : COMP ratio: 19.743565816450488 %
+2026-11-26 04:50:55 -0500: Memory Usage (352832K) : [ERROR] DCF.1b : Global density for active layers (COMP+ Dummy COMP) shall be >= 25%
+2026-11-26 04:50:55 -0500: Memory Usage (352864K) : Executing rule DCF.1d
+2026-11-26 04:50:55 -0500: Memory Usage (352864K) : Executing rule PL.8
+2026-11-26 04:50:55 -0500: Memory Usage (352912K) : Poly2 ratio: 23.666516989448844 %
+2026-11-26 04:50:55 -0500: Memory Usage (352912K) : Executing rule M1.4
+2026-11-26 04:50:55 -0500: Memory Usage (353088K) : Metal1 ratio: 27.53050467408173 %
+2026-11-26 04:50:55 -0500: Memory Usage (353088K) : [ERROR] M1.4 : Metal1 coverage over the entire die shall be >30%
+2026-11-26 04:50:55 -0500: Memory Usage (353088K) : Executing rule M2.4
+2026-11-26 04:50:55 -0500: Memory Usage (353088K) : Metal2 ratio: 2.6267577001646143 %
+2026-11-26 04:50:55 -0500: Memory Usage (353088K) : [ERROR] M2.4 : Metal2 coverage over the entire die shall be >30%
+2026-11-26 04:50:55 -0500: Memory Usage (353088K) : Executing rule M3.4
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : Metal3 ratio: 6.507922046369568 %
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : [ERROR] M3.4 : metal3 coverage over the entire die shall be >30%
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : Executing rule M4.4
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : Metal4 ratio: 10.764364054659763 %
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : [ERROR] M4.4 : metal4 coverage over the entire die shall be >30%
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : Executing rule M5.4
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : Metal5 ratio: 0.0 %
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : [ERROR] M5.4 : metal5 coverage over the entire die shall be >30%
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : Executing rule MT.3
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : MetalTop ratio: 0.0 %
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : [ERROR] MT.3 : MetalTop coverage over the entire die shall be >30%
+2026-11-26 04:50:55 -0500: Memory Usage (353104K) : DRC Total Run time 0.032057 seconds

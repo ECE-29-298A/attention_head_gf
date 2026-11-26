@@ -1,0 +1,473 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * ripple_add n=22 input capacitance, corner tt
+
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vpwr                                       3.3
+b_7                                          0
+a_7                                          0
+x1.bitslice\[7\].u_fa/ci           1.04605e-08
+s_7                                1.19902e-08
+x1.bitslice\[8\].u_fa/ci           1.04605e-08
+b_13                                         0
+a_13                                         0
+x1.bitslice\[13\].u_fa/ci          1.04605e-08
+s_13                               1.19902e-08
+x1.bitslice\[14\].u_fa/ci          1.04605e-08
+b_19                                         0
+a_19                                         0
+x1.bitslice\[19\].u_fa/ci          1.04605e-08
+s_19                               1.19902e-08
+x1.bitslice\[20\].u_fa/ci          1.04605e-08
+b_2                                          0
+a_2                                          0
+x1.bitslice\[2\].u_fa/ci           1.04605e-08
+s_2                                1.19902e-08
+x1.bitslice\[3\].u_fa/ci           1.04605e-08
+b_21                                         0
+a_21                                         0
+x1.u_msb_x3/a3                     1.04605e-08
+s_21                               3.98188e-08
+b_8                                          0
+a_8                                          0
+s_8                                1.19902e-08
+x1.bitslice\[9\].u_fa/ci           1.04605e-08
+b_14                                         0
+a_14                                         0
+s_14                               1.19902e-08
+x1.bitslice\[15\].u_fa/ci          1.04605e-08
+b_20                                         0
+a_20                                         0
+s_20                               1.19902e-08
+b_3                                          0
+a_3                                          0
+s_3                                1.19902e-08
+x1.bitslice\[4\].u_fa/ci           1.04605e-08
+b_9                                          0
+a_9                                          0
+s_9                                1.19902e-08
+x1.bitslice\[9\].u_fa/co           1.04605e-08
+b_15                                         0
+a_15                                         0
+s_15                               1.19902e-08
+x1.bitslice\[16\].u_fa/ci          1.04605e-08
+b_4                                          0
+a_4                                          0
+s_4                                1.19902e-08
+x1.bitslice\[5\].u_fa/ci           1.04605e-08
+b_10                                         0
+a_10                                         0
+s_10                               1.19902e-08
+x1.bitslice\[11\].u_fa/ci          1.04605e-08
+b_16                                         0
+a_16                                         0
+s_16                               1.19902e-08
+x1.bitslice\[17\].u_fa/ci          1.04605e-08
+b_5                                          0
+a_5                                          0
+s_5                                1.19902e-08
+x1.bitslice\[6\].u_fa/ci           1.04605e-08
+b_11                                         0
+a_11                                         0
+s_11                               1.19902e-08
+x1.bitslice\[12\].u_fa/ci          1.04605e-08
+b_17                                         0
+a_17                                         0
+s_17                               1.19902e-08
+x1.bitslice\[18\].u_fa/ci          1.04605e-08
+b_0                                          0
+a_0                                          0
+cin                                          0
+s_0                                1.19902e-08
+x1.bitslice\[1\].u_fa/ci           1.04605e-08
+b_6                                          0
+a_6                                          0
+s_6                                1.19902e-08
+b_12                                         0
+a_12                                         0
+s_12                               1.19902e-08
+b_18                                         0
+a_18                                         0
+s_18                               1.19902e-08
+b_1                                          0
+a_1                                          0
+s_1                                1.19902e-08
+v_cin#branch                                 0
+v_b_21#branch                                0
+v_b_20#branch                                0
+v_b_19#branch                                0
+v_b_18#branch                                0
+v_b_17#branch                                0
+v_b_16#branch                                0
+v_b_15#branch                                0
+v_b_14#branch                                0
+v_b_13#branch                                0
+v_b_12#branch                                0
+v_b_11#branch                                0
+v_b_10#branch                                0
+v_b_9#branch                                 0
+v_b_8#branch                                 0
+v_b_7#branch                                 0
+v_b_6#branch                                 0
+v_b_5#branch                                 0
+v_b_4#branch                                 0
+v_b_3#branch                                 0
+v_b_2#branch                                 0
+v_b_1#branch                                 0
+v_b_0#branch                                 0
+v_a_21#branch                                0
+v_a_20#branch                                0
+v_a_19#branch                                0
+v_a_18#branch                                0
+v_a_17#branch                                0
+v_a_16#branch                                0
+v_a_15#branch                                0
+v_a_14#branch                                0
+v_a_13#branch                                0
+v_a_12#branch                                0
+v_a_11#branch                                0
+v_a_10#branch                                0
+v_a_9#branch                                 0
+v_a_8#branch                                 0
+v_a_7#branch                                 0
+v_a_6#branch                                 0
+v_a_5#branch                                 0
+v_a_4#branch                                 0
+v_a_3#branch                                 0
+v_a_2#branch                                 0
+v_a_1#branch                                 0
+v_a_0#branch                                 0
+vdd#branch                        -6.94013e-10
+
+ Reference value :  7.72800e-10
+ Reference value :  3.13000e-09
+ Reference value :  5.69000e-09
+ Reference value :  8.18500e-09
+ Reference value :  1.05800e-08
+ Reference value :  1.31400e-08
+ Reference value :  1.54000e-08
+ Reference value :  1.79700e-08
+ Reference value :  2.03550e-08
+ Reference value :  2.27700e-08
+ Reference value :  2.53700e-08
+ Reference value :  2.76700e-08
+ Reference value :  3.02300e-08
+ Reference value :  3.25500e-08
+ Reference value :  3.50700e-08
+ Reference value :  3.76500e-08
+ Reference value :  3.99100e-08
+ Reference value :  4.25000e-08
+ Reference value :  4.48200e-08
+ Reference value :  4.73600e-08
+ Reference value :  4.99500e-08
+ Reference value :  5.22300e-08
+ Reference value :  5.48000e-08
+ Reference value :  5.71000e-08
+ Reference value :  5.95500e-08
+ Reference value :  6.20750e-08
+ Reference value :  6.43600e-08
+ Reference value :  6.69400e-08
+ Reference value :  6.92400e-08
+ Reference value :  7.17500e-08
+ Reference value :  7.42250e-08
+ Reference value :  7.66000e-08
+ Reference value :  7.91900e-08
+ Reference value :  8.14700e-08
+ Reference value :  8.40400e-08
+ Reference value :  8.64100e-08
+ Reference value :  8.89500e-08
+ Reference value :  9.15200e-08
+ Reference value :  9.38400e-08
+ Reference value :  9.64200e-08
+ Reference value :  9.87200e-08
+ Reference value :  1.01320e-07
+ Reference value :  1.03920e-07
+ Reference value :  1.06220e-07
+ Reference value :  1.08750e-07
+ Reference value :  1.11040e-07
+ Reference value :  1.13620e-07
+ Reference value :  1.16175e-07
+ Reference value :  1.18560e-07
+ Reference value :  1.21150e-07
+ Reference value :  1.23530e-07
+ Reference value :  1.26220e-07
+ Reference value :  1.28570e-07
+ Reference value :  1.31160e-07
+ Reference value :  1.33820e-07
+ Reference value :  1.36200e-07
+ Reference value :  1.38780e-07
+ Reference value :  1.41120e-07
+ Reference value :  1.43740e-07
+ Reference value :  1.46295e-07
+ Reference value :  1.48760e-07
+ Reference value :  1.51320e-07
+ Reference value :  1.53690e-07
+ Reference value :  1.56320e-07
+ Reference value :  1.58700e-07
+ Reference value :  1.61230e-07
+ Reference value :  1.63750e-07
+ Reference value :  1.66090e-07
+ Reference value :  1.68680e-07
+ Reference value :  1.71020e-07
+ Reference value :  1.73690e-07
+ Reference value :  1.76245e-07
+ Reference value :  1.78690e-07
+ Reference value :  1.81280e-07
+ Reference value :  1.83600e-07
+ Reference value :  1.86270e-07
+ Reference value :  1.88690e-07
+ Reference value :  1.91270e-07
+ Reference value :  1.93850e-07
+ Reference value :  1.96260e-07
+ Reference value :  1.98960e-07
+ Reference value :  2.01360e-07
+ Reference value :  2.03920e-07
+ Reference value :  2.06390e-07
+ Reference value :  2.08980e-07
+ Reference value :  2.11470e-07
+ Reference value :  2.13750e-07
+ Reference value :  2.16350e-07
+ Reference value :  2.18720e-07
+ Reference value :  2.21360e-07
+ Reference value :  2.23940e-07
+ Reference value :  2.26210e-07
+ Reference value :  2.28780e-07
+ Reference value :  2.31050e-07
+ Reference value :  2.33620e-07
+ Reference value :  2.36185e-07
+ Reference value :  2.38600e-07
+ Reference value :  2.41220e-07
+ Reference value :  2.43590e-07
+ Reference value :  2.46300e-07
+ Reference value :  2.48780e-07
+ Reference value :  2.51390e-07
+ Reference value :  2.54003e-07
+ Reference value :  2.56230e-07
+ Reference value :  2.58890e-07
+ Reference value :  2.61280e-07
+ Reference value :  2.63730e-07
+ Reference value :  2.66235e-07
+ Reference value :  2.68720e-07
+ Reference value :  2.71370e-07
+ Reference value :  2.73640e-07
+ Reference value :  2.76220e-07
+ Reference value :  2.78560e-07
+ Reference value :  2.81120e-07
+ Reference value :  2.83740e-07
+ Reference value :  2.86210e-07
+ Reference value :  2.88890e-07
+ Reference value :  2.91170e-07
+ Reference value :  2.93720e-07
+ Reference value :  2.96295e-07
+ Reference value :  2.98900e-07
+ Reference value :  3.01540e-07
+ Reference value :  3.03850e-07
+ Reference value :  3.06540e-07
+ Reference value :  3.09070e-07
+ Reference value :  3.11650e-07
+ Reference value :  3.14165e-07
+ Reference value :  3.16620e-07
+ Reference value :  3.19310e-07
+ Reference value :  3.21660e-07
+ Reference value :  3.24280e-07
+ Reference value :  3.26680e-07
+ Reference value :  3.29340e-07
+ Reference value :  3.31800e-07
+ Reference value :  3.34200e-07
+ Reference value :  3.36800e-07
+ Reference value :  3.39100e-07
+ Reference value :  3.41670e-07
+ Reference value :  3.44185e-07
+ Reference value :  3.46690e-07
+ Reference value :  3.49400e-07
+ Reference value :  3.51780e-07
+ Reference value :  3.54300e-07
+ Reference value :  3.56710e-07
+ Reference value :  3.59350e-07
+ Reference value :  3.62003e-07
+ Reference value :  3.64350e-07
+ Reference value :  3.66920e-07
+ Reference value :  3.69330e-07
+ Reference value :  3.71960e-07
+ Reference value :  3.74440e-07
+ Reference value :  3.76970e-07
+ Reference value :  3.79510e-07
+ Reference value :  3.81930e-07
+ Reference value :  3.84550e-07
+ Reference value :  3.86730e-07
+ Reference value :  3.89280e-07
+ Reference value :  3.91900e-07
+ Reference value :  3.94300e-07
+ Reference value :  3.96920e-07
+ Reference value :  3.99260e-07
+ Reference value :  4.01970e-07
+ Reference value :  4.04500e-07
+ Reference value :  4.07010e-07
+ Reference value :  4.09610e-07
+ Reference value :  4.11900e-07
+ Reference value :  4.14520e-07
+ Reference value :  4.17020e-07
+ Reference value :  4.19630e-07
+ Reference value :  4.22115e-07
+ Reference value :  4.24470e-07
+ Reference value :  4.27120e-07
+ Reference value :  4.29610e-07
+ Reference value :  4.32180e-07
+ Reference value :  4.34530e-07
+ Reference value :  4.37120e-07
+ Reference value :  4.39780e-07
+ Reference value :  4.42170e-07
+ Reference value :  4.44660e-07
+ Reference value :  4.46970e-07
+ Reference value :  4.49560e-07
+ Reference value :  4.52135e-07
+ Reference value :  4.54640e-07
+ Reference value :  4.57360e-07
+ Reference value :  4.59760e-07
+ Reference value :  4.62250e-07
+ Reference value :  4.64670e-07
+ Reference value :  4.67280e-07
+ Reference value :  4.69870e-07
+ Reference value :  4.72190e-07
+ Reference value :  4.74810e-07
+ Reference value :  4.77340e-07
+ Reference value :  4.80020e-07
+ Reference value :  4.82382e-07
+ Reference value :  4.84890e-07
+ Reference value :  4.87540e-07
+ Reference value :  4.90000e-07
+ Reference value :  4.92650e-07
+ Reference value :  4.94970e-07
+ Reference value :  4.97570e-07
+ Reference value :  5.00175e-07
+ Reference value :  5.02740e-07
+ Reference value :  5.05320e-07
+ Reference value :  5.07620e-07
+ Reference value :  5.10230e-07
+ Reference value :  5.12660e-07
+ Reference value :  5.15280e-07
+ Reference value :  5.17920e-07
+ Reference value :  5.20090e-07
+ Reference value :  5.22770e-07
+ Reference value :  5.25240e-07
+ Reference value :  5.27540e-07
+ Reference value :  5.30085e-07
+ Reference value :  5.32450e-07
+ Reference value :  5.35090e-07
+ Reference value :  5.37690e-07
+ Reference value :  5.40400e-07
+No. of Data Rows : 54712
+
+  Measurements for Transient Analysis
+
+qr_0                =   -3.75167e-14 from=  1.90000e-09 to=  7.90000e-09
+qf_0                =   3.74185e-14 from=  7.90000e-09 to=  1.39000e-08
+qr_1                =   -3.88570e-14 from=  1.39000e-08 to=  1.99000e-08
+qf_1                =   3.87595e-14 from=  1.99000e-08 to=  2.59000e-08
+qr_2                =   -3.88107e-14 from=  2.59000e-08 to=  3.19000e-08
+qf_2                =   3.87133e-14 from=  3.19000e-08 to=  3.79000e-08
+qr_3                =   -3.88608e-14 from=  3.79000e-08 to=  4.39000e-08
+qf_3                =   3.87633e-14 from=  4.39000e-08 to=  4.99000e-08
+qr_4                =   -3.88146e-14 from=  4.99000e-08 to=  5.59000e-08
+qf_4                =   3.87173e-14 from=  5.59000e-08 to=  6.19000e-08
+qr_5                =   -3.88611e-14 from=  6.19000e-08 to=  6.79000e-08
+qf_5                =   3.87637e-14 from=  6.79000e-08 to=  7.39000e-08
+qr_6                =   -3.88106e-14 from=  7.39000e-08 to=  7.99000e-08
+qf_6                =   3.87133e-14 from=  7.99000e-08 to=  8.59000e-08
+qr_7                =   -3.88406e-14 from=  8.59000e-08 to=  9.19000e-08
+qf_7                =   3.87435e-14 from=  9.19000e-08 to=  9.79000e-08
+qr_8                =   -3.88344e-14 from=  9.79000e-08 to=  1.03900e-07
+qf_8                =   3.87371e-14 from=  1.03900e-07 to=  1.09900e-07
+qr_9                =   -3.88579e-14 from=  1.09900e-07 to=  1.15900e-07
+qf_9                =   3.87604e-14 from=  1.15900e-07 to=  1.21900e-07
+qr_10               =   -3.88113e-14 from=  1.21900e-07 to=  1.27900e-07
+qf_10               =   3.87139e-14 from=  1.27900e-07 to=  1.33900e-07
+qr_11               =   -3.88608e-14 from=  1.33900e-07 to=  1.39900e-07
+qf_11               =   3.87632e-14 from=  1.39900e-07 to=  1.45900e-07
+qr_12               =   -3.88107e-14 from=  1.45900e-07 to=  1.51900e-07
+qf_12               =   3.87132e-14 from=  1.51900e-07 to=  1.57900e-07
+qr_13               =   -3.88610e-14 from=  1.57900e-07 to=  1.63900e-07
+qf_13               =   3.87634e-14 from=  1.63900e-07 to=  1.69900e-07
+qr_14               =   -3.88045e-14 from=  1.69900e-07 to=  1.75900e-07
+qf_14               =   3.87070e-14 from=  1.75900e-07 to=  1.81900e-07
+qr_15               =   -3.88571e-14 from=  1.81900e-07 to=  1.87900e-07
+qf_15               =   3.87595e-14 from=  1.87900e-07 to=  1.93900e-07
+qr_16               =   -3.88259e-14 from=  1.93900e-07 to=  1.99900e-07
+qf_16               =   3.87285e-14 from=  1.99900e-07 to=  2.05900e-07
+qr_17               =   -3.88514e-14 from=  2.05900e-07 to=  2.11900e-07
+qf_17               =   3.87539e-14 from=  2.11900e-07 to=  2.17900e-07
+qr_18               =   -3.88327e-14 from=  2.17900e-07 to=  2.23900e-07
+qf_18               =   3.87353e-14 from=  2.23900e-07 to=  2.29900e-07
+qr_19               =   -3.88896e-14 from=  2.29900e-07 to=  2.35900e-07
+qf_19               =   3.87921e-14 from=  2.35900e-07 to=  2.41900e-07
+qr_20               =   -3.88850e-14 from=  2.41900e-07 to=  2.47900e-07
+qf_20               =   3.87875e-14 from=  2.47900e-07 to=  2.53900e-07
+qr_21               =   -2.21677e-14 from=  2.53900e-07 to=  2.59900e-07
+qf_21               =   2.22146e-14 from=  2.59900e-07 to=  2.65900e-07
+qr_22               =   -3.52603e-14 from=  2.65900e-07 to=  2.71900e-07
+qf_22               =   3.54200e-14 from=  2.71900e-07 to=  2.77900e-07
+qr_23               =   -3.55297e-14 from=  2.77900e-07 to=  2.83900e-07
+qf_23               =   3.56894e-14 from=  2.83900e-07 to=  2.89900e-07
+qr_24               =   -3.53521e-14 from=  2.89900e-07 to=  2.95900e-07
+qf_24               =   3.55117e-14 from=  2.95900e-07 to=  3.01900e-07
+qr_25               =   -3.55386e-14 from=  3.01900e-07 to=  3.07900e-07
+qf_25               =   3.56983e-14 from=  3.07900e-07 to=  3.13900e-07
+qr_26               =   -3.53934e-14 from=  3.13900e-07 to=  3.19900e-07
+qf_26               =   3.55531e-14 from=  3.19900e-07 to=  3.25900e-07
+qr_27               =   -3.55329e-14 from=  3.25900e-07 to=  3.31900e-07
+qf_27               =   3.56926e-14 from=  3.31900e-07 to=  3.37900e-07
+qr_28               =   -3.53516e-14 from=  3.37900e-07 to=  3.43900e-07
+qf_28               =   3.55112e-14 from=  3.43900e-07 to=  3.49900e-07
+qr_29               =   -3.55152e-14 from=  3.49900e-07 to=  3.55900e-07
+qf_29               =   3.56691e-14 from=  3.55900e-07 to=  3.61900e-07
+qr_30               =   -3.54855e-14 from=  3.61900e-07 to=  3.67900e-07
+qf_30               =   3.56451e-14 from=  3.67900e-07 to=  3.73900e-07
+qr_31               =   -3.53253e-14 from=  3.73900e-07 to=  3.79900e-07
+qf_31               =   3.54850e-14 from=  3.79900e-07 to=  3.85900e-07
+qr_32               =   -3.53591e-14 from=  3.85900e-07 to=  3.91900e-07
+qf_32               =   3.55187e-14 from=  3.91900e-07 to=  3.97900e-07
+qr_33               =   -3.55386e-14 from=  3.97900e-07 to=  4.03900e-07
+qf_33               =   3.56983e-14 from=  4.03900e-07 to=  4.09900e-07
+qr_34               =   -3.53520e-14 from=  4.09900e-07 to=  4.15900e-07
+qf_34               =   3.55117e-14 from=  4.15900e-07 to=  4.21900e-07
+qr_35               =   -3.55357e-14 from=  4.21900e-07 to=  4.27900e-07
+qf_35               =   3.56954e-14 from=  4.27900e-07 to=  4.33900e-07
+qr_36               =   -3.52962e-14 from=  4.33900e-07 to=  4.39900e-07
+qf_36               =   3.54558e-14 from=  4.39900e-07 to=  4.45900e-07
+qr_37               =   -3.55364e-14 from=  4.45900e-07 to=  4.51900e-07
+qf_37               =   3.56961e-14 from=  4.51900e-07 to=  4.57900e-07
+qr_38               =   -3.53591e-14 from=  4.57900e-07 to=  4.63900e-07
+qf_38               =   3.55188e-14 from=  4.63900e-07 to=  4.69900e-07
+qr_39               =   -3.55490e-14 from=  4.69900e-07 to=  4.75900e-07
+qf_39               =   3.57086e-14 from=  4.75900e-07 to=  4.81900e-07
+qr_40               =   -3.55165e-14 from=  4.81900e-07 to=  4.87900e-07
+qf_40               =   3.56762e-14 from=  4.87900e-07 to=  4.93900e-07
+qr_41               =   -3.55735e-14 from=  4.93900e-07 to=  4.99900e-07
+qf_41               =   3.57332e-14 from=  4.99900e-07 to=  5.05900e-07
+qr_42               =   -3.49179e-14 from=  5.05900e-07 to=  5.11900e-07
+qf_42               =   3.50775e-14 from=  5.11900e-07 to=  5.17900e-07
+qr_43               =   -1.47631e-14 from=  5.17900e-07 to=  5.23900e-07
+qf_43               =   1.49550e-14 from=  5.23900e-07 to=  5.29900e-07
+qr_44               =   -3.43618e-14 from=  5.29900e-07 to=  5.35900e-07
+qf_44               =   3.53977e-14 from=  5.35900e-07 to=  5.41900e-07
+
+
+Total analysis time (seconds) = 54.4568
+
+Total elapsed time (seconds) = 54.603 
+
+Total DRAM available = 65536.000 MB.
+DRAM currently available = 32472.750 MB.
+Maximum ngspice program size =   46.797 MB.
+Current ngspice program size =   46.797 MB.
+

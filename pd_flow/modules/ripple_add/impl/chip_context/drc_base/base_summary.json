@@ -1,0 +1,82 @@
+{
+ "gds": "/Users/samuelzhang/ttharden/ra_base/runs/wokwi/final/gds/tt_um_attention_head_gf.gds",
+ "gds_sha256": "a6640455d09eba3bb9ccf0d2098d84a27540b895eaa017a70abd7e53df33946f",
+ "reports": {
+  "base_main.lyrdb": {
+   "rules_checked": 651,
+   "total": 0,
+   "by_rule": {},
+   "DF.13_MV": 0,
+   "DF.14_MV": 0,
+   "items": []
+  },
+  "base_antenna.lyrdb": {
+   "rules_checked": 11,
+   "total": 0,
+   "by_rule": {},
+   "DF.13_MV": "not-in-deck",
+   "DF.14_MV": "not-in-deck",
+   "items": []
+  },
+  "base_density.lyrdb": {
+   "rules_checked": 10,
+   "total": 5,
+   "by_rule": {
+    "M2.4": 1,
+    "M3.4": 1,
+    "M4.4": 1,
+    "M5.4": 1,
+    "MT.3": 1
+   },
+   "DF.13_MV": "not-in-deck",
+   "DF.14_MV": "not-in-deck",
+   "items": [
+    {
+     "rule": "M2.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      346.64,
+      160.72
+     ]
+    },
+    {
+     "rule": "M3.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      346.64,
+      160.72
+     ]
+    },
+    {
+     "rule": "M4.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      346.64,
+      160.72
+     ]
+    },
+    {
+     "rule": "M5.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      346.64,
+      160.72
+     ]
+    },
+    {
+     "rule": "MT.3",
+     "bbox_um": [
+      0.0,
+      0.0,
+      346.64,
+      160.72
+     ]
+    }
+   ]
+  }
+ }
+}

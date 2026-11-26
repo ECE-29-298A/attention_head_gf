@@ -1,0 +1,36 @@
+{
+ "test": "leakage",
+ "corner": "tt",
+ "pvt": [
+  "typical",
+  25,
+  3.3
+ ],
+ "N": 22,
+ "states": {
+  "all_zero": {
+   "I_nA": 0.02548,
+   "P_nW": 0.08408
+  },
+  "all_one": {
+   "I_nA": 0.01958,
+   "P_nW": 0.0646
+  },
+  "a_ones_b0_cin0": {
+   "I_nA": 0.02203,
+   "P_nW": 0.07269
+  },
+  "random_1": {
+   "I_nA": 0.02147,
+   "P_nW": 0.07086
+  },
+  "random_2": {
+   "I_nA": 0.02278,
+   "P_nW": 0.07516
+  }
+ },
+ "options": "gmin=1e-15 abstol=1e-18 (default gmin 1e-12 dominates the result; see header comment)",
+ "mean_P_nW": 0.07348,
+ "max_P_nW": 0.08408,
+ "pex_netlist": "n22/pex/ripple_add_n22_pex.spice"
+}

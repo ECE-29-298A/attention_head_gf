@@ -1,0 +1,109 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+=== BLOCK_LIBERTY_MODEL
+ARC cin rise
+Startpoint: cin (input port)
+Endpoint: s[11] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0098    0.3000    0.0000    0.0000 ^ cin (in)
+   0.0209    1.2333   10.9705   10.9705 ^ u/s[11] (ripple_add)
+             2.4666    0.0000   10.9705 ^ s[11] (out)
+                                10.9705   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC cin fall
+Startpoint: cin (input port)
+Endpoint: s[11] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0098    0.3000    0.0000    0.0000 v cin (in)
+   0.0209    1.2333   10.9705   10.9705 ^ u/s[11] (ripple_add)
+             2.4666    0.0000   10.9705 ^ s[11] (out)
+                                10.9705   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] rise
+Startpoint: a[0] (input port)
+Endpoint: s[11] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0121    0.3000    0.0000    0.0000 ^ a[0] (in)
+   0.0209    1.2333   11.0893   11.0893 ^ u/s[11] (ripple_add)
+             2.4666    0.0000   11.0893 ^ s[11] (out)
+                                11.0893   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] fall
+Startpoint: a[0] (input port)
+Endpoint: s[11] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0121    0.3000    0.0000    0.0000 v a[0] (in)
+   0.0209    1.2333   11.0893   11.0893 ^ u/s[11] (ripple_add)
+             2.4666    0.0000   11.0893 ^ s[11] (out)
+                                11.0893   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] rise
+Startpoint: b[0] (input port)
+Endpoint: s[11] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0116    0.3000    0.0000    0.0000 ^ b[0] (in)
+   0.0209    1.2333   11.0982   11.0982 ^ u/s[11] (ripple_add)
+             2.4666    0.0000   11.0982 ^ s[11] (out)
+                                11.0982   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] fall
+Startpoint: b[0] (input port)
+Endpoint: s[11] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0116    0.3000    0.0000    0.0000 v b[0] (in)
+   0.0209    1.2333   11.0982   11.0982 ^ u/s[11] (ripple_add)
+             2.4666    0.0000   11.0982 ^ s[11] (out)
+                                11.0982   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+

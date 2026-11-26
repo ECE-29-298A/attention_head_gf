@@ -1,0 +1,70 @@
+{
+ "circuits": [
+  {
+   "layout": "gf180mcu_fd_sc_mcu7t5v0__addf_1",
+   "schematic": "GF180MCU_FD_SC_MCU7T5V0__ADDF_1",
+   "status": "Match",
+   "nets": [],
+   "devices": [],
+   "pins": [],
+   "subcircuits": [],
+   "nets_nonmatch": 0,
+   "devices_nonmatch": 0,
+   "pins_nonmatch": 0,
+   "subcircuits_nonmatch": 0
+  },
+  {
+   "layout": "gf180mcu_fd_sc_mcu7t5v0__fillcap_8",
+   "schematic": "GF180MCU_FD_SC_MCU7T5V0__FILLCAP_8",
+   "status": "Match",
+   "nets": [
+    [
+     "$3",
+     "NET_3",
+     "MatchWithWarning"
+    ],
+    [
+     "$6",
+     "NET_4",
+     "MatchWithWarning"
+    ]
+   ],
+   "devices": [],
+   "pins": [],
+   "subcircuits": [],
+   "nets_nonmatch": 2,
+   "devices_nonmatch": 0,
+   "pins_nonmatch": 0,
+   "subcircuits_nonmatch": 0
+  },
+  {
+   "layout": "gf180mcu_fd_sc_mcu7t5v0__xor3_1",
+   "schematic": "GF180MCU_FD_SC_MCU7T5V0__XOR3_1",
+   "status": "Match",
+   "nets": [],
+   "devices": [],
+   "pins": [],
+   "subcircuits": [],
+   "nets_nonmatch": 0,
+   "devices_nonmatch": 0,
+   "pins_nonmatch": 0,
+   "subcircuits_nonmatch": 0
+  },
+  {
+   "layout": "ripple_add",
+   "schematic": "RIPPLE_ADD",
+   "status": "Match",
+   "nets": [],
+   "devices": [],
+   "pins": [],
+   "subcircuits": [],
+   "nets_nonmatch": 0,
+   "devices_nonmatch": 0,
+   "pins_nonmatch": 0,
+   "subcircuits_nonmatch": 0
+  }
+ ],
+ "layout_device_count": 52,
+ "schematic_device_count": 52,
+ "all_match": true
+}

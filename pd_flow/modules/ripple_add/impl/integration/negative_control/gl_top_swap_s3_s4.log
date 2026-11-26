@@ -1,0 +1,72 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /usr/local/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795688316
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_top_qspi.end_to_end_flash_and_host (1/4)
+ 37160.00ns WARNING  ..d_host.end_to_end_flash_and_host query chunk 0 (N=1, limit): hardware=[-2048, -17, 0, 2031, 0, 0, 0, 0], Python=[-2048, -16, 0, 2032, 0, 0, 0, 0]
+                                                        assert [-2048, -17, 0, 2031, 0, 0, ...] == [-2048, -16, 0, 2032, 0, 0, ...]
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 243, in end_to_end_flash_and_host
+                                                            await h.query([1, 0, 0, 0], [[-128, 0, 0, 0]], [[-128, -1, 0, 127]])
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 205, in query
+                                                            await self.head(q, k, v, shift, (chunk,), name=name)
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 196, in head
+                                                            await self.run(len(k), shift, int(i > 0), expected, f"{name} chunk {chunk}")
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 184, in run
+                                                            assert actual == expected, f"{name} (N={n}, {self.profile}): hardware={actual}, Python={expected}"
+                                                        AssertionError: query chunk 0 (N=1, limit): hardware=[-2048, -17, 0, 2031, 0, 0, 0, 0], Python=[-2048, -16, 0, 2032, 0, 0, 0, 0]
+                                                        assert [-2048, -17, 0, 2031, 0, 0, ...] == [-2048, -16, 0, 2032, 0, 0, ...]
+ 37160.00ns WARNING  cocotb.regression                  test_top_qspi.end_to_end_flash_and_host failed
+ 37160.00ns INFO     cocotb.regression                  running test_top_qspi.hardware_matches_python_model (2/4)
+ 75640.00ns INFO     cocotb.tt_um_attention_head_gf     single token with signed extremes (N=1, shift=0, chunks=[0]): matches Python, 3845 cycles
+135510.00ns WARNING  ..el.hardware_matches_python_model equal scores with positive and negative rounding ties chunk 0 (N=2, aligned): hardware=[8, -8, 2025, -2040, 0, 0, 0, 0], Python=[8, -8, 2024, -2040, 0, 0, 0, 0]
+                                                        assert [8, -8, 2025, -2040, 0, 0, ...] == [8, -8, 2024, -2040, 0, 0, ...]
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 282, in hardware_matches_python_model
+                                                            await h.query(
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 205, in query
+                                                            await self.head(q, k, v, shift, (chunk,), name=name)
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 196, in head
+                                                            await self.run(len(k), shift, int(i > 0), expected, f"{name} chunk {chunk}")
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 184, in run
+                                                            assert actual == expected, f"{name} (N={n}, {self.profile}): hardware={actual}, Python={expected}"
+                                                        AssertionError: equal scores with positive and negative rounding ties chunk 0 (N=2, aligned): hardware=[8, -8, 2025, -2040, 0, 0, 0, 0], Python=[8, -8, 2024, -2040, 0, 0, 0, 0]
+                                                        assert [8, -8, 2025, -2040, 0, 0, ...] == [8, -8, 2024, -2040, 0, 0, ...]
+135510.00ns WARNING  cocotb.regression                  test_top_qspi.hardware_matches_python_model failed
+135510.00ns INFO     cocotb.regression                  running test_top_qspi.continue_runs_share_pass_one (3/4)
+                                                            Several chunks of one head: a fresh run, then cont runs that reuse the maximum and the open read.
+490960.00ns WARNING  ..one.continue_runs_share_pass_one four chunks chunk 0 (N=16, limit): hardware=[-291, -384, 747, -670, 470, 47, 304, -119], Python=[-290, -385, 748, -669, 469, 46, 306, -119]
+                                                        assert [-291, -384, 747, -670, 470, 47, ...] == [-290, -385, 748, -669, 469, 46, ...]
+                                                        Traceback (most recent call last):
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 336, in continue_runs_share_pass_one
+                                                            await h.head(vec(-40, 40) if n == 5 else vec(), [vec() for _ in range(n)], [vec() for _ in range(n)],
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 196, in head
+                                                            await self.run(len(k), shift, int(i > 0), expected, f"{name} chunk {chunk}")
+                                                          File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/test_top_qspi.py", line 184, in run
+                                                            assert actual == expected, f"{name} (N={n}, {self.profile}): hardware={actual}, Python={expected}"
+                                                        AssertionError: four chunks chunk 0 (N=16, limit): hardware=[-291, -384, 747, -670, 470, 47, 304, -119], Python=[-290, -385, 748, -669, 469, 46, 306, -119]
+                                                        assert [-291, -384, 747, -670, 470, 47, ...] == [-290, -385, 748, -669, 469, 46, ...]
+490960.00ns WARNING  cocotb.regression                  test_top_qspi.continue_runs_share_pass_one failed
+490960.00ns INFO     cocotb.regression                  skipping test_top_qspi.real_smollm_head (4/4)
+                                                            One real SmolLM-135M head (layer 14, head 4, last of 16 tokens) through the pins.
+490960.00ns INFO     cocotb.regression                  *****************************************************************************************************
+                                                        ** TEST                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *****************************************************************************************************
+                                                        ** test_top_qspi.end_to_end_flash_and_host       FAIL       37160.00           0.87      42657.04  **
+                                                        ** test_top_qspi.hardware_matches_python_model   FAIL       98350.00           2.36      41618.16  **
+                                                        ** test_top_qspi.continue_runs_share_pass_one    FAIL      355450.00           9.38      37889.58  **
+                                                        ** test_top_qspi.real_smollm_head                SKIP           0.00           0.00          -.--  **
+                                                        *****************************************************************************************************
+                                                        ** TESTS=4 PASS=0 FAIL=3 SKIP=1                            490960.00          12.62      38910.65  **
+                                                        *****************************************************************************************************
+Traceback (most recent call last):
+  File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/run.py", line 48, in <module>
+    main()
+  File "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/test/top/run.py", line 43, in main
+    subprocess.run([sys.executable, "-m", "cocotb_tools.check_results",
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '-m', 'cocotb_tools.check_results', '/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/attention-top-vdxobxns/results.xml']' returned non-zero exit status 3.
+rc=1

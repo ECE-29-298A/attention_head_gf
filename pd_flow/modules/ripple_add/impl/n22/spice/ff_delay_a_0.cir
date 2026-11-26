@@ -1,0 +1,297 @@
+* ripple_add N=22 carry-chain delay from a[0], corner ff
+.include /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/ngspice/sm141064.ngspice ff
+.include ../pex/ripple_add_n22_pex.spice
+.temp -40
+.options method=gear reltol=1e-4 abstol=1e-13
+VDD vpwr 0 3.6
+X1 0 vpwr a_0 a_10 a_11 a_12 a_13 a_14 a_15 a_16 a_17 a_18 a_19 a_1 a_20 a_21 a_2 a_3 a_4 a_5 a_6 a_7 a_8 a_9 b_0 b_10 b_11 b_12 b_13 b_14 b_15 b_16 b_17 b_18 b_19 b_1 b_20 b_21 b_2 b_3 b_4 b_5 b_6 b_7 b_8 b_9 cin s_0 s_10 s_11 s_12 s_13 s_14 s_15 s_16 s_17 s_18 s_19 s_1 s_20 s_21 s_2 s_3 s_4 s_5 s_6 s_7 s_8 s_9 ripple_add
+C_s_0 s_0 0 2e-14
+C_s_1 s_1 0 2e-14
+C_s_2 s_2 0 2e-14
+C_s_3 s_3 0 2e-14
+C_s_4 s_4 0 2e-14
+C_s_5 s_5 0 2e-14
+C_s_6 s_6 0 2e-14
+C_s_7 s_7 0 2e-14
+C_s_8 s_8 0 2e-14
+C_s_9 s_9 0 2e-14
+C_s_10 s_10 0 2e-14
+C_s_11 s_11 0 2e-14
+C_s_12 s_12 0 2e-14
+C_s_13 s_13 0 2e-14
+C_s_14 s_14 0 2e-14
+C_s_15 s_15 0 2e-14
+C_s_16 s_16 0 2e-14
+C_s_17 s_17 0 2e-14
+C_s_18 s_18 0 2e-14
+C_s_19 s_19 0 2e-14
+C_s_20 s_20 0 2e-14
+C_s_21 s_21 0 2e-14
+V_a_0 a_0 0 PWL(0.000000e+00 0.0000 3.200000e-08 0.0000 3.237500e-08 3.6000 6.200000e-08 3.6000 6.237500e-08 0.0000)
+V_a_1 a_1 0 PWL(0.000000e+00 3.6000)
+V_a_2 a_2 0 PWL(0.000000e+00 3.6000)
+V_a_3 a_3 0 PWL(0.000000e+00 3.6000)
+V_a_4 a_4 0 PWL(0.000000e+00 3.6000)
+V_a_5 a_5 0 PWL(0.000000e+00 3.6000)
+V_a_6 a_6 0 PWL(0.000000e+00 3.6000)
+V_a_7 a_7 0 PWL(0.000000e+00 3.6000)
+V_a_8 a_8 0 PWL(0.000000e+00 3.6000)
+V_a_9 a_9 0 PWL(0.000000e+00 3.6000)
+V_a_10 a_10 0 PWL(0.000000e+00 3.6000)
+V_a_11 a_11 0 PWL(0.000000e+00 3.6000)
+V_a_12 a_12 0 PWL(0.000000e+00 3.6000)
+V_a_13 a_13 0 PWL(0.000000e+00 3.6000)
+V_a_14 a_14 0 PWL(0.000000e+00 3.6000)
+V_a_15 a_15 0 PWL(0.000000e+00 3.6000)
+V_a_16 a_16 0 PWL(0.000000e+00 3.6000)
+V_a_17 a_17 0 PWL(0.000000e+00 3.6000)
+V_a_18 a_18 0 PWL(0.000000e+00 3.6000)
+V_a_19 a_19 0 PWL(0.000000e+00 3.6000)
+V_a_20 a_20 0 PWL(0.000000e+00 3.6000)
+V_a_21 a_21 0 PWL(0.000000e+00 3.6000)
+V_b_0 b_0 0 PWL(0.000000e+00 0.0000)
+V_b_1 b_1 0 PWL(0.000000e+00 0.0000)
+V_b_2 b_2 0 PWL(0.000000e+00 0.0000)
+V_b_3 b_3 0 PWL(0.000000e+00 0.0000)
+V_b_4 b_4 0 PWL(0.000000e+00 0.0000)
+V_b_5 b_5 0 PWL(0.000000e+00 0.0000)
+V_b_6 b_6 0 PWL(0.000000e+00 0.0000)
+V_b_7 b_7 0 PWL(0.000000e+00 0.0000)
+V_b_8 b_8 0 PWL(0.000000e+00 0.0000)
+V_b_9 b_9 0 PWL(0.000000e+00 0.0000)
+V_b_10 b_10 0 PWL(0.000000e+00 0.0000)
+V_b_11 b_11 0 PWL(0.000000e+00 0.0000)
+V_b_12 b_12 0 PWL(0.000000e+00 0.0000)
+V_b_13 b_13 0 PWL(0.000000e+00 0.0000)
+V_b_14 b_14 0 PWL(0.000000e+00 0.0000)
+V_b_15 b_15 0 PWL(0.000000e+00 0.0000)
+V_b_16 b_16 0 PWL(0.000000e+00 0.0000)
+V_b_17 b_17 0 PWL(0.000000e+00 0.0000)
+V_b_18 b_18 0 PWL(0.000000e+00 0.0000)
+V_b_19 b_19 0 PWL(0.000000e+00 0.0000)
+V_b_20 b_20 0 PWL(0.000000e+00 0.0000)
+V_b_21 b_21 0 PWL(0.000000e+00 0.0000)
+V_cin cin 0 PWL(0.000000e+00 3.6000)
+.meas tran d_rise_s0 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_0) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s0 WHEN v(s_0)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s0 WHEN v(s_0)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s0 WHEN v(s_0)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s0 WHEN v(s_0)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s1 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_1) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s1 WHEN v(s_1)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s1 WHEN v(s_1)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s1 WHEN v(s_1)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s1 WHEN v(s_1)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s2 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_2) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s2 WHEN v(s_2)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s2 WHEN v(s_2)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s2 WHEN v(s_2)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s2 WHEN v(s_2)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s3 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_3) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s3 WHEN v(s_3)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s3 WHEN v(s_3)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s3 WHEN v(s_3)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s3 WHEN v(s_3)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s4 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_4) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s4 WHEN v(s_4)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s4 WHEN v(s_4)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s4 WHEN v(s_4)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s4 WHEN v(s_4)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s5 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_5) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s5 WHEN v(s_5)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s5 WHEN v(s_5)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s5 WHEN v(s_5)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s5 WHEN v(s_5)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s6 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_6) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s6 WHEN v(s_6)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s6 WHEN v(s_6)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s6 WHEN v(s_6)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s6 WHEN v(s_6)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s7 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_7) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s7 WHEN v(s_7)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s7 WHEN v(s_7)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s7 WHEN v(s_7)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s7 WHEN v(s_7)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s8 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_8) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s8 WHEN v(s_8)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s8 WHEN v(s_8)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s8 WHEN v(s_8)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s8 WHEN v(s_8)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s9 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_9) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s9 WHEN v(s_9)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s9 WHEN v(s_9)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s9 WHEN v(s_9)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s9 WHEN v(s_9)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s10 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_10) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s10 WHEN v(s_10)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s10 WHEN v(s_10)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s10 WHEN v(s_10)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s10 WHEN v(s_10)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s11 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_11) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s11 WHEN v(s_11)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s11 WHEN v(s_11)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s11 WHEN v(s_11)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s11 WHEN v(s_11)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s12 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_12) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s12 WHEN v(s_12)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s12 WHEN v(s_12)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s12 WHEN v(s_12)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s12 WHEN v(s_12)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s13 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_13) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s13 WHEN v(s_13)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s13 WHEN v(s_13)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s13 WHEN v(s_13)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s13 WHEN v(s_13)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s14 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_14) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s14 WHEN v(s_14)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s14 WHEN v(s_14)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s14 WHEN v(s_14)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s14 WHEN v(s_14)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s15 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_15) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s15 WHEN v(s_15)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s15 WHEN v(s_15)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s15 WHEN v(s_15)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s15 WHEN v(s_15)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s16 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_16) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s16 WHEN v(s_16)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s16 WHEN v(s_16)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s16 WHEN v(s_16)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s16 WHEN v(s_16)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s17 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_17) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s17 WHEN v(s_17)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s17 WHEN v(s_17)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s17 WHEN v(s_17)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s17 WHEN v(s_17)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s18 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_18) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s18 WHEN v(s_18)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s18 WHEN v(s_18)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s18 WHEN v(s_18)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s18 WHEN v(s_18)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s19 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_19) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s19 WHEN v(s_19)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s19 WHEN v(s_19)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s19 WHEN v(s_19)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s19 WHEN v(s_19)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s20 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_20) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s20 WHEN v(s_20)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s20 WHEN v(s_20)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s20 WHEN v(s_20)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s20 WHEN v(s_20)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_rise_s21 TRIG v(a_0) VAL=1.8 RISE=1 TD=3.100000e-08 TARG v(s_21) VAL=1.8 CROSS=1 TD=3.100000e-08
+.meas tran tl1090_rise_s21 WHEN v(s_21)=0.36000000000000004 CROSS=1 TD=3.100000e-08
+.meas tran th1090_rise_s21 WHEN v(s_21)=3.24 CROSS=1 TD=3.100000e-08
+.meas tran tl3070_rise_s21 WHEN v(s_21)=1.08 CROSS=1 TD=3.100000e-08
+.meas tran th3070_rise_s21 WHEN v(s_21)=2.52 CROSS=1 TD=3.100000e-08
+.meas tran d_fall_s0 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_0) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s0 WHEN v(s_0)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s0 WHEN v(s_0)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s0 WHEN v(s_0)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s0 WHEN v(s_0)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s1 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_1) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s1 WHEN v(s_1)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s1 WHEN v(s_1)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s1 WHEN v(s_1)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s1 WHEN v(s_1)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s2 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_2) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s2 WHEN v(s_2)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s2 WHEN v(s_2)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s2 WHEN v(s_2)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s2 WHEN v(s_2)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s3 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_3) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s3 WHEN v(s_3)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s3 WHEN v(s_3)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s3 WHEN v(s_3)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s3 WHEN v(s_3)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s4 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_4) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s4 WHEN v(s_4)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s4 WHEN v(s_4)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s4 WHEN v(s_4)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s4 WHEN v(s_4)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s5 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_5) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s5 WHEN v(s_5)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s5 WHEN v(s_5)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s5 WHEN v(s_5)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s5 WHEN v(s_5)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s6 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_6) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s6 WHEN v(s_6)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s6 WHEN v(s_6)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s6 WHEN v(s_6)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s6 WHEN v(s_6)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s7 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_7) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s7 WHEN v(s_7)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s7 WHEN v(s_7)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s7 WHEN v(s_7)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s7 WHEN v(s_7)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s8 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_8) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s8 WHEN v(s_8)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s8 WHEN v(s_8)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s8 WHEN v(s_8)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s8 WHEN v(s_8)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s9 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_9) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s9 WHEN v(s_9)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s9 WHEN v(s_9)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s9 WHEN v(s_9)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s9 WHEN v(s_9)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s10 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_10) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s10 WHEN v(s_10)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s10 WHEN v(s_10)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s10 WHEN v(s_10)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s10 WHEN v(s_10)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s11 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_11) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s11 WHEN v(s_11)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s11 WHEN v(s_11)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s11 WHEN v(s_11)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s11 WHEN v(s_11)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s12 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_12) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s12 WHEN v(s_12)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s12 WHEN v(s_12)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s12 WHEN v(s_12)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s12 WHEN v(s_12)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s13 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_13) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s13 WHEN v(s_13)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s13 WHEN v(s_13)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s13 WHEN v(s_13)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s13 WHEN v(s_13)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s14 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_14) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s14 WHEN v(s_14)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s14 WHEN v(s_14)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s14 WHEN v(s_14)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s14 WHEN v(s_14)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s15 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_15) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s15 WHEN v(s_15)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s15 WHEN v(s_15)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s15 WHEN v(s_15)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s15 WHEN v(s_15)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s16 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_16) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s16 WHEN v(s_16)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s16 WHEN v(s_16)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s16 WHEN v(s_16)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s16 WHEN v(s_16)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s17 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_17) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s17 WHEN v(s_17)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s17 WHEN v(s_17)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s17 WHEN v(s_17)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s17 WHEN v(s_17)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s18 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_18) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s18 WHEN v(s_18)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s18 WHEN v(s_18)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s18 WHEN v(s_18)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s18 WHEN v(s_18)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s19 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_19) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s19 WHEN v(s_19)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s19 WHEN v(s_19)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s19 WHEN v(s_19)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s19 WHEN v(s_19)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s20 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_20) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s20 WHEN v(s_20)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s20 WHEN v(s_20)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s20 WHEN v(s_20)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s20 WHEN v(s_20)=2.52 CROSS=1 TD=6.100000e-08
+.meas tran d_fall_s21 TRIG v(a_0) VAL=1.8 FALL=1 TD=6.100000e-08 TARG v(s_21) VAL=1.8 CROSS=1 TD=6.100000e-08
+.meas tran tl1090_fall_s21 WHEN v(s_21)=0.36000000000000004 CROSS=1 TD=6.100000e-08
+.meas tran th1090_fall_s21 WHEN v(s_21)=3.24 CROSS=1 TD=6.100000e-08
+.meas tran tl3070_fall_s21 WHEN v(s_21)=1.08 CROSS=1 TD=6.100000e-08
+.meas tran th3070_fall_s21 WHEN v(s_21)=2.52 CROSS=1 TD=6.100000e-08
+.tran 10p 9.200000e-08
+.end

@@ -1,0 +1,102 @@
+{
+ "gds": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/impl/n22/run/final/gds/ripple_add.gds",
+ "gds_sha256": "fa6932b9fb2b2f4fad2ad0447db0363c84f21584b758ca23fd038847c86448e7",
+ "reports": {
+  "n22_main.lyrdb": {
+   "rules_checked": 651,
+   "total": 0,
+   "by_rule": {},
+   "DF.13_MV": 0,
+   "DF.14_MV": 0,
+   "items": []
+  },
+  "n22_antenna.lyrdb": {
+   "rules_checked": 11,
+   "total": 0,
+   "by_rule": {},
+   "DF.13_MV": "not-in-deck",
+   "DF.14_MV": "not-in-deck",
+   "items": []
+  },
+  "n22_density.lyrdb": {
+   "rules_checked": 14,
+   "total": 7,
+   "by_rule": {
+    "DCF.1b": 1,
+    "M1.4": 1,
+    "M2.4": 1,
+    "M3.4": 1,
+    "M4.4": 1,
+    "M5.4": 1,
+    "MT.3": 1
+   },
+   "DF.13_MV": "not-in-deck",
+   "DF.14_MV": "not-in-deck",
+   "items": [
+    {
+     "rule": "DCF.1b",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    },
+    {
+     "rule": "M1.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    },
+    {
+     "rule": "M2.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    },
+    {
+     "rule": "M3.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    },
+    {
+     "rule": "M4.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    },
+    {
+     "rule": "M5.4",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    },
+    {
+     "rule": "MT.3",
+     "bbox_um": [
+      0.0,
+      0.0,
+      27.44,
+      94.08
+     ]
+    }
+   ]
+  }
+ }
+}

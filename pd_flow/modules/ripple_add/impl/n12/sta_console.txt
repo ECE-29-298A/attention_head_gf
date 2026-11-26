@@ -1,0 +1,15 @@
+tt_025C_3v30 SPEF {'cin:rise': 8.8708, 'cin:fall': 10.5743, 'a[0]:rise': 8.9065, 'a[0]:fall': 10.6931, 'b[0]:rise': 8.9369, 'b[0]:fall': 10.702}
+tt_025C_3v30 LIB  {'cin:rise': 8.6833, 'cin:fall': 10.4175, 'a[0]:rise': 8.7189, 'a[0]:fall': 10.5358, 'b[0]:rise': 8.7492, 'b[0]:fall': 10.5446}
+tt_025C_3v30 SENS {'cin:rise': (8.2492, 0.5001), 'cin:fall': (10.0808, 1.1524), 'a[0]:rise': (8.2849, 0.5001), 'a[0]:fall': (10.2342, 1.1524), 'b[0]:rise': (8.2601, 0.5001), 'b[0]:fall': (10.2432, 1.1524)}
+tt_025C_3v30 MODEL {'cin:rise': 10.9705, 'cin:fall': 10.9705, 'a[0]:rise': 11.0893, 'a[0]:fall': 11.0893, 'b[0]:rise': 11.0982, 'b[0]:fall': 11.0982}
+tt_025C_3v30 slew/cap vio 0 power {'internal': 3.060799e-05, 'switching': 3.124653e-05, 'leakage': 2.004572e-09, 'total': 6.185652e-05}
+ss_125C_3v00 SPEF {'cin:rise': 18.0681, 'cin:fall': 21.9476, 'a[0]:rise': 18.1686, 'a[0]:fall': 22.2319, 'b[0]:rise': 18.2001, 'b[0]:fall': 22.2305}
+ss_125C_3v00 LIB  {'cin:rise': 17.6781, 'cin:fall': 21.6101, 'a[0]:rise': 17.7783, 'a[0]:fall': 21.8932, 'b[0]:rise': 17.8098, 'b[0]:fall': 21.8919}
+ss_125C_3v00 SENS {'cin:rise': (16.8137, 0.9894), 'cin:fall': (20.8916, 2.2501), 'a[0]:rise': (16.909, 0.9894), 'a[0]:fall': (21.2481, 2.2501), 'b[0]:rise': (16.8592, 0.9894), 'b[0]:fall': (21.2471, 2.2501)}
+ss_125C_3v00 MODEL {'cin:rise': 22.6908, 'cin:fall': 22.6908, 'a[0]:rise': 22.9751, 'a[0]:fall': 22.9751, 'b[0]:rise': 22.9738, 'b[0]:fall': 22.9738}
+ss_125C_3v00 slew/cap vio 0 power {'internal': 2.530035e-05, 'switching': 2.597635e-05, 'leakage': 1.576178e-08, 'total': 5.129246e-05}
+ff_n40C_3v60 SPEF {'cin:rise': 5.0642, 'cin:fall': 5.8665, 'a[0]:rise': 5.0707, 'a[0]:fall': 5.9142, 'b[0]:rise': 5.103, 'b[0]:fall': 5.933}
+ff_n40C_3v60 LIB  {'cin:rise': 4.9628, 'cin:fall': 5.7818, 'a[0]:rise': 4.9692, 'a[0]:fall': 5.8292, 'b[0]:rise': 5.0015, 'b[0]:fall': 5.848}
+ff_n40C_3v60 SENS {'cin:rise': (4.7196, 0.2989), 'cin:fall': (5.6119, 0.6392), 'a[0]:rise': (4.726, 0.2989), 'a[0]:fall': (5.6769, 0.6392), 'b[0]:rise': (4.7113, 0.2989), 'b[0]:fall': (5.6957, 0.6392)}
+ff_n40C_3v60 MODEL {'cin:rise': 6.0959, 'cin:fall': 6.0959, 'a[0]:rise': 6.1436, 'a[0]:fall': 6.1436, 'b[0]:rise': 6.1624, 'b[0]:fall': 6.1624}
+ff_n40C_3v60 slew/cap vio 0 power {'internal': 3.801678e-05, 'switching': 3.708793e-05, 'leakage': 2.379476e-09, 'total': 7.510708e-05}

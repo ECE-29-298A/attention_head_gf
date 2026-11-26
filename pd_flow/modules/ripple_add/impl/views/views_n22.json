@@ -1,0 +1,250 @@
+{
+ "N": 22,
+ "views": {
+  "gds": {
+   "path": "n22/run/final/gds/ripple_add.gds",
+   "sha256": "fa6932b9fb2b2f4fad2ad0447db0363c84f21584b758ca23fd038847c86448e7",
+   "bytes": 85408
+  },
+  "gds_klayout_stream": {
+   "path": "n22/run/final/klayout_gds/ripple_add.klayout.gds",
+   "sha256": "d37e67861ac0e7f4e66ad7025bab80a7e7d5d2ae25226ba73766a499394b3b5d",
+   "bytes": 61886
+  },
+  "lef": {
+   "path": "n22/run/final/lef/ripple_add.lef",
+   "sha256": "badb5eacc1405ca39fb1ee6a43a278e42a94290e5eb660ebec35c3e7fc7aa8e8",
+   "bytes": 17947
+  },
+  "def": {
+   "path": "n22/run/final/def/ripple_add.def",
+   "sha256": "1b57334b8078f480a6feb3e53a2b70792e4ffb1ae2b151d98d3f471f857ab726",
+   "bytes": 51672
+  },
+  "verilog_gate_nl": {
+   "path": "n22/run/final/nl/ripple_add.nl.v",
+   "sha256": "09c2810179b1fa0aa2037bbb68d360dd30cc1ccfd65cd2e96da7d72c7746adea",
+   "bytes": 6021
+  },
+  "verilog_gate_pnl": {
+   "path": "n22/run/final/pnl/ripple_add.pnl.v",
+   "sha256": "9c38dde3d7484ee7009cac1d81a8511dbf385b60642dd4b7e6a435f990c14c88",
+   "bytes": 8735
+  },
+  "verilog_layout_extracted": {
+   "path": "contract/ripple_add_n22_extracted.v",
+   "sha256": "77a6287998c28589078c184c34ea7efad688a919a9c6c86731004e0510f5e569",
+   "bytes": 4167
+  },
+  "verilog_behavioural": {
+   "path": "views/ripple_add_n22_behav.v",
+   "sha256": "e56dd0abba7c340a67720f2bf1ec254535fa45efd9b7bb26af8dcacae8deac9c",
+   "bytes": 441
+  },
+  "spice_cell_level_extracted": {
+   "path": "n22/run/final/spice/ripple_add.spice",
+   "sha256": "23cc49ee930e79bdc33f0511176bd020ce77c966986bcf536629d4b9b816f70b",
+   "bytes": 7206
+  },
+  "cdl_schematic": {
+   "path": "n22/lvs/ripple_add_n22.cdl",
+   "sha256": "0aa849268cad3428654d64404eee9cb4a7a96debad230184473f598486efd633",
+   "bytes": 9193
+  },
+  "spice_schematic": {
+   "path": "n22/lvs/ripple_add_n22.spice",
+   "sha256": "fbd31047c0386c019b6e5f33393eeddb384cbdb28766bc1e945c9df8c9c4bae7",
+   "bytes": 9195
+  },
+  "spice_pex_magic": {
+   "path": "n22/pex/ripple_add_n22_pex.spice",
+   "sha256": "b0c93fdeccce970164044ef7515d74ce0ae2e597b43f285cea4e8cda5fe2c60e",
+   "bytes": 202238
+  },
+  "spef_nom": {
+   "path": "n22/run/final/spef/nom/ripple_add.nom.spef",
+   "sha256": "7507cb6775942f60a3ccd9c2e487acc0a542c249eea82564c72b8a4a4b6d3fc3",
+   "bytes": 24257
+  },
+  "spef_min": {
+   "path": "n22/run/final/spef/min/ripple_add.min.spef",
+   "sha256": "b31fd9dd978b0862640bf5750dd64907144f83351af6f69e35a739d580dd42da",
+   "bytes": 24282
+  },
+  "spef_max": {
+   "path": "n22/run/final/spef/max/ripple_add.max.spef",
+   "sha256": "5afbd1cf242e7761739c52423a82ed22df519791c74402869c320ba01b73e710",
+   "bytes": 24204
+  },
+  "sdc": {
+   "path": "n22/run/final/sdc/ripple_add.sdc",
+   "sha256": "480f108203e64f41aed2a60f12ab7ca8c1c1213fcf4d08bc477c07c6875f94cc",
+   "bytes": 14888
+  },
+  "liberty_flow_max_ff_n40C_3v60": {
+   "path": "n22/run/final/lib/max_ff_n40C_3v60/ripple_add__max_ff_n40C_3v60.lib",
+   "sha256": "d259315df13b698befc197b2d0f5f4843b02826e1bda21cd8d7ab731d4818419",
+   "bytes": 588729
+  },
+  "liberty_flow_max_ss_125C_3v00": {
+   "path": "n22/run/final/lib/max_ss_125C_3v00/ripple_add__max_ss_125C_3v00.lib",
+   "sha256": "e8027596f84bdc4759013df1b1a44f1dfaec7dfe624784bf96f4a8546fe5d3da",
+   "bytes": 597486
+  },
+  "liberty_flow_max_tt_025C_3v30": {
+   "path": "n22/run/final/lib/max_tt_025C_3v30/ripple_add__max_tt_025C_3v30.lib",
+   "sha256": "437a232779108789fce66c449465805d4a7ee408d124829553967d090de32806",
+   "bytes": 592496
+  },
+  "liberty_flow_min_ff_n40C_3v60": {
+   "path": "n22/run/final/lib/min_ff_n40C_3v60/ripple_add__min_ff_n40C_3v60.lib",
+   "sha256": "c72d21bd873fb67398f29a00ec12f6117d379c234312ec969824edb07414c802",
+   "bytes": 588723
+  },
+  "liberty_flow_min_ss_125C_3v00": {
+   "path": "n22/run/final/lib/min_ss_125C_3v00/ripple_add__min_ss_125C_3v00.lib",
+   "sha256": "8adf9ecb147bad714b6bfac418bc8c57d859d61e4ef366454b537a502ae19bce",
+   "bytes": 597484
+  },
+  "liberty_flow_min_tt_025C_3v30": {
+   "path": "n22/run/final/lib/min_tt_025C_3v30/ripple_add__min_tt_025C_3v30.lib",
+   "sha256": "53171a772d0edc5752607789ae5c9d6bfadfb8769755cc1b58d65ec52f43691a",
+   "bytes": 592497
+  },
+  "liberty_flow_nom_ff_n40C_3v60": {
+   "path": "n22/run/final/lib/nom_ff_n40C_3v60/ripple_add__nom_ff_n40C_3v60.lib",
+   "sha256": "2120418142d7301f75dd8333a588af80e85038c4ad9705afc1b8982fc0289952",
+   "bytes": 588729
+  },
+  "liberty_flow_nom_ss_125C_3v00": {
+   "path": "n22/run/final/lib/nom_ss_125C_3v00/ripple_add__nom_ss_125C_3v00.lib",
+   "sha256": "847037aa0544f918c0d3cc5278fe5b4439e26bb694294192cbd6c3841764f02b",
+   "bytes": 597485
+  },
+  "liberty_flow_nom_tt_025C_3v30": {
+   "path": "n22/run/final/lib/nom_tt_025C_3v30/ripple_add__nom_tt_025C_3v30.lib",
+   "sha256": "de0dd35694d711b84f8bd425c9b37ac311eb7be24e73fea953c9bb71e7a9e696",
+   "bytes": 592493
+  },
+  "liberty_block_model_ff_n40C_3v60": {
+   "path": "n22/sta/ripple_add__ff_n40C_3v60.lib",
+   "sha256": "fd55b30628bbd720e77721f73b00241964f016622ab81c7bcad7fcc4fbfd71ff",
+   "bytes": 588543
+  },
+  "liberty_block_model_ss_125C_3v00": {
+   "path": "n22/sta/ripple_add__ss_125C_3v00.lib",
+   "sha256": "7b34d3ff0b914a5efe363edf2d4fefe8b0fdbf15912be542c505e21d20416588",
+   "bytes": 596995
+  },
+  "liberty_block_model_tt_025C_3v30": {
+   "path": "n22/sta/ripple_add__tt_025C_3v30.lib",
+   "sha256": "1a44c89b3baa521912a1399e87e06070d4548bb6199b9504e1b95a406e7dba34",
+   "bytes": 592019
+  }
+ },
+ "checks": {
+  "V3_pin_rects_lef_eq_def": {
+   "compared": 67,
+   "mismatch": {}
+  },
+  "V1_pins": {
+   "errors": {},
+   "views_checked": [
+    "cdl_schematic",
+    "def",
+    "gds_labels",
+    "lef",
+    "liberty_block_model_ff_n40C_3v60",
+    "liberty_block_model_ss_125C_3v00",
+    "liberty_block_model_tt_025C_3v30",
+    "liberty_flow_max_ff_n40C_3v60",
+    "liberty_flow_max_ss_125C_3v00",
+    "liberty_flow_max_tt_025C_3v30",
+    "liberty_flow_min_ff_n40C_3v60",
+    "liberty_flow_min_ss_125C_3v00",
+    "liberty_flow_min_tt_025C_3v30",
+    "liberty_flow_nom_ff_n40C_3v60",
+    "liberty_flow_nom_ss_125C_3v00",
+    "liberty_flow_nom_tt_025C_3v30",
+    "spice_cell_level_extracted",
+    "spice_pex_magic",
+    "verilog_behavioural",
+    "verilog_gate_nl",
+    "verilog_gate_pnl",
+    "verilog_layout_extracted"
+   ]
+  },
+  "V2_size": {
+   "lef_size_um": [
+    27.44,
+    94.08
+   ],
+   "def_diearea_um": [
+    0.0,
+    0.0,
+    27.44,
+    94.08
+   ],
+   "gds_bbox_um": [
+    0.0,
+    0.0,
+    27.44,
+    94.08
+   ],
+   "liberty_area_um2": {
+    "liberty_flow_max_ff_n40C_3v60": 1786.893,
+    "liberty_flow_max_ss_125C_3v00": 1786.893,
+    "liberty_flow_max_tt_025C_3v30": 1786.893,
+    "liberty_flow_min_ff_n40C_3v60": 1786.893,
+    "liberty_flow_min_ss_125C_3v00": 1786.893,
+    "liberty_flow_min_tt_025C_3v30": 1786.893,
+    "liberty_flow_nom_ff_n40C_3v60": 1786.893,
+    "liberty_flow_nom_ss_125C_3v00": 1786.893,
+    "liberty_flow_nom_tt_025C_3v30": 1786.893,
+    "liberty_block_model_ff_n40C_3v60": 1786.893,
+    "liberty_block_model_ss_125C_3v00": 1786.893,
+    "liberty_block_model_tt_025C_3v30": 1786.893
+   },
+   "check_block_die": [
+    0.0,
+    0.0,
+    27.44,
+    94.08
+   ],
+   "pass": true
+  },
+  "V4_delay": {
+   "tt": {
+    "block_liberty_worst_ns": 19.9676,
+    "sta_spef_worst_ns": 19.5713,
+    "sta_spef_sensitized_worst_ns": 18.767,
+    "liberty_only_worst_ns": 19.28,
+    "spice_pex_worst_ns": 22.1129,
+    "ratio_spice_over_block_liberty": 1.107,
+    "ratio_spice_over_sta_sensitized": 1.178,
+    "ratio_block_liberty_over_sta_spef": 1.02
+   },
+   "ss": {
+    "block_liberty_worst_ns": 41.5055,
+    "sta_spef_worst_ns": 40.7622,
+    "sta_spef_sensitized_worst_ns": 39.0571,
+    "liberty_only_worst_ns": 40.1269,
+    "spice_pex_worst_ns": 44.0383,
+    "ratio_spice_over_block_liberty": 1.061,
+    "ratio_spice_over_sta_sensitized": 1.128,
+    "ratio_block_liberty_over_sta_spef": 1.018
+   },
+   "ff": {
+    "block_liberty_worst_ns": 11.0437,
+    "sta_spef_worst_ns": 10.8143,
+    "sta_spef_sensitized_worst_ns": 10.3997,
+    "liberty_only_worst_ns": 10.6566,
+    "spice_pex_worst_ns": 12.6595,
+    "ratio_spice_over_block_liberty": 1.146,
+    "ratio_spice_over_sta_sensitized": 1.217,
+    "ratio_block_liberty_over_sta_spef": 1.021
+   }
+  }
+ },
+ "all_structural_pass": true
+}

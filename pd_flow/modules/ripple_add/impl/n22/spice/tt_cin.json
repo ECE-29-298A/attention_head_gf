@@ -1,0 +1,210 @@
+{
+ "test": "input_capacitance",
+ "corner": "tt",
+ "pvt": [
+  "typical",
+  25,
+  3.3
+ ],
+ "N": 22,
+ "method": "charge drawn from the port's ideal source during a 0.375 ns ramp (and settling, 6 ns window), C = Q / VDD; all other inputs held at 0, so later ports see the state left by earlier ones (each port returns to 0 before the next). Includes pin, routing and Miller charge; the comparable Liberty value is the cell pin cap plus the routed wire C from SPEF",
+ "summary": {
+  "a": {
+   "min_fF": 6.732,
+   "max_fF": 11.785,
+   "mean_fF": 11.523
+  },
+  "b": {
+   "min_fF": 4.532,
+   "max_fF": 10.828,
+   "mean_fF": 10.498
+  },
+  "cin": {
+   "rise_fF": 10.413,
+   "fall_fF": 10.727
+  }
+ },
+ "ports": {
+  "a[0]": {
+   "rise_fF": 11.369,
+   "fall_fF": 11.339
+  },
+  "a[1]": {
+   "rise_fF": 11.775,
+   "fall_fF": 11.745
+  },
+  "a[2]": {
+   "rise_fF": 11.761,
+   "fall_fF": 11.731
+  },
+  "a[3]": {
+   "rise_fF": 11.776,
+   "fall_fF": 11.746
+  },
+  "a[4]": {
+   "rise_fF": 11.762,
+   "fall_fF": 11.733
+  },
+  "a[5]": {
+   "rise_fF": 11.776,
+   "fall_fF": 11.747
+  },
+  "a[6]": {
+   "rise_fF": 11.761,
+   "fall_fF": 11.731
+  },
+  "a[7]": {
+   "rise_fF": 11.77,
+   "fall_fF": 11.74
+  },
+  "a[8]": {
+   "rise_fF": 11.768,
+   "fall_fF": 11.739
+  },
+  "a[9]": {
+   "rise_fF": 11.775,
+   "fall_fF": 11.746
+  },
+  "a[10]": {
+   "rise_fF": 11.761,
+   "fall_fF": 11.731
+  },
+  "a[11]": {
+   "rise_fF": 11.776,
+   "fall_fF": 11.746
+  },
+  "a[12]": {
+   "rise_fF": 11.761,
+   "fall_fF": 11.731
+  },
+  "a[13]": {
+   "rise_fF": 11.776,
+   "fall_fF": 11.746
+  },
+  "a[14]": {
+   "rise_fF": 11.759,
+   "fall_fF": 11.729
+  },
+  "a[15]": {
+   "rise_fF": 11.775,
+   "fall_fF": 11.745
+  },
+  "a[16]": {
+   "rise_fF": 11.765,
+   "fall_fF": 11.736
+  },
+  "a[17]": {
+   "rise_fF": 11.773,
+   "fall_fF": 11.744
+  },
+  "a[18]": {
+   "rise_fF": 11.767,
+   "fall_fF": 11.738
+  },
+  "a[19]": {
+   "rise_fF": 11.785,
+   "fall_fF": 11.755
+  },
+  "a[20]": {
+   "rise_fF": 11.783,
+   "fall_fF": 11.754
+  },
+  "a[21]": {
+   "rise_fF": 6.717,
+   "fall_fF": 6.732
+  },
+  "b[0]": {
+   "rise_fF": 10.685,
+   "fall_fF": 10.733
+  },
+  "b[1]": {
+   "rise_fF": 10.767,
+   "fall_fF": 10.815
+  },
+  "b[2]": {
+   "rise_fF": 10.713,
+   "fall_fF": 10.761
+  },
+  "b[3]": {
+   "rise_fF": 10.769,
+   "fall_fF": 10.818
+  },
+  "b[4]": {
+   "rise_fF": 10.725,
+   "fall_fF": 10.774
+  },
+  "b[5]": {
+   "rise_fF": 10.768,
+   "fall_fF": 10.816
+  },
+  "b[6]": {
+   "rise_fF": 10.713,
+   "fall_fF": 10.761
+  },
+  "b[7]": {
+   "rise_fF": 10.762,
+   "fall_fF": 10.809
+  },
+  "b[8]": {
+   "rise_fF": 10.753,
+   "fall_fF": 10.802
+  },
+  "b[9]": {
+   "rise_fF": 10.705,
+   "fall_fF": 10.753
+  },
+  "b[10]": {
+   "rise_fF": 10.715,
+   "fall_fF": 10.763
+  },
+  "b[11]": {
+   "rise_fF": 10.769,
+   "fall_fF": 10.818
+  },
+  "b[12]": {
+   "rise_fF": 10.713,
+   "fall_fF": 10.761
+  },
+  "b[13]": {
+   "rise_fF": 10.768,
+   "fall_fF": 10.817
+  },
+  "b[14]": {
+   "rise_fF": 10.696,
+   "fall_fF": 10.744
+  },
+  "b[15]": {
+   "rise_fF": 10.769,
+   "fall_fF": 10.817
+  },
+  "b[16]": {
+   "rise_fF": 10.715,
+   "fall_fF": 10.763
+  },
+  "b[17]": {
+   "rise_fF": 10.772,
+   "fall_fF": 10.821
+  },
+  "b[18]": {
+   "rise_fF": 10.763,
+   "fall_fF": 10.811
+  },
+  "b[19]": {
+   "rise_fF": 10.78,
+   "fall_fF": 10.828
+  },
+  "b[20]": {
+   "rise_fF": 10.581,
+   "fall_fF": 10.63
+  },
+  "b[21]": {
+   "rise_fF": 4.474,
+   "fall_fF": 4.532
+  },
+  "cin": {
+   "rise_fF": 10.413,
+   "fall_fF": 10.727
+  }
+ },
+ "pex_netlist": "n22/pex/ripple_add_n22_pex.spice"
+}

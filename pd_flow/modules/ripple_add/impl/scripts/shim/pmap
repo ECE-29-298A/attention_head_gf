@@ -1,0 +1,6 @@
+#!/bin/bash
+# Environment shim for the PDK LVS deck's logger, which runs `pmap PID | tail -1` (Linux procps)
+# only to print memory use in log lines. macOS has no pmap. Prints the resident size from ps in
+# the same " total   <n>K" shape. It has no effect on extraction or comparison.
+rss=$(ps -o rss= -p "${1:-$$}" 2>/dev/null | tr -d ' ')
+printf ' total %16sK\n' "${rss:-0}"

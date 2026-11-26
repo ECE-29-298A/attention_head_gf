@@ -1,0 +1,20 @@
+{
+ "test": "energy",
+ "corner": "tt",
+ "pvt": [
+  "typical",
+  25,
+  3.3
+ ],
+ "N": 22,
+ "activity": "each operation draws a, b, cin independently uniform (seed 7): every input bit toggles with probability 0.5; 40 operations",
+ "window": "one period (40 ns) per operation, includes leakage over it",
+ "includes": "energy from VDD only: internal + output-load (20 fF each) switching; input pin charge comes from the ideal input sources and is NOT included",
+ "mean_energy_per_op_pJ": 6.418,
+ "min_pJ": 3.2543,
+ "max_pJ": 9.4811,
+ "mean_input_toggles_per_op": 21.875,
+ "full_ripple_cin_rise_pJ": 5.7368,
+ "full_ripple_cin_fall_pJ": 10.4656,
+ "pex_netlist": "n22/pex/ripple_add_n22_pex.spice"
+}

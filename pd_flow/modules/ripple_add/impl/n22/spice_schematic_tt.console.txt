@@ -1,0 +1,4 @@
+delay tt {"test": "delay", "corner": "tt", "pvt": ["typical", 25, 3.3], "N": 22, "boundary": {"input_ramp_0_100_ns": 0.375, "input_slew_10_90_ns": 0.3, "liberty_equiv_input_slew_ns": 0.3, "cload_fF": 20.0}, "worst": {"delay_ns": 8.9901, "arc": "b[0]->s[21]", "input_edge": "fall"}, "pex_netlist": "n22/lvs/ripple_add_n22.spice"}
+   cin->s[21] {'rise': (7.5187, 0.5205), 'fall': (8.9313, 1.1903)}
+   a[0]->s[21] {'rise': (7.5096, 0.5205), 'fall': (8.9791, 1.1904)}
+   b[0]->s[21] {'rise': (7.4929, 0.5205), 'fall': (8.9901, 1.1903)}

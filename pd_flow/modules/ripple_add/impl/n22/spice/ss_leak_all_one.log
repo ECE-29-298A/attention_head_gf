@@ -1,0 +1,13 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * ripple_add n=22 leakage all_one, corner ss
+
+Doing analysis at TEMP = 125.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+-i(vdd) = 1.160200e-10
+Note: Simulation executed from .control section 

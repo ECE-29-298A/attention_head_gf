@@ -1,0 +1,1 @@
+rand_n22	rand	pass-sampled	true	1.130	logs/rand_n22.log	RESULT mode=random N=22 vectors=50000000 applied=50000000 mismatches=0 checksum=0x0000000000000000

@@ -1,0 +1,96 @@
+{
+ "N": 12,
+ "checks": {
+  "P1_fixed_exact": {
+   "pass": true,
+   "defs_checked": 14,
+   "first": "17-odb-manualmacroplacement",
+   "bad": []
+  },
+  "P2_cells": {
+   "pass": true,
+   "overlaps": [],
+   "welltaps": 0,
+   "endcaps_both_ends_all_rows": true,
+   "rows": 12,
+   "extra_cells": {
+    "fill_2": 1,
+    "fillcap_8": 1,
+    "endcap": 24
+   },
+   "row_fill_fraction": 1.0
+  },
+  "P3_pins": {
+   "pass": true,
+   "pins": 39,
+   "errors": [],
+   "power_pins": {
+    "VPWR": [
+     "Metal4",
+     10.47,
+     3.62,
+     12.07,
+     51.26
+    ],
+    "VGND": [
+     "Metal4",
+     13.77,
+     3.62,
+     15.37,
+     51.26
+    ]
+   }
+  },
+  "P4_netlist_nl": {
+   "pass": true,
+   "logic_instances": 12,
+   "diffs": [],
+   "assigns": {}
+  },
+  "P4_netlist_pnl": {
+   "pass": true,
+   "logic_instances": 12,
+   "diffs": [],
+   "assigns": {}
+  },
+  "P5_routing": {
+   "pass": true,
+   "unrouted": [],
+   "wire_segments_by_layer": {
+    "Metal3": 38,
+    "Metal2": 71
+   }
+  },
+  "P6_size": {
+   "pass": true,
+   "die_um": [
+    0.0,
+    0.0,
+    27.44,
+    54.88
+   ],
+   "die_area_um2": 1505.91,
+   "core_um": [
+    3.36,
+    3.92,
+    24.08,
+    50.96
+   ],
+   "core_area_um2": 974.67,
+   "bbox_um": [
+    4.48,
+    3.92,
+    22.96,
+    50.96
+   ],
+   "bbox_wh_um": [
+    18.48,
+    47.04
+   ],
+   "bbox_area_um2": 869.3,
+   "logic_cell_area_um2": 847.35,
+   "bbox_utilization": 0.9747
+  }
+ },
+ "all_pass": true
+}

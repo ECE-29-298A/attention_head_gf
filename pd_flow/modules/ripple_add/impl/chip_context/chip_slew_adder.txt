@@ -1,0 +1,13 @@
+# fixed_a3 chip post-PnR STA (step 55) max-slew violators touching the ripple_add instances; limit 3.0 ns (MAX_TRANSITION)
+## max_ff_n40C_3v60 total=0
+## max_ss_125C_3v00 total=399
+core.mac.l_adder.bitslice[3].u_fa/B     3.000000    3.124868   -0.124869 (VIOLATED)
+core.mac.l_adder.bitslice[7].u_fa/B     3.000000    3.033194   -0.033194 (VIOLATED)
+## max_tt_025C_3v30 total=139
+## min_ff_n40C_3v60 total=0
+## min_ss_125C_3v00 total=305
+## min_tt_025C_3v30 total=126
+## nom_ff_n40C_3v60 total=0
+## nom_ss_125C_3v00 total=345
+## nom_tt_025C_3v30 total=126
+## baseline chip (ra_base) total max-slew violations:     "design__max_slew_violation__count": 381,

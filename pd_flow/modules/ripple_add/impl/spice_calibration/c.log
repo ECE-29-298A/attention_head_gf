@@ -1,0 +1,38 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: CI (input port)
+Endpoint: CO (output port)
+Path Group: unconstrained
+Path Type: max
+
+     Slew     Delay      Time   Description
+----------------------------------------------------------------------
+             0.0000    0.0000 ^ input external delay
+   0.3000    0.0000    0.0000 ^ CI (in)
+   0.3733    0.7012    0.7012 ^ u/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.3733    0.0000    0.7012 ^ CO (out)
+                       0.7012   data arrival time
+----------------------------------------------------------------------
+(Path is unconstrained)
+
+
+Startpoint: CI (input port)
+Endpoint: CO (output port)
+Path Group: unconstrained
+Path Type: max
+
+     Slew     Delay      Time   Description
+----------------------------------------------------------------------
+             0.0000    0.0000 v input external delay
+   0.3000    0.0000    0.0000 v CI (in)
+   0.3657    0.8307    0.8307 v u/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.3657    0.0000    0.8307 v CO (out)
+                       0.8307   data arrival time
+----------------------------------------------------------------------
+(Path is unconstrained)
+
+

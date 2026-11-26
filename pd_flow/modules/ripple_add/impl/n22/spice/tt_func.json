@@ -1,0 +1,226 @@
+{
+ "test": "functional",
+ "corner": "tt",
+ "pvt": [
+  "typical",
+  25,
+  3.3
+ ],
+ "N": 22,
+ "period_ns": 40.0,
+ "sample": "0.5 ns before the next vector",
+ "vectors": 19,
+ "pass": true,
+ "rows": [
+  {
+   "k": 0,
+   "kind": "zero",
+   "a": "0x0",
+   "b": "0x0",
+   "cin": 0,
+   "expected": "0x0",
+   "spice": "0x0",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 1,
+   "kind": "a=all-ones, cin=0 (carry-propagate setup)",
+   "a": "0x3fffff",
+   "b": "0x0",
+   "cin": 0,
+   "expected": "0x3fffff",
+   "spice": "0x3fffff",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 2,
+   "kind": "full carry ripple: cin 0->1 with a=all-ones (s -> 0)",
+   "a": "0x3fffff",
+   "b": "0x0",
+   "cin": 1,
+   "expected": "0x0",
+   "spice": "0x0",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 3,
+   "kind": "full carry ripple back: cin 1->0",
+   "a": "0x3fffff",
+   "b": "0x0",
+   "cin": 0,
+   "expected": "0x3fffff",
+   "spice": "0x3fffff",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 4,
+   "kind": "b=all-ones, cin=1 (s -> 0)",
+   "a": "0x0",
+   "b": "0x3fffff",
+   "cin": 1,
+   "expected": "0x0",
+   "spice": "0x0",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 5,
+   "kind": "a=b=all-ones, cin=1",
+   "a": "0x3fffff",
+   "b": "0x3fffff",
+   "cin": 1,
+   "expected": "0x3fffff",
+   "spice": "0x3fffff",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 6,
+   "kind": "carry from a[0]: 1 + all-ones",
+   "a": "0x1",
+   "b": "0x3fffff",
+   "cin": 0,
+   "expected": "0x0",
+   "spice": "0x0",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 7,
+   "kind": "subtract form a + ~x + 1, a=1000, x=1234 (golden ref_sub)",
+   "a": "0x3e8",
+   "b": "0x3ffb2d",
+   "cin": 1,
+   "expected": "0x3fff16",
+   "spice": "0x3fff16",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 8,
+   "kind": "subtract form a + ~x + 1, a=2796202, x=1398101 (golden ref_sub)",
+   "a": "0x2aaaaa",
+   "b": "0x2aaaaa",
+   "cin": 1,
+   "expected": "0x155555",
+   "spice": "0x155555",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 9,
+   "kind": "subtract form a + ~x + 1, a=5, x=5 (golden ref_sub)",
+   "a": "0x5",
+   "b": "0x3ffffa",
+   "cin": 1,
+   "expected": "0x0",
+   "spice": "0x0",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 10,
+   "kind": "subtract form a + ~x + 1, a=0, x=1 (golden ref_sub)",
+   "a": "0x0",
+   "b": "0x3ffffe",
+   "cin": 1,
+   "expected": "0x3fffff",
+   "spice": "0x3fffff",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 11,
+   "kind": "random (seed 20261126)",
+   "a": "0x1e612a",
+   "b": "0x1c789c",
+   "cin": 0,
+   "expected": "0x3ad9c6",
+   "spice": "0x3ad9c6",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 12,
+   "kind": "random (seed 20261126)",
+   "a": "0x27ee4d",
+   "b": "0x2af4b6",
+   "cin": 1,
+   "expected": "0x12e304",
+   "spice": "0x12e304",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 13,
+   "kind": "random (seed 20261126)",
+   "a": "0x52f82",
+   "b": "0x36c527",
+   "cin": 0,
+   "expected": "0x3bf4a9",
+   "spice": "0x3bf4a9",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 14,
+   "kind": "random (seed 20261126)",
+   "a": "0x14c8d1",
+   "b": "0x28eb9b",
+   "cin": 0,
+   "expected": "0x3db46c",
+   "spice": "0x3db46c",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 15,
+   "kind": "random (seed 20261126)",
+   "a": "0x2876fd",
+   "b": "0x28186b",
+   "cin": 0,
+   "expected": "0x108f68",
+   "spice": "0x108f68",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 16,
+   "kind": "random (seed 20261126)",
+   "a": "0x6a985",
+   "b": "0x1a1ec9",
+   "cin": 0,
+   "expected": "0x20c84e",
+   "spice": "0x20c84e",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 17,
+   "kind": "random (seed 20261126)",
+   "a": "0xfc4de",
+   "b": "0x22ce85",
+   "cin": 1,
+   "expected": "0x329364",
+   "spice": "0x329364",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  },
+  {
+   "k": 18,
+   "kind": "random (seed 20261126)",
+   "a": "0x83754",
+   "b": "0x224ca0",
+   "cin": 1,
+   "expected": "0x2a83f5",
+   "spice": "0x2a83f5",
+   "pass": true,
+   "worst_logic_level_error_frac_vdd": 0.0
+  }
+ ],
+ "pex_netlist": "n22/pex/ripple_add_n22_pex.spice"
+}

@@ -43,3 +43,5 @@ pd_flow/**/harden/tt_tool_harden.log
 pd_flow/**/contract_*/logs/
 pd_flow/**/contract_*/formal/
 pd_flow/**/harden/steps/
+pd_flow/**/impl/*/run/
+pd_flow/**/integration/cell_models_*.v

@@ -1,0 +1,80 @@
+* ripple_add N=22 leakage all_one, corner ss
+.include /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.tech/ngspice/sm141064.ngspice ss
+.include ../pex/ripple_add_n22_pex.spice
+.temp 125
+.options method=gear reltol=1e-4 abstol=1e-13
+VDD vpwr 0 3.0
+X1 0 vpwr a_0 a_10 a_11 a_12 a_13 a_14 a_15 a_16 a_17 a_18 a_19 a_1 a_20 a_21 a_2 a_3 a_4 a_5 a_6 a_7 a_8 a_9 b_0 b_10 b_11 b_12 b_13 b_14 b_15 b_16 b_17 b_18 b_19 b_1 b_20 b_21 b_2 b_3 b_4 b_5 b_6 b_7 b_8 b_9 cin s_0 s_10 s_11 s_12 s_13 s_14 s_15 s_16 s_17 s_18 s_19 s_1 s_20 s_21 s_2 s_3 s_4 s_5 s_6 s_7 s_8 s_9 ripple_add
+C_s_0 s_0 0 2e-14
+C_s_1 s_1 0 2e-14
+C_s_2 s_2 0 2e-14
+C_s_3 s_3 0 2e-14
+C_s_4 s_4 0 2e-14
+C_s_5 s_5 0 2e-14
+C_s_6 s_6 0 2e-14
+C_s_7 s_7 0 2e-14
+C_s_8 s_8 0 2e-14
+C_s_9 s_9 0 2e-14
+C_s_10 s_10 0 2e-14
+C_s_11 s_11 0 2e-14
+C_s_12 s_12 0 2e-14
+C_s_13 s_13 0 2e-14
+C_s_14 s_14 0 2e-14
+C_s_15 s_15 0 2e-14
+C_s_16 s_16 0 2e-14
+C_s_17 s_17 0 2e-14
+C_s_18 s_18 0 2e-14
+C_s_19 s_19 0 2e-14
+C_s_20 s_20 0 2e-14
+C_s_21 s_21 0 2e-14
+V_a_0 a_0 0 3.0
+V_a_1 a_1 0 3.0
+V_a_2 a_2 0 3.0
+V_a_3 a_3 0 3.0
+V_a_4 a_4 0 3.0
+V_a_5 a_5 0 3.0
+V_a_6 a_6 0 3.0
+V_a_7 a_7 0 3.0
+V_a_8 a_8 0 3.0
+V_a_9 a_9 0 3.0
+V_a_10 a_10 0 3.0
+V_a_11 a_11 0 3.0
+V_a_12 a_12 0 3.0
+V_a_13 a_13 0 3.0
+V_a_14 a_14 0 3.0
+V_a_15 a_15 0 3.0
+V_a_16 a_16 0 3.0
+V_a_17 a_17 0 3.0
+V_a_18 a_18 0 3.0
+V_a_19 a_19 0 3.0
+V_a_20 a_20 0 3.0
+V_a_21 a_21 0 3.0
+V_b_0 b_0 0 3.0
+V_b_1 b_1 0 3.0
+V_b_2 b_2 0 3.0
+V_b_3 b_3 0 3.0
+V_b_4 b_4 0 3.0
+V_b_5 b_5 0 3.0
+V_b_6 b_6 0 3.0
+V_b_7 b_7 0 3.0
+V_b_8 b_8 0 3.0
+V_b_9 b_9 0 3.0
+V_b_10 b_10 0 3.0
+V_b_11 b_11 0 3.0
+V_b_12 b_12 0 3.0
+V_b_13 b_13 0 3.0
+V_b_14 b_14 0 3.0
+V_b_15 b_15 0 3.0
+V_b_16 b_16 0 3.0
+V_b_17 b_17 0 3.0
+V_b_18 b_18 0 3.0
+V_b_19 b_19 0 3.0
+V_b_20 b_20 0 3.0
+V_b_21 b_21 0 3.0
+V_cin cin 0 3.0
+.control
+op
+print -i(VDD)
+.endc
+.end

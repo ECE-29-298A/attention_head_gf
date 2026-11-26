@@ -1,0 +1,854 @@
+OpenSTA 2.7.0 GITDIR-NOT Copyright (c) 2025, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+=== LIBERTY_ONLY (no wire parasitics)
+ARC cin rise
+Startpoint: cin (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0098    0.3000    0.0000    0.0000 ^ cin (in)
+   0.0098    0.7242    1.3491    1.3491 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4462    2.7952 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    4.2416 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    5.6879 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    7.1342 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    8.5805 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   10.0268 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   11.4731 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   12.9194 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   14.3657 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   15.8120 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   17.2583 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   18.7046 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   20.1509 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   21.5972 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   23.0435 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   24.4898 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   25.9362 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   27.3825 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   28.8288 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0074    0.6259    1.3705   30.1993 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0200    2.3337    1.9418   32.1411 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.3337    0.0000   32.1411 ^ s[21] (out)
+                                32.1411   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC cin fall
+Startpoint: cin (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0098    0.3000    0.0000    0.0000 v cin (in)
+   0.0098    0.7106    1.7022    1.7022 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    3.5256 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    5.3489 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    7.1723 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    8.9957 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   10.8191 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   12.6424 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   14.4658 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   16.2892 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   18.1125 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   19.9359 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   21.7593 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   23.5826 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   25.4060 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   27.2294 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   29.0527 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   30.8761 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   32.6995 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   34.5229 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   36.3462 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0074    0.6440    1.7524   38.0986 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0200    1.1820    1.7452   39.8438 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             1.1820    0.0000   39.8438 v s[21] (out)
+                                39.8438   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] rise
+Startpoint: a[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0117    0.3000    0.0000    0.0000 ^ a[0] (in)
+   0.0098    0.7242    1.4493    1.4493 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4462    2.8955 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    4.3418 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    5.7881 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    7.2344 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    8.6807 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   10.1270 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   11.5733 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   13.0196 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   14.4659 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   15.9122 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   17.3586 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   18.8049 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   20.2512 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   21.6975 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   23.1438 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   24.5901 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   26.0364 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   27.4827 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   28.9290 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0074    0.6259    1.3705   30.2995 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0200    2.3337    1.9418   32.2414 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.3337    0.0000   32.2414 ^ s[21] (out)
+                                32.2414   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] fall
+Startpoint: a[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0117    0.3000    0.0000    0.0000 v a[0] (in)
+   0.0098    0.7106    1.9853    1.9853 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    3.8087 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    5.6321 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    7.4555 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    9.2788 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   11.1022 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   12.9256 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   14.7489 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   16.5723 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   18.3957 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   20.2190 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   22.0424 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   23.8658 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   25.6891 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   27.5125 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   29.3359 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   31.1592 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   32.9826 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   34.8060 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   36.6294 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0074    0.6440    1.7524   38.3817 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0200    1.1820    1.7452   40.1269 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             1.1820    0.0000   40.1269 v s[21] (out)
+                                40.1269   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] rise
+Startpoint: b[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0114    0.3000    0.0000    0.0000 ^ b[0] (in)
+   0.0098    0.7242    1.4808    1.4808 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4462    2.9269 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    4.3732 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    5.8196 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    7.2659 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463    8.7122 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   10.1585 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   11.6048 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   13.0511 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   14.4974 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   15.9437 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   17.3900 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   18.8363 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   20.2826 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   21.7289 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   23.1752 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   24.6215 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   26.0678 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   27.5142 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7247    1.4463   28.9605 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0074    0.6259    1.3705   30.3310 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0200    2.3337    1.9418   32.2728 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.3337    0.0000   32.2728 ^ s[21] (out)
+                                32.2728   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] fall
+Startpoint: b[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0114    0.3000    0.0000    0.0000 v b[0] (in)
+   0.0098    0.7106    1.9840    1.9840 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    3.8074 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    5.6307 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    7.4541 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234    9.2775 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   11.1008 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   12.9242 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   14.7476 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   16.5710 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   18.3943 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   20.2177 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   22.0411 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   23.8644 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   25.6878 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   27.5112 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   29.3345 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   31.1579 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   32.9813 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   34.8046 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0098    0.7106    1.8234   36.6280 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0074    0.6440    1.7524   38.3804 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0200    1.1820    1.7452   40.1256 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             1.1820    0.0000   40.1256 v s[21] (out)
+                                40.1256   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+=== SPEF (OpenRCX nom)
+ARC cin rise
+Startpoint: cin (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0102    0.3000    0.0000    0.0000 ^ cin (in)
+             0.3001    0.0000    0.0000 ^ bitslice[0].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7602    1.3768    1.3768 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7602    0.0001    1.3769 ^ bitslice[1].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4750    2.8520 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001    2.8521 ^ bitslice[2].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4785    4.3306 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001    4.3307 ^ bitslice[3].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7519    1.4748    5.8055 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7519    0.0001    5.8056 ^ bitslice[4].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7560    1.4764    7.2820 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7560    0.0001    7.2821 ^ bitslice[5].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7497    1.4725    8.7546 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7497    0.0001    8.7548 ^ bitslice[6].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4780   10.2328 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001   10.2329 ^ bitslice[7].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7516    1.4746   11.7075 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7516    0.0001   11.7076 ^ bitslice[8].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7575    1.4775   13.1851 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7575    0.0002   13.1853 ^ bitslice[9].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7492    1.4725   14.6578 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7492    0.0001   14.6579 ^ bitslice[10].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4779   16.1358 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001   16.1359 ^ bitslice[11].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4747   17.6106 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001   17.6107 ^ bitslice[12].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7597    1.4792   19.0899 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7597    0.0001   19.0901 ^ bitslice[13].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7583    1.4799   20.5700 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7583    0.0001   20.5701 ^ bitslice[14].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7609    1.4816   22.0517 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7609    0.0001   22.0519 ^ bitslice[15].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4752   23.5271 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001   23.5272 ^ bitslice[16].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7582    1.4781   25.0052 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7582    0.0001   25.0054 ^ bitslice[17].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7563    1.4780   26.4834 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7563    0.0002   26.4836 ^ bitslice[18].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7596    1.4801   27.9638 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7596    0.0001   27.9639 ^ bitslice[19].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7516    1.4748   29.4387 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7516    0.0001   29.4388 ^ bitslice[20].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6767    1.4156   30.8544 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.6767    0.0002   30.8546 ^ u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+   0.0209    2.4135    1.9949   32.8495 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.4135    0.0003   32.8497 ^ s[21] (out)
+                                32.8497   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC cin fall
+Startpoint: cin (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0102    0.3000    0.0000    0.0000 v cin (in)
+             0.3001    0.0000    0.0000 v bitslice[0].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7349    1.7282    1.7282 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7349    0.0001    1.7283 v bitslice[1].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8502    3.5786 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001    3.5787 v bitslice[2].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8533    5.4320 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001    5.4322 v bitslice[3].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7289    1.8499    7.2820 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7289    0.0001    7.2821 v bitslice[4].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7316    1.8514    9.1335 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7316    0.0001    9.1337 v bitslice[5].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7274    1.8478   10.9814 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7274    0.0001   10.9815 v bitslice[6].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8529   12.8345 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001   12.8346 v bitslice[7].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7287    1.8497   14.6842 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7287    0.0001   14.6844 v bitslice[8].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7327    1.8525   16.5368 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7327    0.0002   16.5370 v bitslice[9].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7270    1.8477   18.3847 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7270    0.0001   18.3849 v bitslice[10].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8528   20.2377 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001   20.2378 v bitslice[11].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8498   22.0876 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001   22.0877 v bitslice[12].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7341    1.8540   23.9417 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7341    0.0001   23.9418 v bitslice[13].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7332    1.8547   25.7965 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7332    0.0001   25.7966 v bitslice[14].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7349    1.8563   27.6529 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7349    0.0001   27.6530 v bitslice[15].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8502   29.5033 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001   29.5034 v bitslice[16].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7331    1.8530   31.3563 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7331    0.0001   31.3565 v bitslice[17].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7318    1.8529   33.2094 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7318    0.0002   33.2096 v bitslice[18].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7340    1.8549   35.0645 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7340    0.0001   35.0646 v bitslice[19].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7287    1.8499   36.9144 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7287    0.0001   36.9146 v bitslice[20].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6782    1.7943   38.7089 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.6782    0.0002   38.7091 v u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+   0.0209    1.2143    1.7686   40.4777 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             1.2143    0.0003   40.4779 v s[21] (out)
+                                40.4779   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] rise
+Startpoint: a[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0123    0.3000    0.0000    0.0000 ^ a[0] (in)
+             0.3002    0.0001    0.0001 ^ bitslice[0].u_fa/A (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7602    1.4772    1.4773 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7602    0.0001    1.4774 ^ bitslice[1].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4750    2.9524 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001    2.9526 ^ bitslice[2].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4785    4.4310 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001    4.4311 ^ bitslice[3].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7519    1.4748    5.9060 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7519    0.0001    5.9061 ^ bitslice[4].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7560    1.4764    7.3824 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7560    0.0001    7.3826 ^ bitslice[5].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7497    1.4725    8.8551 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7497    0.0001    8.8552 ^ bitslice[6].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4780   10.3332 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001   10.3333 ^ bitslice[7].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7516    1.4746   11.8079 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7516    0.0001   11.8080 ^ bitslice[8].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7575    1.4775   13.2856 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7575    0.0002   13.2858 ^ bitslice[9].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7492    1.4725   14.7583 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7492    0.0001   14.7584 ^ bitslice[10].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4779   16.2363 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001   16.2364 ^ bitslice[11].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4747   17.7111 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001   17.7112 ^ bitslice[12].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7597    1.4792   19.1904 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7597    0.0001   19.1905 ^ bitslice[13].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7583    1.4799   20.6704 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7583    0.0001   20.6706 ^ bitslice[14].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7609    1.4816   22.1522 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7609    0.0001   22.1523 ^ bitslice[15].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4752   23.6275 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001   23.6276 ^ bitslice[16].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7582    1.4781   25.1057 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7582    0.0001   25.1058 ^ bitslice[17].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7563    1.4780   26.5839 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7563    0.0002   26.5841 ^ bitslice[18].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7596    1.4801   28.0642 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7596    0.0001   28.0643 ^ bitslice[19].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7516    1.4748   29.5391 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7516    0.0001   29.5392 ^ bitslice[20].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6767    1.4156   30.9549 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.6767    0.0002   30.9550 ^ u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+   0.0209    2.4135    1.9949   32.9499 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.4135    0.0003   32.9502 ^ s[21] (out)
+                                32.9502   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] fall
+Startpoint: a[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0123    0.3000    0.0000    0.0000 v a[0] (in)
+             0.3002    0.0001    0.0001 v bitslice[0].u_fa/A (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7349    2.0124    2.0125 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7349    0.0001    2.0126 v bitslice[1].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8502    3.8629 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001    3.8630 v bitslice[2].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8533    5.7163 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001    5.7165 v bitslice[3].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7289    1.8499    7.5663 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7289    0.0001    7.5665 v bitslice[4].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7316    1.8514    9.4178 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7316    0.0001    9.4180 v bitslice[5].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7274    1.8478   11.2657 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7274    0.0001   11.2658 v bitslice[6].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8529   13.1188 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001   13.1189 v bitslice[7].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7287    1.8497   14.9686 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7287    0.0001   14.9687 v bitslice[8].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7327    1.8525   16.8211 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7327    0.0002   16.8213 v bitslice[9].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7270    1.8477   18.6691 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7270    0.0001   18.6692 v bitslice[10].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8528   20.5220 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001   20.5221 v bitslice[11].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8498   22.3719 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001   22.3720 v bitslice[12].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7341    1.8540   24.2260 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7341    0.0001   24.2261 v bitslice[13].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7332    1.8547   26.0808 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7332    0.0001   26.0809 v bitslice[14].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7349    1.8563   27.9372 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7349    0.0001   27.9373 v bitslice[15].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8502   29.7876 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001   29.7877 v bitslice[16].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7331    1.8530   31.6406 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7331    0.0001   31.6408 v bitslice[17].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7318    1.8529   33.4937 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7318    0.0002   33.4939 v bitslice[18].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7340    1.8549   35.3488 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7340    0.0001   35.3489 v bitslice[19].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7287    1.8499   37.1988 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7287    0.0001   37.1989 v bitslice[20].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6782    1.7943   38.9932 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.6782    0.0002   38.9934 v u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+   0.0209    1.2143    1.7686   40.7620 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             1.2143    0.0003   40.7622 v s[21] (out)
+                                40.7622   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] rise
+Startpoint: b[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0118    0.3000    0.0000    0.0000 ^ b[0] (in)
+             0.3002    0.0001    0.0001 ^ bitslice[0].u_fa/B (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7602    1.5086    1.5087 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7602    0.0001    1.5089 ^ bitslice[1].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4750    2.9839 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001    2.9840 ^ bitslice[2].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4785    4.4625 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001    4.4626 ^ bitslice[3].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7519    1.4748    5.9374 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7519    0.0001    5.9375 ^ bitslice[4].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7560    1.4764    7.4139 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7560    0.0001    7.4140 ^ bitslice[5].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7497    1.4725    8.8866 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7497    0.0001    8.8867 ^ bitslice[6].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4780   10.3647 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001   10.3648 ^ bitslice[7].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7516    1.4746   11.8394 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7516    0.0001   11.8395 ^ bitslice[8].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7575    1.4775   13.3170 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7575    0.0002   13.3172 ^ bitslice[9].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7492    1.4725   14.7897 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7492    0.0001   14.7898 ^ bitslice[10].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7587    1.4779   16.2677 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7587    0.0001   16.2678 ^ bitslice[11].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4747   17.7425 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001   17.7426 ^ bitslice[12].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7597    1.4792   19.2219 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7597    0.0001   19.2220 ^ bitslice[13].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7583    1.4799   20.7019 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7583    0.0001   20.7020 ^ bitslice[14].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7609    1.4816   22.1837 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7609    0.0001   22.1838 ^ bitslice[15].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7518    1.4752   23.6590 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7518    0.0001   23.6591 ^ bitslice[16].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7582    1.4781   25.1372 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7582    0.0001   25.1373 ^ bitslice[17].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7563    1.4780   26.6153 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7563    0.0002   26.6155 ^ bitslice[18].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7596    1.4801   28.0957 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7596    0.0001   28.0958 ^ bitslice[19].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7516    1.4748   29.5706 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7516    0.0001   29.5707 ^ bitslice[20].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6767    1.4156   30.9863 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.6767    0.0002   30.9865 ^ u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+   0.0209    2.4135    1.9949   32.9814 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.4135    0.0003   32.9816 ^ s[21] (out)
+                                32.9816   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] fall
+Startpoint: b[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0118    0.3000    0.0000    0.0000 v b[0] (in)
+             0.3002    0.0001    0.0001 v bitslice[0].u_fa/B (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7349    2.0111    2.0112 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7349    0.0001    2.0113 v bitslice[1].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8502    3.8615 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001    3.8617 v bitslice[2].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8533    5.7150 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001    5.7151 v bitslice[3].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7289    1.8499    7.5650 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7289    0.0001    7.5651 v bitslice[4].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7316    1.8514    9.4165 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7316    0.0001    9.4166 v bitslice[5].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7274    1.8478   11.2644 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7274    0.0001   11.2645 v bitslice[6].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8529   13.1174 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001   13.1175 v bitslice[7].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7287    1.8497   14.9672 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7287    0.0001   14.9673 v bitslice[8].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7327    1.8525   16.8198 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7327    0.0002   16.8200 v bitslice[9].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7270    1.8477   18.6677 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7270    0.0001   18.6678 v bitslice[10].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7335    1.8528   20.5206 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7335    0.0001   20.5207 v bitslice[11].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8498   22.3705 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001   22.3706 v bitslice[12].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7341    1.8540   24.2247 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7341    0.0001   24.2248 v bitslice[13].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7332    1.8547   26.0795 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7332    0.0001   26.0796 v bitslice[14].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7349    1.8563   27.9359 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7349    0.0001   27.9360 v bitslice[15].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7288    1.8502   29.7862 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7288    0.0001   29.7863 v bitslice[16].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7331    1.8530   31.6393 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7331    0.0001   31.6394 v bitslice[17].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7318    1.8529   33.4923 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7318    0.0002   33.4925 v bitslice[18].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7340    1.8549   35.3474 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7340    0.0001   35.3476 v bitslice[19].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7287    1.8499   37.1974 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.7287    0.0001   37.1975 v bitslice[20].u_fa/CI (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6782    1.7943   38.9919 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+             0.6782    0.0002   38.9920 v u_msb_x3/A3 (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+   0.0209    1.2143    1.7686   40.7606 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             1.2143    0.0003   40.7609 v s[21] (out)
+                                40.7609   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+=== SENSITIZED (SPEF; side inputs held by set_case_analysis as in the SPICE delay scenarios)
+ARC cin rise
+Startpoint: cin (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0102    0.3000    0.0000    0.0000 ^ cin (in)
+   0.0106    0.7492    1.3768    1.3768 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4727    2.8495 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4761    4.3256 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7412    1.4725    5.7981 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7453    1.4741    7.2722 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7391    1.4702    8.7424 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4757   10.2181 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7409    1.4723   11.6903 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7468    1.4752   13.1655 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7385    1.4703   14.6358 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4756   16.1113 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4724   17.5837 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7490    1.4769   19.0606 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7476    1.4776   20.5382 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7502    1.4793   22.0175 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4729   23.4904 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7475    1.4757   24.9661 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7456    1.4757   26.4418 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7489    1.4779   27.9198 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7409    1.4725   29.3922 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6664    1.4133   30.8055 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0209    0.9894    0.7651   31.5706 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             0.9894    0.0003   31.5708 v s[21] (out)
+                                31.5708   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC cin fall
+Startpoint: cin (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0102    0.3000    0.0000    0.0000 v cin (in)
+   0.0106    0.7264    1.6584    1.6584 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7782    3.4365 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7813    5.2178 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7197    1.7777    6.9955 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7227    1.7792    8.7748 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7181    1.7755   10.5502 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7808   12.3310 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7195    1.7775   14.1086 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7238    1.7803   15.8889 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7177    1.7755   17.6645 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7807   19.4452 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7776   21.2228 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7254    1.7820   23.0048 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7244    1.7828   24.7876 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7264    1.7844   26.5720 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7781   28.3501 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7243    1.7809   30.1310 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7229    1.7809   31.9119 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7254    1.7830   33.6950 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7195    1.7777   35.4727 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6641    1.7196   37.1923 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0209    2.2501    1.5080   38.7003 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.2501    0.0003   38.7005 ^ s[21] (out)
+                                38.7005   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] rise
+Startpoint: a[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0123    0.3000    0.0000    0.0000 ^ a[0] (in)
+   0.0106    0.7493    1.4721    1.4721 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4727    2.9448 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4761    4.4209 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7412    1.4725    5.8934 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7453    1.4741    7.3675 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7391    1.4702    8.8377 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4757   10.3134 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7409    1.4723   11.7857 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7468    1.4752   13.2608 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7385    1.4703   14.7311 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4756   16.2067 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4724   17.6790 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7490    1.4769   19.1559 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7476    1.4776   20.6335 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7502    1.4793   22.1128 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4729   23.5857 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7475    1.4757   25.0614 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7456    1.4757   26.5372 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7489    1.4779   28.0151 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7409    1.4725   29.4875 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6664    1.4133   30.9008 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0209    0.9894    0.7651   31.6659 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             0.9894    0.0003   31.6661 v s[21] (out)
+                                31.6661   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC a[0] fall
+Startpoint: a[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0123    0.3000    0.0000    0.0000 v a[0] (in)
+   0.0106    0.7339    2.0125    2.0125 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7805    3.7930 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7813    5.5743 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7197    1.7777    7.3521 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7227    1.7792    9.1313 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7181    1.7755   10.9068 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7808   12.6876 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7195    1.7775   14.4651 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7238    1.7803   16.2454 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7177    1.7755   18.0210 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7807   19.8017 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7776   21.5793 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7254    1.7820   23.3613 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7244    1.7828   25.1441 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7264    1.7844   26.9285 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7781   28.7067 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7243    1.7809   30.4875 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7229    1.7809   32.2684 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7254    1.7830   34.0515 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7195    1.7777   35.8292 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6641    1.7196   37.5488 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0209    2.2501    1.5080   39.0568 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.2501    0.0003   39.0571 ^ s[21] (out)
+                                39.0571   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] rise
+Startpoint: b[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 ^ input external delay
+   0.0118    0.3000    0.0000    0.0000 ^ b[0] (in)
+   0.0106    0.7602    1.4198    1.4198 ^ bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4752    2.8950 ^ bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4761    4.3711 ^ bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7412    1.4725    5.8436 ^ bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7453    1.4741    7.3176 ^ bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7391    1.4702    8.7879 ^ bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4757   10.2635 ^ bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7409    1.4723   11.7358 ^ bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7468    1.4752   13.2110 ^ bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7385    1.4703   14.6813 ^ bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7480    1.4756   16.1568 ^ bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4724   17.6292 ^ bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7490    1.4769   19.1061 ^ bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7476    1.4776   20.5837 ^ bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7502    1.4793   22.0630 ^ bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7411    1.4729   23.5359 ^ bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7475    1.4757   25.0116 ^ bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7456    1.4757   26.4873 ^ bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7489    1.4779   27.9652 ^ bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7409    1.4725   29.4377 ^ bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6664    1.4133   30.8510 ^ bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0209    0.9894    0.7651   31.6160 v u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             0.9894    0.0003   31.6163 v s[21] (out)
+                                31.6163   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+ARC b[0] fall
+Startpoint: b[0] (input port)
+Endpoint: s[21] (output port)
+Path Group: unconstrained
+Path Type: max
+
+      Cap      Slew     Delay      Time   Description
+-------------------------------------------------------------------------------
+                       0.0000    0.0000 v input external delay
+   0.0118    0.3000    0.0000    0.0000 v b[0] (in)
+   0.0106    0.7349    2.0112    2.0112 v bitslice[0].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7808    3.7920 v bitslice[1].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7813    5.5733 v bitslice[2].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7197    1.7777    7.3510 v bitslice[3].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7227    1.7792    9.1303 v bitslice[4].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7181    1.7755   10.9057 v bitslice[5].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7808   12.6865 v bitslice[6].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7195    1.7775   14.4641 v bitslice[7].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7238    1.7803   16.2444 v bitslice[8].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0103    0.7177    1.7755   18.0200 v bitslice[9].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7247    1.7807   19.8006 v bitslice[10].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7776   21.5783 v bitslice[11].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7254    1.7820   23.3603 v bitslice[12].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7244    1.7828   25.1430 v bitslice[13].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7264    1.7844   26.9275 v bitslice[14].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7196    1.7781   28.7056 v bitslice[15].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7243    1.7809   30.4865 v bitslice[16].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0105    0.7229    1.7809   32.2674 v bitslice[17].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0106    0.7254    1.7830   34.0505 v bitslice[18].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0104    0.7195    1.7777   35.8282 v bitslice[19].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0086    0.6641    1.7196   37.5478 v bitslice[20].u_fa/CO (gf180mcu_fd_sc_mcu7t5v0__addf_1)
+   0.0209    2.2501    1.5080   39.0558 ^ u_msb_x3/Z (gf180mcu_fd_sc_mcu7t5v0__xor3_1)
+             2.2501    0.0003   39.0560 ^ s[21] (out)
+                                39.0560   data arrival time
+-------------------------------------------------------------------------------
+(Path is unconstrained)
+
+
+=== MAX_SLEW_CHECK at 20 fF
+max slew
+
+Pin u_msb_x3/Z ^
+max slew   15.60
+slew        2.41
+----------------
+Slack      13.19 (MET)
+
+max capacitance
+
+Pin u_msb_x3/Z ^
+max capacitance    0.18
+capacitance        0.02
+-----------------------
+Slack              0.15 (MET)
+
+=== POWER (vectorless, input activity 0.5 per 100 ns, estimate)
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Combinational        4.768663e-05 4.900194e-05 1.389142e-08 9.670245e-05 100.0%
+Clock                0.000000e+00 0.000000e+00 1.448712e-08 1.448712e-08   0.0%
+Macro                0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+Pad                  0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.0%
+------------------------------------------------------------------------
+Total                4.768663e-05 4.900194e-05 2.837852e-08 9.671694e-05 100.0%
+                            49.3%        50.7%         0.0%

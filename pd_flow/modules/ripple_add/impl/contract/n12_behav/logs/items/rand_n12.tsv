@@ -1,0 +1,1 @@
+rand_n12	rand	pass-sampled	true	0.381	logs/rand_n12.log	RESULT mode=random N=12 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000

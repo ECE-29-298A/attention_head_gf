@@ -1,0 +1,12 @@
+cells_prep           pass               pass-static         0.17s  RESULT cells netlist_modules=['ripple_add'] cell_types=2 models_copied=4 udps=0; cells=/Users/samuel
+selftest             pass               pass-static         0.04s  RESULT selftest kat=19 mismatches=0
+lint_n12             pass               pass-static         0.14s  RESULT interface N=12 top=ripple_add ports=['a', 'b', 'cin', 's'] state_cells=0 errors=0; RESULT lin
+build_n12            pass               pass-static         3.10s  obj_12/sim
+exh_n12              pass-exhaustive    pass-exhaustive     1.23s  RESULT mode=exhaustive N=12 vectors=33554432 applied=33554432 mismatches=0 checksum=0x05a0bf138bee72
+vec_n12              pass-sampled       pass-sampled        3.08s  golden_vectors=207064 verilator_checked=207064 icarus_checked=207064; RESULT mode=vectors N=12 vecto
+rand_n12             pass-sampled       pass-sampled        0.43s  RESULT mode=random N=12 vectors=10000000 applied=10000000 mismatches=0 checksum=0x0000000000000000
+fv_cover_n12         covered            bounded-pass        0.53s  sby_status=PASS asserts=2 covers=16 reached=16 unreached=0
+fv_pdr_n12           proven             proven              0.29s  sby_status=PASS asserts=2 covers=0; summary: engine_0 (abc pdr) returned PASS
+fv_prove_n12         proven             proven              0.32s  sby_status=PASS asserts=2 covers=0; summary: successful proof by k-induction
+fv_sanity_n12        failed-as-expected failed              0.27s  sby_status=FAIL (expected FAIL) failed assertion ripple_add_props.a_wrong
+TOTAL 11/11 ok, all_ok=True, 7.04 s

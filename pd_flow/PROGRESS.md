@@ -1,8 +1,7 @@
 # Workflow progress (MASTER_WORKFLOW.md)
 
-- Current module: 1 ripple_add (order: ripple_add → max_reg → exp_lut → divider → mac_unit →
-  attention_controller → tt_um_attention_head_gf)
-- Phase: module 1 ripple_add: Phases 1, 2, 3 PASSED (`modules/ripple_add/PHASE{1,2,3}_GATE.md`); Phase 4 (Agent 6, block implementation and characterization) in progress
+- Current module: 2 max_reg (module 1 ripple_add COMPLETE, `modules/ripple_add/REPORT.md`)
+- Phase: module 2 max_reg Phase 1 (Agents 1+2) in progress
 - Golden RTL: `pd_flow/baseline/original_rtl` (hashes in `pd_flow/baseline/SHA256SUMS`, HEAD 03de4ac)
 - Baseline: `PHASE0_AUDIT.md` (synthesis, harden, regression all recorded)
 
@@ -37,7 +36,10 @@
    reduces area, and otherwise keep the flat flow and report the macro as evidence.
 
 ## Exact next action
-Wait for Agent 6 (`modules/ripple_add/impl/`). At the gate, check the DRC/LVS/extraction/SPICE evidence and the views myself. Then write `modules/ripple_add/REPORT.md` and commit, and move to module 2 (max_reg) Phase 1.
+max_reg Phase 1: Agent 1 builds the contract in `modules/max_reg/verif/` (reusing the ripple_add contract structure: --out, gate mode, standard labels), then Agent 2 reviews it independently with mutation testing.
+
+## Completed modules
+- ripple_add: golden retained; standalone tetris block signed off (DRC/LVS clean, SPICE characterized); not integrated (D3).
 
 ## Environment workarounds in place
 - sby/eqy: run with `/usr/local/bin/python3 ~/.local/bin/{sby,eqy}`

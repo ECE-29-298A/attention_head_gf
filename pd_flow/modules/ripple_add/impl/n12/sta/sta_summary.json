@@ -1,0 +1,492 @@
+{
+ "N": 12,
+ "boundary": {
+  "input_transition_ns_liberty": 0.3,
+  "output_load_pF": 0.02
+ },
+ "corners": {
+  "tt_025C_3v30": {
+   "liberty_only": {
+    "cin:rise": {
+     "delay_ns": 8.6833,
+     "slew_ns": 1.198
+    },
+    "cin:fall": {
+     "delay_ns": 10.4175,
+     "slew_ns": 0.6074
+    },
+    "a[0]:rise": {
+     "delay_ns": 8.7189,
+     "slew_ns": 1.198
+    },
+    "a[0]:fall": {
+     "delay_ns": 10.5358,
+     "slew_ns": 0.6074
+    },
+    "b[0]:rise": {
+     "delay_ns": 8.7492,
+     "slew_ns": 1.198
+    },
+    "b[0]:fall": {
+     "delay_ns": 10.5446,
+     "slew_ns": 0.6074
+    }
+   },
+   "spef_nom": {
+    "cin:rise": {
+     "delay_ns": 8.8708,
+     "slew_ns": 1.2394
+    },
+    "cin:fall": {
+     "delay_ns": 10.5743,
+     "slew_ns": 0.6149
+    },
+    "a[0]:rise": {
+     "delay_ns": 8.9065,
+     "slew_ns": 1.2394
+    },
+    "a[0]:fall": {
+     "delay_ns": 10.6931,
+     "slew_ns": 0.6149
+    },
+    "b[0]:rise": {
+     "delay_ns": 8.9369,
+     "slew_ns": 1.2394
+    },
+    "b[0]:fall": {
+     "delay_ns": 10.702,
+     "slew_ns": 0.6149
+    }
+   },
+   "spef_nom_sensitized": {
+    "cin:rise": {
+     "delay_ns": 8.2492,
+     "slew_ns": 0.5001
+    },
+    "cin:fall": {
+     "delay_ns": 10.0808,
+     "slew_ns": 1.1524
+    },
+    "a[0]:rise": {
+     "delay_ns": 8.2849,
+     "slew_ns": 0.5001
+    },
+    "a[0]:fall": {
+     "delay_ns": 10.2342,
+     "slew_ns": 1.1524
+    },
+    "b[0]:rise": {
+     "delay_ns": 8.2601,
+     "slew_ns": 0.5001
+    },
+    "b[0]:fall": {
+     "delay_ns": 10.2432,
+     "slew_ns": 1.1524
+    }
+   },
+   "block_liberty_model": {
+    "cin:rise": {
+     "delay_ns": 10.9705,
+     "slew_ns": 2.4666
+    },
+    "cin:fall": {
+     "delay_ns": 10.9705,
+     "slew_ns": 2.4666
+    },
+    "a[0]:rise": {
+     "delay_ns": 11.0893,
+     "slew_ns": 2.4666
+    },
+    "a[0]:fall": {
+     "delay_ns": 11.0893,
+     "slew_ns": 2.4666
+    },
+    "b[0]:rise": {
+     "delay_ns": 11.0982,
+     "slew_ns": 2.4666
+    },
+    "b[0]:fall": {
+     "delay_ns": 11.0982,
+     "slew_ns": 2.4666
+    }
+   },
+   "max_slew_cap_violations_at_20fF": 0,
+   "vectorless_power_W": {
+    "internal": 3.060799e-05,
+    "switching": 3.124653e-05,
+    "leakage": 2.004572e-09,
+    "total": 6.185652e-05
+   },
+   "vectorless_energy_per_100ns_op_pJ": 6.1857,
+   "block_liberty_pin_cap_pF": {
+    "pins": {
+     "cin": 0.0098,
+     "a[11]": 0.0071,
+     "a[10]": 0.0122,
+     "a[9]": 0.0122,
+     "a[8]": 0.0122,
+     "a[7]": 0.0122,
+     "a[6]": 0.0122,
+     "a[5]": 0.0122,
+     "a[4]": 0.0122,
+     "a[3]": 0.0122,
+     "a[2]": 0.0122,
+     "a[1]": 0.0122,
+     "a[0]": 0.0121,
+     "b[11]": 0.0054,
+     "b[10]": 0.0117,
+     "b[9]": 0.0117,
+     "b[8]": 0.0117,
+     "b[7]": 0.0116,
+     "b[6]": 0.0116,
+     "b[5]": 0.0116,
+     "b[4]": 0.0117,
+     "b[3]": 0.0116,
+     "b[2]": 0.0116,
+     "b[1]": 0.0116,
+     "b[0]": 0.0116,
+     "s[11]": 0.0009,
+     "s[10]": 0.0003,
+     "s[9]": 0.0004,
+     "s[8]": 0.0003,
+     "s[7]": 0.0005,
+     "s[6]": 0.0003,
+     "s[5]": 0.0003,
+     "s[4]": 0.0003,
+     "s[3]": 0.0003,
+     "s[2]": 0.0003,
+     "s[1]": 0.0003,
+     "s[0]": 0.0003
+    },
+    "bus_min_max": {
+     "a": [
+      0.0,
+      0.0122
+     ]
+    }
+   }
+  },
+  "ss_125C_3v00": {
+   "liberty_only": {
+    "cin:rise": {
+     "delay_ns": 17.6781,
+     "slew_ns": 2.3337
+    },
+    "cin:fall": {
+     "delay_ns": 21.6101,
+     "slew_ns": 1.182
+    },
+    "a[0]:rise": {
+     "delay_ns": 17.7783,
+     "slew_ns": 2.3337
+    },
+    "a[0]:fall": {
+     "delay_ns": 21.8932,
+     "slew_ns": 1.182
+    },
+    "b[0]:rise": {
+     "delay_ns": 17.8098,
+     "slew_ns": 2.3337
+    },
+    "b[0]:fall": {
+     "delay_ns": 21.8919,
+     "slew_ns": 1.182
+    }
+   },
+   "spef_nom": {
+    "cin:rise": {
+     "delay_ns": 18.0681,
+     "slew_ns": 2.4135
+    },
+    "cin:fall": {
+     "delay_ns": 21.9476,
+     "slew_ns": 1.2143
+    },
+    "a[0]:rise": {
+     "delay_ns": 18.1686,
+     "slew_ns": 2.4135
+    },
+    "a[0]:fall": {
+     "delay_ns": 22.2319,
+     "slew_ns": 1.2143
+    },
+    "b[0]:rise": {
+     "delay_ns": 18.2001,
+     "slew_ns": 2.4135
+    },
+    "b[0]:fall": {
+     "delay_ns": 22.2305,
+     "slew_ns": 1.2143
+    }
+   },
+   "spef_nom_sensitized": {
+    "cin:rise": {
+     "delay_ns": 16.8137,
+     "slew_ns": 0.9894
+    },
+    "cin:fall": {
+     "delay_ns": 20.8916,
+     "slew_ns": 2.2501
+    },
+    "a[0]:rise": {
+     "delay_ns": 16.909,
+     "slew_ns": 0.9894
+    },
+    "a[0]:fall": {
+     "delay_ns": 21.2481,
+     "slew_ns": 2.2501
+    },
+    "b[0]:rise": {
+     "delay_ns": 16.8592,
+     "slew_ns": 0.9894
+    },
+    "b[0]:fall": {
+     "delay_ns": 21.2471,
+     "slew_ns": 2.2501
+    }
+   },
+   "block_liberty_model": {
+    "cin:rise": {
+     "delay_ns": 22.6908,
+     "slew_ns": 4.7987
+    },
+    "cin:fall": {
+     "delay_ns": 22.6908,
+     "slew_ns": 4.7987
+    },
+    "a[0]:rise": {
+     "delay_ns": 22.9751,
+     "slew_ns": 4.7987
+    },
+    "a[0]:fall": {
+     "delay_ns": 22.9751,
+     "slew_ns": 4.7987
+    },
+    "b[0]:rise": {
+     "delay_ns": 22.9738,
+     "slew_ns": 4.7987
+    },
+    "b[0]:fall": {
+     "delay_ns": 22.9738,
+     "slew_ns": 4.7987
+    }
+   },
+   "max_slew_cap_violations_at_20fF": 0,
+   "vectorless_power_W": {
+    "internal": 2.530035e-05,
+    "switching": 2.597635e-05,
+    "leakage": 1.576178e-08,
+    "total": 5.129246e-05
+   },
+   "vectorless_energy_per_100ns_op_pJ": 5.1292,
+   "block_liberty_pin_cap_pF": {
+    "pins": {
+     "cin": 0.0102,
+     "a[11]": 0.0072,
+     "a[10]": 0.0123,
+     "a[9]": 0.0123,
+     "a[8]": 0.0123,
+     "a[7]": 0.0123,
+     "a[6]": 0.0123,
+     "a[5]": 0.0123,
+     "a[4]": 0.0123,
+     "a[3]": 0.0123,
+     "a[2]": 0.0123,
+     "a[1]": 0.0123,
+     "a[0]": 0.0123,
+     "b[11]": 0.0054,
+     "b[10]": 0.0118,
+     "b[9]": 0.0118,
+     "b[8]": 0.0118,
+     "b[7]": 0.0118,
+     "b[6]": 0.0118,
+     "b[5]": 0.0118,
+     "b[4]": 0.0118,
+     "b[3]": 0.0118,
+     "b[2]": 0.0118,
+     "b[1]": 0.0118,
+     "b[0]": 0.0118,
+     "s[11]": 0.0009,
+     "s[10]": 0.0003,
+     "s[9]": 0.0004,
+     "s[8]": 0.0003,
+     "s[7]": 0.0005,
+     "s[6]": 0.0003,
+     "s[5]": 0.0003,
+     "s[4]": 0.0003,
+     "s[3]": 0.0003,
+     "s[2]": 0.0003,
+     "s[1]": 0.0003,
+     "s[0]": 0.0003
+    },
+    "bus_min_max": {
+     "a": [
+      0.0,
+      0.0123
+     ]
+    }
+   }
+  },
+  "ff_n40C_3v60": {
+   "liberty_only": {
+    "cin:rise": {
+     "delay_ns": 4.9628,
+     "slew_ns": 0.6901
+    },
+    "cin:fall": {
+     "delay_ns": 5.7818,
+     "slew_ns": 0.3563
+    },
+    "a[0]:rise": {
+     "delay_ns": 4.9692,
+     "slew_ns": 0.6901
+    },
+    "a[0]:fall": {
+     "delay_ns": 5.8292,
+     "slew_ns": 0.3563
+    },
+    "b[0]:rise": {
+     "delay_ns": 5.0015,
+     "slew_ns": 0.6901
+    },
+    "b[0]:fall": {
+     "delay_ns": 5.848,
+     "slew_ns": 0.3563
+    }
+   },
+   "spef_nom": {
+    "cin:rise": {
+     "delay_ns": 5.0642,
+     "slew_ns": 0.6952
+    },
+    "cin:fall": {
+     "delay_ns": 5.8665,
+     "slew_ns": 0.3604
+    },
+    "a[0]:rise": {
+     "delay_ns": 5.0707,
+     "slew_ns": 0.6952
+    },
+    "a[0]:fall": {
+     "delay_ns": 5.9142,
+     "slew_ns": 0.3604
+    },
+    "b[0]:rise": {
+     "delay_ns": 5.103,
+     "slew_ns": 0.6952
+    },
+    "b[0]:fall": {
+     "delay_ns": 5.933,
+     "slew_ns": 0.3604
+    }
+   },
+   "spef_nom_sensitized": {
+    "cin:rise": {
+     "delay_ns": 4.7196,
+     "slew_ns": 0.2989
+    },
+    "cin:fall": {
+     "delay_ns": 5.6119,
+     "slew_ns": 0.6392
+    },
+    "a[0]:rise": {
+     "delay_ns": 4.726,
+     "slew_ns": 0.2989
+    },
+    "a[0]:fall": {
+     "delay_ns": 5.6769,
+     "slew_ns": 0.6392
+    },
+    "b[0]:rise": {
+     "delay_ns": 4.7113,
+     "slew_ns": 0.2989
+    },
+    "b[0]:fall": {
+     "delay_ns": 5.6957,
+     "slew_ns": 0.6392
+    }
+   },
+   "block_liberty_model": {
+    "cin:rise": {
+     "delay_ns": 6.0959,
+     "slew_ns": 1.4209
+    },
+    "cin:fall": {
+     "delay_ns": 6.0959,
+     "slew_ns": 1.4209
+    },
+    "a[0]:rise": {
+     "delay_ns": 6.1436,
+     "slew_ns": 1.4209
+    },
+    "a[0]:fall": {
+     "delay_ns": 6.1436,
+     "slew_ns": 1.4209
+    },
+    "b[0]:rise": {
+     "delay_ns": 6.1624,
+     "slew_ns": 1.4209
+    },
+    "b[0]:fall": {
+     "delay_ns": 6.1624,
+     "slew_ns": 1.4209
+    }
+   },
+   "max_slew_cap_violations_at_20fF": 0,
+   "vectorless_power_W": {
+    "internal": 3.801678e-05,
+    "switching": 3.708793e-05,
+    "leakage": 2.379476e-09,
+    "total": 7.510708e-05
+   },
+   "vectorless_energy_per_100ns_op_pJ": 7.5107,
+   "block_liberty_pin_cap_pF": {
+    "pins": {
+     "cin": 0.0097,
+     "a[11]": 0.007,
+     "a[10]": 0.0124,
+     "a[9]": 0.0124,
+     "a[8]": 0.0124,
+     "a[7]": 0.0124,
+     "a[6]": 0.0124,
+     "a[5]": 0.0124,
+     "a[4]": 0.0124,
+     "a[3]": 0.0124,
+     "a[2]": 0.0124,
+     "a[1]": 0.0124,
+     "a[0]": 0.0124,
+     "b[11]": 0.0055,
+     "b[10]": 0.0119,
+     "b[9]": 0.0118,
+     "b[8]": 0.0119,
+     "b[7]": 0.0118,
+     "b[6]": 0.0118,
+     "b[5]": 0.0118,
+     "b[4]": 0.0118,
+     "b[3]": 0.0118,
+     "b[2]": 0.0118,
+     "b[1]": 0.0118,
+     "b[0]": 0.0118,
+     "s[11]": 0.0009,
+     "s[10]": 0.0003,
+     "s[9]": 0.0004,
+     "s[8]": 0.0003,
+     "s[7]": 0.0005,
+     "s[6]": 0.0003,
+     "s[5]": 0.0003,
+     "s[4]": 0.0003,
+     "s[3]": 0.0003,
+     "s[2]": 0.0003,
+     "s[1]": 0.0003,
+     "s[0]": 0.0003
+    },
+    "bus_min_max": {
+     "a": [
+      0.0,
+      0.0124
+     ]
+    }
+   }
+  }
+ }
+}

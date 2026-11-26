@@ -1,0 +1,6 @@
+func tt {"test": "functional", "corner": "tt", "pvt": ["typical", 25, 3.3], "N": 12, "period_ns": 40.0, "sample": "0.5 ns before the next vector", "vectors": 19, "pass": true, "pex_netlist": "n12/pex/ripple_add_n12_pex.spice"}
+   functional PASS []
+delay tt {"test": "delay", "corner": "tt", "pvt": ["typical", 25, 3.3], "N": 12, "boundary": {"input_ramp_0_100_ns": 0.375, "input_slew_10_90_ns": 0.3, "liberty_equiv_input_slew_ns": 0.3, "cload_fF": 20.0}, "worst": {"delay_ns": 11.954, "arc": "b[0]->s[11]", "input_edge": "fall"}, "pex_netlist": "n12/pex/ripple_add_n12_pex.spice"}
+   cin->s[11] {'rise': (9.8457, 0.6237), 'fall': (11.8611, 1.3799)}
+   a[0]->s[11] {'rise': (9.799, 0.6237), 'fall': (11.9104, 1.3799)}
+   b[0]->s[11] {'rise': (9.7938, 0.6237), 'fall': (11.954, 1.3799)}

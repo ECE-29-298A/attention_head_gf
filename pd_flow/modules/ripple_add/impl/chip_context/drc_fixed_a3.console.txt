@@ -1,0 +1,4 @@
+fixed_a3_main.lyrdb: rules=651 violations=0 DF.13_MV=0 DF.14_MV=0 {}
+fixed_a3_antenna.lyrdb: rules=11 violations=0 DF.13_MV=n/a DF.14_MV=n/a {}
+fixed_a3_density.lyrdb: rules=10 violations=5 DF.13_MV=n/a DF.14_MV=n/a {'M2.4': 1, 'M3.4': 1, 'M4.4': 1, 'M5.4': 1, 'MT.3': 1}
+./scripts/run_klayout_drc.sh  tt_um_attention_head_gf  fixed_a3  23.43s user 6.99s system 117% cpu 25.852 total

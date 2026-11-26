@@ -1,0 +1,47 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:94   in _embed_init_python              Using Python 3.12.10 interpreter at /usr/local/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 13.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1795688124
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.0 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_top_qspi.end_to_end_flash_and_host (1/4)
+ 37160.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=1, shift=0, chunks=[0]): matches Python, 3713 cycles
+ 75940.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=1, shift=0, chunks=[1]): matches Python, 3878 cycles
+139540.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=2, shift=0, chunks=[0]): matches Python, 6360 cycles
+514670.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=16, shift=1, chunks=[7]): matches Python, 37513 cycles
+556950.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=1, shift=0, chunks=[0]): matches Python, 3844 cycles
+596970.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=1, shift=0, chunks=[0]): matches Python, 3822 cycles
+643070.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=1, shift=0, chunks=[0]): matches Python, 4333 cycles
+705060.00ns INFO     cocotb.tt_um_attention_head_gf     query (N=1, shift=0, chunks=[0]): matches Python, 5849 cycles
+705060.00ns INFO     cocotb.tt_um_attention_head_gf     PASS top: tape reads, SPI target frames at and above the SCK limit, busy config writes, reset/ena abort; 70505 cycles
+705060.00ns INFO     cocotb.regression                  test_top_qspi.end_to_end_flash_and_host passed
+705060.00ns INFO     cocotb.regression                  running test_top_qspi.hardware_matches_python_model (2/4)
+743540.00ns INFO     cocotb.tt_um_attention_head_gf     single token with signed extremes (N=1, shift=0, chunks=[0]): matches Python, 3845 cycles
+803410.00ns INFO     cocotb.tt_um_attention_head_gf     equal scores with positive and negative rounding ties (N=2, shift=0, chunks=[0]): matches Python, 5987 cycles
+910070.00ns INFO     cocotb.tt_um_attention_head_gf     negative scores at the LUT cutoff (N=4, shift=0, chunks=[0]): matches Python, 10666 cycles
+988980.00ns INFO     cocotb.tt_um_attention_head_gf     largest representable INT8 dot product gap (N=2, shift=15, chunks=[0]): matches Python, 7891 cycles
+1090730.00ns INFO     cocotb.tt_um_attention_head_gf     rounded score shift ties (N=4, shift=3, chunks=[0]): matches Python, 10175 cycles
+1277170.00ns INFO     cocotb.tt_um_attention_head_gf     seeded 64-dim mixed weights (N=8, shift=8, chunks=[3]): matches Python, 18644 cycles
+1636810.00ns INFO     cocotb.tt_um_attention_head_gf     sixteen maximum weights with extreme values (N=16, shift=15, chunks=[6]): matches Python, 35964 cycles
+1636810.00ns INFO     cocotb.regression                  test_top_qspi.hardware_matches_python_model passed
+1636810.00ns INFO     cocotb.regression                  running test_top_qspi.continue_runs_share_pass_one (3/4)
+                                                             Several chunks of one head: a fresh run, then cont runs that reuse the maximum and the open read.
+2585720.00ns INFO     cocotb.tt_um_attention_head_gf     four chunks (N=16, shift=13, chunks=[0, 7, 1, 5]): matches Python, 94888 cycles
+2942960.00ns INFO     cocotb.tt_um_attention_head_gf     four chunks (N=5, shift=9, chunks=[0, 7, 1, 5]): matches Python, 35724 cycles
+3084410.00ns INFO     cocotb.tt_um_attention_head_gf     four chunks (N=1, shift=0, chunks=[0, 7, 1, 5]): matches Python, 14145 cycles
+3213650.00ns INFO     cocotb.tt_um_attention_head_gf     restart (N=3, shift=12, chunks=[1, 2]): matches Python, 12924 cycles
+3281600.00ns INFO     cocotb.tt_um_attention_head_gf     after abort (N=2, shift=14, chunks=[3]): matches Python, 6404 cycles
+3281600.00ns INFO     cocotb.regression                  test_top_qspi.continue_runs_share_pass_one passed
+3281600.00ns INFO     cocotb.regression                  skipping test_top_qspi.real_smollm_head (4/4)
+                                                             One real SmolLM-135M head (layer 14, head 4, last of 16 tokens) through the pins.
+3281600.00ns INFO     cocotb.regression                  *****************************************************************************************************
+                                                         ** TEST                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         *****************************************************************************************************
+                                                         ** test_top_qspi.end_to_end_flash_and_host       PASS      705060.00          16.27      43334.90  **
+                                                         ** test_top_qspi.hardware_matches_python_model   PASS      931750.00          22.11      42138.05  **
+                                                         ** test_top_qspi.continue_runs_share_pass_one    PASS     1644790.00          40.94      40178.91  **
+                                                         ** test_top_qspi.real_smollm_head                SKIP           0.00           0.00          -.--  **
+                                                         *****************************************************************************************************
+                                                         ** TESTS=4 PASS=3 FAIL=0 SKIP=1                           3281600.00          79.32      41371.20  **
+                                                         *****************************************************************************************************
+rc=0

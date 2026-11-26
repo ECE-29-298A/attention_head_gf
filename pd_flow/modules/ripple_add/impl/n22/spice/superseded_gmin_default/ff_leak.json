@@ -1,0 +1,35 @@
+{
+ "test": "leakage",
+ "corner": "ff",
+ "pvt": [
+  "ff",
+  -40,
+  3.6
+ ],
+ "N": 22,
+ "states": {
+  "all_zero": {
+   "I_nA": 0.74617,
+   "P_nW": 2.68621
+  },
+  "all_one": {
+   "I_nA": 0.71572,
+   "P_nW": 2.57658
+  },
+  "a_ones_b0_cin0": {
+   "I_nA": 0.69598,
+   "P_nW": 2.50554
+  },
+  "random_1": {
+   "I_nA": 0.71624,
+   "P_nW": 2.57845
+  },
+  "random_2": {
+   "I_nA": 0.69498,
+   "P_nW": 2.50192
+  }
+ },
+ "mean_P_nW": 2.56974,
+ "max_P_nW": 2.68621,
+ "pex_netlist": "n22/pex/ripple_add_n22_pex.spice"
+}

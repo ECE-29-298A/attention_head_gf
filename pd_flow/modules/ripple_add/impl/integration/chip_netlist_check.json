@@ -1,0 +1,83 @@
+{
+ "run": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/ripple_add/layout_plan/chip_runs/fixed_a3",
+ "checks": {
+  "I1_final_nl": {
+   "core.mac.adder": {
+    "N": 22,
+    "cells_found": 22,
+    "expected": 22,
+    "extra_cells_in_namespace": {},
+    "msb_A3_net": "core.mac.adder.c[21]",
+    "errors": [],
+    "pass": true
+   },
+   "core.mac.l_adder": {
+    "N": 12,
+    "cells_found": 12,
+    "expected": 12,
+    "extra_cells_in_namespace": {
+     "core.mac.l_adder.bitslice[0].u_fa_66": "tiel",
+     "core.mac.l_adder.bitslice[10].u_fa_67": "tiel",
+     "core.mac.l_adder.bitslice[8].u_fa_68": "tiel",
+     "core.mac.l_adder.bitslice[9].u_fa_69": "tiel",
+     "core.mac.l_adder.u_msb_x3_70": "tiel"
+    },
+    "msb_A3_net": "core.mac.l_adder.c[11]",
+    "errors": [],
+    "pass": true
+   }
+  },
+  "I1_final_pnl": {
+   "core.mac.adder": {
+    "N": 22,
+    "cells_found": 22,
+    "expected": 22,
+    "extra_cells_in_namespace": {},
+    "msb_A3_net": "core.mac.adder.c[21]",
+    "errors": [],
+    "pass": true
+   },
+   "core.mac.l_adder": {
+    "N": 12,
+    "cells_found": 12,
+    "expected": 12,
+    "extra_cells_in_namespace": {
+     "core.mac.l_adder.bitslice[0].u_fa_66": "tiel",
+     "core.mac.l_adder.bitslice[10].u_fa_67": "tiel",
+     "core.mac.l_adder.bitslice[8].u_fa_68": "tiel",
+     "core.mac.l_adder.bitslice[9].u_fa_69": "tiel",
+     "core.mac.l_adder.u_msb_x3_70": "tiel"
+    },
+    "msb_A3_net": "core.mac.l_adder.c[11]",
+    "errors": [],
+    "pass": true
+   }
+  },
+  "I2_synth_nl": {
+   "core.mac.adder": {
+    "N": 22,
+    "cells_found": 22,
+    "expected": 22,
+    "extra_cells_in_namespace": {},
+    "msb_A3_net": "core.mac.adder.c[21]",
+    "errors": [],
+    "pass": true
+   },
+   "core.mac.l_adder": {
+    "N": 12,
+    "cells_found": 12,
+    "expected": 12,
+    "extra_cells_in_namespace": {},
+    "msb_A3_net": "core.mac.l_adder.c[11]",
+    "errors": [],
+    "pass": true
+   }
+  },
+  "I3_def_fixed": {
+   "cfg_cells": 34,
+   "bad": [],
+   "pass": true
+  }
+ },
+ "all_pass": true
+}
