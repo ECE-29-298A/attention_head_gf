@@ -1,0 +1,12 @@
+cells_prep           pass                pass-static       1.50s  RESULT cells netlist_modules=['divider'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=2584ce
+gen                  pass                pass-static       0.91s  RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_do
+selftest             pass                pass-static       3.07s  RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792
+lint_11              pass-with-waiver    pass-static       3.33s  RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'cl
+refcheck             pass                pass-static       1.67s  RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)
+edge_11              pass-edge-spot      pass-sampled     18.45s  cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 ser
+fv_pdr_proto_11      proven              proven            1.28s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS
+fv_proto_11          proven              proven            6.55s  sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction
+fv_sanity_lat_11     failed-as-expected  failed           10.90s  sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat
+fv_sanity_round_11   failed-as-expected  failed           17.46s  sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round
+eqy_rtl              proven              proven            1.32s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold 
+TOTAL 11/11 gating ok, all_ok=True; 43.306 s

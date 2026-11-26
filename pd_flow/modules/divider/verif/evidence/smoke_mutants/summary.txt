@@ -1,0 +1,11 @@
+# divider Agent 1 smoke check of the contract; not the mutation campaign (Agent 2).
+# Each mutant must have all_ok = false, killed by a gating edge/spot or formal item (D9b).
+# Sources: evidence/smoke_mutants/m_*.v (golden with one edit, marked MUTANT). Runs: ./run_all.sh --rtl m.v --out <scratchpad>, --jobs 3.
+m_tie: exact .5 rounds toward zero (round step requires 2R > L instead of 2R >= L)
+  gating 16/22 ok, all_ok=False, 34.3 s; killed by: edge_00 edge_11 fv_result_00 fv_result_11 eqy_rtl_00 eqy_rtl_11
+m_shift: a shift on the completion edge overrides the new result (shift moved after the FSM case)
+  gating 14/22 ok, all_ok=False, 71.8 s; killed by: edge_00 edge_11 fv_cover_00 fv_cover_11 fv_result_00 fv_result_11 eqy_rtl_00 eqy_rtl_11
+  (fv_cover_*: c_shift_done becomes unreachable)
+m_restart: a start while busy reloads the dividend register (protocol unchanged)
+  gating 16/22 ok, all_ok=False, 46.0 s; killed by: edge_00 edge_11 fv_result_00 fv_result_11 eqy_rtl_00 eqy_rtl_11
+  (fv_proto_* pass, as expected: busy/done timing is unchanged; the result proof and EQY catch it)

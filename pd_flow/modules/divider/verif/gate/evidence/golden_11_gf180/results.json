@@ -1,0 +1,159 @@
+{
+  "module": "divider",
+  "dut": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/verif/gate/netlists/divider_11_gf180.v",
+  "dut_sha256": "f76a6444550592ab9c87eb225c578733c12a18d7aa0de83c526f45087746dfba",
+  "dut_is_golden": false,
+  "mode": "gate-level",
+  "configs": [
+    "11"
+  ],
+  "config_meaning": "first digit LATCH_DENOMINATOR, second CHECK_INVALID; 00 shipped, 11 defaults",
+  "cells": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog",
+  "flop_liberty": "/Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib",
+  "tools": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.046 2026-02-28 rev vUNKNOWN-built20260228",
+    "yosys": "Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)",
+    "z3": "Z3 version 5.4.1 - 64 bit"
+  },
+  "total_seconds": 43.306,
+  "items_total": 11,
+  "items_ok": 11,
+  "gating_total": 11,
+  "gating_ok": 11,
+  "all_ok": true,
+  "items": [
+    {
+      "id": "cells_prep",
+      "kind": "prep",
+      "status": "pass",
+      "ok": true,
+      "seconds": 1.503,
+      "log": "logs/cells_prep.log",
+      "detail": "RESULT cells netlist_modules=['divider'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=2584cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib",
+      "label": "pass-static",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "gen",
+      "kind": "gen",
+      "status": "pass",
+      "ok": true,
+      "seconds": 0.912,
+      "log": "logs/gen.log",
+      "detail": "RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162",
+      "label": "pass-static",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "selftest",
+      "kind": "selftest",
+      "status": "pass",
+      "ok": true,
+      "seconds": 3.073,
+      "log": "logs/selftest.log",
+      "detail": "RESULT selftest kats=31 fraction_points=78665 ties=1758 project_model_points=30732 (project model out of domain at 11792, model None there too) errors=0",
+      "label": "pass-static",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "lint_11",
+      "kind": "lint",
+      "status": "pass-with-waiver",
+      "ok": true,
+      "seconds": 3.334,
+      "log": "logs/lint_11.log",
+      "detail": "RESULT lint mode=gate warnings=12 netlist=0 library=9 waived=3 errors=0; RESULT interface top=divider ports=['busy', 'clk', 'denominator', 'done', 'result', 'rst_n', 'shift', 'start', 'sum_in'] params={} flop_bits=69 errors=0",
+      "label": "pass-static",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "refcheck",
+      "kind": "refcheck",
+      "status": "pass",
+      "ok": true,
+      "seconds": 1.668,
+      "log": "logs/refcheck.log",
+      "detail": "RESULT refcheck points=7353 domain_points=6066 mismatches=0 (expected points=7353)",
+      "label": "pass-static",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "edge_11",
+      "kind": "edge",
+      "status": "pass-edge-spot",
+      "ok": true,
+      "seconds": 18.45,
+      "log": "logs/edge_11.log",
+      "detail": "cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 serial=735 b2b=3186 idle=5514 mismatches=0 (expected points=7353)",
+      "label": "pass-sampled",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_pdr_proto_11",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 1.279,
+      "log": "logs/fv_pdr_proto_11.log",
+      "detail": "sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: engine_0 (abc pdr) returned PASS",
+      "label": "proven",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_proto_11",
+      "kind": "sby",
+      "status": "proven",
+      "ok": true,
+      "seconds": 6.549,
+      "log": "logs/fv_proto_11.log",
+      "detail": "sby_status=PASS asserts=6 covers=0 (expected asserts=6 covers=0); summary: successful proof by k-induction",
+      "label": "proven",
+      "gating": true,
+      "expected_outcome": "pass"
+    },
+    {
+      "id": "fv_sanity_lat_11",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 10.901,
+      "log": "logs/fv_sanity_lat_11.log",
+      "detail": "sby_status=FAIL (expected FAIL) asserts=6 covers=0 failed assertion divider_props.a_wrong_lat",
+      "label": "failed",
+      "gating": true,
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "fv_sanity_round_11",
+      "kind": "sby",
+      "status": "failed-as-expected",
+      "ok": true,
+      "seconds": 17.462,
+      "log": "logs/fv_sanity_round_11.log",
+      "detail": "sby_status=FAIL (expected FAIL) asserts=7 covers=0 failed assertion divider_props.a_wrong_round",
+      "label": "failed",
+      "gating": true,
+      "expected_outcome": "fail"
+    },
+    {
+      "id": "eqy_rtl",
+      "kind": "eqy",
+      "status": "proven",
+      "ok": true,
+      "seconds": 1.319,
+      "log": "logs/eqy_rtl.log",
+      "detail": "eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=16 (strategy sat, depth 1, merged partition, gold = golden RTL at 11)",
+      "label": "proven",
+      "gating": true,
+      "expected_outcome": "pass"
+    }
+  ]
+}

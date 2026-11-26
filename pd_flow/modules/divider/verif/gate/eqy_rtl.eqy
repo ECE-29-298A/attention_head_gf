@@ -1,0 +1,55 @@
+# Items eqy_rtl (gate mode) and eqy_rtl_00 / eqy_rtl_11 (RTL mode): the design under test
+# against the golden RTL (snapshot/divider.v) at the same configuration (LATCH_DENOMINATOR,
+# CHECK_INVALID). Gate mode: the netlist's Yosys view divider_fv.v (netlist + combinational
+# PDK models + liberty flop models). RTL mode: the candidate RTL with the same chparam lines.
+# run_all.sh replaces @LD@ / @CI@ with the configuration and @GATEPARAM@ with the chparam
+# lines (RTL mode) or nothing (gate mode). Strategy sat, depth 1: the state bits are matched
+# by name and each partition's next-state and output functions are proven equal, an
+# unbounded equivalence proof. This is the mandatory candidate-vs-golden equivalence (D9b).
+# Matching: ports and registers by name. The golden's combinational wire names are excluded,
+# except `divisor` and `invalid`, which are pure aliases (at 11 of the registers
+# g_divisor.saved_divisor and invalid_r, whose flops a mapped netlist names after the alias;
+# at 00 of the port denominator and of constant 0)
+# ([match], gold-nomatch): a netlist may keep such a name on a net that ABC optimised under a
+# don't-care (seen: next_quotient[0] differs in IDLE, where it is unused), which is not an
+# inequivalence. All partitions are merged into one ([partition], merge *): separate
+# partitions would treat a matched output that is a function of matched state (busy, a
+# function of state) as an independent free input, which gives spurious "unknown" results.
+# dffunmap on both sides: enable / reset flops become plain flops with explicit feedback.
+# It is a STRICT equivalence: it does not use the 0/0 caller guarantees (SPEC A1-A4), so a
+# candidate that exploits them fails here and needs a reviewed, domain-restricted proof. A
+# netlist that re-encodes the state (no name match) gives "equivalence unknown" (failed).
+[gold]
+read_verilog -sv gold.v
+chparam -set LATCH_DENOMINATOR @LD@ divider
+chparam -set CHECK_INVALID @CI@ divider
+hierarchy -top divider
+proc
+prep -top divider
+dffunmap
+
+[gate]
+read_verilog -sv gate.v
+@GATEPARAM@
+hierarchy -top divider
+proc; flatten; opt_clean
+prep -top divider
+dffunmap
+
+[match *]
+gold-nomatch magnitude
+gold-nomatch trial
+gold-nomatch difference
+gold-nomatch subtract
+gold-nomatch next_remainder
+gold-nomatch next_quotient
+gold-nomatch rounded
+gold-nomatch signed_result
+gold-nomatch overflow
+
+[partition *]
+merge *
+
+[strategy sat]
+use sat
+depth 1

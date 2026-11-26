@@ -1,0 +1,100 @@
+# SymbiYosys contract for divider. Run one task at a time: sby -f divider.sby <task>
+# divider_fv.v is the DUT as Yosys reads it (RTL: the RTL file; gate level: the Yosys view from
+# gate/extract_cells.py). fv_mode.vh is written by run_all.sh (defines GATE for a netlist).
+# ref_divider_seq.v is the independent result reference. No assumptions anywhere (no assume,
+# restrict, anyconst, anyseq); the DUT has no initial value.
+# Suffix _00 = LATCH_DENOMINATOR 0, CHECK_INVALID 0 (shipped); _11 = 1/1 (the defaults).
+#   proto_*      k-induction (smtbmc/Z3), depth 28, black box (PROTO): protocol, latency,
+#                busy/done, ignored starts, reset, hold, shift, completion over shift.
+#                Depth 28 > 25 edges of a division, so no white-box help is needed.
+#   pdr_proto_*  the same properties with abc pdr (IC3), an independent unbounded engine.
+#   result_*     k-induction, depth 3, everything in proto_* plus a_comp (result == the
+#                reference after every completion), with the white-box lemmas (WB) on the
+#                golden's per-step partial remainder / quotient; golden-named RTL only (the
+#                lemma wires are connected to the DUT's registers by `connect` below).
+#   cover_*      covers, depth 30 (one full division plus margin).
+#   sanity_*     negative controls, must be refuted (bmc).
+[tasks]
+proto_00        prove z3 deep
+proto_11        prove z3 deep
+pdr_proto_00    prove pdr
+pdr_proto_11    prove pdr
+result_00       prove z3 wbdepth wb
+result_11       prove z3 wbdepth wb wb11
+cover_00        cover1
+cover_11        cover1
+sanity_pu_00    sanity shallow
+sanity_lat_11   sanity
+sanity_round_00 sanity
+sanity_round_11 sanity
+sanity_stab_00  sanity
+
+[options]
+prove: mode prove
+deep: depth 28
+wbdepth: depth 3
+cover1: mode cover
+cover1: depth 30
+sanity: mode bmc
+sanity: depth 28
+shallow: depth 2
+
+[engines]
+z3: smtbmc z3
+pdr: abc pdr
+cover1: smtbmc z3
+sanity: smtbmc z3
+
+[script]
+proto_00:        read_verilog -formal -sv -DPROTO divider_props.sv
+proto_11:        read_verilog -formal -sv -DPROTO -DP11 divider_props.sv
+pdr_proto_00:    read_verilog -formal -sv -DPROTO divider_props.sv
+pdr_proto_11:    read_verilog -formal -sv -DPROTO -DP11 divider_props.sv
+result_00:       read_verilog -formal -sv -DWB divider_props.sv
+result_11:       read_verilog -formal -sv -DWB -DP11 divider_props.sv
+cover_00:        read_verilog -formal -sv -DCOVERS divider_props.sv
+cover_11:        read_verilog -formal -sv -DCOVERS -DP11 divider_props.sv
+sanity_pu_00:    read_verilog -formal -sv -DPROTO -DSANITY_PU divider_props.sv
+sanity_lat_11:   read_verilog -formal -sv -DPROTO -DSANITY_LAT -DP11 divider_props.sv
+sanity_round_00: read_verilog -formal -sv -DSANITY_ROUND divider_props.sv
+sanity_round_11: read_verilog -formal -sv -DSANITY_ROUND -DP11 divider_props.sv
+sanity_stab_00:  read_verilog -formal -sv -DSANITY_STAB divider_props.sv
+read_verilog -formal ref_divider_seq.v
+read_verilog -formal divider_fv.v
+hierarchy -top divider_props
+proc
+# guard: the DUT carries no initial value (power-up state unconstrained); only the harness's
+# own observer registers may have one. Runs after proc (which turns `initial` blocks into init
+# attributes) and before flatten (afterwards every wire lives in divider_props). Lesson from
+# max_reg review N1.
+select -assert-none a:init divider_props/* %d
+# flatten + opt_clean collapse non-inverting buffers (e.g. a CTS clkbuf from clk to the flops),
+# so "clocked by clk" means the same here as in the lint structure check (SPEC R15). An
+# inverting or gated clock stays a derived clock, which SBY refuses (inconclusive).
+flatten
+# white-box lemma wires (result_* only): connected to the golden's registers. A DUT without
+# these names makes the task fail to elaborate (run_all.sh pre-checks and reports unsupported).
+wb: connect -set wb_state dut.state divider_props
+wb: connect -set wb_step dut.step divider_props
+wb: connect -set wb_quotient dut.quotient divider_props
+wb: connect -set wb_remainder dut.remainder_value divider_props
+wb: connect -set wb_negative dut.negative divider_props
+wb11: connect -set wb_divisor dut.g_divisor.saved_divisor divider_props
+wb11: connect -set wb_invalid dut.invalid_r divider_props
+opt_clean
+prep -top divider_props
+# guard: one positive-edge clock, synchronous logic only: no asynchronous reset/set, no
+# latches, memories or negative-edge flops. (Without multiclock, SBY treats every flop as
+# clocked by the global step; lint also checks this.) Synchronous-reset flops are allowed.
+select -assert-none t:$adff* t:$aldff* t:$dffsr* t:$dlatch* t:$adlatch* t:$sr t:$mem* t:$_DFF_N* t:$_DFF_P?_ t:$_DFFE_N* t:$_DFFSR* t:$_ALDFF* t:$_DLATCH* t:$_SR_* t:$_SDFF_N* t:$_SDFFE_N* t:$_SDFFCE_N*
+select -assert-none t:$dff r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$dffe r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$sdff r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$sdffe r:CLK_POLARITY=1'b0 %i
+select -assert-none t:$sdffce r:CLK_POLARITY=1'b0 %i
+
+[files]
+divider_fv.v
+divider_props.sv
+ref_divider_seq.v
+fv_mode.vh
