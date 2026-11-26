@@ -165,3 +165,24 @@ std-cell area breakdown by class next to totals.
   (check `docker ps`), using about 4 cores. Agent 1 uses at most 3 jobs, Agent 2 at most 2, and
   Agent 3 at most 1 job, with no `ll_synth.sh` while a harden runs. Reuse cached artifacts when
   the hashes match.
+
+## Review artifact per committed placement experiment (user request, 2026-11-26)
+Every committed tetrising or placement experiment (block, cluster, whole chip) produces a
+self-contained review page in `pd_flow/review_artifacts/<experiment>.html`, generated with
+`pd_flow/scripts/review_artifact.py`. The orchestrator also publishes it as a private artifact.
+Each page contains:
+- the placement drawn from real DEF coordinates (rows, taps, fixed cells highlighted);
+- metrics against the baseline, with the area breakdown by class;
+- verification status;
+- the decision;
+- evidence paths.
+
+## Packing target and effort (user decision D8, 2026-11-26)
+- Physically designed blocks and clusters target **up to 90% packing density**: total cell area,
+  taps included, over the placement region (a rectangle or a union of row segments, measured on
+  site boundaries).
+- Report density for every block. Anything below 85% needs a measured cause: pin access, routing
+  congestion or overflow, or a DRC hazard.
+- Routability must be shown by global and detailed routing with 0 DRC. A density the router cannot
+  close is not a result.
+- The orchestrator spawns every tetrising, placement and floorplan agent at maximum effort.

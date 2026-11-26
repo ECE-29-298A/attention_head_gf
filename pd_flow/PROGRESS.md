@@ -65,6 +65,12 @@
   evaluation. Risk: the ff hold margin falls to +0.058 ns; the fallback is `alt_holdsafe_config.patch`
   (h3, +0.076 ns, -1,185.4 µm²).
 
+- D8 (user, 2026-11-26): "make sure tetrising agents work at MAX effort. i expect up to 90% packing density on
+  physically designed modules". Every tetrising, placement or floorplan agent is spawned with effort=max.
+  Each custom-placed block or cluster targets about 90% packing: cell area over placement-region area,
+  taps included, with the region a rectangle or a union of row segments. A block below 85% needs a measured
+  reason (pin access, routability, a DRC hazard).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
