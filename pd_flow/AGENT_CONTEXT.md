@@ -186,3 +186,11 @@ Each page contains:
 - Routability must be shown by global and detailed routing with 0 DRC. A density the router cannot
   close is not a result.
 - The orchestrator spawns every tetrising, placement and floorplan agent at maximum effort.
+
+## Formal verification only (user decision D9, 2026-11-26)
+- **No exhaustive testing.** Acceptance is formal: SBY (k-induction, abc pdr) and EQY proofs, covers,
+  and negative controls.
+- **X checks:** use formal X-propagation (for example Yosys `sat -enable_undef` / `xprop`, or an SBY
+  harness), never 4-state exhaustive simulation.
+- **Mutation:** a must-kill mutant counts as killed only by a formal item.
+- **Sampled simulation:** short runs (seconds) may remain as non-gating smoke checks.

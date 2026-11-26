@@ -71,6 +71,16 @@
   taps included, with the region a rectangle or a union of row segments. A block below 85% needs a measured
   reason (pin access, routability, a DRC hazard).
 
+- D9 (user, 2026-11-26): "do NOT do exhaustive testing. you MUST use formal verification techniques."
+  - Acceptance evidence is formal: equivalence or property proofs (SBY k-induction/pdr, EQY), covers and
+    negative controls.
+  - Exhaustive simulation is not run.
+  - X-propagation is checked formally, not with 4-state exhaustive simulation.
+  - Mutants must be killed by a formal item.
+  - Cheap sampled simulation may stay as non-gating smoke only.
+  - Frozen contracts (ripple_add, max_reg) already rest on unbounded proofs. Their exhaustive items are
+    dropped from reruns through a reviewed amendment the next time those contracts are touched.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
