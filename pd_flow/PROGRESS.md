@@ -81,6 +81,16 @@
   - Frozen contracts (ripple_add, max_reg) already rest on unbounded proofs. Their exhaustive items are
     dropped from reruns through a reviewed amendment the next time those contracts are touched.
 
+- D9b (user, 2026-11-26): "you also dont need to do full formal for everything. Combination circuits only need
+  edge cases and spot checks."
+  - **Combinational logic:** directed edge cases plus random spot checks (seconds, not exhaustive), with
+    no full formal proof required.
+  - **Sequential behaviour** (state, reset, latency, power-up): formal (SBY k-induction or pdr), with
+    covers and negative controls.
+  - **Optimized candidate vs golden:** EQY equivalence stays mandatory, as the workflow's equivalence
+    gate (it costs about 1 s).
+  - Exhaustive simulation stays banned (D9).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

@@ -194,3 +194,13 @@ Each page contains:
   harness), never 4-state exhaustive simulation.
 - **Mutation:** a must-kill mutant counts as killed only by a formal item.
 - **Sampled simulation:** short runs (seconds) may remain as non-gating smoke checks.
+
+## Verification depth (user decision D9b, 2026-11-26; refines D9)
+- **Combinational logic:** directed **edge cases** (boundaries, saturation, rounding ties, extremes
+  of every input field, each table region) plus random **spot checks**, run in seconds. No
+  exhaustive simulation, and no full formal proof required.
+- **Sequential behaviour** (reset, load/hold, latency, handshake, power-up independence): SBY
+  formal (k-induction or abc pdr), with covers and negative controls.
+- **Candidate vs golden:** EQY equivalence remains mandatory before any optimized netlist or RTL
+  is accepted.
+- **Mutation:** a must-kill mutant may be killed by an edge-case/spot-check item or by a formal item.
