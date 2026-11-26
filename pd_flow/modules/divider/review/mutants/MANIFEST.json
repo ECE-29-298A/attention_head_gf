@@ -1,0 +1,152 @@
+{
+ "m01_latency_plus1": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "DIVIDE ends at step 23 (24 divide steps, done one cycle late)"
+ },
+ "m02_latency_minus1": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "DIVIDE ends at step 21 (22 divide steps, done one cycle early, wrong value)"
+ },
+ "m03_ties_toward_zero": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "exact ties (2R == L) round toward zero for both signs"
+ },
+ "m04_neg_ties_up": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "negative exact ties round toward +inf (half up in signed terms)"
+ },
+ "m05_neg_off_by_one": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "negative results use ~q + s instead of ~q + !s (off by -1)"
+ },
+ "m06_sign_from_bit18": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "sign latched from sum_in[18] instead of sum_in[19]"
+ },
+ "m07_start_restarts": {
+  "class": "out-of-context-bug",
+  "scope": "all",
+  "description": "a start while busy restarts the datapath (busy-ignore dropped for the datapath)"
+ },
+ "m08_shift_beats_done": {
+  "class": "out-of-context-bug",
+  "scope": "all",
+  "description": "a shift in the completion cycle overrides the new result"
+ },
+ "m09_shift_rotates": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "shift rotates result[11] into bit 0 instead of zero fill"
+ },
+ "m10_reset_keeps_result": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "synchronous reset does not clear result"
+ },
+ "m11_reset_keeps_done": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "synchronous reset does not clear done (done holds through reset)"
+ },
+ "m12_reset_no_abort": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "reset does not abort a running division (state only reset when idle)"
+ },
+ "m13_latch_always": {
+  "class": "out-of-context-bug",
+  "scope": "L1",
+  "description": "LATCH_DENOMINATOR=1 samples the denominator every cycle (behaves like 0)"
+ },
+ "m14_remainder_not_cleared": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "remainder is not cleared at load (holds its old value through IDLE)"
+ },
+ "m15_ovf_neg_2048": {
+  "class": "out-of-context-bug",
+  "scope": "C1",
+  "description": "CHECK_INVALID=1 flags the valid result -2048 as overflow (rare value)"
+ },
+ "m16_rare_point": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "rare value: result corrupted only for sum_in = 12345 with denominator = 678 (accept-time point)"
+ },
+ "m17_rare_maxL": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "rare value: rounding increment lost when the divisor is 4095"
+ },
+ "m18_invalid_den0_dropped": {
+  "class": "out-of-context-bug",
+  "scope": "C1",
+  "description": "CHECK_INVALID=1 no longer flags denominator == 0"
+ },
+ "m19_busy_low_in_round": {
+  "class": "out-of-context-bug",
+  "scope": "all",
+  "description": "busy is low in the ROUND cycle (busy = state == DIVIDE)"
+ },
+ "m20_done_sticky": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "done is not cleared after its pulse (stays high until reset)"
+ },
+ "m21_default_check0": {
+  "class": "out-of-context-bug",
+  "scope": "default",
+  "description": "default CHECK_INVALID changed from 1 to 0"
+ },
+ "m22_default_latch0": {
+  "class": "out-of-context-bug",
+  "scope": "default",
+  "description": "default LATCH_DENOMINATOR changed from 1 to 0"
+ },
+ "m23_carry_bit8_lost": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "the round/sign incrementer drops the carry out of bit 7"
+ },
+ "m24_start_during_reset": {
+  "class": "functional-bug",
+  "scope": "all",
+  "description": "a start in a reset cycle is accepted (reset no longer beats start)"
+ },
+ "e01_latch_on_start": {
+  "class": "equivalent",
+  "scope": "all",
+  "description": "saved_divisor loaded only at accept (state == IDLE && start)"
+ },
+ "e02_negate_form": {
+  "class": "equivalent",
+  "scope": "all",
+  "description": "signed_result written as negative ? -(q + s) : q + s"
+ },
+ "e03_compare_form": {
+  "class": "equivalent",
+  "scope": "all",
+  "description": "subtract computed by >= and the remainder by a separate subtraction"
+ },
+ "e04_magnitude_neg": {
+  "class": "equivalent",
+  "scope": "all",
+  "description": "magnitude written as a two's complement negate of the full sum"
+ },
+ "e05_step_hold_in_idle": {
+  "class": "equivalent",
+  "scope": "all",
+  "description": "step cleared only on the accept edge (holds while idle without start)"
+ },
+ "e06_done_explicit": {
+  "class": "equivalent",
+  "scope": "all",
+  "description": "done written as a single assignment from the ROUND state"
+ }
+}

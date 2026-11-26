@@ -1,0 +1,2 @@
+RESULT edges points=7353 in_domain_00=6066 classes=extreme:24,int8:28,l_zero:7,near_tie:2645,range:333,small:154,spot_domain:2000,spot_full:2000,tie:162
+51bc76cdc74979aa055e76e7d0754463726f465e72a11a25d86bdd0bbdd7010f  edges.txt

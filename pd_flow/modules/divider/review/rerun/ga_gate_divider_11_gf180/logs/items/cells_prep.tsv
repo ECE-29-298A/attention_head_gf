@@ -1,0 +1,1 @@
+cells_prep	prep	pass	true	0.293	logs/cells_prep.log	RESULT cells netlist_modules=['divider'] cell_types=24 models_copied=49 udps=1 liberty_flop_cells=1 netlist_lines=2584cells=verilog; lib=gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib

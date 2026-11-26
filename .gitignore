@@ -60,3 +60,6 @@ pd_flow/clusters/*/placements/*/manual_global_placements.json
 !pd_flow/clusters/datapath/placements/xpk20_s1/placement.json
 !pd_flow/clusters/datapath/placements/xpk20_s1/manual_global_placements.json
 pd_flow/clusters/**/__pycache__/
+# divider review: bulky mutation run dirs (summaries are in mutation_results.json)
+pd_flow/modules/divider/review/mutation_runs/
+pd_flow/modules/divider/review/**/runs/

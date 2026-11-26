@@ -1,0 +1,18 @@
+EQY 15:59:09 [eq] read_gold: starting process "yosys -ql eq/gold.log eq/gold.ys"
+EQY 15:59:10 [eq] read_gold: finished (returncode=0)
+EQY 15:59:10 [eq] read_gate: starting process "yosys -ql eq/gate.log eq/gate.ys"
+EQY 15:59:11 [eq] read_gate: finished (returncode=0)
+EQY 15:59:11 [eq] combine: starting process "yosys -ql eq/combine.log eq/combine.ys"
+EQY 15:59:11 [eq] combine: finished (returncode=0)
+EQY 15:59:11 [eq] partition: starting process "cd eq; yosys -ql partition.log partition.ys"
+EQY 15:59:11 [eq] partition: finished (returncode=0)
+EQY 15:59:11 [eq] run: starting process "make -C eq -f strategies.mk"
+EQY 15:59:11 [eq] run: Running strategy 'sat' on 'divider.busy'..
+EQY 15:59:12 [eq] run: Could not prove equivalence of partition 'divider.busy' using strategy 'sat': equivalence unknown
+EQY 15:59:12 [eq] run: /Applications/Xcode.app/Contents/Developer/usr/bin/make -f strategies.mk summary
+EQY 15:59:12 [eq] run: finished (returncode=0)
+EQY 15:59:12 [eq] Warning: Failed to prove equivalence for 1/1 partitions:
+EQY 15:59:12 [eq] Failed to prove equivalence of partition divider.busy
+EQY 15:59:12 [eq] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+EQY 15:59:12 [eq] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+EQY 15:59:12 [eq] DONE (FAIL, rc=2)

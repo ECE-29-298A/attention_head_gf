@@ -1,0 +1,15 @@
+gate_g01_dswap_result3_4           functional-bug       killed    8/12   43.0s killed_by=edge_00,fv_pdr_proto_00,fv_proto_00,eqy_rtl
+gate_g02_xor_to_xnor_407           functional-bug       killed    9/12   21.2s killed_by=lint_00,edge_00,eqy_rtl
+gate_g03_buf_result11              equivalent           survived  12/12   27.9s killed_by=
+gate_g04_clkbuf                    equivalent           survived  12/12   29.2s killed_by=
+gate_g05_dffnq_done                structural           killed    5/12   10.2s killed_by=lint_00,edge_00,fv_pdr_proto_00,fv_proto_00,fv_sanity_round_00,fv_sanity_stab_00,eqy_rtl
+gate_g06_busy_stuck0               out-of-context-bug   killed    6/12   10.1s killed_by=edge_00,fv_pdr_proto_00,fv_proto_00,fv_sanity_round_00,fv_sanity_stab_00,eqy_rtl
+gate_s_e02_negate_form             equivalent           survived  12/12   29.8s killed_by=
+gate_s_e03_compare_form            equivalent           survived  12/12   27.5s killed_by=
+gate_s_m01_latency_plus1           functional-bug       killed    7/12   28.4s killed_by=edge_00,fv_pdr_proto_00,fv_proto_00,fv_sanity_stab_00,eqy_rtl
+gate_s_m03_ties_toward_zero        functional-bug       killed    10/12   30.1s killed_by=edge_00,eqy_rtl
+gate_s_m05_neg_off_by_one          functional-bug       killed    10/12   27.1s killed_by=edge_00,eqy_rtl
+gate_s_m16_rare_point              functional-bug       killed    11/12   27.0s killed_by=eqy_rtl
+gate_s_m17_rare_maxL               functional-bug       killed    10/12   26.6s killed_by=edge_00,eqy_rtl
+gate_s_m23_carry_bit8_lost         functional-bug       killed    10/12   27.6s killed_by=edge_00,eqy_rtl
+gate_g02_xor_to_xnor_407           functional-bug       killed    10/12   28.9s killed_by=edge_00,eqy_rtl

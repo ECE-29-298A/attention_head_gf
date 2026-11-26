@@ -1,0 +1,1 @@
+edge_11	edge	pass-edge-spot	true	9.298	logs/edge_11.log	cfg=11 points=7353 skipped=0 cycles=200955 checks=401910 start_busy=6364 shift_busy=17047 shift_done=1226 aborts=254 serial=735 b2b=3186 idle=5514 mismatches=0 (expected points=7353)

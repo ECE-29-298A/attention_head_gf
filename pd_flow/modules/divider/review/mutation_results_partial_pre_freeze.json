@@ -1,0 +1,116 @@
+{
+  "runs": {
+    "m03_ties_toward_zero": {
+      "file": "mutants/m03_ties_toward_zero.v",
+      "mode": "rtl",
+      "description": "exact ties (2R == L) round toward zero for both signs",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../verif/run_all.sh --rtl mutants/m03_ties_toward_zero.v --out mutation_runs/m03_ties_toward_zero --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 42.2,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "e01_latch_on_start": {
+      "file": "mutants/e01_latch_on_start.v",
+      "mode": "rtl",
+      "description": "saved_divisor loaded only at accept (state == IDLE && start)",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../verif/run_all.sh --rtl mutants/e01_latch_on_start.v --out mutation_runs/e01_latch_on_start --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/../verif",
+      "run_all_rc": 1,
+      "seconds": 108.3,
+      "items_ok": 21,
+      "items_total": 22,
+      "killed_by": [
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "e02_negate_form": {
+      "file": "mutants/e02_negate_form.v",
+      "mode": "rtl",
+      "description": "signed_result written as negative ? -(q + s) : q + s",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../verif/run_all.sh --rtl mutants/e02_negate_form.v --out mutation_runs/e02_negate_form --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 819.8,
+      "items_ok": 22,
+      "items_total": 22,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived"
+    },
+    "e03_compare_form": {
+      "file": "mutants/e03_compare_form.v",
+      "mode": "rtl",
+      "description": "subtract computed by >= and the remainder by a separate subtraction",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../verif/run_all.sh --rtl mutants/e03_compare_form.v --out mutation_runs/e03_compare_form --jobs 2",
+      "contract_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/divider/review/../verif",
+      "run_all_rc": 0,
+      "seconds": 357.1,
+      "items_ok": 22,
+      "items_total": 22,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived"
+    }
+  }
+}

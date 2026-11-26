@@ -1,0 +1,60 @@
+e01_latch_on_start 00 PASS [returned pass for basecase] 
+e01_latch_on_start 11 PASS [returned pass for basecase] 
+e02_negate_form 00 PASS [returned pass for basecase] 
+e02_negate_form 11 PASS [returned pass for basecase] 
+e03_compare_form 00 PASS [returned pass for basecase] 
+e03_compare_form 11 PASS [returned pass for basecase] 
+e04_magnitude_neg 00 PASS [returned pass for basecase] 
+e04_magnitude_neg 11 PASS [returned pass for basecase] 
+e05_step_hold_in_idle 00 PASS [returned pass for basecase] 
+e05_step_hold_in_idle 11 PASS [returned pass for basecase] 
+e06_done_explicit 00 PASS [returned pass for basecase] 
+e06_done_explicit 11 PASS [returned pass for basecase] 
+m01_latency_plus1 00 UNKNOWN [returned pass for basecase] inv_round,
+m01_latency_plus1 11 UNKNOWN [returned pass for basecase] inv_round,
+m02_latency_minus1 00 UNKNOWN [returned pass for basecase] inv_div,
+m02_latency_minus1 11 UNKNOWN [returned pass for basecase] inv_div,
+m03_ties_toward_zero 00 UNKNOWN [returned pass for basecase] a_value,
+m03_ties_toward_zero 11 UNKNOWN [returned pass for basecase] a_value,
+m04_neg_ties_up 00 UNKNOWN [returned pass for basecase] a_value,
+m04_neg_ties_up 11 UNKNOWN [returned pass for basecase] a_value,
+m05_neg_off_by_one 00 UNKNOWN [returned pass for basecase] a_value,
+m05_neg_off_by_one 11 UNKNOWN [returned pass for basecase] a_value,
+m06_sign_from_bit18 00 UNKNOWN [returned pass for basecase] inv_neg,
+m06_sign_from_bit18 11 UNKNOWN [returned pass for basecase] inv_neg,
+m07_start_restarts 00 UNKNOWN [returned pass for basecase] inv_div,inv_q,inv_r,
+m07_start_restarts 11 UNKNOWN [returned pass for basecase] inv_div,
+m08_shift_beats_done 00 UNKNOWN [returned pass for basecase] a_value,
+m08_shift_beats_done 11 UNKNOWN [returned pass for basecase] a_value,
+m09_shift_rotates 00 UNKNOWN [returned pass for basecase] a_hold,
+m09_shift_rotates 11 UNKNOWN [returned pass for basecase] a_hold,
+m10_reset_keeps_result 00 FAIL [returned FAIL for basecase] a_reset,
+m10_reset_keeps_result 11 FAIL [returned FAIL for basecase] a_reset,
+m11_reset_keeps_done 00 FAIL [returned FAIL for basecase] a_done,a_reset,
+m11_reset_keeps_done 11 FAIL [returned FAIL for basecase] a_done,a_reset,
+m12_reset_no_abort 00 FAIL [returned FAIL for basecase] a_busy,inv_idle,
+m12_reset_no_abort 11 FAIL [returned FAIL for basecase] a_busy,inv_idle,
+m13_latch_always 00 PASS [returned pass for basecase] 
+m13_latch_always 11 UNKNOWN [returned pass for basecase] inv_divisor,
+m14_remainder_not_cleared 00 UNKNOWN [returned pass for basecase] inv_r,
+m14_remainder_not_cleared 11 UNKNOWN [returned pass for basecase] inv_r,
+m15_ovf_neg_2048 00 PASS [returned pass for basecase] 
+m15_ovf_neg_2048 11 UNKNOWN [returned pass for basecase] a_value,
+m16_rare_point 00 UNKNOWN [returned pass for basecase] a_value,
+m16_rare_point 11 UNKNOWN [returned pass for basecase] a_value,
+m17_rare_maxL 00 UNKNOWN [returned pass for basecase] a_value,
+m17_rare_maxL 11 UNKNOWN [returned pass for basecase] a_value,
+m18_invalid_den0_dropped 00 PASS [returned pass for basecase] 
+m18_invalid_den0_dropped 11 UNKNOWN [returned pass for basecase] inv_invalid,
+m19_busy_low_in_round 00 UNKNOWN [returned pass for basecase] a_busy,
+m19_busy_low_in_round 11 UNKNOWN [returned pass for basecase] a_busy,
+m20_done_sticky 00 UNKNOWN [returned pass for basecase] a_done,
+m20_done_sticky 11 UNKNOWN [returned pass for basecase] a_done,
+m21_default_check0 00 PASS [returned pass for basecase] 
+m21_default_check0 11 PASS [returned pass for basecase] 
+m22_default_latch0 00 PASS [returned pass for basecase] 
+m22_default_latch0 11 PASS [returned pass for basecase] 
+m23_carry_bit8_lost 00 UNKNOWN [returned pass for basecase] a_value,
+m23_carry_bit8_lost 11 UNKNOWN [returned pass for basecase] a_value,
+m24_start_during_reset 00 FAIL [returned FAIL for basecase] a_busy,inv_idle,
+m24_start_during_reset 11 FAIL [returned FAIL for basecase] a_busy,inv_idle,

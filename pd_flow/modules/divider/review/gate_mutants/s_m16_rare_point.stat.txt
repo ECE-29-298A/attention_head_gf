@@ -1,0 +1,44 @@
+
+11. Printing statistics.
+
+=== divider ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      296        - wires
+      419        - wire bits
+       16        - public wires
+      117        - public wire bits
+        9        - ports
+       50        - port bits
+      356 9.07E+03 cells
+        9  158.054   gf180mcu_fd_sc_mcu7t5v0__and2_1
+        4   87.808   gf180mcu_fd_sc_mcu7t5v0__and3_1
+        4   87.808   gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+       32  561.971   gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+       40  351.232   gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+       57 3.63E+03   gf180mcu_fd_sc_mcu7t5v0__dffq_1
+       18  513.677   gf180mcu_fd_sc_mcu7t5v0__mux2_1
+       39  428.064   gf180mcu_fd_sc_mcu7t5v0__nand2_1
+        1   15.366   gf180mcu_fd_sc_mcu7t5v0__nand3_1
+        6  118.541   gf180mcu_fd_sc_mcu7t5v0__nand4_1
+       33   434.65   gf180mcu_fd_sc_mcu7t5v0__nor2_1
+        4   70.246   gf180mcu_fd_sc_mcu7t5v0__nor3_1
+        8  175.616   gf180mcu_fd_sc_mcu7t5v0__nor4_1
+        1   21.952   gf180mcu_fd_sc_mcu7t5v0__oai211_1
+       27  474.163   gf180mcu_fd_sc_mcu7t5v0__oai21_1
+        1   26.342   gf180mcu_fd_sc_mcu7t5v0__oai221_1
+        7  153.664   gf180mcu_fd_sc_mcu7t5v0__oai22_1
+        8  193.178   gf180mcu_fd_sc_mcu7t5v0__oai31_1
+        4   105.37   gf180mcu_fd_sc_mcu7t5v0__oai32_1
+        6   105.37   gf180mcu_fd_sc_mcu7t5v0__or2_1
+        2   43.904   gf180mcu_fd_sc_mcu7t5v0__or3_1
+        2   52.685   gf180mcu_fd_sc_mcu7t5v0__or4_1
+        2   57.075   gf180mcu_fd_sc_mcu7t5v0__xnor2_1
+       36  948.326   gf180mcu_fd_sc_mcu7t5v0__xor2_1
+        5  252.448   gf180mcu_fd_sc_mcu7t5v0__xor3_1
+
+   Chip area for module '\divider': 9066.176000
+     of which used for sequential elements: 3628.665600 (40.02%)
+

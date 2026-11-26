@@ -1,0 +1,1879 @@
+{
+  "runs": {
+    "e01_latch_on_start": {
+      "file": "mutants/e01_latch_on_start.v",
+      "mode": "rtl",
+      "description": "saved_divisor loaded only at accept (state == IDLE && start)",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/e01_latch_on_start.v --out mutation_runs/e01_latch_on_start --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 53.1,
+      "items_ok": 21,
+      "items_total": 22,
+      "killed_by": [
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS (rerun with final div_spec.sv)",
+        "11": "PASS (rerun with final div_spec.sv)"
+      },
+      "note": "behaviourally equivalent (register-level difference only in idle cycles); killed only by strict EQY. Proven to meet the specification at 00 and 11 by the Agent 2 reference (ref/runs/equiv_*)."
+    },
+    "e02_negate_form": {
+      "file": "mutants/e02_negate_form.v",
+      "mode": "rtl",
+      "description": "signed_result written as negative ? -(q + s) : q + s",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/e02_negate_form.v --out mutation_runs/e02_negate_form --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 115.8,
+      "items_ok": 22,
+      "items_total": 22,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS [returned pass for basecase]"
+      }
+    },
+    "e03_compare_form": {
+      "file": "mutants/e03_compare_form.v",
+      "mode": "rtl",
+      "description": "subtract computed by >= and the remainder by a separate subtraction",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/e03_compare_form.v --out mutation_runs/e03_compare_form --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 116.2,
+      "items_ok": 22,
+      "items_total": 22,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS [returned pass for basecase]"
+      }
+    },
+    "e04_magnitude_neg": {
+      "file": "mutants/e04_magnitude_neg.v",
+      "mode": "rtl",
+      "description": "magnitude written as a two's complement negate of the full sum",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/e04_magnitude_neg.v --out mutation_runs/e04_magnitude_neg --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 31.5,
+      "items_ok": 22,
+      "items_total": 22,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS [returned pass for basecase]"
+      }
+    },
+    "e05_step_hold_in_idle": {
+      "file": "mutants/e05_step_hold_in_idle.v",
+      "mode": "rtl",
+      "description": "step cleared only on the accept edge (holds while idle without start)",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/e05_step_hold_in_idle.v --out mutation_runs/e05_step_hold_in_idle --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 77.6,
+      "items_ok": 20,
+      "items_total": 22,
+      "killed_by": [
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS (rerun with final div_spec.sv)",
+        "11": "PASS (rerun with final div_spec.sv)"
+      },
+      "note": "behaviourally equivalent (register-level difference only in idle cycles); killed only by strict EQY. Proven to meet the specification at 00 and 11 by the Agent 2 reference (ref/runs/equiv_*)."
+    },
+    "e06_done_explicit": {
+      "file": "mutants/e06_done_explicit.v",
+      "mode": "rtl",
+      "description": "done written as a single assignment from the ROUND state",
+      "class": "equivalent",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/e06_done_explicit.v --out mutation_runs/e06_done_explicit --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 67.9,
+      "items_ok": 22,
+      "items_total": 22,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS [returned pass for basecase]"
+      }
+    },
+    "m01_latency_plus1": {
+      "file": "mutants/m01_latency_plus1.v",
+      "mode": "rtl",
+      "description": "DIVIDE ends at step 23 (24 divide steps, done one cycle late)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m01_latency_plus1.v --out mutation_runs/m01_latency_plus1 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 172.3,
+      "items_ok": 11,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "fv_sanity_round_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] inv_round,",
+        "11": "UNKNOWN [returned pass for basecase] inv_round,"
+      }
+    },
+    "m02_latency_minus1": {
+      "file": "mutants/m02_latency_minus1.v",
+      "mode": "rtl",
+      "description": "DIVIDE ends at step 21 (22 divide steps, done one cycle early, wrong value)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m02_latency_minus1.v --out mutation_runs/m02_latency_minus1 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 130.6,
+      "items_ok": 7,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_cover_00",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_cover_00": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "fv_sanity_lat_11": "failed",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_round_11": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_cover_00",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] inv_div,",
+        "11": "UNKNOWN [returned pass for basecase] inv_div,"
+      }
+    },
+    "m03_ties_toward_zero": {
+      "file": "mutants/m03_ties_toward_zero.v",
+      "mode": "rtl",
+      "description": "exact ties (2R == L) round toward zero for both signs",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m03_ties_toward_zero.v --out mutation_runs/m03_ties_toward_zero --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 64.7,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m04_neg_ties_up": {
+      "file": "mutants/m04_neg_ties_up.v",
+      "mode": "rtl",
+      "description": "negative exact ties round toward +inf (half up in signed terms)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m04_neg_ties_up.v --out mutation_runs/m04_neg_ties_up --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 684.8,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m05_neg_off_by_one": {
+      "file": "mutants/m05_neg_off_by_one.v",
+      "mode": "rtl",
+      "description": "negative results use ~q + s instead of ~q + !s (off by -1)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m05_neg_off_by_one.v --out mutation_runs/m05_neg_off_by_one --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 26.4,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m06_sign_from_bit18": {
+      "file": "mutants/m06_sign_from_bit18.v",
+      "mode": "rtl",
+      "description": "sign latched from sum_in[18] instead of sum_in[19]",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m06_sign_from_bit18.v --out mutation_runs/m06_sign_from_bit18 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 26.8,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "failed",
+        "fv_result_11": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] inv_neg,",
+        "11": "UNKNOWN [returned pass for basecase] inv_neg,"
+      }
+    },
+    "m07_start_restarts": {
+      "file": "mutants/m07_start_restarts.v",
+      "mode": "rtl",
+      "description": "a start while busy restarts the datapath (busy-ignore dropped for the datapath)",
+      "class": "out-of-context-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m07_start_restarts.v --out mutation_runs/m07_start_restarts --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 26.2,
+      "items_ok": 11,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "fv_sanity_round_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] inv_div,inv_q,inv_r,",
+        "11": "UNKNOWN [returned pass for basecase] inv_div,"
+      }
+    },
+    "m08_shift_beats_done": {
+      "file": "mutants/m08_shift_beats_done.v",
+      "mode": "rtl",
+      "description": "a shift in the completion cycle overrides the new result",
+      "class": "out-of-context-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m08_shift_beats_done.v --out mutation_runs/m08_shift_beats_done --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 25.9,
+      "items_ok": 14,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_cover_00",
+        "fv_cover_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_cover_00": "failed",
+        "fv_cover_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_cover_00",
+        "fv_cover_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m09_shift_rotates": {
+      "file": "mutants/m09_shift_rotates.v",
+      "mode": "rtl",
+      "description": "shift rotates result[11] into bit 0 instead of zero fill",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m09_shift_rotates.v --out mutation_runs/m09_shift_rotates --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 37.9,
+      "items_ok": 12,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_hold,",
+        "11": "UNKNOWN [returned pass for basecase] a_hold,"
+      }
+    },
+    "m10_reset_keeps_result": {
+      "file": "mutants/m10_reset_keeps_result.v",
+      "mode": "rtl",
+      "description": "synchronous reset does not clear result",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m10_reset_keeps_result.v --out mutation_runs/m10_reset_keeps_result --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 11.6,
+      "items_ok": 8,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "failed",
+        "fv_result_11": "failed",
+        "fv_sanity_lat_11": "failed",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_round_11": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "FAIL [returned FAIL for basecase] a_reset,",
+        "11": "FAIL [returned FAIL for basecase] a_reset,"
+      }
+    },
+    "m11_reset_keeps_done": {
+      "file": "mutants/m11_reset_keeps_done.v",
+      "mode": "rtl",
+      "description": "synchronous reset does not clear done (done holds through reset)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m11_reset_keeps_done.v --out mutation_runs/m11_reset_keeps_done --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 19.9,
+      "items_ok": 9,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "failed",
+        "fv_result_11": "failed",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_round_11": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "FAIL [returned FAIL for basecase] a_done,a_reset,",
+        "11": "FAIL [returned FAIL for basecase] a_done,a_reset,"
+      }
+    },
+    "m12_reset_no_abort": {
+      "file": "mutants/m12_reset_no_abort.v",
+      "mode": "rtl",
+      "description": "reset does not abort a running division (state only reset when idle)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m12_reset_no_abort.v --out mutation_runs/m12_reset_no_abort --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 7.2,
+      "items_ok": 8,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "failed",
+        "fv_result_11": "failed",
+        "fv_sanity_lat_11": "failed",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_round_11": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "FAIL [returned FAIL for basecase] a_busy,inv_idle,",
+        "11": "FAIL [returned FAIL for basecase] a_busy,inv_idle,"
+      }
+    },
+    "m13_latch_always": {
+      "file": "mutants/m13_latch_always.v",
+      "mode": "rtl",
+      "description": "LATCH_DENOMINATOR=1 samples the denominator every cycle (behaves like 0)",
+      "class": "out-of-context-bug",
+      "scope": "L1",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m13_latch_always.v --out mutation_runs/m13_latch_always --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 30.2,
+      "items_ok": 19,
+      "items_total": 22,
+      "killed_by": [
+        "edge_11",
+        "fv_result_11",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_11": "failed",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_11",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "UNKNOWN [returned pass for basecase] inv_divisor,"
+      }
+    },
+    "m14_remainder_not_cleared": {
+      "file": "mutants/m14_remainder_not_cleared.v",
+      "mode": "rtl",
+      "description": "remainder is not cleared at load (holds its old value through IDLE)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m14_remainder_not_cleared.v --out mutation_runs/m14_remainder_not_cleared --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 25.4,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "failed",
+        "fv_result_11": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] inv_r,",
+        "11": "UNKNOWN [returned pass for basecase] inv_r,"
+      }
+    },
+    "m15_ovf_neg_2048": {
+      "file": "mutants/m15_ovf_neg_2048.v",
+      "mode": "rtl",
+      "description": "CHECK_INVALID=1 flags the valid result -2048 as overflow (rare value)",
+      "class": "out-of-context-bug",
+      "scope": "C1",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m15_ovf_neg_2048.v --out mutation_runs/m15_ovf_neg_2048 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 26.5,
+      "items_ok": 18,
+      "items_total": 22,
+      "killed_by": [
+        "edge_11",
+        "fv_cover_11",
+        "fv_result_11",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_11": "failed",
+        "fv_cover_11": "failed",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_cover_11",
+        "fv_result_11",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m16_rare_point": {
+      "file": "mutants/m16_rare_point.v",
+      "mode": "rtl",
+      "description": "rare value: result corrupted only for sum_in = 12345 with denominator = 678 (accept-time point)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m16_rare_point.v --out mutation_runs/m16_rare_point --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 26.5,
+      "items_ok": 18,
+      "items_total": 22,
+      "killed_by": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m17_rare_maxL": {
+      "file": "mutants/m17_rare_maxL.v",
+      "mode": "rtl",
+      "description": "rare value: rounding increment lost when the divisor is 4095",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m17_rare_maxL.v --out mutation_runs/m17_rare_maxL --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 28.3,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m18_invalid_den0_dropped": {
+      "file": "mutants/m18_invalid_den0_dropped.v",
+      "mode": "rtl",
+      "description": "CHECK_INVALID=1 no longer flags denominator == 0",
+      "class": "equivalent",
+      "scope": "C1",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m18_invalid_den0_dropped.v --out mutation_runs/m18_invalid_den0_dropped --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 28.9,
+      "items_ok": 20,
+      "items_total": 22,
+      "killed_by": [
+        "fv_result_11",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "fv_result_11": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_11",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS with RELAX_INV=1 (ref/runs/equiv_m18_11_relaxinv); default lemmas: UNKNOWN inv_invalid"
+      },
+      "class_original": "out-of-context-bug",
+      "reclassified": "behaviourally equivalent: with L = 0 every restoring step subtracts, the quotient is all ones, so `overflow` (|quotient[22:12]) already forces result 0 at CHECK_INVALID = 1. Killed only by the white-box lemma l_inv (fv_result_11) and strict EQY (register invalid_r differs). Proven to meet the specification by the Agent 2 reference with the L = 0 term of the invalid lemma relaxed (ref/runs/equiv_m18_11_relaxinv, PASS); negative control m15 under the same setting fails a_value."
+    },
+    "m19_busy_low_in_round": {
+      "file": "mutants/m19_busy_low_in_round.v",
+      "mode": "rtl",
+      "description": "busy is low in the ROUND cycle (busy = state == DIVIDE)",
+      "class": "out-of-context-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m19_busy_low_in_round.v --out mutation_runs/m19_busy_low_in_round --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 27.1,
+      "items_ok": 9,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_round_11": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_busy,",
+        "11": "UNKNOWN [returned pass for basecase] a_busy,"
+      }
+    },
+    "m20_done_sticky": {
+      "file": "mutants/m20_done_sticky.v",
+      "mode": "rtl",
+      "description": "done is not cleared after its pulse (stays high until reset)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m20_done_sticky.v --out mutation_runs/m20_done_sticky --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 31.3,
+      "items_ok": 10,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_cover_00",
+        "fv_cover_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_cover_00": "failed",
+        "fv_cover_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_cover_00",
+        "fv_cover_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_done,",
+        "11": "UNKNOWN [returned pass for basecase] a_done,"
+      }
+    },
+    "m21_default_check0": {
+      "file": "mutants/m21_default_check0.v",
+      "mode": "rtl",
+      "description": "default CHECK_INVALID changed from 1 to 0",
+      "class": "out-of-context-bug",
+      "scope": "default",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m21_default_check0.v --out mutation_runs/m21_default_check0 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 32.6,
+      "items_ok": 21,
+      "items_total": 22,
+      "killed_by": [
+        "lint_11"
+      ],
+      "killed_by_status": {
+        "lint_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [
+        "lint_11"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS [returned pass for basecase]"
+      }
+    },
+    "m22_default_latch0": {
+      "file": "mutants/m22_default_latch0.v",
+      "mode": "rtl",
+      "description": "default LATCH_DENOMINATOR changed from 1 to 0",
+      "class": "out-of-context-bug",
+      "scope": "default",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m22_default_latch0.v --out mutation_runs/m22_default_latch0 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 29.8,
+      "items_ok": 21,
+      "items_total": 22,
+      "killed_by": [
+        "lint_11"
+      ],
+      "killed_by_status": {
+        "lint_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [
+        "lint_11"
+      ],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "PASS [returned pass for basecase]",
+        "11": "PASS [returned pass for basecase]"
+      }
+    },
+    "m23_carry_bit8_lost": {
+      "file": "mutants/m23_carry_bit8_lost.v",
+      "mode": "rtl",
+      "description": "the round/sign incrementer drops the carry out of bit 7",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m23_carry_bit8_lost.v --out mutation_runs/m23_carry_bit8_lost --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 27.3,
+      "items_ok": 16,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_result_00": "not-proven",
+        "fv_result_11": "not-proven",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_result_00",
+        "fv_result_11",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "UNKNOWN [returned pass for basecase] a_value,",
+        "11": "UNKNOWN [returned pass for basecase] a_value,"
+      }
+    },
+    "m24_start_during_reset": {
+      "file": "mutants/m24_start_during_reset.v",
+      "mode": "rtl",
+      "description": "a start in a reset cycle is accepted (reset no longer beats start)",
+      "class": "functional-bug",
+      "scope": "all",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif/run_all.sh --rtl mutants/m24_start_during_reset.v --out mutation_runs/m24_start_during_reset --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/frozen/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 18.7,
+      "items_ok": 8,
+      "items_total": 22,
+      "killed_by": [
+        "edge_00",
+        "edge_11",
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "edge_11": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_pdr_proto_11": "failed",
+        "fv_proto_00": "failed",
+        "fv_proto_11": "failed",
+        "fv_result_00": "failed",
+        "fv_result_11": "failed",
+        "fv_sanity_lat_11": "failed",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_round_11": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl_00": "failed",
+        "eqy_rtl_11": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_pdr_proto_11",
+        "fv_proto_00",
+        "fv_proto_11",
+        "fv_result_00",
+        "fv_result_11",
+        "fv_sanity_lat_11",
+        "fv_sanity_round_00",
+        "fv_sanity_round_11",
+        "fv_sanity_stab_00",
+        "eqy_rtl_00",
+        "eqy_rtl_11"
+      ],
+      "killed_by_edge": [
+        "edge_00",
+        "edge_11"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed",
+      "agent2_reference_kinduction": {
+        "00": "FAIL [returned FAIL for basecase] a_busy,inv_idle,",
+        "11": "FAIL [returned FAIL for basecase] a_busy,inv_idle,"
+      }
+    },
+    "gate_g01_dswap_result3_4": {
+      "file": "gate_mutants/g01_dswap_result3_4.v",
+      "mode": "gate",
+      "description": "D inputs of flops result[3] (_611_) and result[4] (_612_) swapped",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/g01_dswap_result3_4.v --out mutation_runs/gate_g01_dswap_result3_4 --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 43.0,
+      "items_ok": 8,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_proto_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_g02_xor_to_xnor_407": {
+      "file": "gate_mutants/g02_xor_to_xnor_407.v",
+      "mode": "gate",
+      "description": "datapath cell _407_ xor2_1 replaced by xnor2_1",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/g02_xor_to_xnor_407.v --out mutation_runs/gate_g02_xor_to_xnor_407 --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 28.9,
+      "items_ok": 10,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_g03_buf_result11": {
+      "file": "gate_mutants/g03_buf_result11.v",
+      "mode": "gate",
+      "description": "a buf_1 inserted on the result[11] flop output (models resizer buffering)",
+      "class": "equivalent",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/g03_buf_result11.v --out mutation_runs/gate_g03_buf_result11 --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 27.9,
+      "items_ok": 12,
+      "items_total": 12,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived"
+    },
+    "gate_g04_clkbuf": {
+      "file": "gate_mutants/g04_clkbuf.v",
+      "mode": "gate",
+      "description": "all flops clocked through one clkbuf_1 from clk (models a post-CTS netlist)",
+      "class": "equivalent",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/g04_clkbuf.v --out mutation_runs/gate_g04_clkbuf --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 29.2,
+      "items_ok": 12,
+      "items_total": 12,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived"
+    },
+    "gate_g05_dffnq_done": {
+      "file": "gate_mutants/g05_dffnq_done.v",
+      "mode": "gate",
+      "description": "done flop _620_ replaced by negative-edge dffnq_1",
+      "class": "structural",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/g05_dffnq_done.v --out mutation_runs/gate_g05_dffnq_done --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 10.2,
+      "items_ok": 5,
+      "items_total": 12,
+      "killed_by": [
+        "lint_00",
+        "edge_00",
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "fv_sanity_round_00",
+        "fv_sanity_stab_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "lint_00": "failed",
+        "edge_00": "failed",
+        "fv_pdr_proto_00": "inconclusive",
+        "fv_proto_00": "inconclusive",
+        "fv_sanity_round_00": "inconclusive",
+        "fv_sanity_stab_00": "inconclusive",
+        "eqy_rtl": "inconclusive"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "fv_sanity_round_00",
+        "fv_sanity_stab_00",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [
+        "lint_00"
+      ],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_g06_busy_stuck0": {
+      "file": "gate_mutants/g06_busy_stuck0.v",
+      "mode": "gate",
+      "description": "busy output inverter input tied high (busy stuck at 0; the chip leaves busy unused)",
+      "class": "out-of-context-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/g06_busy_stuck0.v --out mutation_runs/gate_g06_busy_stuck0 --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 10.1,
+      "items_ok": 6,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "fv_sanity_round_00",
+        "fv_sanity_stab_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_proto_00": "failed",
+        "fv_sanity_round_00": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "fv_sanity_round_00",
+        "fv_sanity_stab_00",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_s_e02_negate_form": {
+      "file": "gate_mutants/s_e02_negate_form.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant e02_negate_form (signed_result written as negative ? -(q + s) : q + s)",
+      "class": "equivalent",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_e02_negate_form.v --out mutation_runs/gate_s_e02_negate_form --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 29.8,
+      "items_ok": 12,
+      "items_total": 12,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived"
+    },
+    "gate_s_e03_compare_form": {
+      "file": "gate_mutants/s_e03_compare_form.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant e03_compare_form (subtract computed by >= and the remainder by a separate subtraction)",
+      "class": "equivalent",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_e03_compare_form.v --out mutation_runs/gate_s_e03_compare_form --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 0,
+      "seconds": 27.5,
+      "items_ok": 12,
+      "items_total": 12,
+      "killed_by": [],
+      "killed_by_status": {},
+      "nongating_failed": [],
+      "killed_by_formal": [],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": true,
+      "outcome": "survived"
+    },
+    "gate_s_m01_latency_plus1": {
+      "file": "gate_mutants/s_m01_latency_plus1.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant m01_latency_plus1 (DIVIDE ends at step 23 (24 divide steps, done one cycle late))",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_m01_latency_plus1.v --out mutation_runs/gate_s_m01_latency_plus1 --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 28.4,
+      "items_ok": 7,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "fv_sanity_stab_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "fv_pdr_proto_00": "failed",
+        "fv_proto_00": "failed",
+        "fv_sanity_stab_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "fv_pdr_proto_00",
+        "fv_proto_00",
+        "fv_sanity_stab_00",
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_s_m03_ties_toward_zero": {
+      "file": "gate_mutants/s_m03_ties_toward_zero.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant m03_ties_toward_zero (exact ties (2R == L) round toward zero for both signs)",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_m03_ties_toward_zero.v --out mutation_runs/gate_s_m03_ties_toward_zero --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 30.1,
+      "items_ok": 10,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_s_m05_neg_off_by_one": {
+      "file": "gate_mutants/s_m05_neg_off_by_one.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant m05_neg_off_by_one (negative results use ~q + s instead of ~q + !s (off by -1))",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_m05_neg_off_by_one.v --out mutation_runs/gate_s_m05_neg_off_by_one --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 27.1,
+      "items_ok": 10,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_s_m16_rare_point": {
+      "file": "gate_mutants/s_m16_rare_point.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant m16_rare_point (rare value: result corrupted only for sum_in = 12345 with denominator = 678 (accept-time point))",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_m16_rare_point.v --out mutation_runs/gate_s_m16_rare_point --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 27.0,
+      "items_ok": 11,
+      "items_total": 12,
+      "killed_by": [
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_s_m17_rare_maxL": {
+      "file": "gate_mutants/s_m17_rare_maxL.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant m17_rare_maxL (rare value: rounding increment lost when the divisor is 4095)",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_m17_rare_maxL.v --out mutation_runs/gate_s_m17_rare_maxL --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 26.6,
+      "items_ok": 10,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    },
+    "gate_s_m23_carry_bit8_lost": {
+      "file": "gate_mutants/s_m23_carry_bit8_lost.v",
+      "mode": "gate",
+      "description": "mapped GF180 netlist (config 00) of RTL mutant m23_carry_bit8_lost (the round/sign incrementer drops the carry out of bit 7)",
+      "class": "functional-bug",
+      "scope": "00",
+      "command": "../../../../../../../../../private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/run_all.sh --gate --rtl gate_mutants/s_m23_carry_bit8_lost.v --out mutation_runs/gate_s_m23_carry_bit8_lost --config 00 --jobs 2",
+      "contract_dir": "/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif",
+      "run_all_rc": 1,
+      "seconds": 27.6,
+      "items_ok": 10,
+      "items_total": 12,
+      "killed_by": [
+        "edge_00",
+        "eqy_rtl"
+      ],
+      "killed_by_status": {
+        "edge_00": "failed",
+        "eqy_rtl": "failed"
+      },
+      "nongating_failed": [],
+      "killed_by_formal": [
+        "eqy_rtl"
+      ],
+      "killed_by_edge": [
+        "edge_00"
+      ],
+      "killed_by_static": [],
+      "all_ok": false,
+      "outcome": "killed"
+    }
+  },
+  "contract": {
+    "commit": "be7df42",
+    "hashes": "contract_hash_be7df42.txt",
+    "copy_used": "git archive HEAD (gate) / byte-identical working copy (RTL, see contract_hash_at_audit.txt; only SPEC.md wording and RTM.md differ)"
+  }
+}

@@ -1,0 +1,2 @@
+RESULT refcheck points=7353 domain_points=6066 mismatches=0
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga2/pd_flow/modules/divider/verif/sim/tb_ref.sv:59: $finish called at 1772073000 (1ps)

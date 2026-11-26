@@ -1,0 +1,3 @@
+e01_latch_on_start                 equivalent           killed    21/22  108.3s killed_by=eqy_rtl_11
+e02_negate_form                    equivalent           survived  22/22  819.8s killed_by=
+e03_compare_form                   equivalent           survived  22/22  357.1s killed_by=

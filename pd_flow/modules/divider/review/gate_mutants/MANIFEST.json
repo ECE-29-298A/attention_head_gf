@@ -1,0 +1,72 @@
+{
+ "g01_dswap_result3_4": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "D inputs of flops result[3] (_611_) and result[4] (_612_) swapped"
+ },
+ "g02_xor_to_xnor_407": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "datapath cell _407_ xor2_1 replaced by xnor2_1"
+ },
+ "g03_buf_result11": {
+  "class": "equivalent",
+  "config": "00",
+  "description": "a buf_1 inserted on the result[11] flop output (models resizer buffering)"
+ },
+ "g04_clkbuf": {
+  "class": "equivalent",
+  "config": "00",
+  "description": "all flops clocked through one clkbuf_1 from clk (models a post-CTS netlist)"
+ },
+ "g05_dffnq_done": {
+  "class": "structural",
+  "config": "00",
+  "description": "done flop _620_ replaced by negative-edge dffnq_1"
+ },
+ "g06_busy_stuck0": {
+  "class": "out-of-context-bug",
+  "config": "00",
+  "description": "busy output inverter input tied high (busy stuck at 0; the chip leaves busy unused)"
+ },
+ "s_m03_ties_toward_zero": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant m03_ties_toward_zero (exact ties (2R == L) round toward zero for both signs)"
+ },
+ "s_m05_neg_off_by_one": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant m05_neg_off_by_one (negative results use ~q + s instead of ~q + !s (off by -1))"
+ },
+ "s_m16_rare_point": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant m16_rare_point (rare value: result corrupted only for sum_in = 12345 with denominator = 678 (accept-time point))"
+ },
+ "s_m17_rare_maxL": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant m17_rare_maxL (rare value: rounding increment lost when the divisor is 4095)"
+ },
+ "s_m23_carry_bit8_lost": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant m23_carry_bit8_lost (the round/sign incrementer drops the carry out of bit 7)"
+ },
+ "s_m01_latency_plus1": {
+  "class": "functional-bug",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant m01_latency_plus1 (DIVIDE ends at step 23 (24 divide steps, done one cycle late))"
+ },
+ "s_e02_negate_form": {
+  "class": "equivalent",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant e02_negate_form (signed_result written as negative ? -(q + s) : q + s)"
+ },
+ "s_e03_compare_form": {
+  "class": "equivalent",
+  "config": "00",
+  "description": "mapped GF180 netlist (config 00) of RTL mutant e03_compare_form (subtract computed by >= and the remainder by a separate subtraction)"
+ }
+}
