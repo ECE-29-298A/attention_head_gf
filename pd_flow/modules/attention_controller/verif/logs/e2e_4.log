@@ -1,0 +1,2 @@
+RESULT sim outputs=4 cases=3 runs=4 errors=0
+/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/attention_controller/verif/sim/tb_e2e.sv:108: $finish called at 159220000 (1ps)

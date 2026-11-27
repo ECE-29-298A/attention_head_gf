@@ -1,0 +1,1 @@
+lemma_lint	lemlint	pass	true	0.046	logs/lemma_lint.log	RESULT lemma_lint statements=24 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/attention_controller/verif/formal/golden_self_lemmas.sv; 

@@ -1,0 +1,43 @@
+== net widths (flattened miter, no lemmas)
+== lemmas: none
+RESULT lemma_gen lemmas=0 nets=0 errors=0
+// no lemma file
+# no lemma file
+== sby sanity_seq_4
+SBY 20:22:35 [seq_eq_sanity_seq_4] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/ctrl_miter.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/ctrl_miter.sv'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/gold.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/gold.v'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/ctrl_dut.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/ctrl_dut.v'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/fv_mode.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/fv_mode.vh'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_gold.ys' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/seq_gold.ys'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_lemmas.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/seq_lemmas.vh'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_lemmas.ys' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_seq_4/seq_eq_sanity_seq_4/src/seq_lemmas.ys'.
+SBY 20:22:35 [seq_eq_sanity_seq_4] engine_0: smtbmc z3
+SBY 20:22:35 [seq_eq_sanity_seq_4] base: starting process "cd seq_eq_sanity_seq_4/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:22:35 [seq_eq_sanity_seq_4] base: finished (returncode=0)
+SBY 20:22:35 [seq_eq_sanity_seq_4] prep: starting process "cd seq_eq_sanity_seq_4/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:22:35 [seq_eq_sanity_seq_4] prep: finished (returncode=0)
+SBY 20:22:35 [seq_eq_sanity_seq_4] smt2: starting process "cd seq_eq_sanity_seq_4/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:22:35 [seq_eq_sanity_seq_4] smt2: finished (returncode=0)
+SBY 20:22:35 [seq_eq_sanity_seq_4] engine_0: starting process "cd seq_eq_sanity_seq_4; yosys-smtbmc -s z3 --presat --noprogress -t 6  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:22:35 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Solver: z3
+SBY 20:22:35 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  BMC failed!
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Assert failed in ctrl_miter: a_wrong_eq
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: ##   0:00:00  Status: failed
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: finished (returncode=1)
+SBY 20:22:36 [seq_eq_sanity_seq_4] engine_0: Status returned by engine: FAIL
+SBY 20:22:36 [seq_eq_sanity_seq_4] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:22:36 [seq_eq_sanity_seq_4] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:22:36 [seq_eq_sanity_seq_4] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 20:22:36 [seq_eq_sanity_seq_4] summary: counterexample trace: seq_eq_sanity_seq_4/engine_0/trace.vcd
+SBY 20:22:36 [seq_eq_sanity_seq_4] summary:   failed assertion ctrl_miter.a_wrong_eq at ctrl_miter.sv:94.9-94.46 step 1
+SBY 20:22:36 [seq_eq_sanity_seq_4] DONE (FAIL, rc=2)
+SBY 20:22:36 The following tasks failed: ['sanity_seq_4']

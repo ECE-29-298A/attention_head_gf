@@ -1,0 +1,1 @@
+seq_eq_2	seq	proven	true	3.657	logs/seq_eq_2.log	sby_status=PASS asserts=20 covers=0 (a_eq + a_obs + 18 lemmas); basecase depth 3 from free independent start states + k-induction; reset-anchored; lemmas=golden_self_lemmas.sv

@@ -1,0 +1,1 @@
+e2e_8	e2e	pass-sampled	true	7.397	logs/e2e_8.log	sim=verilator outputs=8 cases=3 runs=4 errors=0 x2 seeds (expected cases=3 runs=4)

@@ -1,0 +1,8 @@
+cells_prep prep
+gen gen
+lint_8 lint 8
+e2e_8 e2e 8
+fv_top_8 sby top top_8
+eqy_rtl eqy 8
+seq_eq_8 seq 8
+fv_sanity_seq_8 seq 8 sanity

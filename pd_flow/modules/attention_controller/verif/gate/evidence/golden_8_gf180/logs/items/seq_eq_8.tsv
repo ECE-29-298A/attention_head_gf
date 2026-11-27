@@ -1,0 +1,1 @@
+seq_eq_8	seq	not-proven	false	7.155	logs/seq_eq_8.log	induction did not close (basecase passed; add or strengthen lemmas): asserts=2 covers=0; failed in induction: a_eq ; lemmas=none

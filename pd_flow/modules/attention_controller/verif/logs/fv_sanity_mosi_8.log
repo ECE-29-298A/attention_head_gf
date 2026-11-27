@@ -1,0 +1,41 @@
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_sanity_mosi_8'.
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_sanity_mosi_8/src/ctrl_int.sv'.
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_props.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_sanity_mosi_8/src/ctrl_int_props.vh'.
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/sub.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_sanity_mosi_8/src/sub.v'.
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ref_ctrl.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_sanity_mosi_8/src/ref_ctrl.v'.
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/cover_top.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_sanity_mosi_8/ctrl_int_sanity_mosi_8/src/cover_top.sv'.
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: smtbmc z3
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] base: starting process "cd ctrl_int_sanity_mosi_8/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] base: finished (returncode=0)
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] prep: starting process "cd ctrl_int_sanity_mosi_8/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] prep: finished (returncode=0)
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] smt2: starting process "cd ctrl_int_sanity_mosi_8/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] smt2: finished (returncode=0)
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: starting process "cd ctrl_int_sanity_mosi_8; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Solver: z3
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  BMC failed!
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Assert failed in attention_controller: n_mosi
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: ##   0:00:00  Status: failed
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: finished (returncode=1)
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] engine_0: Status returned by engine: FAIL
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] summary: counterexample trace: ctrl_int_sanity_mosi_8/engine_0/trace.vcd
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] summary:   failed assertion attention_controller.n_mosi at ctrl_int_props.vh:215.52-215.109 step 4
+SBY 20:22:32 [ctrl_int_sanity_mosi_8] DONE (FAIL, rc=2)
+SBY 20:22:32 The following tasks failed: ['sanity_mosi_8']

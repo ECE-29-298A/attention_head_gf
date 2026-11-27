@@ -1,0 +1,1 @@
+lint_8	lint	pass-with-waiver	true	0.278	logs/lint_8.log	RESULT lint mode=rtl warnings=2 netlist=0 library=0 waived=2 errors=0; RESULT interface top=attention_controller outputs=8 ports=16 flop_bits=308 bound=308 errors=0; RESULT default_param top=attention_controller outputs=8 ports=16 flop_bits=308 bound=308 errors=0

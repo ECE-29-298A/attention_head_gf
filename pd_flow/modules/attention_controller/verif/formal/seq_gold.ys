@@ -1,0 +1,18 @@
+# ctrl_miter observer taps: golden internal nets after flatten (read-only)
+connect -nounset -set g_state gold.state ctrl_miter
+connect -nounset -set g_pos gold.pos ctrl_miter
+connect -nounset -set g_rise gold.rise ctrl_miter
+connect -nounset -set g_run_end gold.run_end ctrl_miter
+connect -nounset -set g_load gold.mac.load ctrl_miter
+connect -nounset -set g_subtract gold.mac.subtract ctrl_miter
+connect -nounset -set g_score_en gold.mac.score_en ctrl_miter
+connect -nounset -set g_accum_mode gold.mac.accum_mode ctrl_miter
+connect -nounset -set g_accum_en gold.mac.accum_en ctrl_miter
+connect -nounset -set g_first gold.mac.first ctrl_miter
+connect -nounset -set g_load_o gold.mac.load_o ctrl_miter
+connect -nounset -set g_bitsel gold.mac.bit_sel ctrl_miter
+connect -nounset -set g_sel gold.mac.sel ctrl_miter
+connect -nounset -set g_men gold.max_unit.en ctrl_miter
+connect -nounset -set g_mfirst gold.max_unit.first ctrl_miter
+connect -nounset -set g_dstart gold.divider_unit.start ctrl_miter
+connect -nounset -set g_dstate gold.divider_unit.state ctrl_miter

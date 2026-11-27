@@ -1,0 +1,10 @@
+cells_prep             pass                pass-static       0.28s  RESULT cells netlist_modules=['attention_controller'] cell_types=31 models_copied=63 udps=1 liberty_flop_cells=1 netlist
+gen                    pass                pass-static       0.12s  RESULT vectors outputs=8 cases=3 runs=4;
+lint_8                 pass-with-waiver    pass-static       0.84s  RESULT lint mode=gate warnings=17 netlist=0 library=8 waived=9 errors=0; RESULT interface top=attention_controller outpu
+e2e_8                  pass-sampled        pass-sampled      7.40s  sim=verilator outputs=8 cases=3 runs=4 errors=0 x2 seeds (expected cases=3 runs=4)
+fv_top_8               proven              proven            2.66s  sby_status=PASS asserts=4 covers=0 (expected asserts=4 covers=0); summary: successful proof by k-induction
+eqy_rtl                proven              proven        (non-gating)     4.70s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=36 (strategy sat, depth 1, gold = golden RTL at OU
+fv_sanity_seq_8        failed-as-expected  failed            1.51s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_8               not-proven          inconclusive  (non-gating)     7.16s  induction did not close (basecase passed; add or strengthen lemmas): asserts=2 covers=0; failed in induction: a_eq ; lem
+equiv_8                proven              proven            0.00s  eqy_rtl: proven; seq_eq_8: not-proven (ok if either is proven)
+TOTAL 7/7 gating ok, all_ok=True; 15.805 s

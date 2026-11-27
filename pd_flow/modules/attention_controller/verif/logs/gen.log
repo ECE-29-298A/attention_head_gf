@@ -1,0 +1,6 @@
+RESULT vectors outputs=8 cases=3 runs=4
+RESULT vectors outputs=4 cases=3 runs=4
+RESULT vectors outputs=2 cases=3 runs=4
+c9fb5b9e0e30850dbc8c46d42a39dc17856a80db117d58bc0d9d383d8a38ee02  vec_2.txt
+3e1c4299168bcaef77a6c9c340f35e530434dc26ad63e3d40da2c82fd7031b94  vec_4.txt
+0c71a06b6532a4e3a911bd79d155037ca8be86c520238c9e4d3ac78d1cefb972  vec_8.txt

@@ -1,0 +1,77 @@
+# Items eqy_rtl (gate mode) and eqy_rtl_<P> (RTL mode): the design under test against the
+# golden RTL (snapshot/attention_controller.sv + its frozen submodules) at OUTPUTS = P. Gate
+# mode: the netlist's Yosys view (netlist + combinational PDK models + liberty flop models).
+# RTL mode: the candidate RTL (+ the frozen submodules it does not define) with the same chparam.
+# run_all.sh replaces @P@ with OUTPUTS and @GATEPARAM@ with the chparam line (RTL) or nothing.
+# Strategy sat, depth 1: the state bits are matched by name (flattened hierarchical names, e.g.
+# state, pos, mac.ring, divider_unit.quotient) and each partition's next-state and output
+# functions are proven equal from ANY common state: an unbounded equivalence that also fixes the
+# power-up behaviour. One route of equiv_<P> (eqy_rtl OR seq_eq). A candidate that re-encodes
+# or renames state gets "unknown"/failed here and must use seq_eq with lemmas instead.
+# proc -norom on both sides: the exp_lut table stays logic. dffunmap: enable flops become plain
+# flops with explicit feedback. The golden's internal combinational names are hidden so that
+# only ports and registers are matched.
+[gold]
+read_verilog -sv gold.v
+chparam -set OUTPUTS @P@ attention_controller
+hierarchy -check -top attention_controller
+proc -norom
+flatten
+prep -top attention_controller
+dffunmap
+opt_clean -purge
+# only ports and register outputs keep public names on the gold side: a combinational net
+# matched by name would become a cut point (a free input of its readers' partitions), and the
+# netlist side may hold such a name on a net that ABC optimised under a don't-care
+rename -hide w:* t:$dff %co1 w:* %i %d i:* %d o:* %d
+
+[gate]
+read_verilog -sv gate.v
+@GATEPARAM@
+hierarchy -check -top attention_controller
+proc -norom; flatten; opt_clean
+# review fix F2 (mac_unit/divider): an init (power-up) value fails eqy_rtl closed
+select -assert-none a:init
+prep -top attention_controller
+dffunmap
+
+[partition *]
+# all partitions merged into one (the mac_unit contract's approach): separate partitions would
+# treat a matched name that the netlist also reads internally (idle, spi_cs_n, out_valid, the
+# submodule port aliases) as a free cut point, which gives spurious failures on a correct
+# netlist (seen on the synthesized golden). A name that is not matched is ignored by merge.
+merge state div_done
+merge state divider_unit.denominator
+merge state divider_unit.negative
+merge state divider_unit.quotient
+merge state divider_unit.remainder_value
+merge state divider_unit.result
+merge state divider_unit.state
+merge state divider_unit.step
+merge state exponent_unit.D
+merge state flash_open
+merge state idle
+merge state mac.M
+merge state mac.qi
+merge state mac.ring
+merge state mac.subtract
+merge state nibble
+merge state out_bit
+merge state out_valid
+merge state output_index
+merge state pos
+merge state score_done
+merge state spi_cs_n
+merge state spi_mosi
+merge state spi_mosi_oe
+merge state spi_sck
+merge state token
+merge state mac.S
+merge state mac.L
+merge state max_unit.M
+merge state q
+merge state second_pass
+
+[strategy sat]
+use sat
+depth 1

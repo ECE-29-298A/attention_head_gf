@@ -1,0 +1,56 @@
+gen                    pass                pass-static       0.26s  RESULT vectors outputs=8 cases=3 runs=4;RESULT vectors outputs=4 cases=3 runs=4;RESULT vectors outputs=2 cases=3 runs=4;
+lemma_lint             pass                pass-static       0.05s  RESULT lemma_lint statements=24 errors=0; file=/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/atten
+lint_2                 pass-with-waiver    pass-static       0.20s  RESULT lint mode=rtl warnings=2 netlist=0 library=0 waived=2 errors=0; RESULT interface top=attention_controller outputs
+lint_4                 pass-with-waiver    pass-static       0.21s  RESULT lint mode=rtl warnings=2 netlist=0 library=0 waived=2 errors=0; RESULT interface top=attention_controller outputs
+lint_8                 pass-with-waiver    pass-static       0.28s  RESULT lint mode=rtl warnings=2 netlist=0 library=0 waived=2 errors=0; RESULT interface top=attention_controller outputs
+e2e_2                  pass-sampled        pass-sampled      0.59s  sim=icarus outputs=2 cases=3 runs=4 errors=0 (expected cases=3 runs=4)
+e2e_4                  pass-sampled        pass-sampled      0.60s  sim=icarus outputs=4 cases=3 runs=4 errors=0 (expected cases=3 runs=4)
+e2e_8                  pass-sampled        pass-sampled      0.61s  sim=icarus outputs=8 cases=3 runs=4 errors=0 (expected cases=3 runs=4)
+fv_cov_g1_2            covered             bounded-pass      3.13s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g1_4            covered             bounded-pass      3.66s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g1_8            covered             bounded-pass      4.54s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g2_2            covered             bounded-pass      3.52s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g2_4            covered             bounded-pass      3.51s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g2_8            covered             bounded-pass      3.38s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g3_2            covered             bounded-pass      3.49s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g3_4            covered             bounded-pass      3.58s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g3_8            covered             bounded-pass      3.42s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g4_2            covered             bounded-pass      2.69s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g4_4            covered             bounded-pass      2.79s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g4_8            covered             bounded-pass      2.88s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g5_2            covered             bounded-pass      0.52s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g5_4            covered             bounded-pass      0.56s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g5_8            covered             bounded-pass      0.53s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g6_2            covered             bounded-pass      2.71s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g6_4            covered             bounded-pass      2.78s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g6_8            covered             bounded-pass      2.73s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g7_2            covered             bounded-pass      2.83s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g7_4            covered             bounded-pass      2.96s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g7_8            covered             bounded-pass      3.12s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g8_2            covered             bounded-pass      2.88s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g8_4            covered             bounded-pass      2.99s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g8_8            covered             bounded-pass      3.10s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g9_2            covered             bounded-pass      3.06s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g9_4            covered             bounded-pass      3.17s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_cov_g9_8            covered             bounded-pass      3.31s  sby_status=FAIL (expected FAIL = witness) asserts=1 covers=0 failed assertion cover_top.ctl.w_group at ctrl_int_props.vh
+fv_int_2               proven              proven            1.96s  sby_status=PASS asserts=54 covers=0 (expected asserts=54 covers=0); summary: successful proof by k-induction
+fv_int_4               proven              proven            2.21s  sby_status=PASS asserts=54 covers=0 (expected asserts=54 covers=0); summary: successful proof by k-induction
+fv_int_8               proven              proven            1.93s  sby_status=PASS asserts=54 covers=0 (expected asserts=54 covers=0); summary: successful proof by k-induction
+fv_sanity_cap_8        failed-as-expected  failed            0.46s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion attention_controller.n_cap
+fv_sanity_mosi_8       failed-as-expected  failed            0.58s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion attention_controller.n_mosi
+fv_sanity_sck_8        failed-as-expected  failed            0.64s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion attention_controller.n_sck
+fv_sanity_top_8        failed-as-expected  failed            0.46s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion tt_um_attention_head_gf.n_top
+fv_top_8               proven              proven            0.40s  sby_status=PASS asserts=4 covers=0 (expected asserts=4 covers=0); summary: successful proof by k-induction
+eqy_rtl_2              proven              proven        (non-gating)     1.50s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=36 (strategy sat, depth 1, gold = golden RTL at OU
+eqy_rtl_4              proven              proven        (non-gating)     1.56s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=36 (strategy sat, depth 1, gold = golden RTL at OU
+eqy_rtl_8              proven              proven        (non-gating)     1.74s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=36 (strategy sat, depth 1, gold = golden RTL at OU
+fv_sanity_seq_2        failed-as-expected  failed            0.50s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_4        failed-as-expected  failed            0.49s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_8        failed-as-expected  failed            0.48s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_2               proven              proven        (non-gating)     3.66s  sby_status=PASS asserts=20 covers=0 (a_eq + a_obs + 18 lemmas); basecase depth 3 from free independent start states + k-
+seq_eq_4               proven              proven        (non-gating)     3.05s  sby_status=PASS asserts=22 covers=0 (a_eq + a_obs + 20 lemmas); basecase depth 3 from free independent start states + k-
+seq_eq_8               proven              proven        (non-gating)     3.45s  sby_status=PASS asserts=26 covers=0 (a_eq + a_obs + 24 lemmas); basecase depth 3 from free independent start states + k-
+equiv_2                proven              proven            0.00s  eqy_rtl: proven; seq_eq_2: proven (ok if either is proven)
+equiv_4                proven              proven            0.00s  eqy_rtl: proven; seq_eq_4: proven (ok if either is proven)
+equiv_8                proven              proven            0.00s  eqy_rtl: proven; seq_eq_8: proven (ok if either is proven)
+TOTAL 49/49 gating ok, all_ok=True; 36.497 s

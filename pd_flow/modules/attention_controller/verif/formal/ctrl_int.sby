@@ -1,0 +1,183 @@
+# Golden-internal SBY items (SPEC.md section 5). One task at a time: sby -f ctrl_int.sby <task>.
+# ctrl_int.sv = a copy of snapshot/attention_controller.sv with `include "ctrl_int_props.vh"
+# inserted before endmodule (run_all.sh); sub.v = the frozen submodules, read WITHOUT -formal.
+# No assumptions anywhere (guarded below).
+#   int_P      prove, smtbmc z3, k-induction depth 3 (the invariants j_*, l_*, v_* close it).
+#   cov_gN_P   covers (SPEC 8): bmc with abc bmc3 on the sticky-bit group assertion w_group;
+#              a FAIL (trace) is the witness that every cover of group N is reached after a
+#              reset. Groups: g1 a continue run with all P results (transitions of SCORE, VALUE,
+#              DIV_START, DIV_WAIT, OUTPUT, the phase wait, a shift), g2 a fresh run's start,
+#              CS# fall, command and the next pass-1 token, g3 pass 1 -> pass 2, g4 the next
+#              pass-2 token, g5 CS# rise and resets in RESTART/CMD/SCORE, g6..g9 a reset in
+#              VALUE, DIV_START, DIV_WAIT, OUTPUT. Depth = upper bound (one 1024-clock row
+#              + 8P V clocks + P results).
+#   sanity_*   negative controls, bmc: a wrong assertion that must FAIL with a trace.
+[tasks]
+int_8   prove p8
+int_4   prove p4
+int_2   prove p2
+cov_g1_8 cover p8
+cov_g2_8 cover p8
+cov_g3_8 cover p8
+cov_g4_8 cover p8
+cov_g5_8 cover p8
+cov_g6_8 cover p8
+cov_g7_8 cover p8
+cov_g8_8 cover p8
+cov_g9_8 cover p8
+cov_g1_4 cover p4
+cov_g2_4 cover p4
+cov_g3_4 cover p4
+cov_g4_4 cover p4
+cov_g5_4 cover p4
+cov_g6_4 cover p4
+cov_g7_4 cover p4
+cov_g8_4 cover p4
+cov_g9_4 cover p4
+cov_g1_2 cover p2
+cov_g2_2 cover p2
+cov_g3_2 cover p2
+cov_g4_2 cover p2
+cov_g5_2 cover p2
+cov_g6_2 cover p2
+cov_g7_2 cover p2
+cov_g8_2 cover p2
+cov_g9_2 cover p2
+sanity_mosi_8 sanity p8
+sanity_cap_8  sanity p8
+sanity_sck_8  sanity p8
+
+[options]
+prove: mode prove
+prove: depth 3
+cover: mode bmc
+cover: aigsmt z3
+cov_g1_8: depth 1450
+cov_g2_8: depth 1450
+cov_g3_8: depth 1450
+cov_g4_8: depth 1450
+cov_g5_8: depth 40
+cov_g6_8: depth 1450
+cov_g7_8: depth 1450
+cov_g8_8: depth 1450
+cov_g9_8: depth 1450
+cov_g1_4: depth 1300
+cov_g2_4: depth 1300
+cov_g3_4: depth 1300
+cov_g4_4: depth 1300
+cov_g5_4: depth 40
+cov_g6_4: depth 1300
+cov_g7_4: depth 1300
+cov_g8_4: depth 1300
+cov_g9_4: depth 1300
+cov_g1_2: depth 1250
+cov_g2_2: depth 1250
+cov_g3_2: depth 1250
+cov_g4_2: depth 1250
+cov_g5_2: depth 40
+cov_g6_2: depth 1250
+cov_g7_2: depth 1250
+cov_g8_2: depth 1250
+cov_g9_2: depth 1250
+sanity: mode bmc
+sanity: depth 12
+
+[engines]
+prove: smtbmc z3
+sanity: smtbmc z3
+cover: abc bmc3
+
+[script]
+prove:  read_verilog -sv -formal ctrl_int.sv
+cov_g1_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h001ff645 ctrl_int.sv
+cov_g1_8: read_verilog -sv -DDRV_G1 cover_top.sv
+cov_g2_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h0020013a ctrl_int.sv
+cov_g2_8: read_verilog -sv -DDRV_G2 cover_top.sv
+cov_g3_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h00000080 ctrl_int.sv
+cov_g3_8: read_verilog -sv -DDRV_G3 cover_top.sv
+cov_g4_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h00000800 ctrl_int.sv
+cov_g4_8: read_verilog -sv -DDRV_G4 cover_top.sv
+cov_g5_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h03c00000 ctrl_int.sv
+cov_g5_8: read_verilog -sv -DDRV_G5 cover_top.sv
+cov_g6_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h04000000 ctrl_int.sv
+cov_g6_8: read_verilog -sv -DDRV_RST=4 cover_top.sv
+cov_g7_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h08000000 ctrl_int.sv
+cov_g7_8: read_verilog -sv -DDRV_RST=5 cover_top.sv
+cov_g8_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h10000000 ctrl_int.sv
+cov_g8_8: read_verilog -sv -DDRV_RST=6 cover_top.sv
+cov_g9_8: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h20000000 ctrl_int.sv
+cov_g9_8: read_verilog -sv -DDRV_RST=7 cover_top.sv
+cov_g1_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h001ff645 ctrl_int.sv
+cov_g1_4: read_verilog -sv -DDRV_G1 cover_top.sv
+cov_g2_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h0020013a ctrl_int.sv
+cov_g2_4: read_verilog -sv -DDRV_G2 cover_top.sv
+cov_g3_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h00000080 ctrl_int.sv
+cov_g3_4: read_verilog -sv -DDRV_G3 cover_top.sv
+cov_g4_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h00000800 ctrl_int.sv
+cov_g4_4: read_verilog -sv -DDRV_G4 cover_top.sv
+cov_g5_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h03c00000 ctrl_int.sv
+cov_g5_4: read_verilog -sv -DDRV_G5 cover_top.sv
+cov_g6_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h04000000 ctrl_int.sv
+cov_g6_4: read_verilog -sv -DDRV_RST=4 cover_top.sv
+cov_g7_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h08000000 ctrl_int.sv
+cov_g7_4: read_verilog -sv -DDRV_RST=5 cover_top.sv
+cov_g8_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h10000000 ctrl_int.sv
+cov_g8_4: read_verilog -sv -DDRV_RST=6 cover_top.sv
+cov_g9_4: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h20000000 ctrl_int.sv
+cov_g9_4: read_verilog -sv -DDRV_RST=7 cover_top.sv
+cov_g1_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h001ff645 ctrl_int.sv
+cov_g1_2: read_verilog -sv -DDRV_G1 cover_top.sv
+cov_g2_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h0020013a ctrl_int.sv
+cov_g2_2: read_verilog -sv -DDRV_G2 cover_top.sv
+cov_g3_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h00000080 ctrl_int.sv
+cov_g3_2: read_verilog -sv -DDRV_G3 cover_top.sv
+cov_g4_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h00000800 ctrl_int.sv
+cov_g4_2: read_verilog -sv -DDRV_G4 cover_top.sv
+cov_g5_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h03c00000 ctrl_int.sv
+cov_g5_2: read_verilog -sv -DDRV_G5 cover_top.sv
+cov_g6_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h04000000 ctrl_int.sv
+cov_g6_2: read_verilog -sv -DDRV_RST=4 cover_top.sv
+cov_g7_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h08000000 ctrl_int.sv
+cov_g7_2: read_verilog -sv -DDRV_RST=5 cover_top.sv
+cov_g8_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h10000000 ctrl_int.sv
+cov_g8_2: read_verilog -sv -DDRV_RST=6 cover_top.sv
+cov_g9_2: read_verilog -sv -formal -DCOVERS -DCV_MASK=30'h20000000 ctrl_int.sv
+cov_g9_2: read_verilog -sv -DDRV_RST=7 cover_top.sv
+sanity_mosi_8: read_verilog -sv -formal -DSANITY_ANY -DSANITY_MOSI ctrl_int.sv
+sanity_cap_8:  read_verilog -sv -formal -DSANITY_ANY -DSANITY_CAP ctrl_int.sv
+sanity_sck_8:  read_verilog -sv -formal -DSANITY_ANY -DSANITY_SCK ctrl_int.sv
+read_verilog -sv sub.v
+read_verilog ref_ctrl.v
+prove: chparam -set OUTPUTS @P@ attention_controller
+sanity: chparam -set OUTPUTS @P@ attention_controller
+prove: hierarchy -check -top attention_controller
+sanity: hierarchy -check -top attention_controller
+cover: chparam -set P @P@ cover_top
+cover: hierarchy -check -top cover_top
+proc -norom
+# divider review fix F1: only this harness's own assert/cover cells
+select -assert-none t:$assume t:$live t:$fair t:$allconst t:$allseq t:$anyconst t:$anyseq
+# init values only on the harness observers f_* (the golden has none)
+prove: select -assert-none a:init attention_controller/w:f_* %d
+sanity: select -assert-none a:init attention_controller/w:f_* %d
+cover: select -assert-none a:init */w:f_* %d cover_top/* %d
+flatten
+# the harness's view of the divider's state and step counter (read-only)
+prove: connect -nounset -set f_dstate divider_unit.state
+prove: connect -nounset -set f_dstep divider_unit.step
+sanity: connect -nounset -set f_dstate divider_unit.state
+sanity: connect -nounset -set f_dstep divider_unit.step
+cover: connect -nounset -set ctl.f_dstate ctl.divider_unit.state
+cover: connect -nounset -set ctl.f_dstep ctl.divider_unit.step
+cover: connect -nounset -set w_state ctl.state
+opt_clean
+prove: prep -top attention_controller
+sanity: prep -top attention_controller
+cover: prep -top cover_top
+
+[files]
+ctrl_int.sv
+ctrl_int_props.vh
+sub.v
+ref_ctrl.v
+cover_top.sv

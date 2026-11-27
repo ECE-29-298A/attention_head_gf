@@ -1,0 +1,10 @@
+RESULT sim outputs=8 cases=3 runs=4 errors=0
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/attention_controller/verif/sim/tb_e2e.sv:108: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 170us; walltime 0.010 s; speed 16.384 ms/s
+- Verilator: cpu 0.010 s on 1 threads; allocated 2 MB
+RESULT sim outputs=8 cases=3 runs=4 errors=0
+- /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/attention_controller/verif/sim/tb_e2e.sv:108: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.046 2026-02-28
+- Verilator: $finish at 170us; walltime 0.011 s; speed 16.176 ms/s
+- Verilator: cpu 0.010 s on 1 threads; allocated 2 MB

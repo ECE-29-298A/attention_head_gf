@@ -1,0 +1,32 @@
+# fv_top (SPEC.md section 7): the TT top project.v (golden) around the golden controller.
+#   top_8  prove, smtbmc z3, k-induction depth 2 (OUTPUTS = 8, as shipped).
+#   sanity_top_8  bmc: a wrong claim (config_chain also held while idle), must FAIL.
+[tasks]
+top_8 prove
+sanity_top_8 sanity
+
+[options]
+prove: mode prove
+prove: depth 2
+sanity: mode bmc
+sanity: depth 8
+
+[engines]
+smtbmc z3
+
+[script]
+top_8: read_verilog -sv -formal top_fv.v
+sanity_top_8: read_verilog -sv -formal -DSANITY_TOP top_fv.v
+read_verilog -sv ctrl.v
+hierarchy -check -top tt_um_attention_head_gf
+proc -norom
+select -assert-none t:$assume t:$live t:$fair t:$allconst t:$allseq t:$anyconst t:$anyseq
+select -assert-none a:init tt_um_attention_head_gf/w:f_* %d
+flatten
+opt_clean
+prep -top tt_um_attention_head_gf
+
+[files]
+top_fv.v
+top_props.vh
+ctrl.v

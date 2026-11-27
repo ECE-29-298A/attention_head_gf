@@ -1,0 +1,82 @@
+SBY 20:22:27 [ctrl_int_cov_g5_2] Removing directory '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_cov_g5_2'.
+SBY 20:22:27 [ctrl_int_cov_g5_2] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_cov_g5_2/src/ctrl_int.sv'.
+SBY 20:22:27 [ctrl_int_cov_g5_2] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_props.vh' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_cov_g5_2/src/ctrl_int_props.vh'.
+SBY 20:22:27 [ctrl_int_cov_g5_2] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/sub.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_cov_g5_2/src/sub.v'.
+SBY 20:22:27 [ctrl_int_cov_g5_2] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ref_ctrl.v' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_cov_g5_2/src/ref_ctrl.v'.
+SBY 20:22:27 [ctrl_int_cov_g5_2] Copy '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/cover_top.sv' to '/private/var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T/ctrl_verif.qKs9cn/fv_cov_g5_2/ctrl_int_cov_g5_2/src/cover_top.sv'.
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: abc bmc3
+SBY 20:22:27 [ctrl_int_cov_g5_2] base: starting process "cd ctrl_int_cov_g5_2/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:22:27 [ctrl_int_cov_g5_2] base: finished (returncode=0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] prep: starting process "cd ctrl_int_cov_g5_2/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:22:27 [ctrl_int_cov_g5_2] prep: finished (returncode=0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] aig: starting process "cd ctrl_int_cov_g5_2/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 20:22:27 [ctrl_int_cov_g5_2] aig: Warning: Treating undriven bit cover_top.\clk like $anyseq.
+SBY 20:22:27 [ctrl_int_cov_g5_2] aig: Warning: Treating a total of 1 undriven bits in cover_top like $anyseq.
+SBY 20:22:27 [ctrl_int_cov_g5_2] aig: finished (returncode=0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: starting process "cd ctrl_int_cov_g5_2; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; bmc3 -F 40 -v; write_cex -a engine_0/trace.aiw'"
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; bmc3 -F 40 -v; write_cex -a engine_0/trace.aiw"
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Warning: The last output is interpreted as a constraint.
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Running "bmc3". PI/PO/Reg = 35/1/55. And =    719. Lev =    19. ObjNums =   401.
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Params: FramesMax = 40. Start = 0. ConfLimit = 0. TimeOut = 0. SolveAll = 0.
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 0 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 1 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 2 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 3 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 4 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 5 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 6 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 7 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 8 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 9 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 10 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 11 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 12 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 13 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 14 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: 15 + : Var =      32. Cla =       45. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Runtime:  CNF = 0.0 sec (1.0 %)  UNSAT = 0.0 sec (0.1 %)  SAT = 0.0 sec (0.2 %)  UNDEC = 0.0 sec (0.0 %)
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: LStart(P) = 10000  LDelta(Q) = 2000  LRatio(R) = 80  ReduceDB = 0  Vars = 1000  Used = 1000 (100.00 %)
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Buffs = 1. Dups = 0.   Hash hits = 0.  Hash misses = 15.  UniProps = 0.
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Output 0 of miter "model/design_aiger" was asserted in frame 15. Time =     0.01 sec
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: finished (returncode=0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Status returned by engine: FAIL
+SBY 20:22:27 [ctrl_int_cov_g5_2] smt2: starting process "cd ctrl_int_cov_g5_2/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: starting process "cd ctrl_int_cov_g5_2; yosys-witness aiw2yw engine_0/trace.aiw model/design_aiger.ywa engine_0/trace_aiw.yw"
+SBY 20:22:27 [ctrl_int_cov_g5_2] smt2: finished (returncode=0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Converting AIGER witness trace 'engine_0/trace.aiw' to Yosys witness trace 'engine_0/trace_aiw.yw'...
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Using Yosys witness AIGER map file 'model/design_aiger.ywa'
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: Converted 16 time steps.
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: finished (returncode=0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: starting process "cd ctrl_int_cov_g5_2; yosys-smtbmc -s z3 --noprogress --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc --yw engine_0/trace_aiw.yw model/design_smt2.smt2"
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Solver: z3
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 0..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 1..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 2..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 3..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 4..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 5..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 6..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 7..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 8..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 9..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 10..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 11..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 12..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 13..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Skipping step 14..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  BMC failed!
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Assert failed in cover_top: ctl.w_group
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: ##   0:00:00  Status: FAILED
+SBY 20:22:27 [ctrl_int_cov_g5_2] engine_0: finished (returncode=1)
+SBY 20:22:27 [ctrl_int_cov_g5_2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 20:22:27 [ctrl_int_cov_g5_2] summary: engine_0 (abc bmc3) returned FAIL
+SBY 20:22:27 [ctrl_int_cov_g5_2] summary: counterexample trace: ctrl_int_cov_g5_2/engine_0/trace.vcd
+SBY 20:22:27 [ctrl_int_cov_g5_2] summary:   failed assertion cover_top.ctl.w_group at ctrl_int_props.vh:276.15-276.59 step 15
+SBY 20:22:27 [ctrl_int_cov_g5_2] DONE (FAIL, rc=2)
+SBY 20:22:27 The following tasks failed: ['cov_g5_2']

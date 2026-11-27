@@ -1,0 +1,50 @@
+
+10. Printing statistics.
+
+=== attention_controller ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1125        - wires
+     1489        - wire bits
+       41        - public wires
+      405        - public wire bits
+       16        - ports
+       25        - port bits
+     1397 4.04E+04 cells
+       35  614.656   gf180mcu_fd_sc_mcu7t5v0__and2_1
+       13  285.376   gf180mcu_fd_sc_mcu7t5v0__and3_1
+        5  120.736   gf180mcu_fd_sc_mcu7t5v0__and4_1
+       20   439.04   gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+      111 1.95E+03   gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+        3   72.442   gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+       44  869.299   gf180mcu_fd_sc_mcu7t5v0__aoi22_1
+       87   763.93   gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+      308 1.96E+04   gf180mcu_fd_sc_mcu7t5v0__dffq_1
+      100  2853.76   gf180mcu_fd_sc_mcu7t5v0__mux2_1
+       12  842.957   gf180mcu_fd_sc_mcu7t5v0__mux4_1
+      193 2.12E+03   gf180mcu_fd_sc_mcu7t5v0__nand2_1
+       30  460.992   gf180mcu_fd_sc_mcu7t5v0__nand3_1
+       15  296.352   gf180mcu_fd_sc_mcu7t5v0__nand4_1
+       91  1.2E+03   gf180mcu_fd_sc_mcu7t5v0__nor2_1
+       16  280.986   gf180mcu_fd_sc_mcu7t5v0__nor3_1
+        9  197.568   gf180mcu_fd_sc_mcu7t5v0__nor4_1
+       15   329.28   gf180mcu_fd_sc_mcu7t5v0__oai211_1
+       81  1422.49   gf180mcu_fd_sc_mcu7t5v0__oai21_1
+        6  158.054   gf180mcu_fd_sc_mcu7t5v0__oai221_1
+       28  614.656   gf180mcu_fd_sc_mcu7t5v0__oai22_1
+       15  362.208   gf180mcu_fd_sc_mcu7t5v0__oai31_1
+        7  184.397   gf180mcu_fd_sc_mcu7t5v0__oai32_1
+        1   32.928   gf180mcu_fd_sc_mcu7t5v0__oai33_1
+       23  403.917   gf180mcu_fd_sc_mcu7t5v0__or2_1
+        7  153.664   gf180mcu_fd_sc_mcu7t5v0__or3_1
+        7  184.397   gf180mcu_fd_sc_mcu7t5v0__or4_1
+       14  399.526   gf180mcu_fd_sc_mcu7t5v0__xnor2_1
+        7  368.794   gf180mcu_fd_sc_mcu7t5v0__xnor3_1
+       78 2.05E+03   gf180mcu_fd_sc_mcu7t5v0__xor2_1
+       16  807.834   gf180mcu_fd_sc_mcu7t5v0__xor3_1
+
+   Chip area for module '\attention_controller': 40448.755200
+     of which used for sequential elements: 19607.526400 (48.47%)
+

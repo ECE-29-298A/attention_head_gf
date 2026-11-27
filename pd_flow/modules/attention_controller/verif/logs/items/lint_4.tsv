@@ -1,0 +1,1 @@
+lint_4	lint	pass-with-waiver	true	0.207	logs/lint_4.log	RESULT lint mode=rtl warnings=2 netlist=0 library=0 waived=2 errors=0; RESULT interface top=attention_controller outputs=4 ports=16 flop_bits=227 bound=227 errors=0
