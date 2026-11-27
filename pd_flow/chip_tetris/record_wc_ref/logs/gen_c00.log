@@ -1,0 +1,4 @@
+seed h2: HPWL 35924.6
+reservations: 49 cells, widened now 0, cells shifted 0
+movable cells: 1362
+wrote /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/c00: HPWL 35924.6, moved 0 (non-dp 0), mean disp 0.0 um

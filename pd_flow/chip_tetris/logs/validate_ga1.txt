@@ -1,0 +1,3 @@
+ga1: {"cells": 1329, "site_rows": 18150, "moved_outside_cluster": 0, "regen": "identical", "self_test": "rejected overlap"} OK 
+ga1_p1: {"cells": 1329, "site_rows": 18150, "moved_outside_cluster": 0, "regen": "identical", "self_test": "rejected overlap"} OK 
+ga1_p2: {"cells": 1329, "site_rows": 18150, "moved_outside_cluster": 0, "regen": "identical", "self_test": "rejected overlap"} OK 

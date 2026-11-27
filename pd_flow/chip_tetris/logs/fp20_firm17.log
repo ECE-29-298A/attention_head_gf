@@ -1,0 +1,3 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/fp20_probe0 28.1 s | resized 28 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None | cts None leaves None dummies None
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/fp20_firm 79.5 s | resized 28 misses 0 | held True | area 43460.6 slew/cap/fo 113/1/0 setup 39.807084977249865 hold 0.08599976529884595 drc 0 ant 0 wire 43970 | cts 812.224 leaves 17 dummies 4
+PIPELINE final placement placements/fp20

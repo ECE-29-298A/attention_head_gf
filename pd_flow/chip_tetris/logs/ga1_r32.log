@@ -1,0 +1,2 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/ga1_r32 50.7 s | resized 0 misses 0 | held True | area 43394.7 slew/cap/fo 115/1/0 setup 40.03384759235363 hold 0.06455081096798239 drc 0 ant 0 wire 45561 | cts 777.101 leaves 17 dummies 3
+PIPELINE final placement placements/ga1

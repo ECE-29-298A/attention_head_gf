@@ -1,0 +1,43 @@
+{
+ "title": "Whole-Chip Tetris",
+ "module": "whole chip (all 1,329 synthesized cells: datapath, divider, controller, SPI/config), netlist wc_ref2 = c06 + c09",
+ "date": "2026-11-26",
+ "commit": "3acc3da",
+ "summary": "Every synthesized cell of the chip is placed together, starting from the tool's own placement, and handed to the flow FIXED with the r32 handoff: steps 17-32 run as in the reference, so repair and upsizing still happen at the tool's GPL positions, and the placement is fixed right after RepairDesignPostGPL (LibreLane meta.substituting_steps). This handoff reproduces wc_ref2 exactly, with zero FIRM penalty; FIRM at step 17 costs +61.5 to +74.7. With repair fixed, the area lever is the clock tree. CTS pads every leaf whose clock-pin cap is below its subtree's largest leaf with a dummy load, so the dummy area depends only on how the flops are clustered. A greedy search with the real CTS in the loop chose the flop set: the tool's final flop positions plus one relocation of _2062_. A chip-wide anneal of the 1,007 non-flop cells, weighted by repair and criticality, then cut slew violations. Winner ga1 signs off at 43,394.7 um2, 35.1 below wc_ref2, all of it CTS.",
+ "decision": {
+  "label": "Winner ga1: -35.1 um2 (CTS), slew 146 -> 115, signoff = dry run",
+  "kind": "accepted",
+  "text": "ga1 signs off at 43,394.7 um2 against wc_ref2's 43,429.8 (-35.1). Slew/cap/fanout is 115/1/0 against 146/1/0, setup +40.03 ns, hold +0.065 ns (wc_ref2 +0.081), route DRC 0, Magic DRC 0, LVS 0, antenna 0, and the netlist is identical to wc_ref2's. The gain is entirely the clock tree: 777.1 against 812.2, the same 3 clkbuf_8 and 17 leaf clkbuf_4, with leaf dummies inv_4 x2 + inv_3 replacing clkinv_4 x2 + inv_4 + a clkbuf_4. Repair (746.4) and upsizing (289.8, the same 28 cells) are identical by construction. Robustness: two re-annealed variants (41 and 46 cells moved, no flops) give the same 43,394.7, and every one of the 12 non-flop anneals on the two chosen flop sets lands on its set's area. A variant whose flops were disturbed falls back to -21.9: the CTS part of the gain is sensitive to flop moves. Losers: FIRM at step 17 (+30.8 to +74.7), letting the wire annealer move flops (-13.1 / -17.5 only), and compaction (no area change; density converges at 84.0-84.1%)."
+ },
+ "baseline": {
+  "label": "wc_ref2 (c06 + c09, tool placement)",
+  "run": "/Users/samuelzhang/ttharden/wc_ref2"
+ },
+ "runs": [
+  {
+   "label": "ga1: tool final placement + 1 CTS flop relocation + chip-wide weighted anneal, r32 handoff",
+   "run": "/Users/samuelzhang/ttharden/wc_ga1",
+   "note": "All 1,329 synthesized cells FIXED via MACRO_PLACEMENT_CFG applied after RepairDesignPostGPL; 28 upsizes decided at step 32 placed at their step-32 masters; netlist sha256 f2e8ad437dde2946... = wc_ref2."
+  }
+ ],
+ "verification": [
+  "Placement only: the synthesized netlist sha256 equals wc_ref2's (f2e8ad437dde2946...); LVS 0 against it; manufacturability report: antenna, LVS and DRC passed.",
+  "Validator scripts/validate.py --regen on ga1, ga1_p1, ga1_p2: regenerated placement byte-identical, views agree, geometry legal, planted overlap rejected (logs/validate_ga1.txt).",
+  "check_held_run.py: all 1,329 cells FIXED at their configured origin and orientation at all 10 step DEFs, from ManualMacroPlacement to final (logs/check_held_wc_ga1.json).",
+  "The r32 handoff was checked on its own: the tool placement handed off this way reproduces wc_ref2 exactly, in both the dry run (wc_work/s34_r32) and a full harden (wc_r32mech, 43,429.8).",
+  "The dry run (wc_work/ga1_r32) and the signoff harden agree exactly on area, slew/cap/fanout, setup, hold and wire length.",
+  "Robustness: ga1_p1 and ga1_p2 give 43,394.7 with 133/1/0 and 129/1/0, hold >= 0 at all 9 corners; the flop-disturbed ga1_j1 gives 43,407.9."
+ ],
+ "evidence": [
+  "pd_flow/chip_tetris/PLAN.md",
+  "pd_flow/chip_tetris/results.json",
+  "pd_flow/chip_tetris/macro_placement_ga1_r32.cfg",
+  "pd_flow/chip_tetris/placements/ga1/",
+  "pd_flow/chip_tetris/signoff/wc_ga1_metrics.json",
+  "pd_flow/chip_tetris/logs/wc_ga1_cts.json",
+  "pd_flow/chip_tetris/logs/check_held_wc_ga1.json",
+  "/Users/samuelzhang/ttharden/wc_ga1/runs/wokwi",
+  "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi",
+  "pd_flow/chip_tetris/record_wc_ref/results.json"
+ ]
+}

@@ -1,0 +1,689 @@
+{
+ "reference": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi",
+ "ref_tag": "wc_ref2",
+ "prefix": "rp",
+ "repro": {
+  "tag": "rp_s34",
+  "mode": "r32",
+  "cts_census": {
+   "cts_area": 812.224,
+   "n_leaves": 17,
+   "dummies": 4,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 18,
+    "clkinv_4": 3,
+    "inv_4": 1
+   }
+  },
+  "area": 43429.8,
+  "d_area": 0.0,
+  "d_upsize": 0.0,
+  "d_repair": 0.0,
+  "d_cts": 0.0,
+  "d_hold": 0.0,
+  "slew_cap_fo": "151/1/0",
+  "setup": 39.90089793730548,
+  "hold": 0.075694785915133,
+  "wire": 44649,
+  "drc": 0,
+  "ant": 0,
+  "held": true,
+  "rep_drivers": 37,
+  "rep_drivers_dp": 20,
+  "cts_masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 18,
+   "clkinv_4": 3,
+   "inv_4": 1
+  },
+  "pass": false,
+  "why": [
+   "area 43429.8"
+  ],
+  "strict_d2": false
+ },
+ "s0": {
+  "tag": "rp_s0",
+  "mode": "r32",
+  "cts_census": {
+   "cts_area": 781.491,
+   "n_leaves": 17,
+   "dummies": 3,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   }
+  },
+  "area": 43399.1,
+  "d_area": -30.7,
+  "d_upsize": 0.0,
+  "d_repair": 0.0,
+  "d_cts": -30.73,
+  "d_hold": 0.0,
+  "slew_cap_fo": "157/1/0",
+  "setup": 39.0909431444781,
+  "hold": 0.07911960199835709,
+  "wire": 45999,
+  "drc": 0,
+  "ant": 0,
+  "held": true,
+  "rep_drivers": 37,
+  "rep_drivers_dp": 20,
+  "cts_masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 2,
+   "inv_4": 2
+  },
+  "pass": true,
+  "why": [],
+  "strict_d2": false
+ },
+ "cts_search": {
+  "best": "rp_g_r1_4",
+  "cts_area": 777.101,
+  "relocs": [
+   "_2062_:81.1:21.5"
+  ]
+ },
+ "screens": [
+  {
+   "tag": "rp_ga1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "115/1/0",
+   "setup": 40.03384759235363,
+   "hold": 0.06455081096798239,
+   "wire": 45561,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_ga2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "123/1/0",
+   "setup": 40.40644910809676,
+   "hold": 0.06893219523627711,
+   "wire": 44942,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_ga3",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "128/1/0",
+   "setup": 40.6216085599974,
+   "hold": 0.06584522002900124,
+   "wire": 45149,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_gp10",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "117/1/0",
+   "setup": 40.738215731660866,
+   "hold": 0.06324829727865455,
+   "wire": 45318,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_gp20",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "130/1/0",
+   "setup": 40.01873434793658,
+   "hold": 0.05528044845017857,
+   "wire": 45780,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_gp40",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": null,
+    "n_leaves": null,
+    "dummies": null,
+    "masters": null
+   },
+   "area": null,
+   "d_area": null,
+   "d_upsize": -289.76,
+   "d_repair": -746.37,
+   "d_cts": -812.22,
+   "d_hold": 0.0,
+   "slew_cap_fo": "None/None/None",
+   "setup": null,
+   "hold": null,
+   "wire": null,
+   "drc": null,
+   "ant": null,
+   "held": true,
+   "rep_drivers": null,
+   "rep_drivers_dp": null,
+   "cts_masters": null,
+   "pass": false,
+   "why": [
+    "no metrics (chain failed?)"
+   ],
+   "strict_d2": false
+  },
+  {
+   "tag": "rp_na1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "98/1/0",
+   "setup": 41.128197123212225,
+   "hold": 0.07833545145388705,
+   "wire": 44514,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_na2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "128/1/0",
+   "setup": 40.28522340852023,
+   "hold": 0.07244116622714786,
+   "wire": 45256,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_na3",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "137/1/0",
+   "setup": 40.18689139653737,
+   "hold": 0.0650152172723174,
+   "wire": 44490,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_np10",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "106/1/0",
+   "setup": 40.21244251403794,
+   "hold": 0.07254974604202705,
+   "wire": 44368,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_np20",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "119/1/0",
+   "setup": 40.49994232391224,
+   "hold": 0.05512446211080715,
+   "wire": 45022,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_np40",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "127/1/0",
+   "setup": 39.728818692692364,
+   "hold": 0.05655809314305146,
+   "wire": 45265,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  }
+ ],
+ "winner": {
+  "tag": "rp_ga1",
+  "mode": "r32",
+  "cts_census": {
+   "cts_area": 777.101,
+   "n_leaves": 17,
+   "dummies": 3,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   }
+  },
+  "area": 43394.7,
+  "d_area": -35.1,
+  "d_upsize": 0.0,
+  "d_repair": 0.0,
+  "d_cts": -35.12,
+  "d_hold": 0.0,
+  "slew_cap_fo": "115/1/0",
+  "setup": 40.03384759235363,
+  "hold": 0.06455081096798239,
+  "wire": 45561,
+  "drc": 0,
+  "ant": 0,
+  "held": true,
+  "rep_drivers": 37,
+  "rep_drivers_dp": 20,
+  "cts_masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "inv_4": 2,
+   "inv_3": 1
+  },
+  "pass": true,
+  "why": [],
+  "strict_d2": true
+ },
+ "robustness": [
+  {
+   "tag": "rp_ga1_p1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "133/1/0",
+   "setup": 40.24131897163591,
+   "hold": 0.06767431251380146,
+   "wire": 45539,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  },
+  {
+   "tag": "rp_ga1_p2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "129/1/0",
+   "setup": 40.08813305890099,
+   "hold": 0.06136402670796993,
+   "wire": 45463,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true
+  }
+ ]
+}

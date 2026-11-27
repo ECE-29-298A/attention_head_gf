@@ -1,0 +1,4 @@
+seed h2: HPWL 34178.4
+reservations: 28 cells, widened now 0, cells shifted 0
+movable cells: 1329
+wrote placements/s34: HPWL 34178.4, moved 0 (non-dp 0), mean disp 0.0 um

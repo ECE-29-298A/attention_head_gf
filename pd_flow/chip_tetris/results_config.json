@@ -1,0 +1,203 @@
+{
+ "reference": {
+  "wc_ref2": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi"
+ },
+ "record_reference": {
+  "wc_ref": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi"
+ },
+ "x0": {
+  "x0": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi"
+ },
+ "other": {
+  "wc_ref3": "/Users/samuelzhang/ttharden/wc_ref3/runs/wokwi"
+ },
+ "groups": {
+  "handoff_baselines": [
+   [
+    "s34",
+    "/Users/samuelzhang/ttharden/wc_work/s34_r32",
+    "tool step-34 placement, r32 handoff: reproduces wc_ref2 exactly"
+   ],
+   [
+    "s0r",
+    "/Users/samuelzhang/ttharden/wc_work/s0r_r32",
+    "tool final placement, r32 (flop set = post-CTS-legalization positions)"
+   ],
+   [
+    "s34f",
+    "/Users/samuelzhang/ttharden/wc_work/s34f_firm",
+    "tool step-34 placement FIRM at step 17 (M-FIRM)"
+   ],
+   [
+    "s0",
+    "/Users/samuelzhang/ttharden/wc_work/s0_firm",
+    "tool final placement FIRM at step 17"
+   ]
+  ],
+  "cts_search": [
+   [
+    "g1_r0",
+    "/Users/samuelzhang/ttharden/wc_work/g1_r0_cts",
+    "s34 flop set"
+   ],
+   [
+    "g1_r1_2",
+    "/Users/samuelzhang/ttharden/wc_work/g1_r1_2_cts",
+    "g1 round 1"
+   ],
+   [
+    "g1_r1_3",
+    "/Users/samuelzhang/ttharden/wc_work/g1_r1_3_cts",
+    "g1 best: _2063_ -> leaf_7 box"
+   ],
+   [
+    "g3_r0",
+    "/Users/samuelzhang/ttharden/wc_work/g3_r0_cts",
+    "s0 flop set"
+   ],
+   [
+    "g3_r1_0",
+    "/Users/samuelzhang/ttharden/wc_work/g3_r1_0_cts",
+    "g3 round 1"
+   ],
+   [
+    "g3_r1_2",
+    "/Users/samuelzhang/ttharden/wc_work/g3_r1_2_cts",
+    "g3 round 1"
+   ],
+   [
+    "g3_r1_4",
+    "/Users/samuelzhang/ttharden/wc_work/g3_r1_4_cts",
+    "g3 best: _2062_ -> (81.1, 21.5)"
+   ],
+   [
+    "g3_r1_5",
+    "/Users/samuelzhang/ttharden/wc_work/g3_r1_5_cts",
+    "g3 best tie: _2063_"
+   ]
+  ],
+  "anneals_s0_flops": [
+   [
+    "sa1",
+    "/Users/samuelzhang/ttharden/wc_work/sa1_r32",
+    "seed 1"
+   ],
+   [
+    "sa2",
+    "/Users/samuelzhang/ttharden/wc_work/sa2_r32",
+    "seed 2"
+   ],
+   [
+    "sa3",
+    "/Users/samuelzhang/ttharden/wc_work/sa3_r32",
+    "seed 3"
+   ],
+   [
+    "sp10",
+    "/Users/samuelzhang/ttharden/wc_work/sp10_r32",
+    "pack-w 10"
+   ],
+   [
+    "sp20",
+    "/Users/samuelzhang/ttharden/wc_work/sp20_r32",
+    "pack-w 20"
+   ],
+   [
+    "sp40",
+    "/Users/samuelzhang/ttharden/wc_work/sp40_r32",
+    "pack-w 40"
+   ],
+   [
+    "sp80",
+    "/Users/samuelzhang/ttharden/wc_work/sp80_r32",
+    "pack-w 80"
+   ]
+  ],
+  "anneals_g3_flops": [
+   [
+    "g3b",
+    "/Users/samuelzhang/ttharden/wc_work/g3b_r32",
+    "g3 best, no anneal"
+   ],
+   [
+    "ga1",
+    "/Users/samuelzhang/ttharden/wc_work/ga1_r32",
+    "seed 1 (WINNER)"
+   ],
+   [
+    "ga2",
+    "/Users/samuelzhang/ttharden/wc_work/ga2_r32",
+    "seed 2"
+   ],
+   [
+    "ga3",
+    "/Users/samuelzhang/ttharden/wc_work/ga3_r32",
+    "seed 3"
+   ],
+   [
+    "gp10",
+    "/Users/samuelzhang/ttharden/wc_work/gp10_r32",
+    "pack-w 10"
+   ]
+  ],
+  "flops_movable": [
+   [
+    "fm1",
+    "/Users/samuelzhang/ttharden/wc_work/fm1_r32",
+    "all cells incl. flops movable, seed 1"
+   ],
+   [
+    "fm2",
+    "/Users/samuelzhang/ttharden/wc_work/fm2_r32",
+    "seed 2"
+   ]
+  ],
+  "firm17_anneals": [
+   [
+    "fa1",
+    "/Users/samuelzhang/ttharden/wc_work/fa1_firm",
+    "s34 seed, anneal seed 1, FIRM at 17"
+   ],
+   [
+    "fp20",
+    "/Users/samuelzhang/ttharden/wc_work/fp20_firm",
+    "s34 seed, pack-w 20, FIRM at 17"
+   ]
+  ],
+  "robustness": [
+   [
+    "ga1_p1",
+    "/Users/samuelzhang/ttharden/wc_work/ga1_p1_r32",
+    "winner re-annealed, T0 0.05, 20k it, seed 11 (41 cells changed, 0 flops)"
+   ],
+   [
+    "ga1_p2",
+    "/Users/samuelzhang/ttharden/wc_work/ga1_p2_r32",
+    "seed 12 (46 cells, 0 flops)"
+   ],
+   [
+    "ga1_j1",
+    "/Users/samuelzhang/ttharden/wc_work/ga1_j1_r32",
+    "winner with 2 flops relocated (_2318_ ended 73 um away, _2130_ 1 site): CTS sensitivity probe"
+   ]
+  ]
+ },
+ "packing_sequence": {
+  "note": "D8c, same recipe and seed (s0 flop set, anneal seed 1), one weight at a time; whole-chip packing = placement-stage cells incl. taps / union of per-row extents of all synthesized cells",
+  "rows": []
+ },
+ "signoff": {
+  "winner": "ga1",
+  "run": "/Users/samuelzhang/ttharden/wc_ga1/runs/wokwi",
+  "mode": "r32",
+  "metrics_copy": "pd_flow/chip_tetris/signoff/wc_ga1_metrics.json",
+  "held": "pd_flow/chip_tetris/logs/check_held_wc_ga1.json",
+  "mechanism_check": {
+   "run": "/Users/samuelzhang/ttharden/wc_r32mech/runs/wokwi",
+   "placement": "s34 (tool step-34 placement)",
+   "area": 43429.8,
+   "slew_cap_fo": "151/1/0",
+   "note": "full harden with meta.substituting_steps reproduces wc_ref2 area exactly and the s34_r32 dry run exactly"
+  }
+ }
+}

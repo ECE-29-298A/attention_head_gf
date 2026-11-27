@@ -1,0 +1,2 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/a1_r32 72.2 s | resized 0 misses 0 | held True | area 44716.2 slew/cap/fo 209/1/0 setup 44.622706792644415 hold 0.0913369405960721 drc 0 ant 0 wire 46792 | cts 803.443 leaves 17 dummies 5
+PIPELINE final placement placements/a1

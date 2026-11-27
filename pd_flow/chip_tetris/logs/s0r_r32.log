@@ -1,0 +1,2 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0r_r32 36.9 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 157/1/0 setup 39.0909431444781 hold 0.07911960199835709 drc 0 ant 0 wire 45999 | cts 781.491 leaves 17 dummies 3
+PIPELINE final placement placements/s0r

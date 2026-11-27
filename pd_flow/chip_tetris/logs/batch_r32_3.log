@@ -1,0 +1,3 @@
+DRYRUN OK ga1_p1_r32 38.2 s | resized 0 misses 0 | held True | area 43394.7 slew/cap/fo 133/1/0 setup 40.24131897163591 hold 0.06767431251380146 drc 0 ant 0 wire 45539 | cts 777.101 leaves 17 dummies 3
+DRYRUN OK ga1_p2_r32 46.4 s | resized 0 misses 0 | held True | area 43394.7 slew/cap/fo 129/1/0 setup 40.08813305890099 hold 0.06136402670796993 drc 0 ant 0 wire 45463 | cts 777.101 leaves 17 dummies 3
+DRYRUN OK ga1_j1_r32 35.5 s | resized 0 misses 0 | held True | area 43407.9 slew/cap/fo 132/1/0 setup 39.94744559324158 hold 0.07209677503516909 drc 0 ant 0 wire 45736 | cts 790.272 leaves 17 dummies 2

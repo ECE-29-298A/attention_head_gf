@@ -1,0 +1,880 @@
+{
+ "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/p20",
+ "placement_sha16": "64b18a1a8927ab18",
+ "work": "/Users/samuelzhang/ttharden/wc_work/p20_r32",
+ "through": "55",
+ "probe": false,
+ "mode": "r32",
+ "chain_ok": true,
+ "failed_step": null,
+ "seconds": 49.8,
+ "resized_at_32": {},
+ "reservation_misses": {},
+ "held": {
+  "00-17-odb-manualmacroplacement": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49
+  },
+  "01-34-openroad-detailedplacement": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49
+  },
+  "02-35-openroad-cts": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49
+  },
+  "03-37-openroad-resizertimingpostcts": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49
+  },
+  "04-39-openroad-globalrouting": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49
+  },
+  "08-44-openroad-detailedrouting": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 49
+  }
+ },
+ "ALL_HELD": true,
+ "metrics": {
+  "stdcell_area": 44716.2,
+  "slew": 174,
+  "cap": 1,
+  "fanout": 0,
+  "setup_ws_min": 45.85769049845574,
+  "hold_ws_min": 0.09265022344904338,
+  "route_drc": 0,
+  "antenna_nets": 0,
+  "antenna_pins": 0,
+  "route_antenna": 0,
+  "wirelength_um": 47051,
+  "grt_wirelength": 77271,
+  "power_total_W": 0.0029238066636025906,
+  "per_corner": {
+   "max_ff_n40C_3v60": {
+    "setup": 75.19099156130558,
+    "hold": 0.09265022344904338,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "max_ss_125C_3v00": {
+    "setup": 45.85769049845574,
+    "hold": 1.082167719398672,
+    "slew": 174,
+    "cap": 1,
+    "fanout": 0
+   },
+   "max_tt_025C_3v30": {
+    "setup": 72.05589928678161,
+    "hold": 0.382596631871906,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "min_ff_n40C_3v60": {
+    "setup": 75.40685445053451,
+    "hold": 0.10653300765310059,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "min_ss_125C_3v00": {
+    "setup": 47.5856629791348,
+    "hold": 1.1236953907646539,
+    "slew": 100,
+    "cap": 1,
+    "fanout": 0
+   },
+   "min_tt_025C_3v30": {
+    "setup": 72.41522075841779,
+    "hold": 0.40646021032731705,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "nom_ff_n40C_3v60": {
+    "setup": 75.3088563936469,
+    "hold": 0.10040735194148592,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "nom_ss_125C_3v00": {
+    "setup": 46.794281773945485,
+    "hold": 1.1041017301827127,
+    "slew": 147,
+    "cap": 1,
+    "fanout": 0
+   },
+   "nom_tt_025C_3v30": {
+    "setup": 72.2511635415183,
+    "hold": 0.39593907051459615,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   }
+  }
+ },
+ "area_classes": {
+  "def": "/Users/samuelzhang/ttharden/wc_work/p20_r32/chain/08-44-openroad-detailedrouting/tt_um_attention_head_gf.def",
+  "def_sha16": "33bffc565021cba9",
+  "netlist": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "dp_attribution": "structural (attribute.py)",
+  "classes": {
+   "cts": {
+    "count": 26,
+    "area": 803.443
+   },
+   "endcap": {
+    "count": 78,
+    "area": 342.451
+   },
+   "repair": {
+    "count": 32,
+    "area": 825.395
+   },
+   "synth": {
+    "count": 1362,
+    "area": 40279.725
+   },
+   "tap": {
+    "count": 348,
+    "area": 1527.859
+   },
+   "tie": {
+    "count": 18,
+    "area": 158.054
+   },
+   "upsize": {
+    "count": 49,
+    "area": 779.293
+   }
+  },
+  "stdcell": 44716.221,
+  "upsized": {
+   "_1090_": [
+    "nand2_1",
+    "nand2_2",
+    8.781
+   ],
+   "_1102_": [
+    "nor4_1",
+    "nor4_4",
+    59.27
+   ],
+   "_1146_": [
+    "nor2_1",
+    "nor2_4",
+    26.342
+   ],
+   "_1260_": [
+    "nor4_1",
+    "nor4_2",
+    17.562
+   ],
+   "_1262_": [
+    "nand2_1",
+    "nand2_2",
+    8.781
+   ],
+   "_1266_": [
+    "oai21_1",
+    "oai21_4",
+    41.709
+   ],
+   "_1267_": [
+    "mux2_1",
+    "mux2_2",
+    4.39
+   ],
+   "_1270_": [
+    "mux2_1",
+    "mux2_2",
+    4.39
+   ],
+   "_1272_": [
+    "nor4_1",
+    "nor4_2",
+    17.562
+   ],
+   "_1275_": [
+    "and2_1",
+    "and2_2",
+    2.195
+   ],
+   "_1279_": [
+    "nor2_1",
+    "nor2_2",
+    8.781
+   ],
+   "_1337_": [
+    "xor2_1",
+    "xor2_2",
+    13.171
+   ],
+   "_1349_": [
+    "xor2_1",
+    "xor2_2",
+    13.171
+   ],
+   "_1350_": [
+    "xor2_1",
+    "xor2_2",
+    13.171
+   ],
+   "_1356_": [
+    "aoi221_1",
+    "aoi221_2",
+    26.342
+   ],
+   "_1358_": [
+    "oai31_1",
+    "oai31_2",
+    17.562
+   ],
+   "_1366_": [
+    "or2_1",
+    "or2_2",
+    4.39
+   ],
+   "_1367_": [
+    "nor2_1",
+    "nor2_2",
+    8.781
+   ],
+   "_1373_": [
+    "aoi221_1",
+    "aoi221_2",
+    26.342
+   ],
+   "_1377_": [
+    "oai31_1",
+    "oai31_2",
+    17.562
+   ],
+   "_1383_": [
+    "aoi211_1",
+    "aoi211_2",
+    15.366
+   ],
+   "_1389_": [
+    "oai32_1",
+    "oai32_2",
+    24.147
+   ],
+   "_1402_": [
+    "oai31_1",
+    "oai31_2",
+    17.562
+   ],
+   "_1407_": [
+    "oai31_1",
+    "oai31_2",
+    17.562
+   ],
+   "_1462_": [
+    "aoi211_1",
+    "aoi211_2",
+    15.366
+   ],
+   "_1594_": [
+    "aoi21_1",
+    "aoi21_2",
+    10.976
+   ],
+   "_1595_": [
+    "oai21_1",
+    "oai21_4",
+    41.709
+   ],
+   "_1680_": [
+    "nand3_1",
+    "nand3_2",
+    13.171
+   ],
+   "_1689_": [
+    "nor2_1",
+    "nor2_2",
+    8.781
+   ],
+   "_1723_": [
+    "or4_1",
+    "or4_2",
+    4.39
+   ],
+   "_1729_": [
+    "nor2_1",
+    "nor2_2",
+    8.781
+   ],
+   "_1863_": [
+    "oai32_1",
+    "oai32_2",
+    24.147
+   ],
+   "_1903_": [
+    "and2_1",
+    "and2_2",
+    2.195
+   ],
+   "_1904_": [
+    "nand2_1",
+    "nand2_2",
+    8.781
+   ],
+   "_1908_": [
+    "nor3_1",
+    "nor3_4",
+    39.514
+   ],
+   "_1909_": [
+    "nor2_1",
+    "nor2_4",
+    26.342
+   ],
+   "_1914_": [
+    "nor4_1",
+    "nor4_4",
+    59.27
+   ],
+   "_2046_": [
+    "nand4_1",
+    "nand4_2",
+    15.366
+   ],
+   "_2093_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2186_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2188_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2189_": [
+    "dffq_1",
+    "dffq_4",
+    15.366
+   ],
+   "_2243_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2405_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2406_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2407_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2408_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2409_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2410_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ]
+  },
+  "repair_by_driver": {
+   "_1089_": [
+    [
+     "fanout32",
+     "buf_3"
+    ]
+   ],
+   "_1090_": [
+    [
+     "wire31",
+     "clkbuf_4"
+    ]
+   ],
+   "_1146_": [
+    [
+     "wire20",
+     "clkbuf_4"
+    ]
+   ],
+   "_1147_": [
+    [
+     "fanout25",
+     "buf_3"
+    ],
+    [
+     "fanout26",
+     "buf_3"
+    ]
+   ],
+   "_1183_": [
+    [
+     "fanout3",
+     "buf_3"
+    ]
+   ],
+   "_1261_": [
+    [
+     "fanout18",
+     "buf_3"
+    ],
+    [
+     "fanout19",
+     "buf_3"
+    ]
+   ],
+   "_1262_": [
+    [
+     "fanout16",
+     "buf_3"
+    ],
+    [
+     "load_slew17",
+     "clkbuf_3"
+    ]
+   ],
+   "_1267_": [
+    [
+     "load_slew24",
+     "clkbuf_4"
+    ]
+   ],
+   "_1270_": [
+    [
+     "load_slew23",
+     "buf_4"
+    ]
+   ],
+   "_1272_": [
+    [
+     "load_slew22",
+     "buf_3"
+    ]
+   ],
+   "_1275_": [
+    [
+     "load_slew9",
+     "clkbuf_4"
+    ]
+   ],
+   "_1279_": [
+    [
+     "load_slew8",
+     "buf_3"
+    ]
+   ],
+   "_1366_": [
+    [
+     "load_slew6",
+     "buf_4"
+    ]
+   ],
+   "_1367_": [
+    [
+     "load_slew5",
+     "buf_3"
+    ]
+   ],
+   "_1594_": [
+    [
+     "load_slew4",
+     "buf_3"
+    ]
+   ],
+   "_1723_": [
+    [
+     "load_slew15",
+     "clkbuf_4"
+    ]
+   ],
+   "_1729_": [
+    [
+     "load_slew13",
+     "buf_3"
+    ]
+   ],
+   "_1903_": [
+    [
+     "load_slew21",
+     "buf_4"
+    ]
+   ],
+   "_1908_": [
+    [
+     "max_cap12",
+     "buf_4"
+    ]
+   ],
+   "_1909_": [
+    [
+     "load_slew7",
+     "buf_4"
+    ]
+   ],
+   "_1914_": [
+    [
+     "load_slew10",
+     "buf_3"
+    ],
+    [
+     "load_slew11",
+     "buf_3"
+    ]
+   ],
+   "_2023_": [
+    [
+     "fanout1",
+     "buf_3"
+    ],
+    [
+     "load_slew2",
+     "buf_3"
+    ]
+   ],
+   "_2046_": [
+    [
+     "load_slew14",
+     "buf_3"
+    ]
+   ],
+   "_2093_": [
+    [
+     "load_slew30",
+     "buf_4"
+    ]
+   ],
+   "_2186_": [
+    [
+     "load_slew29",
+     "clkbuf_4"
+    ]
+   ],
+   "_2192_": [
+    [
+     "fanout28",
+     "buf_3"
+    ]
+   ],
+   "_2243_": [
+    [
+     "load_slew27",
+     "clkbuf_4"
+    ]
+   ]
+  },
+  "repaired_drivers": 55,
+  "repaired_drivers_dp": 33,
+  "upsize_area_dp": 544.408,
+  "repair_area_dp": 518.067,
+  "cts_masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "inv_2": 1,
+   "clkinv_1": 2,
+   "clkinv_8": 1,
+   "inv_3": 1
+  },
+  "synth_missing": []
+ },
+ "cts": {
+  "def": "/Users/samuelzhang/ttharden/wc_work/p20_r32/chain/02-35-openroad-cts/tt_um_attention_head_gf.def",
+  "leaves": [
+   {
+    "leaf": "clkbuf_leaf_0_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 90.7,
+    "bbox": [
+     14.8,
+     25.5,
+     74.2,
+     56.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_10_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 112.0,
+    "bbox": [
+     243.9,
+     45.1,
+     289.2,
+     111.7
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_11_clk",
+    "ff": 16,
+    "ff_cap": 0.05093,
+    "cap_with_dummies": 0.06454,
+    "dummies": [
+     "inv_3"
+    ],
+    "hpwl": 107.5,
+    "bbox": [
+     281.4,
+     25.5,
+     334.0,
+     80.4
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_12_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 94.1,
+    "bbox": [
+     251.7,
+     5.9,
+     326.2,
+     25.5
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_13_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 166.9,
+    "bbox": [
+     177.2,
+     5.9,
+     301.0,
+     49.0
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_14_clk",
+    "ff": 17,
+    "ff_cap": 0.05411,
+    "cap_with_dummies": 0.06318,
+    "dummies": [
+     "inv_2"
+    ],
+    "hpwl": 177.5,
+    "bbox": [
+     131.9,
+     9.8,
+     250.6,
+     68.6
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_15_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 105.8,
+    "bbox": [
+     57.4,
+     5.9,
+     135.8,
+     33.3
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_16_clk",
+    "ff": 19,
+    "ff_cap": 0.06048,
+    "cap_with_dummies": 0.0646,
+    "dummies": [
+     "clkinv_1"
+    ],
+    "hpwl": 119.8,
+    "bbox": [
+     12.6,
+     5.9,
+     93.2,
+     45.1
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_1_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 74.5,
+    "bbox": [
+     12.6,
+     45.1,
+     51.8,
+     80.4
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_2_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 210.0,
+    "bbox": [
+     51.8,
+     17.6,
+     175.6,
+     103.9
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_3_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 101.9,
+    "bbox": [
+     12.6,
+     84.3,
+     91.0,
+     107.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_4_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 99.7,
+    "bbox": [
+     12.6,
+     103.9,
+     80.9,
+     135.2
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_5_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 104.2,
+    "bbox": [
+     12.6,
+     131.3,
+     93.2,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_6_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 148.4,
+    "bbox": [
+     64.7,
+     119.6,
+     177.8,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_7_clk",
+    "ff": 11,
+    "ff_cap": 0.03518,
+    "cap_with_dummies": 0.06578,
+    "dummies": [
+     "clkinv_8"
+    ],
+    "hpwl": 219.0,
+    "bbox": [
+     102.2,
+     84.3,
+     258.4,
+     147.0
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_8_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 142.8,
+    "bbox": [
+     203.6,
+     127.4,
+     318.9,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_9_clk",
+    "ff": 19,
+    "ff_cap": 0.06048,
+    "cap_with_dummies": 0.0646,
+    "dummies": [
+     "clkinv_1"
+    ],
+    "hpwl": 112.3,
+    "bbox": [
+     289.2,
+     88.2,
+     338.8,
+     150.9
+    ]
+   }
+  ],
+  "n_leaves": 17,
+  "dummies": 5,
+  "dummy_area_total": 109.76,
+  "cts_area": 803.443,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "inv_2": 1,
+   "clkinv_1": 2,
+   "clkinv_8": 1,
+   "inv_3": 1
+  }
+ }
+}

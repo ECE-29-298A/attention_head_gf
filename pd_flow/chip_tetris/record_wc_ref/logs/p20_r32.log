@@ -1,0 +1,2 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/p20_r32 49.8 s | resized 0 misses 0 | held True | area 44716.2 slew/cap/fo 174/1/0 setup 45.85769049845574 hold 0.09265022344904338 drc 0 ant 0 wire 47051 | cts 803.443 leaves 17 dummies 5
+PIPELINE final placement placements/p20

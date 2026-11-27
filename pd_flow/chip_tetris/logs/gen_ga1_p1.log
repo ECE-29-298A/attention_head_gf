@@ -1,0 +1,12 @@
+seed placements/ga1: HPWL 33929.5
+reservations: 28 cells, widened now 0, cells shifted 0
+movable cells: 1007
+weights: 37 repaired-driver nets x4.0, of which 26 wire-sensitive (seed HPWL >= 60.0 um) x30.0
+crit weights from baseline/wc_ref2_crit.json: 1320 nets raised (Kc 10.0, Ks 5.0); nets with weight > 10: 66
+  it    4000 T 0.032 cost 344242.8 hpwl 32207.1
+  it    8000 T 0.020 cost 344051.9 hpwl 32202.8
+  it   12000 T 0.013 cost 344046.5 hpwl 32209.6
+  it   16000 T 0.008 cost 343898.2 hpwl 32223.1
+  it   20000 T 0.005 cost 343846.2 hpwl 32221.5
+optimizer: cost 344246.1 -> 343846.2, movable-net HPWL 32208.5 -> 32221.5
+wrote placements/ga1_p1: HPWL 33942.4, moved 811 (non-dp 346), mean disp 8.759 um

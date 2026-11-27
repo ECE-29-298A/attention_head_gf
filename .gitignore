@@ -65,3 +65,7 @@ pd_flow/modules/divider/review/mutation_runs/
 pd_flow/modules/divider/review/**/runs/
 pd_flow/modules/divider/opt/runs/
 pd_flow/modules/mac_unit/opt/runs/
+pd_flow/chip_tetris/placements/*/placement.json
+pd_flow/chip_tetris/placements/*/manual_global_placements.json
+!pd_flow/chip_tetris/placements/ga1/placement.json
+pd_flow/chip_tetris/**/__pycache__/

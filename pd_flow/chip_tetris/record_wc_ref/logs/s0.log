@@ -1,0 +1,5 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0_probe0 21.7 s | resized 52 misses 5 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+PIPELINE round 0: 5 misses {'_1235_': 'oai31_2', '_1272_': 'nor4_4', '_1336_': 'xor2_2', '_1339_': 'xor2_2', '_1890_': 'aoi211_2'} -> placements/s0_r1 (shifted 15)
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0_probe1 34.3 s | resized 52 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0_firm 50.4 s | resized 52 misses 0 | held True | area 44874.3 slew/cap/fo 196/1/7 setup 45.512306322975654 hold 0.0977867814400459 drc 0 ant 0 wire 47237
+PIPELINE final placement placements/s0_r1

@@ -1,0 +1,6 @@
+seed h2: HPWL 34178.4
+reservations: 28 cells, widened now 0, cells shifted 0
+relocate _2063_ -> near (237.9, 98.0): block swap with ['_1276_', '_1278_']; now row 25 site 390 (221.76, 101.92)
+relocate _2013_ -> near (177.0, 141.1): block swap with ['_2012_']; now row 36 site 280 (160.16, 145.04)
+movable cells: 1329
+wrote /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r2_0: HPWL 34572.8, moved 5 (non-dp 2), mean disp 0.144 um

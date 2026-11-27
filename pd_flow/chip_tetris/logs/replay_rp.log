@@ -1,0 +1,25 @@
++ python3 scripts/area_classes.py /Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def --json baseline/wc_ref2_area_classes.json
++ python3 scripts/crit.py --json baseline/wc_ref2_crit.json
++ python3 scripts/cts_leaves.py /Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/35-openroad-cts/tt_um_attention_head_gf.def --json baseline/wc_ref2_cts.json -q
++ python3 scripts/gen_tetris.py --out placements/rp_s34 --seed-def /Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def
++ python3 scripts/gen_tetris.py --out placements/rp_s0 --seed-def /Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def
++ python3 scripts/pipeline.py placements/rp_s34 rp_s34 --mode r32
++ python3 scripts/pipeline.py placements/rp_s0 rp_s0 --mode r32
++ python3 scripts/cts_search.py rp_g --rounds 3 --per-round 8 --base-args --seed-def /Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def
++ scripts/genw.sh rp_ga1 --seed 1
++ scripts/genw.sh rp_ga2 --seed 2
++ scripts/genw.sh rp_ga3 --seed 3
++ scripts/genw.sh rp_gp10 --seed 1 --pack-w 10
++ scripts/genw.sh rp_gp20 --seed 1 --pack-w 20
++ scripts/genw.sh rp_gp40 --seed 1 --pack-w 40
++ scripts/genw.sh rp_na1 --seed 1
++ scripts/genw.sh rp_na2 --seed 2
++ scripts/genw.sh rp_na3 --seed 3
++ scripts/genw.sh rp_np10 --seed 1 --pack-w 10
++ scripts/genw.sh rp_np20 --seed 1 --pack-w 20
++ scripts/genw.sh rp_np40 --seed 1 --pack-w 40
++ scripts/run_batch.sh r32 rp_ga1 rp_ga2 rp_ga3 rp_gp10 rp_gp20 rp_gp40 rp_na1 rp_na2 rp_na3 rp_np10 rp_np20 rp_np40
++ python3 scripts/gen_tetris.py --out placements/rp_ga1_p1 --init placements/rp_ga1 --iters 20000 --T0 0.05 --seed 11 --weights repair --repair-from baseline/wc_ref2_area_classes.json --K 4 --K2 30 --crit baseline/wc_ref2_crit.json --freeze-flops
++ python3 scripts/gen_tetris.py --out placements/rp_ga1_p2 --init placements/rp_ga1 --iters 20000 --T0 0.05 --seed 12 --weights repair --repair-from baseline/wc_ref2_area_classes.json --K 4 --K2 30 --crit baseline/wc_ref2_crit.json --freeze-flops
++ scripts/run_batch.sh r32 rp_ga1_p1 rp_ga1_p2
+winner rp_ga1 43394.7 -35.1 115/1/0

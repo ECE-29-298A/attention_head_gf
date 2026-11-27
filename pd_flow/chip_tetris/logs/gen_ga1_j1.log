@@ -1,0 +1,6 @@
+seed placements/ga1: HPWL 33929.5
+reservations: 28 cells, widened now 0, cells shifted 0
+relocate _2318_ -> near (272.6, 118.6): block swap with ['_1596_', '_1569_']; now row 30 site 350 (199.36, 121.52)
+relocate _2130_ -> near (252.5, 118.6): free gap; now row 29 site 426 (241.92, 117.6)
+movable cells: 1329
+wrote placements/ga1_j1: HPWL 34275.0, moved 814 (non-dp 349), mean disp 8.868 um

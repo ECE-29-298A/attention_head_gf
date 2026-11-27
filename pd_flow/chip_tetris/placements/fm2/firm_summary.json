@@ -1,0 +1,757 @@
+{
+ "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/fm2",
+ "placement_sha16": "0051c6aa55a78a44",
+ "work": "/Users/samuelzhang/ttharden/wc_work/fm2_r32",
+ "through": "55",
+ "probe": false,
+ "mode": "r32",
+ "chain_ok": true,
+ "failed_step": null,
+ "seconds": 52.7,
+ "resized_at_32": {},
+ "reservation_misses": {},
+ "held": {
+  "00-17-odb-manualmacroplacement": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28
+  },
+  "01-34-openroad-detailedplacement": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28
+  },
+  "02-35-openroad-cts": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28
+  },
+  "03-37-openroad-resizertimingpostcts": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28
+  },
+  "04-39-openroad-globalrouting": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28
+  },
+  "08-44-openroad-detailedrouting": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28
+  }
+ },
+ "ALL_HELD": true,
+ "metrics": {
+  "stdcell_area": 43412.3,
+  "slew": 104,
+  "cap": 1,
+  "fanout": 0,
+  "setup_ws_min": 39.53003014588664,
+  "hold_ws_min": 0.05809930478942455,
+  "route_drc": 0,
+  "antenna_nets": 0,
+  "antenna_pins": 0,
+  "route_antenna": 0,
+  "wirelength_um": 43903,
+  "grt_wirelength": 72256,
+  "power_total_W": 0.002961830934509635,
+  "per_corner": {
+   "max_ff_n40C_3v60": {
+    "setup": 76.39021720292845,
+    "hold": 0.05809930478942455,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "max_ss_125C_3v00": {
+    "setup": 39.53003014588664,
+    "hold": 0.9663399243205352,
+    "slew": 104,
+    "cap": 1,
+    "fanout": 0
+   },
+   "max_tt_025C_3v30": {
+    "setup": 70.03289879572995,
+    "hold": 0.32299586142151404,
+    "slew": 0,
+    "cap": 1,
+    "fanout": 0
+   },
+   "min_ff_n40C_3v60": {
+    "setup": 76.51765304619116,
+    "hold": 0.07465539509008294,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0
+   },
+   "min_ss_125C_3v00": {
+    "setup": 41.668685681308915,
+    "hold": 1.0140790716403623,
+    "slew": 71,
+    "cap": 0,
+    "fanout": 0
+   },
+   "min_tt_025C_3v30": {
+    "setup": 71.14018020474512,
+    "hold": 0.350547378824427,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0
+   },
+   "nom_ff_n40C_3v60": {
+    "setup": 76.45990013099522,
+    "hold": 0.06653255912298596,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0
+   },
+   "nom_ss_125C_3v00": {
+    "setup": 40.71650865046947,
+    "hold": 0.9919669810781354,
+    "slew": 83,
+    "cap": 0,
+    "fanout": 0
+   },
+   "nom_tt_025C_3v30": {
+    "setup": 70.63374085550902,
+    "hold": 0.33681769437979553,
+    "slew": 0,
+    "cap": 0,
+    "fanout": 0
+   }
+  }
+ },
+ "area_classes": {
+  "def": "/Users/samuelzhang/ttharden/wc_work/fm2_r32/chain/08-44-openroad-detailedrouting/tt_um_attention_head_gf.def",
+  "def_sha16": "ef8ac74972d4fda6",
+  "netlist": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/06-yosys-synthesis/tt_um_attention_head_gf.nl.v",
+  "dp_attribution": "structural (attribute.py)",
+  "classes": {
+   "cts": {
+    "count": 24,
+    "area": 794.662
+   },
+   "endcap": {
+    "count": 78,
+    "area": 342.451
+   },
+   "repair": {
+    "count": 30,
+    "area": 746.368
+   },
+   "synth": {
+    "count": 1329,
+    "area": 39553.114
+   },
+   "tap": {
+    "count": 348,
+    "area": 1527.859
+   },
+   "tie": {
+    "count": 18,
+    "area": 158.054
+   },
+   "upsize": {
+    "count": 28,
+    "area": 289.762
+   }
+  },
+  "stdcell": 43412.271,
+  "upsized": {
+   "_1055_": [
+    "nand2_1",
+    "nand2_2",
+    8.781
+   ],
+   "_1114_": [
+    "nor2_1",
+    "nor2_4",
+    26.342
+   ],
+   "_1231_": [
+    "mux2_1",
+    "mux2_2",
+    4.39
+   ],
+   "_1233_": [
+    "mux2_1",
+    "mux2_2",
+    4.39
+   ],
+   "_1238_": [
+    "nor2_1",
+    "nor2_2",
+    8.781
+   ],
+   "_1239_": [
+    "or2_1",
+    "or2_2",
+    4.39
+   ],
+   "_1273_": [
+    "xnor2_1",
+    "xnor2_2",
+    8.781
+   ],
+   "_1276_": [
+    "xor2_1",
+    "xor2_2",
+    13.171
+   ],
+   "_1283_": [
+    "oai21_1",
+    "oai21_2",
+    15.366
+   ],
+   "_1313_": [
+    "nor2_1",
+    "nor2_2",
+    8.781
+   ],
+   "_1325_": [
+    "nor4_1",
+    "nor4_4",
+    59.27
+   ],
+   "_1327_": [
+    "and2_1",
+    "and2_2",
+    2.195
+   ],
+   "_1464_": [
+    "mux2_1",
+    "mux2_2",
+    4.39
+   ],
+   "_1616_": [
+    "nand3_1",
+    "nand3_2",
+    13.171
+   ],
+   "_1654_": [
+    "or4_1",
+    "or4_2",
+    4.39
+   ],
+   "_1772_": [
+    "nand4_1",
+    "nand4_2",
+    15.366
+   ],
+   "_1841_": [
+    "and2_1",
+    "and2_2",
+    2.195
+   ],
+   "_1980_": [
+    "nand4_1",
+    "nand4_2",
+    15.366
+   ],
+   "_2122_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2123_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2126_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2177_": [
+    "dffq_1",
+    "dffq_2",
+    4.39
+   ],
+   "_2339_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2340_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2341_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2342_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2343_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ],
+   "_2344_": [
+    "buf_1",
+    "buf_3",
+    8.781
+   ]
+  },
+  "repair_by_driver": {
+   "_1054_": [
+    [
+     "fanout30",
+     "buf_3"
+    ]
+   ],
+   "_1055_": [
+    [
+     "load_slew29",
+     "buf_3"
+    ]
+   ],
+   "_1114_": [
+    [
+     "wire17",
+     "clkbuf_4"
+    ]
+   ],
+   "_1115_": [
+    [
+     "fanout23",
+     "buf_3"
+    ],
+    [
+     "fanout24",
+     "buf_3"
+    ]
+   ],
+   "_1150_": [
+    [
+     "fanout1",
+     "buf_3"
+    ]
+   ],
+   "_1228_": [
+    [
+     "fanout15",
+     "buf_3"
+    ],
+    [
+     "fanout16",
+     "buf_3"
+    ]
+   ],
+   "_1229_": [
+    [
+     "fanout13",
+     "buf_3"
+    ],
+    [
+     "fanout14",
+     "buf_3"
+    ]
+   ],
+   "_1231_": [
+    [
+     "load_slew22",
+     "clkbuf_4"
+    ]
+   ],
+   "_1233_": [
+    [
+     "load_slew21",
+     "buf_4"
+    ]
+   ],
+   "_1234_": [
+    [
+     "fanout20",
+     "buf_3"
+    ]
+   ],
+   "_1238_": [
+    [
+     "load_slew5",
+     "buf_3"
+    ]
+   ],
+   "_1325_": [
+    [
+     "load_slew19",
+     "buf_3"
+    ]
+   ],
+   "_1327_": [
+    [
+     "wire6",
+     "clkbuf_4"
+    ]
+   ],
+   "_1464_": [
+    [
+     "load_slew4",
+     "buf_4"
+    ]
+   ],
+   "_1654_": [
+    [
+     "load_slew12",
+     "buf_4"
+    ]
+   ],
+   "_1772_": [
+    [
+     "load_slew11",
+     "buf_3"
+    ]
+   ],
+   "_1841_": [
+    [
+     "load_slew18",
+     "buf_4"
+    ]
+   ],
+   "_1847_": [
+    [
+     "fanout8",
+     "buf_3"
+    ],
+    [
+     "load_slew9",
+     "buf_3"
+    ]
+   ],
+   "_1848_": [
+    [
+     "fanout7",
+     "buf_3"
+    ]
+   ],
+   "_1957_": [
+    [
+     "fanout2",
+     "buf_3"
+    ],
+    [
+     "load_slew3",
+     "buf_3"
+    ]
+   ],
+   "_1980_": [
+    [
+     "load_slew10",
+     "buf_3"
+    ]
+   ],
+   "_2122_": [
+    [
+     "load_slew28",
+     "buf_3"
+    ]
+   ],
+   "_2123_": [
+    [
+     "load_slew27",
+     "buf_4"
+    ]
+   ],
+   "_2126_": [
+    [
+     "load_slew26",
+     "buf_4"
+    ]
+   ],
+   "_2177_": [
+    [
+     "load_slew25",
+     "clkbuf_4"
+    ]
+   ]
+  },
+  "repaired_drivers": 37,
+  "repaired_drivers_dp": 20,
+  "upsize_area_dp": 155.856,
+  "repair_area_dp": 469.773,
+  "cts_masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "clkinv_8": 1,
+   "inv_4": 1,
+   "inv_3": 1
+  },
+  "synth_missing": []
+ },
+ "cts": {
+  "def": "/Users/samuelzhang/ttharden/wc_work/fm2_r32/chain/02-35-openroad-cts/tt_um_attention_head_gf.def",
+  "leaves": [
+   {
+    "leaf": "clkbuf_leaf_0_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 90.2,
+    "bbox": [
+     14.8,
+     25.5,
+     73.6,
+     56.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_10_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 141.7,
+    "bbox": [
+     208.6,
+     45.1,
+     315.0,
+     80.4
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_11_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 134.4,
+    "bbox": [
+     256.8,
+     13.7,
+     332.4,
+     72.5
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_12_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 110.3,
+    "bbox": [
+     236.0,
+     5.9,
+     318.9,
+     33.3
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_13_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 115.9,
+    "bbox": [
+     170.0,
+     5.9,
+     242.8,
+     49.0
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_14_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 170.2,
+    "bbox": [
+     128.5,
+     5.9,
+     228.2,
+     76.4
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_15_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 127.7,
+    "bbox": [
+     54.0,
+     5.9,
+     150.4,
+     37.2
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_16_clk",
+    "ff": 14,
+    "ff_cap": 0.04456,
+    "cap_with_dummies": 0.06254,
+    "dummies": [
+     "inv_4"
+    ],
+    "hpwl": 94.1,
+    "bbox": [
+     14.8,
+     5.9,
+     93.2,
+     21.6
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_1_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 110.3,
+    "bbox": [
+     12.6,
+     52.9,
+     95.5,
+     80.4
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_2_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 177.0,
+    "bbox": [
+     37.8,
+     49.0,
+     152.0,
+     111.7
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_3_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 79.0,
+    "bbox": [
+     12.6,
+     84.3,
+     60.2,
+     115.6
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_4_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 76.7,
+    "bbox": [
+     12.6,
+     119.6,
+     54.0,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_5_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 117.0,
+    "bbox": [
+     37.8,
+     127.4,
+     127.4,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_6_clk",
+    "ff": 12,
+    "ff_cap": 0.03819,
+    "cap_with_dummies": 0.06879,
+    "dummies": [
+     "clkinv_8"
+    ],
+    "hpwl": 113.7,
+    "bbox": [
+     103.3,
+     107.8,
+     170.0,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_7_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 132.7,
+    "bbox": [
+     179.5,
+     92.1,
+     249.5,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_8_clk",
+    "ff": 20,
+    "ff_cap": 0.06366,
+    "cap_with_dummies": 0.06366,
+    "dummies": [],
+    "hpwl": 132.7,
+    "bbox": [
+     236.6,
+     119.6,
+     334.0,
+     154.8
+    ]
+   },
+   {
+    "leaf": "clkbuf_leaf_9_clk",
+    "ff": 16,
+    "ff_cap": 0.05093,
+    "cap_with_dummies": 0.06454,
+    "dummies": [
+     "inv_3"
+    ],
+    "hpwl": 127.1,
+    "bbox": [
+     246.1,
+     84.3,
+     334.0,
+     123.5
+    ]
+   }
+  ],
+  "n_leaves": 17,
+  "dummies": 3,
+  "dummy_area_total": 100.98,
+  "cts_area": 794.662,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "clkinv_8": 1,
+   "inv_4": 1,
+   "inv_3": 1
+  }
+ }
+}

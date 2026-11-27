@@ -1,0 +1,5 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/fa1_probe0 17.9 s | resized 29 misses 1 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None | cts None leaves None dummies None
+PIPELINE round 0: 1 misses {'_1660_': 'nand2_2'} -> placements/fa1_r1 (shifted 6)
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/fa1_probe1 17.5 s | resized 29 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None | cts None leaves None dummies None
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/fa1_firm 46.6 s | resized 29 misses 0 | held True | area 43491.3 slew/cap/fo 121/1/0 setup 40.215412582757416 hold 0.06498668453977757 drc 0 ant 0 wire 43931 | cts 812.224 leaves 17 dummies 4
+PIPELINE final placement placements/fa1_r1

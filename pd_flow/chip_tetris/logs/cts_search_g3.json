@@ -1,0 +1,737 @@
+{
+ "best": {
+  "tag": "g3_r1_4",
+  "relocs": [
+   "_2062_:81.1:21.5"
+  ],
+  "args": [
+   "--seed-def",
+   "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+   "--seed-def",
+   "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+   "--relocate",
+   "_2062_:81.1:21.5"
+  ],
+  "cts_area": 777.101,
+  "dummies": 3,
+  "leaves": 17,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "inv_4": 2,
+   "inv_3": 1
+  },
+  "fanouts": [
+   13,
+   13,
+   16,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20
+  ],
+  "held": true,
+  "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_4_cts"
+ },
+ "log": [
+  {
+   "tag": "g3_r0",
+   "relocs": [],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   ],
+   "cts_area": 781.491,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "fanouts": [
+    13,
+    14,
+    15,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r0_cts"
+  },
+  {
+   "tag": "g3_r1_0",
+   "relocs": [
+    "_2109_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2109_:81.1:21.5"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "clkinv_8": 1,
+    "inv_3": 1,
+    "inv_4": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_0_cts"
+  },
+  {
+   "tag": "g3_r1_1",
+   "relocs": [
+    "_2121_:265.5:105.8"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2121_:265.5:105.8"
+   ],
+   "cts_area": 781.491,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "fanouts": [
+    13,
+    14,
+    15,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_1_cts"
+  },
+  {
+   "tag": "g3_r1_2",
+   "relocs": [
+    "_2124_:265.5:121.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2124_:265.5:121.5"
+   ],
+   "cts_area": 799.053,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 3,
+    "clkinv_8": 1
+   },
+   "fanouts": [
+    12,
+    15,
+    15,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_2_cts"
+  },
+  {
+   "tag": "g3_r1_3",
+   "relocs": [
+    "_2091_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2091_:81.1:21.5"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "clkinv_8": 1,
+    "inv_3": 1,
+    "inv_4": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_3_cts"
+  },
+  {
+   "tag": "g3_r1_4",
+   "relocs": [
+    "_2062_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5"
+   ],
+   "cts_area": 777.101,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "fanouts": [
+    13,
+    13,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_4_cts"
+  },
+  {
+   "tag": "g3_r1_5",
+   "relocs": [
+    "_2063_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2063_:81.1:21.5"
+   ],
+   "cts_area": 777.101,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "fanouts": [
+    13,
+    13,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_5_cts"
+  },
+  {
+   "tag": "g3_r2_0",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2318_:157.3:117.6"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2318_:157.3:117.6"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 1,
+    "inv_3": 1,
+    "clkinv_8": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_0_cts"
+  },
+  {
+   "tag": "g3_r2_1",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2109_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2109_:81.1:21.5"
+   ],
+   "cts_area": 781.491,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "fanouts": [
+    13,
+    14,
+    15,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_1_cts"
+  },
+  {
+   "tag": "g3_r2_2",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2121_:265.5:105.8"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2121_:265.5:105.8"
+   ],
+   "cts_area": 781.491,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "fanouts": [
+    13,
+    14,
+    15,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_2_cts"
+  },
+  {
+   "tag": "g3_r2_3",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2124_:265.5:121.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2124_:265.5:121.5"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "clkinv_8": 1,
+    "inv_3": 1,
+    "inv_4": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_3_cts"
+  },
+  {
+   "tag": "g3_r2_4",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2320_:157.3:113.7"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2320_:157.3:113.7"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 1,
+    "inv_3": 1,
+    "clkinv_8": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_4_cts"
+  },
+  {
+   "tag": "g3_r2_5",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2091_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2091_:81.1:21.5"
+   ],
+   "cts_area": 781.491,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "fanouts": [
+    13,
+    14,
+    15,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_5_cts"
+  },
+  {
+   "tag": "g3_r2_6",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2063_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2063_:81.1:21.5"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_3": 1,
+    "inv_4": 1,
+    "clkinv_8": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_6_cts"
+  },
+  {
+   "tag": "g3_r2_7",
+   "relocs": [
+    "_2062_:81.1:21.5",
+    "_2318_:81.1:21.5"
+   ],
+   "args": [
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+    "--seed-def",
+    "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def",
+    "--relocate",
+    "_2062_:81.1:21.5",
+    "_2318_:81.1:21.5"
+   ],
+   "cts_area": 794.662,
+   "dummies": 3,
+   "leaves": 17,
+   "masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_3": 1,
+    "inv_4": 1,
+    "clkinv_8": 1
+   },
+   "fanouts": [
+    12,
+    14,
+    16,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+   ],
+   "held": true,
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r2_7_cts"
+  }
+ ]
+}

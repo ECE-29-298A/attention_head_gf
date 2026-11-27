@@ -1,0 +1,74 @@
+{
+ "reference": {
+  "wc_ref": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi"
+ },
+ "groups": {
+  "record_wc_ref": [
+   [
+    "s0_firm17",
+    "record_wc_ref/summaries/s0_firm.json",
+    "tool final placement FIRM at 17: +96.6 (upsize +92.2)"
+   ],
+   [
+    "s0_r32",
+    "record_wc_ref/summaries/s0r_r32.json",
+    "final placement r32: +21.9 (CTS, 18th clkbuf_4 as dummy)"
+   ],
+   [
+    "s34_r32",
+    "record_wc_ref/summaries/s34_r32.json",
+    "step-34 placement r32: exact reproduction"
+   ],
+   [
+    "c01f",
+    "record_wc_ref/summaries/c01f_r32.json",
+    "dffq_4 _2189_ block-swapped out of a full leaf: -61.5"
+   ],
+   [
+    "c02f",
+    "record_wc_ref/summaries/c02f_r32.json",
+    "same, other target: -61.5"
+   ],
+   [
+    "c04f",
+    "record_wc_ref/summaries/c04f_r32.json",
+    "-65.9 but cap 2"
+   ],
+   [
+    "c06f",
+    "record_wc_ref/summaries/c06f_r32.json",
+    "-35.1, cap 3 fanout 3"
+   ],
+   [
+    "a1",
+    "record_wc_ref/summaries/a1_r32.json",
+    "c02 flops + anneal seed 1"
+   ],
+   [
+    "a2",
+    "record_wc_ref/summaries/a2_r32.json",
+    "seed 2"
+   ],
+   [
+    "a3",
+    "record_wc_ref/summaries/a3_r32.json",
+    "seed 3"
+   ],
+   [
+    "p10",
+    "record_wc_ref/summaries/p10_r32.json",
+    "pack-w 10"
+   ],
+   [
+    "p20",
+    "record_wc_ref/summaries/p20_r32.json",
+    "pack-w 20"
+   ],
+   [
+    "p40",
+    "record_wc_ref/summaries/p40_r32.json",
+    "pack-w 40"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,3957 @@
+{
+ "objective": "design__instance__area__stdcell (D10)",
+ "references": {
+  "wc_ref2": {
+   "role": "reference",
+   "run": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi",
+   "metrics_json": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/metrics.json",
+   "stdcell_area": 43429.8,
+   "slew": 146,
+   "cap": 1,
+   "fanout": 0,
+   "setup_ws_min": 39.41630777781195,
+   "hold_ws_min": 0.0806891243326588,
+   "wirelength_um": 45813,
+   "route_drc": 0,
+   "antenna_nets": 0,
+   "magic_drc": 0,
+   "lvs_errors": 0,
+   "power_total_W": 0.0029813393484801054,
+   "per_corner": {
+    "nom_tt_025C_3v30": {
+     "setup": 70.60168116636481,
+     "hold": 0.3756137729387349
+    },
+    "nom_ss_125C_3v00": {
+     "setup": 40.61274098640432,
+     "hold": 1.063625218006175
+    },
+    "nom_ff_n40C_3v60": {
+     "setup": 76.40450621774872,
+     "hold": 0.08966716511981139
+    },
+    "min_tt_025C_3v30": {
+     "setup": 71.10262091467058,
+     "hold": 0.3896112431844794
+    },
+    "min_ss_125C_3v00": {
+     "setup": 41.62888818155344,
+     "hold": 1.0893961596718358
+    },
+    "min_ff_n40C_3v60": {
+     "setup": 76.46913718682134,
+     "hold": 0.0976592168109087
+    },
+    "max_tt_025C_3v30": {
+     "setup": 69.98421240609872,
+     "hold": 0.36043036242454507
+    },
+    "max_ss_125C_3v00": {
+     "setup": 39.41630777781195,
+     "hold": 1.03755318384772
+    },
+    "max_ff_n40C_3v60": {
+     "setup": 76.32038506088297,
+     "hold": 0.0806891243326588
+    }
+   },
+   "synth_area": 39632.1408,
+   "area_classes": {
+    "cts": 812.224,
+    "endcap": 342.451,
+    "fill": 8537.133,
+    "repair": 746.368,
+    "synth": 39553.114,
+    "tap": 1527.859,
+    "tie": 158.054,
+    "upsize": 289.762
+   },
+   "area_classes_json": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/baseline/wc_ref2_area_classes.json"
+  },
+  "wc_ref": {
+   "role": "record_reference",
+   "run": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi",
+   "metrics_json": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/final/metrics.json",
+   "stdcell_area": 44777.7,
+   "slew": 195,
+   "cap": 1,
+   "fanout": 7,
+   "setup_ws_min": 45.19676849595529,
+   "hold_ws_min": 0.10527379266295771,
+   "wirelength_um": 47062,
+   "route_drc": 0,
+   "antenna_nets": 0,
+   "magic_drc": 0,
+   "lvs_errors": 0,
+   "power_total_W": 0.0029385657981038094,
+   "per_corner": {
+    "nom_tt_025C_3v30": {
+     "setup": 72.39156679007536,
+     "hold": 0.4132931891479249
+    },
+    "nom_ss_125C_3v00": {
+     "setup": 46.27742586790855,
+     "hold": 1.134933068537733
+    },
+    "nom_ff_n40C_3v60": {
+     "setup": 75.3948036453952,
+     "hold": 0.11210421797053668
+    },
+    "min_tt_025C_3v30": {
+     "setup": 72.53551564698415,
+     "hold": 0.42349813743429005
+    },
+    "min_ss_125C_3v00": {
+     "setup": 47.16585300269262,
+     "hold": 1.154524508673562
+    },
+    "min_ff_n40C_3v60": {
+     "setup": 75.48169591900879,
+     "hold": 0.11786083553832884
+    },
+    "max_tt_025C_3v30": {
+     "setup": 72.21935254233864,
+     "hold": 0.4011588952348005
+    },
+    "max_ss_125C_3v00": {
+     "setup": 45.19676849595529,
+     "hold": 1.1151546668392693
+    },
+    "max_ff_n40C_3v60": {
+     "setup": 75.29088676735131,
+     "hold": 0.10527379266295771
+    }
+   },
+   "synth_area": 40358.752,
+   "area_classes": {
+    "cts": 864.909,
+    "endcap": 342.451,
+    "fill": 7189.28,
+    "repair": 825.395,
+    "synth": 40279.725,
+    "tap": 1527.859,
+    "tie": 158.054,
+    "upsize": 779.293
+   },
+   "area_classes_json": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/baseline/wc_ref_area_classes.json"
+  },
+  "x0": {
+   "role": "x0",
+   "run": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi",
+   "metrics_json": "/Users/samuelzhang/ttharden/md_x0_full/runs/wokwi/final/metrics.json",
+   "stdcell_area": 44911.6,
+   "slew": 242,
+   "cap": 1,
+   "fanout": 0,
+   "setup_ws_min": 43.15573442976002,
+   "hold_ws_min": 0.006947220773072739,
+   "wirelength_um": 49125,
+   "route_drc": 0,
+   "antenna_nets": 0,
+   "magic_drc": 0,
+   "lvs_errors": 0,
+   "power_total_W": 0.0027827024459838867,
+   "per_corner": {
+    "nom_tt_025C_3v30": {
+     "setup": 72.44091398446953,
+     "hold": 0.26164182672104835
+    },
+    "nom_ss_125C_3v00": {
+     "setup": 44.267478047281955,
+     "hold": 0.8485701270728003
+    },
+    "nom_ff_n40C_3v60": {
+     "setup": 76.07057243877925,
+     "hold": 0.021134872228314262
+    },
+    "min_tt_025C_3v30": {
+     "setup": 72.90510446144245,
+     "hold": 0.2831259751227879
+    },
+    "min_ss_125C_3v00": {
+     "setup": 45.19903512734647,
+     "hold": 0.8857324013824942
+    },
+    "min_ff_n40C_3v60": {
+     "setup": 76.12856693851218,
+     "hold": 0.033703374378649786
+    },
+    "max_tt_025C_3v30": {
+     "setup": 71.87841281179644,
+     "hold": 0.23854763284346223
+    },
+    "max_ss_125C_3v00": {
+     "setup": 43.15573442976002,
+     "hold": 0.8051262107121204
+    },
+    "max_ff_n40C_3v60": {
+     "setup": 76.00130162551088,
+     "hold": 0.006947220773072739
+    }
+   },
+   "synth_area": 40725.3504,
+   "area_classes": {
+    "cts": 759.539,
+    "endcap": 342.451,
+    "fill": 7055.373,
+    "repair": 671.731,
+    "synth": 40646.323,
+    "tap": 1527.859,
+    "tie": 158.054,
+    "upsize": 805.631
+   },
+   "area_classes_json": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/baseline/x0_area_classes.json"
+  },
+  "wc_ref3": {
+   "role": "other",
+   "run": "/Users/samuelzhang/ttharden/wc_ref3/runs/wokwi",
+   "metrics_json": "/Users/samuelzhang/ttharden/wc_ref3/runs/wokwi/final/metrics.json",
+   "stdcell_area": 44446.2,
+   "slew": 96,
+   "cap": 0,
+   "fanout": 0,
+   "setup_ws_min": 40.4103002498335,
+   "hold_ws_min": 0.09155854111805457,
+   "wirelength_um": 48247,
+   "route_drc": 0,
+   "antenna_nets": 0,
+   "magic_drc": 0,
+   "lvs_errors": 0,
+   "power_total_W": 0.003048358717933297,
+   "per_corner": {
+    "nom_tt_025C_3v30": {
+     "setup": 71.13900070377039,
+     "hold": 0.39162563189733013
+    },
+    "nom_ss_125C_3v00": {
+     "setup": 41.75897434929549,
+     "hold": 1.0901053701600243
+    },
+    "nom_ff_n40C_3v60": {
+     "setup": 76.46892402399459,
+     "hold": 0.09833822923197323
+    },
+    "min_tt_025C_3v30": {
+     "setup": 71.6943680271747,
+     "hold": 0.40181104025790926
+    },
+    "min_ss_125C_3v00": {
+     "setup": 42.86586495979494,
+     "hold": 1.1097905131217818
+    },
+    "min_ff_n40C_3v60": {
+     "setup": 76.53132388881383,
+     "hold": 0.10407142109328327
+    },
+    "max_tt_025C_3v30": {
+     "setup": 70.45022187252663,
+     "hold": 0.3795572852337336
+    },
+    "max_ss_125C_3v00": {
+     "setup": 40.4103002498335,
+     "hold": 1.0667258489570397
+    },
+    "max_ff_n40C_3v60": {
+     "setup": 76.39369886243215,
+     "hold": 0.09155854111805457
+    }
+   },
+   "synth_area": 38837.4784
+  }
+ },
+ "handoff_baselines": [
+  {
+   "tag": "s34",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 812.224,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 3,
+     "inv_4": 1
+    }
+   },
+   "area": 43429.8,
+   "d_area": 0.0,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": 0.0,
+   "d_hold": 0.0,
+   "slew_cap_fo": "151/1/0",
+   "setup": 39.90089793730548,
+   "hold": 0.075694785915133,
+   "wire": 44649,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 18,
+    "clkinv_4": 3,
+    "inv_4": 1
+   },
+   "pass": false,
+   "why": [
+    "area 43429.8"
+   ],
+   "strict_d2": false,
+   "note": "tool step-34 placement, r32 handoff: reproduces wc_ref2 exactly",
+   "work": "/Users/samuelzhang/ttharden/wc_work/s34_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s34",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49545.7,
+    "packing": 0.8307,
+    "dp_only_density": 0.7983,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/s34",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 34178.4
+  },
+  {
+   "tag": "s0r",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "157/1/0",
+   "setup": 39.0909431444781,
+   "hold": 0.07911960199835709,
+   "wire": 45999,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": false,
+   "note": "tool final placement, r32 (flop set = post-CTS-legalization positions)",
+   "work": "/Users/samuelzhang/ttharden/wc_work/s0r_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s0r",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/s0",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": null
+   },
+   "hpwl_pins_um": 35391.2
+  },
+  {
+   "tag": "s34f",
+   "mode": "firm17",
+   "cts_census": {
+    "cts_area": 821.005,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 19,
+     "clkinv_4": 1,
+     "inv_4": 2
+    }
+   },
+   "area": 43491.3,
+   "d_area": 61.5,
+   "d_upsize": 61.47,
+   "d_repair": -8.78,
+   "d_cts": 8.78,
+   "d_hold": 0.0,
+   "slew_cap_fo": "146/1/0",
+   "setup": 39.46206673128905,
+   "hold": 0.083345666061114,
+   "wire": 44959,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 39,
+   "rep_drivers_dp": 21,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 19,
+    "clkinv_4": 1,
+    "inv_4": 2
+   },
+   "pass": false,
+   "why": [
+    "area 43491.3"
+   ],
+   "strict_d2": true,
+   "note": "tool step-34 placement FIRM at step 17 (M-FIRM)",
+   "work": "/Users/samuelzhang/ttharden/wc_work/s34f_firm",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s34f_r1"
+  },
+  {
+   "tag": "s0",
+   "mode": "firm17",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43504.5,
+   "d_area": 74.7,
+   "d_upsize": 61.47,
+   "d_repair": 43.9,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "156/1/0",
+   "setup": 38.79220254820616,
+   "hold": 0.061829765279972165,
+   "wire": 46558,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 39,
+   "rep_drivers_dp": 21,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": false,
+   "why": [
+    "area 43504.5"
+   ],
+   "strict_d2": false,
+   "note": "tool final placement FIRM at step 17",
+   "work": "/Users/samuelzhang/ttharden/wc_work/s0_firm",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s0_r1"
+  }
+ ],
+ "cts_search": [
+  {
+   "tag": "g1_r0",
+   "cts_census": {
+    "cts_area": 812.224,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 3,
+     "inv_4": 1
+    }
+   },
+   "note": "s34 flop set",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g1_r0_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r0",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49545.7,
+    "packing": 0.8307,
+    "dp_only_density": 0.7983,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r0",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 34178.4
+  },
+  {
+   "tag": "g1_r1_2",
+   "cts_census": {
+    "cts_area": 794.662,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 4,
+     "inv_2": 1
+    }
+   },
+   "note": "g1 round 1",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g1_r1_2_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r1_2",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49545.7,
+    "packing": 0.8307,
+    "dp_only_density": 0.7983,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r1_2",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2318_:237.9:117.6"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 34272.3
+  },
+  {
+   "tag": "g1_r1_3",
+   "cts_census": {
+    "cts_area": 790.272,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 3,
+     "clkinv_1": 1,
+     "inv_4": 1
+    }
+   },
+   "note": "g1 best: _2063_ -> leaf_7 box",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g1_r1_3_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r1_3",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49545.7,
+    "packing": 0.8307,
+    "dp_only_density": 0.7983,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r1_3",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2063_:237.9:98.0"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 34562.4
+  },
+  {
+   "tag": "g3_r0",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "note": "s0 flop set",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r0_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r0",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r0",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 35391.2
+  },
+  {
+   "tag": "g3_r1_0",
+   "cts_census": {
+    "cts_area": 794.662,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_8": 1,
+     "inv_3": 1,
+     "inv_4": 1
+    }
+   },
+   "note": "g3 round 1",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_0_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_0",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_0",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2109_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 36093.2
+  },
+  {
+   "tag": "g3_r1_2",
+   "cts_census": {
+    "cts_area": 799.053,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 3,
+     "clkinv_8": 1
+    }
+   },
+   "note": "g3 round 1",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_2_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_2",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_2",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2124_:265.5:121.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 36235.5
+  },
+  {
+   "tag": "g3_r1_4",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "note": "g3 best: _2062_ -> (81.1, 21.5)",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_4_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_4",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_4",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2062_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 36860.6
+  },
+  {
+   "tag": "g3_r1_5",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "note": "g3 best tie: _2063_",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3_r1_5_cts",
+   "mode": "r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_5",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_5",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2063_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 36859.4
+  }
+ ],
+ "anneals_s0_flops": [
+  {
+   "tag": "sa1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "98/1/0",
+   "setup": 41.128197123212225,
+   "hold": 0.07833545145388705,
+   "wire": 44514,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 1",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sa1_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sa1",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49356.9,
+    "packing": 0.8335,
+    "dp_only_density": 0.8014,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sa1",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33285.9
+  },
+  {
+   "tag": "sa2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "128/1/0",
+   "setup": 40.28522340852023,
+   "hold": 0.07244116622714786,
+   "wire": 45256,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 2",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sa2_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sa2",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49363.5,
+    "packing": 0.8334,
+    "dp_only_density": 0.8013,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sa2",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 2,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33538.1
+  },
+  {
+   "tag": "sa3",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "137/1/0",
+   "setup": 40.18689139653737,
+   "hold": 0.0650152172723174,
+   "wire": 44490,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 3",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sa3_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sa3",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49352.5,
+    "packing": 0.8336,
+    "dp_only_density": 0.8014,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sa3",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 3,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33190.8
+  },
+  {
+   "tag": "sp10",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "106/1/0",
+   "setup": 40.21244251403794,
+   "hold": 0.07254974604202705,
+   "wire": 44368,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "pack-w 10",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sp10_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sp10",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49135.2,
+    "packing": 0.8368,
+    "dp_only_density": 0.805,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sp10",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 10.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33365.1
+  },
+  {
+   "tag": "sp20",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "119/1/0",
+   "setup": 40.49994232391224,
+   "hold": 0.05512446211080715,
+   "wire": 45022,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "pack-w 20",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sp20_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sp20",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 48909.1,
+    "packing": 0.8404,
+    "dp_only_density": 0.8087,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sp20",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 20.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33928.3
+  },
+  {
+   "tag": "sp40",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "127/1/0",
+   "setup": 39.728818692692364,
+   "hold": 0.05655809314305146,
+   "wire": 45265,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "pack-w 40",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sp40_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sp40",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 48917.8,
+    "packing": 0.8404,
+    "dp_only_density": 0.8086,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sp40",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 40.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 34053.1
+  },
+  {
+   "tag": "sp80",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 781.491,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 2,
+     "inv_4": 2
+    }
+   },
+   "area": 43399.1,
+   "d_area": -30.7,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -30.73,
+   "d_hold": 0.0,
+   "slew_cap_fo": "115/1/0",
+   "setup": 40.73717833923732,
+   "hold": 0.07589651344441263,
+   "wire": 45182,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 2,
+    "inv_4": 2
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "pack-w 80",
+   "work": "/Users/samuelzhang/ttharden/wc_work/sp80_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/sp80",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 48863.0,
+    "packing": 0.8412,
+    "dp_only_density": 0.8095,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/sp80",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 80.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33783.5
+  }
+ ],
+ "anneals_g3_flops": [
+  {
+   "tag": "g3b",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "151/1/0",
+   "setup": 39.27232339376536,
+   "hold": 0.07914069623642156,
+   "wire": 47700,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": false,
+   "note": "g3 best, no anneal",
+   "work": "/Users/samuelzhang/ttharden/wc_work/g3b_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3b",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49561.0,
+    "packing": 0.8305,
+    "dp_only_density": 0.7981,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g3_r1_4",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2062_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 36860.6
+  },
+  {
+   "tag": "ga1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "115/1/0",
+   "setup": 40.03384759235363,
+   "hold": 0.06455081096798239,
+   "wire": 45561,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 1 (WINNER)",
+   "work": "/Users/samuelzhang/ttharden/wc_work/ga1_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga1",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49288.8,
+    "packing": 0.8346,
+    "dp_only_density": 0.8025,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/ga1",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2062_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33929.5
+  },
+  {
+   "tag": "ga2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "123/1/0",
+   "setup": 40.40644910809676,
+   "hold": 0.06893219523627711,
+   "wire": 44942,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 2",
+   "work": "/Users/samuelzhang/ttharden/wc_work/ga2_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga2",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49269.1,
+    "packing": 0.835,
+    "dp_only_density": 0.8028,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/ga2",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 2,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2062_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33695.5
+  },
+  {
+   "tag": "ga3",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "128/1/0",
+   "setup": 40.6216085599974,
+   "hold": 0.06584522002900124,
+   "wire": 45149,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 3",
+   "work": "/Users/samuelzhang/ttharden/wc_work/ga3_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga3",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49363.5,
+    "packing": 0.8331,
+    "dp_only_density": 0.8013,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/ga3",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 3,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2062_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33795.8
+  },
+  {
+   "tag": "gp10",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "117/1/0",
+   "setup": 40.738215731660866,
+   "hold": 0.06324829727865455,
+   "wire": 45318,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "pack-w 10",
+   "work": "/Users/samuelzhang/ttharden/wc_work/gp10_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/gp10",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49146.1,
+    "packing": 0.8368,
+    "dp_only_density": 0.8048,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/gp10",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 10.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2062_:81.1:21.5"
+    ],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33760.8
+  }
+ ],
+ "flops_movable": [
+  {
+   "tag": "fm1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 799.053,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 1,
+     "inv_8": 1,
+     "inv_2": 1
+    }
+   },
+   "area": 43416.7,
+   "d_area": -13.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -13.17,
+   "d_hold": 0.0,
+   "slew_cap_fo": "118/1/0",
+   "setup": 40.62092643895178,
+   "hold": 0.09036804893507959,
+   "wire": 43259,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 18,
+    "clkinv_4": 1,
+    "inv_8": 1,
+    "inv_2": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "all cells incl. flops movable, seed 1",
+   "work": "/Users/samuelzhang/ttharden/wc_work/fm1_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/fm1",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 48619.3,
+    "packing": 0.8439,
+    "dp_only_density": 0.8135,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/fm1",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 32023.8
+  },
+  {
+   "tag": "fm2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 794.662,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_8": 1,
+     "inv_4": 1,
+     "inv_3": 1
+    }
+   },
+   "area": 43412.3,
+   "d_area": -17.5,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -17.56,
+   "d_hold": 0.0,
+   "slew_cap_fo": "104/1/0",
+   "setup": 39.53003014588664,
+   "hold": 0.05809930478942455,
+   "wire": 43903,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "clkinv_8": 1,
+    "inv_4": 1,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 2",
+   "work": "/Users/samuelzhang/ttharden/wc_work/fm2_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/fm2",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 48737.8,
+    "packing": 0.8425,
+    "dp_only_density": 0.8115,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/fm2",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 2,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/final/def/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 32205.8
+  }
+ ],
+ "firm17_anneals": [
+  {
+   "tag": "fa1",
+   "mode": "firm17",
+   "cts_census": {
+    "cts_area": 812.224,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 3,
+     "inv_4": 1
+    }
+   },
+   "area": 43491.3,
+   "d_area": 61.5,
+   "d_upsize": 8.78,
+   "d_repair": 52.68,
+   "d_cts": 0.0,
+   "d_hold": 0.0,
+   "slew_cap_fo": "121/1/0",
+   "setup": 40.215412582757416,
+   "hold": 0.06498668453977757,
+   "wire": 43931,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 38,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 18,
+    "clkinv_4": 3,
+    "inv_4": 1
+   },
+   "pass": false,
+   "why": [
+    "area 43491.3"
+   ],
+   "strict_d2": true,
+   "note": "s34 seed, anneal seed 1, FIRM at 17",
+   "work": "/Users/samuelzhang/ttharden/wc_work/fa1_firm",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/fa1_r1"
+  },
+  {
+   "tag": "fp20",
+   "mode": "firm17",
+   "cts_census": {
+    "cts_area": 812.224,
+    "n_leaves": 17,
+    "dummies": 4,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 3,
+     "inv_4": 1
+    }
+   },
+   "area": 43460.6,
+   "d_area": 30.8,
+   "d_upsize": 0.0,
+   "d_repair": 30.73,
+   "d_cts": 0.0,
+   "d_hold": 0.0,
+   "slew_cap_fo": "113/1/0",
+   "setup": 39.807084977249865,
+   "hold": 0.08599976529884595,
+   "wire": 43970,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 18,
+    "clkinv_4": 3,
+    "inv_4": 1
+   },
+   "pass": false,
+   "why": [
+    "area 43460.6"
+   ],
+   "strict_d2": true,
+   "note": "s34 seed, pack-w 20, FIRM at 17",
+   "work": "/Users/samuelzhang/ttharden/wc_work/fp20_firm",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/fp20",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49043.0,
+    "packing": 0.8382,
+    "dp_only_density": 0.8065,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/fp20",
+    "reserve": [],
+    "iters": 300000,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": null,
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 20.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+   },
+   "hpwl_pins_um": 33164.9
+  }
+ ],
+ "robustness": [
+  {
+   "tag": "ga1_p1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "133/1/0",
+   "setup": 40.24131897163591,
+   "hold": 0.06767431251380146,
+   "wire": 45539,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "winner re-annealed, T0 0.05, 20k it, seed 11 (41 cells changed, 0 flops)",
+   "work": "/Users/samuelzhang/ttharden/wc_work/ga1_p1_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga1_p1",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49288.8,
+    "packing": 0.8348,
+    "dp_only_density": 0.8025,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/ga1_p1",
+    "reserve": [],
+    "iters": 20000,
+    "seed": 11,
+    "T0": 0.05,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": "placements/ga1",
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": null
+   },
+   "hpwl_pins_um": 33942.4
+  },
+  {
+   "tag": "ga1_p2",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 777.101,
+    "n_leaves": 17,
+    "dummies": 3,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_4": 2,
+     "inv_3": 1
+    }
+   },
+   "area": 43394.7,
+   "d_area": -35.1,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -35.12,
+   "d_hold": 0.0,
+   "slew_cap_fo": "129/1/0",
+   "setup": 40.08813305890099,
+   "hold": 0.06136402670796993,
+   "wire": 45463,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "inv_4": 2,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "seed 12 (46 cells, 0 flops)",
+   "work": "/Users/samuelzhang/ttharden/wc_work/ga1_p2_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga1_p2",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49286.6,
+    "packing": 0.8348,
+    "dp_only_density": 0.8025,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/ga1_p2",
+    "reserve": [],
+    "iters": 20000,
+    "seed": 12,
+    "T0": 0.05,
+    "T1": 0.005,
+    "weights": "repair",
+    "repair_from": [
+     "baseline/wc_ref2_area_classes.json"
+    ],
+    "K": 4.0,
+    "crit": "baseline/wc_ref2_crit.json",
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 30.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": "placements/ga1",
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": true,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [],
+    "seed_def": null
+   },
+   "hpwl_pins_um": 33930.3
+  },
+  {
+   "tag": "ga1_j1",
+   "mode": "r32",
+   "cts_census": {
+    "cts_area": 790.272,
+    "n_leaves": 17,
+    "dummies": 2,
+    "masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_12": 1,
+     "inv_3": 1
+    }
+   },
+   "area": 43407.9,
+   "d_area": -21.9,
+   "d_upsize": 0.0,
+   "d_repair": 0.0,
+   "d_cts": -21.95,
+   "d_hold": 0.0,
+   "slew_cap_fo": "132/1/0",
+   "setup": 39.94744559324158,
+   "hold": 0.07209677503516909,
+   "wire": 45736,
+   "drc": 0,
+   "ant": 0,
+   "held": true,
+   "rep_drivers": 37,
+   "rep_drivers_dp": 20,
+   "cts_masters": {
+    "clkbuf_8": 3,
+    "clkbuf_4": 17,
+    "clkinv_4": 1,
+    "clkinv_12": 1,
+    "inv_3": 1
+   },
+   "pass": true,
+   "why": [],
+   "strict_d2": true,
+   "note": "winner with 2 flops relocated (_2318_ ended 73 um away, _2130_ 1 site): CTS sensitivity probe",
+   "work": "/Users/samuelzhang/ttharden/wc_work/ga1_j1_r32",
+   "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga1_j1",
+   "footprint": {
+    "rows": 39,
+    "row_range": [
+     0,
+     38
+    ],
+    "region_um2": 49288.8,
+    "packing": 0.8346,
+    "dp_only_density": 0.8025,
+    "bbox_um": [
+     4.48,
+     3.92,
+     342.16,
+     156.8
+    ],
+    "dp_cells": 1329,
+    "dp_area_um2": 39553.1
+   },
+   "gen_args": {
+    "out": "placements/ga1_j1",
+    "reserve": [],
+    "iters": 0,
+    "seed": 1,
+    "T0": 1.0,
+    "T1": 0.005,
+    "weights": "flat",
+    "repair_from": [],
+    "K": 4.0,
+    "crit": null,
+    "Kc": 10.0,
+    "Ks": 5.0,
+    "K2": 0.0,
+    "hpwl_thr": 60.0,
+    "slices": false,
+    "slice_w": 0.3,
+    "movable": "all",
+    "pack_set": "all",
+    "window_rows": 3,
+    "window_sites": 40,
+    "init": "placements/ga1",
+    "hinge_frac": 0.0,
+    "hinge_w": 0.0,
+    "sensitive_from": [],
+    "freeze_flops": false,
+    "hinge_json": null,
+    "pack_w": 0.0,
+    "ring": 0.0,
+    "edge": 0.0,
+    "relocate": [
+     "_2318_:272.6:118.6",
+     "_2130_:252.5:118.6"
+    ],
+    "seed_def": null
+   },
+   "hpwl_pins_um": 34275.0
+  }
+ ],
+ "packing_sequence": {
+  "note": "D8c, same recipe and seed (s0 flop set, anneal seed 1), one weight at a time; whole-chip packing = placement-stage cells incl. taps / union of per-row extents of all synthesized cells",
+  "rows": [
+   {
+    "tag": "s0r (seed)",
+    "pack_w": null,
+    "packing": 0.8305,
+    "region_um2": 49561.0,
+    "area": 43399.1
+   },
+   {
+    "tag": "sa1",
+    "pack_w": 0,
+    "packing": 0.8335,
+    "region_um2": 49356.9,
+    "area": 43399.1,
+    "slew_cap_fo": "98/1/0"
+   },
+   {
+    "tag": "sp10",
+    "pack_w": 10,
+    "packing": 0.8368,
+    "region_um2": 49135.2,
+    "area": 43399.1,
+    "slew_cap_fo": "106/1/0"
+   },
+   {
+    "tag": "sp20",
+    "pack_w": 20,
+    "packing": 0.8404,
+    "region_um2": 48909.1,
+    "area": 43399.1,
+    "slew_cap_fo": "119/1/0"
+   },
+   {
+    "tag": "sp40",
+    "pack_w": 40,
+    "packing": 0.8404,
+    "region_um2": 48917.8,
+    "area": 43399.1,
+    "slew_cap_fo": "127/1/0"
+   },
+   {
+    "tag": "sp80",
+    "pack_w": 80,
+    "packing": 0.8412,
+    "region_um2": 48863.0,
+    "area": 43399.1,
+    "slew_cap_fo": "115/1/0"
+   }
+  ],
+  "g3_flops": [
+   {
+    "tag": "ga1",
+    "packing": 0.8346,
+    "area": 43394.7,
+    "slew_cap_fo": "115/1/0"
+   },
+   {
+    "tag": "gp10",
+    "packing": 0.8368,
+    "area": 43394.7,
+    "slew_cap_fo": "117/1/0"
+   }
+  ]
+ },
+ "signoff": {
+  "winner": "ga1",
+  "run": "/Users/samuelzhang/ttharden/wc_ga1/runs/wokwi",
+  "mode": "r32",
+  "metrics_copy": "pd_flow/chip_tetris/signoff/wc_ga1_metrics.json",
+  "held": "pd_flow/chip_tetris/logs/check_held_wc_ga1.json",
+  "mechanism_check": {
+   "run": "/Users/samuelzhang/ttharden/wc_r32mech/runs/wokwi",
+   "placement": "s34 (tool step-34 placement)",
+   "area": 43429.8,
+   "slew_cap_fo": "151/1/0",
+   "note": "full harden with meta.substituting_steps reproduces wc_ref2 area exactly and the s34_r32 dry run exactly"
+  },
+  "area": 43394.7,
+  "d_area_vs_wc_ref2": -35.13,
+  "area_classes": {
+   "cts": 777.101,
+   "endcap": 342.451,
+   "fill": 8572.256,
+   "repair": 746.368,
+   "synth": 39553.114,
+   "tap": 1527.859,
+   "tie": 158.054,
+   "upsize": 289.762
+  },
+  "d_by_class": {
+   "cts": -35.12,
+   "endcap": 0.0,
+   "fill": 35.12,
+   "repair": 0.0,
+   "synth": 0.0,
+   "tap": 0.0,
+   "tie": 0.0,
+   "upsize": 0.0
+  },
+  "slew_cap_fo": "115/1/0",
+  "setup_ws_min": 40.03384759235363,
+  "hold_ws_min": 0.06455081096798239,
+  "route_drc": 0,
+  "magic_drc": 0,
+  "lvs_errors": 0,
+  "antenna_nets": 0,
+  "wire_um": 45561,
+  "power_W": 0.002974651986733079,
+  "cts_census": "pd_flow/chip_tetris/logs/wc_ga1_cts.json",
+  "netlist_sha256_equals_wc_ref2": true,
+  "held_all_10_step_defs": true
+ },
+ "record_wc_ref": {
+  "reference": {
+   "wc_ref": {
+    "role": "reference",
+    "run": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi",
+    "metrics_json": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/final/metrics.json",
+    "stdcell_area": 44777.7,
+    "slew": 195,
+    "cap": 1,
+    "fanout": 7,
+    "setup_ws_min": 45.19676849595529,
+    "hold_ws_min": 0.10527379266295771,
+    "wirelength_um": 47062,
+    "route_drc": 0,
+    "antenna_nets": 0,
+    "magic_drc": 0,
+    "lvs_errors": 0,
+    "power_total_W": 0.0029385657981038094,
+    "per_corner": {
+     "nom_tt_025C_3v30": {
+      "setup": 72.39156679007536,
+      "hold": 0.4132931891479249
+     },
+     "nom_ss_125C_3v00": {
+      "setup": 46.27742586790855,
+      "hold": 1.134933068537733
+     },
+     "nom_ff_n40C_3v60": {
+      "setup": 75.3948036453952,
+      "hold": 0.11210421797053668
+     },
+     "min_tt_025C_3v30": {
+      "setup": 72.53551564698415,
+      "hold": 0.42349813743429005
+     },
+     "min_ss_125C_3v00": {
+      "setup": 47.16585300269262,
+      "hold": 1.154524508673562
+     },
+     "min_ff_n40C_3v60": {
+      "setup": 75.48169591900879,
+      "hold": 0.11786083553832884
+     },
+     "max_tt_025C_3v30": {
+      "setup": 72.21935254233864,
+      "hold": 0.4011588952348005
+     },
+     "max_ss_125C_3v00": {
+      "setup": 45.19676849595529,
+      "hold": 1.1151546668392693
+     },
+     "max_ff_n40C_3v60": {
+      "setup": 75.29088676735131,
+      "hold": 0.10527379266295771
+     }
+    },
+    "synth_area": 40358.752,
+    "area_classes": {
+     "cts": 864.909,
+     "endcap": 342.451,
+     "fill": 7189.28,
+     "repair": 825.395,
+     "synth": 40279.725,
+     "tap": 1527.859,
+     "tie": 158.054,
+     "upsize": 779.293
+    },
+    "area_classes_json": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/baseline/wc_ref_area_classes.json"
+   }
+  },
+  "screens": [
+   {
+    "tag": "s0_firm17",
+    "mode": "firm17",
+    "cts_census": {
+     "cts_area": null,
+     "n_leaves": null,
+     "dummies": null,
+     "masters": null
+    },
+    "area": 44874.3,
+    "d_area": 96.6,
+    "d_upsize": 92.2,
+    "d_repair": -17.56,
+    "d_cts": 21.95,
+    "d_hold": 0.0,
+    "slew_cap_fo": "196/1/7",
+    "setup": 45.512306322975654,
+    "hold": 0.0977867814400459,
+    "wire": 47237,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 58,
+    "rep_drivers_dp": 35,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 2,
+     "clkinv_1": 9,
+     "clkinv_8": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44874.3"
+    ],
+    "strict_d2": false,
+    "note": "tool final placement FIRM at 17: +96.6 (upsize +92.2)",
+    "work": "record_wc_ref/summaries/s0_firm.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s0_r1"
+   },
+   {
+    "tag": "s0_r32",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": null,
+     "n_leaves": null,
+     "dummies": null,
+     "masters": null
+    },
+    "area": 44799.6,
+    "d_area": 21.9,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": 21.95,
+    "d_hold": 0.0,
+    "slew_cap_fo": "206/1/7",
+    "setup": 45.37570092544863,
+    "hold": 0.10369716490109744,
+    "wire": 47088,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 18,
+     "clkinv_4": 2,
+     "clkinv_1": 9,
+     "clkinv_8": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44799.6"
+    ],
+    "strict_d2": false,
+    "note": "final placement r32: +21.9 (CTS, 18th clkbuf_4 as dummy)",
+    "work": "record_wc_ref/summaries/s0r_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s0r",
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 49561.0,
+     "packing": 0.8305,
+     "dp_only_density": 0.7981,
+     "bbox_um": [
+      4.48,
+      3.92,
+      342.16,
+      156.8
+     ],
+     "dp_cells": 1329,
+     "dp_area_um2": 39553.1
+    },
+    "gen_args": {
+     "out": "placements/s0",
+     "reserve": [],
+     "iters": 0,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "flat",
+     "repair_from": [],
+     "K": 4.0,
+     "crit": null,
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 0.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "all",
+     "pack_set": "all",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": false,
+     "hinge_json": null,
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0,
+     "relocate": [],
+     "seed_def": null
+    },
+    "hpwl_pins_um": 35391.2
+   },
+   {
+    "tag": "s34_r32",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": null,
+     "n_leaves": null,
+     "dummies": null,
+     "masters": null
+    },
+    "area": 44777.7,
+    "d_area": 0.0,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": 0.0,
+    "d_hold": 0.0,
+    "slew_cap_fo": "210/1/7",
+    "setup": 45.62190399035261,
+    "hold": 0.10317813562240603,
+    "wire": 46696,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "clkinv_1": 9,
+     "clkinv_8": 1,
+     "inv_3": 1,
+     "inv_2": 1
+    },
+    "pass": false,
+    "why": [
+     "area 44777.7"
+    ],
+    "strict_d2": false,
+    "note": "step-34 placement r32: exact reproduction",
+    "work": "record_wc_ref/summaries/s34_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/s34",
+    "footprint": {
+     "rows": 39,
+     "row_range": [
+      0,
+      38
+     ],
+     "region_um2": 49545.7,
+     "packing": 0.8307,
+     "dp_only_density": 0.7983,
+     "bbox_um": [
+      4.48,
+      3.92,
+      342.16,
+      156.8
+     ],
+     "dp_cells": 1329,
+     "dp_area_um2": 39553.1
+    },
+    "gen_args": {
+     "out": "placements/s34",
+     "reserve": [],
+     "iters": 0,
+     "seed": 1,
+     "T0": 1.0,
+     "T1": 0.005,
+     "weights": "flat",
+     "repair_from": [],
+     "K": 4.0,
+     "crit": null,
+     "Kc": 10.0,
+     "Ks": 5.0,
+     "K2": 0.0,
+     "hpwl_thr": 60.0,
+     "slices": false,
+     "slice_w": 0.3,
+     "movable": "all",
+     "pack_set": "all",
+     "window_rows": 3,
+     "window_sites": 40,
+     "init": null,
+     "hinge_frac": 0.0,
+     "hinge_w": 0.0,
+     "sensitive_from": [],
+     "freeze_flops": false,
+     "hinge_json": null,
+     "pack_w": 0.0,
+     "ring": 0.0,
+     "edge": 0.0,
+     "relocate": [],
+     "seed_def": "/Users/samuelzhang/ttharden/wc_ref2/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+    },
+    "hpwl_pins_um": 34178.4
+   },
+   {
+    "tag": "c01f",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "214/1/0",
+    "setup": 45.01310740442173,
+    "hold": 0.08614043056004425,
+    "wire": 46706,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": false,
+    "note": "dffq_4 _2189_ block-swapped out of a full leaf: -61.5",
+    "work": "record_wc_ref/summaries/c01f_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/c01f"
+   },
+   {
+    "tag": "c02f",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "201/1/0",
+    "setup": 44.087355458672555,
+    "hold": 0.08662804052625017,
+    "wire": 47351,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": false,
+    "note": "same, other target: -61.5",
+    "work": "record_wc_ref/summaries/c02f_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/c02f"
+   },
+   {
+    "tag": "c04f",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 799.053,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 2,
+      "clkinv_1": 2,
+      "clkinv_8": 1
+     }
+    },
+    "area": 44711.8,
+    "d_area": -65.9,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -65.86,
+    "d_hold": 0.0,
+    "slew_cap_fo": "230/2/0",
+    "setup": 44.75233466030894,
+    "hold": 0.08270340202320388,
+    "wire": 48821,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 2,
+     "clkinv_1": 2,
+     "clkinv_8": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": false,
+    "note": "-65.9 but cap 2",
+    "work": "record_wc_ref/summaries/c04f_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/c04f"
+   },
+   {
+    "tag": "c06f",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 829.786,
+     "n_leaves": 17,
+     "dummies": 8,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 5,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44742.6,
+    "d_area": -35.1,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -35.12,
+    "d_hold": 0.0,
+    "slew_cap_fo": "205/3/3",
+    "setup": 44.66747098626332,
+    "hold": 0.0923288138743243,
+    "wire": 47883,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 5,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": false,
+    "why": [
+     "cap 3"
+    ],
+    "strict_d2": false,
+    "note": "-35.1, cap 3 fanout 3",
+    "work": "record_wc_ref/summaries/c06f_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/c06f"
+   },
+   {
+    "tag": "a1",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "209/1/0",
+    "setup": 44.622706792644415,
+    "hold": 0.0913369405960721,
+    "wire": 46792,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": false,
+    "note": "c02 flops + anneal seed 1",
+    "work": "record_wc_ref/summaries/a1_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/a1"
+   },
+   {
+    "tag": "a2",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "182/1/0",
+    "setup": 45.89939935822446,
+    "hold": 0.09888190546250838,
+    "wire": 47030,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": true,
+    "note": "seed 2",
+    "work": "record_wc_ref/summaries/a2_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/a2"
+   },
+   {
+    "tag": "a3",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "179/1/0",
+    "setup": 44.8226002334355,
+    "hold": 0.10255330208647549,
+    "wire": 47609,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": true,
+    "note": "seed 3",
+    "work": "record_wc_ref/summaries/a3_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/a3"
+   },
+   {
+    "tag": "p10",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "162/1/0",
+    "setup": 44.37305048994698,
+    "hold": 0.0842138604909251,
+    "wire": 46600,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": true,
+    "note": "pack-w 10",
+    "work": "record_wc_ref/summaries/p10_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/p10"
+   },
+   {
+    "tag": "p20",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "174/1/0",
+    "setup": 45.85769049845574,
+    "hold": 0.09265022344904338,
+    "wire": 47051,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": true,
+    "note": "pack-w 20",
+    "work": "record_wc_ref/summaries/p20_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/p20"
+   },
+   {
+    "tag": "p40",
+    "mode": "r32",
+    "cts_census": {
+     "cts_area": 803.443,
+     "n_leaves": 17,
+     "dummies": 5,
+     "masters": {
+      "clkbuf_8": 3,
+      "clkbuf_4": 17,
+      "clkinv_4": 1,
+      "inv_2": 1,
+      "clkinv_1": 2,
+      "clkinv_8": 1,
+      "inv_3": 1
+     }
+    },
+    "area": 44716.2,
+    "d_area": -61.5,
+    "d_upsize": 0.0,
+    "d_repair": 0.0,
+    "d_cts": -61.47,
+    "d_hold": 0.0,
+    "slew_cap_fo": "190/1/0",
+    "setup": 45.570091212595614,
+    "hold": 0.09376311104040223,
+    "wire": 47102,
+    "drc": 0,
+    "ant": 0,
+    "held": true,
+    "rep_drivers": 55,
+    "rep_drivers_dp": 33,
+    "cts_masters": {
+     "clkbuf_8": 3,
+     "clkbuf_4": 17,
+     "clkinv_4": 1,
+     "inv_2": 1,
+     "clkinv_1": 2,
+     "clkinv_8": 1,
+     "inv_3": 1
+    },
+    "pass": true,
+    "why": [],
+    "strict_d2": true,
+    "note": "pack-w 40",
+    "work": "record_wc_ref/summaries/p40_r32.json",
+    "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/p40"
+   }
+  ],
+  "note": "first reference (c06 only); superseded by wc_ref2 on the coordinator's instruction; kept as the record that established the r32 handoff and the CTS dummy-load mechanism"
+ },
+ "replay_wc_ref2": {
+  "log": "pd_flow/chip_tetris/logs/replay_rp.log",
+  "json": "pd_flow/chip_tetris/logs/replay_rp.json",
+  "winner": "rp_ga1",
+  "winner_area": 43394.7,
+  "winner_placement_identical_to_ga1": true,
+  "cts_search": {
+   "best": "rp_g_r1_4",
+   "cts_area": 777.101,
+   "relocs": [
+    "_2062_:81.1:21.5"
+   ]
+  },
+  "screens": [
+   {
+    "tag": "rp_ga1",
+    "area": 43394.7,
+    "d_area": -35.1,
+    "slew_cap_fo": "115/1/0",
+    "hold": 0.06455081096798239,
+    "pass": true
+   },
+   {
+    "tag": "rp_ga2",
+    "area": 43394.7,
+    "d_area": -35.1,
+    "slew_cap_fo": "123/1/0",
+    "hold": 0.06893219523627711,
+    "pass": true
+   },
+   {
+    "tag": "rp_ga3",
+    "area": 43394.7,
+    "d_area": -35.1,
+    "slew_cap_fo": "128/1/0",
+    "hold": 0.06584522002900124,
+    "pass": true
+   },
+   {
+    "tag": "rp_gp10",
+    "area": 43394.7,
+    "d_area": -35.1,
+    "slew_cap_fo": "117/1/0",
+    "hold": 0.06324829727865455,
+    "pass": true
+   },
+   {
+    "tag": "rp_gp20",
+    "area": 43394.7,
+    "d_area": -35.1,
+    "slew_cap_fo": "130/1/0",
+    "hold": 0.05528044845017857,
+    "pass": true
+   },
+   {
+    "tag": "rp_na1",
+    "area": 43399.1,
+    "d_area": -30.7,
+    "slew_cap_fo": "98/1/0",
+    "hold": 0.07833545145388705,
+    "pass": true
+   },
+   {
+    "tag": "rp_na2",
+    "area": 43399.1,
+    "d_area": -30.7,
+    "slew_cap_fo": "128/1/0",
+    "hold": 0.07244116622714786,
+    "pass": true
+   },
+   {
+    "tag": "rp_na3",
+    "area": 43399.1,
+    "d_area": -30.7,
+    "slew_cap_fo": "137/1/0",
+    "hold": 0.0650152172723174,
+    "pass": true
+   },
+   {
+    "tag": "rp_np10",
+    "area": 43399.1,
+    "d_area": -30.7,
+    "slew_cap_fo": "106/1/0",
+    "hold": 0.07254974604202705,
+    "pass": true
+   },
+   {
+    "tag": "rp_np20",
+    "area": 43399.1,
+    "d_area": -30.7,
+    "slew_cap_fo": "119/1/0",
+    "hold": 0.05512446211080715,
+    "pass": true
+   },
+   {
+    "tag": "rp_np40",
+    "area": 43399.1,
+    "d_area": -30.7,
+    "slew_cap_fo": "127/1/0",
+    "hold": 0.05655809314305146,
+    "pass": true
+   },
+   {
+    "tag": "rp_gp40",
+    "area": 43394.7,
+    "d_area": -35.1,
+    "slew_cap_fo": "89/1/0",
+    "hold": 0.07437173309926871,
+    "pass": true,
+    "note": "replay pack-w 40 on g3 flops; first chain failed at container launch (no step log), rerun clean"
+   }
+  ],
+  "robustness": [
+   {
+    "tag": "rp_ga1_p1",
+    "area": 43394.7,
+    "slew_cap_fo": "133/1/0",
+    "pass": true
+   },
+   {
+    "tag": "rp_ga1_p2",
+    "area": 43394.7,
+    "slew_cap_fo": "129/1/0",
+    "pass": true
+   }
+  ]
+ }
+}

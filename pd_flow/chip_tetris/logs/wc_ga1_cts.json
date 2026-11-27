@@ -1,0 +1,260 @@
+{
+ "def": "/Users/samuelzhang/ttharden/wc_ga1/runs/wokwi/34-openroad-cts/tt_um_attention_head_gf.def",
+ "leaves": [
+  {
+   "leaf": "clkbuf_leaf_0_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 91.3,
+   "bbox": [
+    12.6,
+    25.5,
+    72.5,
+    56.8
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_10_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 156.8,
+   "bbox": [
+    208.6,
+    49.0,
+    334.0,
+    80.4
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_11_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 117.6,
+   "bbox": [
+    267.4,
+    13.7,
+    334.0,
+    64.7
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_12_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 107.5,
+   "bbox": [
+    232.7,
+    5.9,
+    308.8,
+    37.2
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_13_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 112.0,
+   "bbox": [
+    184.0,
+    5.9,
+    252.8,
+    49.0
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_14_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 169.7,
+   "bbox": [
+    129.1,
+    5.9,
+    228.2,
+    76.4
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_15_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 113.7,
+   "bbox": [
+    69.7,
+    5.9,
+    152.0,
+    37.2
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_16_clk",
+   "ff": 16,
+   "ff_cap": 0.05093,
+   "cap_with_dummies": 0.06454,
+   "dummies": [
+    "inv_3"
+   ],
+   "hpwl": 85.7,
+   "bbox": [
+    27.2,
+    5.9,
+    93.2,
+    25.5
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_1_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 115.9,
+   "bbox": [
+    12.6,
+    45.1,
+    93.2,
+    80.4
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_2_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 163.0,
+   "bbox": [
+    51.8,
+    49.0,
+    152.0,
+    111.7
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_3_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 80.6,
+   "bbox": [
+    12.6,
+    84.3,
+    61.9,
+    115.6
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_4_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 83.4,
+   "bbox": [
+    12.6,
+    119.6,
+    60.8,
+    154.8
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_5_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 107.0,
+   "bbox": [
+    33.3,
+    127.4,
+    112.8,
+    154.8
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_6_clk",
+   "ff": 13,
+   "ff_cap": 0.04138,
+   "cap_with_dummies": 0.05936,
+   "dummies": [
+    "inv_4"
+   ],
+   "hpwl": 113.1,
+   "bbox": [
+    103.3,
+    107.8,
+    169.4,
+    154.8
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_7_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 135.0,
+   "bbox": [
+    177.8,
+    92.1,
+    250.0,
+    154.8
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_8_clk",
+   "ff": 20,
+   "ff_cap": 0.06366,
+   "cap_with_dummies": 0.06366,
+   "dummies": [],
+   "hpwl": 129.9,
+   "bbox": [
+    236.0,
+    119.6,
+    330.7,
+    154.8
+   ]
+  },
+  {
+   "leaf": "clkbuf_leaf_9_clk",
+   "ff": 13,
+   "ff_cap": 0.04138,
+   "cap_with_dummies": 0.05936,
+   "dummies": [
+    "inv_4"
+   ],
+   "hpwl": 107.5,
+   "bbox": [
+    269.6,
+    88.2,
+    334.0,
+    131.3
+   ]
+  }
+ ],
+ "n_leaves": 17,
+ "dummies": 3,
+ "dummy_area_total": 83.42,
+ "cts_area": 777.101,
+ "masters": {
+  "clkbuf_8": 3,
+  "clkbuf_4": 17,
+  "clkinv_4": 1,
+  "inv_4": 2,
+  "inv_3": 1
+ }
+}

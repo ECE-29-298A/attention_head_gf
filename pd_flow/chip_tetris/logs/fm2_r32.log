@@ -1,0 +1,2 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/fm2_r32 52.7 s | resized 0 misses 0 | held True | area 43412.3 slew/cap/fo 104/1/0 setup 39.53003014588664 hold 0.05809930478942455 drc 0 ant 0 wire 43903 | cts 794.662 leaves 17 dummies 3
+PIPELINE final placement placements/fm2

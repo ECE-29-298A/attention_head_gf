@@ -154,6 +154,12 @@
   transitivity (each changed module equivalent under its frozen contract, all else byte-identical), or a reviewed
   equal-start-state antecedent. Decide at assembly.
 
+- Whole-chip tetris (D11; orchestrator-checked 2026-11-26): the winner ga1 signs off at 43,394.7 um2 (-35.1 vs
+  wc_ref2, all CTS dummy loads). Slew/cap/fanout 115/1/0, setup +40.03, hold +0.065, DRC/LVS/antenna 0, netlist
+  identical. The r32 handoff (fix after step 32, LibreLane meta.substituting_steps) has zero FIRM penalty.
+  Compaction gives no area (density converges at 84.0-84.1%). Replay: `pd_flow/chip_tetris/scripts/replay.py
+  <ref run> <prefix> [--signoff]`; rerun it on the final netlist. Review: https://claude.ai/artifact/ (chip_tetris_ga1).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

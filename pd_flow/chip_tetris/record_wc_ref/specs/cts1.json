@@ -1,0 +1,36 @@
+{
+ "c00": [
+  "--seed-def",
+  "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+ ],
+ "c01": [
+  "--seed-def",
+  "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+  "--relocate",
+  "_2189_:185:113"
+ ],
+ "c02": [
+  "--seed-def",
+  "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+  "--relocate",
+  "_2189_:200:100"
+ ],
+ "c03": [
+  "--seed-def",
+  "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+  "--relocate",
+  "_2189_:191:40"
+ ],
+ "c04": [
+  "--seed-def",
+  "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+  "--relocate",
+  "_2189_:307:53"
+ ],
+ "c05": [
+  "--seed-def",
+  "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def",
+  "--relocate",
+  "_2189_:150:110"
+ ]
+}

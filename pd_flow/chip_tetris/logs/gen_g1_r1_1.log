@@ -1,0 +1,5 @@
+seed h2: HPWL 34178.4
+reservations: 28 cells, widened now 0, cells shifted 0
+relocate _2009_ -> near (177.0, 117.6): free gap; now row 29 site 296 (169.12, 117.6)
+movable cells: 1329
+wrote /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/g1_r1_1: HPWL 34179.0, moved 1 (non-dp 1), mean disp 0.0 um

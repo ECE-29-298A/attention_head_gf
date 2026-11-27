@@ -1,0 +1,9 @@
+DRYRUN OK sa1_r32 40.9 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 98/1/0 setup 41.128197123212225 hold 0.07833545145388705 drc 0 ant 0 wire 44514 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK sa2_r32 51.3 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 128/1/0 setup 40.28522340852023 hold 0.07244116622714786 drc 0 ant 0 wire 45256 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK sp10_r32 38.0 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 106/1/0 setup 40.21244251403794 hold 0.07254974604202705 drc 0 ant 0 wire 44368 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK sa3_r32 51.3 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 137/1/0 setup 40.18689139653737 hold 0.0650152172723174 drc 0 ant 0 wire 44490 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK sp40_r32 37.7 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 127/1/0 setup 39.728818692692364 hold 0.05655809314305146 drc 0 ant 0 wire 45265 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK sp20_r32 40.7 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 119/1/0 setup 40.49994232391224 hold 0.05512446211080715 drc 0 ant 0 wire 45022 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK fm1_r32 44.7 s | resized 0 misses 0 | held True | area 43416.7 slew/cap/fo 118/1/0 setup 40.62092643895178 hold 0.09036804893507959 drc 0 ant 0 wire 43259 | cts 799.053 leaves 17 dummies 3
+DRYRUN OK sp80_r32 53.2 s | resized 0 misses 0 | held True | area 43399.1 slew/cap/fo 115/1/0 setup 40.73717833923732 hold 0.07589651344441263 drc 0 ant 0 wire 45182 | cts 781.491 leaves 17 dummies 3
+DRYRUN OK fm2_r32 52.7 s | resized 0 misses 0 | held True | area 43412.3 slew/cap/fo 104/1/0 setup 39.53003014588664 hold 0.05809930478942455 drc 0 ant 0 wire 43903 | cts 794.662 leaves 17 dummies 3

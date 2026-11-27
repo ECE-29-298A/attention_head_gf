@@ -1,0 +1,5 @@
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0_probe0 18.3 s | resized 30 misses 3 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None | cts None leaves None dummies None
+PIPELINE round 0: 3 misses {'_1202_': 'oai31_2', '_1275_': 'xnor2_2', '_1980_': 'nand4_4'} -> placements/s0_r1 (shifted 7)
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0_probe1 18.0 s | resized 30 misses 0 | held None | area None slew/cap/fo None/None/None setup None hold None drc None ant None wire None | cts None leaves None dummies None
+DRYRUN OK /Users/samuelzhang/ttharden/wc_work/s0_firm 49.7 s | resized 30 misses 0 | held True | area 43504.5 slew/cap/fo 156/1/0 setup 38.79220254820616 hold 0.061829765279972165 drc 0 ant 0 wire 46558 | cts 781.491 leaves 17 dummies 3
+PIPELINE final placement placements/s0_r1

@@ -1,0 +1,89 @@
+{
+ "placement_dir": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/ga1",
+ "run": "/Users/samuelzhang/ttharden/wc_ga1/runs/wokwi",
+ "configured": 1329,
+ "defs_checked": 10,
+ "ALL_HELD": true,
+ "steps": {
+  "32-odb-manualmacroplacement/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1803,
+   "not_in_cfg": 474
+  },
+  "33-openroad-detailedplacement/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1803,
+   "not_in_cfg": 474
+  },
+  "34-openroad-cts/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1827,
+   "not_in_cfg": 498
+  },
+  "36-openroad-resizertimingpostcts/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1827,
+   "not_in_cfg": 498
+  },
+  "38-openroad-globalrouting/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1827,
+   "not_in_cfg": 498
+  },
+  "43-openroad-detailedrouting/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1827,
+   "not_in_cfg": 498
+  },
+  "47-odb-reportdisconnectedpins/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 1827,
+   "not_in_cfg": 498
+  },
+  "51-openroad-fillinsertion/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 2951,
+   "not_in_cfg": 1622
+  },
+  "52-odb-cellfrequencytables/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 2951,
+   "not_in_cfg": 1622
+  },
+  "final/def/tt_um_attention_head_gf.def": {
+   "ok": true,
+   "violations": {},
+   "examples": [],
+   "resized": 28,
+   "instances": 2951,
+   "not_in_cfg": 1622
+  }
+ }
+}

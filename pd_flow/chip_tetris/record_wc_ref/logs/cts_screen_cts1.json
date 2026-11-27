@@ -1,0 +1,150 @@
+{
+ "c00": {
+  "cts_area": 864.909,
+  "leaves": 17,
+  "dummies": 12,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "clkinv_1": 9,
+   "clkinv_8": 1,
+   "inv_3": 1,
+   "inv_2": 1
+  },
+  "held": true,
+  "work": "/Users/samuelzhang/ttharden/wc_work/c00_cts",
+  "fanouts": [
+   11,
+   16,
+   17,
+   19,
+   19,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20
+  ]
+ },
+ "c01": {
+  "cts_area": 864.909,
+  "leaves": 17,
+  "dummies": 12,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "clkinv_1": 9,
+   "clkinv_8": 1,
+   "inv_3": 1,
+   "inv_2": 1
+  },
+  "held": true,
+  "work": "/Users/samuelzhang/ttharden/wc_work/c01_cts",
+  "fanouts": [
+   11,
+   16,
+   17,
+   19,
+   19,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20
+  ]
+ },
+ "c02": {
+  "cts_area": 864.909,
+  "leaves": 17,
+  "dummies": 12,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "clkinv_1": 9,
+   "clkinv_8": 1,
+   "inv_3": 1,
+   "inv_2": 1
+  },
+  "held": true,
+  "work": "/Users/samuelzhang/ttharden/wc_work/c02_cts",
+  "fanouts": [
+   11,
+   16,
+   17,
+   19,
+   19,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20
+  ]
+ },
+ "c03": {
+  "error": "gen failed",
+  "tail": "seed h2: HPWL 35924.6\nreservations: 49 cells, widened now 0, cells shifted 0\nrelocate _2189_ -> near (191.0, 40.0): NO GAP now row 29 site 286 (163.52, 117.6)\n"
+ },
+ "c04": {
+  "error": "gen failed",
+  "tail": "seed h2: HPWL 35924.6\nreservations: 49 cells, widened now 0, cells shifted 0\nrelocate _2189_ -> near (307.0, 53.0): NO GAP now row 29 site 286 (163.52, 117.6)\n"
+ },
+ "c05": {
+  "cts_area": 864.909,
+  "leaves": 17,
+  "dummies": 12,
+  "masters": {
+   "clkbuf_8": 3,
+   "clkbuf_4": 17,
+   "clkinv_4": 1,
+   "clkinv_1": 9,
+   "clkinv_8": 1,
+   "inv_3": 1,
+   "inv_2": 1
+  },
+  "held": true,
+  "work": "/Users/samuelzhang/ttharden/wc_work/c05_cts",
+  "fanouts": [
+   11,
+   16,
+   17,
+   19,
+   19,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20,
+   20
+  ]
+ }
+}

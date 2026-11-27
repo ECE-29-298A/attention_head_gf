@@ -1,0 +1,93 @@
+{
+ "generator": "gen_tetris.py",
+ "args": {
+  "out": "/Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/chip_tetris/placements/c06",
+  "reserve": [],
+  "iters": 0,
+  "seed": 1,
+  "T0": 1.0,
+  "T1": 0.005,
+  "weights": "flat",
+  "repair_from": [],
+  "K": 4.0,
+  "crit": null,
+  "Kc": 10.0,
+  "Ks": 5.0,
+  "K2": 0.0,
+  "hpwl_thr": 60.0,
+  "slices": false,
+  "slice_w": 0.3,
+  "movable": "all",
+  "pack_set": "all",
+  "window_rows": 3,
+  "window_sites": 40,
+  "init": null,
+  "hinge_frac": 0.0,
+  "hinge_w": 0.0,
+  "sensitive_from": [],
+  "freeze_flops": false,
+  "hinge_json": null,
+  "pack_w": 0.0,
+  "ring": 0.0,
+  "edge": 0.0,
+  "relocate": [
+   "_2189_:240:20"
+  ],
+  "seed_def": "/Users/samuelzhang/ttharden/wc_ref/runs/wokwi/34-openroad-detailedplacement/tt_um_attention_head_gf.def"
+ },
+ "hpwl_pins_um": 36895.7,
+ "footprint": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 50410.6,
+  "packing": 0.8315,
+  "dp_only_density": 0.799,
+  "bbox_um": [
+   4.48,
+   3.92,
+   342.16,
+   156.8
+  ],
+  "dp_cells": 1362,
+  "dp_area_um2": 40279.7
+ },
+ "footprint_seed": {
+  "rows": 39,
+  "row_range": [
+   0,
+   38
+  ],
+  "region_um2": 50410.6,
+  "packing": 0.8315,
+  "dp_only_density": 0.799,
+  "bbox_um": [
+   4.48,
+   3.92,
+   342.16,
+   156.8
+  ],
+  "dp_cells": 1362,
+  "dp_area_um2": 40279.7
+ },
+ "cells_moved_from_h2": 3,
+ "dp_moved": 0,
+ "nondp_moved": [
+  "_2096_",
+  "_2189_",
+  "_1192_"
+ ],
+ "mean_disp_um": 0.393,
+ "max_disp_um": 179.2,
+ "reserved": 49,
+ "seconds": 2.3,
+ "netlist_sha16": "3a58fe171caeded5",
+ "log": [
+  "seed h2: HPWL 35924.6",
+  "reservations: 49 cells, widened now 0, cells shifted 0",
+  "relocate _2189_ -> near (240.0, 20.0): block swap with ['_1192_', '_2096_']; now row 3 site 422 (239.68, 15.68)",
+  "movable cells: 1362"
+ ]
+}
