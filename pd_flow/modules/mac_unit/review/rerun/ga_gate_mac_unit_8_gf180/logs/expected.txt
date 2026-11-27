@@ -1,0 +1,14 @@
+cells_prep prep
+selftest selftest
+gen gen
+lint_8 lint 8
+refcheck refcheck
+edge_8 edge 8
+fv_spec_8 sby spec_8
+fv_cover_8 sby cover_8
+fv_sanity_sign_8 sby sanity_sign_8
+fv_sanity_lsel_8 sby sanity_lsel_8
+fv_sanity_delay_8 sby sanity_delay_8
+eqy_rtl eqy 8
+seq_eq_8 seq 8
+fv_sanity_seq_8 seq 8 sanity

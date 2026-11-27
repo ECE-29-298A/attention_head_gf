@@ -1,0 +1,1 @@
+fv_spec_8	sby	proven	true	11.355	logs/fv_spec_8.log	sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction

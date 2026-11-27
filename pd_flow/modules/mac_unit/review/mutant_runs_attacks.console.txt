@@ -1,0 +1,9 @@
+c_rename                           equivalent           survived  24/24   13.5s killed_by=
+x01_rename_rare_formal_assume      functional-bug       killed    15/24    7.7s killed_by=edge_2,edge_4,edge_8,fv_spec_2,fv_spec_4,fv_spec_8,equiv_2,equiv_4,equiv_8
+x02_rename_rare                    functional-bug       killed    15/24    7.6s killed_by=edge_2,edge_4,edge_8,fv_spec_2,fv_spec_4,fv_spec_8,equiv_2,equiv_4,equiv_8
+x03_rename_init                    power-up             killed    6/24    4.3s killed_by=lint_2,lint_4,lint_8,fv_cover_2,fv_cover_4,fv_cover_8,fv_sanity_delay_8,fv_sanity_lsel_8,fv_sanity_sign_8,fv_spec_2,fv_spec_4,fv_spec_8,fv_sanity_seq_2,fv_sanity_seq_4,fv_sanity_seq_8,equiv_2,equiv_4,equiv_8
+x04_plain_assume_rare              functional-bug       killed    6/24    4.4s killed_by=edge_2,edge_4,edge_8,fv_cover_2,fv_cover_4,fv_cover_8,fv_sanity_delay_8,fv_sanity_lsel_8,fv_sanity_sign_8,fv_spec_2,fv_spec_4,fv_spec_8,fv_sanity_seq_2,fv_sanity_seq_4,fv_sanity_seq_8,equiv_2,equiv_4,equiv_8
+x05_powerup_flag_O0                power-up-only        killed    21/24    8.0s killed_by=fv_spec_2,fv_spec_4,fv_spec_8
+x05b_powerup_flag_O0_consistent    power-up-equivalent  survived  24/24   16.7s killed_by=
+x06_powerup_flag_S                 power-up             killed    21/24    7.7s killed_by=fv_spec_2,fv_spec_4,fv_spec_8
+x07_initstate_O0                   power-up             killed    18/24   13.6s killed_by=lint_2,lint_4,lint_8,edge_2,edge_4,edge_8

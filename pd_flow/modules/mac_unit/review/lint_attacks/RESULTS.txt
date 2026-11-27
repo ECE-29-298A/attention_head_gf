@@ -1,0 +1,19 @@
+v1 | l: assert property ((fresh_s <<= 1) == 0 || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v2 | l: assert property ((fresh_s = 1'b0) || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=2
+v3 | l: assert property (fresh_s++ || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v4 | l: assert property (fresh_s <= 1'b1 || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=0
+v5 | l: assert property (fresh_ring[0] ? 1'b1 : cand.S == gold.S); | RESULT lemma_lint statements=1 errors=0
+v6 | l: assert property (head_f || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v7 | l: assert property (load_o || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v8 | l: assert property ($past(fresh_s) || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v9 | l: assert property (fresh_s.x || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v10 | l: assert property (s_eventually fresh_s || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v11 | l: assert property (cand.S == gold.S); assume property (fresh_s); | RESULT lemma_lint statements=1 errors=2
+v12 | l: assert property (!fresh_s || cand.S == gold.S) /* ; assume (0) */; | RESULT lemma_lint statements=1 errors=0
+v13 | l: assert property (!fresh_s || cand.S == gold.S) | RESULT lemma_lint statements=1 errors=0
+v14 | l: assert property (fresh_l |-> cand.L == gold.L); | RESULT lemma_lint statements=1 errors=1
+v15 | l: assert property ($initstate || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v16 | l: assert property (clk || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v17 | l: assert property (resh_s || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v18 | l: assert property (fresh_s >>= 1 || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=1
+v19 | l: assert property (fresh_ring[cand.S[2:0]] || cand.S == gold.S); | RESULT lemma_lint statements=1 errors=0

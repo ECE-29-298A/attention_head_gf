@@ -1,0 +1,1 @@
+edge_8	edge	pass-edge-spot	true	4.527	logs/edge_8.log	sim=verilator outputs=8 cycles=12000 checked=11942 partial=58 errors=0 x2 seeds (expected cycles=12000)

@@ -1,0 +1,26 @@
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga/pd_flow/modules/mac_unit/verif/run_all.sh --gate --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/gate_attacks/ga1_shadow_cell.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/gate_ga1_shadow_cell --config 8 --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/gate_attacks/ga1_shadow_cell.v (gate-level netlist, OUTPUTS=8, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog, flop models from /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib)
+configs (OUTPUTS): 8
+seq_eq lemmas: none
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/gate_ga1_shadow_cell
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//mac_verif.WJvoYp
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass                pass-static       0.23s  RESULT cells netlist_modules=['named', 'that'] cell_types=26 models_copied=52 udps=1 liberty_flop_cells=1 netlist_lines=
+gen                  pass                pass-static       0.17s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT refpoints points=4024;
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_8               failed              failed            0.28s  RESULT lint mode=gate warnings=11 netlist=0 library=9 waived=2 errors=0; 
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_8               pass-edge-spot      pass-sampled      4.37s  sim=verilator outputs=8 cycles=12000 checked=11942 partial=58 errors=0 x2 seeds (expected cycles=12000)
+fv_cover_8           inconclusive        inconclusive      0.20s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_cover_
+fv_sanity_delay_8    inconclusive        inconclusive      0.18s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_sanity
+fv_sanity_lsel_8     inconclusive        inconclusive      0.19s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_sanity
+fv_sanity_sign_8     inconclusive        inconclusive      0.19s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_sanity
+fv_spec_8            inconclusive        inconclusive      0.20s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_spec_8
+eqy_rtl              inconclusive        inconclusive  (non-gating)     0.18s  tool/infrastructure error: eqy_status=none partitions_proved=0 partitions_failed=0 matched_names= (strategy sat, depth 1
+fv_sanity_seq_8      failed              failed            0.11s  lemma file rejected or a referenced net does not exist: mac_unit_fv.v:4098: ERROR: Re-definition of module `\gf180mcu_fd
+seq_eq_8             failed              failed        (non-gating)     0.11s  lemma file rejected or a referenced net does not exist: mac_unit_fv.v:4098: ERROR: Re-definition of module `\gf180mcu_fd
+equiv_8              failed              failed            0.00s  eqy_rtl: inconclusive; seq_eq_8: failed (ok if either is proven)
+TOTAL 5/13 gating ok, all_ok=False; 5.833 s

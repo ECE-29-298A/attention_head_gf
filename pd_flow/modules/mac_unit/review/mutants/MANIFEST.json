@@ -1,0 +1,118 @@
+{
+ "m01_accum_bit7_positive": {
+  "class": "functional-bug",
+  "description": "accumulate: bit 7 of v adds +128*W instead of -128*W (v treated unsigned)"
+ },
+ "m02_score_ignore_subtract": {
+  "class": "functional-bug",
+  "description": "score: subtract ignored (pass 2 adds instead of M - S)"
+ },
+ "m03_score_bit7_positive": {
+  "class": "functional-bug",
+  "description": "score: ki bit 7 has weight +128 (ki treated unsigned)"
+ },
+ "m04_W_sign_extended": {
+  "class": "functional-bug",
+  "description": "accumulate: W sign-extended (wrong only for W >= 128)"
+ },
+ "m05_qi_zero_extended": {
+  "class": "functional-bug",
+  "description": "score: qi zero-extended (wrong for negative qi)"
+ },
+ "m06_first_load_every_bit": {
+  "class": "functional-bug",
+  "description": "first load ignores top: token 0 restarts from 0 at every bit"
+ },
+ "m07_first_load_no_accum_en": {
+  "class": "functional-bug",
+  "description": "first load ignores accum_en: head cleared whenever first && bit_sel==7 (e.g. DIV states with last = 0)"
+ },
+ "m08_ring_no_bypass": {
+  "class": "functional-bug",
+  "description": "ring tail always takes sum[19:0] (no bypass while scoring)"
+ },
+ "m09_bypass_by_accum_en": {
+  "class": "out-of-context-bug",
+  "description": "ring update selected by accum_en instead of accum_mode (differs only for accum_en && !accum_mode)"
+ },
+ "m10_L_every_component": {
+  "class": "functional-bug",
+  "description": "L condition drops sel == 0 (adds W for every component)"
+ },
+ "m11_L_at_bit7": {
+  "class": "out-of-context-bug",
+  "description": "L updates at bit_sel == 7 instead of 0 (same W within a V block in the chip; differs at the port)"
+ },
+ "m12_L_no_first_clear": {
+  "class": "functional-bug",
+  "description": "L never restarts at first (L <= L + W)"
+ },
+ "m13_shift_low2": {
+  "class": "functional-bug",
+  "description": "shift amount uses bit_sel[1:0] only (bits 4..7 mis-weighted)"
+ },
+ "m14_rare_W_A5_b3": {
+  "class": "functional-bug",
+  "description": "rare value: accumulate term off by one when W == 0xA5 and bit_sel == 3 and the v bit is set"
+ },
+ "m15_rare_qi_80": {
+  "class": "functional-bug",
+  "description": "rare value: score qi == -128 treated as +128"
+ },
+ "m16_powerup_init_all": {
+  "class": "power-up",
+  "description": "adds power-up init values: ring, S and L start at 0"
+ },
+ "m17_powerup_init_L": {
+  "class": "power-up",
+  "description": "adds a power-up init on L only (L = 0)"
+ },
+ "m18_powerup_por_clear": {
+  "class": "power-up",
+  "description": "adds an internal power-on-reset flop (init 1) that clears ring and S on the first clock"
+ },
+ "m19_score_en_before_load": {
+  "class": "functional-bug",
+  "description": "score_en has priority over load"
+ },
+ "m20_load_M_always": {
+  "class": "functional-bug",
+  "description": "load ignores subtract: pass 1 also starts from M"
+ },
+ "m21_bit_on_no_accum_en": {
+  "class": "functional-bug",
+  "description": "accumulate bit ignores accum_en: v bits add to the head in IDLE/CMD/DIV states"
+ },
+ "m22_O0_zero_ext": {
+  "class": "out-of-context-bug",
+  "description": "O0 zero-extended into the adder (affects only sum[21:20], i.e. S under score_en with accum_mode)"
+ },
+ "m23_ring_reverse": {
+  "class": "functional-bug",
+  "description": "ring rotates the other way (tail of the vector feeds the head)"
+ },
+ "m24_add_enable": {
+  "class": "functional-bug",
+  "description": "ring only turns while accum_mode (stalls in SCORE: head/phase misaligned)"
+ },
+ "e01_plus_adder": {
+  "class": "equivalent",
+  "description": "shared adder written with + instead of ripple_add"
+ },
+ "e02_sub_form": {
+  "class": "equivalent",
+  "description": "sum = neg ? a - term : a + term"
+ },
+ "e03_L_cond_form": {
+  "class": "equivalent",
+  "description": "L condition written bitwise"
+ },
+ "e04_x_wide": {
+  "class": "equivalent",
+  "description": "term built from 22-bit operands directly"
+ },
+ "e05_L_plus": {
+  "class": "equivalent",
+  "description": "L adder written with +"
+ }
+}

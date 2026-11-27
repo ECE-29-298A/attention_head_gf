@@ -1,0 +1,1 @@
+fv_sanity_seq_8	seq	failed-as-expected	true	1.791	logs/fv_sanity_seq_8.log	sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 

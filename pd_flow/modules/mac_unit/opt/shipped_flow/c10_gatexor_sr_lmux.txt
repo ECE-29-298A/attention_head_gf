@@ -1,0 +1,1 @@
+mc_c10_gatexor_sr_lmux 40821.9392 1377

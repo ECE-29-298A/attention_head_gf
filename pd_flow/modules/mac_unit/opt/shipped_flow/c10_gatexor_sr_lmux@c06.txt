@@ -1,0 +1,1 @@
+mc6_c10_gatexor_sr_lmux 39678.24 1325

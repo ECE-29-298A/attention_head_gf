@@ -34,6 +34,10 @@ read_verilog -sv gate.v
 @GATEPARAM@
 hierarchy -top mac_unit
 proc; flatten; opt_clean
+# review fix F2 (agent 2): an init (power-up) value fails eqy_rtl closed, so equiv_P cannot
+# pass through eqy_rtl for an init candidate (sat depth 1 ignores init values). After proc:
+# `initial` blocks become init attributes only in proc_init.
+select -assert-none a:init
 prep -top mac_unit
 dffunmap
 

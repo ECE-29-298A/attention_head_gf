@@ -1,0 +1,25 @@
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/gate_netlists/golden.v (gate-level netlist, OUTPUTS=8, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog, flop models from /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib)
+configs (OUTPUTS): 8
+seq_eq lemmas: none
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/rerun/ga_gate_golden
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//mac_verif.DJKJxZ
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass                pass-static       0.24s  RESULT cells netlist_modules=['mac_unit'] cell_types=25 models_copied=51 udps=1 liberty_flop_cells=1 netlist_lines=3689 
+gen                  pass                pass-static       0.18s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT refpoints points=4024;
+selftest             pass                pass-static       0.09s  RESULT selftest checks=153 failures=0
+lint_8               pass-with-waiver    pass-static       0.40s  RESULT lint mode=gate warnings=10 netlist=0 library=8 waived=2 errors=0; RESULT interface top=mac_unit outputs=8 ports=1
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_8               pass-edge-spot      pass-sampled      4.53s  sim=verilator outputs=8 cycles=12000 checked=11942 partial=58 errors=0 x2 seeds (expected cycles=12000)
+fv_cover_8           covered             bounded-pass     21.90s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=11 (expected asserts=0 covers=18, 18 reached)
+fv_sanity_delay_8    failed-as-expected  failed            3.22s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_delay
+fv_sanity_lsel_8     failed-as-expected  failed            0.58s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_lsel
+fv_sanity_sign_8     failed-as-expected  failed            1.66s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_sign
+fv_spec_8            proven              proven            9.80s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+eqy_rtl              proven              proven        (non-gating)     1.70s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, one merged partition, g
+fv_sanity_seq_8      failed-as-expected  failed            1.86s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_8             proven              proven        (non-gating)     6.38s  sby_status=PASS asserts=1 covers=0 (a_eq + 0 lemmas); basecase depth 11 from free independent start states + k-induction
+equiv_8              proven              proven            0.00s  eqy_rtl: proven; seq_eq_8: proven (ok if either is proven)
+TOTAL 13/13 gating ok, all_ok=True; 29.165 s

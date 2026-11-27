@@ -1,0 +1,40 @@
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga/pd_flow/modules/mac_unit/verif/run_all.sh --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/attacks/x03_rename_init.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/x03_rename_init --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/attacks/x03_rename_init.v + frozen snapshot/ripple_add.v
+configs (OUTPUTS): 8 4 2
+seq_eq lemmas: none
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/x03_rename_init
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//mac_verif.TY7gZS
+== phase build
+== phase sim
+== phase formal
+gen                  pass                pass-static       0.36s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT edges outputs=4 cycles=10792 fully_known=10762;RESULT edges
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_2               failed              failed            0.15s  RESULT lint mode=rtl warnings=2 netlist=1 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=2 ports=17 
+lint_4               failed              failed            0.15s  RESULT lint mode=rtl warnings=2 netlist=1 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=4 ports=17 
+lint_8               failed              failed            0.20s  RESULT lint mode=rtl warnings=2 netlist=1 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=8 ports=17 
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_2               pass-edge-spot      pass-sampled      0.46s  sim=icarus outputs=2 cycles=10188 checked=10172 partial=16 errors=0 (expected cycles=10188)
+edge_4               pass-edge-spot      pass-sampled      0.48s  sim=icarus outputs=4 cycles=10792 checked=10762 partial=30 errors=0 (expected cycles=10792)
+edge_8               pass-edge-spot      pass-sampled      0.50s  sim=icarus outputs=8 cycles=12000 checked=11942 partial=58 errors=0 (expected cycles=12000)
+fv_cover_2           inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:50 [mac_cover_
+fv_cover_4           inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:50 [mac_cover_
+fv_cover_8           inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:50 [mac_cover_
+fv_sanity_delay_8    inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:51 [mac_sanity
+fv_sanity_lsel_8     inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:51 [mac_sanity
+fv_sanity_sign_8     inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:51 [mac_sanity
+fv_spec_2            inconclusive        inconclusive      0.17s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:50 [mac_spec_2
+fv_spec_4            inconclusive        inconclusive      0.18s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:50 [mac_spec_4
+fv_spec_8            inconclusive        inconclusive      0.18s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:51:50 [mac_spec_8
+eqy_rtl_2            failed              failed        (non-gating)     0.50s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=17 (strategy sat, depth 1, one merged partition, g
+eqy_rtl_4            failed              failed        (non-gating)     0.51s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=17 (strategy sat, depth 1, one merged partition, g
+eqy_rtl_8            failed              failed        (non-gating)     0.52s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=17 (strategy sat, depth 1, one merged partition, g
+fv_sanity_seq_2      failed              failed            0.23s  sby_status=ERROR (expected FAIL)  failed: ; negative control NOT refuted
+fv_sanity_seq_4      failed              failed            0.23s  sby_status=ERROR (expected FAIL)  failed: ; negative control NOT refuted
+fv_sanity_seq_8      failed              failed            0.23s  sby_status=ERROR (expected FAIL)  failed: ; negative control NOT refuted
+seq_eq_2             inconclusive        inconclusive  (non-gating)     0.23s  tool/infrastructure error (or a seq_eq.sby guard rejected the DUT): sby_status=ERROR ; SBY 18:51:52 [seq_eq_seq_2] base:
+seq_eq_4             inconclusive        inconclusive  (non-gating)     0.23s  tool/infrastructure error (or a seq_eq.sby guard rejected the DUT): sby_status=ERROR ; SBY 18:51:52 [seq_eq_seq_4] base:
+seq_eq_8             inconclusive        inconclusive  (non-gating)     0.23s  tool/infrastructure error (or a seq_eq.sby guard rejected the DUT): sby_status=ERROR ; SBY 18:51:51 [seq_eq_seq_8] base:
+equiv_2              failed              failed            0.00s  eqy_rtl: failed; seq_eq_2: inconclusive (ok if either is proven)
+equiv_4              failed              failed            0.00s  eqy_rtl: failed; seq_eq_4: inconclusive (ok if either is proven)
+equiv_8              failed              failed            0.00s  eqy_rtl: failed; seq_eq_8: inconclusive (ok if either is proven)
+TOTAL 6/24 gating ok, all_ok=False; 4.079 s

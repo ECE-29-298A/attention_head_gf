@@ -1,0 +1,7 @@
+# Bulky regenerated run outputs (per-run results.json, driver.log and logs/items stay tracked)
+**/formal/runs/
+**/logs/*.log
+**/logs/edges_*.txt
+**/logs/refpoints.txt
+ref/runs/*/ref/
+__pycache__/

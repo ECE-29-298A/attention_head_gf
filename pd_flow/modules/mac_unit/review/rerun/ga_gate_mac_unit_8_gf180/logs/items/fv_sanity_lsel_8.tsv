@@ -1,0 +1,1 @@
+fv_sanity_lsel_8	sby	failed-as-expected	true	0.796	logs/fv_sanity_lsel_8.log	sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_lsel

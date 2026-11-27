@@ -1,0 +1,6 @@
+{
+ "x07_initstate_O0": {
+  "class": "power-up",
+  "description": "$initstate-dependent O0 (formal-only construct)"
+ }
+}

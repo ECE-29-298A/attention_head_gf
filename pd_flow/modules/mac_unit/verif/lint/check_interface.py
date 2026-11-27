@@ -79,6 +79,12 @@ def main() -> int:
             errors.append(f"parameters {got} != expected {wantp}")
     if nbits == 0:
         errors.append("no flop at all (mac_unit is sequential)")
+    # Review fix F1 (agent 2): no state beyond the golden's 20*P + 34 bits (ring, S, L).
+    # fv_spec_P pins every trace from t >= P and forces >= 20*P + 34 behaviourally distinct
+    # reachable states; with at most that many bits every power-up state is then equivalent
+    # to a golden state, so O0 in the first P cycles cannot depend on the inputs (SPEC 7 gap).
+    if nbits > 20 * P + 34:
+        errors.append(f"{nbits} flop bits > {20 * P + 34} (golden ring + S + L): extra (hidden power-up) state")
     for e in errors[:20]:
         print("ERROR", e)
     params = {k: v for k, v in md.get("parameter_default_values", {}).items()}

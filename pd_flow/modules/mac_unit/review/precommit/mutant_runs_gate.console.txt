@@ -1,0 +1,8 @@
+gate_g01_ring_dswap                functional-bug       killed    10/13   30.3s killed_by=edge_8,fv_spec_8,equiv_8
+gate_g02_xor_to_xnor_405           functional-bug       killed    9/13   26.0s killed_by=edge_8,fv_cover_8,fv_spec_8,equiv_8
+gate_g03_L5_stuck0                 functional-bug       killed    10/13   25.5s killed_by=edge_8,fv_spec_8,equiv_8
+gate_g04_buf_O0_0                  equivalent           killed    12/13   27.9s killed_by=edge_8
+gate_g05_clkbuf                    equivalent           killed    12/13   28.8s killed_by=edge_8
+gate_g06_dffn_S3                   functional-bug       killed    5/13    6.8s killed_by=lint_8,edge_8,fv_cover_8,fv_sanity_delay_8,fv_sanity_sign_8,fv_spec_8,fv_sanity_seq_8,equiv_8
+gate_s_e01_plus_adder              equivalent           killed    12/13   30.9s killed_by=edge_8
+gate_s_m07_first_load_no_accum_en  functional-bug       killed    10/13   26.5s killed_by=edge_8,fv_spec_8,equiv_8

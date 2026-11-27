@@ -1,0 +1,16 @@
+cells_prep           pass                pass-static       0.23s  RESULT cells netlist_modules=['named', 'that'] cell_types=26 models_copied=52 udps=1 liberty_flop_cells=1 netlist_lines=
+gen                  pass                pass-static       0.17s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT refpoints points=4024;
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_8               failed              failed            0.28s  RESULT lint mode=gate warnings=11 netlist=0 library=9 waived=2 errors=0; 
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_8               pass-edge-spot      pass-sampled      4.37s  sim=verilator outputs=8 cycles=12000 checked=11942 partial=58 errors=0 x2 seeds (expected cycles=12000)
+fv_cover_8           inconclusive        inconclusive      0.20s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_cover_
+fv_sanity_delay_8    inconclusive        inconclusive      0.18s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_sanity
+fv_sanity_lsel_8     inconclusive        inconclusive      0.19s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_sanity
+fv_sanity_sign_8     inconclusive        inconclusive      0.19s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_sanity
+fv_spec_8            inconclusive        inconclusive      0.20s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:57:17 [mac_spec_8
+eqy_rtl              inconclusive        inconclusive  (non-gating)     0.18s  tool/infrastructure error: eqy_status=none partitions_proved=0 partitions_failed=0 matched_names= (strategy sat, depth 1
+fv_sanity_seq_8      failed              failed            0.11s  lemma file rejected or a referenced net does not exist: mac_unit_fv.v:4098: ERROR: Re-definition of module `\gf180mcu_fd
+seq_eq_8             failed              failed        (non-gating)     0.11s  lemma file rejected or a referenced net does not exist: mac_unit_fv.v:4098: ERROR: Re-definition of module `\gf180mcu_fd
+equiv_8              failed              failed            0.00s  eqy_rtl: inconclusive; seq_eq_8: failed (ok if either is proven)
+TOTAL 5/13 gating ok, all_ok=False; 5.833 s

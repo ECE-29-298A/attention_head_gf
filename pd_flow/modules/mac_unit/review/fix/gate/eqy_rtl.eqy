@@ -1,0 +1,65 @@
+# Items eqy_rtl (gate mode) and eqy_rtl_<P> (RTL mode): the design under test against the
+# golden RTL (snapshot/mac_unit.v + snapshot/ripple_add.v) at OUTPUTS = P. Gate mode: the
+# netlist's Yosys view mac_unit_fv.v (netlist + combinational PDK models + liberty flop models).
+# RTL mode: the candidate RTL with the same chparam line. run_all.sh replaces @P@ with OUTPUTS
+# and @GATEPARAM@ with the chparam line (RTL mode) or nothing (gate mode).
+# Strategy sat, depth 1: the state bits (ring, S, L) are matched by name and each partition's
+# next-state and output functions are proven equal: an unbounded equivalence proof from ANY
+# common state (so it also fixes the power-up behaviour). This is the mandatory
+# candidate-vs-golden equivalence (D9b), one route of equiv_<P> (eqy_rtl OR seq_eq).
+# Matching: ports and registers by name. The golden's combinational wire names are excluded
+# (gold-nomatch): a netlist may keep such a name on a net that ABC optimised under a
+# don't-care, which is not an inequivalence (the gold side is also purged of internal
+# combinational names by opt_clean -purge; the registers ring, S, L and the ports stay).
+# All partitions are merged into one ([partition]: ring, S and L each merged with O0):
+# separate partitions would treat the matched output O0 as a free input of the S and ring
+# partitions while the netlist reads the ring flops directly, which gives spurious
+# "unknown" results (seen on the golden netlist). `merge *` and any merge without the gold
+# purge crash eqy_partition (Yosys 0.71 segfault, seen on the golden RTL).
+# dffunmap on both sides: enable flops become plain flops with explicit feedback. A netlist
+# that re-encodes the state (no name match) gives "equivalence unknown" (failed) and must use
+# seq_eq instead.
+[gold]
+read_verilog -sv gold.v
+chparam -set OUTPUTS @P@ mac_unit
+hierarchy -top mac_unit
+proc
+flatten
+prep -top mac_unit
+dffunmap
+opt_clean -purge
+
+[gate]
+read_verilog -sv gate.v
+@GATEPARAM@
+hierarchy -top mac_unit
+proc; flatten; opt_clean
+# review fix F2 (agent 2): an init (power-up) value fails eqy_rtl closed, so equiv_P cannot
+# pass through eqy_rtl for an init candidate (sat depth 1 ignores init values). After proc:
+# `initial` blocks become init attributes only in proc_init.
+select -assert-none a:init
+prep -top mac_unit
+dffunmap
+
+[match *]
+gold-nomatch x
+gold-nomatch bit_on
+gold-nomatch top
+gold-nomatch neg
+gold-nomatch term
+gold-nomatch load_o
+gold-nomatch a
+gold-nomatch sum
+gold-nomatch L_next
+gold-nomatch _unused
+gold-nomatch adder.*
+gold-nomatch l_adder.*
+
+[partition *]
+merge ring O0
+merge S O0
+merge L O0
+
+[strategy sat]
+use sat
+depth 1

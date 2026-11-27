@@ -1,0 +1,34 @@
+{
+ "c_rename": {
+  "class": "equivalent",
+  "description": "ring renamed rr"
+ },
+ "x01_rename_rare_formal_assume": {
+  "class": "functional-bug",
+  "description": "rename + rare bug + ifdef FORMAL assume"
+ },
+ "x02_rename_rare": {
+  "class": "functional-bug",
+  "description": "rename + rare bug"
+ },
+ "x03_rename_init": {
+  "class": "power-up",
+  "description": "rename + init values"
+ },
+ "x04_plain_assume_rare": {
+  "class": "functional-bug",
+  "description": "rare bug + plain assume"
+ },
+ "x05_powerup_flag_O0": {
+  "class": "power-up-only",
+  "description": "no-init power-up flag changes O0 in the first cycle only"
+ },
+ "x05b_powerup_flag_O0_consistent": {
+  "class": "power-up-equivalent",
+  "description": "no-init power-up flag garbles O0 at cycle 0 consistently (inside the golden's free power-up behaviour)"
+ },
+ "x06_powerup_flag_S": {
+  "class": "power-up",
+  "description": "no-init power-up flag changes S at the first edge (pre-flush)"
+ }
+}

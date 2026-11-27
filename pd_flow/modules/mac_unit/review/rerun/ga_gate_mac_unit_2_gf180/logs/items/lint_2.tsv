@@ -1,0 +1,1 @@
+lint_2	lint	pass-with-waiver	true	0.351	logs/lint_2.log	RESULT lint mode=gate warnings=10 netlist=0 library=8 waived=2 errors=0; RESULT interface top=mac_unit outputs=2 ports=17 params={} flop_bits=74 errors=0

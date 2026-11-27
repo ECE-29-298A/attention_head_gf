@@ -1,0 +1,16 @@
+cells_prep           pass                pass-static       0.23s  RESULT cells netlist_modules=['mac_unit'] cell_types=28 models_copied=57 udps=1 liberty_flop_cells=1 netlist_lines=4119 
+gen                  pass                pass-static       0.18s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT refpoints points=4024;
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_8               pass-with-waiver    pass-static       0.42s  RESULT lint mode=gate warnings=10 netlist=0 library=8 waived=2 errors=0; RESULT interface top=mac_unit outputs=8 ports=1
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_8               failed              failed            4.20s  sim=verilator outputs=8 cycles=12000 checked=11942 partial=58 errors=211 x2 seeds (expected cycles=12000)
+fv_cover_8           covered             bounded-pass     25.78s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=11 (expected asserts=0 covers=18, 18 reached)
+fv_sanity_delay_8    failed-as-expected  failed            3.80s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_delay
+fv_sanity_lsel_8     failed-as-expected  failed            0.58s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_lsel
+fv_sanity_sign_8     failed-as-expected  failed            1.84s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_sign
+fv_spec_8            failed              failed            2.47s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); failed assertion mac_props.a_S at mac_props.sv:95.9-95
+eqy_rtl              failed              failed        (non-gating)     1.75s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, one merged partition, g
+fv_sanity_seq_8      failed-as-expected  failed            2.05s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_8             failed              failed        (non-gating)     9.64s  counterexample: failed a_eq (returned FAIL for basecase); trace formal/runs/seq_eq_8/seq_eq_seq_8/engine_0/trace.vcd; le
+equiv_8              failed              failed            0.00s  eqy_rtl: failed; seq_eq_8: failed (ok if either is proven)
+TOTAL 10/13 gating ok, all_ok=False; 30.85 s

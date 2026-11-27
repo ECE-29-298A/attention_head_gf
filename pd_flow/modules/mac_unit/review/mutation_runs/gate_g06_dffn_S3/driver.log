@@ -1,0 +1,26 @@
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga/pd_flow/modules/mac_unit/verif/run_all.sh --gate --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/gate_mutants/g06_dffn_S3.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/gate_g06_dffn_S3 --config 8 --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/gate_mutants/g06_dffn_S3.v (gate-level netlist, OUTPUTS=8, cells /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog, flop models from /Users/samuelzhang/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib)
+configs (OUTPUTS): 8
+seq_eq lemmas: none
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/gate_g06_dffn_S3
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//mac_verif.paI3xH
+== phase prep
+== phase build
+== phase sim
+== phase formal
+cells_prep           pass                pass-static       0.24s  RESULT cells netlist_modules=['mac_unit'] cell_types=26 models_copied=53 udps=1 liberty_flop_cells=2 netlist_lines=3690 
+gen                  pass                pass-static       0.18s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT refpoints points=4024;
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_8               failed              failed            0.42s  RESULT lint mode=gate warnings=14 netlist=0 library=12 waived=2 errors=0; RESULT interface top=mac_unit outputs=8 ports=
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_8               failed              failed            4.54s  sim=verilator outputs=8 cycles=12000 checked=11942 partial=58 errors=2096 x2 seeds (expected cycles=12000)
+fv_cover_8           inconclusive        inconclusive      0.54s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:54:54 [mac_cover_
+fv_sanity_delay_8    inconclusive        inconclusive      0.47s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:54:55 [mac_sanity
+fv_sanity_lsel_8     failed-as-expected  failed            0.56s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_lsel
+fv_sanity_sign_8     inconclusive        inconclusive      0.47s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:54:54 [mac_sanity
+fv_spec_8            inconclusive        inconclusive      0.53s  tool/infrastructure error (or a structure guard in mac.sby rejected the DUT): sby_status=ERROR; SBY 18:54:54 [mac_spec_8
+eqy_rtl              inconclusive        inconclusive  (non-gating)     1.00s  tool/infrastructure error: eqy_status=none partitions_proved=0 partitions_failed=0 matched_names=18 (strategy sat, depth
+fv_sanity_seq_8      failed              failed            0.67s  sby_status=ERROR (expected FAIL) asserts=1 covers=0 failed: ; negative control NOT refuted
+seq_eq_8             inconclusive        inconclusive  (non-gating)     0.69s  tool/infrastructure error (or a seq_eq.sby guard rejected the DUT): sby_status=ERROR asserts=1 covers=0; SBY 18:54:56 [s
+equiv_8              failed              failed            0.00s  eqy_rtl: inconclusive; seq_eq_8: inconclusive (ok if either is proven)
+TOTAL 5/13 gating ok, all_ok=False; 8.291 s

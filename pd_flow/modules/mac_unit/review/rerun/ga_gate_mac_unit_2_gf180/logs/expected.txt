@@ -1,0 +1,11 @@
+cells_prep prep
+selftest selftest
+gen gen
+lint_2 lint 2
+refcheck refcheck
+edge_2 edge 2
+fv_spec_2 sby spec_2
+fv_cover_2 sby cover_2
+eqy_rtl eqy 2
+seq_eq_2 seq 2
+fv_sanity_seq_2 seq 2 sanity

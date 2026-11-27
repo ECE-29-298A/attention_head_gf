@@ -1,0 +1,12 @@
+gate_g01_ring_dswap                functional-bug       killed    10/13   27.0s killed_by=edge_8,fv_spec_8,equiv_8
+gate_g02_xor_to_xnor_405           functional-bug       killed    9/13   26.3s killed_by=edge_8,fv_cover_8,fv_spec_8,equiv_8
+gate_g03_L5_stuck0                 functional-bug       killed    10/13   26.2s killed_by=edge_8,fv_spec_8,equiv_8
+gate_g04_buf_O0_0                  equivalent           survived  13/13   28.9s killed_by=
+gate_g05_clkbuf                    equivalent           survived  13/13   30.2s killed_by=
+gate_g06_dffn_S3                   functional-bug       killed    5/13    8.5s killed_by=lint_8,edge_8,fv_cover_8,fv_sanity_delay_8,fv_sanity_sign_8,fv_spec_8,fv_sanity_seq_8,equiv_8
+gate_s_e01_plus_adder              equivalent           survived  13/13   31.2s killed_by=
+gate_s_m07_first_load_no_accum_en  functional-bug       killed    10/13   26.6s killed_by=edge_8,fv_spec_8,equiv_8
+gate_s_m14_rare_W_A5_b3            functional-bug       killed    10/13   31.1s killed_by=edge_8,fv_spec_8,equiv_8
+gate_s_m15_rare_qi_80              functional-bug       killed    9/13   22.5s killed_by=edge_8,fv_cover_8,fv_spec_8,equiv_8
+gate_s_m21_bit_on_no_accum_en      functional-bug       killed    10/13   23.5s killed_by=edge_8,fv_spec_8,equiv_8
+gate_ga1_shadow_cell               functional-bug       killed    5/13    6.0s killed_by=lint_8,fv_cover_8,fv_sanity_delay_8,fv_sanity_lsel_8,fv_sanity_sign_8,fv_spec_8,fv_sanity_seq_8,equiv_8

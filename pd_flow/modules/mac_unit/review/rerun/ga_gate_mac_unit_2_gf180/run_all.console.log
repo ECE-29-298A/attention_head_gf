@@ -1,0 +1,13 @@
+cells_prep           pass                pass-static       0.24s  RESULT cells netlist_modules=['mac_unit'] cell_types=25 models_copied=51 udps=1 liberty_flop_cells=1 netlist_lines=3055 
+gen                  pass                pass-static       0.17s  RESULT edges outputs=2 cycles=10188 fully_known=10172;RESULT refpoints points=4024;
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_2               pass-with-waiver    pass-static       0.35s  RESULT lint mode=gate warnings=10 netlist=0 library=8 waived=2 errors=0; RESULT interface top=mac_unit outputs=2 ports=1
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_2               pass-edge-spot      pass-sampled      4.35s  sim=verilator outputs=2 cycles=10188 checked=10172 partial=16 errors=0 x2 seeds (expected cycles=10188)
+fv_cover_2           covered             bounded-pass     13.33s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=5 (expected asserts=0 covers=18, 18 reached)
+fv_spec_2            proven              proven            5.48s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+eqy_rtl              proven              proven        (non-gating)     1.40s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, one merged partition, g
+fv_sanity_seq_2      failed-as-expected  failed            1.61s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_2             proven              proven        (non-gating)     3.36s  sby_status=PASS asserts=1 covers=0 (a_eq + 0 lemmas); basecase depth 5 from free independent start states + k-induction;
+equiv_2              proven              proven            0.00s  eqy_rtl: proven; seq_eq_2: proven (ok if either is proven)
+TOTAL 10/10 gating ok, all_ok=True; 18.484 s

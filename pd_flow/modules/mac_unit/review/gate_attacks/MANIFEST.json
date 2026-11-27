@@ -1,0 +1,6 @@
+{
+ "ga1_shadow_cell": {
+  "class": "functional-bug",
+  "description": "g02 + shadowing fake cell definition in the netlist"
+ }
+}

@@ -1,0 +1,9 @@
+golden rc=0
+gate8 rc=0
+gate2 rc=0
+c_rename rc=0
+x05b_powerup_flag_O0_consistent rc=1
+m16_powerup_init_all rc=1
+m17_powerup_init_L rc=1
+x07_initstate_O0 rc=1
+e01_plus_adder rc=0

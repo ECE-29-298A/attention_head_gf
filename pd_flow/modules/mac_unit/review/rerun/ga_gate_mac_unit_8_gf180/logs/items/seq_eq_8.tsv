@@ -1,0 +1,1 @@
+seq_eq_8	seq	proven	true	6.370	logs/seq_eq_8.log	sby_status=PASS asserts=1 covers=0 (a_eq + 0 lemmas); basecase depth 11 from free independent start states + k-induction; flush-anchored; lemmas=none

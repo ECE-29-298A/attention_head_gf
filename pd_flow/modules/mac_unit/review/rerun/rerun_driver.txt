@@ -1,0 +1,5 @@
+rtl rc=0
+gate mac_unit_8_gf180 rc=0
+gate mac_unit_2_gf180 rc=0
+gate golden rc=0
+ALL_DONE

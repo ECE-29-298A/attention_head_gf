@@ -1,0 +1,46 @@
+{
+ "g01_ring_dswap": {
+  "class": "functional-bug",
+  "description": "D inputs of ring head flops O0[0] (_835_) and O0[1] (_836_) swapped"
+ },
+ "g02_xor_to_xnor_405": {
+  "class": "functional-bug",
+  "description": "datapath cell _405_ xor2_1 replaced by xnor2_1"
+ },
+ "g03_L5_stuck0": {
+  "class": "functional-bug",
+  "description": "L[5] flop D tied to 0"
+ },
+ "g04_buf_O0_0": {
+  "class": "equivalent",
+  "description": "buf_1 inserted on the O0[0] flop output (models resizer buffering)"
+ },
+ "g05_clkbuf": {
+  "class": "equivalent",
+  "description": "all flops clocked through one clkbuf_1 (models a post-CTS netlist)"
+ },
+ "g06_dffn_S3": {
+  "class": "functional-bug",
+  "description": "S[3] flop replaced by a negative-edge dffnq_1"
+ },
+ "s_m07_first_load_no_accum_en": {
+  "class": "functional-bug",
+  "description": "mapped GF180 netlist of RTL mutant m07_first_load_no_accum_en (first load ignores accum_en: head cleared whenever first && bit_sel==7 (e.g. DIV states with last = 0))"
+ },
+ "s_m14_rare_W_A5_b3": {
+  "class": "functional-bug",
+  "description": "mapped GF180 netlist of RTL mutant m14_rare_W_A5_b3 (rare value: accumulate term off by one when W == 0xA5 and bit_sel == 3 and the v bit is set)"
+ },
+ "s_m21_bit_on_no_accum_en": {
+  "class": "functional-bug",
+  "description": "mapped GF180 netlist of RTL mutant m21_bit_on_no_accum_en (accumulate bit ignores accum_en: v bits add to the head in IDLE/CMD/DIV states)"
+ },
+ "s_m15_rare_qi_80": {
+  "class": "functional-bug",
+  "description": "mapped GF180 netlist of RTL mutant m15_rare_qi_80 (rare value: score qi == -128 treated as +128)"
+ },
+ "s_e01_plus_adder": {
+  "class": "equivalent",
+  "description": "mapped GF180 netlist of RTL mutant e01_plus_adder (shared adder written with + instead of ripple_add)"
+ }
+}

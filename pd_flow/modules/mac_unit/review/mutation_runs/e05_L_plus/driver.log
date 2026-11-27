@@ -1,0 +1,40 @@
+/private/tmp/claude-501/-Users-samuelzhang-Desktop-2B-ECE-attention-head-gf/fdcf0a1f-422b-437c-87ae-0ead8c85435c/scratchpad/ga/pd_flow/modules/mac_unit/verif/run_all.sh --rtl /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutants/e05_L_plus.v --out /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/e05_L_plus --jobs 2
+DUT: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutants/e05_L_plus.v + frozen snapshot/ripple_add.v
+configs (OUTPUTS): 8 4 2
+seq_eq lemmas: none
+output: /Users/samuelzhang/Desktop/2B ECE/attention_head_gf/pd_flow/modules/mac_unit/review/mutation_runs/e05_L_plus
+build dir: /var/folders/03/d8zfmz3d3dgb8ll49vsb7_mh0000gn/T//mac_verif.LKfwcf
+== phase build
+== phase sim
+== phase formal
+gen                  pass                pass-static       0.37s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT edges outputs=4 cycles=10792 fully_known=10762;RESULT edges
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_2               pass-with-waiver    pass-static       0.16s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=2 ports=17 
+lint_4               pass-with-waiver    pass-static       0.16s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=4 ports=17 
+lint_8               pass-with-waiver    pass-static       0.20s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=8 ports=17 
+refcheck             pass                pass-static       0.11s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_2               pass-edge-spot      pass-sampled      0.46s  sim=icarus outputs=2 cycles=10188 checked=10172 partial=16 errors=0 (expected cycles=10188)
+edge_4               pass-edge-spot      pass-sampled      0.52s  sim=icarus outputs=4 cycles=10792 checked=10762 partial=30 errors=0 (expected cycles=10792)
+edge_8               pass-edge-spot      pass-sampled      0.55s  sim=icarus outputs=8 cycles=12000 checked=11942 partial=58 errors=0 (expected cycles=12000)
+fv_cover_2           covered             bounded-pass      0.56s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=5 (expected asserts=0 covers=18, 18 reached)
+fv_cover_4           covered             bounded-pass      0.60s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=7 (expected asserts=0 covers=18, 18 reached)
+fv_cover_8           covered             bounded-pass      0.89s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=11 (expected asserts=0 covers=18, 18 reached)
+fv_sanity_delay_8    failed-as-expected  failed            0.38s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_delay
+fv_sanity_lsel_8     failed-as-expected  failed            0.29s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_lsel
+fv_sanity_sign_8     failed-as-expected  failed            0.35s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_sign
+fv_spec_2            proven              proven            2.57s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+fv_spec_4            proven              proven            3.40s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+fv_spec_8            proven              proven            5.61s  sby_status=PASS asserts=3 covers=0 (expected asserts=3 covers=0); summary: successful proof by k-induction
+eqy_rtl_2            proven              proven        (non-gating)     0.55s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, one merged partition, g
+eqy_rtl_4            proven              proven        (non-gating)     0.58s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, one merged partition, g
+eqy_rtl_8            proven              proven        (non-gating)     0.67s  eqy_status=PASS partitions_proved=1 partitions_failed=0 matched_names=18 (strategy sat, depth 1, one merged partition, g
+fv_sanity_seq_2      failed-as-expected  failed            0.40s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_4      failed-as-expected  failed            0.40s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_8      failed-as-expected  failed            0.40s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_2             proven              proven        (non-gating)     1.02s  sby_status=PASS asserts=1 covers=0 (a_eq + 0 lemmas); basecase depth 5 from free independent start states + k-induction;
+seq_eq_4             proven              proven        (non-gating)     1.21s  sby_status=PASS asserts=1 covers=0 (a_eq + 0 lemmas); basecase depth 7 from free independent start states + k-induction;
+seq_eq_8             proven              proven        (non-gating)     1.73s  sby_status=PASS asserts=1 covers=0 (a_eq + 0 lemmas); basecase depth 11 from free independent start states + k-induction
+equiv_2              proven              proven            0.00s  eqy_rtl: proven; seq_eq_2: proven (ok if either is proven)
+equiv_4              proven              proven            0.00s  eqy_rtl: proven; seq_eq_4: proven (ok if either is proven)
+equiv_8              proven              proven            0.00s  eqy_rtl: proven; seq_eq_8: proven (ok if either is proven)
+TOTAL 24/24 gating ok, all_ok=True; 12.968 s

@@ -1,0 +1,45 @@
+# Agent 3 (mac_unit): golden vs candidate at OUTPUTS=@O@. ring, S, L matched by name (same encoding on
+# both sides), so SAT depth 1 is an unbounded induction step. No assumptions, cutpoints or black boxes.
+[gold]
+read_verilog -sv gold.v ripple_add.v
+chparam -set OUTPUTS @O@ mac_unit
+prep -flatten -top mac_unit
+
+[gate]
+read_verilog -sv gate.v ripple_add.v
+chparam -set OUTPUTS @O@ mac_unit
+prep -flatten -top mac_unit
+
+# Flattened. Internal combinational nets (top level and inside the adder instances) are not matched (candidates re-use names like L_next/term with new
+# meanings); only ports and the ring/S/L flops are matched.
+[match mac_unit]
+gold-nomatch L_next
+gold-nomatch adder.*
+gold-nomatch l_adder.*
+gold-nomatch term
+gold-nomatch sum
+gold-nomatch a
+gold-nomatch x
+gold-nomatch bit_on
+gold-nomatch neg
+gold-nomatch top
+gold-nomatch load_o
+gate-nomatch L_next
+gate-nomatch adder.*
+gate-nomatch l_adder.*
+gate-nomatch L_sum
+gate-nomatch term
+gate-nomatch xn
+gate-nomatch t29
+gate-nomatch tsh
+gate-nomatch sum
+gate-nomatch a
+gate-nomatch x
+gate-nomatch bit_on
+gate-nomatch neg
+gate-nomatch top
+gate-nomatch load_o
+
+[strategy sat]
+use sat
+depth 1

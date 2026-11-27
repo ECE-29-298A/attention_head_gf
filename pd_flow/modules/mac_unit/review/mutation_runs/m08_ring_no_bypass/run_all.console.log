@@ -1,0 +1,31 @@
+gen                  pass                pass-static       0.35s  RESULT edges outputs=8 cycles=12000 fully_known=11942;RESULT edges outputs=4 cycles=10792 fully_known=10762;RESULT edges
+selftest             pass                pass-static       0.08s  RESULT selftest checks=153 failures=0
+lint_2               pass-with-waiver    pass-static       0.15s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=2 ports=17 
+lint_4               pass-with-waiver    pass-static       0.15s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=4 ports=17 
+lint_8               pass-with-waiver    pass-static       0.19s  RESULT lint mode=rtl warnings=1 netlist=0 library=0 waived=1 errors=0; RESULT interface top=mac_unit outputs=8 ports=17 
+refcheck             pass                pass-static       0.10s  RESULT refcheck points=4024 errors=0 (expected points=4024)
+edge_2               failed              failed            0.44s  sim=icarus outputs=2 cycles=10188 checked=10172 partial=16 errors=9590 (expected cycles=10188)
+edge_4               failed              failed            0.45s  sim=icarus outputs=4 cycles=10792 checked=10762 partial=30 errors=10336 (expected cycles=10792)
+edge_8               failed              failed            0.48s  sim=icarus outputs=8 cycles=12000 checked=11942 partial=58 errors=11451 (expected cycles=12000)
+fv_cover_2           covered             bounded-pass      0.53s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=5 (expected asserts=0 covers=18, 18 reached)
+fv_cover_4           covered             bounded-pass      0.54s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=7 (expected asserts=0 covers=18, 18 reached)
+fv_cover_8           covered             bounded-pass      0.74s  sby_status=PASS asserts=0 covers=18 reached=18 unreached=0 depth=11 (expected asserts=0 covers=18, 18 reached)
+fv_sanity_delay_8    failed-as-expected  failed            0.39s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_delay
+fv_sanity_lsel_8     failed-as-expected  failed            0.29s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_lsel
+fv_sanity_sign_8     failed-as-expected  failed            0.33s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed assertion mac_props.a_wrong_sign
+fv_spec_2            failed              failed            0.70s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); failed assertion mac_props.a_O0 at mac_props.sv:97.9-9
+fv_spec_4            failed              failed            1.47s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); failed assertion mac_props.a_O0 at mac_props.sv:97.9-9
+fv_spec_8            failed              failed            3.57s  sby_status=FAIL asserts=3 covers=0 (expected asserts=3 covers=0); failed assertion mac_props.a_O0 at mac_props.sv:97.9-9
+eqy_rtl_2            failed              failed        (non-gating)     0.49s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, one merged partition, g
+eqy_rtl_4            failed              failed        (non-gating)     0.53s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, one merged partition, g
+eqy_rtl_8            failed              failed        (non-gating)     0.62s  eqy_status=FAIL partitions_proved=0 partitions_failed=1 matched_names=18 (strategy sat, depth 1, one merged partition, g
+fv_sanity_seq_2      failed-as-expected  failed            0.40s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_4      failed-as-expected  failed            0.39s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+fv_sanity_seq_8      failed-as-expected  failed            0.39s  sby_status=FAIL (expected FAIL) asserts=1 covers=0 failed: a_wrong_eq 
+seq_eq_2             failed              failed        (non-gating)     0.76s  counterexample: failed a_eq (returned FAIL for basecase); trace formal/runs/seq_eq_2/seq_eq_seq_2/engine_0/trace.vcd; le
+seq_eq_4             not-proven          inconclusive  (non-gating)     1.18s  induction did not close (basecase depth 7 passed; add or strengthen lemmas): asserts=1 covers=0; lemmas=none
+seq_eq_8             not-proven          inconclusive  (non-gating)     1.89s  induction did not close (basecase depth 11 passed; add or strengthen lemmas): asserts=1 covers=0; lemmas=none
+equiv_2              failed              failed            0.00s  eqy_rtl: failed; seq_eq_2: failed (ok if either is proven)
+equiv_4              failed              failed            0.00s  eqy_rtl: failed; seq_eq_4: not-proven (ok if either is proven)
+equiv_8              failed              failed            0.00s  eqy_rtl: failed; seq_eq_8: not-proven (ok if either is proven)
+TOTAL 15/24 gating ok, all_ok=False; 9.333 s
