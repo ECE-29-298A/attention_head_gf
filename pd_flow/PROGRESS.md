@@ -171,6 +171,11 @@
   RUN_POST_GRT_DESIGN_REPAIR true, B = DESIGN_REPAIR_MAX_CAP_PCT 25. Slew and fanout stay under the D2 waiver unless
   the user says otherwise.
 
+- F3 (D13, 2026-11-26): zero cap needs MAX_FANOUT_CONSTRAINT 16 + DESIGN_REPAIR_MAX_WIRE_LENGTH 300. wc_cap_f =
+  43,295.9 um2 (+144.9 vs wc_ref4), slew/cap/fanout 124/0/0, timing and signoff clean. Upsizing cannot fix cap: the
+  limit is the design-wide 0.2 pF, and the drivers are buf_3 rated 1.06 pF. Post-GRT repair, cap-pct 25, fanout 16
+  or 18 alone, and wire length alone all still leave 1-2 violations (`pd_flow/chip_flow_area/cap_zero/RESULTS.md`).
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
