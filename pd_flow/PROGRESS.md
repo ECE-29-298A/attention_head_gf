@@ -165,6 +165,12 @@
   the D2 limit). Setup +39.36, hold +0.094, DRC/LVS 0. Open question: a11's own bridge proof relies on same-named
   unreset flops sharing their power-up value; the controller contract must settle this.
 
+- D13 (user, 2026-11-26): "uh I dont want any capacitance violations ngl...". **Max-cap violations must be 0 at
+  signoff, a hard constraint** that replaces the D2 waiver for cap. Every build so far had 1-2 cap violations, on
+  post-GPL fanout-split buffers 1-19% over 0.2 pF. Fixes being measured on wc_ref4 (c06+c09+a11): A =
+  RUN_POST_GRT_DESIGN_REPAIR true, B = DESIGN_REPAIR_MAX_CAP_PCT 25. Slew and fanout stay under the D2 waiver unless
+  the user says otherwise.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.

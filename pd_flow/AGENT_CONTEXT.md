@@ -238,3 +238,6 @@ Placement, tetrising and floorplan agents run at effort **high** (was max). The 
 
 ## No clock gating, no power optimization (user decision D12, 2026-11-26)
 Do not propose or use clock gating (icgtp/ICG cells, gated clocks). Power is never an objective or a tiebreak; it is reported as a diagnostic only. Area is the only objective.
+
+## Zero cap violations (user decision D13, 2026-11-26)
+Max-capacitance violations must be **0** at signoff (`design__max_cap_violation__count` = 0); this replaces the D2 waiver for cap. Slew and fanout stay inside the D2 band.
