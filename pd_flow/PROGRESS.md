@@ -160,6 +160,11 @@
   Compaction gives no area (density converges at 84.0-84.1%). Replay: `pd_flow/chip_tetris/scripts/replay.py
   <ref run> <prefix> [--signoff]`; rerun it on the final netlist. Review: https://claude.ai/artifact/YTPEjCrPkbpH8oKAsBnvRH.
 
+- Controller a11 (provisional; opt/best sha 5e1431f4; contract and review pending), signoff wc_ref4 = c06 + c09 + a11,
+  tool placement: 43,151.0 um2 (-278.8 vs wc_ref2; synthesis estimate -829.8). Slew/cap/fanout 148/2/0 (cap 2 is at
+  the D2 limit). Setup +39.36, hold +0.094, DRC/LVS 0. Open question: a11's own bridge proof relies on same-named
+  unreset flops sharing their power-up value; the controller contract must settle this.
+
 ## Blockers as raised at Phase 0 (resolved by D1 to D3)
 1. No SPICE simulator (ngspice/Xyce) on host or in the LibreLane container. Phase 4 requires
    post-layout SPICE verification and characterization. Proposed fix: `brew install ngspice`.
